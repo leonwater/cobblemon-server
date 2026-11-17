@@ -23,6 +23,9 @@ dependencies {
     mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    // Cobblemon: 컴파일용 (개발 실행에선 Cobblemon이 동작하지 않아 뺌: 클래스 이름을 문자열로 찾음) (모드팩에 이미 있으므로 같이 넣지 않음). mod/install.sh가 libs/에 받아 둠
+    modCompileOnly files(fileTree('libs').include('Cobblemon-*.jar').singleFile)
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:2.0.21"
 }
 
 processResources {

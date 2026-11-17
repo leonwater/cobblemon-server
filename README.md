@@ -120,8 +120,10 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
    - **동쪽 초록 발판 → 농장** (32×32 땅 16칸, 둘레 막힘)
    - **서쪽 파란 발판 → 채집 맵** (끝없는 맵, 모든 바이옴이 256×256 칸으로 같은 넓이씩 반복)
 4. 농장·채집 맵은 **마지막으로 있던 곳**으로, 마을은 항상 **정중앙**으로 이동. 어디서든 `/trigger home` → 마을
-5. **포켓몬은 채집 맵에서만** 자연 스폰
+5. **포켓몬은 채집 맵에서만** 자연 스폰. 야생·플레이어 배틀도 채집 맵에서만 (NPC·체육관 배틀은 어디서나)
 6. **농장 땅**: 상점에서 산 **땅 문서**를 들고 빈 땅을 우클릭 → 팝업에서 확인 → 내 땅. 다른 사람 땅은 구경만 (부수기·놓기·상자 열기·물 붓기 불가)
+
+**G 키: 메인 메뉴** — 포켓몬(내 파티·PC·도감), 간편 메뉴(튜토리얼·휴지통), 워프(시작 마을·농장·채집 맵), 내 정보·공지
 
 화폐: `/money`(`/돈`) 잔액, `/pay 닉네임 금액`(`/송금`) 보내기
 
@@ -136,6 +138,7 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
 | 기본 물품 | `.../function/kit.mcfunction`(러닝 슈즈), `.../function/mod/kit.mcfunction`(돈·몬스터볼) |
 | 안내원·간호사 대화 | `.../data/poke/dialogues/tutorial.json`, `nurse.json` |
 | 상점 분류·상품·구매가·판매가 | `pack/config/pokeserver/shop.json` (`buy`/`sell`이 0이면 그 탭에 안 나옴). 서버 실행 중엔 `/pokeserver reload` |
+| 메인 메뉴 공지사항 | `pack/config/pokeserver/menu.json` |
 | 포켓몬 스폰 금지 차원 | `pack/config/cobblemon/main.json`의 `worldSpawningBlocklist` |
 
 ## 체육관 (명령 블록)

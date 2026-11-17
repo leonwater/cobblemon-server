@@ -99,5 +99,28 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   assert.equal(await bal('A'), 650, '잔액보다 큰 송금은 안 됨')
   assert.match(await cmd('execute as A run pay B -5'), /Invalid|must not be less|least/i, '음수 송금 불가')
 
+  // ── 5. 메인 메뉴 (G키) 서버 동작 ──
+  const menus = []
+  A._client.on('custom_payload', p => { if (p.channel === 'pokeserver:menu_open') menus.push(p.data) })
+  const act = a => { const b = Buffer.from(a, 'utf8'); A._client.write('custom_payload', { channel: 'pokeserver:menu_action', data: Buffer.concat([Buffer.from([b.length]), b]) }) }
+  const dimOf = async p => (await cmd(`data get entity ${p} Dimension`)).match(/"([^"]+)"$/)[1]
+  act('open'); await sleep(800)
+  assert.equal(menus.length, 1, '메뉴 열기 패킷'); assert.ok(menus[0].toString('utf8').includes('관리자'), '공지 전달')
+  act('warp:village'); await sleep(800)
+  assert.equal(await dimOf('A'), 'poke:hub', '메뉴 워프: 시작 마을')
+  act('warp:farm'); await sleep(800)
+  assert.equal(await dimOf('A'), 'poke:farm', '메뉴 워프: 농장')
+  act('warp:village'); await sleep(500)
+  await cmd('tag A remove poke.tutorial_done')
+  act('warp:farm'); await sleep(800)
+  assert.equal(await dimOf('A'), 'poke:hub', '튜토리얼 전에는 워프 막힘')
+  await cmd('tag A add poke.tutorial_done')
+  act('trash'); await sleep(800)
+  assert.ok(A.currentWindow, '휴지통 창 열림'); A.closeWindow(A.currentWindow)
+  act('nonsense'); act('warp:../../etc'); await sleep(500)
+  assert.equal(await dimOf('A'), 'poke:hub', '알 수 없는 동작은 무시')
+  act('tutorial'); await sleep(800)
+  assert.match(await cmd('data get entity A Pos[2]'), /3\.5d$/, '튜토리얼 다시 보기 → 튜토리얼 방')
+
   console.log('ALL PASS'); A.quit(); B.quit(); await rc.end(); process.exit(0)
 })().catch(e => { console.error('FAIL', e.message); process.exit(1) })
