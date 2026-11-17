@@ -10,6 +10,12 @@ loom {
     splitEnvironmentSourceSets()
     accessWidenerPath = file('src/main/resources/pokeserver.accesswidener')
     mods { pokeserver { sourceSet sourceSets.main; sourceSet sourceSets.client } }
+    // 개발용 스크린샷: gradle runClient -Pshot=shop (DevShot.java)
+    runs { client { if (project.hasProperty('shot')) {
+        vmArg "-Dpokeserver.shot=${project.shot}"
+        programArgs "--width", "1280", "--height", "720"
+        vmArg "-Dpokeserver.shopjson=${rootDir}/../pack/config/pokeserver/shop.json"
+    } } }
 }
 
 dependencies {

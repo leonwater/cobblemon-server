@@ -69,5 +69,35 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   await sleep(800)
   assert.match(await cmd('clear B minecraft:paper 0'), /Found 1 /, '멀리 있는 땅은 등록 안 됨')
 
+  // ── 4. 상점·화폐 ──
+  const opened = []
+  A._client.on('custom_payload', p => { if (p.channel === 'pokeserver:shop_open') opened.push(p.data) })
+  const trade = (sell, cat, item, qty) => A._client.write('custom_payload', { channel: 'pokeserver:shop_trade', data: Buffer.from([sell ? 1 : 0, cat, item, qty]) })
+  const bal = async p => Number((await cmd(`execute as ${p} run money`)).replace(/[^0-9]/g, '') || 0)
+  await cmd('pokeserver money set A 1000'); await cmd('pokeserver money set B 0')
+  await cmd('pokeserver shop A'); await sleep(800)
+  assert.equal(opened.length, 1, '상점 열기 패킷')
+  assert.ok(opened[0].toString('utf8').includes('farm_deed'), '상점 목록 JSON 전달')
+  await cmd('clear A'); await sleep(300)
+  trade(false, 3, 1, 16); await sleep(800)                                     // 밀 씨앗 16개 = 160원
+  assert.equal(await bal('A'), 840, '구매: 잔액 차감')
+  assert.match(await cmd('clear A minecraft:wheat_seeds 0'), /Found 16 /, '구매: 아이템 받음')
+  trade(false, 3, 0, 1); await sleep(800)                                      // 땅 문서 50,000원: 잔액 부족
+  assert.equal(await bal('A'), 840, '잔액 부족이면 구매 안 됨')
+  assert.match(await cmd('clear A minecraft:paper 0'), /No items/, '잔액 부족: 문서 안 받음')
+  trade(true, 3, 1, 10); await sleep(800)                                      // 밀 씨앗 10개 판매 = +10
+  assert.equal(await bal('A'), 850, '판매: 잔액 증가')
+  assert.match(await cmd('clear A minecraft:wheat_seeds 0'), /Found 6 /, '판매: 아이템 빠짐')
+  trade(true, 5, 0, 1); await sleep(800)                                       // 석탄 없음
+  assert.equal(await bal('A'), 850, '없는 아이템은 판매 안 됨')
+  for (const bad of [[false, 99, 0, 1], [false, 3, 99, 1], [false, 3, 1, 0], [false, 3, 1, 100], [false, 3, 9, 1]]) trade(...bad)
+  await sleep(800)                                                             // 9번(물 양동이)은 판매가 0 → 구매만 가능, 여기선 구매라 정상 처리
+  assert.equal(await bal('A'), 750, '잘못된 요청은 무시 (마지막 물 양동이 구매 100원만 처리)')
+  await cmd('execute as A run pay B 100')
+  assert.equal(await bal('A'), 650); assert.equal(await bal('B'), 100, '송금')
+  await cmd('execute as A run pay B 99999')
+  assert.equal(await bal('A'), 650, '잔액보다 큰 송금은 안 됨')
+  assert.match(await cmd('execute as A run pay B -5'), /Invalid|must not be less|least/i, '음수 송금 불가')
+
   console.log('ALL PASS'); A.quit(); B.quit(); await rc.end(); process.exit(0)
 })().catch(e => { console.error('FAIL', e.message); process.exit(1) })

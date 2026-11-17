@@ -114,14 +114,16 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
 ## 게임 흐름
 
 1. 첫 접속 → **튜토리얼 방**에서 시작. 3칸 앞 **안내원 하늘** 우클릭 → 코블몬·서버 기초 안내
-2. "준비 완료!" → **시작 마을** 정중앙. 기본 물품(5,000 CobbleDollars·러닝 슈즈·몬스터볼 10개)은 **처음 한 번만**
+2. "준비 완료!" → **시작 마을** 정중앙. 기본 물품(5,000원·러닝 슈즈·몬스터볼 10개)은 **처음 한 번만**
 3. 시작 마을 (원형 돌 바닥, 블록 파괴 불가)
-   - **북쪽 길 끝**: 상점(상인 우클릭 = 구매, Shift+우클릭 = 판매), 포켓몬센터(간호사 = 회복, PC)
+   - **북쪽 길 끝**: 상점(상인 우클릭 → 구매/판매 탭 상점 화면), 포켓몬센터(간호사 = 회복, PC)
    - **동쪽 초록 발판 → 농장** (32×32 땅 16칸, 둘레 막힘)
    - **서쪽 파란 발판 → 채집 맵** (끝없는 맵, 모든 바이옴이 256×256 칸으로 같은 넓이씩 반복)
 4. 농장·채집 맵은 **마지막으로 있던 곳**으로, 마을은 항상 **정중앙**으로 이동. 어디서든 `/trigger home` → 마을
 5. **포켓몬은 채집 맵에서만** 자연 스폰
 6. **농장 땅**: 상점에서 산 **땅 문서**를 들고 빈 땅을 우클릭 → 팝업에서 확인 → 내 땅. 다른 사람 땅은 구경만 (부수기·놓기·상자 열기·물 붓기 불가)
+
+화폐: `/money`(`/돈`) 잔액, `/pay 닉네임 금액`(`/송금`) 보내기
 
 서버 규칙: 포켓몬 외 몬스터·동물 없음 · 배고픔 없음 · 죽어도 아이템 유지 · 폭발로 블록 안 부서짐
 
@@ -133,7 +135,7 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
 | 튜토리얼·마을·농장 도착 위치, 체육관 | `pack/world/datapacks/pokeserver/data/poke/function/config.mcfunction` |
 | 기본 물품 | `.../function/kit.mcfunction`(러닝 슈즈), `.../function/mod/kit.mcfunction`(돈·몬스터볼) |
 | 안내원·간호사 대화 | `.../data/poke/dialogues/tutorial.json`, `nurse.json` |
-| 상점 판매 목록·가격 / 매입 목록 | `pack/config/cobbledollars/default_shop.json` / `default_bank.json` |
+| 상점 분류·상품·구매가·판매가 | `pack/config/pokeserver/shop.json` (`buy`/`sell`이 0이면 그 탭에 안 나옴). 서버 실행 중엔 `/pokeserver reload` |
 | 포켓몬 스폰 금지 차원 | `pack/config/cobblemon/main.json`의 `worldSpawningBlocklist` |
 
 ## 체육관 (명령 블록)
@@ -144,7 +146,7 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
 | 체육관 출구 | `execute as @p run function poke:gym/leave` |
 
 - 같은 번호의 체육관엔 한 명만. 도전자가 **나가기 / 로그아웃 / 사망**하면 자동으로 비워짐.
-- 관리자: `/pokeserver deed <플레이어>` 땅 문서 지급, `/pokeserver unclaim <번호>` 땅 주인 해제
+- 관리자: `/pokeserver money give|take|set <플레이어> <금액>`, `/pokeserver deed <플레이어>` 땅 문서 지급, `/pokeserver unclaim <번호>` 땅 주인 해제
 - 관리자: `/function poke:admin/reset_me` 내 진행 초기화(튜토리얼부터, 보상은 다시 안 줌), `/function poke:admin/rebuild` 마을·NPC 다시 짓기
 
 ## 친구 초대 (나중에)
