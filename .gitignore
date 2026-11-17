@@ -1,0 +1,5 @@
+server/data/
+server/.env
+tests/.work/
+tests/node_modules/
+tests/package-lock.json
