@@ -1,0 +1,19 @@
+services:
+  mc:
+    image: itzg/minecraft-server
+    container_name: pokeserver
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+      TYPE: FABRIC
+      VERSION: "1.21.1"
+      PACKWIZ_URL: ${PACK_URL}   # .env 에서 설정
+      MEMORY: ${MEMORY:-6G}
+      DIFFICULTY: normal
+      OPS: ${OPS:-}
+    volumes:
+      - ./data:/data
+      # 데이터팩은 저장소 폴더를 그대로 연결 → git pull 후 /reload 만으로 반영
+      - ../datapacks/pokeserver:/data/world/datapacks/pokeserver:ro
+    restart: unless-stopped
