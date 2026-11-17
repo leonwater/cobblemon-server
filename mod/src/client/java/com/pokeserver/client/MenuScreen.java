@@ -82,7 +82,7 @@ public class MenuScreen extends Screen {
         g.drawString(font, "공지사항", px + 10, ny + 7, Theme.TEXT);
         g.drawString(font, font.plainSubstrByWidth(notice, pw - 70), px + 64, ny + 7, GOLD);
         // 왼쪽 아래: 기본 명령어, 휴지통
-        small(g, mx, my, 24, height - 52, "minecraft:book", "기본 명령어");
+        small(g, mx, my, 24, height - 52, "minecraft:book", "명령어");
         small(g, mx, my, 84, height - 52, "minecraft:cauldron", "휴지통");
     }
 
@@ -98,11 +98,7 @@ public class MenuScreen extends Screen {
         boolean hov = mx >= x && mx < x + 52 && my >= y && my < y + 40;
         Theme.panel(g, x, y, x + 52, y + 40, hov ? Theme.TILE_HOVER : Theme.TILE);
         g.renderItem(Shop.stack(icon), x + 18, y + 5);
-        g.pose().pushPose();
-        g.pose().translate(x + 26, y + 26, 0);
-        g.pose().scale(0.75f, 0.75f, 1);
-        g.drawCenteredString(font, label, 0, 0, Theme.TEXT);
-        g.pose().popPose();
+        g.drawCenteredString(font, label, x + 26, y + 26, Theme.TEXT);  // 픽셀 글꼴은 줄이면 깨져서 원래 크기로
     }
 
     @Override

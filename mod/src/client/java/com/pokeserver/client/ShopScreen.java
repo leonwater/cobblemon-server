@@ -117,7 +117,7 @@ public class ShopScreen extends Screen {
         // 상태 띠: 판매 탭은 보유 수량, 구매 탭은 잔액 부족만 표시
         var player = minecraft == null ? null : minecraft.player;
         int have = player == null ? 0 : Shop.count(player, e.item());
-        String badge = sell ? (have == 0 ? "판매할 아이템이 없습니다!" : "보유 " + have + "개") : (balance < price ? "잔액 부족" : null);
+        String badge = sell ? (have == 0 ? "보유 아이템 없음" : "보유 " + have + "개") : (balance < price ? "잔액 부족" : null);
         if (badge != null) {
             g.fill(x + 3, y + 59, x + CARD_W - 3, y + 70, sell && have > 0 ? GREEN : RED);
             float k = Math.min(1f, (CARD_W - 8f) / font.width(badge));   // 길면 줄여서 다 보이게
