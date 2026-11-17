@@ -1,0 +1,15 @@
+{
+  "names": [
+    "상인"
+  ],
+  "hitbox": "player",
+  "canDespawn": false,
+  "isInvulnerable": true,
+  "isMovable": false,
+  "isLeashable": false,
+  "allowProjectileHits": false,
+  "interaction": {
+    "type": "custom_script",
+    "script": "q.run_command('pokeserver shop ' + q.player.username);"
+  }
+}

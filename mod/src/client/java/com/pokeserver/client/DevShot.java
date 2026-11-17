@@ -26,9 +26,14 @@ final class DevShot {
 
     private static Screen screen(String which) {
         if (which.equals("claim")) return new ClaimScreen(3);
+        if (which.startsWith("menu")) {
+            MenuScreen m = new MenuScreen(123456, "도움이 필요하면 관리자에게 문의하세요!");
+            m.tab = which.equals("menu_warp") ? 2 : 0;
+            return m;
+        }
         try {
             ShopScreen s = new ShopScreen(Files.readString(Path.of(System.getProperty("pokeserver.shopjson"))), 123456);
-            s.category = which.equals("shop_sell") ? 5 : 3;
+            s.category = which.equals("shop_sell") ? 5 : which.equals("shop_balls") ? 0 : 3;
             s.sell = which.equals("shop_sell");
             return s;
         } catch (Exception e) {

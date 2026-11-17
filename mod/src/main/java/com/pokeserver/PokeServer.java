@@ -30,12 +30,17 @@ public class PokeServer implements ModInitializer {
         PayloadTypeRegistry.playS2C().register(Net.ShopOpen.TYPE, Net.ShopOpen.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.Balance.TYPE, Net.Balance.CODEC);
         PayloadTypeRegistry.playC2S().register(Net.ShopTrade.TYPE, Net.ShopTrade.CODEC);
+        PayloadTypeRegistry.playS2C().register(Net.MenuOpen.TYPE, Net.MenuOpen.CODEC);
+        PayloadTypeRegistry.playC2S().register(Net.MenuAction.TYPE, Net.MenuAction.CODEC);
+        ServerPlayNetworking.registerGlobalReceiver(Net.MenuAction.TYPE,
+                (m, ctx) -> ctx.player().server.execute(() -> Menu.action(ctx.player(), m.action())));
+        if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.register();
         ServerPlayNetworking.registerGlobalReceiver(Net.ClaimConfirm.TYPE,
                 (payload, ctx) -> ctx.player().server.execute(() -> Farms.claim(ctx.player(), payload.plot())));
         ServerPlayNetworking.registerGlobalReceiver(Net.ShopTrade.TYPE, (t, ctx) -> ctx.player().server.execute(
                 () -> Shop.trade(ctx.player(), t.sell(), t.category(), t.item(), t.qty())));
 
-        ServerLifecycleEvents.SERVER_STARTED.register(server -> { Farms.load(); Shop.load(); });
+        ServerLifecycleEvents.SERVER_STARTED.register(server -> { Farms.load(); Shop.load(); Menu.load(); });
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             if (server.getTickCount() % 100 == 0) Farms.refreshLabels(server);
         });
@@ -96,8 +101,8 @@ public class PokeServer implements ModInitializer {
                     return targets.size();
                 })))
                 .then(Commands.literal("reload").executes(c -> {
-                    Farms.load(); Shop.load();
-                    c.getSource().sendSuccess(() -> Component.literal("농장·상점 설정을 다시 불러왔습니다."), true);
+                    Farms.load(); Shop.load(); Menu.load();
+                    c.getSource().sendSuccess(() -> Component.literal("농장·상점·메뉴 설정을 다시 불러왔습니다."), true);
                     return 1;
                 }))
                 .then(Commands.literal("deed").then(Commands.argument("targets", EntityArgument.players()).executes(c -> {

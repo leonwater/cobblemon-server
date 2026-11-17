@@ -54,4 +54,20 @@ public final class Net {
                 ByteBufCodecs.VAR_INT, ShopTrade::item, ByteBufCodecs.VAR_INT, ShopTrade::qty, ShopTrade::new);
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
+
+    /** 서버 → 클라이언트: 메인 메뉴 열기 (잔액, 공지). */
+    public record MenuOpen(long balance, String notice) implements CustomPacketPayload {
+        public static final Type<MenuOpen> TYPE = id("menu_open");
+        public static final StreamCodec<RegistryFriendlyByteBuf, MenuOpen> CODEC = StreamCodec.composite(
+                ByteBufCodecs.VAR_LONG, MenuOpen::balance, ByteBufCodecs.stringUtf8(4096), MenuOpen::notice, MenuOpen::new);
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
+
+    /** 클라이언트 → 서버: 메인 메뉴 동작 (open, pc, trash, tutorial, warp:village|farm|wild). */
+    public record MenuAction(String action) implements CustomPacketPayload {
+        public static final Type<MenuAction> TYPE = id("menu_action");
+        public static final StreamCodec<RegistryFriendlyByteBuf, MenuAction> CODEC =
+                StreamCodec.composite(ByteBufCodecs.stringUtf8(64), MenuAction::action, MenuAction::new);
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
 }

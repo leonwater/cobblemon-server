@@ -13,6 +13,10 @@ file = "config/pokeserver/farms.json"
 hash = "5d1e135f30c358ecaf10b78efce3ffea6e0916b289e8ba661c5f5bdfd20ec2c0"
 
 [[files]]
+file = "config/pokeserver/menu.json"
+hash = "d610d16929a9487d0765afa4ea2410403a054eb7e034e0403eb1fa02ff550e06"
+
+[[files]]
 file = "config/pokeserver/shop.json"
 hash = "a5430cf338bcc120e7ce8b443ab109169c5852cbbf0d7e88baac57e2fcd7ab33"
 
@@ -33,7 +37,7 @@ metafile = true
 
 [[files]]
 file = "mods/pokeserver-0.1.0.jar"
-hash = "78c0edd9c7d73081d18b0d7e3e773e7ce38c2771d47987ad1a66b85e058766e4"
+hash = "0a6f445227e0fe40e93065d47a5d0034d4f7fc6851a7aee5af3023740c793372"
 
 [[files]]
 file = "resourcepacks/pokeserver-ui/assets/cobblemon/textures/gui/dialogue/dialogue_box.png"
