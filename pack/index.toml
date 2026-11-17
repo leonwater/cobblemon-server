@@ -37,7 +37,7 @@ metafile = true
 
 [[files]]
 file = "mods/pokeserver-0.1.0.jar"
-hash = "0a6f445227e0fe40e93065d47a5d0034d4f7fc6851a7aee5af3023740c793372"
+hash = "493c1fd08514899399ac5c297a1c7f19f18550bb4b91d8f535bf7fa4e96147fa"
 
 [[files]]
 file = "resourcepacks/pokeserver-ui/assets/cobblemon/textures/gui/dialogue/dialogue_box.png"
