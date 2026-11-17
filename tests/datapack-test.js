@@ -76,13 +76,13 @@ const join = name => new Promise((res, rej) => {
 
   // 7·8·10. 서쪽 발판 → 채집맵, 마지막 위치 기억
   await cmd('execute as A run trigger home'); await sleep(500)
-  await cmd('execute in poke:hub run tp A -18.5 65 200.5'); await sleep(1500)
+  await cmd('execute in poke:hub run tp A -18.5 65 200.5'); await waitFor('data get entity A Dimension', /poke:wild/)  // 처음 가면 지형 생성으로 몇 초 걸림
   assert.equal(await dim('A'), 'poke:wild', '서쪽 발판 → 채집맵')
   assert.ok(Math.abs(await pos('A', 0)) <= 17 && Math.abs(await pos('A', 2)) <= 17, '처음엔 0,0 근처')
   await cmd('execute in poke:wild run spreadplayers 300 300 0 1 false A'); await sleep(2500)
   const wx = await pos('A', 0), wz = await pos('A', 2)
   await cmd('execute as A run trigger home'); await sleep(500)
-  await cmd('execute in poke:hub run tp A -18.5 65 200.5'); await sleep(1500)
+  await cmd('execute in poke:hub run tp A -18.5 65 200.5'); await waitFor('data get entity A Dimension', /poke:wild/)  // 처음 가면 지형 생성으로 몇 초 걸림
   await at('A', 'poke:wild', wx, wz, '채집맵: 마지막 위치로')
   // 10. 바이옴 바둑판: 256x256 칸마다 목록의 다음 바이옴. 칸 경계(0, 256, ...)는 게임이 몇 칸 흔들어서 칸 한가운데로 확인
   for (const x of [128, 640, 1152]) await cmd(`execute in poke:wild run forceload add ${x} 128`)
