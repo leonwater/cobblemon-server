@@ -99,7 +99,7 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
 
 | 증상 | 해결 |
 |---|---|
-| `Unable to access jarfile packwiz-installer-bootstrap.jar` | 파일이 `minecraft` 폴더 안에 없거나 이름이 다름 → 2단계 다시 확인. 3단계 명령이 위와 똑같은지 확인 |
+| `Unable to access jarfile ...` | 탐색기 주소창에 `%APPDATA%\PrismLauncher\instances\인스턴스이름\minecraft` → **보기 → 파일 확장명** 켜고 확인: `.jar.jar`·`(1)` 붙었으면 이름 고치기 / `.crdownload`거나 없으면 브라우저 `Ctrl+J`에서 **유지** 후 다시 넣기 / 한 칸 위 폴더에 있으면 `minecraft` 안으로 옮기기 |
 | 게임이 느리거나 꺼짐 | Edit → Settings → Java → 최대 메모리 4096MB 정도로 |
 | Java 오류 | 같은 Java 화면에서 Java 21 자동 감지/다운로드 |
 | 인스턴스에 `world/datapacks` 폴더가 생김 | 서버용 파일이라 게임엔 영향 없음 |
