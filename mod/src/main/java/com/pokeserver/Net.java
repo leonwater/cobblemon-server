@@ -29,4 +29,29 @@ public final class Net {
                 StreamCodec.composite(ByteBufCodecs.VAR_INT, ClaimConfirm::plot, ClaimConfirm::new);
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
+
+    /** 서버 → 클라이언트: 상점 열기 (목록 JSON + 잔액). */
+    public record ShopOpen(String json, long balance) implements CustomPacketPayload {
+        public static final Type<ShopOpen> TYPE = id("shop_open");
+        public static final StreamCodec<RegistryFriendlyByteBuf, ShopOpen> CODEC = StreamCodec.composite(
+                ByteBufCodecs.stringUtf8(1 << 20), ShopOpen::json, ByteBufCodecs.VAR_LONG, ShopOpen::balance, ShopOpen::new);
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
+
+    /** 서버 → 클라이언트: 잔액 갱신. */
+    public record Balance(long balance) implements CustomPacketPayload {
+        public static final Type<Balance> TYPE = id("balance");
+        public static final StreamCodec<RegistryFriendlyByteBuf, Balance> CODEC =
+                StreamCodec.composite(ByteBufCodecs.VAR_LONG, Balance::balance, Balance::new);
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
+
+    /** 클라이언트 → 서버: 구매/판매 요청 (서버가 목록·잔액·인벤토리로 다시 검증). */
+    public record ShopTrade(boolean sell, int category, int item, int qty) implements CustomPacketPayload {
+        public static final Type<ShopTrade> TYPE = id("shop_trade");
+        public static final StreamCodec<RegistryFriendlyByteBuf, ShopTrade> CODEC = StreamCodec.composite(
+                ByteBufCodecs.BOOL, ShopTrade::sell, ByteBufCodecs.VAR_INT, ShopTrade::category,
+                ByteBufCodecs.VAR_INT, ShopTrade::item, ByteBufCodecs.VAR_INT, ShopTrade::qty, ShopTrade::new);
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
 }

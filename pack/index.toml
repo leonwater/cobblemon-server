@@ -1,14 +1,6 @@
 hash-format = "sha256"
 
 [[files]]
-file = "config/cobbledollars/default_bank.json"
-hash = "fabb3a4028b6618f4fc1e1957368646920778da625141ac6c39284e879e9a894"
-
-[[files]]
-file = "config/cobbledollars/default_shop.json"
-hash = "79841608035b5d1bef1c633ca691ede254fef7f7d11ba83647b59784429b2595"
-
-[[files]]
 file = "config/cobblemon/main.json"
 hash = "635b181e3c122c9c4dae742aebbd3f2d692172af768869286488af6629c89be2"
 
@@ -21,9 +13,8 @@ file = "config/pokeserver/farms.json"
 hash = "5d1e135f30c358ecaf10b78efce3ffea6e0916b289e8ba661c5f5bdfd20ec2c0"
 
 [[files]]
-file = "mods/cobbledollars.pw.toml"
-hash = "b61d3783e85f963d6235bf86e0d09a3f9e0030634654b07327600ca6b939d627"
-metafile = true
+file = "config/pokeserver/shop.json"
+hash = "a5430cf338bcc120e7ce8b443ab109169c5852cbbf0d7e88baac57e2fcd7ab33"
 
 [[files]]
 file = "mods/cobblemon.pw.toml"
@@ -42,7 +33,7 @@ metafile = true
 
 [[files]]
 file = "mods/pokeserver-0.1.0.jar"
-hash = "7a9362630613a48b8a7a10afdb536c6e813dcb5e6694d985116668abed82851a"
+hash = "78c0edd9c7d73081d18b0d7e3e773e7ce38c2771d47987ad1a66b85e058766e4"
 
 [[files]]
 file = "resourcepacks/pokeserver-ui/assets/cobblemon/textures/gui/dialogue/dialogue_box.png"
@@ -126,7 +117,7 @@ hash = "5717e710cee2e276fd4c57bd6377a7807cb99dff24af42a65d2fe6eda20aadab"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/dialogues/tutorial.json"
-hash = "7f07bdfd0533d7e5d978a3e4b40717704f65973258b0b36be19d1785a39f0d43"
+hash = "1f0065e6b8e3e3810e58e60b1bc70718546020c9a78a14294aa230912534a52f"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/dimension/farm.json"
@@ -222,7 +213,7 @@ hash = "7df0b18231d9366f4f371200b2e6e0d6ecd8beaac97ad351cb3fdad9d5aaf340"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/kit.mcfunction"
-hash = "b9882f1ff2b4bc6c940080174b16d5c0a9b27b52db3661d07cea8e6fb9876049"
+hash = "9f75be733c59ba5bf30c407f3e54422615e0a25c01f7b1ca6f19d4d9afad2e48"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/spawn_npc.mcfunction"
@@ -230,7 +221,7 @@ hash = "96356492164961299eb9c9d2c515cead6886fe862b09665e6461aafee41096ce"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/spawn_npcs.mcfunction"
-hash = "ee2f5fcc674178a613a7e07f530f5999565747a594f0a98f078befc5b8cdf4b5"
+hash = "0ec9c168ba96e31e3dbeb021114fad9a9e8ef2bb77d64ea6d011674245d3df27"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/tick.mcfunction"
@@ -287,6 +278,10 @@ hash = "c34d4e5cc49774ae05be2f9a7d9f3c15b070e89f856880e3768fb422f42e9432"
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/warp/track.mcfunction"
 hash = "d9779cded0fd64b54514f73b55981c76d4a61896f58faffc3516c67ef63c6310"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/npcs/merchant.json"
+hash = "acff7253559be0b902e2d3e69a9bcb0b5ebbb27f153107debcf9728318d85455"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/npcs/nurse.json"

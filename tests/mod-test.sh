@@ -14,7 +14,7 @@ fi
 f=$R/pack/mods/fabric-api.pw.toml; name=$(grep '^filename' $f | cut -d'"' -f2)
 [ -f "$W/mods/$name" ] || curl -sfL -o "$W/mods/$name" "$(grep '^url' $f | cut -d'"' -f2)"
 cp $R/mod/build/libs/pokeserver-*.jar $W/mods/
-cp $R/pack/config/pokeserver/farms.json $W/config/pokeserver/
+cp $R/pack/config/pokeserver/*.json $W/config/pokeserver/
 rm -rf $W/world && mkdir -p $W/world/datapacks && cp -r $R/pack/world/datapacks/pokeserver $W/world/datapacks/
 for f in $W/world/datapacks/pokeserver/data/poke/function/mod/*.mcfunction; do echo 'return 0' > $f; done
 echo eula=true > $W/eula.txt

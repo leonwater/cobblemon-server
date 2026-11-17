@@ -1,0 +1,372 @@
+{
+ "categories": [
+  {
+   "name": "몬스터볼",
+   "icon": "cobblemon:poke_ball",
+   "items": [
+    {
+     "item": "cobblemon:poke_ball",
+     "buy": 200,
+     "sell": 50
+    },
+    {
+     "item": "cobblemon:great_ball",
+     "buy": 600,
+     "sell": 150
+    },
+    {
+     "item": "cobblemon:ultra_ball",
+     "buy": 1200,
+     "sell": 300
+    },
+    {
+     "item": "cobblemon:premier_ball",
+     "buy": 300,
+     "sell": 75
+    }
+   ]
+  },
+  {
+   "name": "회복",
+   "icon": "cobblemon:potion",
+   "items": [
+    {
+     "item": "cobblemon:potion",
+     "buy": 300,
+     "sell": 75
+    },
+    {
+     "item": "cobblemon:super_potion",
+     "buy": 700,
+     "sell": 175
+    },
+    {
+     "item": "cobblemon:hyper_potion",
+     "buy": 1200,
+     "sell": 300
+    },
+    {
+     "item": "cobblemon:max_potion",
+     "buy": 2500,
+     "sell": 600
+    },
+    {
+     "item": "cobblemon:full_restore",
+     "buy": 3000,
+     "sell": 750
+    },
+    {
+     "item": "cobblemon:revive",
+     "buy": 1500,
+     "sell": 375
+    },
+    {
+     "item": "cobblemon:max_revive",
+     "buy": 4000,
+     "sell": 1000
+    },
+    {
+     "item": "cobblemon:full_heal",
+     "buy": 600,
+     "sell": 150
+    },
+    {
+     "item": "cobblemon:antidote",
+     "buy": 100,
+     "sell": 25
+    },
+    {
+     "item": "cobblemon:ether",
+     "buy": 1200,
+     "sell": 300
+    }
+   ]
+  },
+  {
+   "name": "성장 아이템",
+   "icon": "cobblemon:rare_candy",
+   "items": [
+    {
+     "item": "cobblemon:rare_candy",
+     "buy": 5000,
+     "sell": 1200
+    },
+    {
+     "item": "cobblemon:exp_candy_xs",
+     "buy": 300,
+     "sell": 75
+    },
+    {
+     "item": "cobblemon:exp_candy_s",
+     "buy": 800,
+     "sell": 200
+    },
+    {
+     "item": "cobblemon:exp_share",
+     "buy": 8000,
+     "sell": 2000
+    },
+    {
+     "item": "cobblemon:lucky_egg",
+     "buy": 10000,
+     "sell": 2500
+    }
+   ]
+  },
+  {
+   "name": "농장",
+   "icon": "minecraft:wheat_seeds",
+   "items": [
+    {
+     "item": "pokeserver:farm_deed",
+     "buy": 50000,
+     "sell": 0
+    },
+    {
+     "item": "minecraft:wheat_seeds",
+     "buy": 10,
+     "sell": 1
+    },
+    {
+     "item": "minecraft:carrot",
+     "buy": 20,
+     "sell": 3
+    },
+    {
+     "item": "minecraft:potato",
+     "buy": 20,
+     "sell": 3
+    },
+    {
+     "item": "minecraft:beetroot_seeds",
+     "buy": 10,
+     "sell": 1
+    },
+    {
+     "item": "minecraft:pumpkin_seeds",
+     "buy": 30,
+     "sell": 5
+    },
+    {
+     "item": "minecraft:melon_seeds",
+     "buy": 30,
+     "sell": 5
+    },
+    {
+     "item": "minecraft:sugar_cane",
+     "buy": 30,
+     "sell": 4
+    },
+    {
+     "item": "minecraft:bone_meal",
+     "buy": 15,
+     "sell": 2
+    },
+    {
+     "item": "minecraft:water_bucket",
+     "buy": 100,
+     "sell": 0
+    },
+    {
+     "item": "minecraft:iron_hoe",
+     "buy": 200,
+     "sell": 0
+    }
+   ]
+  },
+  {
+   "name": "작물",
+   "icon": "minecraft:wheat",
+   "items": [
+    {
+     "item": "minecraft:wheat",
+     "buy": 15,
+     "sell": 5
+    },
+    {
+     "item": "minecraft:pumpkin",
+     "buy": 60,
+     "sell": 20
+    },
+    {
+     "item": "minecraft:melon_slice",
+     "buy": 10,
+     "sell": 3
+    },
+    {
+     "item": "minecraft:beetroot",
+     "buy": 15,
+     "sell": 5
+    },
+    {
+     "item": "minecraft:apple",
+     "buy": 30,
+     "sell": 8
+    },
+    {
+     "item": "minecraft:cocoa_beans",
+     "buy": 20,
+     "sell": 6
+    },
+    {
+     "item": "minecraft:sweet_berries",
+     "buy": 15,
+     "sell": 4
+    }
+   ]
+  },
+  {
+   "name": "광물",
+   "icon": "minecraft:diamond",
+   "items": [
+    {
+     "item": "minecraft:coal",
+     "buy": 30,
+     "sell": 10
+    },
+    {
+     "item": "minecraft:copper_ingot",
+     "buy": 25,
+     "sell": 8
+    },
+    {
+     "item": "minecraft:iron_ingot",
+     "buy": 120,
+     "sell": 40
+    },
+    {
+     "item": "minecraft:gold_ingot",
+     "buy": 240,
+     "sell": 80
+    },
+    {
+     "item": "minecraft:redstone",
+     "buy": 30,
+     "sell": 10
+    },
+    {
+     "item": "minecraft:lapis_lazuli",
+     "buy": 45,
+     "sell": 15
+    },
+    {
+     "item": "minecraft:quartz",
+     "buy": 45,
+     "sell": 15
+    },
+    {
+     "item": "minecraft:emerald",
+     "buy": 900,
+     "sell": 300
+    },
+    {
+     "item": "minecraft:diamond",
+     "buy": 1200,
+     "sell": 400
+    },
+    {
+     "item": "minecraft:netherite_ingot",
+     "buy": 20000,
+     "sell": 6000
+    }
+   ]
+  },
+  {
+   "name": "건축 블록",
+   "icon": "minecraft:bricks",
+   "items": [
+    {
+     "item": "minecraft:oak_log",
+     "buy": 20,
+     "sell": 4
+    },
+    {
+     "item": "minecraft:spruce_log",
+     "buy": 20,
+     "sell": 4
+    },
+    {
+     "item": "minecraft:stone",
+     "buy": 5,
+     "sell": 1
+    },
+    {
+     "item": "minecraft:cobblestone",
+     "buy": 3,
+     "sell": 1
+    },
+    {
+     "item": "minecraft:glass",
+     "buy": 10,
+     "sell": 2
+    },
+    {
+     "item": "minecraft:bricks",
+     "buy": 20,
+     "sell": 4
+    },
+    {
+     "item": "minecraft:white_concrete",
+     "buy": 15,
+     "sell": 3
+    },
+    {
+     "item": "minecraft:smooth_stone",
+     "buy": 8,
+     "sell": 2
+    },
+    {
+     "item": "minecraft:torch",
+     "buy": 5,
+     "sell": 0
+    },
+    {
+     "item": "minecraft:lantern",
+     "buy": 40,
+     "sell": 0
+    },
+    {
+     "item": "minecraft:chest",
+     "buy": 40,
+     "sell": 0
+    }
+   ]
+  },
+  {
+   "name": "도구",
+   "icon": "minecraft:iron_pickaxe",
+   "items": [
+    {
+     "item": "minecraft:iron_pickaxe",
+     "buy": 400,
+     "sell": 0
+    },
+    {
+     "item": "minecraft:iron_axe",
+     "buy": 400,
+     "sell": 0
+    },
+    {
+     "item": "minecraft:iron_shovel",
+     "buy": 150,
+     "sell": 0
+    },
+    {
+     "item": "minecraft:shears",
+     "buy": 200,
+     "sell": 0
+    },
+    {
+     "item": "minecraft:fishing_rod",
+     "buy": 150,
+     "sell": 0
+    },
+    {
+     "item": "minecraft:bucket",
+     "buy": 150,
+     "sell": 0
+    }
+   ]
+  }
+ ]
+}

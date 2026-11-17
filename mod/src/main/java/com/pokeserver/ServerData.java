@@ -8,11 +8,12 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.saveddata.SavedData;
 
-/** 월드에 저장되는 서버 데이터: 땅 주인. (world/data/pokeserver.dat) */
+/** 월드에 저장되는 서버 데이터: 땅 주인, 잔액. (world/data/pokeserver.dat) */
 public class ServerData extends SavedData {
     public record Owner(UUID id, String name) {}
 
     public final Map<Integer, Owner> plotOwners = new HashMap<>();
+    public final Map<UUID, Long> money = new HashMap<>();
 
     public static ServerData get(MinecraftServer server) {
         return server.overworld().getDataStorage().computeIfAbsent(
@@ -26,6 +27,8 @@ public class ServerData extends SavedData {
             CompoundTag o = plots.getCompound(k);
             d.plotOwners.put(Integer.parseInt(k), new Owner(o.getUUID("id"), o.getString("name")));
         }
+        CompoundTag money = tag.getCompound("money");
+        for (String k : money.getAllKeys()) d.money.put(UUID.fromString(k), money.getLong(k));
         return d;
     }
 
@@ -39,6 +42,9 @@ public class ServerData extends SavedData {
             plots.put(String.valueOf(n), t);
         });
         tag.put("plots", plots);
+        CompoundTag money = new CompoundTag();
+        this.money.forEach((id, n) -> money.putLong(id.toString(), n));
+        tag.put("money", money);
         return tag;
     }
 }
