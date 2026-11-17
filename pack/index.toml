@@ -17,6 +17,10 @@ file = "config/explosionbreaksnoblock/explosionbreaksnoblock.json"
 hash = "82971dc5b250c08b6dd976ecf2e1b26bd88d8294290f9f18abfd79fa207a9645"
 
 [[files]]
+file = "config/pokeserver/farms.json"
+hash = "5d1e135f30c358ecaf10b78efce3ffea6e0916b289e8ba661c5f5bdfd20ec2c0"
+
+[[files]]
 file = "mods/cobbledollars.pw.toml"
 hash = "b61d3783e85f963d6235bf86e0d09a3f9e0030634654b07327600ca6b939d627"
 metafile = true
@@ -35,6 +39,10 @@ metafile = true
 file = "mods/fabric-api.pw.toml"
 hash = "1ed7a6439d9c3cd9bc8e7db6a4362eb710de0f4da90b619f883e99f5765e96c0"
 metafile = true
+
+[[files]]
+file = "mods/pokeserver-0.1.0.jar"
+hash = "7a9362630613a48b8a7a10afdb536c6e813dcb5e6694d985116668abed82851a"
 
 [[files]]
 file = "resourcepacks/pokeserver-ui/assets/cobblemon/textures/gui/dialogue/dialogue_box.png"
@@ -142,11 +150,11 @@ hash = "22ebdf1d43220bc2f3a804cc1e9e7c91117f3a33dc41ae17028d6f53848ef1be"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/farm.mcfunction"
-hash = "ded452efdaa3e484e27d49b76c540479eadc3e3bf536a93f234aca3afeda9e47"
+hash = "78e103cbdc9792aca103781a973b3434f4057461e80dccd94dcf35db1ec00116"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/farm_run.mcfunction"
-hash = "2456312a583fbc1c6e998135acb493992b4cbf82dd7b1e4994d2ccb42a8578c5"
+hash = "7a013d77f69143757f7e7ad797a3521844aace46f627c051dcf9f75825af1df4"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/farm_start.mcfunction"
@@ -206,7 +214,7 @@ hash = "a0807319268d2a1888436d01dbcd78a23c3677bf6a168a51868ccde3c76e8764"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/load.mcfunction"
-hash = "1a4d0f47bd5d3cfe491ff43cbea2f86b28e7467acf21642bd7a7a08f706ac58c"
+hash = "2403335d27a2458052e6eb895bda24889a2cb902000a5ed210d5d9e949071e0d"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/build_center.mcfunction"
