@@ -9,6 +9,7 @@ Minecraft 1.21.1 · Fabric 0.20.1 · Cobblemon 1.8.4
 | `pack/` | 모드 목록 + 데이터팩 (packwiz). 서버·클라이언트가 실행할 때 여기서 자동으로 받아감 |
 | `pack/world/datapacks/pokeserver/` | 튜토리얼·시작 마을·NPC, 서버 규칙, 포탈, 체육관 1인 제한 |
 | `pack/config/` | 모드 설정 (상점 목록, 폭발 방지) |
+| `pack/resourcepacks/pokeserver-ui/` | 어두운 반투명 UI (대화창·버튼). `tools/make_ui.py`로 생성 |
 | `server/` | 서버 실행 파일 (`start.bat`, `update.bat`) |
 | `tests/` | 데이터팩 로직 테스트 (봇 2명) |
 
@@ -93,7 +94,10 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
 3. 타이틀 화면 **Mods**에 **Cobblemon**이 있으면 성공
 4. 이후엔 실행할 때마다 서버와 모드가 자동으로 맞춰짐
 
-### 5. 서버 접속
+### 5. 어두운 UI 켜기 (처음 한 번)
+게임 실행 → **옵션 → 리소스 팩** → 왼쪽의 **pokeserver-ui**를 오른쪽으로 옮기기 → 완료
+
+### 6. 서버 접속
 서버(`start.bat`)를 켜둔 상태에서 **멀티플레이 → 서버 추가 → 주소 `localhost`**
 
 ### 막힐 때

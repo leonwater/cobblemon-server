@@ -33,6 +33,74 @@ hash = "1ed7a6439d9c3cd9bc8e7db6a4362eb710de0f4da90b619f883e99f5765e96c0"
 metafile = true
 
 [[files]]
+file = "resourcepacks/pokeserver-ui/assets/cobblemon/textures/gui/dialogue/dialogue_box.png"
+hash = "3abdd3568fb47fb4d6826a957d42c637f36997c9d4c1424b0e28fdacd23aee4b"
+
+[[files]]
+file = "resourcepacks/pokeserver-ui/assets/cobblemon/textures/gui/dialogue/dialogue_box_info.png"
+hash = "3b7179ae03a7360ea0ed34d3591398d3fb98eb5822810d7f093ef530a7b08cfa"
+
+[[files]]
+file = "resourcepacks/pokeserver-ui/assets/cobblemon/textures/gui/dialogue/dialogue_button.png"
+hash = "c4feb62412e19da5f21d85294d613066a148706e470d9ee88a258df7a7e0c0a6"
+
+[[files]]
+file = "resourcepacks/pokeserver-ui/assets/cobblemon/textures/gui/dialogue/dialogue_button_full.png"
+hash = "b1b746ad05dc696990d3ffa72acde2e79a9bec8e45eecede148069d78f4a773a"
+
+[[files]]
+file = "resourcepacks/pokeserver-ui/assets/cobblemon/textures/gui/dialogue/dialogue_name.png"
+hash = "ee87939ecb9231966b69a25c974903f09dd1974825dab091241911e96ac25e05"
+
+[[files]]
+file = "resourcepacks/pokeserver-ui/assets/cobblemon/textures/gui/dialogue/dialogue_portrait_background.png"
+hash = "59dd1a80a8faaef86af7a39a1aa8859ef58a2878f0219c70cbc1a9ce20f4e3c4"
+
+[[files]]
+file = "resourcepacks/pokeserver-ui/assets/cobblemon/textures/gui/dialogue/dialogue_portrait_left.png"
+hash = "1f8ac8b63b9b943ac6cab98838cf8e721b3bb93c60a0f05a6e278494f038b170"
+
+[[files]]
+file = "resourcepacks/pokeserver-ui/assets/cobblemon/textures/gui/dialogue/dialogue_portrait_right.png"
+hash = "abe7c6d37a112556ec5d92f1fc7e5bbdab8d3df66b0dd6129513fe323a9ffc07"
+
+[[files]]
+file = "resourcepacks/pokeserver-ui/assets/cobblemon/textures/gui/dialogue/dialogue_text_input.png"
+hash = "c2594e57c724bf21f66c567e09789393afe0b9e7b868d864d05a8bbb402f141f"
+
+[[files]]
+file = "resourcepacks/pokeserver-ui/assets/cobblemon/textures/gui/dialogue/dialogue_timer_bar.png"
+hash = "3c11ed33679c5afaab844f905f2e6ff8732fac3b019f7284df9f37c13a12aa9f"
+
+[[files]]
+file = "resourcepacks/pokeserver-ui/assets/minecraft/textures/gui/sprites/widget/button.png"
+hash = "056d1897ed73b79254eab080f719c54943a74118d77fa33f28cedafda354a4f4"
+
+[[files]]
+file = "resourcepacks/pokeserver-ui/assets/minecraft/textures/gui/sprites/widget/button.png.mcmeta"
+hash = "c8f6fe62c01c357a814223d4ab6a368e5122c195fa2671e585fa24988557a505"
+
+[[files]]
+file = "resourcepacks/pokeserver-ui/assets/minecraft/textures/gui/sprites/widget/button_disabled.png"
+hash = "a809e2205af8bfa53762a5279d8d2704136d6b963a61183886e3e92b78f57154"
+
+[[files]]
+file = "resourcepacks/pokeserver-ui/assets/minecraft/textures/gui/sprites/widget/button_disabled.png.mcmeta"
+hash = "d7dd31a632fe41be64e07ef0676b726e50f0af053e638742ec1f6f9550a1b7e5"
+
+[[files]]
+file = "resourcepacks/pokeserver-ui/assets/minecraft/textures/gui/sprites/widget/button_highlighted.png"
+hash = "72c57c9b5a64dca722e132da9c7d5ec7332c30eb59bf843332ac3686507b464b"
+
+[[files]]
+file = "resourcepacks/pokeserver-ui/assets/minecraft/textures/gui/sprites/widget/button_highlighted.png.mcmeta"
+hash = "c8f6fe62c01c357a814223d4ab6a368e5122c195fa2671e585fa24988557a505"
+
+[[files]]
+file = "resourcepacks/pokeserver-ui/pack.mcmeta"
+hash = "c31c59145bafc78818c2312148b54ad08e57d20ad221b97a568e43f8e56e4145"
+
+[[files]]
 file = "world/datapacks/pokeserver/data/minecraft/tags/function/load.json"
 hash = "bb75d1ca5593278ad226e335f0f0241def2cb8c029e6aae9d9e4996d62edf74f"
 
@@ -42,7 +110,7 @@ hash = "a4f402a19e2899c6502f13e9cf4a5ea2e5428d7f5774168cd3ce3a5d5bfeb49f"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/dialogues/tutorial.json"
-hash = "bb874a37f7cce62859e993e39dfca08fa86a7d1e3b900c09e57811d2bf0e58eb"
+hash = "7f07bdfd0533d7e5d978a3e4b40717704f65973258b0b36be19d1785a39f0d43"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/dimension/hub.json"
