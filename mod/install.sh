@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# 모드를 빌드해 모드팩(pack/mods)에 넣음 → 서버·클라이언트가 다음 실행 때 자동으로 받음
+set -euo pipefail
+cd "$(dirname "$0")"
+gradle build --no-daemon -q --max-workers=1
+rm -f ../pack/mods/pokeserver-*.jar
+cp build/libs/pokeserver-*.jar ../pack/mods/
+cd ../pack && PATH=$PATH:~/go/bin packwiz refresh

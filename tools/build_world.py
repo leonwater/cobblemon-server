@@ -148,8 +148,8 @@ def farm():
     for n, x1, z1, x2, z2 in plots():                                                  # 땅만 잔디로
         L += [fill(x1, FY, z1, x2, FY, z2, 'minecraft:polished_andesite'),
               fill(x1 + 1, FY, z1 + 1, x2 - 1, FY, z2 - 1, 'minecraft:grass_block'),
-              label(x1 + PLOT / 2, FY + 3, z1 - 1, f'농장 {n}', 'yellow', 1.5)
-              .replace('poke.deco', 'poke.farmdeco')]
+              label(x1 + PLOT / 2, FY + 3, z1 - 1, f'농장 {n} (빈 땅)', 'yellow', 1.5)
+              .replace('"poke.deco"', f'"poke.farmdeco","poke.plot{n}"')]
     x1, x2, z1, z2 = FARM_RETURN
     L += [fill(x1, FY, z1, x2, FY, z2, 'minecraft:light_blue_stained_glass'),
           label(0.5, FY + 3, (z1 + z2) / 2 + 0.5, '◀ 마을로', 'aqua', 1.5).replace('poke.deco', 'poke.farmdeco')]
@@ -181,6 +181,12 @@ if __name__ == '__main__':
     f, box = farm()
     (FN / 'build/farm.mcfunction').write_text('\n'.join(f) + '\n', encoding='utf-8')
     (FN / 'mod/build_center.mcfunction').write_text('\n'.join(center_mod()) + '\n', encoding='utf-8')
+    # 모드(땅 문서·보호)가 읽는 땅 목록
+    import json
+    cfg = FN.parents[5] / 'config/pokeserver/farms.json'
+    cfg.parent.mkdir(parents=True, exist_ok=True)
+    cfg.write_text(json.dumps({'dimension': 'poke:farm', 'plots': [
+        {'id': n, 'x1': x1, 'z1': z1, 'x2': x2, 'z2': z2} for n, x1, z1, x2, z2 in plots()]}, indent=2), encoding='utf-8')
     print(f'village {len(v)} lines, farm {len(f)} lines, farm box {box}, plots {len(plots())}')
     for p in plots():
         print(p)

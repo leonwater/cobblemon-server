@@ -22,7 +22,7 @@ const join = name => new Promise((res, rej) => {
   const waitFor = async (c, re) => { for (let i = 0; i < 30 && !re.test(await cmd(c)); i++) await sleep(500) }
 
   // 건물이 지어질 때까지 (load 후 40~60틱)
-  await waitFor('data get storage poke:state', /build: 2.*farm: 1|farm: 1.*build: 2/)
+  await waitFor('data get storage poke:state', /build: 2.*farm: 2|farm: 2.*build: 2/)
   await ok('execute in poke:hub if block 0 64 3 minecraft:polished_deepslate', '튜토리얼 방 바닥')
   await ok('execute in poke:hub if block 0 64 200 minecraft:chiseled_stone_bricks', '마을 중심')
   await ok('execute in poke:hub if block 21 64 200 minecraft:stone_bricks', '2. 마을 반지름 21 (1.5배)')

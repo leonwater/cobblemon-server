@@ -9,6 +9,7 @@ Minecraft 1.21.1 · Fabric 0.20.1 · Cobblemon 1.8.4
 | `pack/` | 모드 목록 + 데이터팩 (packwiz). 서버·클라이언트가 실행할 때 여기서 자동으로 받아감 |
 | `pack/world/datapacks/pokeserver/` | 튜토리얼·시작 마을·NPC, 서버 규칙, 포탈, 체육관 1인 제한 |
 | `pack/config/` | 모드 설정 (상점 목록, 폭발 방지, 포켓몬 스폰 차원) |
+| `mod/` | 전용 모드 소스 (땅·상점·메뉴). 수정 후 `mod/install.sh` → 모드팩에 반영 |
 | `tools/` | 마을·농장 생성기(`build_world.py`), UI 생성기(`make_ui.py`) |
 | `pack/resourcepacks/pokeserver-ui/` | 어두운 반투명 UI (대화창·버튼). `tools/make_ui.py`로 생성 |
 | `server/` | 서버 실행 파일 (`start.bat`, `update.bat`) |
@@ -120,6 +121,7 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
    - **서쪽 파란 발판 → 채집 맵** (끝없는 맵, 모든 바이옴이 256×256 칸으로 같은 넓이씩 반복)
 4. 농장·채집 맵은 **마지막으로 있던 곳**으로, 마을은 항상 **정중앙**으로 이동. 어디서든 `/trigger home` → 마을
 5. **포켓몬은 채집 맵에서만** 자연 스폰
+6. **농장 땅**: 상점에서 산 **땅 문서**를 들고 빈 땅을 우클릭 → 팝업에서 확인 → 내 땅. 다른 사람 땅은 구경만 (부수기·놓기·상자 열기·물 붓기 불가)
 
 서버 규칙: 포켓몬 외 몬스터·동물 없음 · 배고픔 없음 · 죽어도 아이템 유지 · 폭발로 블록 안 부서짐
 
@@ -142,6 +144,7 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
 | 체육관 출구 | `execute as @p run function poke:gym/leave` |
 
 - 같은 번호의 체육관엔 한 명만. 도전자가 **나가기 / 로그아웃 / 사망**하면 자동으로 비워짐.
+- 관리자: `/pokeserver deed <플레이어>` 땅 문서 지급, `/pokeserver unclaim <번호>` 땅 주인 해제
 - 관리자: `/function poke:admin/reset_me` 내 진행 초기화(튜토리얼부터, 보상은 다시 안 줌), `/function poke:admin/rebuild` 마을·NPC 다시 짓기
 
 ## 친구 초대 (나중에)
