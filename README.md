@@ -7,7 +7,8 @@ Minecraft 1.21.1 · Fabric 0.20.1 · Cobblemon 1.8.4
 | 폴더 | 내용 |
 |---|---|
 | `pack/` | 모드 목록 + 데이터팩 (packwiz). 서버·클라이언트가 실행할 때 여기서 자동으로 받아감 |
-| `pack/world/datapacks/pokeserver/` | 튜토리얼 → 물자 지급, 포탈, 체육관 1인 제한 |
+| `pack/world/datapacks/pokeserver/` | 튜토리얼·시작 마을·NPC, 서버 규칙, 포탈, 체육관 1인 제한 |
+| `pack/config/` | 모드 설정 (상점 목록, 폭발 방지) |
 | `server/` | 서버 실행 파일 (`start.bat`, `update.bat`) |
 | `tests/` | 데이터팩 로직 테스트 (봇 2명) |
 
@@ -104,20 +105,36 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
 | Java 오류 | 같은 Java 화면에서 Java 21 자동 감지/다운로드 |
 | 인스턴스에 `world/datapacks` 폴더가 생김 | 서버용 파일이라 게임엔 영향 없음 |
 
-## 맵에 연결하기 (명령 블록)
+## 게임 흐름
 
-좌표는 **`pack/world/datapacks/pokeserver/data/poke/function/config.mcfunction` 한 곳**에서 수정합니다.
+1. 첫 접속 → **튜토리얼 방**(별도 공간 `poke:hub`)에서 시작. 3칸 앞 **안내원 하늘** 우클릭 → 코블몬·서버 기초 안내
+2. 대화 끝 "준비 완료!" → **시작 마을**(원형 돌 바닥)로 이동 + 기본 물품: 5,000 CobbleDollars · 러닝 슈즈(이동 속도 +30%) · 몬스터볼 10개
+3. 마을 상인: **우클릭 = 구매, Shift+우클릭 = 판매**. 송금: `/cobbledollars pay 닉네임 금액`
+4. 어디서든 `/trigger home` → 시작 마을
+
+서버 규칙: 포켓몬 외 몬스터·동물 없음 · 배고픔 없음 · 죽어도 아이템 유지 · 폭발로 블록 안 부서짐
+
+## 수정하는 곳
+
+| 바꿀 것 | 파일 |
+|---|---|
+| 위치(튜토리얼·마을·포탈·체육관) | `pack/world/datapacks/pokeserver/data/poke/function/config.mcfunction` |
+| 기본 물품 | `.../function/kit.mcfunction`(러닝 슈즈), `.../function/mod/kit.mcfunction`(돈·몬스터볼) |
+| 안내원 대화 내용 | `.../data/poke/dialogues/tutorial.json` |
+| 상점 판매 목록·가격 | `pack/config/cobbledollars/default_shop.json` |
+| 상점 매입(판매) 목록 | `pack/config/cobbledollars/default_bank.json` |
+| 튜토리얼 방·마을 모양 | `.../function/build/` (수정 후 `load.mcfunction`의 `build:1` 숫자 +1) |
+
+## 맵에 연결하기 (명령 블록)
 
 | 용도 | 명령 블록 내용 (압력판과 함께) |
 |---|---|
-| 튜토리얼 끝 지점 | `execute as @p run function poke:tutorial/finish` |
-| 바이옴 포탈 | `execute as @p run function poke:portal/go {to:"forest"}` |
+| 바이옴 포탈 (지면 위로 착지) | `execute as @p run function poke:portal/go {to:"forest"}` |
 | 체육관 입구 | `execute as @p run function poke:gym/enter {id:1}` |
 | 체육관 출구 | `execute as @p run function poke:gym/leave` |
 
-- 첫 접속 → 튜토리얼 위치로 이동. 끝 지점에서 기본 물자(`kit.mcfunction`) 1회 지급 → 허브로 이동.
 - 체육관: 같은 번호의 체육관엔 한 명만. 도전자가 **나가기 / 로그아웃 / 사망**하면 자동으로 비워짐.
-- 테스트용 초기화: `/function poke:admin/reset_me` → 튜토리얼부터 다시.
+- 관리자: `/function poke:admin/reset_me` 내 진행 초기화(튜토리얼부터 다시), `/function poke:admin/rebuild` 방·마을·NPC 다시 짓기
 
 ## 친구 초대 (나중에)
 

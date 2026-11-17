@@ -8,8 +8,8 @@ if [ ! -f $W/server.jar ]; then
   curl -sfL -o $W/server.jar "$(curl -s "$meta" | python3 -c 'import json,sys;print(json.load(sys.stdin)["downloads"]["server"]["url"])')"
 fi
 rm -rf $W/world/datapacks/pokeserver && cp -r ../pack/world/datapacks/pokeserver $W/world/datapacks/
-# 바닐라엔 Cobblemon 아이템이 없어 키트만 바닐라 아이템으로 교체 (테스트가 빵 16개를 확인함)
-echo 'give @s minecraft:bread 16' > $W/world/datapacks/pokeserver/data/poke/function/kit.mcfunction
+# 바닐라엔 모드 명령(Cobblemon·CobbleDollars)이 없으므로 mod/ 함수만 비움
+for f in $W/world/datapacks/pokeserver/data/poke/function/mod/*.mcfunction; do echo 'return 0' > $f; done
 echo eula=true > $W/eula.txt
 printf 'online-mode=false\nenable-rcon=true\nrcon.password=test\nrcon.port=25576\nserver-port=25566\nlevel-type=minecraft\\:flat\n' > $W/server.properties
 [ -d node_modules ] || npm i --silent

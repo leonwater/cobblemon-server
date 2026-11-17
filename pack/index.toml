@@ -1,8 +1,30 @@
 hash-format = "sha256"
 
 [[files]]
+file = "config/cobbledollars/default_bank.json"
+hash = "fabb3a4028b6618f4fc1e1957368646920778da625141ac6c39284e879e9a894"
+
+[[files]]
+file = "config/cobbledollars/default_shop.json"
+hash = "79841608035b5d1bef1c633ca691ede254fef7f7d11ba83647b59784429b2595"
+
+[[files]]
+file = "config/explosionbreaksnoblock/explosionbreaksnoblock.json"
+hash = "82971dc5b250c08b6dd976ecf2e1b26bd88d8294290f9f18abfd79fa207a9645"
+
+[[files]]
+file = "mods/cobbledollars.pw.toml"
+hash = "b61d3783e85f963d6235bf86e0d09a3f9e0030634654b07327600ca6b939d627"
+metafile = true
+
+[[files]]
 file = "mods/cobblemon.pw.toml"
 hash = "7b456ba44d7ffde560f6a98edb9012fe17a8e47a74ff3701ec9026c07d5b2c62"
+metafile = true
+
+[[files]]
+file = "mods/explosion-breaks-no-block.pw.toml"
+hash = "495c5b661c5cd7a91f5d3bec371e00659c7a3d2d9adc70ce87c7fc8962993b99"
 metafile = true
 
 [[files]]
@@ -19,12 +41,40 @@ file = "world/datapacks/pokeserver/data/minecraft/tags/function/tick.json"
 hash = "a4f402a19e2899c6502f13e9cf4a5ea2e5428d7f5774168cd3ce3a5d5bfeb49f"
 
 [[files]]
+file = "world/datapacks/pokeserver/data/poke/dialogues/tutorial.json"
+hash = "bb874a37f7cce62859e993e39dfca08fa86a7d1e3b900c09e57811d2bf0e58eb"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/dimension/hub.json"
+hash = "7f2a0102d92e8ddb75d0cbf429d3a4578c5aac8dd615f057575a5eccf101efab"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/admin/rebuild.mcfunction"
+hash = "6405421edfc27123054da7cbafe2585e5e5d8c1c6de7149c0b642692f60fbc3e"
+
+[[files]]
 file = "world/datapacks/pokeserver/data/poke/function/admin/reset_me.mcfunction"
-hash = "dfb7d9efe9c220704d9e271dea3f6af75d7b1fdbf504e02b086a69619ee1dc4a"
+hash = "22ebdf1d43220bc2f3a804cc1e9e7c91117f3a33dc41ae17028d6f53848ef1be"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/build/run.mcfunction"
+hash = "21b0400d29f912a5382858cab6d95a78992a61607ab454ad3df6e2e0cd183000"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/build/start.mcfunction"
+hash = "5928252b5b4da02904f0b5f3998b20a3e271126f7137e1267f797fd7c065b290"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/build/tutorial.mcfunction"
+hash = "3ddbdb05b0ecb233dde008723c1722d9197bd7c6b8ebd94c65248f606c950ca7"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/build/village.mcfunction"
+hash = "e1b0f6d785fffaa235ec1cf566578b5967898ff3de20bfa4bfcf0a96ef7b4ec1"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/config.mcfunction"
-hash = "812804dbe328fbbb378761da51e134225317462e20ad43aa2960650540a5895a"
+hash = "189ae2a61c9a741e0102e13cc0231c706563ac4a8a4bb4534d4d8cc5f2a2949b"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/gym/enter.mcfunction"
@@ -32,43 +82,79 @@ hash = "16974e094f31d481bd39a1f70e69f9c29b3f30589375e328b620d2f8753cb06a"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/gym/leave.mcfunction"
-hash = "0e0447eee0fa88140084f380749b0e962bfd00d0f75e5d64f67603b41983197a"
+hash = "3e92d0f1bae5953b66326d40931a1032d9e268f9eb9d6eabba59c73b5a91a717"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/gym/release.mcfunction"
 hash = "f7970ff096c16414c6c83d810658057f49686ce36a29baac6445b54ca279e624"
 
 [[files]]
+file = "world/datapacks/pokeserver/data/poke/function/home.mcfunction"
+hash = "8040664a64ca94a4a83935b14406ba1d1eaccd4d42181cde51466caac322313c"
+
+[[files]]
 file = "world/datapacks/pokeserver/data/poke/function/join/first.mcfunction"
-hash = "6b901a4708b3c4ceb24284c4fccc96d04a40ba418d25c660a2ec9d9b164d1968"
+hash = "999b2ec8674124b38eb0c15eeb7ae1137397d4e5d375c14c39a4c580a32e698c"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/join/rejoin.mcfunction"
-hash = "bff5f26fb43db6ae5e59cf1b55ab05f71f32e1cd550b963086925e0925a4ac77"
+hash = "938acd12116cceace4c5b4621ca7831cce87b2e6d831c0bd1dac270dbfa248f5"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/kit.mcfunction"
-hash = "d253ca6ae28c30ec60e94f2777b6bb5a3def6476aa51b03713946111f2764893"
+hash = "a0807319268d2a1888436d01dbcd78a23c3677bf6a168a51868ccde3c76e8764"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/load.mcfunction"
-hash = "d94ebf775a00795155513b3aab9373e26a49a0f436a6ffed834b267c0e8fe85f"
+hash = "097cd77f4c267df7c0edec3a5bc7d6fa6178d1ff8187d701d02ea582fb9beb27"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/mod/kit.mcfunction"
+hash = "b9882f1ff2b4bc6c940080174b16d5c0a9b27b52db3661d07cea8e6fb9876049"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/mod/spawn_npcs.mcfunction"
+hash = "723fc2c72557eabd9d0ebc95ac34fcb11077da9a450a91f47f935ea9b60100ab"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/mod/spawn_tutor.mcfunction"
+hash = "76e0e99cdec1e81eadf2fe7f6e9154f78eb87e8fce2d5fc4fe570c68a06fd69f"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/portal/go.mcfunction"
-hash = "9f065ddfb224dac4e5c800b12654774227305f7daa86fd869accd30c9835f6d7"
+hash = "60369b73b6aa87b5aeba087c106a4e5efd3ebe63646ac452c78414a479b88a60"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/portal/land.mcfunction"
+hash = "1bd817ad7721e19ef86b19200a88a6689cc87f698825d74f7bf0cdc6ba810d96"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/tick.mcfunction"
-hash = "dc98d0d74c13ba51d19761dbe0e5d2b1a032fab2529e0fa9941c6dc7c3220d07"
+hash = "66e3240b9dacb9becac8d5ce381638fac5ecfb2f4fe9d42675d37089d88c48b2"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/tutorial/finish.mcfunction"
-hash = "56a527c1eafce0a6c351bdef7dc23b2ebf4eaca050355c81f28a99c53b7aff0a"
+hash = "e7d543165bd3ec2db667455ec4118daf8c3592c8ccaddf5ec3dc49536044b794"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/util/spawnpoint.mcfunction"
+hash = "e89a22b3bd5a0f2b7bfc946baf05dc750bd59f71016b02cdef378476fb6650fe"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/util/tp.mcfunction"
-hash = "0a37736e666bc8e768d3a5cdf2d3aaf52a38768b81bae6bbedf4a482a507823c"
+hash = "208f1eb986c9d5ec8e3874da03709b3b419225b79c3652c514db87ca1b291448"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/npcs/tutorial_guide.json"
+hash = "7403996cdb59628d0f5315a79107a1139e3011e42fb18ff7032715717069d805"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/predicate/has_saturation.json"
+hash = "f31ca89ae73413e704ab629d360567fb11665c77687288ade14ec6c4e5428811"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/tags/entity_type/blocked_mobs.json"
+hash = "ad095895da4d5f6d1db2d32be0e5b14f49549de79c9616e8bb4e229b926effa0"
 
 [[files]]
 file = "world/datapacks/pokeserver/pack.mcmeta"
