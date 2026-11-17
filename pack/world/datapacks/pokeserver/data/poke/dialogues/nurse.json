@@ -1,0 +1,93 @@
+{
+  "initializationAction": [
+    "c.npc.set_chatting();",
+    "v.healer = c.npc.find_nearby_block('cobblemon:healing_machine');",
+    "v.has_healer = v.healer != 0;",
+    "v.full_health = c.player.is_party_at_full_health();",
+    "v.has_charge = v.has_healer == true && v.full_health == false && q.player.can_heal_at_healer(v.healer) == true;",
+    "v.landing_page = !v.has_healer ? 'no_healer' : (v.full_health ? 'full_health' : (v.has_charge ? 'has_charge' : 'no_charge'));"
+  ],
+  "pages": [
+    {
+      "id": "greeting",
+      "speaker": "npc",
+      "textColor": "FFFFFF",
+      "lines": [
+        "포켓몬센터에 오신 것을 환영합니다!"
+      ],
+      "input": "q.dialogue.set_page(v.landing_page);"
+    },
+    {
+      "id": "no_healer",
+      "speaker": "npc",
+      "textColor": "FFFFFF",
+      "lines": [
+        "회복 장치가 보이지 않네요... 관리자에게 알려 주세요."
+      ],
+      "input": "q.dialogue.close();"
+    },
+    {
+      "id": "full_health",
+      "speaker": "npc",
+      "textColor": "FFFFFF",
+      "lines": [
+        "포켓몬들이 모두 건강하네요! 언제든 다시 오세요."
+      ],
+      "input": "q.dialogue.close();"
+    },
+    {
+      "id": "no_charge",
+      "speaker": "npc",
+      "textColor": "FFFFFF",
+      "lines": [
+        "지금은 회복 장치가 충전 중이에요. 잠시 후 다시 와 주세요."
+      ],
+      "input": "q.dialogue.close();"
+    },
+    {
+      "id": "has_charge",
+      "speaker": "npc",
+      "textColor": "FFFFFF",
+      "lines": [
+        "포켓몬을 회복시켜 드릴까요?"
+      ],
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "네",
+            "value": "yes",
+            "action": [
+              "c.npc.run_action_effect('npc_heal_player_pokemon');",
+              "q.dialogue.close();"
+            ]
+          },
+          {
+            "text": "아니요",
+            "value": "no",
+            "action": "q.dialogue.set_page('bye');"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bye",
+      "speaker": "npc",
+      "textColor": "FFFFFF",
+      "lines": [
+        "또 오세요!"
+      ],
+      "input": "q.dialogue.close();"
+    }
+  ],
+  "speakers": {
+    "npc": {
+      "face": "q.npc.face();",
+      "name": {
+        "type": "expression",
+        "expression": "q.npc.name"
+      }
+    }
+  }
+}
