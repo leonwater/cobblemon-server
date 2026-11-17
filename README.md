@@ -61,14 +61,48 @@ C:\pokeserver\
 
 ## 클라이언트 (플레이하는 PC)
 
-1. [Prism Launcher](https://prismlauncher.org/) 설치 → 새 인스턴스: Minecraft 1.21.1 + Fabric.
-2. `packwiz-installer-bootstrap.jar`를 인스턴스의 `minecraft` 폴더에 넣기.
-3. 인스턴스 설정 → 사용자 지정 명령 → 실행 전 명령:
+### 0. 인스턴스 확인
+[Prism Launcher](https://prismlauncher.org/)에서 인스턴스 **오른쪽 클릭 → Edit(편집) → Version(버전)**
+- `Minecraft 1.21.1`과 `Fabric Loader`가 둘 다 있으면 통과
+- Fabric이 없으면 오른쪽 **Install Fabric** 클릭
+
+### 1. 파일 하나 받기
+https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴리스의 **`packwiz-installer-bootstrap.jar`**
+
+### 2. 그 파일을 `minecraft` 폴더에 넣기
+1. 인스턴스 **오른쪽 클릭 → Folder(폴더)** → 탐색기가 열림
+2. 보이는 폴더들 중 **`minecraft`** 안으로 들어가기 (`.minecraft`일 수도 있음)
+   - 없으면 게임을 한 번 실행했다 끄면 생김
+3. 받은 파일을 **여기**에 넣기 (`instance.cfg`가 보이는 곳이 아니라 그 **안쪽** `minecraft` 폴더)
+4. 파일 이름이 정확히 `packwiz-installer-bootstrap.jar`인지 확인
+   - 두 번 받으면 `packwiz-installer-bootstrap (1).jar`처럼 바뀜 → 이름 고치기
+
+### 3. 실행 전 명령 넣기
+1. 인스턴스 **오른쪽 클릭 → Edit → Settings(설정)**
+2. **Custom commands(사용자 지정 명령)** 체크
+3. **Pre-launch command(실행 전 명령)** 칸에 아래 한 줄을 그대로 붙여넣기
    ```
-   "$INST_JAVA" -jar packwiz-installer-bootstrap.jar https://raw.githubusercontent.com/leonwater/cobblemon-server/main/pack/pack.toml
+   "$INST_JAVA" -jar "$INST_MC_DIR/packwiz-installer-bootstrap.jar" --bootstrap-main-jar "$INST_MC_DIR/packwiz-installer.jar" https://raw.githubusercontent.com/leonwater/cobblemon-server/main/pack/pack.toml
    ```
-4. 실행할 때마다 모드가 서버와 자동으로 맞춰집니다.
-   (인스턴스에 `world/datapacks` 폴더도 생기는데, 게임에 영향 없습니다.)
+4. 창 닫기 (자동 저장)
+
+### 4. 실행
+1. 오른쪽 위 **Accounts(계정) → Add Microsoft**로 로그인 (처음 한 번)
+2. 인스턴스 더블클릭 → 작은 다운로드 창이 잠깐 뜬 뒤 게임이 켜짐
+3. 타이틀 화면 **Mods**에 **Cobblemon**이 있으면 성공
+4. 이후엔 실행할 때마다 서버와 모드가 자동으로 맞춰짐
+
+### 5. 서버 접속
+서버(`start.bat`)를 켜둔 상태에서 **멀티플레이 → 서버 추가 → 주소 `localhost`**
+
+### 막힐 때
+
+| 증상 | 해결 |
+|---|---|
+| `Unable to access jarfile packwiz-installer-bootstrap.jar` | 파일이 `minecraft` 폴더 안에 없거나 이름이 다름 → 2단계 다시 확인. 3단계 명령이 위와 똑같은지 확인 |
+| 게임이 느리거나 꺼짐 | Edit → Settings → Java → 최대 메모리 4096MB 정도로 |
+| Java 오류 | 같은 Java 화면에서 Java 21 자동 감지/다운로드 |
+| 인스턴스에 `world/datapacks` 폴더가 생김 | 서버용 파일이라 게임엔 영향 없음 |
 
 ## 맵에 연결하기 (명령 블록)
 
