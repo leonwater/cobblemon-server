@@ -8,7 +8,8 @@ Minecraft 1.21.1 · Fabric 0.20.1 · Cobblemon 1.8.4
 |---|---|
 | `pack/` | 모드 목록 + 데이터팩 (packwiz). 서버·클라이언트가 실행할 때 여기서 자동으로 받아감 |
 | `pack/world/datapacks/pokeserver/` | 튜토리얼·시작 마을·NPC, 서버 규칙, 포탈, 체육관 1인 제한 |
-| `pack/config/` | 모드 설정 (상점 목록, 폭발 방지) |
+| `pack/config/` | 모드 설정 (상점 목록, 폭발 방지, 포켓몬 스폰 차원) |
+| `tools/` | 마을·농장 생성기(`build_world.py`), UI 생성기(`make_ui.py`) |
 | `pack/resourcepacks/pokeserver-ui/` | 어두운 반투명 UI (대화창·버튼). `tools/make_ui.py`로 생성 |
 | `server/` | 서버 실행 파일 (`start.bat`, `update.bat`) |
 | `tests/` | 데이터팩 로직 테스트 (봇 2명) |
@@ -111,10 +112,14 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
 
 ## 게임 흐름
 
-1. 첫 접속 → **튜토리얼 방**(별도 공간 `poke:hub`)에서 시작. 3칸 앞 **안내원 하늘** 우클릭 → 코블몬·서버 기초 안내
-2. 대화 끝 "준비 완료!" → **시작 마을**(원형 돌 바닥)로 이동 + 기본 물품: 5,000 CobbleDollars · 러닝 슈즈(이동 속도 +30%) · 몬스터볼 10개
-3. 마을 상인: **우클릭 = 구매, Shift+우클릭 = 판매**. 송금: `/cobbledollars pay 닉네임 금액`
-4. 어디서든 `/trigger home` → 시작 마을
+1. 첫 접속 → **튜토리얼 방**에서 시작. 3칸 앞 **안내원 하늘** 우클릭 → 코블몬·서버 기초 안내
+2. "준비 완료!" → **시작 마을** 정중앙. 기본 물품(5,000 CobbleDollars·러닝 슈즈·몬스터볼 10개)은 **처음 한 번만**
+3. 시작 마을 (원형 돌 바닥, 블록 파괴 불가)
+   - **북쪽 길 끝**: 상점(상인 우클릭 = 구매, Shift+우클릭 = 판매), 포켓몬센터(간호사 = 회복, PC)
+   - **동쪽 초록 발판 → 농장** (32×32 땅 16칸, 둘레 막힘)
+   - **서쪽 파란 발판 → 채집 맵** (끝없는 맵, 모든 바이옴이 256×256 칸으로 같은 넓이씩 반복)
+4. 농장·채집 맵은 **마지막으로 있던 곳**으로, 마을은 항상 **정중앙**으로 이동. 어디서든 `/trigger home` → 마을
+5. **포켓몬은 채집 맵에서만** 자연 스폰
 
 서버 규칙: 포켓몬 외 몬스터·동물 없음 · 배고픔 없음 · 죽어도 아이템 유지 · 폭발로 블록 안 부서짐
 
@@ -122,23 +127,22 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
 
 | 바꿀 것 | 파일 |
 |---|---|
-| 위치(튜토리얼·마을·포탈·체육관) | `pack/world/datapacks/pokeserver/data/poke/function/config.mcfunction` |
+| 마을·길·건물·농장 크기와 위치 | `tools/build_world.py` 수정 → 실행 → `load.mcfunction`의 `build:2`(농장은 `farm:1`) 숫자 +1 |
+| 튜토리얼·마을·농장 도착 위치, 체육관 | `pack/world/datapacks/pokeserver/data/poke/function/config.mcfunction` |
 | 기본 물품 | `.../function/kit.mcfunction`(러닝 슈즈), `.../function/mod/kit.mcfunction`(돈·몬스터볼) |
-| 안내원 대화 내용 | `.../data/poke/dialogues/tutorial.json` |
-| 상점 판매 목록·가격 | `pack/config/cobbledollars/default_shop.json` |
-| 상점 매입(판매) 목록 | `pack/config/cobbledollars/default_bank.json` |
-| 튜토리얼 방·마을 모양 | `.../function/build/` (수정 후 `load.mcfunction`의 `build:1` 숫자 +1) |
+| 안내원·간호사 대화 | `.../data/poke/dialogues/tutorial.json`, `nurse.json` |
+| 상점 판매 목록·가격 / 매입 목록 | `pack/config/cobbledollars/default_shop.json` / `default_bank.json` |
+| 포켓몬 스폰 금지 차원 | `pack/config/cobblemon/main.json`의 `worldSpawningBlocklist` |
 
-## 맵에 연결하기 (명령 블록)
+## 체육관 (명령 블록)
 
 | 용도 | 명령 블록 내용 (압력판과 함께) |
 |---|---|
-| 바이옴 포탈 (지면 위로 착지) | `execute as @p run function poke:portal/go {to:"forest"}` |
 | 체육관 입구 | `execute as @p run function poke:gym/enter {id:1}` |
 | 체육관 출구 | `execute as @p run function poke:gym/leave` |
 
-- 체육관: 같은 번호의 체육관엔 한 명만. 도전자가 **나가기 / 로그아웃 / 사망**하면 자동으로 비워짐.
-- 관리자: `/function poke:admin/reset_me` 내 진행 초기화(튜토리얼부터 다시), `/function poke:admin/rebuild` 방·마을·NPC 다시 짓기
+- 같은 번호의 체육관엔 한 명만. 도전자가 **나가기 / 로그아웃 / 사망**하면 자동으로 비워짐.
+- 관리자: `/function poke:admin/reset_me` 내 진행 초기화(튜토리얼부터, 보상은 다시 안 줌), `/function poke:admin/rebuild` 마을·NPC 다시 짓기
 
 ## 친구 초대 (나중에)
 

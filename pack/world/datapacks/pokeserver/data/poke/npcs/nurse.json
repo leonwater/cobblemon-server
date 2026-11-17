@@ -1,0 +1,15 @@
+{
+  "names": [
+    "간호사"
+  ],
+  "hitbox": "player",
+  "canDespawn": false,
+  "isInvulnerable": true,
+  "isMovable": false,
+  "isLeashable": false,
+  "allowProjectileHits": false,
+  "interaction": {
+    "type": "dialogue",
+    "dialogue": "poke:nurse"
+  }
+}
