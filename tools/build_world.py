@@ -15,7 +15,7 @@ HALL = (-14, 14, -9, 9)              # 회의장 x1,x2,z1,z2 (문은 북쪽)
 PLAZA = (-20, 20, -24, -10)          # 회의장 앞 광장 (분수)
 STREET = (-3, 3, -112, -25)          # 상점가 길 (남→북)
 MART = (-24, -8, -71, -55)           # 프렌들리 숍 (문은 동쪽, 길 쪽)
-CENTER_AT = (6, -68)                 # Cobblemon 포켓몬센터 구조물 놓는 곳 (10x14, 입구 서쪽)
+CENTER = (8, 24, -72, -52)           # 포켓몬센터 x1,x2,z1,z2 (문은 서쪽, 길 쪽)
 GYM_ROAD = (21, 91, -19, -15)        # 광장 → 체육관 길
 GYM = (92, 132, -40, 6)              # 체육관 (문은 서쪽)
 BOUNDS = (-40, 140, -125, 20)        # 마을 둘레 벽
@@ -63,6 +63,80 @@ def lamp(x, z):
 def walls(x1, x2, z1, z2, y1, y2, block):
     return [fill(x1, y1, z1, x2, y2, z1, block), fill(x1, y1, z2, x2, y2, z2, block),
             fill(x1, y1, z1, x1, y2, z2, block), fill(x2, y1, z1, x2, y2, z2, block)]
+
+
+def emblem(plane_x, cz, cy, r=3):
+    """원작풍 몬스터볼 엠블럼 (x 고정 벽면에, 지름 2r+1): 위 빨강, 가운데 검은 띠, 아래 흰색, 가운데 단추."""
+    L = []
+    for dz in range(-r, r + 1):
+        for dy in range(-r, r + 1):
+            d = math.hypot(dz, dy)
+            if d > r + 0.3:
+                continue
+            if d > r - 0.7:
+                b = 'black_concrete'
+            elif abs(dy) <= 0 or (abs(dy) <= 1 and abs(dz) <= 1):
+                b = 'white_concrete' if dz == 0 and dy == 0 else 'black_concrete'
+            else:
+                b = 'red_concrete' if dy > 0 else 'white_concrete'
+            L.append(sb(plane_x, cy + dy, cz + dz, 'minecraft:' + b))
+    return L
+
+
+def ball_statue(x, z):
+    """체육관 입구 석상: 받침대 위 몬스터볼."""
+    L = [fill(x - 1, G + 1, z - 1, x + 1, G + 1, z + 1, 'minecraft:polished_andesite'),
+         fill(x, G + 2, z, x, G + 2, z, 'minecraft:chiseled_stone_bricks'),
+         fill(x - 1, G + 3, z - 1, x + 1, G + 3, z + 1, 'minecraft:white_concrete'),
+         fill(x - 1, G + 4, z - 1, x + 1, G + 4, z + 1, 'minecraft:black_concrete'),
+         fill(x - 1, G + 5, z - 1, x + 1, G + 5, z + 1, 'minecraft:red_concrete'),
+         sb(x - 1, G + 4, z, 'minecraft:white_concrete')]
+    return L
+
+
+def center():
+    x1, x2, z1, z2 = CENTER
+    zm = (z1 + z2) // 2
+    top = G + 7
+    L = ['# ── 포켓몬센터 (원작풍): 흰 벽 + 빨간 지붕 + 몬스터볼 엠블럼 + 유리 자동문 (문은 서쪽) ──',
+         fill(x1 - 1, G, z1 - 1, x2 + 1, G, z2 + 1, 'minecraft:polished_andesite'),
+         fill(x1, G, z1, x2, G, z2, 'minecraft:smooth_quartz')]
+    L += walls(x1, x2, z1, z2, G + 1, G + 1, 'minecraft:red_concrete')
+    L += walls(x1, x2, z1, z2, G + 2, top, 'minecraft:white_concrete')
+    for z in (z1, z2):
+        for x in (x1, x2):
+            L.append(fill(x, G + 1, z, x, top, z, 'minecraft:quartz_pillar'))
+    for z in range(z1 + 3, z2 - 2, 4):                   # 옆·뒤 창문
+        L += [fill(x2, G + 3, z, x2, G + 5, z + 1, 'minecraft:light_blue_stained_glass_pane')]
+    for x in range(x1 + 3, x2 - 2, 4):
+        L += [fill(x, G + 3, z1, x + 1, G + 5, z1, 'minecraft:light_blue_stained_glass_pane'),
+              fill(x, G + 3, z2, x + 1, G + 5, z2, 'minecraft:light_blue_stained_glass_pane')]
+    # 정면: 유리 자동문 + 빨간 차양 + 간판 벽 + 몬스터볼 엠블럼
+    L += [fill(x1, G + 1, zm - 1, x1, G + 3, zm + 1, 'minecraft:air'),
+          fill(x1, G + 1, zm - 3, x1, G + 4, zm - 2, 'minecraft:light_blue_stained_glass_pane'),
+          fill(x1, G + 1, zm + 2, x1, G + 4, zm + 3, 'minecraft:light_blue_stained_glass_pane'),
+          fill(x1 - 1, G + 5, zm - 4, x1 - 1, G + 5, zm + 4, 'minecraft:red_concrete'),
+          fill(x1, top + 1, zm - 5, x1, top + 7, zm + 5, 'minecraft:white_concrete'),
+          fill(x1, top + 8, zm - 5, x1, top + 8, zm + 5, 'minecraft:red_concrete')]
+    L += emblem(x1 - 1, zm, top + 4)
+    L.append(label(x1 - 1.6, G + 6.6, zm + 0.5, '포켓몬센터', 'red', 1.6, sub='POKéMON CENTER'))
+    # 빨간 계단식 지붕 (흰 테두리)
+    L += [fill(x1 - 1, top + 1, z1 - 1, x2 + 1, top + 1, z2 + 1, 'minecraft:white_concrete'),
+          fill(x1, top + 1, z1, x2, top + 1, z2, 'minecraft:red_concrete'),
+          fill(x1 + 2, top + 2, z1 + 2, x2 - 1, top + 2, z2 - 2, 'minecraft:red_concrete'),
+          fill(x1 + 5, top + 3, z1 + 5, x2 - 3, top + 3, z2 - 5, 'minecraft:red_concrete')]
+    # 안: 붉은 카펫 통로, 접수대(간호사·회복 장치는 mod/build_town), 대기 의자, 화분, 조명
+    L += [fill(x1 + 1, G + 1, zm - 1, x2 - 6, G + 1, zm + 1, 'minecraft:red_carpet'),
+          fill(x2 - 5, G + 1, zm - 4, x2 - 5, G + 1, zm + 4, 'minecraft:quartz_block'),
+          fill(x2 - 4, G + 1, zm - 4, x2 - 2, G + 1, zm - 4, 'minecraft:quartz_block'),
+          fill(x2 - 4, G + 1, zm + 4, x2 - 2, G + 1, zm + 4, 'minecraft:quartz_block')]
+    for x in range(x1 + 3, x2 - 7, 2):
+        L += [sb(x, G + 1, z2 - 2, 'minecraft:red_terracotta'), sb(x, G + 1, z2 - 1, 'minecraft:white_carpet')]
+    L += [sb(x1 + 1, G + 1, z1 + 1, 'minecraft:potted_flowering_azalea_bush'), sb(x1 + 1, G + 1, z2 - 1, 'minecraft:potted_flowering_azalea_bush')]
+    for x in range(x1 + 3, x2 - 1, 5):
+        for z in range(z1 + 3, z2 - 1, 5):
+            L.append(sb(x, top, z, 'minecraft:sea_lantern'))
+    return L
 
 
 def hall():
@@ -159,10 +233,9 @@ def street():
     for i, z in enumerate(range(z2 - 2, z1 + 2, -3)):
         L += [sb(x1 - 1, G + 1, z, f'minecraft:{flowers[i % 6]}'), sb(x2 + 1, G + 1, z, f'minecraft:{flowers[(i + 3) % 6]}')]
     # 포켓몬센터·숍 앞 진입로
-    cx, cz = CENTER_AT
-    L += [fill(x2 + 1, G, cz + 6, cx + 2, G, cz + 7, 'minecraft:polished_andesite'),
-          fill(MART[1] + 1, G, -64, x1 - 1, G, -62, 'minecraft:polished_andesite'),
-          label(cx + 5.5, G + 13, cz + 7, '포켓몬센터', 'red', 2.0)]
+    cz = (CENTER[2] + CENTER[3]) // 2
+    L += [fill(x2 + 1, G, cz - 1, CENTER[0] - 1, G, cz + 1, 'minecraft:polished_andesite'),
+          fill(MART[1] + 1, G, -64, x1 - 1, G, -62, 'minecraft:polished_andesite')]
     return L
 
 
@@ -181,7 +254,10 @@ def mart():
           fill(x2, G + 1, zm - 1, x2, G + 3, zm + 1, 'minecraft:air'),                                  # 입구
           fill(x2, G + 5, z1, x2, G + 5, z2, 'minecraft:blue_concrete'),                                # 간판 띠
           fill(x2 + 1, G + 4, zm - 3, x2 + 1, G + 4, zm + 3, 'minecraft:blue_concrete'),                # 차양
-          label(x2 + 1.6, G + 6.6, zm + 0.5, '프렌들리 숍', 'white', 1.8, sub='POKé MART')]
+          fill(x2, G + 6, zm - 4, x2, G + 9, zm + 4, 'minecraft:blue_concrete'),                         # 원작풍 MART 간판 벽
+          fill(x2, G + 10, zm - 4, x2, G + 10, zm + 4, 'minecraft:light_blue_concrete'),
+          label(x2 + 0.6, G + 6.9, zm + 0.5, 'POKé MART', 'white', 2.2, bg=0),
+          label(x2 + 1.6, G + 4.4, zm + 0.5, '프렌들리 숍', 'aqua', 1.0)]
     for z in range(z1 + 3, z2 - 2, 4):                   # 옆 창문
         L += [fill(x1, G + 2, z, x1, G + 4, z + 1, 'minecraft:light_blue_stained_glass_pane')]
     for x in range(x1 + 3, x2 - 2, 4):
@@ -209,7 +285,7 @@ def gym():
     x1, x2, z1, z2 = GYM
     zm = (z1 + z2) // 2
     top = G + 8
-    L = ['# ── 체육관: 진회색 아래벽 + 밝은 위벽 + 석영 기둥 + 붉은 계단식 지붕 (문은 서쪽) ──',
+    L = ['# ── 체육관 (원작풍): 입구 석상 + 몬스터볼 엠블럼 + 주황 계단식 지붕 (문은 서쪽) ──',
          fill(x1 - 1, G, z1 - 1, x2 + 1, G, z2 + 1, 'minecraft:polished_andesite'),
          fill(x1, G, z1, x2, G, z2, 'minecraft:polished_andesite')]
     L += walls(x1, x2, z1, z2, G + 1, G + 2, 'minecraft:polished_deepslate')
@@ -222,12 +298,15 @@ def gym():
         L += [fill(x1, G + 1, z, x1, top, z, 'minecraft:quartz_pillar'), fill(x2, G + 1, z, x2, top, z, 'minecraft:quartz_pillar')]
     L += [fill(x1, G + 1, zm - 2, x1, G + 5, zm + 2, 'minecraft:air'),                         # 입구
           fill(x1 - 1, G + 6, zm - 3, x1 - 1, G + 6, zm + 3, 'minecraft:red_terracotta'),
-          label(x1 - 1.6, top + 3, zm + 0.5, '체육관', 'red', 3.0, sub='POKéMON GYM')]
+          fill(x1, top - 1, zm - 5, x1, top + 6, zm + 5, 'minecraft:light_gray_concrete'),
+          label(x1 - 1.6, G + 6.2, zm + 0.5, '체육관', 'gold', 2.0, sub='POKéMON GYM')]
+    L += emblem(x1 - 1, zm, top + 2, r=4)
+    L += ball_statue(x1 - 5, zm - 5) + ball_statue(x1 - 5, zm + 5)
     # 붉은 계단식 지붕
-    L += [fill(x1 - 1, top + 1, z1 - 1, x2 + 1, top + 1, z2 + 1, 'minecraft:red_nether_bricks'),
-          fill(x1, top + 1, z1, x2, top + 1, z2, 'minecraft:red_terracotta'),
-          fill(x1 + 3, top + 2, z1 + 3, x2 - 3, top + 2, z2 - 3, 'minecraft:red_terracotta'),
-          fill(x1 + 7, top + 3, z1 + 7, x2 - 7, top + 3, z2 - 7, 'minecraft:red_terracotta')]
+    L += [fill(x1 - 1, top + 1, z1 - 1, x2 + 1, top + 1, z2 + 1, 'minecraft:white_concrete'),
+          fill(x1, top + 1, z1, x2, top + 1, z2, 'minecraft:orange_terracotta'),
+          fill(x1 + 3, top + 2, z1 + 3, x2 - 3, top + 2, z2 - 3, 'minecraft:orange_terracotta'),
+          fill(x1 + 7, top + 3, z1 + 7, x2 - 7, top + 3, z2 - 7, 'minecraft:orange_terracotta')]
     # 안: 배틀 필드(잔디 + 흰 선 + 가운데 원), 관중석, 관장 단상
     ax1, ax2, az1, az2 = x1 + 8, x2 - 8, z1 + 9, z2 - 9
     L += [fill(ax1, G, az1, ax2, G, az2, 'minecraft:moss_block'),
@@ -262,7 +341,7 @@ def town():
          label(x1 + 2.5, G + 4, z2 + 1.5, '▶ 체육관', 'red', 1.5)]
     for x in range(x1 + 6, x2, 12):
         L += lamp(x, z1 - 1) + lamp(x, z2 + 1)
-    L += hall() + plaza() + street() + mart() + gym()
+    L += hall() + plaza() + street() + mart() + center() + gym()
     # 둘레 벽: 모험 모드라 못 올라가지만 높이 제한까지 막음 (fill 한 번 최대 32768칸)
     bx1, bx2, bz1, bz2 = BOUNDS
     for a in range(bx1, bx2 + 1, 80):
@@ -275,11 +354,14 @@ def town():
 
 
 def town_mod():
-    """Cobblemon 구조물·블록 (모드 전용)."""
-    cx, cz = CENTER_AT
-    L = ['# 자동 생성: tools/build_world.py. Cobblemon 공식 포켓몬센터·나무열매 정원',
-         f'place template cobblemon:village_plains/village_plains_pokecenter {cx} {G} {cz}',
-         fill(cx, G, cz, cx + 9, G + 10, cz + 13, 'minecraft:oak_planks', 'replace minecraft:jigsaw')]
+    """Cobblemon 블록: 포켓몬센터 회복 장치·PC, 나무열매 정원 (모드 전용)."""
+    x1, x2, z1, z2 = CENTER
+    zm = (z1 + z2) // 2
+    L = ['# 자동 생성: tools/build_world.py. Cobblemon 블록·나무열매 정원',
+         sb(x2 - 2, G + 1, zm - 2, 'cobblemon:healing_machine[facing=west,natural=false]'),
+         sb(x2 - 2, G + 1, zm + 2, 'cobblemon:healing_machine[facing=west,natural=false]')]
+    for z in (z1 + 2, z1 + 4):
+        L += [sb(x1 + 3, G + 1, z, 'cobblemon:pc[facing=south,part=bottom]'), sb(x1 + 3, G + 2, z, 'cobblemon:pc[facing=south,part=top]')]
     for i, (x, z) in enumerate(((-12, -45), (6, -45), (-12, -90), (8, -90))):
         L += [f'place template cobblemon:village_plains/plains_berry_{"large" if i % 2 else "small"} {x} {G} {z}',
               fill(x, G, z, x + 6, G + 7, z + 6, 'minecraft:grass_block', 'replace minecraft:jigsaw')]

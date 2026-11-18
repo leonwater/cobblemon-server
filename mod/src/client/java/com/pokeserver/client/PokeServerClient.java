@@ -26,6 +26,5 @@ public class PokeServerClient implements ClientModInitializer {
                 if (mc.player != null && mc.screen == null) ClientPlayNetworking.send(new Net.MenuAction("open"));
             }
         });
-        DevShot.register();
     }
 }

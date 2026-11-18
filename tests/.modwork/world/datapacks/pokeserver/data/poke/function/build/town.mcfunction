@@ -335,9 +335,8 @@ setblock -4 -59 -105 minecraft:cornflower
 setblock 4 -59 -105 minecraft:azure_bluet
 setblock -4 -59 -108 minecraft:allium
 setblock 4 -59 -108 minecraft:poppy
-fill 4 -60 -62 8 -60 -61 minecraft:polished_andesite
+fill 4 -60 -63 7 -60 -61 minecraft:polished_andesite
 fill -7 -60 -64 -4 -60 -62 minecraft:polished_andesite
-summon minecraft:text_display 11.5 -47 -61 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[2.0f,2.0f,2.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포켓몬센터","color":"red","bold":true,"extra":[""]}'}
 # ── 프렌들리 숍: 흰 벽 + 파란 계단식 지붕 + 유리 가게 앞 (문은 동쪽) ──
 fill -25 -60 -72 -7 -60 -54 minecraft:polished_andesite
 fill -24 -60 -71 -8 -60 -55 minecraft:smooth_quartz
@@ -357,7 +356,10 @@ fill -8 -58 -69 -8 -56 -57 minecraft:light_blue_stained_glass_pane
 fill -8 -59 -64 -8 -57 -62 minecraft:air
 fill -8 -55 -71 -8 -55 -55 minecraft:blue_concrete
 fill -7 -56 -66 -7 -56 -60 minecraft:blue_concrete
-summon minecraft:text_display -6.4 -53.4 -62.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.8f,1.8f,1.8f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"프렌들리 숍","color":"white","bold":true,"extra":[{"text":"\\nPOKé MART","color":"gray","bold":false}]}'}
+fill -8 -54 -67 -8 -51 -59 minecraft:blue_concrete
+fill -8 -50 -67 -8 -50 -59 minecraft:light_blue_concrete
+summon minecraft:text_display -7.4 -53.1 -62.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:0,transformation:{scale:[2.2f,2.2f,2.2f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"POKé MART","color":"white","bold":true,"extra":[""]}'}
+summon minecraft:text_display -6.4 -55.6 -62.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"프렌들리 숍","color":"aqua","bold":true,"extra":[""]}'}
 fill -24 -58 -68 -24 -56 -67 minecraft:light_blue_stained_glass_pane
 fill -24 -58 -64 -24 -56 -63 minecraft:light_blue_stained_glass_pane
 fill -24 -58 -60 -24 -56 -59 minecraft:light_blue_stained_glass_pane
@@ -387,7 +389,105 @@ setblock -16 -55 -58 minecraft:sea_lantern
 setblock -11 -55 -68 minecraft:sea_lantern
 setblock -11 -55 -63 minecraft:sea_lantern
 setblock -11 -55 -58 minecraft:sea_lantern
-# ── 체육관: 진회색 아래벽 + 밝은 위벽 + 석영 기둥 + 붉은 계단식 지붕 (문은 서쪽) ──
+# ── 포켓몬센터 (원작풍): 흰 벽 + 빨간 지붕 + 몬스터볼 엠블럼 + 유리 자동문 (문은 서쪽) ──
+fill 7 -60 -73 25 -60 -51 minecraft:polished_andesite
+fill 8 -60 -72 24 -60 -52 minecraft:smooth_quartz
+fill 8 -59 -72 24 -59 -72 minecraft:red_concrete
+fill 8 -59 -52 24 -59 -52 minecraft:red_concrete
+fill 8 -59 -72 8 -59 -52 minecraft:red_concrete
+fill 24 -59 -72 24 -59 -52 minecraft:red_concrete
+fill 8 -58 -72 24 -53 -72 minecraft:white_concrete
+fill 8 -58 -52 24 -53 -52 minecraft:white_concrete
+fill 8 -58 -72 8 -53 -52 minecraft:white_concrete
+fill 24 -58 -72 24 -53 -52 minecraft:white_concrete
+fill 8 -59 -72 8 -53 -72 minecraft:quartz_pillar
+fill 24 -59 -72 24 -53 -72 minecraft:quartz_pillar
+fill 8 -59 -52 8 -53 -52 minecraft:quartz_pillar
+fill 24 -59 -52 24 -53 -52 minecraft:quartz_pillar
+fill 24 -57 -69 24 -55 -68 minecraft:light_blue_stained_glass_pane
+fill 24 -57 -65 24 -55 -64 minecraft:light_blue_stained_glass_pane
+fill 24 -57 -61 24 -55 -60 minecraft:light_blue_stained_glass_pane
+fill 24 -57 -57 24 -55 -56 minecraft:light_blue_stained_glass_pane
+fill 11 -57 -72 12 -55 -72 minecraft:light_blue_stained_glass_pane
+fill 11 -57 -52 12 -55 -52 minecraft:light_blue_stained_glass_pane
+fill 15 -57 -72 16 -55 -72 minecraft:light_blue_stained_glass_pane
+fill 15 -57 -52 16 -55 -52 minecraft:light_blue_stained_glass_pane
+fill 19 -57 -72 20 -55 -72 minecraft:light_blue_stained_glass_pane
+fill 19 -57 -52 20 -55 -52 minecraft:light_blue_stained_glass_pane
+fill 8 -59 -63 8 -57 -61 minecraft:air
+fill 8 -59 -65 8 -56 -64 minecraft:light_blue_stained_glass_pane
+fill 8 -59 -60 8 -56 -59 minecraft:light_blue_stained_glass_pane
+fill 7 -55 -66 7 -55 -58 minecraft:red_concrete
+fill 8 -52 -67 8 -46 -57 minecraft:white_concrete
+fill 8 -45 -67 8 -45 -57 minecraft:red_concrete
+setblock 7 -50 -65 minecraft:black_concrete
+setblock 7 -49 -65 minecraft:black_concrete
+setblock 7 -48 -65 minecraft:black_concrete
+setblock 7 -51 -64 minecraft:black_concrete
+setblock 7 -50 -64 minecraft:white_concrete
+setblock 7 -49 -64 minecraft:black_concrete
+setblock 7 -48 -64 minecraft:red_concrete
+setblock 7 -47 -64 minecraft:black_concrete
+setblock 7 -52 -63 minecraft:black_concrete
+setblock 7 -51 -63 minecraft:white_concrete
+setblock 7 -50 -63 minecraft:black_concrete
+setblock 7 -49 -63 minecraft:black_concrete
+setblock 7 -48 -63 minecraft:black_concrete
+setblock 7 -47 -63 minecraft:red_concrete
+setblock 7 -46 -63 minecraft:black_concrete
+setblock 7 -52 -62 minecraft:black_concrete
+setblock 7 -51 -62 minecraft:white_concrete
+setblock 7 -50 -62 minecraft:black_concrete
+setblock 7 -49 -62 minecraft:white_concrete
+setblock 7 -48 -62 minecraft:black_concrete
+setblock 7 -47 -62 minecraft:red_concrete
+setblock 7 -46 -62 minecraft:black_concrete
+setblock 7 -52 -61 minecraft:black_concrete
+setblock 7 -51 -61 minecraft:white_concrete
+setblock 7 -50 -61 minecraft:black_concrete
+setblock 7 -49 -61 minecraft:black_concrete
+setblock 7 -48 -61 minecraft:black_concrete
+setblock 7 -47 -61 minecraft:red_concrete
+setblock 7 -46 -61 minecraft:black_concrete
+setblock 7 -51 -60 minecraft:black_concrete
+setblock 7 -50 -60 minecraft:white_concrete
+setblock 7 -49 -60 minecraft:black_concrete
+setblock 7 -48 -60 minecraft:red_concrete
+setblock 7 -47 -60 minecraft:black_concrete
+setblock 7 -50 -59 minecraft:black_concrete
+setblock 7 -49 -59 minecraft:black_concrete
+setblock 7 -48 -59 minecraft:black_concrete
+summon minecraft:text_display 6.4 -53.4 -61.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포켓몬센터","color":"red","bold":true,"extra":[{"text":"\\nPOKéMON CENTER","color":"gray","bold":false}]}'}
+fill 7 -52 -73 25 -52 -51 minecraft:white_concrete
+fill 8 -52 -72 24 -52 -52 minecraft:red_concrete
+fill 10 -51 -70 23 -51 -54 minecraft:red_concrete
+fill 13 -50 -67 21 -50 -57 minecraft:red_concrete
+fill 9 -59 -63 18 -59 -61 minecraft:red_carpet
+fill 19 -59 -66 19 -59 -58 minecraft:quartz_block
+fill 19 -58 -66 19 -58 -58 minecraft:smooth_quartz_slab
+fill 20 -59 -66 22 -59 -66 minecraft:quartz_block
+fill 20 -59 -58 22 -59 -58 minecraft:quartz_block
+setblock 11 -59 -54 minecraft:red_terracotta
+setblock 11 -59 -53 minecraft:white_carpet
+setblock 13 -59 -54 minecraft:red_terracotta
+setblock 13 -59 -53 minecraft:white_carpet
+setblock 15 -59 -54 minecraft:red_terracotta
+setblock 15 -59 -53 minecraft:white_carpet
+setblock 9 -59 -71 minecraft:potted_flowering_azalea_bush
+setblock 9 -59 -53 minecraft:potted_flowering_azalea_bush
+setblock 11 -53 -69 minecraft:sea_lantern
+setblock 11 -53 -64 minecraft:sea_lantern
+setblock 11 -53 -59 minecraft:sea_lantern
+setblock 11 -53 -54 minecraft:sea_lantern
+setblock 16 -53 -69 minecraft:sea_lantern
+setblock 16 -53 -64 minecraft:sea_lantern
+setblock 16 -53 -59 minecraft:sea_lantern
+setblock 16 -53 -54 minecraft:sea_lantern
+setblock 21 -53 -69 minecraft:sea_lantern
+setblock 21 -53 -64 minecraft:sea_lantern
+setblock 21 -53 -59 minecraft:sea_lantern
+setblock 21 -53 -54 minecraft:sea_lantern
+# ── 체육관 (원작풍): 입구 석상 + 몬스터볼 엠블럼 + 주황 계단식 지붕 (문은 서쪽) ──
 fill 91 -60 -41 133 -60 7 minecraft:polished_andesite
 fill 92 -60 -40 132 -60 6 minecraft:polished_andesite
 fill 92 -59 -40 132 -58 -40 minecraft:polished_deepslate
@@ -444,11 +544,85 @@ fill 92 -59 2 92 -52 2 minecraft:quartz_pillar
 fill 132 -59 2 132 -52 2 minecraft:quartz_pillar
 fill 92 -59 -19 92 -55 -15 minecraft:air
 fill 91 -54 -20 91 -54 -14 minecraft:red_terracotta
-summon minecraft:text_display 90.4 -49 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[3.0f,3.0f,3.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"체육관","color":"red","bold":true,"extra":[{"text":"\\nPOKéMON GYM","color":"gray","bold":false}]}'}
-fill 91 -51 -41 133 -51 7 minecraft:red_nether_bricks
-fill 92 -51 -40 132 -51 6 minecraft:red_terracotta
-fill 95 -50 -37 129 -50 3 minecraft:red_terracotta
-fill 99 -49 -33 125 -49 -1 minecraft:red_terracotta
+fill 92 -53 -22 92 -46 -12 minecraft:light_gray_concrete
+summon minecraft:text_display 90.4 -53.8 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[2.0f,2.0f,2.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"체육관","color":"gold","bold":true,"extra":[{"text":"\\nPOKéMON GYM","color":"gray","bold":false}]}'}
+setblock 91 -51 -21 minecraft:black_concrete
+setblock 91 -50 -21 minecraft:black_concrete
+setblock 91 -49 -21 minecraft:black_concrete
+setblock 91 -53 -20 minecraft:black_concrete
+setblock 91 -52 -20 minecraft:black_concrete
+setblock 91 -51 -20 minecraft:white_concrete
+setblock 91 -50 -20 minecraft:black_concrete
+setblock 91 -49 -20 minecraft:red_concrete
+setblock 91 -48 -20 minecraft:black_concrete
+setblock 91 -47 -20 minecraft:black_concrete
+setblock 91 -53 -19 minecraft:black_concrete
+setblock 91 -52 -19 minecraft:white_concrete
+setblock 91 -51 -19 minecraft:white_concrete
+setblock 91 -50 -19 minecraft:black_concrete
+setblock 91 -49 -19 minecraft:red_concrete
+setblock 91 -48 -19 minecraft:red_concrete
+setblock 91 -47 -19 minecraft:black_concrete
+setblock 91 -54 -18 minecraft:black_concrete
+setblock 91 -53 -18 minecraft:white_concrete
+setblock 91 -52 -18 minecraft:white_concrete
+setblock 91 -51 -18 minecraft:black_concrete
+setblock 91 -50 -18 minecraft:black_concrete
+setblock 91 -49 -18 minecraft:black_concrete
+setblock 91 -48 -18 minecraft:red_concrete
+setblock 91 -47 -18 minecraft:red_concrete
+setblock 91 -46 -18 minecraft:black_concrete
+setblock 91 -54 -17 minecraft:black_concrete
+setblock 91 -53 -17 minecraft:white_concrete
+setblock 91 -52 -17 minecraft:white_concrete
+setblock 91 -51 -17 minecraft:black_concrete
+setblock 91 -50 -17 minecraft:white_concrete
+setblock 91 -49 -17 minecraft:black_concrete
+setblock 91 -48 -17 minecraft:red_concrete
+setblock 91 -47 -17 minecraft:red_concrete
+setblock 91 -46 -17 minecraft:black_concrete
+setblock 91 -54 -16 minecraft:black_concrete
+setblock 91 -53 -16 minecraft:white_concrete
+setblock 91 -52 -16 minecraft:white_concrete
+setblock 91 -51 -16 minecraft:black_concrete
+setblock 91 -50 -16 minecraft:black_concrete
+setblock 91 -49 -16 minecraft:black_concrete
+setblock 91 -48 -16 minecraft:red_concrete
+setblock 91 -47 -16 minecraft:red_concrete
+setblock 91 -46 -16 minecraft:black_concrete
+setblock 91 -53 -15 minecraft:black_concrete
+setblock 91 -52 -15 minecraft:white_concrete
+setblock 91 -51 -15 minecraft:white_concrete
+setblock 91 -50 -15 minecraft:black_concrete
+setblock 91 -49 -15 minecraft:red_concrete
+setblock 91 -48 -15 minecraft:red_concrete
+setblock 91 -47 -15 minecraft:black_concrete
+setblock 91 -53 -14 minecraft:black_concrete
+setblock 91 -52 -14 minecraft:black_concrete
+setblock 91 -51 -14 minecraft:white_concrete
+setblock 91 -50 -14 minecraft:black_concrete
+setblock 91 -49 -14 minecraft:red_concrete
+setblock 91 -48 -14 minecraft:black_concrete
+setblock 91 -47 -14 minecraft:black_concrete
+setblock 91 -51 -13 minecraft:black_concrete
+setblock 91 -50 -13 minecraft:black_concrete
+setblock 91 -49 -13 minecraft:black_concrete
+fill 86 -59 -23 88 -59 -21 minecraft:polished_andesite
+fill 87 -58 -22 87 -58 -22 minecraft:chiseled_stone_bricks
+fill 86 -57 -23 88 -57 -21 minecraft:white_concrete
+fill 86 -56 -23 88 -56 -21 minecraft:black_concrete
+fill 86 -55 -23 88 -55 -21 minecraft:red_concrete
+setblock 86 -56 -22 minecraft:white_concrete
+fill 86 -59 -13 88 -59 -11 minecraft:polished_andesite
+fill 87 -58 -12 87 -58 -12 minecraft:chiseled_stone_bricks
+fill 86 -57 -13 88 -57 -11 minecraft:white_concrete
+fill 86 -56 -13 88 -56 -11 minecraft:black_concrete
+fill 86 -55 -13 88 -55 -11 minecraft:red_concrete
+setblock 86 -56 -12 minecraft:white_concrete
+fill 91 -51 -41 133 -51 7 minecraft:white_concrete
+fill 92 -51 -40 132 -51 6 minecraft:orange_terracotta
+fill 95 -50 -37 129 -50 3 minecraft:orange_terracotta
+fill 99 -49 -33 125 -49 -1 minecraft:orange_terracotta
 fill 100 -60 -31 124 -60 -3 minecraft:moss_block
 fill 100 -60 -31 124 -60 -31 minecraft:smooth_quartz
 fill 100 -60 -3 124 -60 -3 minecraft:smooth_quartz

@@ -3,7 +3,7 @@
 원본 텍스처(Cobblemon 대화창, 바닐라 버튼)를 jar에서 읽어 색만 바꿔 저장한다.
 색을 바꾸고 싶으면 아래 팔레트만 고치고 다시 실행.
 
-사용: python3 tools/make_ui.py <cobblemon.jar> <minecraft-1.21.1-client.jar> [preview.png]
+사용: python3 tools/make_ui.py <cobblemon.jar> <minecraft-1.21.1-client.jar>
 """
 import io, json, sys, zipfile
 from pathlib import Path
@@ -60,7 +60,7 @@ def shift_dark(im, border_white=False):
     return out
 
 
-def main(cobblemon_jar, client_jar, preview=None):
+def main(cobblemon_jar, client_jar):
     textures = {}
     with zipfile.ZipFile(cobblemon_jar) as z:
         for n in z.namelist():
@@ -80,37 +80,6 @@ def main(cobblemon_jar, client_jar, preview=None):
     for path, data in meta.items():
         (OUT / path).write_bytes(data)
     print(f'{len(textures)} textures -> {OUT}')
-    if preview:
-        make_preview(textures, preview)
-
-
-def make_preview(t, path):
-    """게임 화면 대략 미리보기 (GUI 배율 2 기준: 텍스처 1px = 2px, 글자 높이 8px = 16px)."""
-    from PIL import ImageDraw, ImageFont
-    S = 2
-    font = ImageFont.truetype('/usr/share/fonts/opentype/unifont/unifont.otf', 16)
-    W, H = 960, 540
-    bg = Image.new('RGBA', (W, H))
-    d = ImageDraw.Draw(bg)
-    for y in range(H):  # 하늘 → 풀밭 느낌 배경
-        d.line([(0, y), (W, y)], fill=mix((120, 170, 230), (80, 140, 70), y / H) + (255,))
-    up = lambda im: im.resize((im.width * S, im.height * S), Image.NEAREST)
-    box = up(t[DIALOGUE + 'dialogue_box.png'])
-    bx, by = (W - box.width) // 2, H - box.height - 70
-    bg.alpha_composite(box, (bx, by))
-    name = up(t[DIALOGUE + 'dialogue_name.png'])
-    bg.alpha_composite(name, (bx + 10, by - name.height + 4))
-    d = ImageDraw.Draw(bg)
-    d.text((bx + 18, by - name.height + 9), '안내원 하늘', font=font, fill='white')
-    d.text((bx + 14, by + 16), '어서 와! 나는 이 서버의 안내원 하늘이야.', font=font, fill='white')
-    d.text((bx + 14, by + 36), '모험을 떠나기 전에 꼭 알아야 할 것들을 알려줄게.', font=font, fill='white')
-    btn, hov = up(t[WIDGET + 'button.png']), up(t[WIDGET + 'button_highlighted.png'])
-    bg.alpha_composite(btn, (W // 2 - 410, H - 54))
-    bg.alpha_composite(hov, (W // 2 + 10, H - 54))
-    d.text((W // 2 - 245, H - 42), '다시 듣기', font=font, fill='white')
-    d.text((W // 2 + 170, H - 42), '준비 완료! (마우스 올림)', font=font, fill='white')
-    bg.convert('RGB').save(path)
-    print('preview ->', path)
 
 
 if __name__ == '__main__':

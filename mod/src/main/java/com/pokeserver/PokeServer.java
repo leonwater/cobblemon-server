@@ -43,6 +43,7 @@ public class PokeServer implements ModInitializer {
         ServerLifecycleEvents.SERVER_STARTED.register(server -> { Farms.load(); Shop.load(); Menu.load(); });
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             if (server.getTickCount() % 100 == 0) Farms.refreshLabels(server);
+            if (server.getTickCount() % 200 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.reapply(server);
         });
         // 상인(태그 poke.merchant)을 우클릭하면 상점 (Cobblemon NPC 스크립트 대신 직접 처리)
         net.fabricmc.fabric.api.event.player.UseEntityCallback.EVENT.register((player, level, hand, entity, hit) -> {
@@ -106,6 +107,17 @@ public class PokeServer implements ModInitializer {
                     targets.forEach(Shop::open);
                     return targets.size();
                 })))
+                // 7. NPC 스킨: /pokeserver npc skin poke.nurse <플레이어이름|이미지URL|reset>
+                .then(Commands.literal("npc").then(Commands.literal("skin")
+                        .then(Commands.argument("tag", com.mojang.brigadier.arguments.StringArgumentType.word())
+                                .then(Commands.argument("skin", com.mojang.brigadier.arguments.StringArgumentType.greedyString()).executes(c -> {
+                                    if (!net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) return 0;
+                                    String tag = com.mojang.brigadier.arguments.StringArgumentType.getString(c, "tag");
+                                    String skin = com.mojang.brigadier.arguments.StringArgumentType.getString(c, "skin");
+                                    int n = CobblemonHooks.setSkin(c.getSource().getServer(), tag, skin);
+                                    c.getSource().sendSuccess(() -> Component.literal("NPC 스킨 " + (skin.equals("reset") ? "기본으로" : "→ " + skin) + ": " + n + "명 (저장됨)"), true);
+                                    return n;
+                                })))))
                 .then(Commands.literal("menu").then(Commands.argument("targets", EntityArgument.players()).executes(c -> {
                     var targets = EntityArgument.getPlayers(c, "targets");
                     targets.forEach(p -> Menu.action(p, "open"));
