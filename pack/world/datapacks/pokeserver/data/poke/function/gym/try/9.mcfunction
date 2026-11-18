@@ -8,5 +8,5 @@ scoreboard players set @s poke.gym 9
 scoreboard players set @s poke.e4 0
 execute in poke:town run tp @s 3416.5 -59 -39.5 -90 0
 title @s title {"text":"사천왕","color":"gold"}
-title @s subtitle {"text":"첫 번째: 성호 (강철)","color":"white"}
+title @s subtitle {"text":"첫 번째: 성호 (호연 챔피언)","color":"white"}
 tellraw @s {"text":"사천왕 4명을 한 번에 모두 이겨야 클리어예요. 한 번이라도 지면 처음부터!","color":"gray"}

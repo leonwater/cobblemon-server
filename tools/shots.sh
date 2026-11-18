@@ -40,10 +40,13 @@ for (const line of fs.readFileSync(process.argv[1],"utf8").split("\n")) {
   if (k==="rcon") console.log(">",a,"→",(await r.send(a)).slice(0,160));
   else if (k==="wait") await new Promise(s=>setTimeout(s,+a));
   else if (k==="xdo") { execSync(`DISPLAY=:99 xdotool ${a}`); console.log("xdo",a) }
+  else if (k==="xdo2") { execSync(`DISPLAY=:100 xdotool ${a}`); console.log("xdo2",a) }
+  else if (k==="shot2") { execSync(`import -display :100 -window root ${process.argv[2]}/${a}.png`); console.log("shot2",a) }
+  else if (k==="player2") { execSync(`(Xvfb :100 -screen 0 1280x720x24 >/dev/null 2>&1 &); sleep 2; (DISPLAY=:100 python3 '$R'/tools/prod_client.py '$W'/client localhost:25565 ${a} > '$W'/client2.log 2>&1 &)`); console.log("player2",a) }
   else if (k==="shot") { execSync(`import -display :99 -window root ${process.argv[2]}/${a}.png`); console.log("shot",a) }
 }
 await r.send("stop"); r.end()})().catch(e=>{console.error("FAIL",e.message);process.exit(1)})' "$STEPS" "$OUT"
-kill $CL $XV 2>/dev/null; sleep 3; kill -9 $CL 2>/dev/null; true
+kill $CL $XV 2>/dev/null; pkill -f -- "--username [^D]" ; pkill -f "Xvfb :100"; sleep 3; kill -9 $CL 2>/dev/null; true
 # 서버가 stop 후 30초 안에 안 꺼지면 HANG 기록 후 강제 종료
 for i in $(seq 30); do pgrep -f fabric-server-launch.jar >/dev/null || exit 0; sleep 1; done
 echo "HANG server did not exit after stop"; pkill -9 -f fabric-server-launch.jar; true

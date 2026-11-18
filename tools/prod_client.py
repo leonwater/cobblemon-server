@@ -28,7 +28,7 @@ def maven_path(name):
     return f"{group.replace('.', '/')}/{art}/{ver}/{art}-{ver}.jar"
 
 
-def main(work, server):
+def main(work, server, user='Dev'):
     work = Path(work)
     idx = ASSETS / 'indexes'
     if not (idx / '17.json').exists():   # Loom은 1.21.1-17.json 이름으로 저장함
@@ -47,7 +47,7 @@ def main(work, server):
     fabric = get(f'https://meta.fabricmc.net/v2/versions/loader/{MC}/{LOADER}/profile/json')
     for lib in fabric['libraries']:
         cp.append(get(lib['url'].rstrip('/') + '/' + maven_path(lib['name']), libs / maven_path(lib['name'])))
-    game = work / 'game'
+    game = work / ('game' if user == 'Dev' else 'game-' + user)   # 두 번째 플레이어(교환 시험 등)는 따로
     (game / 'mods').mkdir(parents=True, exist_ok=True)
     for f in (ROOT / 'pack/mods').glob('*.pw.toml'):
         t = f.read_text()
@@ -62,8 +62,8 @@ def main(work, server):
     (game / 'options.txt').write_text('onboardAccessibility:false\nguiScale:2\nlang:ko_kr\nsoundCategory_master:0.0\n'
                                       'tutorialStep:none\njoinedFirstServer:true\nskipMultiplayerWarning:true\n')
     cmd = ['java', '-Xmx3G', '-cp', ':'.join(map(str, cp)), fabric['mainClass'],
-           '--username', 'Dev', '--version', MC, '--gameDir', str(game), '--assetsDir', str(ASSETS),
-           '--assetIndex', vjson['assetIndex']['id'], '--uuid', '00000000000000000000000000000001', '--accessToken', '0',
+           '--username', user, '--version', MC, '--gameDir', str(game), '--assetsDir', str(ASSETS),
+           '--assetIndex', vjson['assetIndex']['id'], '--uuid', '0000000000000000000000000000000' + ('1' if user == 'Dev' else '2'), '--accessToken', '0',
            '--userType', 'legacy', '--versionType', 'release', '--width', '1280', '--height', '720',
            '--quickPlayMultiplayer', server]
     env = dict(os.environ, LIBGL_ALWAYS_SOFTWARE='1')

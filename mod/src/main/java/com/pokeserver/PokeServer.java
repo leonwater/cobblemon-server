@@ -51,12 +51,17 @@ public class PokeServer implements ModInitializer {
             if (server.getTickCount() % 200 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.reapply(server);
         });
         // 상인(poke.merchant) → 상점, 체육관 안내원(poke.gymguide) → 도전 목록 (Cobblemon NPC 스크립트 대신 직접 처리)
+        // 교환 장치(poke.trade) → 두 사람이 차례로 우클릭하면 Cobblemon 교환
         net.fabricmc.fabric.api.event.player.UseEntityCallback.EVENT.register((player, level, hand, entity, hit) -> {
-            if (level.isClientSide() || hit != null) return net.minecraft.world.InteractionResult.PASS;
-            if (entity.getTags().contains("poke.merchant")) Shop.open((ServerPlayer) player);
-            else if (entity.getTags().contains("poke.gymguide")) Gym.open((ServerPlayer) player);
-            else return net.minecraft.world.InteractionResult.PASS;
-            return net.minecraft.world.InteractionResult.SUCCESS;
+            var tags = entity.getTags();
+            if (level.isClientSide() || !(tags.contains("poke.merchant") || tags.contains("poke.gymguide") || tags.contains("poke.trade")))
+                return net.minecraft.world.InteractionResult.PASS;
+            if (hit == null && hand == net.minecraft.world.InteractionHand.MAIN_HAND) {   // 우클릭 한 번에 한 번만
+                if (tags.contains("poke.merchant")) Shop.open((ServerPlayer) player);
+                else if (tags.contains("poke.gymguide")) Gym.open((ServerPlayer) player);
+                else if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.trade((ServerPlayer) player, entity);
+            }
+            return net.minecraft.world.InteractionResult.SUCCESS;   // 땅 보호 알림이 뜨지 않게 우리 NPC·장치는 여기서 끝냄
         });
         Protection.register();
         CommandRegistrationCallback.EVENT.register((dispatcher, registries, env) -> {

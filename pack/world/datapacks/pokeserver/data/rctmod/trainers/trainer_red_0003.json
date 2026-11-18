@@ -18,63 +18,63 @@
  ],
  "team": [
   {
-   "species": "pidgeot",
-   "level": 98,
+   "species": "pikachu",
+   "level": 96,
    "moveset": [
-    "hurricane",
-    "heatwave",
-    "uturn",
-    "roost"
+    "volttackle",
+    "irontail",
+    "quickattack",
+    "thunderbolt"
    ]
   },
   {
-   "species": "aerodactyl",
-   "level": 98,
+   "species": "espeon",
+   "level": 97,
    "moveset": [
-    "stoneedge",
-    "earthquake",
-    "aerialace",
-    "icefang"
-   ]
-  },
-  {
-   "species": "staraptor",
-   "level": 99,
-   "moveset": [
-    "bravebird",
-    "closecombat",
-    "doubleedge",
-    "uturn"
-   ]
-  },
-  {
-   "species": "togekiss",
-   "level": 99,
-   "moveset": [
-    "airslash",
-    "aurasphere",
+    "psychic",
+    "shadowball",
     "dazzlinggleam",
-    "thunderwave"
+    "morningsun"
    ]
   },
   {
-   "species": "braviary",
-   "level": 99,
+   "species": "venusaur",
+   "level": 97,
    "moveset": [
-    "bravebird",
-    "superpower",
-    "rockslide",
-    "bulkup"
+    "solarbeam",
+    "sludgebomb",
+    "earthquake",
+    "sleeppowder"
+   ]
+  },
+  {
+   "species": "blastoise",
+   "level": 98,
+   "moveset": [
+    "hydropump",
+    "icebeam",
+    "flashcannon",
+    "aurasphere"
    ]
   },
   {
    "species": "charizard",
-   "level": 100,
+   "level": 99,
    "moveset": [
     "flareblitz",
     "airslash",
     "dragonpulse",
     "solarbeam"
+   ]
+  },
+  {
+   "species": "snorlax",
+   "level": 100,
+   "moveset": [
+    "bodyslam",
+    "crunch",
+    "rest",
+    "sleeptalk"
    ]
   }
  ]
