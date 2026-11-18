@@ -1,0 +1,13 @@
+{
+  "name": "poke:tip_nature",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "layers": [],
+      "model": "cobblemon:steve.geo",
+      "poser": "cobblemon:standard",
+      "texture": "rctmod:textures/trainers/single/lady_melissa_032c.png"
+    }
+  ]
+}

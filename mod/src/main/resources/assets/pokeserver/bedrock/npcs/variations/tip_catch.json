@@ -1,0 +1,13 @@
+{
+  "name": "poke:tip_catch",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "layers": [],
+      "model": "cobblemon:steve.geo",
+      "poser": "cobblemon:standard",
+      "texture": "rctmod:textures/trainers/single/hiker_theodore_043a.png"
+    }
+  ]
+}

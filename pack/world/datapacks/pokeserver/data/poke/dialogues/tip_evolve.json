@@ -1,0 +1,56 @@
+{
+  "speakers": {
+    "npc": {
+      "face": "q.npc.face();",
+      "name": {
+        "type": "expression",
+        "expression": "q.npc.name"
+      }
+    }
+  },
+  "pages": [
+    {
+      "id": "p0",
+      "speaker": "npc",
+      "lines": [
+        "진화하는 방법은 여러 가지라네.",
+        "레벨을 올리거나, 진화의 돌을 쓰거나, 친밀도를 높이거나, 교환하는 식이지."
+      ],
+      "textColor": "FFFFFF"
+    },
+    {
+      "id": "p1",
+      "speaker": "npc",
+      "lines": [
+        "진화할 수 있게 되면 알림이 뜨고,",
+        "상태창에서 진화를 눌러야 진화한다네. 원하지 않으면 미뤄도 되지."
+      ],
+      "textColor": "FFFFFF"
+    },
+    {
+      "id": "p2",
+      "speaker": "npc",
+      "lines": [
+        "\"변함없는돌\"을 들려 두면 진화하지 않는다네.",
+        "진화 전 모습이 좋다면 써 보게."
+      ],
+      "textColor": "FFFFFF",
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "고마워요!",
+            "value": "bye",
+            "action": "q.dialogue.close();"
+          },
+          {
+            "text": "처음부터 다시",
+            "value": "again",
+            "action": "q.dialogue.set_page('p0');"
+          }
+        ]
+      }
+    }
+  ]
+}

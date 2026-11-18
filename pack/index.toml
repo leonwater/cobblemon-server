@@ -69,7 +69,7 @@ metafile = true
 
 [[files]]
 file = "mods/pokeserver-0.1.0.jar"
-hash = "551eef931153db71ac5a3b7ab883a7a68ee6adb966211f9a0089780a3b644355"
+hash = "b4baabfe3bbd873e2fe7be8f27bf73874db9bb8cc9a4ec8b506f06b7ec2ba86f"
 
 [[files]]
 file = "mods/rctapi.pw.toml"
@@ -102,6 +102,50 @@ hash = "a4f402a19e2899c6502f13e9cf4a5ea2e5428d7f5774168cd3ce3a5d5bfeb49f"
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/dialogues/nurse.json"
 hash = "5717e710cee2e276fd4c57bd6377a7807cb99dff24af42a65d2fe6eda20aadab"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/dialogues/tip_cap.json"
+hash = "87f49b09327072de52f557b2f531d77402c8eec100a12b97f60ca9997176b01d"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/dialogues/tip_catch.json"
+hash = "0b7805154aba1ec2a3ed7002ff3ef896c42fda9244311b47aa8db17a01a1fcec"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/dialogues/tip_ev.json"
+hash = "79816bcc84cf7d56c9fa9813ca72e86866f624271e97154114171ed8d5d6aa45"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/dialogues/tip_evolve.json"
+hash = "33bd4bbc30648de1a86f6bbaa44bbd817474efecb9387411581dc3db79291366"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/dialogues/tip_items.json"
+hash = "17f3efa25b488a196c6148e3d9bd98201b91ac48a0e813e20fa4034db7a9e758"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/dialogues/tip_iv.json"
+hash = "752bc5eaed99c4e5bb97f8862a4cb60fccf64fc68ff72cd55a11d65e34856768"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/dialogues/tip_mint.json"
+hash = "9a8e7eede9e665b2ca022640ffdeb152dfea38267cef75e2ae773d7f82dbb6d1"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/dialogues/tip_moves.json"
+hash = "71bf3f8f3cbc778daf30f5a4f29c345daf891ac25c5e81a592d3352fadbc3df0"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/dialogues/tip_nature.json"
+hash = "7c057ab167c3252983ebd6e8f3f0a24707d0293c109e4f20b26aaceabdd7162f"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/dialogues/tip_stab.json"
+hash = "b5489b1b51b9ace48eed0d7840f9ca01d75037e2674f0bdf8963f356e2aee01b"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/dialogues/tip_types.json"
+hash = "4d8d0bb0c7446b289a10ef010647fbef9aa85cd76e9214f6edcdf800ce450c90"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/dialogues/tutorial.json"
@@ -149,7 +193,7 @@ hash = "9b4aac41b2ea63cf4c4e7227512823670b65ad3e04fd3f7ffa4ee94715827d10"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/finish.mcfunction"
-hash = "42706ee52c8cb7a4646d2c895926c3298986fd0963e7108641c9a107f8a3e2df"
+hash = "dc029207a2a894dbfd4fa6c289e073984c02c5a663d71c152742c6a5c3167758"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/run.mcfunction"
@@ -185,7 +229,7 @@ hash = "5922f334d61bad7b03c5bdc9f06f71658af498cc00870f6ba8e475372fc0fed7"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/town.mcfunction"
-hash = "1897b4f17583cdcacc08b1a07f23cbdb0c02f53380698300ce7a7248b8d2a501"
+hash = "0aedac2a5e76827258f4723a6ced5c79bbeabf68174110e04c29fe7ef6c56874"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/tutorial.mcfunction"
@@ -357,7 +401,7 @@ hash = "00eaf422f3aab81529b4b331f7c9d785ec5b468b7df85f18da141eb09474a7e5"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/load.mcfunction"
-hash = "8a9a0e579ea015e910554d82ad788fe5cc77a73f4fb8353d2372ea42fa56dc70"
+hash = "3a8b937dc4cdc5819d601657b863ff6034ce12d169015b7b32709ae6ecf67a18"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/build_town.mcfunction"
@@ -373,11 +417,11 @@ hash = "8af8a6dc616e6150f16c752a26c6b6a4be3f0fdc09765bdd7ea0f3e97968e7d0"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/spawn_npc.mcfunction"
-hash = "96356492164961299eb9c9d2c515cead6886fe862b09665e6461aafee41096ce"
+hash = "a9b407dc5e1e3753b13e5364db040f17c0e3defaaaf3369c54aa7c39fe5715e1"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/spawn_npcs.mcfunction"
-hash = "28e1e9db92e754c387dfd81e7e25be63dd11b1afc4afffb9bf55374df4d26034"
+hash = "7575c845c90a177738c68ba98e2fdaeba0150f35c58277fe35b3986a58220074"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/tick.mcfunction"
@@ -458,6 +502,50 @@ hash = "002e68849fad8aec68f9a9211677f8b20c6bdfcae33e28eb6a5446e039c3ef19"
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/npcs/nurse.json"
 hash = "b327ee7c1ee6e32a6f4ee2bdf696ae8bc31414b913b9dd15149e5705fa0d3ec4"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/npcs/tip_cap.json"
+hash = "827937dfe524cab9de4482bac17be8a2322722a48375f36d2a1c5ca406944ecc"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/npcs/tip_catch.json"
+hash = "7dc4eb9a022b90c9ec35ac79af5baa00e6d5af0002508602c6978caed1ca8852"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/npcs/tip_ev.json"
+hash = "f00d09d5e0d2341072d9f9bde951abceb0c5f720a843e946d282040265f23e12"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/npcs/tip_evolve.json"
+hash = "5f0d1a780c95a3346f6cc160e22a25bfbbd45407cec5e00bc83e593e734f0a73"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/npcs/tip_items.json"
+hash = "15ff494fe9dbe8d9b53d4a13c60b7553f66c631d30213a9ebea3cc3080699ae3"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/npcs/tip_iv.json"
+hash = "e6150fe88f72fb02bd71dec4d27fdc6557691525d5e9eb9d00827f76722c117c"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/npcs/tip_mint.json"
+hash = "5a25a4109494df040926763c815fd75f22ab35622d41e6d10ea7547be4a68d01"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/npcs/tip_moves.json"
+hash = "d3cf01094fd46485b00d740ca0014fcbca08b49270527bea927a9dd91bde07bb"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/npcs/tip_nature.json"
+hash = "78a106a1d8cfa02ebf861dd0c52e1ed6d52db5476da8c7d742f7b898d39ae3d0"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/npcs/tip_stab.json"
+hash = "17a446ced9a940ebce917064385b4496d95309005a85e28df93e84e76945c7e3"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/npcs/tip_types.json"
+hash = "b92fc2c6bbc8e42877ac083bd053f7f07853339f92f679297caf66b56dce7251"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/npcs/tutorial_guide.json"

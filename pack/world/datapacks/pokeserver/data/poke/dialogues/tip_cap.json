@@ -1,0 +1,56 @@
+{
+  "speakers": {
+    "npc": {
+      "face": "q.npc.face();",
+      "name": {
+        "type": "expression",
+        "expression": "q.npc.name"
+      }
+    }
+  },
+  "pages": [
+    {
+      "id": "p0",
+      "speaker": "npc",
+      "lines": [
+        "포켓몬은 \"레벨 제한\"보다 높게 키울 수 없어.",
+        "처음엔 20, 체육관을 이길 때마다 10씩 올라가!"
+      ],
+      "textColor": "FFFFFF"
+    },
+    {
+      "id": "p1",
+      "speaker": "npc",
+      "lines": [
+        "지금 내 레벨 제한은 G 키 메인 메뉴 위쪽에서 볼 수 있어.",
+        "관장의 권장 레벨도 레벨 제한과 같아."
+      ],
+      "textColor": "FFFFFF"
+    },
+    {
+      "id": "p2",
+      "speaker": "npc",
+      "lines": [
+        "경험치 사탕을 먹이면 배틀 없이도 경험치를 얻을 수 있어.",
+        "야생 첫 스폰 근처는 15레벨 이하라 처음 키우기 좋아!"
+      ],
+      "textColor": "FFFFFF",
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "고마워요!",
+            "value": "bye",
+            "action": "q.dialogue.close();"
+          },
+          {
+            "text": "처음부터 다시",
+            "value": "again",
+            "action": "q.dialogue.set_page('p0');"
+          }
+        ]
+      }
+    }
+  ]
+}

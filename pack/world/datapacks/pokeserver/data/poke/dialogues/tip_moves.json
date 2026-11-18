@@ -1,0 +1,47 @@
+{
+  "speakers": {
+    "npc": {
+      "face": "q.npc.face();",
+      "name": {
+        "type": "expression",
+        "expression": "q.npc.name"
+      }
+    }
+  },
+  "pages": [
+    {
+      "id": "p0",
+      "speaker": "npc",
+      "lines": [
+        "포켓몬은 레벨이 오르면 새 기술을 배워! 한 번에 4개까지 쓸 수 있지.",
+        "상태창(M 키)의 기술 쪽에서 언제든 바꿔 낄 수 있다."
+      ],
+      "textColor": "FFFFFF"
+    },
+    {
+      "id": "p1",
+      "speaker": "npc",
+      "lines": [
+        "예전에 배운 기술도 그 목록에서 다시 고를 수 있어.",
+        "상대 타입에 맞춰 기술을 바꿔 가며 싸워라!"
+      ],
+      "textColor": "FFFFFF",
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "고마워요!",
+            "value": "bye",
+            "action": "q.dialogue.close();"
+          },
+          {
+            "text": "처음부터 다시",
+            "value": "again",
+            "action": "q.dialogue.set_page('p0');"
+          }
+        ]
+      }
+    }
+  ]
+}

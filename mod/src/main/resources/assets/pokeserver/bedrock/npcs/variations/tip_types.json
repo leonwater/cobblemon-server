@@ -1,0 +1,13 @@
+{
+  "name": "poke:tip_types",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "layers": [],
+      "model": "cobblemon:steve.geo",
+      "poser": "cobblemon:standard",
+      "texture": "rctmod:textures/trainers/single/psychic_abigail_0345.png"
+    }
+  ]
+}

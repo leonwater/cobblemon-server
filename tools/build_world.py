@@ -13,6 +13,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import terrain  # noqa: E402
+import tips  # noqa: E402
 
 FN = Path(__file__).resolve().parent.parent / 'pack/world/datapacks/pokeserver/data/poke/function'
 
@@ -22,6 +23,8 @@ G = -60
 HALL_PLAY = (-66, 66, -122, 34)      # 스폰 광장 + 회의장 섬
 HALL = (-15, 15, -10, 12)            # 회의장 본관 (문은 북쪽, 앞에 기둥 현관)
 PLAZA_C, PLAZA_R = (0, -54), 26      # 서버 스폰 광장 (원형)
+CITY_SHOPS = [(-46, -34, -72, -60, 'e'), (-46, -34, -48, -36, 'e'), (34, 46, -72, -60, 'w'), (34, 46, -48, -36, 'w')]   # 광장 둘레 상가 (문 방향)
+PAGODAS = [(-30, -18, -98, -88), (18, 30, -98, -88)]                  # 북쪽 동양풍 건물 (문은 남쪽)
 SHOP_PLAY = (944, 1056, -58, 58)     # 상점가 섬
 MART = (962, 984, -10, 10)           # 프렌들리 숍 (문은 동쪽, 광장 쪽)
 CENTER = (1012, 1034, -11, 11)       # 포켓몬센터 (문은 서쪽, 광장 쪽, 2층 발코니)
@@ -34,9 +37,32 @@ E4 = (3500, 3540, -46, 12)           # 사천왕 본부 (닫힌 방 4개 + 명�
 WARPS = {'hall': (0.5, G + 2, PLAZA_C[1] + 0.5, 0), 'street': (1000.5, G + 1, 30.5, 180), 'gym': (2000.5, LOBBY_Y + 1, -11.5, 0)}
 NPCS = [  # (NPC 종류, 차원, x, y, z, 태그, yaw, 이름표)
     ('poke:nurse', 'poke:town', CENTER[1] - 3, G + 1, 0, 'poke.nurse', 90, ('간호사', '우클릭 → 포켓몬 회복')),
-    ('poke:merchant', 'poke:town', MART[0] + 5, G + 1, MART[2] + 3, 'poke.merchant', 0, ('점원', '우클릭 → 상점')),
+    ('poke:merchant', 'poke:town', MART[1] - 4, G + 1, -3, 'poke.merchant', -90, ('점원', '우클릭 → 상점')),
+    ('poke:merchant', 'poke:town', MART[1] - 4, G + 1, 3, 'poke.merchant', -90, ('점원', '우클릭 → 상점')),
     ('poke:gym_guide', 'poke:town', 2000, LOBBY_Y + 1, 12, 'poke.gymguide', 180, ('체육관 안내원', '우클릭 → 도전 신청')),
 ]
+
+
+def tip_npcs():
+    """광장 건물 안 포켓몬 상식 NPC 자리: 상가는 안쪽 벽 앞에서 문을 바라보고, 동양풍 건물은 남쪽 문을 바라봄."""
+    out = []
+    homes = dict(zip(('academy', 'nature', 'types', 'catch'), CITY_SHOPS))
+    homes.update(zip(('evolve', 'dojo'), PAGODAS))
+    for key, home in homes.items():
+        mine = [t for t in tips.TIPS if t[1] == key]
+        for k, (tid, _b, name, role, _skin, _pages) in enumerate(mine):
+            if len(home) == 5:
+                x1, x2, z1, z2, door = home
+                zm = (z1 + z2) // 2
+                x, y, z, yaw = (x1 + 3 if door == 'e' else x2 - 3), G + 1, zm + (-2 if k == 0 else 2), (-90 if door == 'e' else 90)
+            else:
+                x1, x2, z1, z2 = home
+                x, y, z, yaw = (x1 + x2) // 2 + (-2 if k == 0 else 2), G + 2, z1 + 3, 0
+            out.append((f'poke:tip_{tid}', 'poke:town', x, y, z, f'poke.tip_{tid}', yaw, (name, f'{role} · 우클릭')))
+    return out
+
+
+NPCS += tip_npcs()
 BADGE_BLOCK = ['gray', 'blue', 'orange', 'lime', 'pink', 'yellow', 'red', 'green']
 E4_THEME = ['iron_block', 'purpur_block', 'blackstone', 'light_blue_concrete']
 # 체육관 타입별 경기장 팔레트: 이름, 필드, 벽, 벽 아래 띠, 천장 색, 천장 조명, 관중석, 상징(주색, 보조색)
@@ -280,6 +306,7 @@ def hall():
         L.append(sb(x, G + 5, z2 - 1, 'minecraft:red_wall_banner[facing=north]'))
     for xx in (x1 + 1, x2 - 1):
         L += [fill(xx, G + 1, z1 + 2, xx, G + 2, z1 + 5, 'minecraft:bookshelf'), fill(xx, G + 1, z2 - 5, xx, G + 2, z2 - 2, 'minecraft:bookshelf')]
+    L += glow(x1, x2, z1, z2, G + 4)
     return L
 
 
@@ -296,6 +323,11 @@ def island_walls(play, name):
         L += [fill(x1, G + 1, a, x1, 319, b, 'minecraft:barrier', 'replace minecraft:air'),
               fill(x2, G + 1, a, x2, 319, b, 'minecraft:barrier', 'replace minecraft:air')]
     return L
+
+
+def glow(x1, x2, z1, z2, y, step=4):
+    """실내를 밝게: 보이지 않는 빛 블록(밝기 15)을 격자로. 모험 모드라 부수거나 바꿀 수 없음."""
+    return [sb(x, y, z, 'minecraft:light[level=15]') for x in range(x1 + 2, x2 - 1, step) for z in range(z1 + 2, z2 - 1, step)]
 
 
 def stone_lantern(x, z, y=None):
@@ -319,7 +351,7 @@ def city_shop(x1, x2, z1, z2, door, name):
     out = 1 if door == 'e' else -1
     zm = (z1 + z2) // 2
     L += [fill(fx, G + 3, z1 + 2, fx, G + 5, z2 - 2, 'minecraft:light_blue_stained_glass_pane'),
-          fill(fx, G + 1, zm - 1, fx, G + 3, zm + 1, 'minecraft:light_blue_stained_glass'),             # 유리 문 (장식)
+          fill(fx, G + 1, zm - 1, fx, G + 3, zm + 1, 'minecraft:air'),                                   # 열린 문
           fill(fx + out, G + 4, zm - 3, fx + out, G + 4, zm + 3, 'minecraft:blue_concrete'),           # 차양
           fill(fx, G + 6, z1 + 1, fx, G + 6, z2 - 1, 'minecraft:blue_concrete'),
           label(fx + out * 0.6, G + 6.6, zm + .5, name, 'white', 1.0)]
@@ -330,6 +362,15 @@ def city_shop(x1, x2, z1, z2, door, name):
           fill(x1, top + 1, z1, x2, top + 1, z2, 'minecraft:red_concrete'),
           fill(x1 + 2, top + 2, z1 + 2, x2 - 2, top + 2, z2 - 2, 'minecraft:red_concrete'),
           fill(x1 + 4, top + 3, z1 + 4, x2 - 4, top + 3, z2 - 4, 'minecraft:red_concrete')]
+    # 안: 책장·탁자·화분, 천장 등 + 밝은 빛 (팁 NPC는 NPCS)
+    back = x1 + 1 if door == 'e' else x2 - 1
+    L += [fill(back, G + 1, z1 + 1, back, G + 3, z2 - 1, 'minecraft:bookshelf'),
+          fill(x1 + 1, G + 1, zm - 1, x2 - 1, G + 1, zm + 1, 'minecraft:red_carpet'),
+          sb(x1 + 1 if door == 'w' else x2 - 1, G + 1, z1 + 1, 'minecraft:potted_azure_bluet'),
+          sb(x1 + 1 if door == 'w' else x2 - 1, G + 1, z2 - 1, 'minecraft:potted_oxeye_daisy')]
+    for x in range(x1 + 3, x2 - 1, 4):
+        L.append(sb(x, top, zm, 'minecraft:lantern[hanging=true]'))
+    L += glow(x1, x2, z1, z2, G + 4, 3)
     return L
 
 
@@ -362,6 +403,10 @@ def pagoda(x1, x2, z1, z2):
     L += walls(x1 + 2, x2 - 2, z1 + 2, z2 - 2, b + 6, b + 8, 'minecraft:red_concrete')
     L += roof(x1 + 2, x2 - 2, z1 + 2, z2 - 2, b + 9)
     L.append(sb((x1 + x2) // 2, b + 11, (z1 + z2) // 2, 'minecraft:gold_block'))
+    xm = (x1 + x2) // 2                                                   # 광장 쪽 문 + 안: 붉은 깔개·등불·빛
+    L += [fill(xm - 1, b, z2, xm + 1, b + 2, z2, 'minecraft:air'), fill(xm - 1, G + 1, z2 + 1, xm + 1, G + 1, z2 + 1, 'minecraft:stone_brick_stairs[facing=north]'),
+          fill(x1 + 1, b, z1 + 1, x2 - 1, b, z2 - 1, 'minecraft:red_carpet'), sb(xm, b + 3, z1 + 2, 'minecraft:lantern[hanging=true]')]
+    L += glow(x1, x2, z1, z2, b + 3, 3)
     return L
 
 
@@ -375,19 +420,9 @@ def torii(x, z, half=4):
     return L
 
 
-def raid_crystal(x, z, color):
-    """레이드 크리스털: 신호기 빛기둥(색유리로 물듦) + 수정 모양 유리 + 자수정."""
-    return [fill(x - 1, G - 1, z - 1, x + 1, G - 1, z + 1, 'minecraft:iron_block'), sb(x, G, z, 'minecraft:beacon'),
-            fill(x, G + 1, z, x, G + 3, z, f'minecraft:{color}_stained_glass'),
-            sb(x + 1, G + 1, z, f'minecraft:{color}_stained_glass'), sb(x - 1, G + 1, z, f'minecraft:{color}_stained_glass'),
-            sb(x, G + 1, z + 1, f'minecraft:{color}_stained_glass'), sb(x, G + 1, z - 1, f'minecraft:{color}_stained_glass'),
-            sb(x + 1, G + 2, z + 1, 'minecraft:amethyst_cluster'), sb(x - 1, G + 2, z - 1, 'minecraft:amethyst_cluster'),
-            sb(x + 1, G + 1, z + 1, 'minecraft:amethyst_block'), sb(x - 1, G + 1, z - 1, 'minecraft:amethyst_block')]
-
-
 def spawn_plaza():
-    """서버 스폰 광장: 심층암 바닥 + 붉은 카펫 동심원·십자 길, 가운데 흰 단상, 둘레 상가(흰 벽·붉은 지붕·청색 포인트),
-    북쪽 가장자리 레이드 크리스털 빛기둥, 동양풍 붉은 건물·도리이·석등."""
+    """서버 스폰 광장: 심층암 바닥 + 붉은 카펫 동심원·십자 길, 가운데 흰 단상, 둘레 상가(흰 벽·붉은 지붕·청색 포인트,
+    안에 포켓몬 상식 NPC), 동양풍 붉은 건물·도리이·석등."""
     cx, cz = PLAZA_C
     R = PLAZA_R
     L = ['# ── 서버 스폰 광장 ──']
@@ -407,19 +442,13 @@ def spawn_plaza():
     # 광장 → 회의장 현관 길
     L += [fill(-3, G, cz + R, 3, G, HALL[2] - 9, 'minecraft:polished_deepslate'),
           fill(-1, G + 1, cz + R, 1, G + 1, HALL[2] - 9, 'minecraft:red_carpet')]
-    # 레이드 크리스털: 북쪽 가장자리 따라 일렬
-    for k, color in enumerate(['red', 'orange', 'yellow', 'lime', 'light_blue', 'purple', 'magenta']):
-        t = math.radians(205 + k * 21.7)
-        L += raid_crystal(cx + round((R - 3) * math.cos(t)), cz + round((R - 3) * math.sin(t)), color)
     # 둘레 상가 (광장을 향해 문)
-    names = ['트레이너 카페', '기념품 가게', '포켓 헤어살롱', '배틀 용품점']
-    for k, (a, b) in enumerate(((cz - 18, cz - 6), (cz + 6, cz + 18))):
-        L += city_shop(cx - 46, cx - 34, a, b, 'e', names[k])
-        L += city_shop(cx + 34, cx + 46, a, b, 'w', names[k + 2])
+    for (x1, x2, z1, z2, door), key in zip(CITY_SHOPS, ('academy', 'nature', 'types', 'catch')):
+        L += city_shop(x1, x2, z1, z2, door, tips.BUILDINGS[key].split(' · ')[0])
     # 동양풍: 북쪽 도리이 + 양옆 붉은 건물, 길가 석등
     L += torii(cx, cz - R - 6)
-    L += pagoda(cx - 30, cx - 18, cz - R - 18, cz - R - 8)
-    L += pagoda(cx + 18, cx + 30, cz - R - 18, cz - R - 8)
+    for (x1, x2, z1, z2), key in zip(PAGODAS, ('evolve', 'dojo')):
+        L += pagoda(x1, x2, z1, z2) + [label((x1 + x2) / 2 + .5, G + 6.5, z2 + 1.6, tips.BUILDINGS[key].split(' · ')[0], 'gold', 1.0)]
     L += [fill(cx - 1, G, cz - R - 16, cx + 1, G, cz - R, 'minecraft:polished_deepslate')]
     for z in range(cz - R - 14, cz - R, 4):
         L += stone_lantern(cx - 3, z) + stone_lantern(cx + 3, z)
@@ -531,6 +560,7 @@ def center():
           fill(x2 - 1, f2 + 1, z1 + 1, x2 - 1, f2 + 3, z1 + 6, 'minecraft:bookshelf')]
     for x in range(x1 + 3, x2 - 1, 5):
         L.append(sb(x, top - 1, zm, 'minecraft:lantern[hanging=true]'))
+    L += glow(x1, x2, z1, z2, G + 4) + [c for c in glow(x1, x2, z1, z2, f2 + 4) if not (x1 + 8 <= int(c.split()[1]) <= x1 + 16 and int(c.split()[3]) >= z2 - 2)]
     return L
 
 
@@ -554,12 +584,14 @@ def mart():
     roof, _ = hip_roof(x1, x2, z1, z2, top + 1, 'minecraft:smooth_quartz', 'minecraft:smooth_quartz_stairs')
     L += roof
     # 안: 진열대 두 줄, 계산대(점원 자리 앞), 따뜻한 조명
-    for z in (zm - 4, zm + 4):
-        L += [fill(x1 + 9, G + 1, z, x2 - 4, G + 1, z, 'minecraft:barrel[facing=up]'),
-              fill(x1 + 9, G + 2, z, x2 - 4, G + 2, z, 'minecraft:spruce_trapdoor[half=bottom,open=false]')]
-    L += [fill(x1 + 1, G + 1, z1 + 1, x1 + 1, G + 3, z2 - 1, 'minecraft:bookshelf'),
-          fill(x1 + 3, G + 1, z1 + 5, x1 + 7, G + 1, z1 + 5, 'minecraft:dark_oak_planks'),
-          fill(x1 + 3, G + 2, z1 + 5, x1 + 7, G + 2, z1 + 5, 'minecraft:smooth_quartz_slab')]
+    for z in (zm - 6, zm + 6):
+        L += [fill(x1 + 3, G + 1, z, x2 - 8, G + 1, z, 'minecraft:barrel[facing=up]'),
+              fill(x1 + 3, G + 2, z, x2 - 8, G + 2, z, 'minecraft:spruce_trapdoor[half=bottom,open=false]')]
+    for a, b in ((zm - 4, zm - 2), (zm + 2, zm + 4)):                    # 점원(문 앞 양옆) 앞 계산대
+        L += [fill(x2 - 3, G + 1, a, x2 - 3, G + 1, b, 'minecraft:dark_oak_planks'),
+              fill(x2 - 3, G + 2, a, x2 - 3, G + 2, b, 'minecraft:smooth_quartz_slab')]
+    L += [fill(x1 + 1, G + 1, z1 + 1, x1 + 1, G + 3, z2 - 1, 'minecraft:bookshelf')]
+    L += glow(x1, x2, z1, z2, G + 4)
     for x in range(x1 + 3, x2 - 1, 4):
         for z in range(z1 + 3, z2 - 1, 4):
             L += [sb(x, f2, z, 'minecraft:shroomlight'), sb(x, f2 - 1, z, 'minecraft:lantern[hanging=true]')]
@@ -665,6 +697,7 @@ def lobby():
     for x in range(x1 + 3, x2 - 1, 5):
         for z in range(z1 + 3, z2 - 1, 5):
             L.append(sb(x, top, z, 'minecraft:sea_lantern'))
+    L += glow(x1, x2, z1, z2, B + 4)
     return L
 
 
@@ -715,6 +748,7 @@ def arena(n):
           fill(px, G, pz, px + w - 1, G, pz + d - 1, m('orange_stained_glass')),
           label(px + 1.5, G + 2.5, pz + .5, '◀ 나가기', 'gold', 1.0),
           label(xm + .5, G + 8, z2 - 1.5, f'{n}번 체육관 · {name} 타입', 'gold', 1.6)]
+    L += glow(x1, x2, z1, z2, G + 5) + glow(x1, x2, z1, z2, G + 10, 6)
     return L
 
 
@@ -744,6 +778,7 @@ def e4_hall():
     L += [fill(px, G, pz, px + w - 1, G, pz + d - 1, 'minecraft:orange_stained_glass'),
           label(px + .5, G + 2.5, pz + 1.5, '◀ 나가기', 'gold', 1.0),
           fill(x1, top + 1, z1, x2, top + 1, z2, 'minecraft:purple_terracotta')]
+    L += glow(x1, x2, z1, z2, G + 4)
     return L
 
 
@@ -874,7 +909,7 @@ if __name__ == '__main__':
         '# 자동 생성: tools/build_world.py',
         'execute in poke:hub run function poke:build/tutorial', 'execute in poke:town run function poke:build/town',
         'execute in poke:town run function poke:mod/build_town', 'execute in poke:hub run function poke:mod/spawn_npcs',
-        'execute in poke:town run forceload remove all', 'data modify storage poke:state build set value 7',
+        'execute in poke:town run forceload remove all', 'data modify storage poke:state build set value 8',
         '# 관장·사천왕은 플레이어가 접속하면 소환 (RCT 명령이 플레이어를 요구)', 'data modify storage poke:state leaders set value 0',
         'say [pokeserver] 튜토리얼 방·마을(스폰 광장·상점가·체육관)과 지형을 지었습니다.']
     for path, lines in out.items():

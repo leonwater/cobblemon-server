@@ -1110,6 +1110,41 @@ fill -14 -59 -8 -14 -58 -5 minecraft:bookshelf
 fill -14 -59 7 -14 -58 10 minecraft:bookshelf
 fill 14 -59 -8 14 -58 -5 minecraft:bookshelf
 fill 14 -59 7 14 -58 10 minecraft:bookshelf
+setblock -13 -56 -8 minecraft:light[level=15]
+setblock -13 -56 -4 minecraft:light[level=15]
+setblock -13 -56 0 minecraft:light[level=15]
+setblock -13 -56 4 minecraft:light[level=15]
+setblock -13 -56 8 minecraft:light[level=15]
+setblock -9 -56 -8 minecraft:light[level=15]
+setblock -9 -56 -4 minecraft:light[level=15]
+setblock -9 -56 0 minecraft:light[level=15]
+setblock -9 -56 4 minecraft:light[level=15]
+setblock -9 -56 8 minecraft:light[level=15]
+setblock -5 -56 -8 minecraft:light[level=15]
+setblock -5 -56 -4 minecraft:light[level=15]
+setblock -5 -56 0 minecraft:light[level=15]
+setblock -5 -56 4 minecraft:light[level=15]
+setblock -5 -56 8 minecraft:light[level=15]
+setblock -1 -56 -8 minecraft:light[level=15]
+setblock -1 -56 -4 minecraft:light[level=15]
+setblock -1 -56 0 minecraft:light[level=15]
+setblock -1 -56 4 minecraft:light[level=15]
+setblock -1 -56 8 minecraft:light[level=15]
+setblock 3 -56 -8 minecraft:light[level=15]
+setblock 3 -56 -4 minecraft:light[level=15]
+setblock 3 -56 0 minecraft:light[level=15]
+setblock 3 -56 4 minecraft:light[level=15]
+setblock 3 -56 8 minecraft:light[level=15]
+setblock 7 -56 -8 minecraft:light[level=15]
+setblock 7 -56 -4 minecraft:light[level=15]
+setblock 7 -56 0 minecraft:light[level=15]
+setblock 7 -56 4 minecraft:light[level=15]
+setblock 7 -56 8 minecraft:light[level=15]
+setblock 11 -56 -8 minecraft:light[level=15]
+setblock 11 -56 -4 minecraft:light[level=15]
+setblock 11 -56 0 minecraft:light[level=15]
+setblock 11 -56 4 minecraft:light[level=15]
+setblock 11 -56 8 minecraft:light[level=15]
 # ── 서버 스폰 광장 ──
 fill -26 -60 -59 -26 -60 -49 minecraft:deepslate_tiles
 fill -25 -60 -62 -25 -60 -46 minecraft:deepslate_tiles
@@ -1798,83 +1833,6 @@ setblock 2 -59 -53 minecraft:quartz_block
 summon minecraft:text_display 0.5 -55.5 -53.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[2.4f,2.4f,2.4f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포켓서버","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\nG 키: 메인 메뉴 · 워프","color":"gray","bold":false}]}'}
 fill -3 -60 -28 3 -60 -19 minecraft:polished_deepslate
 fill -1 -59 -28 1 -59 -19 minecraft:red_carpet
-fill -22 -61 -65 -20 -61 -63 minecraft:iron_block
-setblock -21 -60 -64 minecraft:beacon
-fill -21 -59 -64 -21 -57 -64 minecraft:red_stained_glass
-setblock -20 -59 -64 minecraft:red_stained_glass
-setblock -22 -59 -64 minecraft:red_stained_glass
-setblock -21 -59 -63 minecraft:red_stained_glass
-setblock -21 -59 -65 minecraft:red_stained_glass
-setblock -20 -58 -63 minecraft:amethyst_cluster
-setblock -22 -58 -65 minecraft:amethyst_cluster
-setblock -20 -59 -63 minecraft:amethyst_block
-setblock -22 -59 -65 minecraft:amethyst_block
-fill -17 -61 -72 -15 -61 -70 minecraft:iron_block
-setblock -16 -60 -71 minecraft:beacon
-fill -16 -59 -71 -16 -57 -71 minecraft:orange_stained_glass
-setblock -15 -59 -71 minecraft:orange_stained_glass
-setblock -17 -59 -71 minecraft:orange_stained_glass
-setblock -16 -59 -70 minecraft:orange_stained_glass
-setblock -16 -59 -72 minecraft:orange_stained_glass
-setblock -15 -58 -70 minecraft:amethyst_cluster
-setblock -17 -58 -72 minecraft:amethyst_cluster
-setblock -15 -59 -70 minecraft:amethyst_block
-setblock -17 -59 -72 minecraft:amethyst_block
-fill -9 -61 -76 -7 -61 -74 minecraft:iron_block
-setblock -8 -60 -75 minecraft:beacon
-fill -8 -59 -75 -8 -57 -75 minecraft:yellow_stained_glass
-setblock -7 -59 -75 minecraft:yellow_stained_glass
-setblock -9 -59 -75 minecraft:yellow_stained_glass
-setblock -8 -59 -74 minecraft:yellow_stained_glass
-setblock -8 -59 -76 minecraft:yellow_stained_glass
-setblock -7 -58 -74 minecraft:amethyst_cluster
-setblock -9 -58 -76 minecraft:amethyst_cluster
-setblock -7 -59 -74 minecraft:amethyst_block
-setblock -9 -59 -76 minecraft:amethyst_block
-fill -1 -61 -78 1 -61 -76 minecraft:iron_block
-setblock 0 -60 -77 minecraft:beacon
-fill 0 -59 -77 0 -57 -77 minecraft:lime_stained_glass
-setblock 1 -59 -77 minecraft:lime_stained_glass
-setblock -1 -59 -77 minecraft:lime_stained_glass
-setblock 0 -59 -76 minecraft:lime_stained_glass
-setblock 0 -59 -78 minecraft:lime_stained_glass
-setblock 1 -58 -76 minecraft:amethyst_cluster
-setblock -1 -58 -78 minecraft:amethyst_cluster
-setblock 1 -59 -76 minecraft:amethyst_block
-setblock -1 -59 -78 minecraft:amethyst_block
-fill 8 -61 -76 10 -61 -74 minecraft:iron_block
-setblock 9 -60 -75 minecraft:beacon
-fill 9 -59 -75 9 -57 -75 minecraft:light_blue_stained_glass
-setblock 10 -59 -75 minecraft:light_blue_stained_glass
-setblock 8 -59 -75 minecraft:light_blue_stained_glass
-setblock 9 -59 -74 minecraft:light_blue_stained_glass
-setblock 9 -59 -76 minecraft:light_blue_stained_glass
-setblock 10 -58 -74 minecraft:amethyst_cluster
-setblock 8 -58 -76 minecraft:amethyst_cluster
-setblock 10 -59 -74 minecraft:amethyst_block
-setblock 8 -59 -76 minecraft:amethyst_block
-fill 15 -61 -72 17 -61 -70 minecraft:iron_block
-setblock 16 -60 -71 minecraft:beacon
-fill 16 -59 -71 16 -57 -71 minecraft:purple_stained_glass
-setblock 17 -59 -71 minecraft:purple_stained_glass
-setblock 15 -59 -71 minecraft:purple_stained_glass
-setblock 16 -59 -70 minecraft:purple_stained_glass
-setblock 16 -59 -72 minecraft:purple_stained_glass
-setblock 17 -58 -70 minecraft:amethyst_cluster
-setblock 15 -58 -72 minecraft:amethyst_cluster
-setblock 17 -59 -70 minecraft:amethyst_block
-setblock 15 -59 -72 minecraft:amethyst_block
-fill 20 -61 -65 22 -61 -63 minecraft:iron_block
-setblock 21 -60 -64 minecraft:beacon
-fill 21 -59 -64 21 -57 -64 minecraft:magenta_stained_glass
-setblock 22 -59 -64 minecraft:magenta_stained_glass
-setblock 20 -59 -64 minecraft:magenta_stained_glass
-setblock 21 -59 -63 minecraft:magenta_stained_glass
-setblock 21 -59 -65 minecraft:magenta_stained_glass
-setblock 22 -58 -63 minecraft:amethyst_cluster
-setblock 20 -58 -65 minecraft:amethyst_cluster
-setblock 22 -59 -63 minecraft:amethyst_block
-setblock 20 -59 -65 minecraft:amethyst_block
 fill -46 -60 -72 -34 -60 -60 minecraft:smooth_quartz
 fill -46 -59 -72 -34 -59 -72 minecraft:light_blue_concrete
 fill -46 -59 -60 -34 -59 -60 minecraft:light_blue_concrete
@@ -1889,10 +1847,10 @@ fill -46 -59 -60 -46 -53 -60 minecraft:quartz_pillar
 fill -34 -59 -72 -34 -53 -72 minecraft:quartz_pillar
 fill -34 -59 -60 -34 -53 -60 minecraft:quartz_pillar
 fill -34 -57 -70 -34 -55 -62 minecraft:light_blue_stained_glass_pane
-fill -34 -59 -67 -34 -57 -65 minecraft:light_blue_stained_glass
+fill -34 -59 -67 -34 -57 -65 minecraft:air
 fill -33 -56 -69 -33 -56 -63 minecraft:blue_concrete
 fill -34 -54 -71 -34 -54 -61 minecraft:blue_concrete
-summon minecraft:text_display -33.4 -53.4 -65.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"트레이너 카페","color":"white","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+summon minecraft:text_display -33.4 -53.4 -65.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"트레이너 아카데미","color":"white","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 fill -44 -57 -72 -43 -55 -72 minecraft:light_blue_stained_glass_pane
 fill -44 -57 -60 -43 -55 -60 minecraft:light_blue_stained_glass_pane
 fill -40 -57 -72 -39 -55 -72 minecraft:light_blue_stained_glass_pane
@@ -1903,34 +1861,21 @@ fill -47 -52 -73 -33 -52 -59 minecraft:white_concrete
 fill -46 -52 -72 -34 -52 -60 minecraft:red_concrete
 fill -44 -51 -70 -36 -51 -62 minecraft:red_concrete
 fill -42 -50 -68 -38 -50 -64 minecraft:red_concrete
-fill 34 -60 -72 46 -60 -60 minecraft:smooth_quartz
-fill 34 -59 -72 46 -59 -72 minecraft:light_blue_concrete
-fill 34 -59 -60 46 -59 -60 minecraft:light_blue_concrete
-fill 34 -59 -72 34 -59 -60 minecraft:light_blue_concrete
-fill 46 -59 -72 46 -59 -60 minecraft:light_blue_concrete
-fill 34 -58 -72 46 -53 -72 minecraft:white_concrete
-fill 34 -58 -60 46 -53 -60 minecraft:white_concrete
-fill 34 -58 -72 34 -53 -60 minecraft:white_concrete
-fill 46 -58 -72 46 -53 -60 minecraft:white_concrete
-fill 34 -59 -72 34 -53 -72 minecraft:quartz_pillar
-fill 34 -59 -60 34 -53 -60 minecraft:quartz_pillar
-fill 46 -59 -72 46 -53 -72 minecraft:quartz_pillar
-fill 46 -59 -60 46 -53 -60 minecraft:quartz_pillar
-fill 34 -57 -70 34 -55 -62 minecraft:light_blue_stained_glass_pane
-fill 34 -59 -67 34 -57 -65 minecraft:light_blue_stained_glass
-fill 33 -56 -69 33 -56 -63 minecraft:blue_concrete
-fill 34 -54 -71 34 -54 -61 minecraft:blue_concrete
-summon minecraft:text_display 33.4 -53.4 -65.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포켓 헤어살롱","color":"white","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
-fill 36 -57 -72 37 -55 -72 minecraft:light_blue_stained_glass_pane
-fill 36 -57 -60 37 -55 -60 minecraft:light_blue_stained_glass_pane
-fill 40 -57 -72 41 -55 -72 minecraft:light_blue_stained_glass_pane
-fill 40 -57 -60 41 -55 -60 minecraft:light_blue_stained_glass_pane
-fill 44 -57 -72 45 -55 -72 minecraft:light_blue_stained_glass_pane
-fill 44 -57 -60 45 -55 -60 minecraft:light_blue_stained_glass_pane
-fill 33 -52 -73 47 -52 -59 minecraft:white_concrete
-fill 34 -52 -72 46 -52 -60 minecraft:red_concrete
-fill 36 -51 -70 44 -51 -62 minecraft:red_concrete
-fill 38 -50 -68 42 -50 -64 minecraft:red_concrete
+fill -45 -59 -71 -45 -57 -61 minecraft:bookshelf
+fill -45 -59 -67 -35 -59 -65 minecraft:red_carpet
+setblock -35 -59 -71 minecraft:potted_azure_bluet
+setblock -35 -59 -61 minecraft:potted_oxeye_daisy
+setblock -43 -53 -66 minecraft:lantern[hanging=true]
+setblock -39 -53 -66 minecraft:lantern[hanging=true]
+setblock -44 -56 -70 minecraft:light[level=15]
+setblock -44 -56 -67 minecraft:light[level=15]
+setblock -44 -56 -64 minecraft:light[level=15]
+setblock -41 -56 -70 minecraft:light[level=15]
+setblock -41 -56 -67 minecraft:light[level=15]
+setblock -41 -56 -64 minecraft:light[level=15]
+setblock -38 -56 -70 minecraft:light[level=15]
+setblock -38 -56 -67 minecraft:light[level=15]
+setblock -38 -56 -64 minecraft:light[level=15]
 fill -46 -60 -48 -34 -60 -36 minecraft:smooth_quartz
 fill -46 -59 -48 -34 -59 -48 minecraft:light_blue_concrete
 fill -46 -59 -36 -34 -59 -36 minecraft:light_blue_concrete
@@ -1945,10 +1890,10 @@ fill -46 -59 -36 -46 -53 -36 minecraft:quartz_pillar
 fill -34 -59 -48 -34 -53 -48 minecraft:quartz_pillar
 fill -34 -59 -36 -34 -53 -36 minecraft:quartz_pillar
 fill -34 -57 -46 -34 -55 -38 minecraft:light_blue_stained_glass_pane
-fill -34 -59 -43 -34 -57 -41 minecraft:light_blue_stained_glass
+fill -34 -59 -43 -34 -57 -41 minecraft:air
 fill -33 -56 -45 -33 -56 -39 minecraft:blue_concrete
 fill -34 -54 -47 -34 -54 -37 minecraft:blue_concrete
-summon minecraft:text_display -33.4 -53.4 -41.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"기념품 가게","color":"white","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+summon minecraft:text_display -33.4 -53.4 -41.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"성격 연구소","color":"white","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 fill -44 -57 -48 -43 -55 -48 minecraft:light_blue_stained_glass_pane
 fill -44 -57 -36 -43 -55 -36 minecraft:light_blue_stained_glass_pane
 fill -40 -57 -48 -39 -55 -48 minecraft:light_blue_stained_glass_pane
@@ -1959,6 +1904,64 @@ fill -47 -52 -49 -33 -52 -35 minecraft:white_concrete
 fill -46 -52 -48 -34 -52 -36 minecraft:red_concrete
 fill -44 -51 -46 -36 -51 -38 minecraft:red_concrete
 fill -42 -50 -44 -38 -50 -40 minecraft:red_concrete
+fill -45 -59 -47 -45 -57 -37 minecraft:bookshelf
+fill -45 -59 -43 -35 -59 -41 minecraft:red_carpet
+setblock -35 -59 -47 minecraft:potted_azure_bluet
+setblock -35 -59 -37 minecraft:potted_oxeye_daisy
+setblock -43 -53 -42 minecraft:lantern[hanging=true]
+setblock -39 -53 -42 minecraft:lantern[hanging=true]
+setblock -44 -56 -46 minecraft:light[level=15]
+setblock -44 -56 -43 minecraft:light[level=15]
+setblock -44 -56 -40 minecraft:light[level=15]
+setblock -41 -56 -46 minecraft:light[level=15]
+setblock -41 -56 -43 minecraft:light[level=15]
+setblock -41 -56 -40 minecraft:light[level=15]
+setblock -38 -56 -46 minecraft:light[level=15]
+setblock -38 -56 -43 minecraft:light[level=15]
+setblock -38 -56 -40 minecraft:light[level=15]
+fill 34 -60 -72 46 -60 -60 minecraft:smooth_quartz
+fill 34 -59 -72 46 -59 -72 minecraft:light_blue_concrete
+fill 34 -59 -60 46 -59 -60 minecraft:light_blue_concrete
+fill 34 -59 -72 34 -59 -60 minecraft:light_blue_concrete
+fill 46 -59 -72 46 -59 -60 minecraft:light_blue_concrete
+fill 34 -58 -72 46 -53 -72 minecraft:white_concrete
+fill 34 -58 -60 46 -53 -60 minecraft:white_concrete
+fill 34 -58 -72 34 -53 -60 minecraft:white_concrete
+fill 46 -58 -72 46 -53 -60 minecraft:white_concrete
+fill 34 -59 -72 34 -53 -72 minecraft:quartz_pillar
+fill 34 -59 -60 34 -53 -60 minecraft:quartz_pillar
+fill 46 -59 -72 46 -53 -72 minecraft:quartz_pillar
+fill 46 -59 -60 46 -53 -60 minecraft:quartz_pillar
+fill 34 -57 -70 34 -55 -62 minecraft:light_blue_stained_glass_pane
+fill 34 -59 -67 34 -57 -65 minecraft:air
+fill 33 -56 -69 33 -56 -63 minecraft:blue_concrete
+fill 34 -54 -71 34 -54 -61 minecraft:blue_concrete
+summon minecraft:text_display 33.4 -53.4 -65.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"타입 상성 교실","color":"white","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+fill 36 -57 -72 37 -55 -72 minecraft:light_blue_stained_glass_pane
+fill 36 -57 -60 37 -55 -60 minecraft:light_blue_stained_glass_pane
+fill 40 -57 -72 41 -55 -72 minecraft:light_blue_stained_glass_pane
+fill 40 -57 -60 41 -55 -60 minecraft:light_blue_stained_glass_pane
+fill 44 -57 -72 45 -55 -72 minecraft:light_blue_stained_glass_pane
+fill 44 -57 -60 45 -55 -60 minecraft:light_blue_stained_glass_pane
+fill 33 -52 -73 47 -52 -59 minecraft:white_concrete
+fill 34 -52 -72 46 -52 -60 minecraft:red_concrete
+fill 36 -51 -70 44 -51 -62 minecraft:red_concrete
+fill 38 -50 -68 42 -50 -64 minecraft:red_concrete
+fill 45 -59 -71 45 -57 -61 minecraft:bookshelf
+fill 35 -59 -67 45 -59 -65 minecraft:red_carpet
+setblock 35 -59 -71 minecraft:potted_azure_bluet
+setblock 35 -59 -61 minecraft:potted_oxeye_daisy
+setblock 37 -53 -66 minecraft:lantern[hanging=true]
+setblock 41 -53 -66 minecraft:lantern[hanging=true]
+setblock 36 -56 -70 minecraft:light[level=15]
+setblock 36 -56 -67 minecraft:light[level=15]
+setblock 36 -56 -64 minecraft:light[level=15]
+setblock 39 -56 -70 minecraft:light[level=15]
+setblock 39 -56 -67 minecraft:light[level=15]
+setblock 39 -56 -64 minecraft:light[level=15]
+setblock 42 -56 -70 minecraft:light[level=15]
+setblock 42 -56 -67 minecraft:light[level=15]
+setblock 42 -56 -64 minecraft:light[level=15]
 fill 34 -60 -48 46 -60 -36 minecraft:smooth_quartz
 fill 34 -59 -48 46 -59 -48 minecraft:light_blue_concrete
 fill 34 -59 -36 46 -59 -36 minecraft:light_blue_concrete
@@ -1973,10 +1976,10 @@ fill 34 -59 -36 34 -53 -36 minecraft:quartz_pillar
 fill 46 -59 -48 46 -53 -48 minecraft:quartz_pillar
 fill 46 -59 -36 46 -53 -36 minecraft:quartz_pillar
 fill 34 -57 -46 34 -55 -38 minecraft:light_blue_stained_glass_pane
-fill 34 -59 -43 34 -57 -41 minecraft:light_blue_stained_glass
+fill 34 -59 -43 34 -57 -41 minecraft:air
 fill 33 -56 -45 33 -56 -39 minecraft:blue_concrete
 fill 34 -54 -47 34 -54 -37 minecraft:blue_concrete
-summon minecraft:text_display 33.4 -53.4 -41.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"배틀 용품점","color":"white","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+summon minecraft:text_display 33.4 -53.4 -41.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포획 상담소","color":"white","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 fill 36 -57 -48 37 -55 -48 minecraft:light_blue_stained_glass_pane
 fill 36 -57 -36 37 -55 -36 minecraft:light_blue_stained_glass_pane
 fill 40 -57 -48 41 -55 -48 minecraft:light_blue_stained_glass_pane
@@ -1987,6 +1990,21 @@ fill 33 -52 -49 47 -52 -35 minecraft:white_concrete
 fill 34 -52 -48 46 -52 -36 minecraft:red_concrete
 fill 36 -51 -46 44 -51 -38 minecraft:red_concrete
 fill 38 -50 -44 42 -50 -40 minecraft:red_concrete
+fill 45 -59 -47 45 -57 -37 minecraft:bookshelf
+fill 35 -59 -43 45 -59 -41 minecraft:red_carpet
+setblock 35 -59 -47 minecraft:potted_azure_bluet
+setblock 35 -59 -37 minecraft:potted_oxeye_daisy
+setblock 37 -53 -42 minecraft:lantern[hanging=true]
+setblock 41 -53 -42 minecraft:lantern[hanging=true]
+setblock 36 -56 -46 minecraft:light[level=15]
+setblock 36 -56 -43 minecraft:light[level=15]
+setblock 36 -56 -40 minecraft:light[level=15]
+setblock 39 -56 -46 minecraft:light[level=15]
+setblock 39 -56 -43 minecraft:light[level=15]
+setblock 39 -56 -40 minecraft:light[level=15]
+setblock 42 -56 -46 minecraft:light[level=15]
+setblock 42 -56 -43 minecraft:light[level=15]
+setblock 42 -56 -40 minecraft:light[level=15]
 fill -4 -59 -86 -4 -54 -86 minecraft:red_concrete
 fill 4 -59 -86 4 -54 -86 minecraft:red_concrete
 fill -5 -55 -86 5 -55 -86 minecraft:red_concrete
@@ -2049,6 +2067,20 @@ setblock -30 -48 -88 minecraft:deepslate_tile_slab
 setblock -18 -48 -88 minecraft:deepslate_tile_slab
 fill -28 -48 -96 -20 -48 -90 minecraft:deepslate_tile_slab
 setblock -24 -47 -93 minecraft:gold_block
+fill -25 -58 -88 -23 -56 -88 minecraft:air
+fill -25 -59 -87 -23 -59 -87 minecraft:stone_brick_stairs[facing=north]
+fill -29 -58 -97 -19 -58 -89 minecraft:red_carpet
+setblock -24 -55 -96 minecraft:lantern[hanging=true]
+setblock -28 -55 -96 minecraft:light[level=15]
+setblock -28 -55 -93 minecraft:light[level=15]
+setblock -28 -55 -90 minecraft:light[level=15]
+setblock -25 -55 -96 minecraft:light[level=15]
+setblock -25 -55 -93 minecraft:light[level=15]
+setblock -25 -55 -90 minecraft:light[level=15]
+setblock -22 -55 -96 minecraft:light[level=15]
+setblock -22 -55 -93 minecraft:light[level=15]
+setblock -22 -55 -90 minecraft:light[level=15]
+summon minecraft:text_display -23.5 -53.5 -86.4 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"진화의 사당","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 fill 17 -59 -99 31 -59 -87 minecraft:stone_bricks
 fill 18 -58 -98 30 -54 -98 minecraft:dark_oak_planks
 fill 18 -58 -88 30 -54 -88 minecraft:dark_oak_planks
@@ -2105,6 +2137,20 @@ setblock 18 -48 -88 minecraft:deepslate_tile_slab
 setblock 30 -48 -88 minecraft:deepslate_tile_slab
 fill 20 -48 -96 28 -48 -90 minecraft:deepslate_tile_slab
 setblock 24 -47 -93 minecraft:gold_block
+fill 23 -58 -88 25 -56 -88 minecraft:air
+fill 23 -59 -87 25 -59 -87 minecraft:stone_brick_stairs[facing=north]
+fill 19 -58 -97 29 -58 -89 minecraft:red_carpet
+setblock 24 -55 -96 minecraft:lantern[hanging=true]
+setblock 20 -55 -96 minecraft:light[level=15]
+setblock 20 -55 -93 minecraft:light[level=15]
+setblock 20 -55 -90 minecraft:light[level=15]
+setblock 23 -55 -96 minecraft:light[level=15]
+setblock 23 -55 -93 minecraft:light[level=15]
+setblock 23 -55 -90 minecraft:light[level=15]
+setblock 26 -55 -96 minecraft:light[level=15]
+setblock 26 -55 -93 minecraft:light[level=15]
+setblock 26 -55 -90 minecraft:light[level=15]
+summon minecraft:text_display 24.5 -53.5 -86.4 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"수련의 도장","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 fill -1 -60 -96 1 -60 -80 minecraft:polished_deepslate
 setblock -3 -59 -94 minecraft:stone_bricks
 setblock -3 -58 -94 minecraft:stone_brick_wall
@@ -2474,13 +2520,40 @@ fill 971 -44 -1 975 -44 -1 minecraft:smooth_quartz_stairs[facing=south]
 fill 971 -44 1 975 -44 1 minecraft:smooth_quartz_stairs[facing=north]
 fill 971 -44 0 971 -44 0 minecraft:smooth_quartz_stairs[facing=east]
 fill 975 -44 0 975 -44 0 minecraft:smooth_quartz_stairs[facing=west]
-fill 971 -59 -4 980 -59 -4 minecraft:barrel[facing=up]
-fill 971 -58 -4 980 -58 -4 minecraft:spruce_trapdoor[half=bottom,open=false]
-fill 971 -59 4 980 -59 4 minecraft:barrel[facing=up]
-fill 971 -58 4 980 -58 4 minecraft:spruce_trapdoor[half=bottom,open=false]
+fill 965 -59 -6 976 -59 -6 minecraft:barrel[facing=up]
+fill 965 -58 -6 976 -58 -6 minecraft:spruce_trapdoor[half=bottom,open=false]
+fill 965 -59 6 976 -59 6 minecraft:barrel[facing=up]
+fill 965 -58 6 976 -58 6 minecraft:spruce_trapdoor[half=bottom,open=false]
+fill 981 -59 -4 981 -59 -2 minecraft:dark_oak_planks
+fill 981 -58 -4 981 -58 -2 minecraft:smooth_quartz_slab
+fill 981 -59 2 981 -59 4 minecraft:dark_oak_planks
+fill 981 -58 2 981 -58 4 minecraft:smooth_quartz_slab
 fill 963 -59 -9 963 -57 9 minecraft:bookshelf
-fill 965 -59 -5 969 -59 -5 minecraft:dark_oak_planks
-fill 965 -58 -5 969 -58 -5 minecraft:smooth_quartz_slab
+setblock 964 -56 -8 minecraft:light[level=15]
+setblock 964 -56 -4 minecraft:light[level=15]
+setblock 964 -56 0 minecraft:light[level=15]
+setblock 964 -56 4 minecraft:light[level=15]
+setblock 964 -56 8 minecraft:light[level=15]
+setblock 968 -56 -8 minecraft:light[level=15]
+setblock 968 -56 -4 minecraft:light[level=15]
+setblock 968 -56 0 minecraft:light[level=15]
+setblock 968 -56 4 minecraft:light[level=15]
+setblock 968 -56 8 minecraft:light[level=15]
+setblock 972 -56 -8 minecraft:light[level=15]
+setblock 972 -56 -4 minecraft:light[level=15]
+setblock 972 -56 0 minecraft:light[level=15]
+setblock 972 -56 4 minecraft:light[level=15]
+setblock 972 -56 8 minecraft:light[level=15]
+setblock 976 -56 -8 minecraft:light[level=15]
+setblock 976 -56 -4 minecraft:light[level=15]
+setblock 976 -56 0 minecraft:light[level=15]
+setblock 976 -56 4 minecraft:light[level=15]
+setblock 976 -56 8 minecraft:light[level=15]
+setblock 980 -56 -8 minecraft:light[level=15]
+setblock 980 -56 -4 minecraft:light[level=15]
+setblock 980 -56 0 minecraft:light[level=15]
+setblock 980 -56 4 minecraft:light[level=15]
+setblock 980 -56 8 minecraft:light[level=15]
 setblock 965 -54 -7 minecraft:shroomlight
 setblock 965 -55 -7 minecraft:lantern[hanging=true]
 setblock 965 -54 -3 minecraft:shroomlight
@@ -2877,6 +2950,56 @@ setblock 1015 -49 0 minecraft:lantern[hanging=true]
 setblock 1020 -49 0 minecraft:lantern[hanging=true]
 setblock 1025 -49 0 minecraft:lantern[hanging=true]
 setblock 1030 -49 0 minecraft:lantern[hanging=true]
+setblock 1014 -56 -9 minecraft:light[level=15]
+setblock 1014 -56 -5 minecraft:light[level=15]
+setblock 1014 -56 -1 minecraft:light[level=15]
+setblock 1014 -56 3 minecraft:light[level=15]
+setblock 1014 -56 7 minecraft:light[level=15]
+setblock 1018 -56 -9 minecraft:light[level=15]
+setblock 1018 -56 -5 minecraft:light[level=15]
+setblock 1018 -56 -1 minecraft:light[level=15]
+setblock 1018 -56 3 minecraft:light[level=15]
+setblock 1018 -56 7 minecraft:light[level=15]
+setblock 1022 -56 -9 minecraft:light[level=15]
+setblock 1022 -56 -5 minecraft:light[level=15]
+setblock 1022 -56 -1 minecraft:light[level=15]
+setblock 1022 -56 3 minecraft:light[level=15]
+setblock 1022 -56 7 minecraft:light[level=15]
+setblock 1026 -56 -9 minecraft:light[level=15]
+setblock 1026 -56 -5 minecraft:light[level=15]
+setblock 1026 -56 -1 minecraft:light[level=15]
+setblock 1026 -56 3 minecraft:light[level=15]
+setblock 1026 -56 7 minecraft:light[level=15]
+setblock 1030 -56 -9 minecraft:light[level=15]
+setblock 1030 -56 -5 minecraft:light[level=15]
+setblock 1030 -56 -1 minecraft:light[level=15]
+setblock 1030 -56 3 minecraft:light[level=15]
+setblock 1030 -56 7 minecraft:light[level=15]
+setblock 1014 -49 -9 minecraft:light[level=15]
+setblock 1014 -49 -5 minecraft:light[level=15]
+setblock 1014 -49 -1 minecraft:light[level=15]
+setblock 1014 -49 3 minecraft:light[level=15]
+setblock 1014 -49 7 minecraft:light[level=15]
+setblock 1018 -49 -9 minecraft:light[level=15]
+setblock 1018 -49 -5 minecraft:light[level=15]
+setblock 1018 -49 -1 minecraft:light[level=15]
+setblock 1018 -49 3 minecraft:light[level=15]
+setblock 1018 -49 7 minecraft:light[level=15]
+setblock 1022 -49 -9 minecraft:light[level=15]
+setblock 1022 -49 -5 minecraft:light[level=15]
+setblock 1022 -49 -1 minecraft:light[level=15]
+setblock 1022 -49 3 minecraft:light[level=15]
+setblock 1022 -49 7 minecraft:light[level=15]
+setblock 1026 -49 -9 minecraft:light[level=15]
+setblock 1026 -49 -5 minecraft:light[level=15]
+setblock 1026 -49 -1 minecraft:light[level=15]
+setblock 1026 -49 3 minecraft:light[level=15]
+setblock 1026 -49 7 minecraft:light[level=15]
+setblock 1030 -49 -9 minecraft:light[level=15]
+setblock 1030 -49 -5 minecraft:light[level=15]
+setblock 1030 -49 -1 minecraft:light[level=15]
+setblock 1030 -49 3 minecraft:light[level=15]
+setblock 1030 -49 7 minecraft:light[level=15]
 # ── 상점가 섬 투명 벽 ──
 fill 944 -59 -58 1023 319 -58 minecraft:barrier replace minecraft:air
 fill 944 -59 58 1023 319 58 minecraft:barrier replace minecraft:air
@@ -3766,6 +3889,62 @@ setblock 2013 -47 -1 minecraft:sea_lantern
 setblock 2013 -47 4 minecraft:sea_lantern
 setblock 2013 -47 9 minecraft:sea_lantern
 setblock 2013 -47 14 minecraft:sea_lantern
+setblock 1987 -53 -12 minecraft:light[level=15]
+setblock 1987 -53 -8 minecraft:light[level=15]
+setblock 1987 -53 -4 minecraft:light[level=15]
+setblock 1987 -53 0 minecraft:light[level=15]
+setblock 1987 -53 4 minecraft:light[level=15]
+setblock 1987 -53 8 minecraft:light[level=15]
+setblock 1987 -53 12 minecraft:light[level=15]
+setblock 1987 -53 16 minecraft:light[level=15]
+setblock 1991 -53 -12 minecraft:light[level=15]
+setblock 1991 -53 -8 minecraft:light[level=15]
+setblock 1991 -53 -4 minecraft:light[level=15]
+setblock 1991 -53 0 minecraft:light[level=15]
+setblock 1991 -53 4 minecraft:light[level=15]
+setblock 1991 -53 8 minecraft:light[level=15]
+setblock 1991 -53 12 minecraft:light[level=15]
+setblock 1991 -53 16 minecraft:light[level=15]
+setblock 1995 -53 -12 minecraft:light[level=15]
+setblock 1995 -53 -8 minecraft:light[level=15]
+setblock 1995 -53 -4 minecraft:light[level=15]
+setblock 1995 -53 0 minecraft:light[level=15]
+setblock 1995 -53 4 minecraft:light[level=15]
+setblock 1995 -53 8 minecraft:light[level=15]
+setblock 1995 -53 12 minecraft:light[level=15]
+setblock 1995 -53 16 minecraft:light[level=15]
+setblock 1999 -53 -12 minecraft:light[level=15]
+setblock 1999 -53 -8 minecraft:light[level=15]
+setblock 1999 -53 -4 minecraft:light[level=15]
+setblock 1999 -53 0 minecraft:light[level=15]
+setblock 1999 -53 4 minecraft:light[level=15]
+setblock 1999 -53 8 minecraft:light[level=15]
+setblock 1999 -53 12 minecraft:light[level=15]
+setblock 1999 -53 16 minecraft:light[level=15]
+setblock 2003 -53 -12 minecraft:light[level=15]
+setblock 2003 -53 -8 minecraft:light[level=15]
+setblock 2003 -53 -4 minecraft:light[level=15]
+setblock 2003 -53 0 minecraft:light[level=15]
+setblock 2003 -53 4 minecraft:light[level=15]
+setblock 2003 -53 8 minecraft:light[level=15]
+setblock 2003 -53 12 minecraft:light[level=15]
+setblock 2003 -53 16 minecraft:light[level=15]
+setblock 2007 -53 -12 minecraft:light[level=15]
+setblock 2007 -53 -8 minecraft:light[level=15]
+setblock 2007 -53 -4 minecraft:light[level=15]
+setblock 2007 -53 0 minecraft:light[level=15]
+setblock 2007 -53 4 minecraft:light[level=15]
+setblock 2007 -53 8 minecraft:light[level=15]
+setblock 2007 -53 12 minecraft:light[level=15]
+setblock 2007 -53 16 minecraft:light[level=15]
+setblock 2011 -53 -12 minecraft:light[level=15]
+setblock 2011 -53 -8 minecraft:light[level=15]
+setblock 2011 -53 -4 minecraft:light[level=15]
+setblock 2011 -53 0 minecraft:light[level=15]
+setblock 2011 -53 4 minecraft:light[level=15]
+setblock 2011 -53 8 minecraft:light[level=15]
+setblock 2011 -53 12 minecraft:light[level=15]
+setblock 2011 -53 16 minecraft:light[level=15]
 # ── 체육관 섬 투명 벽 ──
 fill 1944 -59 -66 2023 319 -66 minecraft:barrier replace minecraft:air
 fill 1944 -59 48 2023 319 48 minecraft:barrier replace minecraft:air
@@ -3963,6 +4142,99 @@ fill 3012 -59 16 3018 -59 16 minecraft:stone
 fill 3014 -60 -17 3016 -60 -17 minecraft:orange_stained_glass
 summon minecraft:text_display 3015.5 -57.5 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 summon minecraft:text_display 3015.5 -52 16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"1번 체육관 · 바위 타입","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+setblock 3002 -55 -16 minecraft:light[level=15]
+setblock 3002 -55 -12 minecraft:light[level=15]
+setblock 3002 -55 -8 minecraft:light[level=15]
+setblock 3002 -55 -4 minecraft:light[level=15]
+setblock 3002 -55 0 minecraft:light[level=15]
+setblock 3002 -55 4 minecraft:light[level=15]
+setblock 3002 -55 8 minecraft:light[level=15]
+setblock 3002 -55 12 minecraft:light[level=15]
+setblock 3002 -55 16 minecraft:light[level=15]
+setblock 3006 -55 -16 minecraft:light[level=15]
+setblock 3006 -55 -12 minecraft:light[level=15]
+setblock 3006 -55 -8 minecraft:light[level=15]
+setblock 3006 -55 -4 minecraft:light[level=15]
+setblock 3006 -55 0 minecraft:light[level=15]
+setblock 3006 -55 4 minecraft:light[level=15]
+setblock 3006 -55 8 minecraft:light[level=15]
+setblock 3006 -55 12 minecraft:light[level=15]
+setblock 3006 -55 16 minecraft:light[level=15]
+setblock 3010 -55 -16 minecraft:light[level=15]
+setblock 3010 -55 -12 minecraft:light[level=15]
+setblock 3010 -55 -8 minecraft:light[level=15]
+setblock 3010 -55 -4 minecraft:light[level=15]
+setblock 3010 -55 0 minecraft:light[level=15]
+setblock 3010 -55 4 minecraft:light[level=15]
+setblock 3010 -55 8 minecraft:light[level=15]
+setblock 3010 -55 12 minecraft:light[level=15]
+setblock 3010 -55 16 minecraft:light[level=15]
+setblock 3014 -55 -16 minecraft:light[level=15]
+setblock 3014 -55 -12 minecraft:light[level=15]
+setblock 3014 -55 -8 minecraft:light[level=15]
+setblock 3014 -55 -4 minecraft:light[level=15]
+setblock 3014 -55 0 minecraft:light[level=15]
+setblock 3014 -55 4 minecraft:light[level=15]
+setblock 3014 -55 8 minecraft:light[level=15]
+setblock 3014 -55 12 minecraft:light[level=15]
+setblock 3014 -55 16 minecraft:light[level=15]
+setblock 3018 -55 -16 minecraft:light[level=15]
+setblock 3018 -55 -12 minecraft:light[level=15]
+setblock 3018 -55 -8 minecraft:light[level=15]
+setblock 3018 -55 -4 minecraft:light[level=15]
+setblock 3018 -55 0 minecraft:light[level=15]
+setblock 3018 -55 4 minecraft:light[level=15]
+setblock 3018 -55 8 minecraft:light[level=15]
+setblock 3018 -55 12 minecraft:light[level=15]
+setblock 3018 -55 16 minecraft:light[level=15]
+setblock 3022 -55 -16 minecraft:light[level=15]
+setblock 3022 -55 -12 minecraft:light[level=15]
+setblock 3022 -55 -8 minecraft:light[level=15]
+setblock 3022 -55 -4 minecraft:light[level=15]
+setblock 3022 -55 0 minecraft:light[level=15]
+setblock 3022 -55 4 minecraft:light[level=15]
+setblock 3022 -55 8 minecraft:light[level=15]
+setblock 3022 -55 12 minecraft:light[level=15]
+setblock 3022 -55 16 minecraft:light[level=15]
+setblock 3026 -55 -16 minecraft:light[level=15]
+setblock 3026 -55 -12 minecraft:light[level=15]
+setblock 3026 -55 -8 minecraft:light[level=15]
+setblock 3026 -55 -4 minecraft:light[level=15]
+setblock 3026 -55 0 minecraft:light[level=15]
+setblock 3026 -55 4 minecraft:light[level=15]
+setblock 3026 -55 8 minecraft:light[level=15]
+setblock 3026 -55 12 minecraft:light[level=15]
+setblock 3026 -55 16 minecraft:light[level=15]
+setblock 3002 -50 -16 minecraft:light[level=15]
+setblock 3002 -50 -10 minecraft:light[level=15]
+setblock 3002 -50 -4 minecraft:light[level=15]
+setblock 3002 -50 2 minecraft:light[level=15]
+setblock 3002 -50 8 minecraft:light[level=15]
+setblock 3002 -50 14 minecraft:light[level=15]
+setblock 3008 -50 -16 minecraft:light[level=15]
+setblock 3008 -50 -10 minecraft:light[level=15]
+setblock 3008 -50 -4 minecraft:light[level=15]
+setblock 3008 -50 2 minecraft:light[level=15]
+setblock 3008 -50 8 minecraft:light[level=15]
+setblock 3008 -50 14 minecraft:light[level=15]
+setblock 3014 -50 -16 minecraft:light[level=15]
+setblock 3014 -50 -10 minecraft:light[level=15]
+setblock 3014 -50 -4 minecraft:light[level=15]
+setblock 3014 -50 2 minecraft:light[level=15]
+setblock 3014 -50 8 minecraft:light[level=15]
+setblock 3014 -50 14 minecraft:light[level=15]
+setblock 3020 -50 -16 minecraft:light[level=15]
+setblock 3020 -50 -10 minecraft:light[level=15]
+setblock 3020 -50 -4 minecraft:light[level=15]
+setblock 3020 -50 2 minecraft:light[level=15]
+setblock 3020 -50 8 minecraft:light[level=15]
+setblock 3020 -50 14 minecraft:light[level=15]
+setblock 3026 -50 -16 minecraft:light[level=15]
+setblock 3026 -50 -10 minecraft:light[level=15]
+setblock 3026 -50 -4 minecraft:light[level=15]
+setblock 3026 -50 2 minecraft:light[level=15]
+setblock 3026 -50 8 minecraft:light[level=15]
+setblock 3026 -50 14 minecraft:light[level=15]
 # ── 2번 경기장 (물) ──
 fill 3050 -61 -18 3080 -61 18 minecraft:bedrock
 fill 3050 -60 -18 3080 -60 18 minecraft:light_blue_terracotta
@@ -4126,6 +4398,99 @@ fill 3062 -59 16 3068 -59 16 minecraft:blue_concrete
 fill 3064 -60 -17 3066 -60 -17 minecraft:orange_stained_glass
 summon minecraft:text_display 3065.5 -57.5 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 summon minecraft:text_display 3065.5 -52 16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"2번 체육관 · 물 타입","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+setblock 3052 -55 -16 minecraft:light[level=15]
+setblock 3052 -55 -12 minecraft:light[level=15]
+setblock 3052 -55 -8 minecraft:light[level=15]
+setblock 3052 -55 -4 minecraft:light[level=15]
+setblock 3052 -55 0 minecraft:light[level=15]
+setblock 3052 -55 4 minecraft:light[level=15]
+setblock 3052 -55 8 minecraft:light[level=15]
+setblock 3052 -55 12 minecraft:light[level=15]
+setblock 3052 -55 16 minecraft:light[level=15]
+setblock 3056 -55 -16 minecraft:light[level=15]
+setblock 3056 -55 -12 minecraft:light[level=15]
+setblock 3056 -55 -8 minecraft:light[level=15]
+setblock 3056 -55 -4 minecraft:light[level=15]
+setblock 3056 -55 0 minecraft:light[level=15]
+setblock 3056 -55 4 minecraft:light[level=15]
+setblock 3056 -55 8 minecraft:light[level=15]
+setblock 3056 -55 12 minecraft:light[level=15]
+setblock 3056 -55 16 minecraft:light[level=15]
+setblock 3060 -55 -16 minecraft:light[level=15]
+setblock 3060 -55 -12 minecraft:light[level=15]
+setblock 3060 -55 -8 minecraft:light[level=15]
+setblock 3060 -55 -4 minecraft:light[level=15]
+setblock 3060 -55 0 minecraft:light[level=15]
+setblock 3060 -55 4 minecraft:light[level=15]
+setblock 3060 -55 8 minecraft:light[level=15]
+setblock 3060 -55 12 minecraft:light[level=15]
+setblock 3060 -55 16 minecraft:light[level=15]
+setblock 3064 -55 -16 minecraft:light[level=15]
+setblock 3064 -55 -12 minecraft:light[level=15]
+setblock 3064 -55 -8 minecraft:light[level=15]
+setblock 3064 -55 -4 minecraft:light[level=15]
+setblock 3064 -55 0 minecraft:light[level=15]
+setblock 3064 -55 4 minecraft:light[level=15]
+setblock 3064 -55 8 minecraft:light[level=15]
+setblock 3064 -55 12 minecraft:light[level=15]
+setblock 3064 -55 16 minecraft:light[level=15]
+setblock 3068 -55 -16 minecraft:light[level=15]
+setblock 3068 -55 -12 minecraft:light[level=15]
+setblock 3068 -55 -8 minecraft:light[level=15]
+setblock 3068 -55 -4 minecraft:light[level=15]
+setblock 3068 -55 0 minecraft:light[level=15]
+setblock 3068 -55 4 minecraft:light[level=15]
+setblock 3068 -55 8 minecraft:light[level=15]
+setblock 3068 -55 12 minecraft:light[level=15]
+setblock 3068 -55 16 minecraft:light[level=15]
+setblock 3072 -55 -16 minecraft:light[level=15]
+setblock 3072 -55 -12 minecraft:light[level=15]
+setblock 3072 -55 -8 minecraft:light[level=15]
+setblock 3072 -55 -4 minecraft:light[level=15]
+setblock 3072 -55 0 minecraft:light[level=15]
+setblock 3072 -55 4 minecraft:light[level=15]
+setblock 3072 -55 8 minecraft:light[level=15]
+setblock 3072 -55 12 minecraft:light[level=15]
+setblock 3072 -55 16 minecraft:light[level=15]
+setblock 3076 -55 -16 minecraft:light[level=15]
+setblock 3076 -55 -12 minecraft:light[level=15]
+setblock 3076 -55 -8 minecraft:light[level=15]
+setblock 3076 -55 -4 minecraft:light[level=15]
+setblock 3076 -55 0 minecraft:light[level=15]
+setblock 3076 -55 4 minecraft:light[level=15]
+setblock 3076 -55 8 minecraft:light[level=15]
+setblock 3076 -55 12 minecraft:light[level=15]
+setblock 3076 -55 16 minecraft:light[level=15]
+setblock 3052 -50 -16 minecraft:light[level=15]
+setblock 3052 -50 -10 minecraft:light[level=15]
+setblock 3052 -50 -4 minecraft:light[level=15]
+setblock 3052 -50 2 minecraft:light[level=15]
+setblock 3052 -50 8 minecraft:light[level=15]
+setblock 3052 -50 14 minecraft:light[level=15]
+setblock 3058 -50 -16 minecraft:light[level=15]
+setblock 3058 -50 -10 minecraft:light[level=15]
+setblock 3058 -50 -4 minecraft:light[level=15]
+setblock 3058 -50 2 minecraft:light[level=15]
+setblock 3058 -50 8 minecraft:light[level=15]
+setblock 3058 -50 14 minecraft:light[level=15]
+setblock 3064 -50 -16 minecraft:light[level=15]
+setblock 3064 -50 -10 minecraft:light[level=15]
+setblock 3064 -50 -4 minecraft:light[level=15]
+setblock 3064 -50 2 minecraft:light[level=15]
+setblock 3064 -50 8 minecraft:light[level=15]
+setblock 3064 -50 14 minecraft:light[level=15]
+setblock 3070 -50 -16 minecraft:light[level=15]
+setblock 3070 -50 -10 minecraft:light[level=15]
+setblock 3070 -50 -4 minecraft:light[level=15]
+setblock 3070 -50 2 minecraft:light[level=15]
+setblock 3070 -50 8 minecraft:light[level=15]
+setblock 3070 -50 14 minecraft:light[level=15]
+setblock 3076 -50 -16 minecraft:light[level=15]
+setblock 3076 -50 -10 minecraft:light[level=15]
+setblock 3076 -50 -4 minecraft:light[level=15]
+setblock 3076 -50 2 minecraft:light[level=15]
+setblock 3076 -50 8 minecraft:light[level=15]
+setblock 3076 -50 14 minecraft:light[level=15]
 # ── 3번 경기장 (전기) ──
 fill 3100 -61 -18 3130 -61 18 minecraft:bedrock
 fill 3100 -60 -18 3130 -60 18 minecraft:yellow_terracotta
@@ -4269,6 +4634,99 @@ fill 3112 -59 16 3118 -59 16 minecraft:yellow_concrete
 fill 3114 -60 -17 3116 -60 -17 minecraft:orange_stained_glass
 summon minecraft:text_display 3115.5 -57.5 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 summon minecraft:text_display 3115.5 -52 16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"3번 체육관 · 전기 타입","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+setblock 3102 -55 -16 minecraft:light[level=15]
+setblock 3102 -55 -12 minecraft:light[level=15]
+setblock 3102 -55 -8 minecraft:light[level=15]
+setblock 3102 -55 -4 minecraft:light[level=15]
+setblock 3102 -55 0 minecraft:light[level=15]
+setblock 3102 -55 4 minecraft:light[level=15]
+setblock 3102 -55 8 minecraft:light[level=15]
+setblock 3102 -55 12 minecraft:light[level=15]
+setblock 3102 -55 16 minecraft:light[level=15]
+setblock 3106 -55 -16 minecraft:light[level=15]
+setblock 3106 -55 -12 minecraft:light[level=15]
+setblock 3106 -55 -8 minecraft:light[level=15]
+setblock 3106 -55 -4 minecraft:light[level=15]
+setblock 3106 -55 0 minecraft:light[level=15]
+setblock 3106 -55 4 minecraft:light[level=15]
+setblock 3106 -55 8 minecraft:light[level=15]
+setblock 3106 -55 12 minecraft:light[level=15]
+setblock 3106 -55 16 minecraft:light[level=15]
+setblock 3110 -55 -16 minecraft:light[level=15]
+setblock 3110 -55 -12 minecraft:light[level=15]
+setblock 3110 -55 -8 minecraft:light[level=15]
+setblock 3110 -55 -4 minecraft:light[level=15]
+setblock 3110 -55 0 minecraft:light[level=15]
+setblock 3110 -55 4 minecraft:light[level=15]
+setblock 3110 -55 8 minecraft:light[level=15]
+setblock 3110 -55 12 minecraft:light[level=15]
+setblock 3110 -55 16 minecraft:light[level=15]
+setblock 3114 -55 -16 minecraft:light[level=15]
+setblock 3114 -55 -12 minecraft:light[level=15]
+setblock 3114 -55 -8 minecraft:light[level=15]
+setblock 3114 -55 -4 minecraft:light[level=15]
+setblock 3114 -55 0 minecraft:light[level=15]
+setblock 3114 -55 4 minecraft:light[level=15]
+setblock 3114 -55 8 minecraft:light[level=15]
+setblock 3114 -55 12 minecraft:light[level=15]
+setblock 3114 -55 16 minecraft:light[level=15]
+setblock 3118 -55 -16 minecraft:light[level=15]
+setblock 3118 -55 -12 minecraft:light[level=15]
+setblock 3118 -55 -8 minecraft:light[level=15]
+setblock 3118 -55 -4 minecraft:light[level=15]
+setblock 3118 -55 0 minecraft:light[level=15]
+setblock 3118 -55 4 minecraft:light[level=15]
+setblock 3118 -55 8 minecraft:light[level=15]
+setblock 3118 -55 12 minecraft:light[level=15]
+setblock 3118 -55 16 minecraft:light[level=15]
+setblock 3122 -55 -16 minecraft:light[level=15]
+setblock 3122 -55 -12 minecraft:light[level=15]
+setblock 3122 -55 -8 minecraft:light[level=15]
+setblock 3122 -55 -4 minecraft:light[level=15]
+setblock 3122 -55 0 minecraft:light[level=15]
+setblock 3122 -55 4 minecraft:light[level=15]
+setblock 3122 -55 8 minecraft:light[level=15]
+setblock 3122 -55 12 minecraft:light[level=15]
+setblock 3122 -55 16 minecraft:light[level=15]
+setblock 3126 -55 -16 minecraft:light[level=15]
+setblock 3126 -55 -12 minecraft:light[level=15]
+setblock 3126 -55 -8 minecraft:light[level=15]
+setblock 3126 -55 -4 minecraft:light[level=15]
+setblock 3126 -55 0 minecraft:light[level=15]
+setblock 3126 -55 4 minecraft:light[level=15]
+setblock 3126 -55 8 minecraft:light[level=15]
+setblock 3126 -55 12 minecraft:light[level=15]
+setblock 3126 -55 16 minecraft:light[level=15]
+setblock 3102 -50 -16 minecraft:light[level=15]
+setblock 3102 -50 -10 minecraft:light[level=15]
+setblock 3102 -50 -4 minecraft:light[level=15]
+setblock 3102 -50 2 minecraft:light[level=15]
+setblock 3102 -50 8 minecraft:light[level=15]
+setblock 3102 -50 14 minecraft:light[level=15]
+setblock 3108 -50 -16 minecraft:light[level=15]
+setblock 3108 -50 -10 minecraft:light[level=15]
+setblock 3108 -50 -4 minecraft:light[level=15]
+setblock 3108 -50 2 minecraft:light[level=15]
+setblock 3108 -50 8 minecraft:light[level=15]
+setblock 3108 -50 14 minecraft:light[level=15]
+setblock 3114 -50 -16 minecraft:light[level=15]
+setblock 3114 -50 -10 minecraft:light[level=15]
+setblock 3114 -50 -4 minecraft:light[level=15]
+setblock 3114 -50 2 minecraft:light[level=15]
+setblock 3114 -50 8 minecraft:light[level=15]
+setblock 3114 -50 14 minecraft:light[level=15]
+setblock 3120 -50 -16 minecraft:light[level=15]
+setblock 3120 -50 -10 minecraft:light[level=15]
+setblock 3120 -50 -4 minecraft:light[level=15]
+setblock 3120 -50 2 minecraft:light[level=15]
+setblock 3120 -50 8 minecraft:light[level=15]
+setblock 3120 -50 14 minecraft:light[level=15]
+setblock 3126 -50 -16 minecraft:light[level=15]
+setblock 3126 -50 -10 minecraft:light[level=15]
+setblock 3126 -50 -4 minecraft:light[level=15]
+setblock 3126 -50 2 minecraft:light[level=15]
+setblock 3126 -50 8 minecraft:light[level=15]
+setblock 3126 -50 14 minecraft:light[level=15]
 # ── 4번 경기장 (풀) ──
 fill 3150 -61 -18 3180 -61 18 minecraft:bedrock
 fill 3150 -60 -18 3180 -60 18 minecraft:green_terracotta
@@ -4419,6 +4877,99 @@ fill 3162 -59 16 3168 -59 16 minecraft:lime_concrete
 fill 3164 -60 -17 3166 -60 -17 minecraft:orange_stained_glass
 summon minecraft:text_display 3165.5 -57.5 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 summon minecraft:text_display 3165.5 -52 16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"4번 체육관 · 풀 타입","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+setblock 3152 -55 -16 minecraft:light[level=15]
+setblock 3152 -55 -12 minecraft:light[level=15]
+setblock 3152 -55 -8 minecraft:light[level=15]
+setblock 3152 -55 -4 minecraft:light[level=15]
+setblock 3152 -55 0 minecraft:light[level=15]
+setblock 3152 -55 4 minecraft:light[level=15]
+setblock 3152 -55 8 minecraft:light[level=15]
+setblock 3152 -55 12 minecraft:light[level=15]
+setblock 3152 -55 16 minecraft:light[level=15]
+setblock 3156 -55 -16 minecraft:light[level=15]
+setblock 3156 -55 -12 minecraft:light[level=15]
+setblock 3156 -55 -8 minecraft:light[level=15]
+setblock 3156 -55 -4 minecraft:light[level=15]
+setblock 3156 -55 0 minecraft:light[level=15]
+setblock 3156 -55 4 minecraft:light[level=15]
+setblock 3156 -55 8 minecraft:light[level=15]
+setblock 3156 -55 12 minecraft:light[level=15]
+setblock 3156 -55 16 minecraft:light[level=15]
+setblock 3160 -55 -16 minecraft:light[level=15]
+setblock 3160 -55 -12 minecraft:light[level=15]
+setblock 3160 -55 -8 minecraft:light[level=15]
+setblock 3160 -55 -4 minecraft:light[level=15]
+setblock 3160 -55 0 minecraft:light[level=15]
+setblock 3160 -55 4 minecraft:light[level=15]
+setblock 3160 -55 8 minecraft:light[level=15]
+setblock 3160 -55 12 minecraft:light[level=15]
+setblock 3160 -55 16 minecraft:light[level=15]
+setblock 3164 -55 -16 minecraft:light[level=15]
+setblock 3164 -55 -12 minecraft:light[level=15]
+setblock 3164 -55 -8 minecraft:light[level=15]
+setblock 3164 -55 -4 minecraft:light[level=15]
+setblock 3164 -55 0 minecraft:light[level=15]
+setblock 3164 -55 4 minecraft:light[level=15]
+setblock 3164 -55 8 minecraft:light[level=15]
+setblock 3164 -55 12 minecraft:light[level=15]
+setblock 3164 -55 16 minecraft:light[level=15]
+setblock 3168 -55 -16 minecraft:light[level=15]
+setblock 3168 -55 -12 minecraft:light[level=15]
+setblock 3168 -55 -8 minecraft:light[level=15]
+setblock 3168 -55 -4 minecraft:light[level=15]
+setblock 3168 -55 0 minecraft:light[level=15]
+setblock 3168 -55 4 minecraft:light[level=15]
+setblock 3168 -55 8 minecraft:light[level=15]
+setblock 3168 -55 12 minecraft:light[level=15]
+setblock 3168 -55 16 minecraft:light[level=15]
+setblock 3172 -55 -16 minecraft:light[level=15]
+setblock 3172 -55 -12 minecraft:light[level=15]
+setblock 3172 -55 -8 minecraft:light[level=15]
+setblock 3172 -55 -4 minecraft:light[level=15]
+setblock 3172 -55 0 minecraft:light[level=15]
+setblock 3172 -55 4 minecraft:light[level=15]
+setblock 3172 -55 8 minecraft:light[level=15]
+setblock 3172 -55 12 minecraft:light[level=15]
+setblock 3172 -55 16 minecraft:light[level=15]
+setblock 3176 -55 -16 minecraft:light[level=15]
+setblock 3176 -55 -12 minecraft:light[level=15]
+setblock 3176 -55 -8 minecraft:light[level=15]
+setblock 3176 -55 -4 minecraft:light[level=15]
+setblock 3176 -55 0 minecraft:light[level=15]
+setblock 3176 -55 4 minecraft:light[level=15]
+setblock 3176 -55 8 minecraft:light[level=15]
+setblock 3176 -55 12 minecraft:light[level=15]
+setblock 3176 -55 16 minecraft:light[level=15]
+setblock 3152 -50 -16 minecraft:light[level=15]
+setblock 3152 -50 -10 minecraft:light[level=15]
+setblock 3152 -50 -4 minecraft:light[level=15]
+setblock 3152 -50 2 minecraft:light[level=15]
+setblock 3152 -50 8 minecraft:light[level=15]
+setblock 3152 -50 14 minecraft:light[level=15]
+setblock 3158 -50 -16 minecraft:light[level=15]
+setblock 3158 -50 -10 minecraft:light[level=15]
+setblock 3158 -50 -4 minecraft:light[level=15]
+setblock 3158 -50 2 minecraft:light[level=15]
+setblock 3158 -50 8 minecraft:light[level=15]
+setblock 3158 -50 14 minecraft:light[level=15]
+setblock 3164 -50 -16 minecraft:light[level=15]
+setblock 3164 -50 -10 minecraft:light[level=15]
+setblock 3164 -50 -4 minecraft:light[level=15]
+setblock 3164 -50 2 minecraft:light[level=15]
+setblock 3164 -50 8 minecraft:light[level=15]
+setblock 3164 -50 14 minecraft:light[level=15]
+setblock 3170 -50 -16 minecraft:light[level=15]
+setblock 3170 -50 -10 minecraft:light[level=15]
+setblock 3170 -50 -4 minecraft:light[level=15]
+setblock 3170 -50 2 minecraft:light[level=15]
+setblock 3170 -50 8 minecraft:light[level=15]
+setblock 3170 -50 14 minecraft:light[level=15]
+setblock 3176 -50 -16 minecraft:light[level=15]
+setblock 3176 -50 -10 minecraft:light[level=15]
+setblock 3176 -50 -4 minecraft:light[level=15]
+setblock 3176 -50 2 minecraft:light[level=15]
+setblock 3176 -50 8 minecraft:light[level=15]
+setblock 3176 -50 14 minecraft:light[level=15]
 # ── 5번 경기장 (독) ──
 fill 3200 -61 -18 3230 -61 18 minecraft:bedrock
 fill 3200 -60 -18 3230 -60 18 minecraft:purpur_block
@@ -4574,6 +5125,99 @@ fill 3212 -59 16 3218 -59 16 minecraft:magenta_concrete
 fill 3214 -60 -17 3216 -60 -17 minecraft:orange_stained_glass
 summon minecraft:text_display 3215.5 -57.5 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 summon minecraft:text_display 3215.5 -52 16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"5번 체육관 · 독 타입","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+setblock 3202 -55 -16 minecraft:light[level=15]
+setblock 3202 -55 -12 minecraft:light[level=15]
+setblock 3202 -55 -8 minecraft:light[level=15]
+setblock 3202 -55 -4 minecraft:light[level=15]
+setblock 3202 -55 0 minecraft:light[level=15]
+setblock 3202 -55 4 minecraft:light[level=15]
+setblock 3202 -55 8 minecraft:light[level=15]
+setblock 3202 -55 12 minecraft:light[level=15]
+setblock 3202 -55 16 minecraft:light[level=15]
+setblock 3206 -55 -16 minecraft:light[level=15]
+setblock 3206 -55 -12 minecraft:light[level=15]
+setblock 3206 -55 -8 minecraft:light[level=15]
+setblock 3206 -55 -4 minecraft:light[level=15]
+setblock 3206 -55 0 minecraft:light[level=15]
+setblock 3206 -55 4 minecraft:light[level=15]
+setblock 3206 -55 8 minecraft:light[level=15]
+setblock 3206 -55 12 minecraft:light[level=15]
+setblock 3206 -55 16 minecraft:light[level=15]
+setblock 3210 -55 -16 minecraft:light[level=15]
+setblock 3210 -55 -12 minecraft:light[level=15]
+setblock 3210 -55 -8 minecraft:light[level=15]
+setblock 3210 -55 -4 minecraft:light[level=15]
+setblock 3210 -55 0 minecraft:light[level=15]
+setblock 3210 -55 4 minecraft:light[level=15]
+setblock 3210 -55 8 minecraft:light[level=15]
+setblock 3210 -55 12 minecraft:light[level=15]
+setblock 3210 -55 16 minecraft:light[level=15]
+setblock 3214 -55 -16 minecraft:light[level=15]
+setblock 3214 -55 -12 minecraft:light[level=15]
+setblock 3214 -55 -8 minecraft:light[level=15]
+setblock 3214 -55 -4 minecraft:light[level=15]
+setblock 3214 -55 0 minecraft:light[level=15]
+setblock 3214 -55 4 minecraft:light[level=15]
+setblock 3214 -55 8 minecraft:light[level=15]
+setblock 3214 -55 12 minecraft:light[level=15]
+setblock 3214 -55 16 minecraft:light[level=15]
+setblock 3218 -55 -16 minecraft:light[level=15]
+setblock 3218 -55 -12 minecraft:light[level=15]
+setblock 3218 -55 -8 minecraft:light[level=15]
+setblock 3218 -55 -4 minecraft:light[level=15]
+setblock 3218 -55 0 minecraft:light[level=15]
+setblock 3218 -55 4 minecraft:light[level=15]
+setblock 3218 -55 8 minecraft:light[level=15]
+setblock 3218 -55 12 minecraft:light[level=15]
+setblock 3218 -55 16 minecraft:light[level=15]
+setblock 3222 -55 -16 minecraft:light[level=15]
+setblock 3222 -55 -12 minecraft:light[level=15]
+setblock 3222 -55 -8 minecraft:light[level=15]
+setblock 3222 -55 -4 minecraft:light[level=15]
+setblock 3222 -55 0 minecraft:light[level=15]
+setblock 3222 -55 4 minecraft:light[level=15]
+setblock 3222 -55 8 minecraft:light[level=15]
+setblock 3222 -55 12 minecraft:light[level=15]
+setblock 3222 -55 16 minecraft:light[level=15]
+setblock 3226 -55 -16 minecraft:light[level=15]
+setblock 3226 -55 -12 minecraft:light[level=15]
+setblock 3226 -55 -8 minecraft:light[level=15]
+setblock 3226 -55 -4 minecraft:light[level=15]
+setblock 3226 -55 0 minecraft:light[level=15]
+setblock 3226 -55 4 minecraft:light[level=15]
+setblock 3226 -55 8 minecraft:light[level=15]
+setblock 3226 -55 12 minecraft:light[level=15]
+setblock 3226 -55 16 minecraft:light[level=15]
+setblock 3202 -50 -16 minecraft:light[level=15]
+setblock 3202 -50 -10 minecraft:light[level=15]
+setblock 3202 -50 -4 minecraft:light[level=15]
+setblock 3202 -50 2 minecraft:light[level=15]
+setblock 3202 -50 8 minecraft:light[level=15]
+setblock 3202 -50 14 minecraft:light[level=15]
+setblock 3208 -50 -16 minecraft:light[level=15]
+setblock 3208 -50 -10 minecraft:light[level=15]
+setblock 3208 -50 -4 minecraft:light[level=15]
+setblock 3208 -50 2 minecraft:light[level=15]
+setblock 3208 -50 8 minecraft:light[level=15]
+setblock 3208 -50 14 minecraft:light[level=15]
+setblock 3214 -50 -16 minecraft:light[level=15]
+setblock 3214 -50 -10 minecraft:light[level=15]
+setblock 3214 -50 -4 minecraft:light[level=15]
+setblock 3214 -50 2 minecraft:light[level=15]
+setblock 3214 -50 8 minecraft:light[level=15]
+setblock 3214 -50 14 minecraft:light[level=15]
+setblock 3220 -50 -16 minecraft:light[level=15]
+setblock 3220 -50 -10 minecraft:light[level=15]
+setblock 3220 -50 -4 minecraft:light[level=15]
+setblock 3220 -50 2 minecraft:light[level=15]
+setblock 3220 -50 8 minecraft:light[level=15]
+setblock 3220 -50 14 minecraft:light[level=15]
+setblock 3226 -50 -16 minecraft:light[level=15]
+setblock 3226 -50 -10 minecraft:light[level=15]
+setblock 3226 -50 -4 minecraft:light[level=15]
+setblock 3226 -50 2 minecraft:light[level=15]
+setblock 3226 -50 8 minecraft:light[level=15]
+setblock 3226 -50 14 minecraft:light[level=15]
 # ── 6번 경기장 (에스퍼) ──
 fill 3250 -61 -18 3280 -61 18 minecraft:bedrock
 fill 3250 -60 -18 3280 -60 18 minecraft:magenta_terracotta
@@ -4719,6 +5363,99 @@ fill 3262 -59 16 3268 -59 16 minecraft:magenta_concrete
 fill 3264 -60 -17 3266 -60 -17 minecraft:orange_stained_glass
 summon minecraft:text_display 3265.5 -57.5 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 summon minecraft:text_display 3265.5 -52 16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"6번 체육관 · 에스퍼 타입","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+setblock 3252 -55 -16 minecraft:light[level=15]
+setblock 3252 -55 -12 minecraft:light[level=15]
+setblock 3252 -55 -8 minecraft:light[level=15]
+setblock 3252 -55 -4 minecraft:light[level=15]
+setblock 3252 -55 0 minecraft:light[level=15]
+setblock 3252 -55 4 minecraft:light[level=15]
+setblock 3252 -55 8 minecraft:light[level=15]
+setblock 3252 -55 12 minecraft:light[level=15]
+setblock 3252 -55 16 minecraft:light[level=15]
+setblock 3256 -55 -16 minecraft:light[level=15]
+setblock 3256 -55 -12 minecraft:light[level=15]
+setblock 3256 -55 -8 minecraft:light[level=15]
+setblock 3256 -55 -4 minecraft:light[level=15]
+setblock 3256 -55 0 minecraft:light[level=15]
+setblock 3256 -55 4 minecraft:light[level=15]
+setblock 3256 -55 8 minecraft:light[level=15]
+setblock 3256 -55 12 minecraft:light[level=15]
+setblock 3256 -55 16 minecraft:light[level=15]
+setblock 3260 -55 -16 minecraft:light[level=15]
+setblock 3260 -55 -12 minecraft:light[level=15]
+setblock 3260 -55 -8 minecraft:light[level=15]
+setblock 3260 -55 -4 minecraft:light[level=15]
+setblock 3260 -55 0 minecraft:light[level=15]
+setblock 3260 -55 4 minecraft:light[level=15]
+setblock 3260 -55 8 minecraft:light[level=15]
+setblock 3260 -55 12 minecraft:light[level=15]
+setblock 3260 -55 16 minecraft:light[level=15]
+setblock 3264 -55 -16 minecraft:light[level=15]
+setblock 3264 -55 -12 minecraft:light[level=15]
+setblock 3264 -55 -8 minecraft:light[level=15]
+setblock 3264 -55 -4 minecraft:light[level=15]
+setblock 3264 -55 0 minecraft:light[level=15]
+setblock 3264 -55 4 minecraft:light[level=15]
+setblock 3264 -55 8 minecraft:light[level=15]
+setblock 3264 -55 12 minecraft:light[level=15]
+setblock 3264 -55 16 minecraft:light[level=15]
+setblock 3268 -55 -16 minecraft:light[level=15]
+setblock 3268 -55 -12 minecraft:light[level=15]
+setblock 3268 -55 -8 minecraft:light[level=15]
+setblock 3268 -55 -4 minecraft:light[level=15]
+setblock 3268 -55 0 minecraft:light[level=15]
+setblock 3268 -55 4 minecraft:light[level=15]
+setblock 3268 -55 8 minecraft:light[level=15]
+setblock 3268 -55 12 minecraft:light[level=15]
+setblock 3268 -55 16 minecraft:light[level=15]
+setblock 3272 -55 -16 minecraft:light[level=15]
+setblock 3272 -55 -12 minecraft:light[level=15]
+setblock 3272 -55 -8 minecraft:light[level=15]
+setblock 3272 -55 -4 minecraft:light[level=15]
+setblock 3272 -55 0 minecraft:light[level=15]
+setblock 3272 -55 4 minecraft:light[level=15]
+setblock 3272 -55 8 minecraft:light[level=15]
+setblock 3272 -55 12 minecraft:light[level=15]
+setblock 3272 -55 16 minecraft:light[level=15]
+setblock 3276 -55 -16 minecraft:light[level=15]
+setblock 3276 -55 -12 minecraft:light[level=15]
+setblock 3276 -55 -8 minecraft:light[level=15]
+setblock 3276 -55 -4 minecraft:light[level=15]
+setblock 3276 -55 0 minecraft:light[level=15]
+setblock 3276 -55 4 minecraft:light[level=15]
+setblock 3276 -55 8 minecraft:light[level=15]
+setblock 3276 -55 12 minecraft:light[level=15]
+setblock 3276 -55 16 minecraft:light[level=15]
+setblock 3252 -50 -16 minecraft:light[level=15]
+setblock 3252 -50 -10 minecraft:light[level=15]
+setblock 3252 -50 -4 minecraft:light[level=15]
+setblock 3252 -50 2 minecraft:light[level=15]
+setblock 3252 -50 8 minecraft:light[level=15]
+setblock 3252 -50 14 minecraft:light[level=15]
+setblock 3258 -50 -16 minecraft:light[level=15]
+setblock 3258 -50 -10 minecraft:light[level=15]
+setblock 3258 -50 -4 minecraft:light[level=15]
+setblock 3258 -50 2 minecraft:light[level=15]
+setblock 3258 -50 8 minecraft:light[level=15]
+setblock 3258 -50 14 minecraft:light[level=15]
+setblock 3264 -50 -16 minecraft:light[level=15]
+setblock 3264 -50 -10 minecraft:light[level=15]
+setblock 3264 -50 -4 minecraft:light[level=15]
+setblock 3264 -50 2 minecraft:light[level=15]
+setblock 3264 -50 8 minecraft:light[level=15]
+setblock 3264 -50 14 minecraft:light[level=15]
+setblock 3270 -50 -16 minecraft:light[level=15]
+setblock 3270 -50 -10 minecraft:light[level=15]
+setblock 3270 -50 -4 minecraft:light[level=15]
+setblock 3270 -50 2 minecraft:light[level=15]
+setblock 3270 -50 8 minecraft:light[level=15]
+setblock 3270 -50 14 minecraft:light[level=15]
+setblock 3276 -50 -16 minecraft:light[level=15]
+setblock 3276 -50 -10 minecraft:light[level=15]
+setblock 3276 -50 -4 minecraft:light[level=15]
+setblock 3276 -50 2 minecraft:light[level=15]
+setblock 3276 -50 8 minecraft:light[level=15]
+setblock 3276 -50 14 minecraft:light[level=15]
 # ── 7번 경기장 (불꽃) ──
 fill 3300 -61 -18 3330 -61 18 minecraft:bedrock
 fill 3300 -60 -18 3330 -60 18 minecraft:nether_bricks
@@ -4881,6 +5618,99 @@ fill 3312 -59 16 3318 -59 16 minecraft:orange_concrete
 fill 3314 -60 -17 3316 -60 -17 minecraft:orange_stained_glass
 summon minecraft:text_display 3315.5 -57.5 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 summon minecraft:text_display 3315.5 -52 16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"7번 체육관 · 불꽃 타입","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+setblock 3302 -55 -16 minecraft:light[level=15]
+setblock 3302 -55 -12 minecraft:light[level=15]
+setblock 3302 -55 -8 minecraft:light[level=15]
+setblock 3302 -55 -4 minecraft:light[level=15]
+setblock 3302 -55 0 minecraft:light[level=15]
+setblock 3302 -55 4 minecraft:light[level=15]
+setblock 3302 -55 8 minecraft:light[level=15]
+setblock 3302 -55 12 minecraft:light[level=15]
+setblock 3302 -55 16 minecraft:light[level=15]
+setblock 3306 -55 -16 minecraft:light[level=15]
+setblock 3306 -55 -12 minecraft:light[level=15]
+setblock 3306 -55 -8 minecraft:light[level=15]
+setblock 3306 -55 -4 minecraft:light[level=15]
+setblock 3306 -55 0 minecraft:light[level=15]
+setblock 3306 -55 4 minecraft:light[level=15]
+setblock 3306 -55 8 minecraft:light[level=15]
+setblock 3306 -55 12 minecraft:light[level=15]
+setblock 3306 -55 16 minecraft:light[level=15]
+setblock 3310 -55 -16 minecraft:light[level=15]
+setblock 3310 -55 -12 minecraft:light[level=15]
+setblock 3310 -55 -8 minecraft:light[level=15]
+setblock 3310 -55 -4 minecraft:light[level=15]
+setblock 3310 -55 0 minecraft:light[level=15]
+setblock 3310 -55 4 minecraft:light[level=15]
+setblock 3310 -55 8 minecraft:light[level=15]
+setblock 3310 -55 12 minecraft:light[level=15]
+setblock 3310 -55 16 minecraft:light[level=15]
+setblock 3314 -55 -16 minecraft:light[level=15]
+setblock 3314 -55 -12 minecraft:light[level=15]
+setblock 3314 -55 -8 minecraft:light[level=15]
+setblock 3314 -55 -4 minecraft:light[level=15]
+setblock 3314 -55 0 minecraft:light[level=15]
+setblock 3314 -55 4 minecraft:light[level=15]
+setblock 3314 -55 8 minecraft:light[level=15]
+setblock 3314 -55 12 minecraft:light[level=15]
+setblock 3314 -55 16 minecraft:light[level=15]
+setblock 3318 -55 -16 minecraft:light[level=15]
+setblock 3318 -55 -12 minecraft:light[level=15]
+setblock 3318 -55 -8 minecraft:light[level=15]
+setblock 3318 -55 -4 minecraft:light[level=15]
+setblock 3318 -55 0 minecraft:light[level=15]
+setblock 3318 -55 4 minecraft:light[level=15]
+setblock 3318 -55 8 minecraft:light[level=15]
+setblock 3318 -55 12 minecraft:light[level=15]
+setblock 3318 -55 16 minecraft:light[level=15]
+setblock 3322 -55 -16 minecraft:light[level=15]
+setblock 3322 -55 -12 minecraft:light[level=15]
+setblock 3322 -55 -8 minecraft:light[level=15]
+setblock 3322 -55 -4 minecraft:light[level=15]
+setblock 3322 -55 0 minecraft:light[level=15]
+setblock 3322 -55 4 minecraft:light[level=15]
+setblock 3322 -55 8 minecraft:light[level=15]
+setblock 3322 -55 12 minecraft:light[level=15]
+setblock 3322 -55 16 minecraft:light[level=15]
+setblock 3326 -55 -16 minecraft:light[level=15]
+setblock 3326 -55 -12 minecraft:light[level=15]
+setblock 3326 -55 -8 minecraft:light[level=15]
+setblock 3326 -55 -4 minecraft:light[level=15]
+setblock 3326 -55 0 minecraft:light[level=15]
+setblock 3326 -55 4 minecraft:light[level=15]
+setblock 3326 -55 8 minecraft:light[level=15]
+setblock 3326 -55 12 minecraft:light[level=15]
+setblock 3326 -55 16 minecraft:light[level=15]
+setblock 3302 -50 -16 minecraft:light[level=15]
+setblock 3302 -50 -10 minecraft:light[level=15]
+setblock 3302 -50 -4 minecraft:light[level=15]
+setblock 3302 -50 2 minecraft:light[level=15]
+setblock 3302 -50 8 minecraft:light[level=15]
+setblock 3302 -50 14 minecraft:light[level=15]
+setblock 3308 -50 -16 minecraft:light[level=15]
+setblock 3308 -50 -10 minecraft:light[level=15]
+setblock 3308 -50 -4 minecraft:light[level=15]
+setblock 3308 -50 2 minecraft:light[level=15]
+setblock 3308 -50 8 minecraft:light[level=15]
+setblock 3308 -50 14 minecraft:light[level=15]
+setblock 3314 -50 -16 minecraft:light[level=15]
+setblock 3314 -50 -10 minecraft:light[level=15]
+setblock 3314 -50 -4 minecraft:light[level=15]
+setblock 3314 -50 2 minecraft:light[level=15]
+setblock 3314 -50 8 minecraft:light[level=15]
+setblock 3314 -50 14 minecraft:light[level=15]
+setblock 3320 -50 -16 minecraft:light[level=15]
+setblock 3320 -50 -10 minecraft:light[level=15]
+setblock 3320 -50 -4 minecraft:light[level=15]
+setblock 3320 -50 2 minecraft:light[level=15]
+setblock 3320 -50 8 minecraft:light[level=15]
+setblock 3320 -50 14 minecraft:light[level=15]
+setblock 3326 -50 -16 minecraft:light[level=15]
+setblock 3326 -50 -10 minecraft:light[level=15]
+setblock 3326 -50 -4 minecraft:light[level=15]
+setblock 3326 -50 2 minecraft:light[level=15]
+setblock 3326 -50 8 minecraft:light[level=15]
+setblock 3326 -50 14 minecraft:light[level=15]
 # ── 8번 경기장 (땅) ──
 fill 3350 -61 -18 3380 -61 18 minecraft:bedrock
 fill 3350 -60 -18 3380 -60 18 minecraft:terracotta
@@ -5046,6 +5876,99 @@ fill 3362 -59 16 3368 -59 16 minecraft:brown_concrete
 fill 3364 -60 -17 3366 -60 -17 minecraft:orange_stained_glass
 summon minecraft:text_display 3365.5 -57.5 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 summon minecraft:text_display 3365.5 -52 16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"8번 체육관 · 땅 타입","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+setblock 3352 -55 -16 minecraft:light[level=15]
+setblock 3352 -55 -12 minecraft:light[level=15]
+setblock 3352 -55 -8 minecraft:light[level=15]
+setblock 3352 -55 -4 minecraft:light[level=15]
+setblock 3352 -55 0 minecraft:light[level=15]
+setblock 3352 -55 4 minecraft:light[level=15]
+setblock 3352 -55 8 minecraft:light[level=15]
+setblock 3352 -55 12 minecraft:light[level=15]
+setblock 3352 -55 16 minecraft:light[level=15]
+setblock 3356 -55 -16 minecraft:light[level=15]
+setblock 3356 -55 -12 minecraft:light[level=15]
+setblock 3356 -55 -8 minecraft:light[level=15]
+setblock 3356 -55 -4 minecraft:light[level=15]
+setblock 3356 -55 0 minecraft:light[level=15]
+setblock 3356 -55 4 minecraft:light[level=15]
+setblock 3356 -55 8 minecraft:light[level=15]
+setblock 3356 -55 12 minecraft:light[level=15]
+setblock 3356 -55 16 minecraft:light[level=15]
+setblock 3360 -55 -16 minecraft:light[level=15]
+setblock 3360 -55 -12 minecraft:light[level=15]
+setblock 3360 -55 -8 minecraft:light[level=15]
+setblock 3360 -55 -4 minecraft:light[level=15]
+setblock 3360 -55 0 minecraft:light[level=15]
+setblock 3360 -55 4 minecraft:light[level=15]
+setblock 3360 -55 8 minecraft:light[level=15]
+setblock 3360 -55 12 minecraft:light[level=15]
+setblock 3360 -55 16 minecraft:light[level=15]
+setblock 3364 -55 -16 minecraft:light[level=15]
+setblock 3364 -55 -12 minecraft:light[level=15]
+setblock 3364 -55 -8 minecraft:light[level=15]
+setblock 3364 -55 -4 minecraft:light[level=15]
+setblock 3364 -55 0 minecraft:light[level=15]
+setblock 3364 -55 4 minecraft:light[level=15]
+setblock 3364 -55 8 minecraft:light[level=15]
+setblock 3364 -55 12 minecraft:light[level=15]
+setblock 3364 -55 16 minecraft:light[level=15]
+setblock 3368 -55 -16 minecraft:light[level=15]
+setblock 3368 -55 -12 minecraft:light[level=15]
+setblock 3368 -55 -8 minecraft:light[level=15]
+setblock 3368 -55 -4 minecraft:light[level=15]
+setblock 3368 -55 0 minecraft:light[level=15]
+setblock 3368 -55 4 minecraft:light[level=15]
+setblock 3368 -55 8 minecraft:light[level=15]
+setblock 3368 -55 12 minecraft:light[level=15]
+setblock 3368 -55 16 minecraft:light[level=15]
+setblock 3372 -55 -16 minecraft:light[level=15]
+setblock 3372 -55 -12 minecraft:light[level=15]
+setblock 3372 -55 -8 minecraft:light[level=15]
+setblock 3372 -55 -4 minecraft:light[level=15]
+setblock 3372 -55 0 minecraft:light[level=15]
+setblock 3372 -55 4 minecraft:light[level=15]
+setblock 3372 -55 8 minecraft:light[level=15]
+setblock 3372 -55 12 minecraft:light[level=15]
+setblock 3372 -55 16 minecraft:light[level=15]
+setblock 3376 -55 -16 minecraft:light[level=15]
+setblock 3376 -55 -12 minecraft:light[level=15]
+setblock 3376 -55 -8 minecraft:light[level=15]
+setblock 3376 -55 -4 minecraft:light[level=15]
+setblock 3376 -55 0 minecraft:light[level=15]
+setblock 3376 -55 4 minecraft:light[level=15]
+setblock 3376 -55 8 minecraft:light[level=15]
+setblock 3376 -55 12 minecraft:light[level=15]
+setblock 3376 -55 16 minecraft:light[level=15]
+setblock 3352 -50 -16 minecraft:light[level=15]
+setblock 3352 -50 -10 minecraft:light[level=15]
+setblock 3352 -50 -4 minecraft:light[level=15]
+setblock 3352 -50 2 minecraft:light[level=15]
+setblock 3352 -50 8 minecraft:light[level=15]
+setblock 3352 -50 14 minecraft:light[level=15]
+setblock 3358 -50 -16 minecraft:light[level=15]
+setblock 3358 -50 -10 minecraft:light[level=15]
+setblock 3358 -50 -4 minecraft:light[level=15]
+setblock 3358 -50 2 minecraft:light[level=15]
+setblock 3358 -50 8 minecraft:light[level=15]
+setblock 3358 -50 14 minecraft:light[level=15]
+setblock 3364 -50 -16 minecraft:light[level=15]
+setblock 3364 -50 -10 minecraft:light[level=15]
+setblock 3364 -50 -4 minecraft:light[level=15]
+setblock 3364 -50 2 minecraft:light[level=15]
+setblock 3364 -50 8 minecraft:light[level=15]
+setblock 3364 -50 14 minecraft:light[level=15]
+setblock 3370 -50 -16 minecraft:light[level=15]
+setblock 3370 -50 -10 minecraft:light[level=15]
+setblock 3370 -50 -4 minecraft:light[level=15]
+setblock 3370 -50 2 minecraft:light[level=15]
+setblock 3370 -50 8 minecraft:light[level=15]
+setblock 3370 -50 14 minecraft:light[level=15]
+setblock 3376 -50 -16 minecraft:light[level=15]
+setblock 3376 -50 -10 minecraft:light[level=15]
+setblock 3376 -50 -4 minecraft:light[level=15]
+setblock 3376 -50 2 minecraft:light[level=15]
+setblock 3376 -50 8 minecraft:light[level=15]
+setblock 3376 -50 14 minecraft:light[level=15]
 # ── 사천왕 본부 ──
 fill 3500 -61 -46 3540 -61 12 minecraft:bedrock
 fill 3500 -60 -46 3540 -60 12 minecraft:polished_andesite
@@ -5220,6 +6143,158 @@ summon minecraft:text_display 3533.5 -56 4.5 {Tags:["poke.deco"],billboard:"cent
 fill 3502 -60 3 3502 -60 5 minecraft:orange_stained_glass
 summon minecraft:text_display 3502.5 -57.5 4.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 fill 3500 -50 -46 3540 -50 12 minecraft:purple_terracotta
+setblock 3502 -56 -44 minecraft:light[level=15]
+setblock 3502 -56 -40 minecraft:light[level=15]
+setblock 3502 -56 -36 minecraft:light[level=15]
+setblock 3502 -56 -32 minecraft:light[level=15]
+setblock 3502 -56 -28 minecraft:light[level=15]
+setblock 3502 -56 -24 minecraft:light[level=15]
+setblock 3502 -56 -20 minecraft:light[level=15]
+setblock 3502 -56 -16 minecraft:light[level=15]
+setblock 3502 -56 -12 minecraft:light[level=15]
+setblock 3502 -56 -8 minecraft:light[level=15]
+setblock 3502 -56 -4 minecraft:light[level=15]
+setblock 3502 -56 0 minecraft:light[level=15]
+setblock 3502 -56 4 minecraft:light[level=15]
+setblock 3502 -56 8 minecraft:light[level=15]
+setblock 3506 -56 -44 minecraft:light[level=15]
+setblock 3506 -56 -40 minecraft:light[level=15]
+setblock 3506 -56 -36 minecraft:light[level=15]
+setblock 3506 -56 -32 minecraft:light[level=15]
+setblock 3506 -56 -28 minecraft:light[level=15]
+setblock 3506 -56 -24 minecraft:light[level=15]
+setblock 3506 -56 -20 minecraft:light[level=15]
+setblock 3506 -56 -16 minecraft:light[level=15]
+setblock 3506 -56 -12 minecraft:light[level=15]
+setblock 3506 -56 -8 minecraft:light[level=15]
+setblock 3506 -56 -4 minecraft:light[level=15]
+setblock 3506 -56 0 minecraft:light[level=15]
+setblock 3506 -56 4 minecraft:light[level=15]
+setblock 3506 -56 8 minecraft:light[level=15]
+setblock 3510 -56 -44 minecraft:light[level=15]
+setblock 3510 -56 -40 minecraft:light[level=15]
+setblock 3510 -56 -36 minecraft:light[level=15]
+setblock 3510 -56 -32 minecraft:light[level=15]
+setblock 3510 -56 -28 minecraft:light[level=15]
+setblock 3510 -56 -24 minecraft:light[level=15]
+setblock 3510 -56 -20 minecraft:light[level=15]
+setblock 3510 -56 -16 minecraft:light[level=15]
+setblock 3510 -56 -12 minecraft:light[level=15]
+setblock 3510 -56 -8 minecraft:light[level=15]
+setblock 3510 -56 -4 minecraft:light[level=15]
+setblock 3510 -56 0 minecraft:light[level=15]
+setblock 3510 -56 4 minecraft:light[level=15]
+setblock 3510 -56 8 minecraft:light[level=15]
+setblock 3514 -56 -44 minecraft:light[level=15]
+setblock 3514 -56 -40 minecraft:light[level=15]
+setblock 3514 -56 -36 minecraft:light[level=15]
+setblock 3514 -56 -32 minecraft:light[level=15]
+setblock 3514 -56 -28 minecraft:light[level=15]
+setblock 3514 -56 -24 minecraft:light[level=15]
+setblock 3514 -56 -20 minecraft:light[level=15]
+setblock 3514 -56 -16 minecraft:light[level=15]
+setblock 3514 -56 -12 minecraft:light[level=15]
+setblock 3514 -56 -8 minecraft:light[level=15]
+setblock 3514 -56 -4 minecraft:light[level=15]
+setblock 3514 -56 0 minecraft:light[level=15]
+setblock 3514 -56 4 minecraft:light[level=15]
+setblock 3514 -56 8 minecraft:light[level=15]
+setblock 3518 -56 -44 minecraft:light[level=15]
+setblock 3518 -56 -40 minecraft:light[level=15]
+setblock 3518 -56 -36 minecraft:light[level=15]
+setblock 3518 -56 -32 minecraft:light[level=15]
+setblock 3518 -56 -28 minecraft:light[level=15]
+setblock 3518 -56 -24 minecraft:light[level=15]
+setblock 3518 -56 -20 minecraft:light[level=15]
+setblock 3518 -56 -16 minecraft:light[level=15]
+setblock 3518 -56 -12 minecraft:light[level=15]
+setblock 3518 -56 -8 minecraft:light[level=15]
+setblock 3518 -56 -4 minecraft:light[level=15]
+setblock 3518 -56 0 minecraft:light[level=15]
+setblock 3518 -56 4 minecraft:light[level=15]
+setblock 3518 -56 8 minecraft:light[level=15]
+setblock 3522 -56 -44 minecraft:light[level=15]
+setblock 3522 -56 -40 minecraft:light[level=15]
+setblock 3522 -56 -36 minecraft:light[level=15]
+setblock 3522 -56 -32 minecraft:light[level=15]
+setblock 3522 -56 -28 minecraft:light[level=15]
+setblock 3522 -56 -24 minecraft:light[level=15]
+setblock 3522 -56 -20 minecraft:light[level=15]
+setblock 3522 -56 -16 minecraft:light[level=15]
+setblock 3522 -56 -12 minecraft:light[level=15]
+setblock 3522 -56 -8 minecraft:light[level=15]
+setblock 3522 -56 -4 minecraft:light[level=15]
+setblock 3522 -56 0 minecraft:light[level=15]
+setblock 3522 -56 4 minecraft:light[level=15]
+setblock 3522 -56 8 minecraft:light[level=15]
+setblock 3526 -56 -44 minecraft:light[level=15]
+setblock 3526 -56 -40 minecraft:light[level=15]
+setblock 3526 -56 -36 minecraft:light[level=15]
+setblock 3526 -56 -32 minecraft:light[level=15]
+setblock 3526 -56 -28 minecraft:light[level=15]
+setblock 3526 -56 -24 minecraft:light[level=15]
+setblock 3526 -56 -20 minecraft:light[level=15]
+setblock 3526 -56 -16 minecraft:light[level=15]
+setblock 3526 -56 -12 minecraft:light[level=15]
+setblock 3526 -56 -8 minecraft:light[level=15]
+setblock 3526 -56 -4 minecraft:light[level=15]
+setblock 3526 -56 0 minecraft:light[level=15]
+setblock 3526 -56 4 minecraft:light[level=15]
+setblock 3526 -56 8 minecraft:light[level=15]
+setblock 3530 -56 -44 minecraft:light[level=15]
+setblock 3530 -56 -40 minecraft:light[level=15]
+setblock 3530 -56 -36 minecraft:light[level=15]
+setblock 3530 -56 -32 minecraft:light[level=15]
+setblock 3530 -56 -28 minecraft:light[level=15]
+setblock 3530 -56 -24 minecraft:light[level=15]
+setblock 3530 -56 -20 minecraft:light[level=15]
+setblock 3530 -56 -16 minecraft:light[level=15]
+setblock 3530 -56 -12 minecraft:light[level=15]
+setblock 3530 -56 -8 minecraft:light[level=15]
+setblock 3530 -56 -4 minecraft:light[level=15]
+setblock 3530 -56 0 minecraft:light[level=15]
+setblock 3530 -56 4 minecraft:light[level=15]
+setblock 3530 -56 8 minecraft:light[level=15]
+setblock 3534 -56 -44 minecraft:light[level=15]
+setblock 3534 -56 -40 minecraft:light[level=15]
+setblock 3534 -56 -36 minecraft:light[level=15]
+setblock 3534 -56 -32 minecraft:light[level=15]
+setblock 3534 -56 -28 minecraft:light[level=15]
+setblock 3534 -56 -24 minecraft:light[level=15]
+setblock 3534 -56 -20 minecraft:light[level=15]
+setblock 3534 -56 -16 minecraft:light[level=15]
+setblock 3534 -56 -12 minecraft:light[level=15]
+setblock 3534 -56 -8 minecraft:light[level=15]
+setblock 3534 -56 -4 minecraft:light[level=15]
+setblock 3534 -56 0 minecraft:light[level=15]
+setblock 3534 -56 4 minecraft:light[level=15]
+setblock 3534 -56 8 minecraft:light[level=15]
+setblock 3538 -56 -44 minecraft:light[level=15]
+setblock 3538 -56 -40 minecraft:light[level=15]
+setblock 3538 -56 -36 minecraft:light[level=15]
+setblock 3538 -56 -32 minecraft:light[level=15]
+setblock 3538 -56 -28 minecraft:light[level=15]
+setblock 3538 -56 -24 minecraft:light[level=15]
+setblock 3538 -56 -20 minecraft:light[level=15]
+setblock 3538 -56 -16 minecraft:light[level=15]
+setblock 3538 -56 -12 minecraft:light[level=15]
+setblock 3538 -56 -8 minecraft:light[level=15]
+setblock 3538 -56 -4 minecraft:light[level=15]
+setblock 3538 -56 0 minecraft:light[level=15]
+setblock 3538 -56 4 minecraft:light[level=15]
+setblock 3538 -56 8 minecraft:light[level=15]
 summon minecraft:text_display 1031.5 -56.4 0.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"간호사","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n우클릭 → 포켓몬 회복","color":"gray","bold":false}]}'}
-summon minecraft:text_display 967.5 -56.4 -6.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"점원","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n우클릭 → 상점","color":"gray","bold":false}]}'}
+summon minecraft:text_display 980.5 -56.4 -2.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"점원","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n우클릭 → 상점","color":"gray","bold":false}]}'}
+summon minecraft:text_display 980.5 -56.4 3.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"점원","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n우클릭 → 상점","color":"gray","bold":false}]}'}
 summon minecraft:text_display 2000.5 -53.4 12.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"체육관 안내원","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n우클릭 → 도전 신청","color":"gray","bold":false}]}'}
+summon minecraft:text_display -42.5 -56.4 -67.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"노장 트레이너 철수","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n개체값 · 우클릭","color":"gray","bold":false}]}'}
+summon minecraft:text_display -42.5 -56.4 -63.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"연구원 시우","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n노력치 · 우클릭","color":"gray","bold":false}]}'}
+summon minecraft:text_display -42.5 -56.4 -43.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"레이디 미연","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n성격 · 우클릭","color":"gray","bold":false}]}'}
+summon minecraft:text_display -42.5 -56.4 -39.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"브리더 지은","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n성격민트·특성 · 우클릭","color":"gray","bold":false}]}'}
+summon minecraft:text_display 43.5 -56.4 -67.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"선생님 은비","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n타입 상성 · 우클릭","color":"gray","bold":false}]}'}
+summon minecraft:text_display 43.5 -56.4 -63.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"도감 마니아 민혁","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n자속 보정 · 우클릭","color":"gray","bold":false}]}'}
+summon minecraft:text_display 43.5 -56.4 -43.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"등산가 태호","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n포획 요령 · 우클릭","color":"gray","bold":false}]}'}
+summon minecraft:text_display 43.5 -56.4 -39.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"탐험가 하준","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n레벨 제한 · 우클릭","color":"gray","bold":false}]}'}
+summon minecraft:text_display -25.5 -55.4 -94.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"신사 영길","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n진화 · 우클릭","color":"gray","bold":false}]}'}
+summon minecraft:text_display 22.5 -55.4 -94.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"격투가 철민","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n기술 · 우클릭","color":"gray","bold":false}]}'}
+summon minecraft:text_display 26.5 -55.4 -94.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"마담 레이나","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n지닌 도구 · 우클릭","color":"gray","bold":false}]}'}

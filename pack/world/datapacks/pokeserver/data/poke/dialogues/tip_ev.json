@@ -1,0 +1,65 @@
+{
+  "speakers": {
+    "npc": {
+      "face": "q.npc.face();",
+      "name": {
+        "type": "expression",
+        "expression": "q.npc.name"
+      }
+    }
+  },
+  "pages": [
+    {
+      "id": "p0",
+      "speaker": "npc",
+      "lines": [
+        "노력치는 배틀로 쌓이는 \"훈련 점수\"예요.",
+        "쓰러뜨린 포켓몬 종류에 따라 정해진 능력이 올라가요."
+      ],
+      "textColor": "FFFFFF"
+    },
+    {
+      "id": "p1",
+      "speaker": "npc",
+      "lines": [
+        "한 능력은 최대 252, 모든 능력을 합쳐 510까지 쌓여요.",
+        "4 노력치마다 레벨 100 기준 능력치가 1씩 올라요."
+      ],
+      "textColor": "FFFFFF"
+    },
+    {
+      "id": "p2",
+      "speaker": "npc",
+      "lines": [
+        "비타민(HP업·타우린·사포닌·리보플라빈·키토산·알칼로이드)을",
+        "먹이면 해당 노력치를 바로 올릴 수 있어요."
+      ],
+      "textColor": "FFFFFF"
+    },
+    {
+      "id": "p3",
+      "speaker": "npc",
+      "lines": [
+        "파워웨이트 같은 파워 아이템을 들고 싸우면 노력치가 더 쌓이고,",
+        "유석열매 같은 열매는 노력치를 줄여 줘서 다시 분배할 수 있어요."
+      ],
+      "textColor": "FFFFFF",
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "고마워요!",
+            "value": "bye",
+            "action": "q.dialogue.close();"
+          },
+          {
+            "text": "처음부터 다시",
+            "value": "again",
+            "action": "q.dialogue.set_page('p0');"
+          }
+        ]
+      }
+    }
+  ]
+}
