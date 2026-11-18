@@ -18,48 +18,48 @@
  ],
  "team": [
   {
-   "species": "bronzong",
-   "level": 95,
+   "species": "skarmory",
+   "level": 96,
    "moveset": [
-    "gyroball",
-    "psychic",
-    "earthquake",
-    "trickroom"
-   ]
-  },
-  {
-   "species": "excadrill",
-   "level": 95,
-   "moveset": [
+    "bravebird",
     "ironhead",
-    "earthquake",
-    "rockslide",
-    "swordsdance"
-   ]
-  },
-  {
-   "species": "empoleon",
-   "level": 96,
-   "moveset": [
-    "flashcannon",
-    "surf",
-    "icebeam",
-    "drillpeck"
-   ]
-  },
-  {
-   "species": "scizor",
-   "level": 96,
-   "moveset": [
-    "bulletpunch",
-    "xscissor",
-    "swordsdance",
+    "spikes",
     "roost"
    ]
   },
   {
-   "species": "aggron",
+   "species": "armaldo",
    "level": 97,
+   "moveset": [
+    "xscissor",
+    "stoneedge",
+    "aquatail",
+    "crushclaw"
+   ]
+  },
+  {
+   "species": "cradily",
+   "level": 97,
+   "moveset": [
+    "gigadrain",
+    "rockslide",
+    "ancientpower",
+    "stealthrock"
+   ]
+  },
+  {
+   "species": "claydol",
+   "level": 98,
+   "moveset": [
+    "earthpower",
+    "psychic",
+    "icebeam",
+    "reflect"
+   ]
+  },
+  {
+   "species": "aggron",
+   "level": 99,
    "moveset": [
     "heavyslam",
     "stoneedge",

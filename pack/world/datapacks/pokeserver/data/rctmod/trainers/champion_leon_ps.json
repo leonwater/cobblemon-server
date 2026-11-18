@@ -18,28 +18,48 @@
  ],
  "team": [
   {
-   "species": "flygon",
-   "level": 96,
+   "species": "aegislash",
+   "level": 95,
    "moveset": [
-    "dragonclaw",
-    "earthquake",
-    "uturn",
-    "firepunch"
+    "shadowball",
+    "kingsshield",
+    "sacredsword",
+    "flashcannon"
    ]
   },
   {
-   "species": "goodra",
+   "species": "seismitoad",
    "level": 96,
    "moveset": [
+    "hydropump",
+    "earthquake",
+    "sludgewave",
+    "drainpunch"
+   ]
+  },
+  {
+   "species": "mrrime",
+   "level": 97,
+   "moveset": [
+    "freezedry",
+    "psychic",
+    "focusblast",
+    "rapidspin"
+   ]
+  },
+  {
+   "species": "charizard",
+   "level": 98,
+   "moveset": [
+    "flamethrower",
+    "airslash",
     "dragonpulse",
-    "sludgebomb",
-    "thunderbolt",
-    "fireblast"
+    "solarbeam"
    ]
   },
   {
    "species": "haxorus",
-   "level": 97,
+   "level": 99,
    "moveset": [
     "dragonclaw",
     "dragondance",
@@ -48,33 +68,13 @@
    ]
   },
   {
-   "species": "kommoo",
-   "level": 97,
-   "moveset": [
-    "clangingscales",
-    "closecombat",
-    "poisonjab",
-    "dragondance"
-   ]
-  },
-  {
-   "species": "hydreigon",
-   "level": 98,
-   "moveset": [
-    "dragonpulse",
-    "darkpulse",
-    "flamethrower",
-    "focusblast"
-   ]
-  },
-  {
-   "species": "garchomp",
+   "species": "dragapult",
    "level": 100,
    "moveset": [
-    "earthquake",
-    "dragonclaw",
-    "stoneedge",
-    "swordsdance"
+    "dragondarts",
+    "shadowball",
+    "uturn",
+    "thunderbolt"
    ]
   }
  ]

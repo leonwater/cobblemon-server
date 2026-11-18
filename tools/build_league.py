@@ -66,37 +66,37 @@ GYMS = [
         mon('rhyperior', 90, ['earthquake', 'stoneedge', 'megahorn', 'icepunch'])]),
 ]
 
-# 사천왕 = 역대 지방 챔피언 중 가장 강한 4명 (약한 순서로 도전). 타입은 서로 다르고 체육관에 없던 타입으로.
+# 사천왕 = 역대 지방 챔피언 중 가장 강한 4명 (약한 순서로 도전). 원작 팀 그대로, 종족값이 높을수록 높은 레벨.
 # 단델·성호는 RCT에 없어 새 ID + 우리 스킨
 ELITE = [
-    ('champion_steven_ps', '성호', '강철', [        # 호연 챔피언
-        mon('bronzong', 95, ['gyroball', 'psychic', 'earthquake', 'trickroom']),
-        mon('excadrill', 95, ['ironhead', 'earthquake', 'rockslide', 'swordsdance']),
-        mon('empoleon', 96, ['flashcannon', 'surf', 'icebeam', 'drillpeck']),
-        mon('scizor', 96, ['bulletpunch', 'xscissor', 'swordsdance', 'roost']),
-        mon('aggron', 97, ['heavyslam', 'stoneedge', 'earthquake', 'ironhead']),
+    ('champion_steven_ps', '성호', '호연 챔피언', [
+        mon('skarmory', 96, ['bravebird', 'ironhead', 'spikes', 'roost']),
+        mon('armaldo', 97, ['xscissor', 'stoneedge', 'aquatail', 'crushclaw']),
+        mon('cradily', 97, ['gigadrain', 'rockslide', 'ancientpower', 'stealthrock']),
+        mon('claydol', 98, ['earthpower', 'psychic', 'icebeam', 'reflect']),
+        mon('aggron', 99, ['heavyslam', 'stoneedge', 'earthquake', 'ironhead']),
         mon('metagross', 100, ['meteormash', 'zenheadbutt', 'earthquake', 'bulletpunch'])]),
-    ('champion_leon_ps', '단델', '드래곤', [        # 가라르 챔피언
-        mon('flygon', 96, ['dragonclaw', 'earthquake', 'uturn', 'firepunch']),
-        mon('goodra', 96, ['dragonpulse', 'sludgebomb', 'thunderbolt', 'fireblast']),
-        mon('haxorus', 97, ['dragonclaw', 'dragondance', 'earthquake', 'poisonjab']),
-        mon('kommoo', 97, ['clangingscales', 'closecombat', 'poisonjab', 'dragondance']),
-        mon('hydreigon', 98, ['dragonpulse', 'darkpulse', 'flamethrower', 'focusblast']),
-        mon('garchomp', 100, ['earthquake', 'dragonclaw', 'stoneedge', 'swordsdance'])]),
-    ('champion_cynthia_03a5', '난천', '고스트', [   # 신오 챔피언
-        mon('froslass', 97, ['shadowball', 'icebeam', 'willowisp', 'destinybond']),
-        mon('mismagius', 97, ['shadowball', 'dazzlinggleam', 'nastyplot', 'thunderbolt']),
-        mon('chandelure', 98, ['shadowball', 'flamethrower', 'energyball', 'calmmind']),
-        mon('dusknoir', 98, ['shadowsneak', 'icepunch', 'earthquake', 'painsplit']),
-        mon('spiritomb', 98, ['darkpulse', 'shadowball', 'psychic', 'suckerpunch']),
-        mon('gengar', 100, ['shadowball', 'sludgebomb', 'focusblast', 'thunderbolt'])]),
-    ('trainer_red_0003', '레드', '비행', [          # 전설의 챔피언
-        mon('pidgeot', 98, ['hurricane', 'heatwave', 'uturn', 'roost']),
-        mon('aerodactyl', 98, ['stoneedge', 'earthquake', 'aerialace', 'icefang']),
-        mon('staraptor', 99, ['bravebird', 'closecombat', 'doubleedge', 'uturn']),
+    ('champion_leon_ps', '단델', '가라르 챔피언', [
+        mon('aegislash', 95, ['shadowball', 'kingsshield', 'sacredsword', 'flashcannon']),
+        mon('seismitoad', 96, ['hydropump', 'earthquake', 'sludgewave', 'drainpunch']),
+        mon('mrrime', 97, ['freezedry', 'psychic', 'focusblast', 'rapidspin']),
+        mon('charizard', 98, ['flamethrower', 'airslash', 'dragonpulse', 'solarbeam']),
+        mon('haxorus', 99, ['dragonclaw', 'dragondance', 'earthquake', 'poisonjab']),
+        mon('dragapult', 100, ['dragondarts', 'shadowball', 'uturn', 'thunderbolt'])]),
+    ('champion_cynthia_03a5', '난천', '신오 챔피언', [
+        mon('spiritomb', 95, ['darkpulse', 'shadowball', 'psychic', 'suckerpunch']),
+        mon('roserade', 96, ['gigadrain', 'sludgebomb', 'shadowball', 'extrasensory']),
+        mon('lucario', 97, ['aurasphere', 'flashcannon', 'dragonpulse', 'nastyplot']),
+        mon('milotic', 98, ['surf', 'icebeam', 'mirrorcoat', 'recover']),
         mon('togekiss', 99, ['airslash', 'aurasphere', 'dazzlinggleam', 'thunderwave']),
-        mon('braviary', 99, ['bravebird', 'superpower', 'rockslide', 'bulkup']),
-        mon('charizard', 100, ['flareblitz', 'airslash', 'dragonpulse', 'solarbeam'])]),
+        mon('garchomp', 100, ['earthquake', 'dragonclaw', 'stoneedge', 'swordsdance'])]),
+    ('trainer_red_0003', '레드', '관동 전설의 챔피언', [
+        mon('pikachu', 96, ['volttackle', 'irontail', 'quickattack', 'thunderbolt']),
+        mon('espeon', 97, ['psychic', 'shadowball', 'dazzlinggleam', 'morningsun']),
+        mon('venusaur', 97, ['solarbeam', 'sludgebomb', 'earthquake', 'sleeppowder']),
+        mon('blastoise', 98, ['hydropump', 'icebeam', 'flashcannon', 'aurasphere']),
+        mon('charizard', 99, ['flareblitz', 'airslash', 'dragonpulse', 'solarbeam']),
+        mon('snorlax', 100, ['bodyslam', 'crunch', 'rest', 'sleeptalk'])]),
 ]
 
 
@@ -106,10 +106,11 @@ def validate():
     root = os.environ.get('COBBLEMON_SPECIES')
     if not root:
         return
-    learn = {}
+    learn, bst = {}, {}
     for f in Path(root).rglob('*.json'):
         d = json.loads(f.read_text(encoding='utf-8'))
         learn[f.stem] = {m.split(':', 1)[1] for m in d.get('moves', [])}
+        bst[f.stem] = sum(d.get('baseStats', {}).values())
     bad = []
     for team in [g[5] for g in GYMS] + [e[3] for e in ELITE]:
         for m in team:
@@ -121,8 +122,11 @@ def validate():
     caps = [max(m['level'] for m in g[5]) for g in GYMS]
     assert caps == [20, 30, 40, 50, 60, 70, 80, 90], caps
     assert all(max(m['level'] for m in e[3]) == 100 for e in ELITE)
-    types = [e[2] for e in ELITE]
-    assert len(set(types)) == 4 and not set(types) & {g[2] for g in GYMS}, types
+    for e in ELITE:   # 사천왕: 종족값이 높을수록 레벨이 높음 (같으면 같은 레벨)
+        for m1 in e[3]:
+            for m2 in e[3]:
+                assert (bst[m1['species']] > bst[m2['species']]) <= (m1['level'] > m2['level']), (e[1], m1['species'], m2['species'])
+                assert (bst[m1['species']] == bst[m2['species']]) <= (m1['level'] == m2['level']), (e[1], m1['species'], m2['species'])
 
 
 def text(s):
@@ -281,7 +285,7 @@ def functions():
     rgb = lambda c: c[0] << 16 | c[1] << 8 | c[2]
     league = [dict(n=n, title=f'{n}번 체육관', leader=f'관장 {name}', type=f'{typ} 타입', badge=badge, color=rgb(color),
                    level=max(m['level'] for m in team)) for n, (_, name, typ, badge, color, team) in enumerate(GYMS, 1)]
-    league.append(dict(n=9, title='사천왕 (챔피언 4명 연속)', leader='·'.join(e[1] for e in ELITE), type='·'.join(e[2] for e in ELITE),
+    league.append(dict(n=9, title='사천왕 (챔피언 4명 연속)', leader='·'.join(e[1] for e in ELITE), type='역대 최강 챔피언',
                        badge='명예의 전당', color=0x8A4FD0, level=100))
     (ROOT / 'pack/config/pokeserver/league.json').write_text(json.dumps(league, ensure_ascii=False, indent=1), encoding='utf-8')
     fn('gym/leave.mcfunction', ['# 경기장·사천왕에서 나가기 (나가기 발판, 승리, 패배, 재접속): 체육관 로비로',

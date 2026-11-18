@@ -544,8 +544,18 @@ def town_mod():
          'kill @e[type=cobblemon:pokemon]',   # 마을엔 포켓몬이 나오지 않음 (예전에 나온 것 정리)
          sb(x2 - 2, G + 1, zm - 2, 'cobblemon:healing_machine[facing=west,natural=false]'),
          sb(x2 - 2, G + 1, zm + 2, 'cobblemon:healing_machine[facing=west,natural=false]')]
-    for z in (z1 + 2, z1 + 4):
-        L += [sb(x1 + 3, G + 1, z, 'cobblemon:pc[facing=south,part=bottom]'), sb(x1 + 3, G + 2, z, 'cobblemon:pc[facing=south,part=top]')]
+    # PC: 북쪽 벽에 붙여 화면이 방 안(남쪽)을 보게. Cobblemon PC는 화면이 facing의 반대쪽
+    for x in (x1 + 3, x1 + 5):
+        L += [sb(x, G + 1, z1 + 1, 'cobblemon:pc[facing=north,part=bottom]'), sb(x, G + 2, z1 + 1, 'cobblemon:pc[facing=north,part=top]')]
+    L.append(label(x1 + 4.5, G + 3.6, z1 + 1.8, 'PC 박스', 'aqua', 0.9))
+    # 교환 장치: 두 사람이 차례로 우클릭하면 교환 창 (모드가 태그 poke.trade로 처리)
+    tx = x1 + 10
+    L += ['kill @e[type=minecraft:interaction,tag=poke.trade]',
+          fill(tx - 1, G + 1, z1 + 1, tx + 1, G + 1, z1 + 1, 'minecraft:light_blue_concrete'),
+          sb(tx, G + 2, z1 + 1, 'minecraft:light_blue_stained_glass'), sb(tx - 1, G + 2, z1 + 1, 'minecraft:light_gray_concrete'),
+          sb(tx + 1, G + 2, z1 + 1, 'minecraft:light_gray_concrete'), sb(tx, G + 3, z1 + 1, 'minecraft:sea_lantern'),
+          f'summon minecraft:interaction {tx + .5} {G + 1} {z1 + 1.5} {{Tags:["poke.trade"],width:3.2f,height:2.5f,response:1b}}',
+          label(tx + .5, G + 4.2, z1 + 1.8, '교환 장치', 'aqua', 1.1, sub='두 사람이 차례로 우클릭하면 교환 시작')]
     return L
 
 

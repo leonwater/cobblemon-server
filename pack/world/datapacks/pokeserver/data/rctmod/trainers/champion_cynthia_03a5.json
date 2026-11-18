@@ -18,48 +18,8 @@
  ],
  "team": [
   {
-   "species": "froslass",
-   "level": 97,
-   "moveset": [
-    "shadowball",
-    "icebeam",
-    "willowisp",
-    "destinybond"
-   ]
-  },
-  {
-   "species": "mismagius",
-   "level": 97,
-   "moveset": [
-    "shadowball",
-    "dazzlinggleam",
-    "nastyplot",
-    "thunderbolt"
-   ]
-  },
-  {
-   "species": "chandelure",
-   "level": 98,
-   "moveset": [
-    "shadowball",
-    "flamethrower",
-    "energyball",
-    "calmmind"
-   ]
-  },
-  {
-   "species": "dusknoir",
-   "level": 98,
-   "moveset": [
-    "shadowsneak",
-    "icepunch",
-    "earthquake",
-    "painsplit"
-   ]
-  },
-  {
    "species": "spiritomb",
-   "level": 98,
+   "level": 95,
    "moveset": [
     "darkpulse",
     "shadowball",
@@ -68,13 +28,53 @@
    ]
   },
   {
-   "species": "gengar",
+   "species": "roserade",
+   "level": 96,
+   "moveset": [
+    "gigadrain",
+    "sludgebomb",
+    "shadowball",
+    "extrasensory"
+   ]
+  },
+  {
+   "species": "lucario",
+   "level": 97,
+   "moveset": [
+    "aurasphere",
+    "flashcannon",
+    "dragonpulse",
+    "nastyplot"
+   ]
+  },
+  {
+   "species": "milotic",
+   "level": 98,
+   "moveset": [
+    "surf",
+    "icebeam",
+    "mirrorcoat",
+    "recover"
+   ]
+  },
+  {
+   "species": "togekiss",
+   "level": 99,
+   "moveset": [
+    "airslash",
+    "aurasphere",
+    "dazzlinggleam",
+    "thunderwave"
+   ]
+  },
+  {
+   "species": "garchomp",
    "level": 100,
    "moveset": [
-    "shadowball",
-    "sludgebomb",
-    "focusblast",
-    "thunderbolt"
+    "earthquake",
+    "dragonclaw",
+    "stoneedge",
+    "swordsdance"
    ]
   }
  ]
