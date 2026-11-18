@@ -6,5 +6,5 @@ setblock 1015 -59 -9 cobblemon:pc[facing=north,part=bottom]
 setblock 1015 -58 -9 cobblemon:pc[facing=north,part=top]
 setblock 1017 -59 -9 cobblemon:pc[facing=north,part=bottom]
 setblock 1017 -58 -9 cobblemon:pc[facing=north,part=top]
-summon minecraft:text_display 1016.5 -56.4 -8.2 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"PC 박스","color":"aqua","bold":true,"extra":[""]}'}
+summon minecraft:text_display 1016.5 -56.4 -8.2 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"PC 박스","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 kill @e[type=minecraft:interaction,tag=poke.trade]

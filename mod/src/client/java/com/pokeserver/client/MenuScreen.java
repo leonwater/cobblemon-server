@@ -44,7 +44,22 @@ public class MenuScreen extends Screen {
         this.notice = notice;
     }
 
-    private int tilesX() { return width - 24 - 5 * (TILE + 8) + 8; }
+    // 오른쪽 내용은 왼쪽 탭(LEFT) 바로 옆에서 시작하고, 좁으면 타일을 여러 줄로 (화면 크기와 상관없이 겹치지 않게)
+    private int tilesX() { return LEFT + 28; }
+    private int perRow() { return Math.max(1, (width - 24 - tilesX() + 8) / (TILE + 8)); }
+    private int tileX(int i) { return tilesX() + i % perRow() * (TILE + 8); }
+    private int tileY(int i) { return 24 + i / perRow() * (TILE + 8); }
+
+    /** RCT 레벨 제한 (RCT가 클라이언트에 보내 주는 값). RCT가 없으면 -1. */
+    static int levelCap(net.minecraft.world.entity.player.Player p) {
+        try {
+            Object st = Class.forName("com.gitlab.srcmc.rctmod.api.data.sync.PlayerState")
+                    .getMethod("get", net.minecraft.world.entity.player.Player.class).invoke(null, p);
+            return (int) st.getClass().getMethod("getLevelCap").invoke(st);
+        } catch (ReflectiveOperationException | RuntimeException ex) {
+            return -1;
+        }
+    }
 
     @Override
     public void renderBackground(GuiGraphics g, int mx, int my, float pt) {
@@ -53,7 +68,7 @@ public class MenuScreen extends Screen {
         g.fillGradient(0, 0, width, height, 0x90000000, 0x60000000);
         g.fill(0, 0, LEFT + 20, height, 0x80080A0E);
         g.fill(16, 22, 19, 32, Theme.ACCENT);
-        g.drawString(font, "메인 메뉴", 24, 24, Theme.TEXT);
+        g.drawString(font, Theme.t("메인 메뉴"), 24, 24, Theme.TEXT);
         for (int i = 0; i < TABS.size(); i++) {
             int y = 48 + i * 28;
             boolean sel = i == tab, hov = mx >= 16 && mx < LEFT && my >= y && my < y + 24;
@@ -62,12 +77,12 @@ public class MenuScreen extends Screen {
                     sel ? Theme.ACCENT : Theme.mix(Theme.BORDER, Theme.ACCENT, h));
             if (sel) g.fill(16, y + 1, 19, y + 23, Theme.ACCENT);
             g.renderItem(Shop.stack(TABS.get(i).icon()), 26, y + 4);
-            g.drawString(font, TABS.get(i).label(), 48, y + 8, sel ? Theme.TEXT : Theme.mix(Theme.SUBTEXT, Theme.TEXT, h));
+            g.drawString(font, Theme.t(TABS.get(i).label()), 48, y + 8, sel ? Theme.TEXT : Theme.mix(Theme.SUBTEXT, Theme.TEXT, h));
         }
         // 오른쪽 타일: 마우스를 올리면 떠오르고 테두리가 밝아짐, 누르면 살짝 눌림
         List<Tile> tiles = TABS.get(tab).tiles();
         for (int i = 0; i < tiles.size(); i++) {
-            int x = tilesX() + i * (TILE + 8), y = 24;
+            int x = tileX(i), y = tileY(i);
             boolean hov = mx >= x && mx < x + TILE && my >= y && my < y + TILE;
             float h = anim.to(tab + ":" + i, hov);
             float sc = tiles.get(i).action().equals(pressed) ? Theme.press(pressedAt) : 1f;
@@ -81,36 +96,39 @@ public class MenuScreen extends Screen {
             g.pose().scale(1.5f, 1.5f, 1);
             g.renderItem(Shop.stack(tiles.get(i).icon()), 0, 0);
             g.pose().popPose();
-            g.drawCenteredString(font, tiles.get(i).label(), TILE / 2, TILE - 14, Theme.TEXT);
+            g.drawCenteredString(font, Theme.t(tiles.get(i).label()), TILE / 2, TILE - 14, Theme.TEXT);
             g.pose().popPose();
         }
         // 내 정보: 얼굴 + 이름, 도감 진행, 잔액
-        int px = tilesX(), py = 24 + TILE + 16, pw = width - 24 - px;
+        int px = tilesX(), py = tileY(tiles.size() - 1) + TILE + 16, pw = width - 24 - px;
         Theme.panel(g, px, py, px + pw, py + 78, 0xD0101319);
         if (minecraft != null && minecraft.player != null) {
             net.minecraft.client.gui.components.PlayerFaceRenderer.draw(g, minecraft.player.getSkin().texture(), px + 10, py + 8, 16);
         }
-        g.drawString(font, minecraft != null && minecraft.player != null ? minecraft.player.getGameProfile().getName() : "플레이어", px + 32, py + 12, Theme.TEXT);
+        g.drawString(font, Theme.t(minecraft != null && minecraft.player != null ? minecraft.player.getGameProfile().getName() : "플레이어"), px + 32, py + 12, Theme.TEXT);
         int[] dex = FabricLoader.getInstance().isModLoaded("cobblemon") ? CobblemonClientHooks.dexCounts() : new int[]{0, 0, 1};
         bar(g, "잡은 포켓몬", dex[0], dex[2], px + 10, py + 32, pw / 2 - 20);
         bar(g, "마주친 포켓몬", dex[1], dex[2], px + 10, py + 54, pw / 2 - 20);
         g.vLine(px + pw / 2, py + 10, py + 68, Theme.BORDER);
-        g.drawString(font, "잔액", px + pw / 2 + 12, py + 32, Theme.SUBTEXT);
-        g.drawString(font, String.format("%,d원", balance), px + pw / 2 + 12, py + 46, Theme.GOLD);
+        g.drawString(font, Theme.t("잔액"), px + pw / 2 + 12, py + 30, Theme.SUBTEXT);
+        g.drawString(font, Theme.t(String.format("%,d원", balance)), px + pw / 2 + 12, py + 44, Theme.GOLD);
+        int cap = minecraft != null && minecraft.player != null ? levelCap(minecraft.player) : -1;
+        g.drawString(font, Theme.t("레벨 제한"), px + pw / 2 + 12, py + 58, Theme.SUBTEXT);
+        g.drawString(font, Theme.t(cap > 0 ? "Lv" + cap : "-"), px + pw / 2 + 12 + font.width(Theme.t("레벨 제한")) + 8, py + 58, Theme.ACCENT);
         // 공지
         int ny = py + 86;
         Theme.panel(g, px, ny, px + pw, ny + 22, 0xD0101319);
-        g.drawString(font, "공지사항", px + 10, ny + 7, Theme.TEXT);
-        g.drawString(font, font.plainSubstrByWidth(notice, pw - 70), px + 64, ny + 7, Theme.GOLD);
+        g.drawString(font, Theme.t("공지사항"), px + 10, ny + 7, Theme.TEXT);
+        g.drawString(font, Theme.t(Theme.fit(font, notice, pw - 70)), px + 64, ny + 7, Theme.GOLD);
         // 왼쪽 아래: 명령어, 휴지통
         small(g, mx, my, 24, height - 52, "minecraft:book", "명령어", "help");
         small(g, mx, my, 84, height - 52, "minecraft:cauldron", "휴지통", "trash");
     }
 
     private void bar(GuiGraphics g, String label, int n, int total, int x, int y, int w) {
-        g.drawString(font, label, x, y, Theme.SUBTEXT);
+        g.drawString(font, Theme.t(label), x, y, Theme.SUBTEXT);
         String num = n + " / " + total + "  ·  " + String.format("%.1f%%", 100.0 * n / Math.max(1, total));
-        g.drawString(font, num, x + w - font.width(num), y, Theme.ACCENT);
+        g.drawString(font, Theme.t(num), x + w - font.width(Theme.t(num)), y, Theme.ACCENT);
         g.fill(x, y + 11, x + w, y + 14, 0xFF2A2F3A);
         int fw = (int) ((long) w * n / Math.max(1, total));
         if (fw > 0) g.fill(x, y + 11, x + Math.max(2, fw), y + 14, Theme.ACCENT);
@@ -121,7 +139,7 @@ public class MenuScreen extends Screen {
         float h = anim.to(key, hov);
         Theme.panel(g, x, y, x + 52, y + 40, Theme.mix(Theme.TILE, Theme.TILE_HOVER, h), Theme.mix(Theme.BORDER, Theme.ACCENT, h));
         g.renderItem(Shop.stack(icon), x + 18, y + 5);
-        g.drawCenteredString(font, label, x + 26, y + 26, Theme.TEXT);  // 픽셀 글꼴은 줄이면 깨져서 원래 크기로
+        g.drawCenteredString(font, Theme.t(label), x + 26, y + 26, Theme.TEXT);  // 픽셀 글꼴은 줄이면 깨져서 원래 크기로
     }
 
     @Override
@@ -132,8 +150,8 @@ public class MenuScreen extends Screen {
         }
         List<Tile> tiles = TABS.get(tab).tiles();
         for (int i = 0; i < tiles.size(); i++) {
-            int x = tilesX() + i * (TILE + 8);
-            if (mx >= x && mx < x + TILE && my >= 24 && my < 24 + TILE) {
+            int x = tileX(i), y = tileY(i);
+            if (mx >= x && mx < x + TILE && my >= y && my < y + TILE) {
                 pressed = tiles.get(i).action();
                 pressedAt = System.currentTimeMillis();
                 act(pressed);

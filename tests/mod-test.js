@@ -45,6 +45,7 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
 
   // 주인은 편집 가능, 다른 사람은 구경만
   await within(A.dig(A.blockAt(grass)), 4000)
+  if (await blockName(10, -60, 21)) { await sleep(1000); await within(A.dig(A.blockAt(grass)), 4000) }   // 봇 캐기가 가끔 첫 시도에 씹힘
   assert.ok(!(await blockName(10, -60, 21)), 'A(주인)는 자기 땅을 부술 수 있음')
   const bars = []
   B.on('actionBar', m => bars.push(m.toString()))
@@ -162,6 +163,14 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   assert.equal(await bal('A'), 4880, '배지 1개 → 철 주괴 구매')
   await cmd('tag A remove poke.badge1'); trade(true, 5, 2, 1); await sleep(600)
   assert.equal(await bal('A'), 4920, '판매는 배지와 상관없음')
+  // 3. 땅 문서는 한 사람이 살수록 비싸짐 (기본가 × (산 개수 + 1)), 사람마다 따로
+  await cmd('pokeserver money set A 300000'); await cmd('pokeserver money set B 300000')
+  trade(false, 3, 0, 1); await sleep(600)
+  assert.equal(await bal('A'), 250000, '첫 땅 문서 50,000')
+  trade(false, 3, 0, 1); await sleep(600)
+  assert.equal(await bal('A'), 150000, '두 번째 땅 문서 100,000')
+  B._client.write('custom_payload', { channel: 'pokeserver:shop_trade', data: Buffer.from([0, 3, 0, 1]) }); await sleep(600)
+  assert.equal(await bal('B'), 250000, '다른 사람은 따로 셈: B의 첫 문서는 50,000')
   // 10. 마을(야생·농장 밖)은 아무도 못 부숨
   await cmd('execute in poke:town run tp A 2000.5 -59 -11.5 0 90'); await sleep(800)
   await within(A.dig(A.blockAt(new Vec3(2000, -60, -12))), 3000)

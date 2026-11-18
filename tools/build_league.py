@@ -217,7 +217,7 @@ def badge_item(n, name, color):
 
 
 def functions():
-    pads, leave, win, spawn = [], [], [], []
+    pads, win, spawn = [], [], []
     for n, (tid, name, typ, badge, color, _) in enumerate(GYMS, 1):
         g = W.gym_geom(n)
         fn(f'gym/deny/{n}.mcfunction', ['$tellraw @s {"text":"$(msg)","color":"red"}'])

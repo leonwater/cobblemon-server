@@ -34,9 +34,9 @@ public class ClaimScreen extends Screen {
         int x = (width - W) / 2, y = (height - H) / 2;
         Theme.panel(g, x, y, x + W, y + H, Theme.PANEL);
         g.fill(x, y, x + W, y + 18, Theme.TILE);
-        g.drawCenteredString(font, "땅 등록", width / 2, y + 5, Theme.TEXT);
-        g.drawCenteredString(font, "농장 " + plot + "번 땅을 내 땅으로 등록할까요?", width / 2, y + 30, Theme.TEXT);
-        g.drawCenteredString(font, "땅 문서 1장이 사용됩니다.", width / 2, y + 44, Theme.SUBTEXT);
+        g.drawCenteredString(font, Theme.t("땅 등록"), width / 2, y + 5, Theme.TEXT);
+        g.drawCenteredString(font, Theme.t("농장 " + plot + "번 땅을 내 땅으로 등록할까요?"), width / 2, y + 30, Theme.TEXT);
+        g.drawCenteredString(font, Theme.t("땅 문서 1장이 사용됩니다."), width / 2, y + 44, Theme.SUBTEXT);
     }
 
     @Override
