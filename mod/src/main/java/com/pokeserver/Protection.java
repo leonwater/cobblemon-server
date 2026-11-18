@@ -24,18 +24,28 @@ import net.minecraft.world.phys.HitResult;
 final class Protection {
     private Protection() {}
 
-    static void deny(Player p) {
-        p.displayClientMessage(Component.literal("다른 사람의 땅이거나 주인 없는 땅입니다. 구경만 할 수 있어요.").withStyle(ChatFormatting.RED), true);
+    /** 체력바 위 가운데 알림: 누구 땅인지. */
+    static void deny(Player p, net.minecraft.world.level.Level level, net.minecraft.core.BlockPos pos) {
+        if (!level.isClientSide()) p.displayClientMessage(Farms.denyReason(level, pos), true);
+    }
+
+    static InteractionResult entityRule(Player player, net.minecraft.world.level.Level level, net.minecraft.world.entity.Entity entity) {
+        if (entity instanceof LivingEntity && !(entity instanceof ArmorStand) || Farms.canEdit(player, level, entity.blockPosition())) return InteractionResult.PASS;
+        deny(player, level, entity.blockPosition());
+        return InteractionResult.FAIL;
     }
 
     static void register() {
         PlayerBlockBreakEvents.BEFORE.register((level, player, pos, state, be) -> {
             if (Farms.canEdit(player, level, pos)) return true;
-            deny(player);
+            deny(player, level, pos);
             return false;
         });
-        AttackBlockCallback.EVENT.register((player, level, hand, pos, dir) ->
-                Farms.canEdit(player, level, pos) ? InteractionResult.PASS : InteractionResult.FAIL);
+        AttackBlockCallback.EVENT.register((player, level, hand, pos, dir) -> {
+            if (Farms.canEdit(player, level, pos)) return InteractionResult.PASS;
+            deny(player, level, pos);   // 부수기 시작하는 순간 막히므로 알림도 여기서
+            return InteractionResult.FAIL;
+        });
         UseBlockCallback.EVENT.register((player, level, hand, hit) -> {
             if (!Farms.isFarm(level) || level.isClientSide()) return InteractionResult.PASS;
             // 땅 문서로 빈 땅 우클릭 → 확인 팝업
@@ -55,7 +65,7 @@ final class Protection {
                 ok = Farms.canEdit(player, level, hit.getBlockPos().relative(hit.getDirection()));
             }
             if (ok) return InteractionResult.PASS;
-            deny(player);
+            deny(player, level, hit.getBlockPos());
             return InteractionResult.FAIL;
         });
         UseItemCallback.EVENT.register((player, level, hand) -> {
@@ -70,16 +80,12 @@ final class Protection {
                     && Farms.canEdit(player, level, b.getBlockPos().relative(b.getDirection()))) {
                 return InteractionResultHolder.pass(stack);
             }
-            deny(player);
+            deny(player, level, hit instanceof BlockHitResult b ? b.getBlockPos() : player.blockPosition());
             return InteractionResultHolder.fail(stack);
         });
         // 액자·갑옷 거치대 등 (살아있는 몹·포켓몬은 제외)
-        AttackEntityCallback.EVENT.register((player, level, hand, entity, hit) ->
-                entity instanceof LivingEntity && !(entity instanceof ArmorStand) || Farms.canEdit(player, level, entity.blockPosition())
-                        ? InteractionResult.PASS : InteractionResult.FAIL);
-        UseEntityCallback.EVENT.register((player, level, hand, entity, hit) ->
-                entity instanceof LivingEntity && !(entity instanceof ArmorStand) || Farms.canEdit(player, level, entity.blockPosition())
-                        ? InteractionResult.PASS : InteractionResult.FAIL);
+        AttackEntityCallback.EVENT.register((player, level, hand, entity, hit) -> entityRule(player, level, entity));
+        UseEntityCallback.EVENT.register((player, level, hand, entity, hit) -> entityRule(player, level, entity));
     }
 
 }

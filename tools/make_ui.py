@@ -15,7 +15,7 @@ LIGHT = (96, 106, 124)     # 대화창 테두리
 HOVER = (136, 149, 175)    # 버튼에 마우스를 올렸을 때 테두리
 FILL_ALPHA = 215           # 바탕 불투명도 (0~255, 낮을수록 투명)
 
-OUT = Path(__file__).resolve().parent.parent / 'pack/resourcepacks/pokeserver-ui'
+OUT = Path(__file__).resolve().parent.parent / 'mod/src/main/resources'   # 모드 안에 넣어 리소스팩 없이 항상 적용
 DIALOGUE = 'assets/cobblemon/textures/gui/dialogue/'
 WIDGET = 'assets/minecraft/textures/gui/sprites/widget/'
 
@@ -79,8 +79,6 @@ def main(cobblemon_jar, client_jar, preview=None):
         im.save(OUT / path)
     for path, data in meta.items():
         (OUT / path).write_bytes(data)
-    (OUT / 'pack.mcmeta').write_text(json.dumps(
-        {'pack': {'pack_format': 34, 'description': 'pokeserver 어두운 반투명 UI'}}, ensure_ascii=False, indent=2))
     print(f'{len(textures)} textures -> {OUT}')
     if preview:
         make_preview(textures, preview)

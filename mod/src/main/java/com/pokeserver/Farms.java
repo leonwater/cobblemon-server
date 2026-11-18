@@ -57,6 +57,16 @@ public final class Farms {
         return level.dimension().location().toString().equals(dimension);
     }
 
+    /** 이 위치를 왜 편집할 수 없는지: 체력바 위 알림 문구. */
+    public static Component denyReason(Level level, BlockPos pos) {
+        Plot p = plotAt(pos);
+        if (p == null) return Component.literal("공용 길은 편집할 수 없습니다").withStyle(ChatFormatting.RED);
+        ServerData.Owner o = level.isClientSide() ? null : ServerData.get(level.getServer()).plotOwners.get(p.id());
+        return o == null
+                ? Component.literal("농장 " + p.id() + "번 · 주인 없는 땅입니다 (땅 문서로 등록)").withStyle(ChatFormatting.YELLOW)
+                : Component.literal("농장 " + p.id() + "번 · " + o.name() + "님의 땅입니다").withStyle(ChatFormatting.RED);
+    }
+
     public static Plot plotAt(BlockPos pos) {
         for (Plot p : PLOTS) if (p.contains(pos)) return p;
         return null;
@@ -129,9 +139,11 @@ public final class Farms {
                 if (!tag.startsWith("poke.plot")) continue;
                 int id = Integer.parseInt(tag.substring("poke.plot".length()));
                 ServerData.Owner o = data.plotOwners.get(id);
+                // 빈 땅만 보이게, 주인이 있으면 숨김 (배경 투명이라 빈 글자면 안 보임)
                 Component text = o == null
-                        ? Component.literal("농장 " + id + " (빈 땅)").withStyle(ChatFormatting.YELLOW, ChatFormatting.BOLD)
-                        : Component.literal("농장 " + id + " · " + o.name()).withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD);
+                        ? Component.literal("농장 " + id + "\n").withStyle(ChatFormatting.YELLOW, ChatFormatting.BOLD)
+                                .append(Component.literal("빈 땅 · 땅 문서로 등록").withStyle(ChatFormatting.WHITE))
+                        : Component.empty();
                 if (!text.equals(d.getText())) d.setText(text);
             }
         }

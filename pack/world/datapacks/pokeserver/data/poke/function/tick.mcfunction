@@ -6,14 +6,13 @@ execute as @a[scores={home=1..}] run function poke:home
 scoreboard players enable @a home
 # 1. 예전 버전에서 튜토리얼을 끝낸 사람은 이미 보상을 받음
 tag @a[tag=poke.tutorial_done] add poke.kit_given
-# 마을(허브)에서는 블록을 부수거나 놓을 수 없게 모험 모드
+# 튜토리얼 방·마을에서는 블록을 부수거나 놓을 수 없게 모험 모드
 execute as @a[gamemode=survival] at @s if dimension poke:hub run gamemode adventure @s
-execute as @a[gamemode=adventure] at @s unless dimension poke:hub run gamemode survival @s
-# 워프 발판
-execute in poke:hub as @a[x=18,y=65,z=199,dx=2,dy=1,dz=2] run function poke:warp/go {key:"farm"}
-execute in poke:hub as @a[x=-20,y=65,z=199,dx=2,dy=1,dz=2] run function poke:warp/go {key:"wild"}
+execute as @a[gamemode=survival] at @s if dimension poke:town run gamemode adventure @s
+execute as @a[gamemode=adventure] at @s unless dimension poke:hub unless dimension poke:town run gamemode survival @s
+# 농장의 "회의장으로" 발판
 execute in poke:farm as @a[x=-1,y=-59,z=-8,dx=2,dy=1,dz=2] run function poke:home
-# 8. 농장·채집맵의 마지막 위치를 1초마다 기억
+# 8. 농장·야생의 마지막 위치를 1초마다 기억
 scoreboard players add #t poke.timer 1
 execute if score #t poke.timer matches 20.. run function poke:warp/track
 # 4. 포켓몬 외 몬스터·동물 제거 (스포너·알 등으로 생긴 것까지), 배고픔 없음
