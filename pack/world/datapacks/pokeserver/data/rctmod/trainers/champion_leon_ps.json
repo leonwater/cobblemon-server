@@ -1,0 +1,81 @@
+{
+ "name": "단델",
+ "identity": "사천왕 단델",
+ "ai": {
+  "type": "rct",
+  "data": {
+   "maxSelectMargin": 0.15
+  }
+ },
+ "battleRules": {
+  "maxItemUses": 3
+ },
+ "bag": [
+  {
+   "item": "cobblemon:full_restore",
+   "quantity": 2
+  }
+ ],
+ "team": [
+  {
+   "species": "flygon",
+   "level": 96,
+   "moveset": [
+    "dragonclaw",
+    "earthquake",
+    "uturn",
+    "firepunch"
+   ]
+  },
+  {
+   "species": "goodra",
+   "level": 96,
+   "moveset": [
+    "dragonpulse",
+    "sludgebomb",
+    "thunderbolt",
+    "fireblast"
+   ]
+  },
+  {
+   "species": "haxorus",
+   "level": 97,
+   "moveset": [
+    "dragonclaw",
+    "dragondance",
+    "earthquake",
+    "poisonjab"
+   ]
+  },
+  {
+   "species": "kommoo",
+   "level": 97,
+   "moveset": [
+    "clangingscales",
+    "closecombat",
+    "poisonjab",
+    "dragondance"
+   ]
+  },
+  {
+   "species": "hydreigon",
+   "level": 98,
+   "moveset": [
+    "dragonpulse",
+    "darkpulse",
+    "flamethrower",
+    "focusblast"
+   ]
+  },
+  {
+   "species": "garchomp",
+   "level": 100,
+   "moveset": [
+    "earthquake",
+    "dragonclaw",
+    "stoneedge",
+    "swordsdance"
+   ]
+  }
+ ]
+}

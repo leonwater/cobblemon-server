@@ -1,11 +1,11 @@
 # ★ 위치는 여기 한 곳에서만 수정합니다. 수정 후 /reload
 # dim = 차원, yaw = 바라보는 방향(0 남, 90 서, 180 북, -90 동)
 data modify storage poke:config tutorial set value {dim:"poke:hub", x:0, y:65, z:3, yaw:180}
-# 마을(poke:town): 회의장(튜토리얼 후·/trigger home), 상점가, 체육관은 항상 같은 자리로
-data modify storage poke:config hall set value {dim:"poke:town", x:0.5, y:-59, z:6.5, yaw:180}
-data modify storage poke:config street set value {dim:"poke:town", x:0.5, y:-59, z:-27.5, yaw:180}
-data modify storage poke:config gym set value {dim:"poke:town", x:25.5, y:-59, z:-16.5, yaw:-90}
+data modify storage poke:config hall set value {dim:"poke:town", x:0.5, y:-59, z:-7.5, yaw:0}
+data modify storage poke:config street set value {dim:"poke:town", x:1000.5, y:-59, z:28.5, yaw:180}
+data modify storage poke:config gym set value {dim:"poke:town", x:2000.5, y:-59, z:-11.5, yaw:0}
+# 회의장(튜토리얼 후·/trigger home)·상점가·체육관 도착 위치는 tools/build_world.py의 WARPS에서 생성
 # 농장은 처음 갈 때만 여기로, 그다음부터는 마지막 위치로
 data modify storage poke:config farm set value {dim:"poke:farm", x:0.5, y:-59, z:-2.5, yaw:0}
 
-# 체육관·사천왕 위치는 tools/build_world.py (gym_geom, e4_geom)에서 정해 함수로 생성됨
+# 체육관 경기장·사천왕 방 위치는 tools/build_world.py (gym_geom, e4_geom)에서 정해 함수로 생성됨

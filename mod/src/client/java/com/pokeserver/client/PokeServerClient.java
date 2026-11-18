@@ -15,7 +15,9 @@ public class PokeServerClient implements ClientModInitializer {
         ClientPlayNetworking.registerGlobalReceiver(Net.ClaimPopup.TYPE,
                 (payload, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new ClaimScreen(payload.plot()))));
         ClientPlayNetworking.registerGlobalReceiver(Net.ShopOpen.TYPE,
-                (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new ShopScreen(p.json(), p.balance()))));
+                (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new ShopScreen(p.json(), p.balance(), p.badges()))));
+        ClientPlayNetworking.registerGlobalReceiver(Net.GymOpen.TYPE,
+                (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new GymScreen(p.json()))));
         ClientPlayNetworking.registerGlobalReceiver(Net.Balance.TYPE, (p, ctx) -> ShopScreen.balance = p.balance());
         ClientPlayNetworking.registerGlobalReceiver(Net.MenuOpen.TYPE,
                 (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new MenuScreen(p.balance(), p.notice()))));

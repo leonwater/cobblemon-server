@@ -111,11 +111,12 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
 
 1. 첫 접속 → **튜토리얼 방**. 3칸 앞 **안내원 하늘** 우클릭 → 코블몬·서버 기초 안내
 2. "준비 완료!" → **회의장**. 기본 물품(5,000원·러닝 슈즈·몬스터볼 10개)은 **처음 한 번만**
-3. **마을** (평지, 블록 파괴 불가): 회의장 → 분수 광장 → 북쪽 **상점가**(프렌들리 숍·포켓몬센터) / 동쪽 길 끝 **체육관**
+3. **회의장 · 상점가 · 체육관**은 서로 떨어진 섬 (이어진 길 없음, 워프로만 이동). 섬 밖은 허공이고 투명 벽 + 범위 검사로 나가거나 떨어질 수 없음
 4. **G 키 메인 메뉴 → 워프**: 회의장·상점가·체육관은 항상 같은 자리, 농장·야생은 **마지막으로 있던 곳**. `/trigger home` → 회의장
-5. **야생**: 끝없는 맵, 모든 바이옴이 256×256 칸으로 같은 넓이씩 반복. 첫 방문은 **모두 같은 자리**(포켓몬 평균 레벨이 가장 낮은 꽃 숲)
-6. **포켓몬은 야생에서만** 자연 스폰. 야생·플레이어 배틀도 야생에서만 (NPC·체육관 배틀은 어디서나)
-7. **농장**: 상점에서 산 **땅 문서**로 빈 땅 우클릭 → 확인 → 내 땅. 남의 땅을 건드리면 체력바 위에 "OO님의 땅" 알림
+5. **야생**: 끝없는 맵, 모든 바이옴이 256×256 칸으로 같은 넓이씩 반복. 첫 방문은 **모두 같은 자리**(포켓몬 평균 레벨이 가장 낮은 꽃 숲), 그 주변 200칸은 **15레벨 이하**만 나옴
+6. **포켓몬은 야생에서만** 나옴. 야생·플레이어 배틀도 야생에서만 (NPC·체육관 배틀은 어디서나). 내 파티 최고 레벨보다 5레벨 넘게 높은 포켓몬은 1레벨당 포획률 5%씩 낮아짐 (최저 10%)
+7. **블록은 야생에서만 자유롭게** 캐고 놓을 수 있음. **농장**은 상점에서 산 **땅 문서**로 등록한 **내 땅만** (길·빈 땅·남의 땅은 불가, 관리자도 크리에이티브일 때만)
+8. **상점**: 배지가 늘수록 살 수 있는 상품이 늘어남 (판매는 언제나 가능). 상품별 필요 배지는 `shop.json`의 `badges`
 
 화폐: `/money`(`/돈`) 잔액, `/pay 닉네임 금액`(`/송금`) 보내기
 
@@ -125,13 +126,13 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
 
 | 바꿀 것 | 방법 |
 |---|---|
-| 마을·건물·농장 모양과 위치 | `tools/build_world.py` 수정 → 실행 → `load.mcfunction`의 `build:4`(농장은 `farm:2`) 숫자 +1 |
-| 워프 도착 위치, 체육관 | `pack/world/datapacks/pokeserver/data/poke/function/config.mcfunction` |
+| 마을·건물·농장 모양과 위치, 회의장·상점가·체육관 도착 위치 | `tools/build_world.py` 수정 → 실행 → `load.mcfunction`의 `build:5`(농장은 `farm:2`) 숫자 +1 |
+| 튜토리얼·농장 도착 위치 | `pack/world/datapacks/pokeserver/data/poke/function/config.mcfunction` |
+| 월드 초기화 | `pack/config/pokeserver/reset.json`의 `season` +1 → 다음 서버 시작 때 새 월드 (이전 월드는 서버 폴더의 `world-backup-...`에 보관, 지우지 않음) |
 | 기본 물품 | `.../function/kit.mcfunction`(러닝 슈즈), `.../function/mod/kit.mcfunction`(돈·몬스터볼) |
 | 안내원·간호사 대화 | `.../data/poke/dialogues/tutorial.json`, `nurse.json` |
 | 상점 분류·상품·가격 | `pack/config/pokeserver/shop.json` (`buy`/`sell`이 0이면 그 탭에 안 나옴). 실행 중엔 `/pokeserver reload` |
 | 메인 메뉴 공지사항 | `pack/config/pokeserver/menu.json` |
-| 포켓몬 스폰 금지 차원 | `pack/config/cobblemon/main.json`의 `worldSpawningBlocklist` |
 
 ## NPC
 
@@ -139,7 +140,7 @@ NPC는 Cobblemon NPC 하나로 통일합니다 (대화·회복·배틀 파티를
 
 | 하고 싶은 것 | 방법 (관리자) |
 |---|---|
-| NPC 스킨을 다른 플레이어 스킨으로 | `/pokeserver npc skin poke.nurse 플레이어이름` (태그: `poke.tutor`·`poke.nurse`·`poke.merchant`) |
+| NPC 스킨을 다른 플레이어 스킨으로 | `/pokeserver npc skin poke.nurse 플레이어이름` (태그: `poke.tutor`·`poke.nurse`·`poke.merchant`·`poke.gymguide`) |
 | 스킨 이미지 주소로 | `/pokeserver npc skin poke.nurse https://.../skin.png` |
 | 기본 스킨으로 되돌리기 | `/pokeserver npc skin poke.nurse reset` |
 | 이름·파티 등 세부 편집 | NPC를 바라보고 `/npcedit` (Cobblemon 편집기) |
@@ -148,16 +149,16 @@ NPC는 Cobblemon NPC 하나로 통일합니다 (대화·회복·배틀 파티를
 
 ## 체육관 리그 (RCT 모드)
 
-체육관 거리(마을 동쪽)에 **배지 체육관 8곳 + 사천왕 본부**. 관장·사천왕은 RCT(Radical Cobblemon Trainers) 트레이너로, 플레이어가 처음 접속하면 자동 배치됩니다.
+**체육관 섬**의 포켓몬 체육관 건물 안 **체육관 안내원**을 우클릭 → 도전 목록. 목록엔 **클리어한 곳(금색)**과 **지금 도전할 수 있는 곳(초록)**만 보이고, 아직 못 가는 체육관·사천왕은 안 보임. 고르면 그 관장의 경기장(닫힌 방)으로 순간이동.
 
-- 입장: 체육관 문 앞 **초록 발판**. 이전 배지가 모두 있어야 입장, 이미 이긴 체육관은 재입장 불가
-- 체육관마다 **도전자 한 명만** (안에는 관장만 있음). 지거나 나가기(주황 발판)·로그아웃·사망 시 자동으로 비워짐
-- 이기면 배지 아이템 + 전체 알림. **레벨 제한**: 처음 15 → 배지마다 다음 관장 최고 레벨로 오름 (21·27·33·39·45·51·57)
-- 사천왕: 배지 8개 필요, 4명을 **연속으로** 이겨야 클리어(지면 처음부터). 클리어하면 명예의 전당
+- 배지 체육관 8곳: 앞 배지를 모두 모아야 다음 도전, 이긴 체육관은 다시 도전 불가
+- 관장마다 **도전자 한 명만** (경기장엔 관장만 있음). 지거나 나가기(주황 발판)·로그아웃·사망 시 로비로 나오고 자리가 비워짐
+- **레벨 제한**: 처음 20 → 배지마다 10씩 (30·40·…·90), 배지 8개 뒤 100. 관장 최고 레벨 = 그다음 레벨 제한
+- **사천왕** = 역대 최강 챔피언 4명 (성호 강철 → 단델 드래곤 → 난천 고스트 → 레드 비행, 체육관에 없던 타입). 배지 8개 필요, 4명을 **연속으로** 이겨야 클리어(지면 처음부터). 클리어하면 명예의 전당
 
 | 바꿀 것 | 방법 |
 |---|---|
-| 관장 이름·포켓몬·기술·레벨·대사 | `tools/build_league.py` 수정 → 실행 → `reload` |
+| 관장 이름·포켓몬·기술·레벨·대사 | `tools/build_league.py` 수정 → 실행 → `reload`. `COBBLEMON_SPECIES=<Cobblemon 종 데이터 폴더>`를 주면 기술을 배울 수 있는지·레벨 규칙도 검사 |
 | 관장 다시 배치 | `/data modify storage poke:state leaders set value 0` (다음 틱에 다시 소환) |
 
 ## 관리자 명령

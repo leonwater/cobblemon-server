@@ -25,6 +25,7 @@ public class PokeServer implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        Reset.run();   // 월드를 열기 전에 (데이터팩·월드 로딩보다 먼저 실행됨)
         PayloadTypeRegistry.playS2C().register(Net.ClaimPopup.TYPE, Net.ClaimPopup.CODEC);
         PayloadTypeRegistry.playC2S().register(Net.ClaimConfirm.TYPE, Net.ClaimConfirm.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.ShopOpen.TYPE, Net.ShopOpen.CODEC);
@@ -32,6 +33,10 @@ public class PokeServer implements ModInitializer {
         PayloadTypeRegistry.playC2S().register(Net.ShopTrade.TYPE, Net.ShopTrade.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.MenuOpen.TYPE, Net.MenuOpen.CODEC);
         PayloadTypeRegistry.playC2S().register(Net.MenuAction.TYPE, Net.MenuAction.CODEC);
+        PayloadTypeRegistry.playS2C().register(Net.GymOpen.TYPE, Net.GymOpen.CODEC);
+        PayloadTypeRegistry.playC2S().register(Net.GymPick.TYPE, Net.GymPick.CODEC);
+        ServerPlayNetworking.registerGlobalReceiver(Net.GymPick.TYPE,
+                (m, ctx) -> ctx.player().server.execute(() -> Gym.pick(ctx.player(), m.n())));
         ServerPlayNetworking.registerGlobalReceiver(Net.MenuAction.TYPE,
                 (m, ctx) -> ctx.player().server.execute(() -> Menu.action(ctx.player(), m.action())));
         if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.register();
@@ -40,15 +45,17 @@ public class PokeServer implements ModInitializer {
         ServerPlayNetworking.registerGlobalReceiver(Net.ShopTrade.TYPE, (t, ctx) -> ctx.player().server.execute(
                 () -> Shop.trade(ctx.player(), t.sell(), t.category(), t.item(), t.qty())));
 
-        ServerLifecycleEvents.SERVER_STARTED.register(server -> { Farms.load(); Shop.load(); Menu.load(); });
+        ServerLifecycleEvents.SERVER_STARTED.register(server -> { Farms.load(); Shop.load(); Menu.load(); Gym.load(); });
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             if (server.getTickCount() % 100 == 0) Farms.refreshLabels(server);
             if (server.getTickCount() % 200 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.reapply(server);
         });
-        // 상인(태그 poke.merchant)을 우클릭하면 상점 (Cobblemon NPC 스크립트 대신 직접 처리)
+        // 상인(poke.merchant) → 상점, 체육관 안내원(poke.gymguide) → 도전 목록 (Cobblemon NPC 스크립트 대신 직접 처리)
         net.fabricmc.fabric.api.event.player.UseEntityCallback.EVENT.register((player, level, hand, entity, hit) -> {
-            if (level.isClientSide() || hit != null || !entity.getTags().contains("poke.merchant")) return net.minecraft.world.InteractionResult.PASS;
-            Shop.open((ServerPlayer) player);
+            if (level.isClientSide() || hit != null) return net.minecraft.world.InteractionResult.PASS;
+            if (entity.getTags().contains("poke.merchant")) Shop.open((ServerPlayer) player);
+            else if (entity.getTags().contains("poke.gymguide")) Gym.open((ServerPlayer) player);
+            else return net.minecraft.world.InteractionResult.PASS;
             return net.minecraft.world.InteractionResult.SUCCESS;
         });
         Protection.register();

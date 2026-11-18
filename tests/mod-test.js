@@ -113,7 +113,7 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   act('warp:hall'); await sleep(800)
   assert.equal(await dimOf('A'), 'poke:town', '메뉴 워프: 회의장')
   act('warp:gym'); await sleep(800)
-  assert.match(await cmd('data get entity A Pos[0]'), /25\.5d$/, '메뉴 워프: 체육관 거리')
+  assert.match(await cmd('data get entity A Pos[0]'), /2000\.5d$/, '메뉴 워프: 체육관 로비')
   act('warp:farm'); await sleep(800)
   assert.equal(await dimOf('A'), 'poke:farm', '메뉴 워프: 농장')
   act('warp:street'); await sleep(500)
@@ -133,6 +133,39 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   assert.equal(opened.length, before + 1, '6. 점원 우클릭 → 상점 화면')
   act('tutorial'); await sleep(800)
   assert.match(await cmd('data get entity A Pos[2]'), /3\.5d$/, '튜토리얼 다시 보기 → 튜토리얼 방')
+
+
+  // 3·4. 체육관 안내원(태그 poke.gymguide) → 도전 목록: 클리어한 곳과 도전 가능한 곳만, 고르면 경기장으로
+  const gyms = []
+  A._client.on('custom_payload', p => { if (p.channel === 'pokeserver:gym_open') gyms.push(p.data.toString('utf8')) })
+  await cmd('execute as A run function poke:tutorial/finish')   // 바로 위에서 튜토리얼을 다시 시작했으므로
+  await cmd('execute as A run function poke:warp/fixed {key:"gym"}'); await sleep(500)
+  await cmd('execute at A run summon minecraft:villager ~ ~ ~2 {NoAI:1b,Tags:["poke.gymguide"]}'); await sleep(800)
+  const guide = () => Object.values(A.entities).find(e => e.name === 'villager' && e.position.z > A.entity.position.z + 1)
+  const listOf = j => JSON.parse(j.slice(j.indexOf('['))).map(g => [g.n, g.status])
+  await A.activateEntity(guide()); await sleep(800)
+  assert.deepEqual(listOf(gyms[0]), [[1, 'open']], '배지 0개: 1번 체육관만 보임')
+  await cmd('tag A add poke.badge1'); await A.activateEntity(guide()); await sleep(800)
+  assert.deepEqual(listOf(gyms[1]), [[1, 'cleared'], [2, 'open']], '클리어한 1번(금색) + 도전 가능한 2번만')
+  const pick = n => A._client.write('custom_payload', { channel: 'pokeserver:gym_pick', data: Buffer.from([n]) })
+  const gymOf = async () => cmd('scoreboard players get A poke.gym')
+  pick(5); pick(9); pick(1); await sleep(600)
+  assert.doesNotMatch(await gymOf(), /has /, '못 가는 곳·클리어한 곳은 고를 수 없음')
+  pick(2); await sleep(600)
+  assert.match(await gymOf(), /has 2 /, '고른 2번 체육관 경기장으로')
+  await cmd('execute as A run function poke:gym/leave')
+  // 12. 배지가 있어야 사는 상품: 광물 분류 3번째(철 주괴)는 배지 1개 필요, 판매는 제한 없음 (테스트 서버엔 Cobblemon이 없어 바닐라 아이템으로)
+  await cmd('tag A remove poke.badge1'); await cmd('pokeserver money set A 5000')
+  trade(false, 5, 2, 1); await sleep(600)
+  assert.equal(await bal('A'), 5000, '배지 없으면 철 주괴 못 삼')
+  await cmd('tag A add poke.badge1'); trade(false, 5, 2, 1); await sleep(600)
+  assert.equal(await bal('A'), 4880, '배지 1개 → 철 주괴 구매')
+  await cmd('tag A remove poke.badge1'); trade(true, 5, 2, 1); await sleep(600)
+  assert.equal(await bal('A'), 4920, '판매는 배지와 상관없음')
+  // 10. 마을(야생·농장 밖)은 아무도 못 부숨
+  await cmd('execute in poke:town run tp A 2000.5 -59 -11.5 0 90'); await sleep(800)
+  await within(A.dig(A.blockAt(new Vec3(2000, -60, -12))), 3000)
+  assert.ok(!(await cmd('execute in poke:town if block 2000 -60 -12 minecraft:air')).includes('passed'), '마을 블록은 못 부숨')
 
   console.log('ALL PASS'); A.quit(); B.quit(); await rc.end(); process.exit(0)
 })().catch(e => { console.error('FAIL', e.message); process.exit(1) })

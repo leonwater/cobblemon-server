@@ -31,10 +31,11 @@ public final class Net {
     }
 
     /** 서버 → 클라이언트: 상점 열기 (목록 JSON + 잔액). */
-    public record ShopOpen(String json, long balance) implements CustomPacketPayload {
+    public record ShopOpen(String json, long balance, int badges) implements CustomPacketPayload {
         public static final Type<ShopOpen> TYPE = id("shop_open");
         public static final StreamCodec<RegistryFriendlyByteBuf, ShopOpen> CODEC = StreamCodec.composite(
-                ByteBufCodecs.stringUtf8(1 << 20), ShopOpen::json, ByteBufCodecs.VAR_LONG, ShopOpen::balance, ShopOpen::new);
+                ByteBufCodecs.stringUtf8(1 << 20), ShopOpen::json, ByteBufCodecs.VAR_LONG, ShopOpen::balance,
+                ByteBufCodecs.VAR_INT, ShopOpen::badges, ShopOpen::new);
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
 
@@ -68,6 +69,22 @@ public final class Net {
         public static final Type<MenuAction> TYPE = id("menu_action");
         public static final StreamCodec<RegistryFriendlyByteBuf, MenuAction> CODEC =
                 StreamCodec.composite(ByteBufCodecs.stringUtf8(64), MenuAction::action, MenuAction::new);
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
+
+    /** 서버 → 클라이언트: 체육관 도전 목록 (클리어·도전 가능한 것만). */
+    public record GymOpen(String json) implements CustomPacketPayload {
+        public static final Type<GymOpen> TYPE = id("gym_open");
+        public static final StreamCodec<RegistryFriendlyByteBuf, GymOpen> CODEC =
+                StreamCodec.composite(ByteBufCodecs.stringUtf8(1 << 16), GymOpen::json, GymOpen::new);
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
+
+    /** 클라이언트 → 서버: 도전할 체육관 (1~8, 사천왕 9). */
+    public record GymPick(int n) implements CustomPacketPayload {
+        public static final Type<GymPick> TYPE = id("gym_pick");
+        public static final StreamCodec<RegistryFriendlyByteBuf, GymPick> CODEC =
+                StreamCodec.composite(ByteBufCodecs.VAR_INT, GymPick::n, GymPick::new);
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
 }

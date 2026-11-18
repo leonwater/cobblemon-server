@@ -19,9 +19,9 @@
  "team": [
   {
    "species": "staryu",
-   "level": 18,
+   "level": 27,
    "moveset": [
-    "watergun",
+    "waterpulse",
     "rapidspin",
     "swift",
     "recover"
@@ -29,22 +29,32 @@
   },
   {
    "species": "psyduck",
-   "level": 19,
+   "level": 28,
    "moveset": [
-    "watergun",
+    "waterpulse",
     "confusion",
     "scratch",
     "disable"
    ]
   },
   {
-   "species": "starmie",
-   "level": 21,
+   "species": "horsea",
+   "level": 28,
    "moveset": [
     "bubblebeam",
+    "smokescreen",
+    "dragonbreath",
+    "twister"
+   ]
+  },
+  {
+   "species": "starmie",
+   "level": 30,
+   "moveset": [
+    "bubblebeam",
+    "psybeam",
     "swift",
-    "recover",
-    "confusion"
+    "recover"
    ]
   }
  ]

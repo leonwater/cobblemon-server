@@ -164,11 +164,80 @@ def merchant():
     return build('merchant', (45, 35, 30), (25, 20, 18), body, arm, leg, eye=(50, 40, 40), jacket_at=jacket)
 
 
+def gym_guide():
+    """원작 체육관 안내원: 선글라스, 초록 트레이닝복(흰 줄)."""
+    green, white = (40, 150, 90), (240, 240, 240)
+
+    def body(face, x, y, w, h):
+        if face == 'front' and x in (3, 4):
+            return (30, 110, 65) if y > 0 else white                   # 지퍼
+        return white if x in (0, w - 1) and face in ('front', 'back') else green
+
+    def arm(face, x, y, w, h):
+        return (white if x == 1 else green) if y < 10 else SKIN
+
+    def leg(face, x, y, w, h):
+        return (250, 250, 250) if y >= 10 else (35, 40, 50)
+    shades = [(1, 4, (20, 20, 25)), (2, 4, (20, 20, 25)), (5, 4, (20, 20, 25)), (6, 4, (20, 20, 25)),
+              (3, 4, (60, 60, 60)), (4, 4, (60, 60, 60))]
+    img = build('gym_guide', (30, 25, 25), (15, 12, 12), body, arm, leg, eye=(20, 20, 25), extra=shades)
+    for x in (9, 10, 13, 14):                                          # 선글라스가 눈을 덮게
+        img.putpixel((x, 13), (20, 20, 25, 255))
+    return img
+
+
+def champion_leon_ps():
+    """가라르 챔피언 단델: 긴 보라 머리, 모자, 흰 옷 + 빨간 망토."""
+    red, gold = (200, 40, 50), (240, 200, 60)
+
+    def body(face, x, y, w, h):
+        return (245, 245, 245) if face == 'front' else (30, 30, 35)
+
+    def arm(face, x, y, w, h):
+        return (30, 30, 35) if y < 10 else SKIN
+
+    def leg(face, x, y, w, h):
+        return (20, 20, 25) if y >= 9 else (245, 245, 245)
+
+    def hat(face, x, y, w, h):
+        if face == 'top' or (face in ('front', 'right', 'left', 'back') and y <= 1):
+            return (25, 25, 30) if y == 1 or face == 'top' else red
+        return None
+
+    def jacket(face, x, y, w, h):                                     # 망토: 어깨~등, 금색 테두리
+        if face == 'back' or (face in ('right', 'left') and y < 10):
+            return gold if y == 0 or x in (0, w - 1) else red
+        if face == 'front' and x in (0, 7):
+            return red
+        return None
+    return build('champion_leon_ps', (110, 50, 140), (80, 30, 110), body, arm, leg, eye=(200, 160, 40), long_hair=True,
+                 hat_at=hat, jacket_at=jacket)
+
+
+def champion_steven_ps():
+    """호연 챔피언 성호: 은청색 머리, 검은 정장, 빨간 넥타이."""
+    suit = (35, 38, 48)
+
+    def body(face, x, y, w, h):
+        if face == 'front' and x in (3, 4):
+            return (190, 40, 50) if x == 3 and 1 <= y <= 7 else (235, 235, 240)
+        if face == 'front' and x in (2, 5) and y < 4:
+            return (150, 155, 170)                                     # 은색 옷깃
+        return suit
+
+    def arm(face, x, y, w, h):
+        return suit if y < 10 else ((150, 155, 170) if y == 10 else SKIN)
+
+    def leg(face, x, y, w, h):
+        return (20, 20, 25) if y >= 10 else suit
+    return build('champion_steven_ps', (170, 185, 210), (120, 135, 165), body, arm, leg, eye=(60, 90, 160))
+
+
 if __name__ == '__main__':
     (OUT / 'textures/npcs').mkdir(parents=True, exist_ok=True)
     (OUT / 'bedrock/npcs/variations').mkdir(parents=True, exist_ok=True)
     # 안내원은 RCT의 오박사 스킨(손그림, 더 고품질)을 그대로 씀
-    for make in (nurse, merchant, None):
+    for make in (nurse, merchant, gym_guide, None):
         name = make.__name__ if make else 'tutorial_guide'
         tex = f'pokeserver:textures/npcs/{name}.png' if make else 'rctmod:textures/trainers/single/professor_oak_00c8.png'
         if make:
@@ -182,3 +251,9 @@ if __name__ == '__main__':
                 {'aspects': ['model-slim'], 'layers': [], 'model': 'cobblemon:alex.geo', 'poser': 'cobblemon:standard', 'texture': 'variable'}]},
             indent=2))
         print('skin', name)
+    # 사천왕 중 RCT에 없는 챔피언: RCT가 트레이너 ID로 찾는 스킨 자리에 둠
+    rct = OUT.parent / 'rctmod/textures/trainers/single'
+    rct.mkdir(parents=True, exist_ok=True)
+    for make in (champion_leon_ps, champion_steven_ps):
+        make().save(rct / f'{make.__name__}.png')
+        print('skin', make.__name__)

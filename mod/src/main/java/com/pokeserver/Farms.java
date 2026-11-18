@@ -59,6 +59,7 @@ public final class Farms {
 
     /** 이 위치를 왜 편집할 수 없는지: 체력바 위 알림 문구. */
     public static Component denyReason(Level level, BlockPos pos) {
+        if (!isFarm(level)) return Component.literal("블록은 야생에서만 캘 수 있어요").withStyle(ChatFormatting.RED);
         Plot p = plotAt(pos);
         if (p == null) return Component.literal("공용 길은 편집할 수 없습니다").withStyle(ChatFormatting.RED);
         ServerData.Owner o = level.isClientSide() ? null : ServerData.get(level.getServer()).plotOwners.get(p.id());
@@ -72,11 +73,14 @@ public final class Farms {
         return null;
     }
 
-    /** 농장에서 이 위치를 편집해도 되는가: 자기 땅 안이거나 관리자. */
+    /** 이 위치를 편집해도 되는가: 야생은 누구나, 농장은 자기 땅만, 나머지는 불가. 관리자는 크리에이티브일 때만 예외. */
     public static boolean canEdit(Player player, Level level, BlockPos pos) {
-        if (!isFarm(level) || player.hasPermissions(2)) return true;
+        // 클라이언트는 땅 주인 목록이 없으므로 판단은 서버에 맡김 (서버가 막으면 블록이 되돌아감)
+        if (level.isClientSide() || level.dimension().location().toString().equals("poke:wild")
+                || player.isCreative() && player.hasPermissions(2)) return true;
+        if (!isFarm(level)) return false;
         Plot p = plotAt(pos);
-        if (p == null || level.isClientSide()) return false;
+        if (p == null) return false;
         ServerData.Owner o = ServerData.get(level.getServer()).plotOwners.get(p.id());
         return o != null && o.id().equals(player.getUUID());
     }

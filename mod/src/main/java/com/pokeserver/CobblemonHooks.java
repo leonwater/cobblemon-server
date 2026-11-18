@@ -28,6 +28,25 @@ final class CobblemonHooks {
                 owned.forEach(net.minecraft.world.entity.Entity::discard);
             }
         });
+        // 15. 포켓몬은 야생에서만 나옴. 5. 야생 첫 스폰 근처(반경 SAFE_RADIUS)는 15레벨 이하
+        CobblemonEvents.ENTITY_SPAWN.subscribe(Priority.NORMAL, e -> {
+            if (!(e.getEntity() instanceof com.cobblemon.mod.common.entity.pokemon.PokemonEntity pe)) return Unit.INSTANCE;
+            var level = e.getSpawnablePosition().getWorld();
+            if (!level.dimension().location().toString().equals("poke:wild")) { e.cancel(); return Unit.INSTANCE; }
+            var mon = pe.getPokemon();
+            if (mon.getLevel() > SAFE_LEVEL && nearFirstSpawn(level.getServer(), e.getSpawnablePosition().getPosition())) {
+                mon.setLevel(SAFE_LEVEL - 7 + level.getRandom().nextInt(8));   // 8~15
+                mon.initializeMoveset(true);
+            }
+            return Unit.INSTANCE;
+        });
+        // 6. 내 포켓몬보다 레벨이 많이 높은 포켓몬은 잡기 어려움: 5레벨 넘게 차이 나면 1레벨당 5%씩, 최저 10%
+        CobblemonEvents.POKEMON_CATCH_RATE.subscribe(Priority.NORMAL, e -> {
+            if (e.getThrower() instanceof net.minecraft.server.level.ServerPlayer p) {
+                e.setCatchRate(e.getCatchRate() * catchFactor(e.getPokemonEntity().getPokemon().getLevel(), partyMax(p)));
+            }
+            return Unit.INSTANCE;
+        });
         PokeServer.LOG.info("배틀 제한 등록: 야생·플레이어 배틀은 야생에서만");
         // 9. 야생·플레이어 배틀은 야생에서만. NPC(체육관 관장 등) 배틀은 어디서나.
         CobblemonEvents.BATTLE_STARTED_PRE.subscribe(Priority.NORMAL, e -> {
@@ -55,6 +74,28 @@ final class CobblemonHooks {
             if (e.getBattle().isPvN()) gymResult(e.getPlayer().getEntity().server, e.getPlayer().getUuid(), "lose");
             return Unit.INSTANCE;
         });
+    }
+
+    static final int SAFE_LEVEL = 15, SAFE_RADIUS = 200;
+
+    /** 레벨 차이에 따른 포획률 배율. */
+    static float catchFactor(int target, int mine) {
+        int over = target - mine - 5;
+        return over <= 0 ? 1f : Math.max(0.1f, 1f - over * 0.05f);
+    }
+
+    static int partyMax(net.minecraft.server.level.ServerPlayer p) {
+        int max = 1;
+        for (var mon : com.cobblemon.mod.common.util.PlayerExtensionsKt.party(p)) if (mon != null) max = Math.max(max, mon.getLevel());
+        return max;
+    }
+
+    /** 데이터팩이 저장한 야생 첫 스폰(storage poke:state wildspawn) 근처인가. */
+    static boolean nearFirstSpawn(MinecraftServer server, net.minecraft.core.BlockPos pos) {
+        var spawn = server.getCommandStorage().get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("poke", "state")).getCompound("wildspawn");
+        if (!spawn.contains("x")) return false;
+        double dx = pos.getX() - spawn.getDouble("x"), dz = pos.getZ() - spawn.getDouble("z");
+        return dx * dx + dz * dz <= SAFE_RADIUS * SAFE_RADIUS;
     }
 
     private static void gymResult(MinecraftServer server, UUID id, String result) {

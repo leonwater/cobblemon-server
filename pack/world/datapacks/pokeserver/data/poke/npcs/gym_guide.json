@@ -1,0 +1,14 @@
+{
+  "names": [
+    "체육관 안내원"
+  ],
+  "hitbox": "player",
+  "canDespawn": false,
+  "isInvulnerable": true,
+  "isMovable": false,
+  "isLeashable": false,
+  "allowProjectileHits": false,
+  "interaction": {
+    "type": "none"
+  }
+}

@@ -1,0 +1,81 @@
+{
+ "name": "레드",
+ "identity": "사천왕 레드",
+ "ai": {
+  "type": "rct",
+  "data": {
+   "maxSelectMargin": 0.15
+  }
+ },
+ "battleRules": {
+  "maxItemUses": 3
+ },
+ "bag": [
+  {
+   "item": "cobblemon:full_restore",
+   "quantity": 2
+  }
+ ],
+ "team": [
+  {
+   "species": "pidgeot",
+   "level": 98,
+   "moveset": [
+    "hurricane",
+    "heatwave",
+    "uturn",
+    "roost"
+   ]
+  },
+  {
+   "species": "aerodactyl",
+   "level": 98,
+   "moveset": [
+    "stoneedge",
+    "earthquake",
+    "aerialace",
+    "icefang"
+   ]
+  },
+  {
+   "species": "staraptor",
+   "level": 99,
+   "moveset": [
+    "bravebird",
+    "closecombat",
+    "doubleedge",
+    "uturn"
+   ]
+  },
+  {
+   "species": "togekiss",
+   "level": 99,
+   "moveset": [
+    "airslash",
+    "aurasphere",
+    "dazzlinggleam",
+    "thunderwave"
+   ]
+  },
+  {
+   "species": "braviary",
+   "level": 99,
+   "moveset": [
+    "bravebird",
+    "superpower",
+    "rockslide",
+    "bulkup"
+   ]
+  },
+  {
+   "species": "charizard",
+   "level": 100,
+   "moveset": [
+    "flareblitz",
+    "airslash",
+    "dragonpulse",
+    "solarbeam"
+   ]
+  }
+ ]
+}

@@ -19,22 +19,32 @@
  "team": [
   {
    "species": "geodude",
-   "level": 12,
+   "level": 18,
    "moveset": [
     "tackle",
     "defensecurl",
     "rockthrow",
-    "mudslap"
+    "rollout"
+   ]
+  },
+  {
+   "species": "rhyhorn",
+   "level": 18,
+   "moveset": [
+    "hornattack",
+    "stomp",
+    "rockblast",
+    "tailwhip"
    ]
   },
   {
    "species": "onix",
-   "level": 14,
+   "level": 20,
    "moveset": [
-    "rockthrow",
+    "rocktomb",
     "bind",
-    "harden",
-    "rocktomb"
+    "dragonbreath",
+    "harden"
    ]
   }
  ]

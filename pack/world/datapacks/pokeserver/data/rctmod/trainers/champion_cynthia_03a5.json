@@ -1,0 +1,81 @@
+{
+ "name": "난천",
+ "identity": "사천왕 난천",
+ "ai": {
+  "type": "rct",
+  "data": {
+   "maxSelectMargin": 0.15
+  }
+ },
+ "battleRules": {
+  "maxItemUses": 3
+ },
+ "bag": [
+  {
+   "item": "cobblemon:full_restore",
+   "quantity": 2
+  }
+ ],
+ "team": [
+  {
+   "species": "froslass",
+   "level": 97,
+   "moveset": [
+    "shadowball",
+    "icebeam",
+    "willowisp",
+    "destinybond"
+   ]
+  },
+  {
+   "species": "mismagius",
+   "level": 97,
+   "moveset": [
+    "shadowball",
+    "dazzlinggleam",
+    "nastyplot",
+    "thunderbolt"
+   ]
+  },
+  {
+   "species": "chandelure",
+   "level": 98,
+   "moveset": [
+    "shadowball",
+    "flamethrower",
+    "energyball",
+    "calmmind"
+   ]
+  },
+  {
+   "species": "dusknoir",
+   "level": 98,
+   "moveset": [
+    "shadowsneak",
+    "icepunch",
+    "earthquake",
+    "painsplit"
+   ]
+  },
+  {
+   "species": "spiritomb",
+   "level": 98,
+   "moveset": [
+    "darkpulse",
+    "shadowball",
+    "psychic",
+    "suckerpunch"
+   ]
+  },
+  {
+   "species": "gengar",
+   "level": 100,
+   "moveset": [
+    "shadowball",
+    "sludgebomb",
+    "focusblast",
+    "thunderbolt"
+   ]
+  }
+ ]
+}
