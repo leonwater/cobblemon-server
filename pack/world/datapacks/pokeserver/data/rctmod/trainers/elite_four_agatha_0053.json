@@ -1,0 +1,71 @@
+{
+ "name": "국화",
+ "identity": "사천왕 국화",
+ "ai": {
+  "type": "rct",
+  "data": {
+   "maxSelectMargin": 0.15
+  }
+ },
+ "battleRules": {
+  "maxItemUses": 3
+ },
+ "bag": [
+  {
+   "item": "cobblemon:full_restore",
+   "quantity": 2
+  }
+ ],
+ "team": [
+  {
+   "species": "golbat",
+   "level": 60,
+   "moveset": [
+    "crosspoison",
+    "airslash",
+    "confuseray",
+    "uturn"
+   ]
+  },
+  {
+   "species": "arbok",
+   "level": 61,
+   "moveset": [
+    "gunkshot",
+    "crunch",
+    "glare",
+    "earthquake"
+   ]
+  },
+  {
+   "species": "haunter",
+   "level": 61,
+   "moveset": [
+    "shadowball",
+    "sludgebomb",
+    "destinybond",
+    "hypnosis"
+   ]
+  },
+  {
+   "species": "mismagius",
+   "level": 61,
+   "moveset": [
+    "shadowball",
+    "dazzlinggleam",
+    "nastyplot",
+    "thunderbolt"
+   ]
+  },
+  {
+   "species": "gengar",
+   "level": 62,
+   "moveset": [
+    "shadowball",
+    "sludgebomb",
+    "hypnosis",
+    "dreameater"
+   ]
+  }
+ ]
+}

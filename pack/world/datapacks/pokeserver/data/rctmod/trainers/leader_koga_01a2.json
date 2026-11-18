@@ -1,0 +1,61 @@
+{
+ "name": "독수",
+ "identity": "관장 독수",
+ "ai": {
+  "type": "rct",
+  "data": {
+   "maxSelectMargin": 0.15
+  }
+ },
+ "battleRules": {
+  "maxItemUses": 2
+ },
+ "bag": [
+  {
+   "item": "cobblemon:hyper_potion",
+   "quantity": 2
+  }
+ ],
+ "team": [
+  {
+   "species": "koffing",
+   "level": 36,
+   "moveset": [
+    "sludge",
+    "smokescreen",
+    "willowisp",
+    "selfdestruct"
+   ]
+  },
+  {
+   "species": "golbat",
+   "level": 36,
+   "moveset": [
+    "wingattack",
+    "poisonfang",
+    "confuseray",
+    "bite"
+   ]
+  },
+  {
+   "species": "muk",
+   "level": 37,
+   "moveset": [
+    "sludge",
+    "minimize",
+    "acidarmor",
+    "bodyslam"
+   ]
+  },
+  {
+   "species": "weezing",
+   "level": 39,
+   "moveset": [
+    "sludgebomb",
+    "toxic",
+    "willowisp",
+    "selfdestruct"
+   ]
+  }
+ ]
+}

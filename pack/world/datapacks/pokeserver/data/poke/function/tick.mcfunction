@@ -11,6 +11,9 @@ tag @a[tag=poke.tutorial_done] add poke.kit_given
 execute as @a[gamemode=survival] at @s if dimension poke:hub run gamemode adventure @s
 execute as @a[gamemode=survival] at @s if dimension poke:town run gamemode adventure @s
 execute as @a[gamemode=adventure] at @s unless dimension poke:hub unless dimension poke:town run gamemode survival @s
+# 체육관·사천왕 입장/나가기 발판, 관장 소환
+function poke:league/pads
+execute unless data storage poke:state {leaders:1} if entity @a run function poke:league/spawn_tick
 # 농장의 "회의장으로" 발판
 execute in poke:farm as @a[x=-1,y=-59,z=-8,dx=2,dy=1,dz=2] run function poke:home
 # 8. 농장·야생의 마지막 위치를 1초마다 기억

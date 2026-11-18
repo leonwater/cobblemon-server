@@ -1,0 +1,51 @@
+{
+ "name": "이슬",
+ "identity": "관장 이슬",
+ "ai": {
+  "type": "rct",
+  "data": {
+   "maxSelectMargin": 0.15
+  }
+ },
+ "battleRules": {
+  "maxItemUses": 2
+ },
+ "bag": [
+  {
+   "item": "cobblemon:hyper_potion",
+   "quantity": 2
+  }
+ ],
+ "team": [
+  {
+   "species": "staryu",
+   "level": 18,
+   "moveset": [
+    "watergun",
+    "rapidspin",
+    "swift",
+    "recover"
+   ]
+  },
+  {
+   "species": "psyduck",
+   "level": 19,
+   "moveset": [
+    "watergun",
+    "confusion",
+    "scratch",
+    "disable"
+   ]
+  },
+  {
+   "species": "starmie",
+   "level": 21,
+   "moveset": [
+    "bubblebeam",
+    "swift",
+    "recover",
+    "confusion"
+   ]
+  }
+ ]
+}

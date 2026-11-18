@@ -1,0 +1,71 @@
+{
+ "name": "강연",
+ "identity": "관장 강연",
+ "ai": {
+  "type": "rct",
+  "data": {
+   "maxSelectMargin": 0.15
+  }
+ },
+ "battleRules": {
+  "maxItemUses": 2
+ },
+ "bag": [
+  {
+   "item": "cobblemon:hyper_potion",
+   "quantity": 2
+  }
+ ],
+ "team": [
+  {
+   "species": "growlithe",
+   "level": 48,
+   "moveset": [
+    "flamethrower",
+    "bite",
+    "takedown",
+    "roar"
+   ]
+  },
+  {
+   "species": "ponyta",
+   "level": 48,
+   "moveset": [
+    "firespin",
+    "stomp",
+    "takedown",
+    "agility"
+   ]
+  },
+  {
+   "species": "rapidash",
+   "level": 49,
+   "moveset": [
+    "flareblitz",
+    "stomp",
+    "agility",
+    "bounce"
+   ]
+  },
+  {
+   "species": "magmar",
+   "level": 49,
+   "moveset": [
+    "flamethrower",
+    "thunderpunch",
+    "confuseray",
+    "smokescreen"
+   ]
+  },
+  {
+   "species": "arcanine",
+   "level": 51,
+   "moveset": [
+    "flamethrower",
+    "extremespeed",
+    "crunch",
+    "wildcharge"
+   ]
+  }
+ ]
+}

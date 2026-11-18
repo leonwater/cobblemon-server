@@ -1,0 +1,71 @@
+{
+ "name": "시바",
+ "identity": "사천왕 시바",
+ "ai": {
+  "type": "rct",
+  "data": {
+   "maxSelectMargin": 0.15
+  }
+ },
+ "battleRules": {
+  "maxItemUses": 3
+ },
+ "bag": [
+  {
+   "item": "cobblemon:full_restore",
+   "quantity": 2
+  }
+ ],
+ "team": [
+  {
+   "species": "onix",
+   "level": 59,
+   "moveset": [
+    "stoneedge",
+    "earthquake",
+    "rockpolish",
+    "stealthrock"
+   ]
+  },
+  {
+   "species": "hitmonchan",
+   "level": 59,
+   "moveset": [
+    "machpunch",
+    "drainpunch",
+    "icepunch",
+    "thunderpunch"
+   ]
+  },
+  {
+   "species": "hitmonlee",
+   "level": 59,
+   "moveset": [
+    "highjumpkick",
+    "blazekick",
+    "knockoff",
+    "suckerpunch"
+   ]
+  },
+  {
+   "species": "poliwrath",
+   "level": 60,
+   "moveset": [
+    "closecombat",
+    "waterfall",
+    "bulkup",
+    "icepunch"
+   ]
+  },
+  {
+   "species": "machamp",
+   "level": 61,
+   "moveset": [
+    "dynamicpunch",
+    "knockoff",
+    "stoneedge",
+    "bulletpunch"
+   ]
+  }
+ ]
+}

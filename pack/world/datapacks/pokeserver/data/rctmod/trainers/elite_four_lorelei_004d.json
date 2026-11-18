@@ -1,0 +1,71 @@
+{
+ "name": "칸나",
+ "identity": "사천왕 칸나",
+ "ai": {
+  "type": "rct",
+  "data": {
+   "maxSelectMargin": 0.15
+  }
+ },
+ "battleRules": {
+  "maxItemUses": 3
+ },
+ "bag": [
+  {
+   "item": "cobblemon:full_restore",
+   "quantity": 2
+  }
+ ],
+ "team": [
+  {
+   "species": "dewgong",
+   "level": 58,
+   "moveset": [
+    "icebeam",
+    "surf",
+    "aquajet",
+    "rest"
+   ]
+  },
+  {
+   "species": "cloyster",
+   "level": 58,
+   "moveset": [
+    "iciclespear",
+    "shellsmash",
+    "rockblast",
+    "iceshard"
+   ]
+  },
+  {
+   "species": "slowbro",
+   "level": 59,
+   "moveset": [
+    "surf",
+    "psychic",
+    "icebeam",
+    "slackoff"
+   ]
+  },
+  {
+   "species": "jynx",
+   "level": 59,
+   "moveset": [
+    "icebeam",
+    "psychic",
+    "lovelykiss",
+    "nastyplot"
+   ]
+  },
+  {
+   "species": "lapras",
+   "level": 60,
+   "moveset": [
+    "freezedry",
+    "hydropump",
+    "thunderbolt",
+    "icebeam"
+   ]
+  }
+ ]
+}

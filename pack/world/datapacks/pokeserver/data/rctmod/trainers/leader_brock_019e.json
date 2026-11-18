@@ -1,0 +1,41 @@
+{
+ "name": "웅",
+ "identity": "관장 웅",
+ "ai": {
+  "type": "rct",
+  "data": {
+   "maxSelectMargin": 0.15
+  }
+ },
+ "battleRules": {
+  "maxItemUses": 2
+ },
+ "bag": [
+  {
+   "item": "cobblemon:hyper_potion",
+   "quantity": 2
+  }
+ ],
+ "team": [
+  {
+   "species": "geodude",
+   "level": 12,
+   "moveset": [
+    "tackle",
+    "defensecurl",
+    "rockthrow",
+    "mudslap"
+   ]
+  },
+  {
+   "species": "onix",
+   "level": 14,
+   "moveset": [
+    "rockthrow",
+    "bind",
+    "harden",
+    "rocktomb"
+   ]
+  }
+ ]
+}

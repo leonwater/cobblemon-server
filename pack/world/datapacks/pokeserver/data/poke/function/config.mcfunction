@@ -4,9 +4,8 @@ data modify storage poke:config tutorial set value {dim:"poke:hub", x:0, y:65, z
 # 마을(poke:town): 회의장(튜토리얼 후·/trigger home), 상점가, 체육관은 항상 같은 자리로
 data modify storage poke:config hall set value {dim:"poke:town", x:0.5, y:-59, z:6.5, yaw:180}
 data modify storage poke:config street set value {dim:"poke:town", x:0.5, y:-59, z:-27.5, yaw:180}
-data modify storage poke:config gym set value {dim:"poke:town", x:86.5, y:-59, z:-16.5, yaw:-90}
+data modify storage poke:config gym set value {dim:"poke:town", x:25.5, y:-59, z:-16.5, yaw:-90}
 # 농장은 처음 갈 때만 여기로, 그다음부터는 마지막 위치로
 data modify storage poke:config farm set value {dim:"poke:farm", x:0.5, y:-59, z:-2.5, yaw:0}
 
-# 체육관 내부 입장 좌표. 명령 블록:  execute as @p run function poke:gym/enter {id:1}
-data modify storage poke:config gyms set value {g1:{dim:"poke:town", x:100, y:-59, z:-17, yaw:-90}}
+# 체육관·사천왕 위치는 tools/build_world.py (gym_geom, e4_geom)에서 정해 함수로 생성됨

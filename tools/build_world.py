@@ -16,9 +16,38 @@ PLAZA = (-20, 20, -24, -10)          # 회의장 앞 광장 (분수)
 STREET = (-3, 3, -112, -25)          # 상점가 길 (남→북)
 MART = (-24, -8, -71, -55)           # 프렌들리 숍 (문은 동쪽, 길 쪽)
 CENTER = (8, 24, -72, -52)           # 포켓몬센터 x1,x2,z1,z2 (문은 서쪽, 길 쪽)
-GYM_ROAD = (21, 91, -19, -15)        # 광장 → 체육관 길
-GYM = (92, 132, -40, 6)              # 체육관 (문은 서쪽)
-BOUNDS = (-40, 140, -125, 20)        # 마을 둘레 벽
+GYM_ROAD = (21, 199, -19, -15)       # 광장 → 체육관 거리 → 사천왕 본부
+GYM_X = (40, 80, 120, 160)           # 배지 체육관 x 시작 (길 북쪽·남쪽에 하나씩, 21x25)
+E4 = (200, 240, -46, 12)             # 사천왕 본부 (문은 서쪽): 방 4개 + 명예의 전당
+BOUNDS = (-40, 250, -125, 20)        # 마을 둘레 벽
+# 체육관 테마 바닥 (번호 순): 바위·물·전기·풀·독·에스퍼·불꽃·땅 / 사천왕: 얼음·격투·고스트·드래곤
+GYM_THEME = ['cobblestone', 'prismarine', 'yellow_concrete', 'moss_block', 'purple_concrete', 'magenta_concrete',
+             'red_nether_bricks', 'coarse_dirt']
+GYM_ROOF = ['gray_terracotta', 'blue_terracotta', 'yellow_terracotta', 'lime_terracotta', 'purple_terracotta',
+            'magenta_terracotta', 'red_terracotta', 'brown_terracotta']
+E4_THEME = ['packed_ice', 'smooth_stone', 'blackstone', 'purpur_block']
+
+
+def gym_geom(n):
+    """n번 체육관(1~8) 위치: 입장 발판·도전자 자리·나가는 발판·관장 자리·밖으로 나올 자리."""
+    x0 = GYM_X[(n - 1) // 2]
+    xm = x0 + 10
+    if n % 2:   # 북쪽 (문은 남쪽 벽 z=-22)
+        return dict(box=(x0, x0 + 20, -46, -22), door_z=-22, pad=(xm - 1, -21, 3, 1), inside=(xm + .5, -27.5, 180),
+                    exit=(xm - 1, -23, 3, 1), leader=(xm + .5, -42.5, 0), out=(xm + .5, -17.5, 180))
+    return dict(box=(x0, x0 + 20, -12, 12), door_z=-12, pad=(xm - 1, -14, 3, 1), inside=(xm + .5, -6.5, 0),
+                exit=(xm - 1, -11, 3, 1), leader=(xm + .5, 9.5, 180), out=(xm + .5, -16.5, 0))
+
+
+def e4_geom():
+    """사천왕 본부: 방 k(1~4) = z 구간, 도전자는 서쪽, 사천왕은 동쪽. 5번째는 명예의 전당."""
+    x1, x2, z1, z2 = E4
+    rooms = [(z1 + 1 + 11 * k, z1 + 11 + 11 * k) for k in range(5)]
+    return dict(box=E4, pad=(x1 - 2, -18, 1, 3), out=(x1 - 4.5, -16.5, 90), rooms=rooms,
+                inside=[(x1 + 6.5, (a + b) / 2 + .5, -90) for a, b in rooms],
+                member=[(x2 - 6.5, (a + b) / 2 + .5, 90) for a, b in rooms[:4]],
+                exit=(x1 + 2, rooms[4][0] + 4, 1, 3))
+
 
 # ── 농장 (poke:farm, 평지 지면 y=-60) ──
 FY = -60
@@ -80,17 +109,6 @@ def emblem(plane_x, cz, cy, r=3):
             else:
                 b = 'red_concrete' if dy > 0 else 'white_concrete'
             L.append(sb(plane_x, cy + dy, cz + dz, 'minecraft:' + b))
-    return L
-
-
-def ball_statue(x, z):
-    """체육관 입구 석상: 받침대 위 몬스터볼."""
-    L = [fill(x - 1, G + 1, z - 1, x + 1, G + 1, z + 1, 'minecraft:polished_andesite'),
-         fill(x, G + 2, z, x, G + 2, z, 'minecraft:chiseled_stone_bricks'),
-         fill(x - 1, G + 3, z - 1, x + 1, G + 3, z + 1, 'minecraft:white_concrete'),
-         fill(x - 1, G + 4, z - 1, x + 1, G + 4, z + 1, 'minecraft:black_concrete'),
-         fill(x - 1, G + 5, z - 1, x + 1, G + 5, z + 1, 'minecraft:red_concrete'),
-         sb(x - 1, G + 4, z, 'minecraft:white_concrete')]
     return L
 
 
@@ -281,54 +299,84 @@ def mart():
     return L
 
 
-def gym():
-    x1, x2, z1, z2 = GYM
-    zm = (z1 + z2) // 2
-    top = G + 8
-    L = ['# ── 체육관 (원작풍): 입구 석상 + 몬스터볼 엠블럼 + 주황 계단식 지붕 (문은 서쪽) ──',
-         fill(x1 - 1, G, z1 - 1, x2 + 1, G, z2 + 1, 'minecraft:polished_andesite'),
-         fill(x1, G, z1, x2, G, z2, 'minecraft:polished_andesite')]
+def gym(n):
+    """배지 체육관 (원작풍): 석상 + 몬스터볼 엠블럼 + 타입색 계단식 지붕. 문은 장식(유리), 드나들기는 발판으로."""
+    g = gym_geom(n)
+    x1, x2, z1, z2 = g['box']
+    xm, dz = (x1 + x2) // 2, g['door_z']
+    face = -1 if dz == z2 else 1          # 바깥쪽 방향 (북쪽 체육관은 +z 쪽이 바깥)
+    out_z = dz + (1 if dz == z2 else -1)
+    top = G + 7
+    theme, roof = 'minecraft:' + GYM_THEME[n - 1], 'minecraft:' + GYM_ROOF[n - 1]
+    L = [f'# ── {n}번 체육관 ──', fill(x1 - 1, G, z1 - 1, x2 + 1, G, z2 + 1, 'minecraft:polished_andesite'),
+         fill(x1 + 1, G, z1 + 1, x2 - 1, G, z2 - 1, theme)]
     L += walls(x1, x2, z1, z2, G + 1, G + 2, 'minecraft:polished_deepslate')
     L += walls(x1, x2, z1, z2, G + 3, top, 'minecraft:light_gray_concrete')
-    for x in range(x1, x2 + 1, 6):
+    for x in range(x1, x2 + 1, 5):
         L += [fill(x, G + 1, z1, x, top, z1, 'minecraft:quartz_pillar'), fill(x, G + 1, z2, x, top, z2, 'minecraft:quartz_pillar')]
-        if x + 3 < x2:
-            L += [fill(x + 2, G + 5, z1, x + 4, G + 7, z1, 'minecraft:glass_pane'), fill(x + 2, G + 5, z2, x + 4, G + 7, z2, 'minecraft:glass_pane')]
     for z in range(z1, z2 + 1, 6):
         L += [fill(x1, G + 1, z, x1, top, z, 'minecraft:quartz_pillar'), fill(x2, G + 1, z, x2, top, z, 'minecraft:quartz_pillar')]
-    L += [fill(x1, G + 1, zm - 2, x1, G + 5, zm + 2, 'minecraft:air'),                         # 입구
-          fill(x1 - 1, G + 6, zm - 3, x1 - 1, G + 6, zm + 3, 'minecraft:red_terracotta'),
-          fill(x1, top - 1, zm - 5, x1, top + 6, zm + 5, 'minecraft:light_gray_concrete'),
-          label(x1 - 1.6, G + 6.2, zm + 0.5, '체육관', 'gold', 2.0, sub='POKéMON GYM')]
-    L += emblem(x1 - 1, zm, top + 2, r=4)
-    L += ball_statue(x1 - 5, zm - 5) + ball_statue(x1 - 5, zm + 5)
-    # 붉은 계단식 지붕
+    # 정면: 유리문(장식), 차양, 엠블럼 대신 문 위 몬스터볼 무늬 띠
+    L += [fill(xm - 1, G + 1, dz, xm + 1, G + 3, dz, 'minecraft:light_blue_stained_glass'),
+          fill(xm - 3, G + 4, out_z, xm + 3, G + 4, out_z, roof),
+          fill(xm - 3, G + 5, dz, xm + 3, G + 5, dz, 'minecraft:red_concrete'),
+          fill(xm - 3, G + 6, dz, xm + 3, G + 6, dz, 'minecraft:black_concrete'),
+          fill(xm - 3, G + 7, dz, xm + 3, G + 7, dz, 'minecraft:white_concrete'),
+          label(xm + .5, G + 9, out_z + .5 * (1 if dz == z2 else -1) + .5, f'{n}번 체육관', 'gold', 1.6)]
+    for sx in (xm - 5, xm + 5):                          # 입구 석상
+        L += [fill(sx, G + 1, out_z, sx, G + 2, out_z, 'minecraft:chiseled_stone_bricks'),
+              sb(sx, G + 3, out_z, 'minecraft:red_concrete')]
+    # 지붕
     L += [fill(x1 - 1, top + 1, z1 - 1, x2 + 1, top + 1, z2 + 1, 'minecraft:white_concrete'),
-          fill(x1, top + 1, z1, x2, top + 1, z2, 'minecraft:orange_terracotta'),
-          fill(x1 + 3, top + 2, z1 + 3, x2 - 3, top + 2, z2 - 3, 'minecraft:orange_terracotta'),
-          fill(x1 + 7, top + 3, z1 + 7, x2 - 7, top + 3, z2 - 7, 'minecraft:orange_terracotta')]
-    # 안: 배틀 필드(잔디 + 흰 선 + 가운데 원), 관중석, 관장 단상
-    ax1, ax2, az1, az2 = x1 + 8, x2 - 8, z1 + 9, z2 - 9
-    L += [fill(ax1, G, az1, ax2, G, az2, 'minecraft:moss_block'),
-          fill(ax1, G, az1, ax2, G, az1, 'minecraft:smooth_quartz'), fill(ax1, G, az2, ax2, G, az2, 'minecraft:smooth_quartz'),
-          fill(ax1, G, az1, ax1, G, az2, 'minecraft:smooth_quartz'), fill(ax2, G, az1, ax2, G, az2, 'minecraft:smooth_quartz'),
-          fill((ax1 + ax2) // 2, G, az1, (ax1 + ax2) // 2, G, az2, 'minecraft:smooth_quartz')]
-    cxm = (ax1 + ax2) // 2
-    for dx in range(-4, 5):
-        for dz in range(-4, 5):
-            if 3.5 <= math.hypot(dx, dz) < 4.5:
-                L.append(sb(cxm + dx, G, zm + dz, 'minecraft:smooth_quartz'))
-    for i in range(3):                                   # 양옆 관중석
-        L += [fill(ax1, G + 1 + i, z1 + 1 + i, ax2, G + 1 + i, z1 + 1 + i, 'minecraft:stone_brick_stairs[facing=north]'),
-              fill(ax1, G + 1 + i, z2 - 1 - i, ax2, G + 1 + i, z2 - 1 - i, 'minecraft:stone_brick_stairs[facing=south]')]
-        L += [fill(ax1, G + 1, z1 + 1, ax2, G + i, z1 + 1 + i, 'minecraft:stone_bricks')] if i else []
-        L += [fill(ax1, G + 1, z2 - 1 - i, ax2, G + i, z2 - 1, 'minecraft:stone_bricks')] if i else []
-    L += [fill(x2 - 5, G + 1, zm - 4, x2 - 1, G + 1, zm + 4, 'minecraft:quartz_block'),
-          fill(x2 - 3, G + 2, zm - 2, x2 - 1, G + 2, zm + 2, 'minecraft:quartz_block'),
-          fill(x2 - 6, G + 1, zm - 4, x2 - 6, G + 1, zm + 4, 'minecraft:quartz_stairs[facing=east]')]
-    for x in range(x1 + 4, x2 - 1, 6):
-        for z in range(z1 + 4, z2 - 1, 6):
+          fill(x1, top + 1, z1, x2, top + 1, z2, roof),
+          fill(x1 + 3, top + 2, z1 + 3, x2 - 3, top + 2, z2 - 3, roof),
+          fill(x1 + 6, top + 3, z1 + 6, x2 - 6, top + 3, z2 - 6, roof)]
+    # 안: 경기장 흰 선, 관장 단상, 발판(입장: 바깥, 나가기: 안쪽), 조명
+    lx, lz, _ = g['leader']
+    L += [fill(x1 + 3, G, (z1 + z2) // 2, x2 - 3, G, (z1 + z2) // 2, 'minecraft:smooth_quartz'),
+          fill(int(lx) - 2, G, int(lz) - 1, int(lx) + 2, G, int(lz) + 1, 'minecraft:quartz_block')]
+    for key, glass in (('pad', 'minecraft:lime_stained_glass'), ('exit', 'minecraft:orange_stained_glass')):
+        px, pz, w, d = g[key]
+        L.append(fill(px, G, pz, px + w - 1, G, pz + d - 1, glass))
+    px, pz, _, _ = g['exit']
+    L.append(label(px + 1.5, G + 2.5, pz + .5, '◀ 나가기', 'gold', 1.0))
+    for x in range(x1 + 3, x2 - 1, 5):
+        for z in range(z1 + 3, z2 - 1, 5):
             L.append(sb(x, top, z, 'minecraft:sea_lantern'))
+    return L
+
+
+def e4_hall():
+    """사천왕 본부: 큰 건물 안에 방 4개(서로 막힘) + 명예의 전당."""
+    g = e4_geom()
+    x1, x2, z1, z2 = g['box']
+    top = G + 9
+    L = ['# ── 사천왕 본부 ──', fill(x1 - 1, G, z1 - 1, x2 + 1, G, z2 + 1, 'minecraft:polished_andesite')]
+    L += walls(x1, x2, z1, z2, G + 1, top, 'minecraft:quartz_bricks')
+    for z in range(z1, z2 + 1, 5):
+        L += [fill(x1, G + 1, z, x1, top, z, 'minecraft:gold_block' if z == -17 else 'minecraft:quartz_pillar')]
+    for k, (a, b) in enumerate(g['rooms']):
+        floor = 'minecraft:' + (E4_THEME[k] if k < 4 else 'gold_block')
+        L += [fill(x1 + 1, G, a, x2 - 1, G, b, floor), fill(x1 + 1, top, a, x2 - 1, top, b, 'minecraft:quartz_block')]
+        if k < 4:
+            L.append(fill(x1 + 1, G + 1, b + 1, x2 - 1, top, b + 1, 'minecraft:quartz_bricks'))   # 방 사이 벽
+        for x in range(x1 + 4, x2 - 1, 6):
+            L.append(sb(x, top, (a + b) // 2, 'minecraft:sea_lantern'))
+    fa, fb = g['rooms'][4]
+    L += [fill(x2 - 4, G + 1, fa + 2, x2 - 2, G + 3, fb - 2, 'minecraft:gold_block'),
+          label(x2 - 6.5, G + 4, (fa + fb) / 2 + .5, '명예의 전당', 'gold', 2.0, sub='사천왕을 모두 이긴 트레이너')]
+    px, pz, w, d = g['pad']
+    L += [fill(px, G, pz, px + w - 1, G, pz + d - 1, 'minecraft:lime_stained_glass'),
+          fill(x1, G + 1, -18, x1, G + 4, -16, 'minecraft:light_blue_stained_glass'),
+          label(x1 - 1.5, top + 3, -16.5, '사천왕', 'gold', 3.0, sub='POKéMON LEAGUE · 배지 8개 필요')]
+    L += emblem(x1 - 1, -17, top - 2, r=3)
+    px, pz, w, d = g['exit']
+    L += [fill(px, G, pz, px + w - 1, G, pz + d - 1, 'minecraft:orange_stained_glass'),
+          label(px + .5, G + 2.5, pz + 1.5, '◀ 나가기', 'gold', 1.0)]
+    # 지붕
+    L += [fill(x1 - 1, top + 1, z1 - 1, x2 + 1, top + 1, z2 + 1, 'minecraft:white_concrete'),
+          fill(x1, top + 1, z1, x2, top + 1, z2, 'minecraft:purple_terracotta'),
+          fill(x1 + 4, top + 2, z1 + 4, x2 - 4, top + 2, z2 - 4, 'minecraft:purple_terracotta')]
     return L
 
 
@@ -338,10 +386,13 @@ def town():
          'kill @e[type=minecraft:text_display,tag=poke.deco]',
          fill(x1, G, z1, x2, G, z2, 'minecraft:polished_andesite'),
          fill(x1, G, z1, x2, G, z1, 'minecraft:stone_bricks'), fill(x1, G, z2, x2, G, z2, 'minecraft:stone_bricks'),
-         label(x1 + 2.5, G + 4, z2 + 1.5, '▶ 체육관', 'red', 1.5)]
-    for x in range(x1 + 6, x2, 12):
+         label(x1 + 2.5, G + 4, z2 + 1.5, '▶ 체육관 거리 · 사천왕', 'red', 1.5)]
+    for x in (30, 70, 110, 150, 190):                    # 체육관 사이에만 (입장 발판과 안 겹치게)
         L += lamp(x, z1 - 1) + lamp(x, z2 + 1)
-    L += hall() + plaza() + street() + mart() + center() + gym()
+    L += hall() + plaza() + street() + mart() + center()
+    for n in range(1, 9):
+        L += gym(n)
+    L += e4_hall()
     # 둘레 벽: 모험 모드라 못 올라가지만 높이 제한까지 막음 (fill 한 번 최대 32768칸)
     bx1, bx2, bz1, bz2 = BOUNDS
     for a in range(bx1, bx2 + 1, 80):

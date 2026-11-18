@@ -164,50 +164,20 @@ def merchant():
     return build('merchant', (45, 35, 30), (25, 20, 18), body, arm, leg, eye=(50, 40, 40), jacket_at=jacket)
 
 
-def tutor():
-    coat, shirt = (238, 238, 244), (140, 190, 235)
-
-    def body(face, x, y, w, h):
-        if face == 'front' and x in (3, 4):                        # 열린 가운 사이 셔츠·넥타이
-            return (200, 60, 60) if x == 3 and 1 <= y <= 6 else shirt
-        if face == 'front' and x in (2, 5) and y < 3:
-            return (210, 210, 220)                                 # 옷깃
-        return coat
-
-    def arm(face, x, y, w, h):
-        return coat if y < 10 else SKIN
-
-    def leg(face, x, y, w, h):
-        return (90, 60, 40) if y >= 10 else (85, 78, 70)
-    glasses = [(0, 4, (70, 70, 80)), (3, 4, (70, 70, 80)), (4, 4, (70, 70, 80)), (7, 4, (70, 70, 80))]
-
-    def jacket(face, x, y, w, h):                                  # 가운 깃·주머니·펜
-        if face == 'front' and x in (0, 1, 6, 7):
-            if y == 7 and x in (0, 1):
-                return (60, 90, 200) if x == 1 else (205, 205, 215)
-            return coat if y >= 2 else (225, 225, 232)
-        if face in ('right', 'left', 'back'):
-            return coat if y >= 9 else None
-        return None
-
-    def sleeve(face, x, y, w, h):
-        return (225, 225, 232) if y in (9, 10) else None
-    return build('tutorial_guide', (115, 75, 45), (85, 55, 30), body, arm, leg, eye=(60, 90, 60), extra=glasses,
-                 jacket_at=jacket, sleeve_at=sleeve)
-
-
 if __name__ == '__main__':
     (OUT / 'textures/npcs').mkdir(parents=True, exist_ok=True)
     (OUT / 'bedrock/npcs/variations').mkdir(parents=True, exist_ok=True)
-    for make in (nurse, merchant, tutor):
-        img = make()
-        name = {'nurse': 'nurse', 'merchant': 'merchant', 'tutor': 'tutorial_guide'}[make.__name__]
-        img.save(OUT / f'textures/npcs/{name}.png')
+    # 안내원은 RCT의 오박사 스킨(손그림, 더 고품질)을 그대로 씀
+    for make in (nurse, merchant, None):
+        name = make.__name__ if make else 'tutorial_guide'
+        tex = f'pokeserver:textures/npcs/{name}.png' if make else 'rctmod:textures/trainers/single/professor_oak_00c8.png'
+        if make:
+            make().save(OUT / f'textures/npcs/{name}.png')
         # Cobblemon NPC 외형: 이름이 NPC 종류 ID와 같아야 적용됨
         (OUT / f'bedrock/npcs/variations/{name}.json').write_text(json.dumps({
             'name': f'poke:{name}', 'order': 0, 'variations': [
                 {'aspects': [], 'layers': [], 'model': 'cobblemon:steve.geo', 'poser': 'cobblemon:standard',
-                 'texture': f'pokeserver:textures/npcs/{name}.png'},
+                 'texture': tex},
                 {'aspects': ['model-default'], 'layers': [], 'model': 'cobblemon:steve.geo', 'poser': 'cobblemon:standard', 'texture': 'variable'},
                 {'aspects': ['model-slim'], 'layers': [], 'model': 'cobblemon:alex.geo', 'poser': 'cobblemon:standard', 'texture': 'variable'}]},
             indent=2))

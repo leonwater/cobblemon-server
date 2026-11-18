@@ -1,0 +1,11 @@
+{
+ "title": {
+  "literal": "포켓서버 리그"
+ },
+ "description": {
+  "literal": "배지 8개를 모은 뒤 사천왕을 한 번에 모두 이겨라"
+ },
+ "difficulty": 3,
+ "requiredSeries": [],
+ "initialLevelCap": 15
+}

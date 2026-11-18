@@ -1,0 +1,71 @@
+{
+ "name": "목호",
+ "identity": "사천왕 목호",
+ "ai": {
+  "type": "rct",
+  "data": {
+   "maxSelectMargin": 0.15
+  }
+ },
+ "battleRules": {
+  "maxItemUses": 3
+ },
+ "bag": [
+  {
+   "item": "cobblemon:full_restore",
+   "quantity": 2
+  }
+ ],
+ "team": [
+  {
+   "species": "gyarados",
+   "level": 62,
+   "moveset": [
+    "waterfall",
+    "dragondance",
+    "earthquake",
+    "icefang"
+   ]
+  },
+  {
+   "species": "dragonair",
+   "level": 62,
+   "moveset": [
+    "dragonpulse",
+    "thunderwave",
+    "aquatail",
+    "extremespeed"
+   ]
+  },
+  {
+   "species": "aerodactyl",
+   "level": 62,
+   "moveset": [
+    "stoneedge",
+    "earthquake",
+    "aerialace",
+    "icefang"
+   ]
+  },
+  {
+   "species": "kingdra",
+   "level": 63,
+   "moveset": [
+    "dracometeor",
+    "surf",
+    "icebeam",
+    "focusenergy"
+   ]
+  },
+  {
+   "species": "dragonite",
+   "level": 64,
+   "moveset": [
+    "outrage",
+    "extremespeed",
+    "earthquake",
+    "firepunch"
+   ]
+  }
+ ]
+}
