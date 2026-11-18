@@ -19,17 +19,17 @@
  "dialog": {
   "on_battle_start": [
    {
-    "literal": "사천왕 시바: 좋아, 실력을 보여줘!"
+    "literal": "사천왕 레드: 좋아, 실력을 보여줘!"
    }
   ],
   "on_battle_won": [
    {
-    "literal": "사천왕 시바: 아직 멀었어. 다시 도전해!"
+    "literal": "사천왕 레드: 아직 멀었어. 다시 도전해!"
    }
   ],
   "on_battle_lost": [
    {
-    "literal": "사천왕 시바: 훌륭해! 네가 이겼어."
+    "literal": "사천왕 레드: 훌륭해! 네가 이겼어."
    }
   ],
   "missing_required_trainer": [

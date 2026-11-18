@@ -1,0 +1,81 @@
+{
+ "name": "성호",
+ "identity": "사천왕 성호",
+ "ai": {
+  "type": "rct",
+  "data": {
+   "maxSelectMargin": 0.15
+  }
+ },
+ "battleRules": {
+  "maxItemUses": 3
+ },
+ "bag": [
+  {
+   "item": "cobblemon:full_restore",
+   "quantity": 2
+  }
+ ],
+ "team": [
+  {
+   "species": "bronzong",
+   "level": 95,
+   "moveset": [
+    "gyroball",
+    "psychic",
+    "earthquake",
+    "trickroom"
+   ]
+  },
+  {
+   "species": "excadrill",
+   "level": 95,
+   "moveset": [
+    "ironhead",
+    "earthquake",
+    "rockslide",
+    "swordsdance"
+   ]
+  },
+  {
+   "species": "empoleon",
+   "level": 96,
+   "moveset": [
+    "flashcannon",
+    "surf",
+    "icebeam",
+    "drillpeck"
+   ]
+  },
+  {
+   "species": "scizor",
+   "level": 96,
+   "moveset": [
+    "bulletpunch",
+    "xscissor",
+    "swordsdance",
+    "roost"
+   ]
+  },
+  {
+   "species": "aggron",
+   "level": 97,
+   "moveset": [
+    "heavyslam",
+    "stoneedge",
+    "earthquake",
+    "ironhead"
+   ]
+  },
+  {
+   "species": "metagross",
+   "level": 100,
+   "moveset": [
+    "meteormash",
+    "zenheadbutt",
+    "earthquake",
+    "bulletpunch"
+   ]
+  }
+ ]
+}

@@ -18,50 +18,60 @@
  ],
  "team": [
   {
-   "species": "growlithe",
-   "level": 48,
-   "moveset": [
-    "flamethrower",
-    "bite",
-    "takedown",
-    "roar"
-   ]
-  },
-  {
-   "species": "ponyta",
-   "level": 48,
-   "moveset": [
-    "firespin",
-    "stomp",
-    "takedown",
-    "agility"
-   ]
-  },
-  {
    "species": "rapidash",
-   "level": 49,
+   "level": 77,
    "moveset": [
     "flareblitz",
-    "stomp",
+    "bounce",
     "agility",
-    "bounce"
+    "poisonjab"
    ]
   },
   {
-   "species": "magmar",
-   "level": 49,
+   "species": "ninetales",
+   "level": 77,
    "moveset": [
     "flamethrower",
-    "thunderpunch",
-    "confuseray",
-    "smokescreen"
+    "solarbeam",
+    "nastyplot",
+    "extrasensory"
+   ]
+  },
+  {
+   "species": "magmortar",
+   "level": 78,
+   "moveset": [
+    "fireblast",
+    "thunderbolt",
+    "focusblast",
+    "confuseray"
+   ]
+  },
+  {
+   "species": "flareon",
+   "level": 78,
+   "moveset": [
+    "flareblitz",
+    "superpower",
+    "quickattack",
+    "willowisp"
+   ]
+  },
+  {
+   "species": "charizard",
+   "level": 78,
+   "moveset": [
+    "flamethrower",
+    "airslash",
+    "dragonpulse",
+    "solarbeam"
    ]
   },
   {
    "species": "arcanine",
-   "level": 51,
+   "level": 80,
    "moveset": [
-    "flamethrower",
+    "flareblitz",
     "extremespeed",
     "crunch",
     "wildcharge"

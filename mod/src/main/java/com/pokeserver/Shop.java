@@ -15,7 +15,7 @@ import net.minecraft.world.item.Items;
 
 /** 4. 상점: 목록은 config/pokeserver/shop.json (서버가 열 때 클라이언트로 그대로 보냄). */
 public final class Shop {
-    public record Entry(String item, long buy, long sell) {}
+    public record Entry(String item, long buy, long sell, int badges) {}   // badges: 구매에 필요한 배지 수 (판매는 제한 없음)
     public record Category(String name, String icon, List<Entry> items) {}
     public record Data(List<Category> categories) {}
 
@@ -57,7 +57,14 @@ public final class Shop {
     }
 
     static void open(ServerPlayer p) {
-        net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(p, new Net.ShopOpen(json, Money.get(p)));
+        net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(p, new Net.ShopOpen(json, Money.get(p), badges(p)));
+    }
+
+    /** 모은 배지 수 (태그 poke.badge1~8). */
+    public static int badges(net.minecraft.world.entity.player.Player p) {
+        int n = 0;
+        for (int i = 1; i <= 8; i++) if (p.getTags().contains("poke.badge" + i)) n++;
+        return n;
     }
 
     /** 클라이언트 요청 검증 후 거래. 수량은 1~64. */
@@ -69,7 +76,7 @@ public final class Shop {
         ItemStack proto = stack(e.item());
         if (proto.isEmpty()) return;
         if (!sell) {
-            if (e.buy() <= 0) return;
+            if (e.buy() <= 0 || e.badges() > badges(p)) return;
             long total = e.buy() * qty;
             if (!Money.take(p, total)) {
                 msg(p, "잔액이 부족합니다.", ChatFormatting.RED);

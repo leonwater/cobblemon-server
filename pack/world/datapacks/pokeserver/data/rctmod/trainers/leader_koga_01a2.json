@@ -18,43 +18,53 @@
  ],
  "team": [
   {
-   "species": "koffing",
-   "level": 36,
-   "moveset": [
-    "sludge",
-    "smokescreen",
-    "willowisp",
-    "selfdestruct"
-   ]
-  },
-  {
-   "species": "golbat",
-   "level": 36,
-   "moveset": [
-    "wingattack",
-    "poisonfang",
-    "confuseray",
-    "bite"
-   ]
-  },
-  {
    "species": "muk",
-   "level": 37,
+   "level": 57,
    "moveset": [
-    "sludge",
+    "gunkshot",
+    "poisonjab",
     "minimize",
-    "acidarmor",
-    "bodyslam"
+    "toxic"
+   ]
+  },
+  {
+   "species": "venomoth",
+   "level": 57,
+   "moveset": [
+    "bugbuzz",
+    "sludgebomb",
+    "sleeppowder",
+    "psychic"
+   ]
+  },
+  {
+   "species": "tentacruel",
+   "level": 58,
+   "moveset": [
+    "sludgebomb",
+    "surf",
+    "toxicspikes",
+    "hex"
    ]
   },
   {
    "species": "weezing",
-   "level": 39,
+   "level": 58,
    "moveset": [
     "sludgebomb",
     "toxic",
     "willowisp",
-    "selfdestruct"
+    "explosion"
+   ]
+  },
+  {
+   "species": "crobat",
+   "level": 60,
+   "moveset": [
+    "crosspoison",
+    "airslash",
+    "confuseray",
+    "uturn"
    ]
   }
  ]

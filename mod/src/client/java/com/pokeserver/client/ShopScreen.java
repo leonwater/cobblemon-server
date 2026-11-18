@@ -29,9 +29,12 @@ public class ShopScreen extends Screen {
     private int pressedKey = -1, hoverKey = -1;
     private long pressedAt, hoverSince, lastTooltip;
 
-    public ShopScreen(String json, long balance) {
+    private final int badges;
+
+    public ShopScreen(String json, long balance, int badges) {
         super(Component.literal("상점"));
         this.data = Shop.parse(json);
+        this.badges = badges;
         ShopScreen.balance = balance;
     }
 
@@ -54,13 +57,14 @@ public class ShopScreen extends Screen {
             for (int i = 0; i < items.size(); i++) {
                 var e = items.get(i);
                 if ((sell ? e.sell() : e.buy()) <= 0 || Shop.stack(e.item()).isEmpty()) continue;  // 없는 아이템 ID는 숨김
+                if (!sell && e.badges() > badges) continue;   // 배지를 더 모으면 풀리는 상품
                 if (!q.isEmpty() && !Shop.stack(e.item()).getHoverName().getString().contains(q)) continue;
                 shown.add(new int[]{c, i});
             }
         }
     }
 
-    private int cols() { return Math.max(1, (width - SIDE - 32 + GAP) / (CARD_W + GAP)); }
+    private int cols() { return Math.max(1, Math.min(5, (width - SIDE - 32 + GAP) / (CARD_W + GAP))); }   // 가로 최대 5개
     private int cardX(int k) { return SIDE + 16 + (k % cols()) * (CARD_W + GAP); }
     private int cardY(int k) { return TOP + 14 + (k / cols()) * (CARD_H + GAP) - (int) scroll; }
 
@@ -89,7 +93,8 @@ public class ShopScreen extends Screen {
         }
         g.disableScissor();
         if (shown.isEmpty()) g.drawCenteredString(font, sell ? "판매할 수 있는 상품이 없습니다" : "상품이 없습니다", (SIDE + width) / 2, height / 2, Theme.SUBTEXT);
-        g.drawCenteredString(font, "클릭: 1개  ·  Shift+클릭: 16개  ·  ESC: 닫기", (SIDE + width) / 2, height - 13, Theme.SUBTEXT);
+        g.drawCenteredString(font, (sell ? "" : "배지 " + badges + "개 · 배지를 모으면 상품이 늘어나요  ·  ") + "클릭: 1개  ·  Shift+클릭: 16개  ·  ESC: 닫기",
+                (SIDE + width) / 2, height - 13, Theme.SUBTEXT);
         tooltip(g, hovered, mx, my);
     }
 

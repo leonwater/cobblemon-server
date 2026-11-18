@@ -19,17 +19,17 @@
  "team": [
   {
    "species": "dugtrio",
-   "level": 54,
+   "level": 87,
    "moveset": [
     "earthquake",
-    "slash",
+    "stoneedge",
     "suckerpunch",
-    "sandtomb"
+    "slash"
    ]
   },
   {
    "species": "nidoqueen",
-   "level": 54,
+   "level": 87,
    "moveset": [
     "earthpower",
     "sludgewave",
@@ -39,7 +39,7 @@
   },
   {
    "species": "nidoking",
-   "level": 55,
+   "level": 88,
    "moveset": [
     "earthpower",
     "sludgewave",
@@ -48,28 +48,28 @@
    ]
   },
   {
-   "species": "rhydon",
-   "level": 55,
+   "species": "golem",
+   "level": 88,
    "moveset": [
     "earthquake",
-    "rockslide",
-    "megahorn",
-    "hammerarm"
+    "stoneedge",
+    "explosion",
+    "heavyslam"
    ]
   },
   {
    "species": "marowak",
-   "level": 56,
+   "level": 88,
    "moveset": [
     "bonemerang",
     "swordsdance",
-    "rockslide",
+    "stoneedge",
     "firepunch"
    ]
   },
   {
    "species": "rhyperior",
-   "level": 57,
+   "level": 90,
    "moveset": [
     "earthquake",
     "stoneedge",

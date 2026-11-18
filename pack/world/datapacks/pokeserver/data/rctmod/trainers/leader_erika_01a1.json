@@ -19,41 +19,51 @@
  "team": [
   {
    "species": "tangela",
-   "level": 30,
+   "level": 47,
    "moveset": [
-    "megadrain",
-    "vinewhip",
+    "gigadrain",
+    "ancientpower",
     "sleeppowder",
-    "constrict"
+    "slam"
    ]
   },
   {
-   "species": "weepinbell",
-   "level": 31,
+   "species": "victreebel",
+   "level": 48,
    "moveset": [
-    "razorleaf",
-    "poisonpowder",
-    "wrap",
-    "acid"
+    "leafblade",
+    "sludgebomb",
+    "sleeppowder",
+    "wrap"
    ]
   },
   {
-   "species": "gloom",
-   "level": 31,
+   "species": "exeggutor",
+   "level": 48,
    "moveset": [
-    "megadrain",
-    "acid",
-    "sleeppowder",
-    "moonlight"
+    "seedbomb",
+    "psychic",
+    "hypnosis",
+    "eggbomb"
+   ]
+  },
+  {
+   "species": "bellossom",
+   "level": 48,
+   "moveset": [
+    "petalblizzard",
+    "moonblast",
+    "quiverdance",
+    "gigadrain"
    ]
   },
   {
    "species": "vileplume",
-   "level": 33,
+   "level": 50,
    "moveset": [
-    "gigadrain",
+    "petaldance",
     "sludgebomb",
-    "stunspore",
+    "sleeppowder",
     "moonblast"
    ]
   }

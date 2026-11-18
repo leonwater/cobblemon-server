@@ -15,7 +15,8 @@ f=$R/pack/mods/fabric-api.pw.toml; name=$(grep '^filename' $f | cut -d'"' -f2)
 [ -f "$W/mods/$name" ] || curl -sfL -o "$W/mods/$name" "$(grep '^url' $f | cut -d'"' -f2)"
 cp $R/mod/build/libs/pokeserver-*.jar $W/mods/
 cp $R/pack/config/pokeserver/*.json $W/config/pokeserver/
-rm -rf $W/world && mkdir -p $W/world/datapacks && cp -r $R/pack/world/datapacks/pokeserver $W/world/datapacks/
+rm -rf $W/world $W/world-backup-* && mkdir -p $W/world/datapacks $W/world/region && cp -r $R/pack/world/datapacks/pokeserver $W/world/datapacks/
+echo old > $W/world/level.dat; echo old > $W/world/region/r.0.0.mca   # 8. 예전 월드 흉내: 시작할 때 백업 폴더로 옮겨져야 함
 for f in $W/world/datapacks/pokeserver/data/poke/function/mod/*.mcfunction; do echo 'return 0' > $f; done
 echo eula=true > $W/eula.txt
 printf 'online-mode=false\nenable-rcon=true\nrcon.password=test\nrcon.port=25577\nserver-port=25567\nlevel-type=minecraft\\:flat\nspawn-protection=0\n' > $W/server.properties
@@ -23,5 +24,8 @@ printf 'online-mode=false\nenable-rcon=true\nrcon.password=test\nrcon.port=25577
 (cd $W && java -Xmx2G -jar fabric-server-launch.jar nogui > run.log 2>&1 &)
 timeout 180 bash -c "until grep -qE 'Done \(|Exception in thread' $W/run.log; do sleep 1; done" || { echo 'FAIL server did not start'; exit 1; }
 grep -q 'Exception in thread' $W/run.log && { echo 'FAIL server crashed'; grep -A3 'Exception in thread' $W/run.log | head; exit 1; }
+b=$(ls -d $W/world-backup-season0-* 2>/dev/null | head -1)
+[ -n "$b" ] && [ "$(cat $b/region/r.0.0.mca)" = old ] && [ -f $b/level.dat ] && [ -d $W/world/datapacks/pokeserver ] && [ "$(cat $W/world/pokeserver-season.txt)" = 2 ] \
+  && echo '> 8. 초기화: 예전 월드는 백업 폴더로, 데이터팩은 남음' || { echo 'FAIL 8. 월드 초기화'; ls $W $W/world; exit 1; }
 trap 'node -e "require(\"rcon-client\").Rcon.connect({host:\"localhost\",port:25577,password:\"test\"}).then(async r=>{await r.send(\"stop\");r.end()})"' EXIT
 node mod-test.js 2>&1 | grep -E '^>|FAIL|ALL PASS'

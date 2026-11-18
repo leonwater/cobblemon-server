@@ -18,43 +18,53 @@
  ],
  "team": [
   {
-   "species": "voltorb",
-   "level": 24,
+   "species": "electrode",
+   "level": 37,
    "moveset": [
     "spark",
-    "sonicboom",
     "screech",
+    "swift",
     "selfdestruct"
    ]
   },
   {
-   "species": "magnemite",
-   "level": 25,
+   "species": "magneton",
+   "level": 38,
    "moveset": [
-    "thundershock",
-    "sonicboom",
-    "supersonic",
-    "flashcannon"
+    "spark",
+    "thunderwave",
+    "flashcannon",
+    "triattack"
+   ]
+  },
+  {
+   "species": "electabuzz",
+   "level": 38,
+   "moveset": [
+    "thunderpunch",
+    "quickattack",
+    "lowkick",
+    "lightscreen"
    ]
   },
   {
    "species": "pikachu",
-   "level": 25,
+   "level": 38,
    "moveset": [
-    "spark",
+    "thunderbolt",
     "quickattack",
-    "doubleteam",
-    "irontail"
+    "irontail",
+    "doubleteam"
    ]
   },
   {
    "species": "raichu",
-   "level": 27,
+   "level": 40,
    "moveset": [
-    "spark",
+    "thunderbolt",
     "quickattack",
-    "thunderwave",
-    "irontail"
+    "irontail",
+    "thunderwave"
    ]
   }
  ]

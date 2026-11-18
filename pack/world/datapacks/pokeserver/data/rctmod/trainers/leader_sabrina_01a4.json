@@ -18,43 +18,53 @@
  ],
  "team": [
   {
-   "species": "kadabra",
-   "level": 42,
-   "moveset": [
-    "psybeam",
-    "recover",
-    "reflect",
-    "shadowball"
-   ]
-  },
-  {
    "species": "mrmime",
-   "level": 42,
+   "level": 67,
    "moveset": [
-    "psybeam",
-    "barrier",
-    "lightscreen",
-    "dazzlinggleam"
+    "psychic",
+    "dazzlinggleam",
+    "reflect",
+    "lightscreen"
    ]
   },
   {
-   "species": "venomoth",
-   "level": 43,
+   "species": "hypno",
+   "level": 67,
    "moveset": [
-    "psybeam",
-    "sleeppowder",
-    "bugbuzz",
-    "sludgebomb"
+    "psychic",
+    "hypnosis",
+    "dreameater",
+    "nastyplot"
+   ]
+  },
+  {
+   "species": "slowking",
+   "level": 68,
+   "moveset": [
+    "psychic",
+    "surf",
+    "icebeam",
+    "slackoff"
+   ]
+  },
+  {
+   "species": "jynx",
+   "level": 68,
+   "moveset": [
+    "psychic",
+    "icebeam",
+    "lovelykiss",
+    "nastyplot"
    ]
   },
   {
    "species": "alakazam",
-   "level": 45,
+   "level": 70,
    "moveset": [
     "psychic",
-    "recover",
     "shadowball",
-    "energyball"
+    "focusblast",
+    "calmmind"
    ]
   }
  ]
