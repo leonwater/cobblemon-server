@@ -1,0 +1,15 @@
+{
+  "names": [
+    "연구원 시우"
+  ],
+  "hitbox": "player",
+  "canDespawn": false,
+  "isInvulnerable": true,
+  "isMovable": false,
+  "isLeashable": false,
+  "allowProjectileHits": false,
+  "interaction": {
+    "type": "dialogue",
+    "dialogue": "poke:tip_ev"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "poke:tip_mint",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "layers": [],
+      "model": "cobblemon:steve.geo",
+      "poser": "cobblemon:standard",
+      "texture": "rctmod:textures/trainers/single/pokemon_breeder_jennifer_0311.png"
+    }
+  ]
+}

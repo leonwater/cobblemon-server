@@ -27,6 +27,12 @@ public class ShopScreen extends Screen {
     private final List<int[]> shown = new ArrayList<>();   // {카테고리, 항목}
     private final Theme.Anim anim = new Theme.Anim();
     private int pressedKey = -1, hoverKey = -1;
+    // 2. 수량 선택 창: 카드를 누르면 열리고, 확인을 눌러야 거래
+    private int[] modal;
+    private boolean modalSell;
+    private int qty = 1;
+    static final int MW = 230, MH = 152;
+    static final int[] PRESETS = {1, 8, 16, 32, 64};
     private long pressedAt, hoverSince, lastTooltip;
 
     private final int badges;
@@ -94,9 +100,109 @@ public class ShopScreen extends Screen {
         }
         g.disableScissor();
         if (shown.isEmpty()) g.drawCenteredString(font, Theme.t(sell ? "판매할 수 있는 상품이 없습니다" : "상품이 없습니다"), (SIDE + width) / 2, height / 2, Theme.SUBTEXT);
-        g.drawCenteredString(font, Theme.t((sell ? "" : "배지 " + badges + "개 · 배지를 모으면 상품이 늘어나요  ·  ") + "클릭: 1개  ·  Shift+클릭: 16개  ·  ESC: 닫기"),
+        g.drawCenteredString(font, Theme.t((sell ? "" : "배지 " + badges + "개 · 배지를 모으면 상품이 늘어나요  ·  ") + "클릭: 수량 고르기  ·  ESC: 닫기"),
                 (SIDE + width) / 2, height - 13, Theme.SUBTEXT);
-        tooltip(g, hovered, mx, my);
+        if (modal == null) tooltip(g, hovered, mx, my);
+        else modal(g, mx, my);
+    }
+
+    private Shop.Entry modalEntry() { return data.categories().get(modal[0]).items().get(modal[1]); }
+    private long unit() { return modalSell ? modalEntry().sell() : modalEntry().buy(); }
+
+    /** 고를 수 있는 최대 수량: 구매는 잔액·64개, 판매는 보유 수량·64개. 땅 문서는 살 때마다 값이 올라 1장씩. */
+    private int maxQty() {
+        if (modalSell) return Math.min(64, minecraft == null || minecraft.player == null ? 0 : Shop.count(minecraft.player, modalEntry().item()));
+        if ("pokeserver:farm_deed".equals(modalEntry().item())) return balance >= unit() ? 1 : 0;
+        return (int) Math.min(64, balance / Math.max(1, unit()));
+    }
+
+    private int mx0() { return (width - MW) / 2; }
+    private int my0() { return (height - MH) / 2; }
+
+    private void modal(GuiGraphics g, int mx, int my) {
+        g.pose().pushPose();
+        g.pose().translate(0, 0, 400);
+        g.fill(0, 0, width, height, 0xA0000000);
+        int x = mx0(), y = my0(), max = maxQty();
+        qty = Math.max(max == 0 ? 0 : 1, Math.min(qty, max));
+        Theme.panel(g, x, y, x + MW, y + MH, 0xF8181B22, Theme.ACCENT);
+        ItemStack st = Shop.stack(modalEntry().item());
+        g.pose().pushPose();
+        g.pose().translate(x + 12, y + 10, 0);
+        g.pose().scale(1.5f, 1.5f, 1);
+        g.renderItem(st, 0, 0);
+        g.pose().popPose();
+        String verb = modalSell ? "판매" : "구매";
+        int chipW = font.width(Theme.t(verb)) + 10;
+        g.fill(x + MW - 12 - chipW, y + 12, x + MW - 12, y + 24, modalSell ? GREEN : Theme.SELECT);
+        g.drawString(font, Theme.t(verb), x + MW - 7 - chipW, y + 14, Theme.TEXT, false);
+        g.drawString(font, Theme.t(Theme.fit(font, st.getHoverName().getString(), MW - 50 - chipW - 16)), x + 42, y + 12, Theme.TEXT, false);
+        g.drawString(font, Theme.t("개당 " + String.format("%,d원", unit())), x + 42, y + 24, Theme.SUBTEXT, false);
+        // 수량: [-] 숫자 [+]
+        int ry = y + 44;
+        button(g, mx, my, x + 12, ry, 24, 20, "-", qty > 1, false);
+        Theme.panel(g, x + 40, ry, x + 100, ry + 20, 0xE0101319);
+        String q = String.valueOf(qty);
+        g.drawString(font, Theme.t(q), x + 70 - font.width(Theme.t(q)) / 2, ry + 6, Theme.TEXT, false);
+        button(g, mx, my, x + 104, ry, 24, 20, "+", qty < max, false);
+        String maxText = "최대 " + max + "개";
+        g.drawString(font, Theme.t(maxText), x + MW - 12 - font.width(Theme.t(maxText)), ry + 6, Theme.SUBTEXT, false);
+        // 빠른 선택
+        for (int i = 0; i < PRESETS.length; i++) {
+            button(g, mx, my, x + 12 + i * 42, y + 72, 36, 18, String.valueOf(PRESETS[i]), PRESETS[i] <= max, PRESETS[i] == qty);
+        }
+        // 합계 + 이유
+        int ty = y + 100;
+        g.drawString(font, Theme.t("합계"), x + 12, ty, Theme.SUBTEXT, false);
+        if (max == 0) {
+            String why = modalSell ? "보유 아이템 없음" : "잔액 부족";
+            g.drawString(font, Theme.t(why), x + MW - 12 - font.width(Theme.t(why)), ty, 0xFFFF6B6B, false);
+        } else {
+            String total = String.format("%,d원", unit() * qty);
+            g.drawString(font, Theme.t(total), x + MW - 12 - font.width(Theme.t(total)), ty, Theme.GOLD, false);
+        }
+        button(g, mx, my, x + 12, y + MH - 30, 98, 20, "취소", true, false);
+        button(g, mx, my, x + MW - 110, y + MH - 30, 98, 20, verb + "하기", max > 0, true);
+        g.pose().popPose();
+    }
+
+    private void button(GuiGraphics g, int mx, int my, int x, int y, int w, int h, String label, boolean enabled, boolean primary) {
+        boolean hov = enabled && mx >= x && mx < x + w && my >= y && my < y + h;
+        int fill = !enabled ? 0x80222630 : primary ? (hov ? 0xFF3E66A8 : Theme.SELECT) : (hov ? Theme.TILE_HOVER : Theme.TILE);
+        Theme.panel(g, x, y, x + w, y + h, fill, enabled ? (primary || hov ? Theme.ACCENT : Theme.BORDER) : 0x604A5366);
+        String l = Theme.fit(font, label, w - 6);
+        g.drawString(font, Theme.t(l), x + w / 2 - font.width(Theme.t(l)) / 2, y + (h - 8) / 2, enabled ? Theme.TEXT : 0xFF6B7280, false);
+    }
+
+    private static boolean in(double mx, double my, int x, int y, int w, int h) { return mx >= x && mx < x + w && my >= y && my < y + h; }
+
+    private void confirm() {
+        if (modal == null || qty < 1 || qty > maxQty()) return;
+        pressedAt = System.currentTimeMillis();
+        ClientPlayNetworking.send(new Net.ShopTrade(modalSell, modal[0], modal[1], qty));
+        modal = null;
+    }
+
+    private boolean modalClick(double mx, double my) {
+        int x = mx0(), y = my0(), max = maxQty();
+        if (!in(mx, my, x, y, MW, MH) || in(mx, my, x + 12, y + MH - 30, 98, 20)) { modal = null; return true; }   // 바깥·취소
+        if (in(mx, my, x + MW - 110, y + MH - 30, 98, 20)) { confirm(); return true; }
+        if (in(mx, my, x + 12, y + 44, 24, 20)) qty = Math.max(1, qty - (hasShiftDown() ? 10 : 1));
+        if (in(mx, my, x + 104, y + 44, 24, 20)) qty = Math.min(max, qty + (hasShiftDown() ? 10 : 1));
+        for (int i = 0; i < PRESETS.length; i++) if (in(mx, my, x + 12 + i * 42, y + 72, 36, 18) && PRESETS[i] <= max) qty = PRESETS[i];
+        return true;
+    }
+
+    @Override
+    public boolean keyPressed(int key, int scan, int mods) {
+        if (modal != null) {
+            if (key == org.lwjgl.glfw.GLFW.GLFW_KEY_ESCAPE) { modal = null; return true; }           // 창만 닫고 상점은 그대로
+            if (key == org.lwjgl.glfw.GLFW.GLFW_KEY_ENTER || key == org.lwjgl.glfw.GLFW.GLFW_KEY_KP_ENTER) { confirm(); return true; }
+            if (key == org.lwjgl.glfw.GLFW.GLFW_KEY_UP || key == org.lwjgl.glfw.GLFW.GLFW_KEY_RIGHT) qty = Math.min(maxQty(), qty + 1);
+            if (key == org.lwjgl.glfw.GLFW.GLFW_KEY_DOWN || key == org.lwjgl.glfw.GLFW.GLFW_KEY_LEFT) qty = Math.max(1, qty - 1);
+            return true;
+        }
+        return super.keyPressed(key, scan, mods);
     }
 
     private void sidebar(GuiGraphics g, int mx, int my) {
@@ -178,6 +284,7 @@ public class ShopScreen extends Screen {
 
     @Override
     public boolean mouseClicked(double mx, double my, int button) {
+        if (modal != null) return modalClick(mx, my);
         if (super.mouseClicked(mx, my, button)) return true;
         int tx = SIDE + 16;
         if (my >= 14 && my < 30 && mx >= tx && mx < tx + 124) {
@@ -197,7 +304,9 @@ public class ShopScreen extends Screen {
                 int[] r = shown.get(k);
                 pressedKey = k;
                 pressedAt = System.currentTimeMillis();
-                ClientPlayNetworking.send(new Net.ShopTrade(sell, r[0], r[1], hasShiftDown() ? 16 : 1));
+                modal = r;
+                modalSell = sell;
+                qty = 1;
                 return true;
             }
         }
@@ -206,6 +315,10 @@ public class ShopScreen extends Screen {
 
     @Override
     public boolean mouseScrolled(double mx, double my, double sx, double sy) {
+        if (modal != null) {                                       // 수량 창에서는 휠로 수량 조절
+            qty = (int) Math.max(1, Math.min(maxQty(), qty + Math.signum(sy) * (hasShiftDown() ? 10 : 1)));
+            return true;
+        }
         int rows = (shown.size() + cols() - 1) / cols();
         double max = Math.max(0, rows * (CARD_H + GAP) - (height - TOP - 34));
         scroll = Math.max(0, Math.min(max, scroll - sy * 24));

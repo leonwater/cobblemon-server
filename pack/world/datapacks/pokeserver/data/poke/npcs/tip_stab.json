@@ -1,0 +1,15 @@
+{
+  "names": [
+    "도감 마니아 민혁"
+  ],
+  "hitbox": "player",
+  "canDespawn": false,
+  "isInvulnerable": true,
+  "isMovable": false,
+  "isLeashable": false,
+  "allowProjectileHits": false,
+  "interaction": {
+    "type": "dialogue",
+    "dialogue": "poke:tip_stab"
+  }
+}

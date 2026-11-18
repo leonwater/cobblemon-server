@@ -1,0 +1,15 @@
+{
+  "names": [
+    "레이디 미연"
+  ],
+  "hitbox": "player",
+  "canDespawn": false,
+  "isInvulnerable": true,
+  "isMovable": false,
+  "isLeashable": false,
+  "allowProjectileHits": false,
+  "interaction": {
+    "type": "dialogue",
+    "dialogue": "poke:tip_nature"
+  }
+}

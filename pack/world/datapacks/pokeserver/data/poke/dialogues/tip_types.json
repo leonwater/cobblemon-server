@@ -1,0 +1,56 @@
+{
+  "speakers": {
+    "npc": {
+      "face": "q.npc.face();",
+      "name": {
+        "type": "expression",
+        "expression": "q.npc.name"
+      }
+    }
+  },
+  "pages": [
+    {
+      "id": "p0",
+      "speaker": "npc",
+      "lines": [
+        "기술과 포켓몬에는 타입이 있어요. 기본은 가위바위보!",
+        "물은 불에, 불은 풀에, 풀은 물에 강해요."
+      ],
+      "textColor": "FFFFFF"
+    },
+    {
+      "id": "p1",
+      "speaker": "npc",
+      "lines": [
+        "\"효과가 굉장했다\"는 2배, \"별로인 듯하다\"는 0.5배예요.",
+        "두 타입 모두에 강하면 4배까지 들어가요."
+      ],
+      "textColor": "FFFFFF"
+    },
+    {
+      "id": "p2",
+      "speaker": "npc",
+      "lines": [
+        "효과가 없는 조합도 있어요.",
+        "땅 타입은 전기 기술을, 고스트 타입은 노말·격투 기술을 받지 않아요."
+      ],
+      "textColor": "FFFFFF",
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "고마워요!",
+            "value": "bye",
+            "action": "q.dialogue.close();"
+          },
+          {
+            "text": "처음부터 다시",
+            "value": "again",
+            "action": "q.dialogue.set_page('p0');"
+          }
+        ]
+      }
+    }
+  ]
+}

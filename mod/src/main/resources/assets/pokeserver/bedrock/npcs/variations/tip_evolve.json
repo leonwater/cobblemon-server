@@ -1,0 +1,13 @@
+{
+  "name": "poke:tip_evolve",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "layers": [],
+      "model": "cobblemon:steve.geo",
+      "poser": "cobblemon:standard",
+      "texture": "rctmod:textures/trainers/single/gentleman_jeremy_032d.png"
+    }
+  ]
+}

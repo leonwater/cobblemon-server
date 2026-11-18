@@ -1,0 +1,56 @@
+{
+  "speakers": {
+    "npc": {
+      "face": "q.npc.face();",
+      "name": {
+        "type": "expression",
+        "expression": "q.npc.name"
+      }
+    }
+  },
+  "pages": [
+    {
+      "id": "p0",
+      "speaker": "npc",
+      "lines": [
+        "성격이 마음에 안 들면 \"성격민트\"를 먹여 보세요!",
+        "먹이면 능력치 변화가 그 민트의 성격처럼 바뀌어요."
+      ],
+      "textColor": "FFFFFF"
+    },
+    {
+      "id": "p1",
+      "speaker": "npc",
+      "lines": [
+        "민트는 민트 잎으로 만들고,",
+        "민트 잎은 민트 씨앗을 심어 키우면 얻을 수 있어요."
+      ],
+      "textColor": "FFFFFF"
+    },
+    {
+      "id": "p2",
+      "speaker": "npc",
+      "lines": [
+        "\"특성캡슐\"은 보통 특성 두 개 사이를 바꿔 주고,",
+        "\"특성패치\"는 숨겨진 특성으로 바꿔 줘요."
+      ],
+      "textColor": "FFFFFF",
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "고마워요!",
+            "value": "bye",
+            "action": "q.dialogue.close();"
+          },
+          {
+            "text": "처음부터 다시",
+            "value": "again",
+            "action": "q.dialogue.set_page('p0');"
+          }
+        ]
+      }
+    }
+  ]
+}

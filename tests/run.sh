@@ -12,6 +12,7 @@ rm -rf $W/world/datapacks/pokeserver && cp -r ../pack/world/datapacks/pokeserver
 for f in $W/world/datapacks/pokeserver/data/poke/function/mod/*.mcfunction; do echo 'return 0' > $f; done
 echo eula=true > $W/eula.txt
 printf 'online-mode=false\nenable-rcon=true\nrcon.password=test\nrcon.port=25576\nserver-port=25566\nlevel-type=minecraft\\:flat\n' > $W/server.properties
+python3 ../tools/check_holes.py > /dev/null || { echo "FAIL 건물에 빈칸이 있음 (python3 tools/check_holes.py)"; exit 1; }
 [ -d node_modules ] || npm i --silent
 (cd $W && java -Xmx2G -jar server.jar nogui > run.log 2>&1 &)
 timeout 120 bash -c "until grep -q 'Done (' $W/run.log; do sleep 1; done" || { echo 'FAIL server did not start in 120s'; tail -5 $W/run.log; exit 1; }

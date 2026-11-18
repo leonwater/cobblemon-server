@@ -1,0 +1,15 @@
+{
+  "names": [
+    "마담 레이나"
+  ],
+  "hitbox": "player",
+  "canDespawn": false,
+  "isInvulnerable": true,
+  "isMovable": false,
+  "isLeashable": false,
+  "allowProjectileHits": false,
+  "interaction": {
+    "type": "dialogue",
+    "dialogue": "poke:tip_items"
+  }
+}

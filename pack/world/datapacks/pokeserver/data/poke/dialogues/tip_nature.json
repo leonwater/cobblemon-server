@@ -1,0 +1,56 @@
+{
+  "speakers": {
+    "npc": {
+      "face": "q.npc.face();",
+      "name": {
+        "type": "expression",
+        "expression": "q.npc.name"
+      }
+    }
+  },
+  "pages": [
+    {
+      "id": "p0",
+      "speaker": "npc",
+      "lines": [
+        "포켓몬에게는 25가지 성격이 있어요.",
+        "대부분 한 능력이 10% 오르고 다른 능력이 10% 내려가요."
+      ],
+      "textColor": "FFFFFF"
+    },
+    {
+      "id": "p1",
+      "speaker": "npc",
+      "lines": [
+        "예를 들어 \"고집\"은 공격↑ 특수공격↓, \"겁쟁이\"는 스피드↑ 공격↓.",
+        "노력·온순처럼 아무 변화가 없는 성격도 있어요."
+      ],
+      "textColor": "FFFFFF"
+    },
+    {
+      "id": "p2",
+      "speaker": "npc",
+      "lines": [
+        "상태창(M 키)에서 성격과 능력치를 확인할 수 있어요.",
+        "성격에 맞춰 기술과 역할을 정해 주면 더 강해져요."
+      ],
+      "textColor": "FFFFFF",
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "고마워요!",
+            "value": "bye",
+            "action": "q.dialogue.close();"
+          },
+          {
+            "text": "처음부터 다시",
+            "value": "again",
+            "action": "q.dialogue.set_page('p0');"
+          }
+        ]
+      }
+    }
+  ]
+}
