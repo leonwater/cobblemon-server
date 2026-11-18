@@ -1,5 +1,3 @@
-# 어디서든  /trigger home  → 시작 마을 정중앙
+# 어디서든  /trigger home  → 회의장
 scoreboard players reset @s home
-function poke:warp/save_here
-function poke:gym/release
-function poke:util/tp with storage poke:config village
+function poke:warp/fixed {key:"hall"}

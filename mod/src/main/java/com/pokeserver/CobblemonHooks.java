@@ -11,13 +11,13 @@ final class CobblemonHooks {
     private CobblemonHooks() {}
 
     static void register() {
-        PokeServer.LOG.info("배틀 제한 등록: 야생·플레이어 배틀은 채집 맵에서만");
-        // 9. 야생·플레이어 배틀은 채집 맵에서만. NPC(체육관 관장 등) 배틀은 어디서나.
+        PokeServer.LOG.info("배틀 제한 등록: 야생·플레이어 배틀은 야생에서만");
+        // 9. 야생·플레이어 배틀은 야생에서만. NPC(체육관 관장 등) 배틀은 어디서나.
         CobblemonEvents.BATTLE_STARTED_PRE.subscribe(Priority.NORMAL, e -> {
             var b = e.getBattle();
             boolean outside = b.getPlayers().stream().anyMatch(p -> !p.level().dimension().location().toString().equals("poke:wild"));
             if (!b.isPvN() && outside) {
-                e.setReason(Component.literal("배틀은 채집 맵에서만 할 수 있어요.").withStyle(ChatFormatting.RED));
+                e.setReason(Component.literal("배틀은 야생에서만 할 수 있어요.").withStyle(ChatFormatting.RED));
                 e.cancel();
             }
             return Unit.INSTANCE;

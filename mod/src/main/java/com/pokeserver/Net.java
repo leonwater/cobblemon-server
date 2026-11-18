@@ -63,7 +63,7 @@ public final class Net {
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
 
-    /** 클라이언트 → 서버: 메인 메뉴 동작 (open, pc, trash, tutorial, warp:village|farm|wild). */
+    /** 클라이언트 → 서버: 메인 메뉴 동작 (open, pc, trash, tutorial, warp:hall|street|gym|farm|wild). */
     public record MenuAction(String action) implements CustomPacketPayload {
         public static final Type<MenuAction> TYPE = id("menu_action");
         public static final StreamCodec<RegistryFriendlyByteBuf, MenuAction> CODEC =

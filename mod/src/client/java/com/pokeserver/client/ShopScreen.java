@@ -14,16 +14,20 @@ import net.minecraft.world.item.Items;
 
 /** 4. 상점 화면: 왼쪽 분류, 위 구매/판매 탭·검색·잔액, 가운데 카드 격자. */
 public class ShopScreen extends Screen {
-    static final int SIDE = 120, CARD_W = 84, CARD_H = 96, GAP = 6, TOP = 44;
-    static final int RED = 0xFFC8323C, GREEN = 0xFF3C9650, GOLD = 0xFFF0C040;
+    static final int SIDE = 128, CARD_W = 84, CARD_H = 98, GAP = 8, TOP = 52;
+    static final int RED = 0xFFC8323C, GREEN = 0xFF3C9650;
 
     private final Shop.Data data;
     static long balance;
+    private long shownBalance = -1, balanceChangedAt;
     int category;
     boolean sell;
     private double scroll;
     private EditBox search;
     private final List<int[]> shown = new ArrayList<>();   // {카테고리, 항목}
+    private final Theme.Anim anim = new Theme.Anim();
+    private int pressedKey = -1, hoverKey = -1;
+    private long pressedAt, hoverSince, lastTooltip;
 
     public ShopScreen(String json, long balance) {
         super(Component.literal("상점"));
@@ -33,7 +37,7 @@ public class ShopScreen extends Screen {
 
     @Override
     protected void init() {
-        search = new EditBox(font, width - 16 - 130, 12, 130, 16, Component.literal("검색"));
+        search = new EditBox(font, width - 16 - 130, 14, 130, 16, Component.literal("검색"));
         search.setHint(Component.literal("아이템 이름 검색").withColor(Theme.SUBTEXT));
         search.setResponder(s -> refilter());
         addRenderableWidget(search);
@@ -57,86 +61,121 @@ public class ShopScreen extends Screen {
     }
 
     private int cols() { return Math.max(1, (width - SIDE - 32 + GAP) / (CARD_W + GAP)); }
+    private int cardX(int k) { return SIDE + 16 + (k % cols()) * (CARD_W + GAP); }
+    private int cardY(int k) { return TOP + 14 + (k / cols()) * (CARD_H + GAP) - (int) scroll; }
 
     @Override
     public void renderBackground(GuiGraphics g, int mx, int my, float pt) {
         super.renderBackground(g, mx, my, pt);
+        anim.frame();
+        if (shownBalance != balance) { if (shownBalance >= 0) balanceChangedAt = System.currentTimeMillis(); shownBalance = balance; }
         g.fill(0, 0, width, height, Theme.PANEL);
-        // 왼쪽 분류
-        g.fill(0, 0, SIDE, height, 0xC0080A0E);
-        g.fill(12, 12, 15, 28, Theme.ACCENT);
-        g.drawString(font, "상점", 20, 16, Theme.TEXT);
-        for (int c = 0; c < data.categories().size(); c++) {
-            int y = TOP + c * 26;
-            boolean sel = c == category, hov = mx < SIDE && my >= y && my < y + 22;
-            if (sel || hov) Theme.panel(g, 6, y, SIDE - 6, y + 22, sel ? Theme.TILE_HOVER : Theme.TILE);
-            if (sel) g.fill(6, y, 9, y + 22, Theme.ACCENT);
-            var cat = data.categories().get(c);
-            g.renderItem(Shop.stack(cat.icon()), 14, y + 3);
-            g.drawString(font, cat.name(), 36, y + 7, sel ? Theme.TEXT : Theme.SUBTEXT);
-        }
-        // 구매/판매 탭
-        int tx = SIDE + 16;
-        Theme.panel(g, tx, 12, tx + 120, 28, 0xE0181B22);
-        g.fill(sell ? tx + 60 : tx, 12, sell ? tx + 120 : tx + 60, 28, Theme.TILE_HOVER);
-        g.drawCenteredString(font, "구매", tx + 30, 16, sell ? Theme.SUBTEXT : Theme.TEXT);
-        g.drawCenteredString(font, "판매", tx + 90, 16, sell ? Theme.TEXT : Theme.SUBTEXT);
-        // 잔액
-        String bal = String.format("%,d", balance);
-        int bw = font.width(bal) + 34, bx = width - 16 - 130 - 10 - bw;
-        Theme.panel(g, bx, 12, bx + bw, 28, 0xE0181B22);
-        g.renderItem(new ItemStack(Items.GOLD_NUGGET), bx + 4, 12);
-        g.drawString(font, bal, bx + 26, 16, GOLD);
+        sidebar(g, mx, my);
+        topBar(g, mx, my);
+        // 분류 제목 (위계: 제목 흰색, 개수 회색)
+        String title = search.getValue().isBlank() ? data.categories().get(category).name() : "검색 결과";
+        g.drawString(font, title, SIDE + 16, TOP, Theme.TEXT);
+        g.drawString(font, shown.size() + "개", SIDE + 22 + font.width(title), TOP, Theme.SUBTEXT);
         // 카드
-        int x0 = SIDE + 16, y0 = TOP, cols = cols();
-        g.enableScissor(SIDE, y0, width, height - 18);
+        int hovered = -1;
+        g.enableScissor(SIDE, TOP + 10, width, height - 20);
         for (int k = 0; k < shown.size(); k++) {
-            int x = x0 + (k % cols) * (CARD_W + GAP), y = y0 + (k / cols) * (CARD_H + GAP) - (int) scroll;
-            if (y > height || y + CARD_H < y0) continue;
-            card(g, shown.get(k), x, y, mx >= x && mx < x + CARD_W && my >= y && my < y + CARD_H && my >= y0);
+            int x = cardX(k), y = cardY(k);
+            boolean hov = mx >= x && mx < x + CARD_W && my >= y && my < y + CARD_H && my >= TOP + 10 && my < height - 20;
+            if (hov) hovered = k;
+            float h = anim.to(k, hov);
+            if (y > height || y + CARD_H < TOP) continue;
+            card(g, shown.get(k), k, x, y, h);
         }
         g.disableScissor();
         if (shown.isEmpty()) g.drawCenteredString(font, sell ? "판매할 수 있는 상품이 없습니다" : "상품이 없습니다", (SIDE + width) / 2, height / 2, Theme.SUBTEXT);
         g.drawCenteredString(font, "클릭: 1개  ·  Shift+클릭: 16개  ·  ESC: 닫기", (SIDE + width) / 2, height - 13, Theme.SUBTEXT);
+        tooltip(g, hovered, mx, my);
     }
 
-    private void card(GuiGraphics g, int[] ref, int x, int y, boolean hover) {
+    private void sidebar(GuiGraphics g, int mx, int my) {
+        g.fill(0, 0, SIDE, height, 0xC0080A0E);
+        g.fill(14, 15, 17, 27, Theme.ACCENT);
+        g.drawString(font, "상점", 22, 17, Theme.TEXT);
+        for (int c = 0; c < data.categories().size(); c++) {
+            int y = TOP + c * 26;
+            boolean sel = c == category, hov = mx < SIDE && my >= y && my < y + 22;
+            float h = anim.to("cat" + c, hov || sel);
+            if (h > 0.01f) Theme.panel(g, 8, y, SIDE - 8, y + 22, Theme.mix(0x00222630, sel ? Theme.SELECT : Theme.TILE_HOVER, h),
+                    Theme.mix(0x004A5366, sel ? Theme.ACCENT : Theme.BORDER, h));
+            var cat = data.categories().get(c);
+            g.renderItem(Shop.stack(cat.icon()), 15, y + 3);
+            g.drawString(font, cat.name(), 37, y + 7, sel ? Theme.TEXT : Theme.mix(Theme.SUBTEXT, Theme.TEXT, h));
+        }
+    }
+
+    private void topBar(GuiGraphics g, int mx, int my) {
+        // 구매/판매 탭: 선택 표시가 미끄러지듯 이동
+        int tx = SIDE + 16;
+        Theme.panel(g, tx, 14, tx + 124, 30, 0xE0181B22);
+        float s = anim.to("tab", sell);
+        int ix = tx + 2 + Math.round(60 * s);
+        g.fill(ix, 16, ix + 60, 28, Theme.SELECT);
+        g.drawCenteredString(font, "구매", tx + 32, 18, Theme.mix(Theme.TEXT, Theme.SUBTEXT, s));
+        g.drawCenteredString(font, "판매", tx + 92, 18, Theme.mix(Theme.SUBTEXT, Theme.TEXT, s));
+        // 잔액: 거래하면 0.4초간 밝게 빛남
+        String bal = String.format("%,d", balance);
+        int bw = font.width(bal) + 34, bx = width - 16 - 130 - 10 - bw;
+        float flash = Math.max(0, 1 - (System.currentTimeMillis() - balanceChangedAt) / 400f);
+        Theme.panel(g, bx, 14, bx + bw, 30, 0xE0181B22, Theme.mix(Theme.BORDER, Theme.GOLD, flash));
+        g.renderItem(new ItemStack(Items.GOLD_NUGGET), bx + 4, 14);
+        g.drawString(font, bal, bx + 26, 18, Theme.mix(Theme.GOLD, Theme.TEXT, flash));
+    }
+
+    private void card(GuiGraphics g, int[] ref, int k, int x, int y, float h) {
         var e = data.categories().get(ref[0]).items().get(ref[1]);
         ItemStack st = Shop.stack(e.item());
         long price = sell ? e.sell() : e.buy();
-        Theme.panel(g, x, y, x + CARD_W, y + CARD_H, hover ? Theme.TILE_HOVER : Theme.TILE);
-        g.fill(x + 4, y + 4, x + CARD_W - 4, y + 44, 0x40FFFFFF);
+        var player = minecraft == null ? null : minecraft.player;
+        int have = player == null ? 0 : Shop.count(player, e.item());
+        boolean blocked = sell ? have == 0 : balance < price;
+        float sc = k == pressedKey ? Theme.press(pressedAt) : 1f;
         g.pose().pushPose();
-        g.pose().translate(x + CARD_W / 2f - 16, y + 8, 0);
+        g.pose().translate(x + CARD_W / 2f, y + CARD_H / 2f - h, 0);   // 마우스를 올리면 1픽셀 떠오름
+        g.pose().scale(sc, sc, 1);
+        g.pose().translate(-CARD_W / 2f, -CARD_H / 2f, 0);
+        Theme.panel(g, 0, 0, CARD_W, CARD_H, Theme.mix(Theme.TILE, Theme.TILE_HOVER, h), Theme.mix(Theme.BORDER, Theme.ACCENT, h));
+        g.fill(5, 5, CARD_W - 5, 44, Theme.mix(0x30FFFFFF, 0x48FFFFFF, h));
+        g.pose().pushPose();
+        g.pose().translate(CARD_W / 2f - 16, 8, 0);
         g.pose().scale(2, 2, 1);
         g.renderItem(st, 0, 0);
         g.pose().popPose();
-        g.drawString(font, "x1", x + CARD_W - 16, y + 34, Theme.SUBTEXT);
-        String name = font.plainSubstrByWidth(st.getHoverName().getString(), CARD_W - 6);
-        g.drawCenteredString(font, name, x + CARD_W / 2, y + 48, Theme.TEXT);
-        // 상태 띠: 판매 탭은 보유 수량, 구매 탭은 잔액 부족만 표시
-        var player = minecraft == null ? null : minecraft.player;
-        int have = player == null ? 0 : Shop.count(player, e.item());
-        String badge = sell ? (have == 0 ? "보유 아이템 없음" : "보유 " + have + "개") : (balance < price ? "잔액 부족" : null);
+        g.drawString(font, "x1", CARD_W - 16, 34, Theme.SUBTEXT);
+        g.drawCenteredString(font, font.plainSubstrByWidth(st.getHoverName().getString(), CARD_W - 8), CARD_W / 2, 49, Theme.TEXT);
+        // 상태 띠: 판매 탭은 보유 수량, 구매 탭은 잔액 부족만
+        String badge = sell ? (have == 0 ? "보유 아이템 없음" : "보유 " + have + "개") : (blocked ? "잔액 부족" : null);
         if (badge != null) {
-            g.fill(x + 3, y + 59, x + CARD_W - 3, y + 70, sell && have > 0 ? GREEN : RED);
-            float k = Math.min(1f, (CARD_W - 8f) / font.width(badge));   // 길면 줄여서 다 보이게
-            g.pose().pushPose();
-            g.pose().translate(x + CARD_W / 2f, y + 65 - 4 * k, 0);
-            g.pose().scale(k, k, 1);
-            g.drawCenteredString(font, badge, 0, 0, Theme.TEXT);
-            g.pose().popPose();
+            g.fill(4, 60, CARD_W - 4, 71, sell && have > 0 ? GREEN : RED);
+            g.drawCenteredString(font, badge, CARD_W / 2, 62, Theme.TEXT);
         }
-        g.drawCenteredString(font, sell ? "판매" : "구매", x + CARD_W / 2, y + 73, Theme.SUBTEXT);
-        g.drawCenteredString(font, String.format("%,d", price), x + CARD_W / 2, y + 84, GOLD);
+        g.drawCenteredString(font, sell ? "판매가" : "구매가", CARD_W / 2, 75, Theme.SUBTEXT);
+        g.drawCenteredString(font, String.format("%,d", price), CARD_W / 2, 86, blocked ? Theme.SUBTEXT : Theme.GOLD);
+        g.pose().popPose();
+    }
+
+    /** 아이템 설명: 처음엔 0.4초 머문 뒤, 바로 다음 카드부터는 즉시. */
+    private void tooltip(GuiGraphics g, int hovered, int mx, int my) {
+        long now = System.currentTimeMillis();
+        if (hovered != hoverKey) { hoverKey = hovered; hoverSince = now; }
+        if (hovered < 0) return;
+        if (now - hoverSince < 400 && now - lastTooltip > 300) return;
+        lastTooltip = now;
+        int[] r = shown.get(hovered);
+        g.renderTooltip(font, Shop.stack(data.categories().get(r[0]).items().get(r[1]).item()), mx, my);
     }
 
     @Override
     public boolean mouseClicked(double mx, double my, int button) {
         if (super.mouseClicked(mx, my, button)) return true;
         int tx = SIDE + 16;
-        if (my >= 12 && my < 28 && mx >= tx && mx < tx + 120) {
-            sell = mx >= tx + 60;
+        if (my >= 14 && my < 30 && mx >= tx && mx < tx + 124) {
+            sell = mx >= tx + 62;
             refilter();
             return true;
         }
@@ -145,11 +184,13 @@ public class ShopScreen extends Screen {
             if (my >= TOP && c < data.categories().size()) { category = c; search.setValue(""); refilter(); }
             return true;
         }
-        int cols = cols(), x0 = SIDE + 16;
+        if (my < TOP + 10 || my >= height - 20) return false;
         for (int k = 0; k < shown.size(); k++) {
-            int x = x0 + (k % cols) * (CARD_W + GAP), y = TOP + (k / cols) * (CARD_H + GAP) - (int) scroll;
-            if (mx >= x && mx < x + CARD_W && my >= y && my < y + CARD_H && my >= TOP) {
+            int x = cardX(k), y = cardY(k);
+            if (mx >= x && mx < x + CARD_W && my >= y && my < y + CARD_H) {
                 int[] r = shown.get(k);
+                pressedKey = k;
+                pressedAt = System.currentTimeMillis();
                 ClientPlayNetworking.send(new Net.ShopTrade(sell, r[0], r[1], hasShiftDown() ? 16 : 1));
                 return true;
             }
@@ -160,7 +201,7 @@ public class ShopScreen extends Screen {
     @Override
     public boolean mouseScrolled(double mx, double my, double sx, double sy) {
         int rows = (shown.size() + cols() - 1) / cols();
-        double max = Math.max(0, rows * (CARD_H + GAP) - (height - TOP - 24));
+        double max = Math.max(0, rows * (CARD_H + GAP) - (height - TOP - 34));
         scroll = Math.max(0, Math.min(max, scroll - sy * 24));
         return true;
     }

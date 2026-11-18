@@ -44,6 +44,12 @@ public class PokeServer implements ModInitializer {
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             if (server.getTickCount() % 100 == 0) Farms.refreshLabels(server);
         });
+        // 상인(태그 poke.merchant)을 우클릭하면 상점 (Cobblemon NPC 스크립트 대신 직접 처리)
+        net.fabricmc.fabric.api.event.player.UseEntityCallback.EVENT.register((player, level, hand, entity, hit) -> {
+            if (level.isClientSide() || hit != null || !entity.getTags().contains("poke.merchant")) return net.minecraft.world.InteractionResult.PASS;
+            Shop.open((ServerPlayer) player);
+            return net.minecraft.world.InteractionResult.SUCCESS;
+        });
         Protection.register();
         CommandRegistrationCallback.EVENT.register((dispatcher, registries, env) -> {
             dispatcher.register(admin());
@@ -98,6 +104,11 @@ public class PokeServer implements ModInitializer {
                 .then(Commands.literal("shop").then(Commands.argument("targets", EntityArgument.players()).executes(c -> {
                     var targets = EntityArgument.getPlayers(c, "targets");
                     targets.forEach(Shop::open);
+                    return targets.size();
+                })))
+                .then(Commands.literal("menu").then(Commands.argument("targets", EntityArgument.players()).executes(c -> {
+                    var targets = EntityArgument.getPlayers(c, "targets");
+                    targets.forEach(p -> Menu.action(p, "open"));
                     return targets.size();
                 })))
                 .then(Commands.literal("reload").executes(c -> {

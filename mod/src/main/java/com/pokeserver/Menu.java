@@ -33,13 +33,15 @@ final class Menu {
                     Component.literal("휴지통 (닫으면 사라짐)")));
             case "pc" -> run(p, "pc");
             case "tutorial" -> run(p, "function poke:admin/reset_me");
-            case "warp:village", "warp:farm", "warp:wild" -> {
+            case "warp:hall", "warp:street", "warp:gym", "warp:farm", "warp:wild" -> {
                 // 튜토리얼을 건너뛰지 못하게
                 if (!p.getTags().contains("poke.tutorial_done")) {
                     p.displayClientMessage(Component.literal("튜토리얼을 먼저 끝내 주세요.").withStyle(ChatFormatting.RED), true);
                     return;
                 }
-                run(p, a.equals("warp:village") ? "function poke:home" : "function poke:warp/go {key:\"" + a.substring(5) + "\"}");
+                String key = a.substring(5);
+                // 회의장·상점가·체육관은 항상 같은 자리, 농장·야생은 마지막 위치
+                run(p, (key.equals("farm") || key.equals("wild") ? "function poke:warp/go {key:\"" : "function poke:warp/fixed {key:\"") + key + "\"}");
             }
             default -> { }
         }
