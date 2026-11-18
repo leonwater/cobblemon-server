@@ -59,7 +59,7 @@ metafile = true
 
 [[files]]
 file = "mods/pokeserver-0.1.0.jar"
-hash = "f58e9dcd8e626ce20d092193d1eb7511886857e7da486f851470dd88cc92c40b"
+hash = "d89274ef35861a32ae780804ebc5b1d38e3447b741dbdcb6bfb22b61f4fdb19d"
 
 [[files]]
 file = "mods/rctapi.pw.toml"
@@ -121,7 +121,7 @@ hash = "eb2001f423dfbb9f9493f14119c45b961dc1d37af76a719ba477ddb955a14871"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/farm.mcfunction"
-hash = "4d8e892c9cd6575c135d6bea4cc63652aacdc74710df3b9a9cf06aa105a964c2"
+hash = "8f4c5f342245943c5e6cb7b8c68d860eea5fdf92ababdabfa0e9769feec5544a"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/farm_run.mcfunction"
@@ -133,7 +133,7 @@ hash = "9b4aac41b2ea63cf4c4e7227512823670b65ad3e04fd3f7ffa4ee94715827d10"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/run.mcfunction"
-hash = "c66171d4d09eb315764752729d35e36ebc271ee4f54a8aa5ba6d7b1a69578e75"
+hash = "7055857d7ea72a64a86c7008f96acfe0bcd521d2be2d22eebfb43a7355d4d8e5"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/start.mcfunction"
@@ -141,7 +141,7 @@ hash = "8f3fa71b666a2d6dd7713b9467e88f04fe1b5e21b9f1810ca8086b5971847145"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/town.mcfunction"
-hash = "95a1ac79c7cc30efdfaf212bfb7f539a84c9141ec4324e77cdbedf46289c5a41"
+hash = "2657a42bcb5a7e876c7b9955f4a3905e81763780ea1a2402f200d4f4a16e177a"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/tutorial.mcfunction"
@@ -313,11 +313,11 @@ hash = "8a89142698e4ab00a2bad452758882fec14fade1509af76256b229d68d8335a8"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/load.mcfunction"
-hash = "f17a7a972ac1052005842055979d2f306476841f8faeaaa4e38e57112ebcda37"
+hash = "58a346ede22572859e6d0ad5e79fa9bf440197ec227e358112f80dd666e30978"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/build_town.mcfunction"
-hash = "5fe4d7c185899bd5d23b6eb4f9f0863224d46d30c4c111611083d727322aadc1"
+hash = "03c7fb4236e82772c878881bb54c886437ebe8d6db87c450482127ca404a6234"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/kit.mcfunction"

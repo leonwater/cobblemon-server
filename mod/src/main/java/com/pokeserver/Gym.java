@@ -28,16 +28,16 @@ final class Gym {
         return n == 1 || t.contains("poke.badge" + (n - 1)) ? "open" : null;
     }
 
-    /** 다른 사람이 지금 그 체육관에서 싸우는 중인가. */
-    static boolean busy(ServerPlayer me, int n) {
+    /** 지금 그 체육관에서 싸우는 다른 사람의 이름 (없으면 ""). */
+    static String busyBy(ServerPlayer me, int n) {
         var sb = me.server.getScoreboard();
         var obj = sb.getObjective("poke.gym");
-        if (obj == null) return false;
+        if (obj == null) return "";
         for (ServerPlayer o : me.server.getPlayerList().getPlayers()) {
             var s = sb.getPlayerScoreInfo(o, obj);
-            if (o != me && s != null && s.value() == n) return true;
+            if (o != me && s != null && s.value() == n) return o.getGameProfile().getName();
         }
-        return false;
+        return "";
     }
 
     static void open(ServerPlayer p) {
@@ -47,7 +47,7 @@ final class Gym {
             String st = status(p, g.get("n").getAsInt());
             if (st == null) continue;
             g.addProperty("status", st);
-            g.addProperty("busy", busy(p, g.get("n").getAsInt()));
+            g.addProperty("busy", busyBy(p, g.get("n").getAsInt()));
             out.add(g);
         }
         ServerPlayNetworking.send(p, new Net.GymOpen(out.toString()));

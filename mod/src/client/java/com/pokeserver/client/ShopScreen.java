@@ -20,8 +20,8 @@ public class ShopScreen extends Screen {
     private final Shop.Data data;
     static long balance;
     private long shownBalance = -1, balanceChangedAt;
-    int category;
-    boolean sell;
+    static int category;      // 다시 열려도(땅 문서 가격 갱신 등) 보던 분류·탭 유지
+    static boolean sell;
     private double scroll;
     private EditBox search;
     private final List<int[]> shown = new ArrayList<>();   // {카테고리, 항목}
@@ -35,6 +35,7 @@ public class ShopScreen extends Screen {
         super(Component.literal("상점"));
         this.data = Shop.parse(json);
         this.badges = badges;
+        if (category >= data.categories().size()) category = 0;
         ShopScreen.balance = balance;
     }
 
@@ -78,8 +79,8 @@ public class ShopScreen extends Screen {
         topBar(g, mx, my);
         // 분류 제목 (위계: 제목 흰색, 개수 회색)
         String title = search.getValue().isBlank() ? data.categories().get(category).name() : "검색 결과";
-        g.drawString(font, title, SIDE + 16, TOP, Theme.TEXT);
-        g.drawString(font, shown.size() + "개", SIDE + 22 + font.width(title), TOP, Theme.SUBTEXT);
+        g.drawString(font, Theme.t(title), SIDE + 16, TOP, Theme.TEXT);
+        g.drawString(font, Theme.t(shown.size() + "개"), SIDE + 22 + font.width(Theme.t(title)), TOP, Theme.SUBTEXT);
         // 카드
         int hovered = -1;
         g.enableScissor(SIDE, TOP + 10, width, height - 20);
@@ -92,8 +93,8 @@ public class ShopScreen extends Screen {
             card(g, shown.get(k), k, x, y, h);
         }
         g.disableScissor();
-        if (shown.isEmpty()) g.drawCenteredString(font, sell ? "판매할 수 있는 상품이 없습니다" : "상품이 없습니다", (SIDE + width) / 2, height / 2, Theme.SUBTEXT);
-        g.drawCenteredString(font, (sell ? "" : "배지 " + badges + "개 · 배지를 모으면 상품이 늘어나요  ·  ") + "클릭: 1개  ·  Shift+클릭: 16개  ·  ESC: 닫기",
+        if (shown.isEmpty()) g.drawCenteredString(font, Theme.t(sell ? "판매할 수 있는 상품이 없습니다" : "상품이 없습니다"), (SIDE + width) / 2, height / 2, Theme.SUBTEXT);
+        g.drawCenteredString(font, Theme.t((sell ? "" : "배지 " + badges + "개 · 배지를 모으면 상품이 늘어나요  ·  ") + "클릭: 1개  ·  Shift+클릭: 16개  ·  ESC: 닫기"),
                 (SIDE + width) / 2, height - 13, Theme.SUBTEXT);
         tooltip(g, hovered, mx, my);
     }
@@ -101,7 +102,7 @@ public class ShopScreen extends Screen {
     private void sidebar(GuiGraphics g, int mx, int my) {
         g.fill(0, 0, SIDE, height, 0xC0080A0E);
         g.fill(14, 15, 17, 27, Theme.ACCENT);
-        g.drawString(font, "상점", 22, 17, Theme.TEXT);
+        g.drawString(font, Theme.t("상점"), 22, 17, Theme.TEXT);
         for (int c = 0; c < data.categories().size(); c++) {
             int y = TOP + c * 26;
             boolean sel = c == category, hov = mx < SIDE && my >= y && my < y + 22;
@@ -110,7 +111,7 @@ public class ShopScreen extends Screen {
                     Theme.mix(0x004A5366, sel ? Theme.ACCENT : Theme.BORDER, h));
             var cat = data.categories().get(c);
             g.renderItem(Shop.stack(cat.icon()), 15, y + 3);
-            g.drawString(font, cat.name(), 37, y + 7, sel ? Theme.TEXT : Theme.mix(Theme.SUBTEXT, Theme.TEXT, h));
+            g.drawString(font, Theme.t(cat.name()), 37, y + 7, sel ? Theme.TEXT : Theme.mix(Theme.SUBTEXT, Theme.TEXT, h));
         }
     }
 
@@ -121,15 +122,15 @@ public class ShopScreen extends Screen {
         float s = anim.to("tab", sell);
         int ix = tx + 2 + Math.round(60 * s);
         g.fill(ix, 16, ix + 60, 28, Theme.SELECT);
-        g.drawCenteredString(font, "구매", tx + 32, 18, Theme.mix(Theme.TEXT, Theme.SUBTEXT, s));
-        g.drawCenteredString(font, "판매", tx + 92, 18, Theme.mix(Theme.SUBTEXT, Theme.TEXT, s));
+        g.drawCenteredString(font, Theme.t("구매"), tx + 32, 18, Theme.mix(Theme.TEXT, Theme.SUBTEXT, s));
+        g.drawCenteredString(font, Theme.t("판매"), tx + 92, 18, Theme.mix(Theme.SUBTEXT, Theme.TEXT, s));
         // 잔액: 거래하면 0.4초간 밝게 빛남
         String bal = String.format("%,d", balance);
-        int bw = font.width(bal) + 34, bx = width - 16 - 130 - 10 - bw;
+        int bw = font.width(Theme.t(bal)) + 34, bx = width - 16 - 130 - 10 - bw;
         float flash = Math.max(0, 1 - (System.currentTimeMillis() - balanceChangedAt) / 400f);
         Theme.panel(g, bx, 14, bx + bw, 30, 0xE0181B22, Theme.mix(Theme.BORDER, Theme.GOLD, flash));
         g.renderItem(new ItemStack(Items.GOLD_NUGGET), bx + 4, 14);
-        g.drawString(font, bal, bx + 26, 18, Theme.mix(Theme.GOLD, Theme.TEXT, flash));
+        g.drawString(font, Theme.t(bal), bx + 26, 18, Theme.mix(Theme.GOLD, Theme.TEXT, flash));
     }
 
     private void card(GuiGraphics g, int[] ref, int k, int x, int y, float h) {
@@ -151,16 +152,16 @@ public class ShopScreen extends Screen {
         g.pose().scale(2, 2, 1);
         g.renderItem(st, 0, 0);
         g.pose().popPose();
-        g.drawString(font, "x1", CARD_W - 16, 34, Theme.SUBTEXT);
-        g.drawCenteredString(font, font.plainSubstrByWidth(st.getHoverName().getString(), CARD_W - 8), CARD_W / 2, 49, Theme.TEXT);
+        g.drawString(font, Theme.t("x1"), CARD_W - 16, 34, Theme.SUBTEXT);
+        g.drawCenteredString(font, Theme.t(Theme.fit(font, st.getHoverName().getString(), CARD_W - 8)), CARD_W / 2, 49, Theme.TEXT);
         // 상태 띠: 판매 탭은 보유 수량, 구매 탭은 잔액 부족만
         String badge = sell ? (have == 0 ? "보유 아이템 없음" : "보유 " + have + "개") : (blocked ? "잔액 부족" : null);
         if (badge != null) {
             g.fill(4, 60, CARD_W - 4, 71, sell && have > 0 ? GREEN : RED);
-            g.drawCenteredString(font, badge, CARD_W / 2, 62, Theme.TEXT);
+            g.drawCenteredString(font, Theme.t(badge), CARD_W / 2, 62, Theme.TEXT);
         }
-        g.drawCenteredString(font, sell ? "판매가" : "구매가", CARD_W / 2, 75, Theme.SUBTEXT);
-        g.drawCenteredString(font, String.format("%,d", price), CARD_W / 2, 86, blocked ? Theme.SUBTEXT : Theme.GOLD);
+        g.drawCenteredString(font, Theme.t(sell ? "판매가" : "구매가"), CARD_W / 2, 75, Theme.SUBTEXT);
+        g.drawCenteredString(font, Theme.t(String.format("%,d", price)), CARD_W / 2, 86, blocked ? Theme.SUBTEXT : Theme.GOLD);
         g.pose().popPose();
     }
 

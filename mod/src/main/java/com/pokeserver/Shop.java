@@ -57,8 +57,21 @@ public final class Shop {
     }
 
     static void open(ServerPlayer p) {
-        net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(p, new Net.ShopOpen(json, Money.get(p), badges(p)));
+        net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(p, new Net.ShopOpen(jsonFor(p), Money.get(p), badges(p)));
     }
+
+    /** 3. 땅 문서는 한 사람이 살수록 비싸짐: 기본 가격 × (산 개수 + 1). 다른 사람과는 따로 셈. */
+    static long deedPrice(ServerPlayer p, long base, int extra) {
+        return base * (ServerData.get(p.server).deedsBought.getOrDefault(p.getUUID(), 0) + extra + 1);
+    }
+
+    /** 이 플레이어가 보는 목록 (땅 문서 가격만 사람마다 다름). */
+    static String jsonFor(ServerPlayer p) {
+        return GSON.toJson(new Data(data.categories().stream().map(c -> new Category(c.name(), c.icon(), c.items().stream()
+                .map(e -> isDeedEntry(e) ? new Entry(e.item(), deedPrice(p, e.buy(), 0), e.sell(), e.badges()) : e).toList())).toList()));
+    }
+
+    static boolean isDeedEntry(Entry e) { return "pokeserver:farm_deed".equals(e.item()) && e.buy() > 0; }
 
     /** 모은 배지 수 (태그 poke.badge1~8). */
     public static int badges(net.minecraft.world.entity.player.Player p) {
@@ -77,7 +90,8 @@ public final class Shop {
         if (proto.isEmpty()) return;
         if (!sell) {
             if (e.buy() <= 0 || e.badges() > badges(p)) return;
-            long total = e.buy() * qty;
+            long total = 0;
+            for (int k = 0; k < qty; k++) total += isDeedEntry(e) ? deedPrice(p, e.buy(), k) : e.buy();
             if (!Money.take(p, total)) {
                 msg(p, "잔액이 부족합니다.", ChatFormatting.RED);
             } else {
@@ -85,6 +99,13 @@ public final class Shop {
                     p.getInventory().placeItemBackInInventory(proto.copyWithCount(Math.min(left, proto.getMaxStackSize())));
                 }
                 msg(p, proto.getHoverName().getString() + " " + qty + "개 구매 (-" + Money.fmt(total) + ")", ChatFormatting.GREEN);
+                if (isDeedEntry(e)) {
+                    ServerData d = ServerData.get(p.server);
+                    d.deedsBought.merge(p.getUUID(), qty, Integer::sum);
+                    d.setDirty();
+                    open(p);   // 다음 문서 가격을 바로 보여 줌
+                    return;
+                }
             }
         } else {
             if (e.sell() <= 0) return;

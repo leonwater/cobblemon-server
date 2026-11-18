@@ -1,0 +1,6 @@
+{
+  "providers": [
+    {"type": "ttf", "file": "pokeserver:galmuri9.ttf", "size": 12.0, "oversample": 4.0, "shift": [0.0, 1.0]},
+    {"type": "reference", "id": "minecraft:default"}
+  ]
+}

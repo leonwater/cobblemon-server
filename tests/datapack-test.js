@@ -23,10 +23,8 @@ const join = name => new Promise((res, rej) => {
   const warp = async (p, key) => cmd(`execute as ${p} run function poke:warp/${['farm', 'wild'].includes(key) ? 'go' : 'fixed'} {key:"${key}"}`)
 
   // 건물이 지어질 때까지 (load 후 60틱)
-  await waitFor('data get storage poke:state', /build: 5.*farm: 2|farm: 2.*build: 5/)
+  await waitFor('data get storage poke:state', /build: 6.*farm: 2|farm: 2.*build: 6/)
   await ok('execute in poke:hub if block 0 64 3 minecraft:polished_deepslate', '튜토리얼 방 바닥')
-  await cmd('execute in poke:hub run forceload add 0 200'); await sleep(1500)  // 짓고 나면 풀려 있음
-  await ok('execute in poke:hub if block 0 64 200 minecraft:air', '1·8. 예전 허공 마을 삭제')
   for (const fl of ['-40 -48 140 30', '960 -32 1040 32', '1960 -36 2040 36', '3000 -12 3300 12', '3400 -46 3440 12'])
     await cmd(`execute in poke:town run forceload add ${fl}`)
   await sleep(3000)

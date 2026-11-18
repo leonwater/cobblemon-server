@@ -1,6 +1,9 @@
 # 자동 생성: tools/build_world.py (직접 수정하지 말고 생성기를 고치세요)
 kill @e[type=minecraft:text_display,tag=poke.deco]
 kill @e[type=minecraft:item]
+fill -40 -59 -48 40 -59 30 minecraft:air replace minecraft:water
+fill 960 -59 -32 1040 -59 32 minecraft:air replace minecraft:water
+kill @e[type=minecraft:item_display,tag=poke.deco]
 # ── 회의장 섬 ──
 fill -40 -64 -48 40 -64 30 minecraft:bedrock
 fill -40 -63 -48 40 -61 30 minecraft:dirt
@@ -1083,7 +1086,7 @@ setblock 2 -45 -18 minecraft:black_concrete
 setblock 3 -48 -18 minecraft:black_concrete
 setblock 3 -47 -18 minecraft:black_concrete
 setblock 3 -46 -18 minecraft:black_concrete
-summon minecraft:text_display 0.5 -51.2 -17.7 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포켓몬 리그 회의장","color":"gold","bold":true,"extra":[{"text":"\\nPOKéMON LEAGUE HALL","color":"gray","bold":false}]}'}
+summon minecraft:text_display 0.5 -51.2 -17.7 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포켓몬 리그 회의장","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\nPOKéMON LEAGUE HALL","color":"gray","bold":false}]}'}
 fill -1 -59 -9 1 -59 -4 minecraft:red_carpet
 setblock -2 -59 0 minecraft:dark_oak_slab[type=top]
 setblock -2 -59 1 minecraft:dark_oak_slab[type=top]
@@ -1131,38 +1134,38 @@ fill -24 -60 -46 24 -60 -46 minecraft:stone_bricks
 fill -24 -60 -20 24 -60 -20 minecraft:stone_bricks
 fill -24 -60 -46 -24 -60 -20 minecraft:stone_bricks
 fill 24 -60 -46 24 -60 -20 minecraft:stone_bricks
-setblock -4 -59 -35 minecraft:quartz_slab
-setblock -4 -59 -34 minecraft:quartz_slab
-setblock -4 -59 -33 minecraft:quartz_slab
-setblock -4 -59 -32 minecraft:quartz_slab
-setblock -4 -59 -31 minecraft:quartz_slab
-setblock -3 -59 -36 minecraft:quartz_slab
-setblock -3 -59 -35 minecraft:quartz_slab
-setblock -3 -59 -31 minecraft:quartz_slab
-setblock -3 -59 -30 minecraft:quartz_slab
-setblock -2 -59 -37 minecraft:quartz_slab
-setblock -2 -59 -36 minecraft:quartz_slab
-setblock -2 -59 -30 minecraft:quartz_slab
-setblock -2 -59 -29 minecraft:quartz_slab
-setblock -1 -59 -37 minecraft:quartz_slab
-setblock -1 -59 -29 minecraft:quartz_slab
-setblock 0 -59 -37 minecraft:quartz_slab
-setblock 0 -59 -29 minecraft:quartz_slab
-setblock 1 -59 -37 minecraft:quartz_slab
-setblock 1 -59 -29 minecraft:quartz_slab
-setblock 2 -59 -37 minecraft:quartz_slab
-setblock 2 -59 -36 minecraft:quartz_slab
-setblock 2 -59 -30 minecraft:quartz_slab
-setblock 2 -59 -29 minecraft:quartz_slab
-setblock 3 -59 -36 minecraft:quartz_slab
-setblock 3 -59 -35 minecraft:quartz_slab
-setblock 3 -59 -31 minecraft:quartz_slab
-setblock 3 -59 -30 minecraft:quartz_slab
-setblock 4 -59 -35 minecraft:quartz_slab
-setblock 4 -59 -34 minecraft:quartz_slab
-setblock 4 -59 -33 minecraft:quartz_slab
-setblock 4 -59 -32 minecraft:quartz_slab
-setblock 4 -59 -31 minecraft:quartz_slab
+setblock -4 -59 -35 minecraft:smooth_quartz
+setblock -4 -59 -34 minecraft:smooth_quartz
+setblock -4 -59 -33 minecraft:smooth_quartz
+setblock -4 -59 -32 minecraft:smooth_quartz
+setblock -4 -59 -31 minecraft:smooth_quartz
+setblock -3 -59 -36 minecraft:smooth_quartz
+setblock -3 -59 -35 minecraft:smooth_quartz
+setblock -3 -59 -31 minecraft:smooth_quartz
+setblock -3 -59 -30 minecraft:smooth_quartz
+setblock -2 -59 -37 minecraft:smooth_quartz
+setblock -2 -59 -36 minecraft:smooth_quartz
+setblock -2 -59 -30 minecraft:smooth_quartz
+setblock -2 -59 -29 minecraft:smooth_quartz
+setblock -1 -59 -37 minecraft:smooth_quartz
+setblock -1 -59 -29 minecraft:smooth_quartz
+setblock 0 -59 -37 minecraft:smooth_quartz
+setblock 0 -59 -29 minecraft:smooth_quartz
+setblock 1 -59 -37 minecraft:smooth_quartz
+setblock 1 -59 -29 minecraft:smooth_quartz
+setblock 2 -59 -37 minecraft:smooth_quartz
+setblock 2 -59 -36 minecraft:smooth_quartz
+setblock 2 -59 -30 minecraft:smooth_quartz
+setblock 2 -59 -29 minecraft:smooth_quartz
+setblock 3 -59 -36 minecraft:smooth_quartz
+setblock 3 -59 -35 minecraft:smooth_quartz
+setblock 3 -59 -31 minecraft:smooth_quartz
+setblock 3 -59 -30 minecraft:smooth_quartz
+setblock 4 -59 -35 minecraft:smooth_quartz
+setblock 4 -59 -34 minecraft:smooth_quartz
+setblock 4 -59 -33 minecraft:smooth_quartz
+setblock 4 -59 -32 minecraft:smooth_quartz
+setblock 4 -59 -31 minecraft:smooth_quartz
 setblock -3 -59 -34 minecraft:water
 setblock -3 -59 -33 minecraft:water
 setblock -3 -59 -32 minecraft:water
@@ -1363,23 +1366,23 @@ fill 994 -59 26 994 -55 26 minecraft:stone_bricks
 fill 1006 -59 26 1006 -55 26 minecraft:stone_bricks
 fill 994 -54 26 1006 -54 26 minecraft:dark_oak_planks
 fill 994 -53 26 1006 -53 26 minecraft:dark_oak_slab
-summon minecraft:text_display 1000.5 -52 26.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[2.0f,2.0f,2.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"상점가","color":"gold","bold":true,"extra":[{"text":"\\n포켓몬센터 · 프렌들리 숍","color":"gray","bold":false}]}'}
-setblock 997 -59 11 minecraft:quartz_slab
-setblock 997 -59 12 minecraft:quartz_slab
-setblock 997 -59 13 minecraft:quartz_slab
-setblock 998 -59 10 minecraft:quartz_slab
-setblock 998 -59 14 minecraft:quartz_slab
-setblock 999 -59 9 minecraft:quartz_slab
-setblock 999 -59 15 minecraft:quartz_slab
-setblock 1000 -59 9 minecraft:quartz_slab
-setblock 1000 -59 15 minecraft:quartz_slab
-setblock 1001 -59 9 minecraft:quartz_slab
-setblock 1001 -59 15 minecraft:quartz_slab
-setblock 1002 -59 10 minecraft:quartz_slab
-setblock 1002 -59 14 minecraft:quartz_slab
-setblock 1003 -59 11 minecraft:quartz_slab
-setblock 1003 -59 12 minecraft:quartz_slab
-setblock 1003 -59 13 minecraft:quartz_slab
+summon minecraft:text_display 1000.5 -52 26.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[2.0f,2.0f,2.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"상점가","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n포켓몬센터 · 프렌들리 숍","color":"gray","bold":false}]}'}
+setblock 997 -59 11 minecraft:smooth_quartz
+setblock 997 -59 12 minecraft:smooth_quartz
+setblock 997 -59 13 minecraft:smooth_quartz
+setblock 998 -59 10 minecraft:smooth_quartz
+setblock 998 -59 14 minecraft:smooth_quartz
+setblock 999 -59 9 minecraft:smooth_quartz
+setblock 999 -59 15 minecraft:smooth_quartz
+setblock 1000 -59 9 minecraft:smooth_quartz
+setblock 1000 -59 15 minecraft:smooth_quartz
+setblock 1001 -59 9 minecraft:smooth_quartz
+setblock 1001 -59 15 minecraft:smooth_quartz
+setblock 1002 -59 10 minecraft:smooth_quartz
+setblock 1002 -59 14 minecraft:smooth_quartz
+setblock 1003 -59 11 minecraft:smooth_quartz
+setblock 1003 -59 12 minecraft:smooth_quartz
+setblock 1003 -59 13 minecraft:smooth_quartz
 setblock 998 -59 11 minecraft:water
 setblock 998 -59 12 minecraft:water
 setblock 998 -59 13 minecraft:water
@@ -1488,8 +1491,47 @@ fill 986 -55 -8 986 -55 8 minecraft:blue_concrete
 fill 987 -56 -3 987 -56 3 minecraft:blue_concrete
 fill 986 -54 -4 986 -51 4 minecraft:blue_concrete
 fill 986 -50 -4 986 -50 4 minecraft:light_blue_concrete
-summon minecraft:text_display 986.6 -53.1 0.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:0,transformation:{scale:[2.2f,2.2f,2.2f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"POKé MART","color":"white","bold":true,"extra":[""]}'}
-summon minecraft:text_display 987.6 -55.6 0.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"프렌들리 숍","color":"aqua","bold":true,"extra":[""]}'}
+summon minecraft:text_display 986.6 -53.1 0.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:0,transformation:{scale:[2.2f,2.2f,2.2f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"POKé MART","color":"white","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+fill 986 -49 -5 986 -41 5 minecraft:white_concrete
+fill 986 -40 -5 986 -40 5 minecraft:blue_concrete
+summon minecraft:text_display 987.6 -55.6 0.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"프렌들리 숍","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+setblock 987 -46 -3 minecraft:black_concrete
+setblock 987 -45 -3 minecraft:black_concrete
+setblock 987 -44 -3 minecraft:black_concrete
+setblock 987 -47 -2 minecraft:black_concrete
+setblock 987 -46 -2 minecraft:white_concrete
+setblock 987 -45 -2 minecraft:black_concrete
+setblock 987 -44 -2 minecraft:light_blue_concrete
+setblock 987 -43 -2 minecraft:black_concrete
+setblock 987 -48 -1 minecraft:black_concrete
+setblock 987 -47 -1 minecraft:white_concrete
+setblock 987 -46 -1 minecraft:black_concrete
+setblock 987 -45 -1 minecraft:black_concrete
+setblock 987 -44 -1 minecraft:black_concrete
+setblock 987 -43 -1 minecraft:light_blue_concrete
+setblock 987 -42 -1 minecraft:black_concrete
+setblock 987 -48 0 minecraft:black_concrete
+setblock 987 -47 0 minecraft:white_concrete
+setblock 987 -46 0 minecraft:black_concrete
+setblock 987 -45 0 minecraft:white_concrete
+setblock 987 -44 0 minecraft:black_concrete
+setblock 987 -43 0 minecraft:light_blue_concrete
+setblock 987 -42 0 minecraft:black_concrete
+setblock 987 -48 1 minecraft:black_concrete
+setblock 987 -47 1 minecraft:white_concrete
+setblock 987 -46 1 minecraft:black_concrete
+setblock 987 -45 1 minecraft:black_concrete
+setblock 987 -44 1 minecraft:black_concrete
+setblock 987 -43 1 minecraft:light_blue_concrete
+setblock 987 -42 1 minecraft:black_concrete
+setblock 987 -47 2 minecraft:black_concrete
+setblock 987 -46 2 minecraft:white_concrete
+setblock 987 -45 2 minecraft:black_concrete
+setblock 987 -44 2 minecraft:light_blue_concrete
+setblock 987 -43 2 minecraft:black_concrete
+setblock 987 -46 3 minecraft:black_concrete
+setblock 987 -45 3 minecraft:black_concrete
+setblock 987 -44 3 minecraft:black_concrete
 fill 970 -58 -5 970 -56 -4 minecraft:light_blue_stained_glass_pane
 fill 970 -58 -1 970 -56 0 minecraft:light_blue_stained_glass_pane
 fill 970 -58 3 970 -56 4 minecraft:light_blue_stained_glass_pane
@@ -1587,7 +1629,7 @@ setblock 1011 -47 2 minecraft:black_concrete
 setblock 1011 -50 3 minecraft:black_concrete
 setblock 1011 -49 3 minecraft:black_concrete
 setblock 1011 -48 3 minecraft:black_concrete
-summon minecraft:text_display 1010.4 -53.4 0.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포켓몬센터","color":"red","bold":true,"extra":[{"text":"\\nPOKéMON CENTER","color":"gray","bold":false}]}'}
+summon minecraft:text_display 1010.4 -53.4 0.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포켓몬센터","color":"red","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\nPOKéMON CENTER","color":"gray","bold":false}]}'}
 fill 1011 -52 -11 1029 -52 11 minecraft:white_concrete
 fill 1012 -52 -10 1028 -52 10 minecraft:red_concrete
 fill 1014 -51 -8 1027 -51 8 minecraft:red_concrete
@@ -2162,121 +2204,171 @@ fill 2009 -60 18 2009 -60 18 minecraft:light_gray_concrete
 fill 2011 -60 18 2011 -60 18 minecraft:light_gray_concrete
 fill 2013 -60 18 2013 -60 18 minecraft:light_gray_concrete
 fill 2015 -60 18 2015 -60 18 minecraft:light_gray_concrete
-fill 1985 -59 -14 2015 -59 -14 minecraft:polished_deepslate
-fill 1985 -59 18 2015 -59 18 minecraft:polished_deepslate
-fill 1985 -59 -14 1985 -59 18 minecraft:polished_deepslate
-fill 2015 -59 -14 2015 -59 18 minecraft:polished_deepslate
-fill 1985 -58 -14 2015 -52 -14 minecraft:light_gray_concrete
-fill 1985 -58 18 2015 -52 18 minecraft:light_gray_concrete
-fill 1985 -58 -14 1985 -52 18 minecraft:light_gray_concrete
-fill 2015 -58 -14 2015 -52 18 minecraft:light_gray_concrete
-fill 1985 -51 -14 2015 -51 -14 minecraft:red_concrete
-fill 1985 -51 18 2015 -51 18 minecraft:red_concrete
-fill 1985 -51 -14 1985 -51 18 minecraft:red_concrete
-fill 2015 -51 -14 2015 -51 18 minecraft:red_concrete
-fill 1985 -50 -14 2015 -50 -14 minecraft:white_concrete
-fill 1985 -50 18 2015 -50 18 minecraft:white_concrete
-fill 1985 -50 -14 1985 -50 18 minecraft:white_concrete
-fill 2015 -50 -14 2015 -50 18 minecraft:white_concrete
-fill 1985 -59 -14 1985 -50 -14 minecraft:quartz_pillar
-fill 1985 -59 18 1985 -50 18 minecraft:quartz_pillar
-fill 1990 -59 -14 1990 -50 -14 minecraft:quartz_pillar
-fill 1990 -59 18 1990 -50 18 minecraft:quartz_pillar
-fill 1995 -59 -14 1995 -50 -14 minecraft:quartz_pillar
-fill 1995 -59 18 1995 -50 18 minecraft:quartz_pillar
-fill 2000 -59 -14 2000 -50 -14 minecraft:quartz_pillar
-fill 2000 -59 18 2000 -50 18 minecraft:quartz_pillar
-fill 2005 -59 -14 2005 -50 -14 minecraft:quartz_pillar
-fill 2005 -59 18 2005 -50 18 minecraft:quartz_pillar
-fill 2010 -59 -14 2010 -50 -14 minecraft:quartz_pillar
-fill 2010 -59 18 2010 -50 18 minecraft:quartz_pillar
-fill 2015 -59 -14 2015 -50 -14 minecraft:quartz_pillar
-fill 2015 -59 18 2015 -50 18 minecraft:quartz_pillar
-fill 1985 -59 -14 1985 -50 -14 minecraft:quartz_pillar
-fill 2015 -59 -14 2015 -50 -14 minecraft:quartz_pillar
-fill 1985 -57 -12 1985 -54 -11 minecraft:light_blue_stained_glass_pane
-fill 2015 -57 -12 2015 -54 -11 minecraft:light_blue_stained_glass_pane
-fill 1985 -59 -9 1985 -50 -9 minecraft:quartz_pillar
-fill 2015 -59 -9 2015 -50 -9 minecraft:quartz_pillar
-fill 1985 -57 -7 1985 -54 -6 minecraft:light_blue_stained_glass_pane
-fill 2015 -57 -7 2015 -54 -6 minecraft:light_blue_stained_glass_pane
-fill 1985 -59 -4 1985 -50 -4 minecraft:quartz_pillar
-fill 2015 -59 -4 2015 -50 -4 minecraft:quartz_pillar
-fill 1985 -57 -2 1985 -54 -1 minecraft:light_blue_stained_glass_pane
-fill 2015 -57 -2 2015 -54 -1 minecraft:light_blue_stained_glass_pane
-fill 1985 -59 1 1985 -50 1 minecraft:quartz_pillar
-fill 2015 -59 1 2015 -50 1 minecraft:quartz_pillar
-fill 1985 -57 3 1985 -54 4 minecraft:light_blue_stained_glass_pane
-fill 2015 -57 3 2015 -54 4 minecraft:light_blue_stained_glass_pane
-fill 1985 -59 6 1985 -50 6 minecraft:quartz_pillar
-fill 2015 -59 6 2015 -50 6 minecraft:quartz_pillar
-fill 1985 -57 8 1985 -54 9 minecraft:light_blue_stained_glass_pane
-fill 2015 -57 8 2015 -54 9 minecraft:light_blue_stained_glass_pane
-fill 1985 -59 11 1985 -50 11 minecraft:quartz_pillar
-fill 2015 -59 11 2015 -50 11 minecraft:quartz_pillar
-fill 1985 -57 13 1985 -54 14 minecraft:light_blue_stained_glass_pane
-fill 2015 -57 13 2015 -54 14 minecraft:light_blue_stained_glass_pane
-fill 1985 -59 16 1985 -50 16 minecraft:quartz_pillar
-fill 2015 -59 16 2015 -50 16 minecraft:quartz_pillar
-fill 1985 -59 18 1985 -50 18 minecraft:quartz_pillar
-fill 2015 -59 18 2015 -50 18 minecraft:quartz_pillar
-fill 1984 -49 -15 2016 -49 19 minecraft:white_concrete
-fill 1985 -49 -14 2015 -49 18 minecraft:red_concrete
-fill 1988 -48 -11 2012 -48 15 minecraft:red_concrete
-fill 1991 -47 -8 2009 -47 12 minecraft:white_concrete
-fill 1994 -46 -5 2006 -46 9 minecraft:red_concrete
-fill 1993 -49 -14 2007 -42 -14 minecraft:white_concrete
-fill 1993 -41 -14 2007 -41 -14 minecraft:red_concrete
-setblock 1997 -47 -15 minecraft:black_concrete
-setblock 1997 -46 -15 minecraft:black_concrete
-setblock 1997 -45 -15 minecraft:black_concrete
-setblock 1998 -48 -15 minecraft:black_concrete
-setblock 1998 -47 -15 minecraft:white_concrete
-setblock 1998 -46 -15 minecraft:black_concrete
-setblock 1998 -45 -15 minecraft:red_concrete
-setblock 1998 -44 -15 minecraft:black_concrete
-setblock 1999 -49 -15 minecraft:black_concrete
-setblock 1999 -48 -15 minecraft:white_concrete
-setblock 1999 -47 -15 minecraft:black_concrete
-setblock 1999 -46 -15 minecraft:black_concrete
-setblock 1999 -45 -15 minecraft:black_concrete
-setblock 1999 -44 -15 minecraft:red_concrete
-setblock 1999 -43 -15 minecraft:black_concrete
-setblock 2000 -49 -15 minecraft:black_concrete
-setblock 2000 -48 -15 minecraft:white_concrete
-setblock 2000 -47 -15 minecraft:black_concrete
-setblock 2000 -46 -15 minecraft:white_concrete
-setblock 2000 -45 -15 minecraft:black_concrete
-setblock 2000 -44 -15 minecraft:red_concrete
-setblock 2000 -43 -15 minecraft:black_concrete
-setblock 2001 -49 -15 minecraft:black_concrete
-setblock 2001 -48 -15 minecraft:white_concrete
-setblock 2001 -47 -15 minecraft:black_concrete
-setblock 2001 -46 -15 minecraft:black_concrete
-setblock 2001 -45 -15 minecraft:black_concrete
-setblock 2001 -44 -15 minecraft:red_concrete
-setblock 2001 -43 -15 minecraft:black_concrete
-setblock 2002 -48 -15 minecraft:black_concrete
-setblock 2002 -47 -15 minecraft:white_concrete
-setblock 2002 -46 -15 minecraft:black_concrete
-setblock 2002 -45 -15 minecraft:red_concrete
-setblock 2002 -44 -15 minecraft:black_concrete
-setblock 2003 -47 -15 minecraft:black_concrete
-setblock 2003 -46 -15 minecraft:black_concrete
-setblock 2003 -45 -15 minecraft:black_concrete
-summon minecraft:text_display 2000.5 -39.8 -14.6 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[2.2f,2.2f,2.2f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포켓몬 체육관","color":"gold","bold":true,"extra":[{"text":"\\nPOKéMON GYM","color":"gray","bold":false}]}'}
-fill 1998 -59 -14 1998 -55 -14 minecraft:quartz_pillar
-fill 2002 -59 -14 2002 -55 -14 minecraft:quartz_pillar
-fill 1998 -55 -14 2002 -55 -14 minecraft:chiseled_quartz_block
+fill 1985 -59 -14 2015 -59 -14 minecraft:stone_bricks
+fill 1985 -59 18 2015 -59 18 minecraft:stone_bricks
+fill 1985 -59 -14 1985 -59 18 minecraft:stone_bricks
+fill 2015 -59 -14 2015 -59 18 minecraft:stone_bricks
+fill 1985 -58 -14 2015 -51 -14 minecraft:smooth_sandstone
+fill 1985 -58 18 2015 -51 18 minecraft:smooth_sandstone
+fill 1985 -58 -14 1985 -51 18 minecraft:smooth_sandstone
+fill 2015 -58 -14 2015 -51 18 minecraft:smooth_sandstone
+fill 1985 -50 -14 2015 -50 -14 minecraft:cut_sandstone
+fill 1985 -50 18 2015 -50 18 minecraft:cut_sandstone
+fill 1985 -50 -14 1985 -50 18 minecraft:cut_sandstone
+fill 2015 -50 -14 2015 -50 18 minecraft:cut_sandstone
+fill 1985 -59 -14 1985 -50 -14 minecraft:chiseled_sandstone
+fill 1985 -59 18 1985 -50 18 minecraft:chiseled_sandstone
+fill 1990 -59 -14 1990 -50 -14 minecraft:chiseled_sandstone
+fill 1990 -59 18 1990 -50 18 minecraft:chiseled_sandstone
+fill 1995 -59 -14 1995 -50 -14 minecraft:chiseled_sandstone
+fill 1995 -59 18 1995 -50 18 minecraft:chiseled_sandstone
+fill 2000 -59 -14 2000 -50 -14 minecraft:chiseled_sandstone
+fill 2000 -59 18 2000 -50 18 minecraft:chiseled_sandstone
+fill 2005 -59 -14 2005 -50 -14 minecraft:chiseled_sandstone
+fill 2005 -59 18 2005 -50 18 minecraft:chiseled_sandstone
+fill 2010 -59 -14 2010 -50 -14 minecraft:chiseled_sandstone
+fill 2010 -59 18 2010 -50 18 minecraft:chiseled_sandstone
+fill 2015 -59 -14 2015 -50 -14 minecraft:chiseled_sandstone
+fill 2015 -59 18 2015 -50 18 minecraft:chiseled_sandstone
+fill 1985 -59 -14 1985 -50 -14 minecraft:chiseled_sandstone
+fill 2015 -59 -14 2015 -50 -14 minecraft:chiseled_sandstone
+fill 1985 -57 -12 1985 -54 -11 minecraft:glass_pane
+fill 2015 -57 -12 2015 -54 -11 minecraft:glass_pane
+fill 1985 -59 -9 1985 -50 -9 minecraft:chiseled_sandstone
+fill 2015 -59 -9 2015 -50 -9 minecraft:chiseled_sandstone
+fill 1985 -57 -7 1985 -54 -6 minecraft:glass_pane
+fill 2015 -57 -7 2015 -54 -6 minecraft:glass_pane
+fill 1985 -59 -4 1985 -50 -4 minecraft:chiseled_sandstone
+fill 2015 -59 -4 2015 -50 -4 minecraft:chiseled_sandstone
+fill 1985 -57 -2 1985 -54 -1 minecraft:glass_pane
+fill 2015 -57 -2 2015 -54 -1 minecraft:glass_pane
+fill 1985 -59 1 1985 -50 1 minecraft:chiseled_sandstone
+fill 2015 -59 1 2015 -50 1 minecraft:chiseled_sandstone
+fill 1985 -57 3 1985 -54 4 minecraft:glass_pane
+fill 2015 -57 3 2015 -54 4 minecraft:glass_pane
+fill 1985 -59 6 1985 -50 6 minecraft:chiseled_sandstone
+fill 2015 -59 6 2015 -50 6 minecraft:chiseled_sandstone
+fill 1985 -57 8 1985 -54 9 minecraft:glass_pane
+fill 2015 -57 8 2015 -54 9 minecraft:glass_pane
+fill 1985 -59 11 1985 -50 11 minecraft:chiseled_sandstone
+fill 2015 -59 11 2015 -50 11 minecraft:chiseled_sandstone
+fill 1985 -57 13 1985 -54 14 minecraft:glass_pane
+fill 2015 -57 13 2015 -54 14 minecraft:glass_pane
+fill 1985 -59 16 1985 -50 16 minecraft:chiseled_sandstone
+fill 2015 -59 16 2015 -50 16 minecraft:chiseled_sandstone
+fill 1985 -59 18 1985 -50 18 minecraft:chiseled_sandstone
+fill 2015 -59 18 2015 -50 18 minecraft:chiseled_sandstone
+fill 1984 -49 -15 2016 -49 19 minecraft:dark_prismarine
+fill 1984 -49 -15 2016 -49 -15 minecraft:dark_prismarine_stairs[facing=south]
+fill 1984 -49 19 2016 -49 19 minecraft:dark_prismarine_stairs[facing=north]
+fill 1984 -49 -14 1984 -49 18 minecraft:dark_prismarine_stairs[facing=east]
+fill 2016 -49 -14 2016 -49 18 minecraft:dark_prismarine_stairs[facing=west]
+fill 1986 -48 -13 2014 -48 17 minecraft:dark_prismarine
+fill 1986 -48 -13 2014 -48 -13 minecraft:dark_prismarine_stairs[facing=south]
+fill 1986 -48 17 2014 -48 17 minecraft:dark_prismarine_stairs[facing=north]
+fill 1986 -48 -12 1986 -48 16 minecraft:dark_prismarine_stairs[facing=east]
+fill 2014 -48 -12 2014 -48 16 minecraft:dark_prismarine_stairs[facing=west]
+fill 1988 -47 -11 2012 -47 15 minecraft:dark_prismarine
+fill 1988 -47 -11 2012 -47 -11 minecraft:dark_prismarine_stairs[facing=south]
+fill 1988 -47 15 2012 -47 15 minecraft:dark_prismarine_stairs[facing=north]
+fill 1988 -47 -10 1988 -47 14 minecraft:dark_prismarine_stairs[facing=east]
+fill 2012 -47 -10 2012 -47 14 minecraft:dark_prismarine_stairs[facing=west]
+fill 1990 -46 -9 2010 -46 13 minecraft:dark_prismarine
+fill 1990 -46 -9 2010 -46 -9 minecraft:dark_prismarine_stairs[facing=south]
+fill 1990 -46 13 2010 -46 13 minecraft:dark_prismarine_stairs[facing=north]
+fill 1990 -46 -8 1990 -46 12 minecraft:dark_prismarine_stairs[facing=east]
+fill 2010 -46 -8 2010 -46 12 minecraft:dark_prismarine_stairs[facing=west]
+fill 1992 -45 -7 2008 -45 11 minecraft:dark_prismarine
+fill 1992 -45 -7 2008 -45 -7 minecraft:dark_prismarine_stairs[facing=south]
+fill 1992 -45 11 2008 -45 11 minecraft:dark_prismarine_stairs[facing=north]
+fill 1992 -45 -6 1992 -45 10 minecraft:dark_prismarine_stairs[facing=east]
+fill 2008 -45 -6 2008 -45 10 minecraft:dark_prismarine_stairs[facing=west]
+fill 1994 -44 -5 2006 -44 9 minecraft:dark_prismarine
+fill 1994 -44 -5 2006 -44 -5 minecraft:dark_prismarine_stairs[facing=south]
+fill 1994 -44 9 2006 -44 9 minecraft:dark_prismarine_stairs[facing=north]
+fill 1994 -44 -4 1994 -44 8 minecraft:dark_prismarine_stairs[facing=east]
+fill 2006 -44 -4 2006 -44 8 minecraft:dark_prismarine_stairs[facing=west]
+fill 1996 -43 -3 2004 -43 7 minecraft:dark_prismarine
+fill 1996 -43 -3 2004 -43 -3 minecraft:dark_prismarine_stairs[facing=south]
+fill 1996 -43 7 2004 -43 7 minecraft:dark_prismarine_stairs[facing=north]
+fill 1996 -43 -2 1996 -43 6 minecraft:dark_prismarine_stairs[facing=east]
+fill 2004 -43 -2 2004 -43 6 minecraft:dark_prismarine_stairs[facing=west]
+fill 1998 -42 -1 2002 -42 5 minecraft:dark_prismarine
+fill 1998 -42 -1 2002 -42 -1 minecraft:dark_prismarine_stairs[facing=south]
+fill 1998 -42 5 2002 -42 5 minecraft:dark_prismarine_stairs[facing=north]
+fill 1998 -42 0 1998 -42 4 minecraft:dark_prismarine_stairs[facing=east]
+fill 2002 -42 0 2002 -42 4 minecraft:dark_prismarine_stairs[facing=west]
+fill 2000 -41 1 2000 -41 3 minecraft:dark_prismarine
+fill 2000 -41 1 2000 -41 1 minecraft:dark_prismarine_stairs[facing=south]
+fill 2000 -41 3 2000 -41 3 minecraft:dark_prismarine_stairs[facing=north]
+fill 2000 -41 2 2000 -41 2 minecraft:dark_prismarine_stairs[facing=east]
+fill 2000 -41 2 2000 -41 2 minecraft:dark_prismarine_stairs[facing=west]
+fill 2002 -40 3 1998 -40 1 minecraft:gold_block
+fill 1990 -51 -16 2010 -42 -16 minecraft:gold_block
+fill 1991 -50 -16 2009 -43 -16 minecraft:polished_blackstone
+setblock 2008 -43 -17 minecraft:gold_block
+setblock 2007 -43 -17 minecraft:gold_block
+setblock 2006 -43 -17 minecraft:gold_block
+setblock 2002 -43 -17 minecraft:gold_block
+setblock 1998 -43 -17 minecraft:gold_block
+setblock 1995 -43 -17 minecraft:gold_block
+setblock 1991 -43 -17 minecraft:gold_block
+setblock 2009 -44 -17 minecraft:gold_block
+setblock 2005 -44 -17 minecraft:gold_block
+setblock 2002 -44 -17 minecraft:gold_block
+setblock 1998 -44 -17 minecraft:gold_block
+setblock 1995 -44 -17 minecraft:gold_block
+setblock 1994 -44 -17 minecraft:gold_block
+setblock 1992 -44 -17 minecraft:gold_block
+setblock 1991 -44 -17 minecraft:gold_block
+setblock 2009 -45 -17 minecraft:gold_block
+setblock 2001 -45 -17 minecraft:gold_block
+setblock 1999 -45 -17 minecraft:gold_block
+setblock 1995 -45 -17 minecraft:gold_block
+setblock 1993 -45 -17 minecraft:gold_block
+setblock 1991 -45 -17 minecraft:gold_block
+setblock 2009 -46 -17 minecraft:gold_block
+setblock 2007 -46 -17 minecraft:gold_block
+setblock 2006 -46 -17 minecraft:gold_block
+setblock 2005 -46 -17 minecraft:gold_block
+setblock 2000 -46 -17 minecraft:gold_block
+setblock 1995 -46 -17 minecraft:gold_block
+setblock 1993 -46 -17 minecraft:gold_block
+setblock 1991 -46 -17 minecraft:gold_block
+setblock 2009 -47 -17 minecraft:gold_block
+setblock 2005 -47 -17 minecraft:gold_block
+setblock 2000 -47 -17 minecraft:gold_block
+setblock 1995 -47 -17 minecraft:gold_block
+setblock 1991 -47 -17 minecraft:gold_block
+setblock 2009 -48 -17 minecraft:gold_block
+setblock 2005 -48 -17 minecraft:gold_block
+setblock 2000 -48 -17 minecraft:gold_block
+setblock 1995 -48 -17 minecraft:gold_block
+setblock 1991 -48 -17 minecraft:gold_block
+setblock 2008 -49 -17 minecraft:gold_block
+setblock 2007 -49 -17 minecraft:gold_block
+setblock 2006 -49 -17 minecraft:gold_block
+setblock 2000 -49 -17 minecraft:gold_block
+setblock 1995 -49 -17 minecraft:gold_block
+setblock 1991 -49 -17 minecraft:gold_block
+summon minecraft:text_display 2000.5 -53.8 -14.6 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포켓몬 체육관","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\nPOKéMON GYM · 안내원에게 도전 신청","color":"gray","bold":false}]}'}
+fill 1998 -59 -14 1998 -55 -14 minecraft:polished_blackstone
+fill 2002 -59 -14 2002 -55 -14 minecraft:polished_blackstone
+fill 1998 -55 -14 2002 -55 -14 minecraft:gold_block
 fill 1999 -59 -14 2001 -56 -14 minecraft:air
-fill 1997 -54 -15 2003 -54 -15 minecraft:red_concrete
-fill 1999 -59 -15 2001 -59 -15 minecraft:air
-fill 1994 -59 -18 1994 -58 -18 minecraft:chiseled_stone_bricks
-setblock 1994 -57 -18 minecraft:red_concrete
-setblock 1994 -56 -18 minecraft:white_concrete
-fill 2006 -59 -18 2006 -58 -18 minecraft:chiseled_stone_bricks
-setblock 2006 -57 -18 minecraft:red_concrete
-setblock 2006 -56 -18 minecraft:white_concrete
+fill 1997 -55 -15 2003 -55 -15 minecraft:dark_prismarine_slab[type=top]
+fill 1993 -59 -19 1995 -59 -17 minecraft:polished_andesite
+setblock 1994 -58 -18 minecraft:chiseled_stone_bricks
+setblock 1994 -57 -18 minecraft:andesite_wall
+setblock 1994 -56 -18 minecraft:stone_bricks
+setblock 1994 -55 -18 minecraft:stone_brick_stairs[facing=north]
+setblock 1994 -58 -19 minecraft:gold_block
+fill 2005 -59 -19 2007 -59 -17 minecraft:polished_andesite
+setblock 2006 -58 -18 minecraft:chiseled_stone_bricks
+setblock 2006 -57 -18 minecraft:andesite_wall
+setblock 2006 -56 -18 minecraft:stone_bricks
+setblock 2006 -55 -18 minecraft:stone_brick_stairs[facing=north]
+setblock 2006 -58 -19 minecraft:gold_block
 setblock 1990 -59 -26 minecraft:stone_brick_wall
 setblock 1990 -58 -26 minecraft:stone_brick_wall
 setblock 1990 -57 -26 minecraft:lantern
@@ -2309,32 +2401,40 @@ setblock 2002 -60 1 minecraft:quartz_block
 setblock 2002 -60 2 minecraft:quartz_block
 fill 1995 -59 14 2005 -59 14 minecraft:quartz_block
 fill 1995 -58 14 2005 -58 14 minecraft:smooth_quartz_slab
-summon minecraft:text_display 2000.5 -55.8 14.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.2f,1.2f,1.2f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"도전 접수","color":"aqua","bold":true,"extra":[{"text":"\\n안내원을 우클릭해 도전할 체육관을 고르세요","color":"gray","bold":false}]}'}
+summon minecraft:text_display 2000.5 -55.8 14.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.2f,1.2f,1.2f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"도전 접수","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n안내원을 우클릭해 도전할 체육관을 고르세요","color":"gray","bold":false}]}'}
 fill 2009 -54 18 2010 -53 18 minecraft:gray_concrete
 setblock 2009 -55 17 minecraft:quartz_slab[type=top]
 setblock 2010 -55 17 minecraft:quartz_slab[type=top]
+summon minecraft:item_display 2010.0 -53.0 17.94 {Tags:["poke.deco"],item:{id:"minecraft:gold_nugget",count:1,components:{"minecraft:custom_model_data":1001}},transformation:{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],left_rotation:[0f,1f,0f,0f],right_rotation:[0f,0f,0f,1f]}}
 fill 2006 -54 18 2007 -53 18 minecraft:blue_concrete
 setblock 2006 -55 17 minecraft:quartz_slab[type=top]
 setblock 2007 -55 17 minecraft:quartz_slab[type=top]
+summon minecraft:item_display 2007.0 -53.0 17.94 {Tags:["poke.deco"],item:{id:"minecraft:gold_nugget",count:1,components:{"minecraft:custom_model_data":1002}},transformation:{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],left_rotation:[0f,1f,0f,0f],right_rotation:[0f,0f,0f,1f]}}
 fill 2003 -54 18 2004 -53 18 minecraft:orange_concrete
 setblock 2003 -55 17 minecraft:quartz_slab[type=top]
 setblock 2004 -55 17 minecraft:quartz_slab[type=top]
+summon minecraft:item_display 2004.0 -53.0 17.94 {Tags:["poke.deco"],item:{id:"minecraft:gold_nugget",count:1,components:{"minecraft:custom_model_data":1003}},transformation:{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],left_rotation:[0f,1f,0f,0f],right_rotation:[0f,0f,0f,1f]}}
 fill 2000 -54 18 2001 -53 18 minecraft:lime_concrete
 setblock 2000 -55 17 minecraft:quartz_slab[type=top]
 setblock 2001 -55 17 minecraft:quartz_slab[type=top]
+summon minecraft:item_display 2001.0 -53.0 17.94 {Tags:["poke.deco"],item:{id:"minecraft:gold_nugget",count:1,components:{"minecraft:custom_model_data":1004}},transformation:{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],left_rotation:[0f,1f,0f,0f],right_rotation:[0f,0f,0f,1f]}}
 fill 1997 -54 18 1998 -53 18 minecraft:pink_concrete
 setblock 1997 -55 17 minecraft:quartz_slab[type=top]
 setblock 1998 -55 17 minecraft:quartz_slab[type=top]
+summon minecraft:item_display 1998.0 -53.0 17.94 {Tags:["poke.deco"],item:{id:"minecraft:gold_nugget",count:1,components:{"minecraft:custom_model_data":1005}},transformation:{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],left_rotation:[0f,1f,0f,0f],right_rotation:[0f,0f,0f,1f]}}
 fill 1994 -54 18 1995 -53 18 minecraft:yellow_concrete
 setblock 1994 -55 17 minecraft:quartz_slab[type=top]
 setblock 1995 -55 17 minecraft:quartz_slab[type=top]
+summon minecraft:item_display 1995.0 -53.0 17.94 {Tags:["poke.deco"],item:{id:"minecraft:gold_nugget",count:1,components:{"minecraft:custom_model_data":1006}},transformation:{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],left_rotation:[0f,1f,0f,0f],right_rotation:[0f,0f,0f,1f]}}
 fill 1991 -54 18 1992 -53 18 minecraft:red_concrete
 setblock 1991 -55 17 minecraft:quartz_slab[type=top]
 setblock 1992 -55 17 minecraft:quartz_slab[type=top]
+summon minecraft:item_display 1992.0 -53.0 17.94 {Tags:["poke.deco"],item:{id:"minecraft:gold_nugget",count:1,components:{"minecraft:custom_model_data":1007}},transformation:{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],left_rotation:[0f,1f,0f,0f],right_rotation:[0f,0f,0f,1f]}}
 fill 1988 -54 18 1989 -53 18 minecraft:green_concrete
 setblock 1988 -55 17 minecraft:quartz_slab[type=top]
 setblock 1989 -55 17 minecraft:quartz_slab[type=top]
-summon minecraft:text_display 2000.5 -51.6 17.4 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"배지 8개를 모으면 사천왕에 도전!","color":"gold","bold":true,"extra":[""]}'}
+summon minecraft:item_display 1989.0 -53.0 17.94 {Tags:["poke.deco"],item:{id:"minecraft:gold_nugget",count:1,components:{"minecraft:custom_model_data":1008}},transformation:{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],left_rotation:[0f,1f,0f,0f],right_rotation:[0f,0f,0f,1f]}}
+summon minecraft:text_display 2000.5 -51.6 17.4 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"배지 8개를 모으면 사천왕에 도전!","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n체육관을 이기면 이 배지를 받아요","color":"gray","bold":false}]}'}
 setblock 1986 -59 -8 minecraft:spruce_stairs[facing=west]
 setblock 2014 -59 -8 minecraft:spruce_stairs[facing=east]
 setblock 1986 -59 -4 minecraft:spruce_stairs[facing=west]
@@ -2435,8 +2535,8 @@ setblock 3012 -60 0 minecraft:smooth_quartz
 setblock 3012 -60 1 minecraft:smooth_quartz
 fill 3008 -60 8 3012 -60 10 minecraft:quartz_block
 fill 3009 -60 -11 3011 -60 -11 minecraft:orange_stained_glass
-summon minecraft:text_display 3010.5 -57.5 -10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"extra":[""]}'}
-summon minecraft:text_display 3010.5 -53.5 10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"1번 체육관","color":"gold","bold":true,"extra":[""]}'}
+summon minecraft:text_display 3010.5 -57.5 -10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+summon minecraft:text_display 3010.5 -53.5 10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"1번 체육관","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 setblock 3002 -52 -10 minecraft:sea_lantern
 setblock 3002 -52 -7 minecraft:sea_lantern
 setblock 3002 -52 -4 minecraft:sea_lantern
@@ -2527,8 +2627,8 @@ setblock 3052 -60 0 minecraft:smooth_quartz
 setblock 3052 -60 1 minecraft:smooth_quartz
 fill 3048 -60 8 3052 -60 10 minecraft:quartz_block
 fill 3049 -60 -11 3051 -60 -11 minecraft:orange_stained_glass
-summon minecraft:text_display 3050.5 -57.5 -10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"extra":[""]}'}
-summon minecraft:text_display 3050.5 -53.5 10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"2번 체육관","color":"gold","bold":true,"extra":[""]}'}
+summon minecraft:text_display 3050.5 -57.5 -10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+summon minecraft:text_display 3050.5 -53.5 10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"2번 체육관","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 setblock 3042 -52 -10 minecraft:sea_lantern
 setblock 3042 -52 -7 minecraft:sea_lantern
 setblock 3042 -52 -4 minecraft:sea_lantern
@@ -2619,8 +2719,8 @@ setblock 3092 -60 0 minecraft:smooth_quartz
 setblock 3092 -60 1 minecraft:smooth_quartz
 fill 3088 -60 8 3092 -60 10 minecraft:quartz_block
 fill 3089 -60 -11 3091 -60 -11 minecraft:orange_stained_glass
-summon minecraft:text_display 3090.5 -57.5 -10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"extra":[""]}'}
-summon minecraft:text_display 3090.5 -53.5 10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"3번 체육관","color":"gold","bold":true,"extra":[""]}'}
+summon minecraft:text_display 3090.5 -57.5 -10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+summon minecraft:text_display 3090.5 -53.5 10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"3번 체육관","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 setblock 3082 -52 -10 minecraft:sea_lantern
 setblock 3082 -52 -7 minecraft:sea_lantern
 setblock 3082 -52 -4 minecraft:sea_lantern
@@ -2711,8 +2811,8 @@ setblock 3132 -60 0 minecraft:smooth_quartz
 setblock 3132 -60 1 minecraft:smooth_quartz
 fill 3128 -60 8 3132 -60 10 minecraft:quartz_block
 fill 3129 -60 -11 3131 -60 -11 minecraft:orange_stained_glass
-summon minecraft:text_display 3130.5 -57.5 -10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"extra":[""]}'}
-summon minecraft:text_display 3130.5 -53.5 10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"4번 체육관","color":"gold","bold":true,"extra":[""]}'}
+summon minecraft:text_display 3130.5 -57.5 -10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+summon minecraft:text_display 3130.5 -53.5 10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"4번 체육관","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 setblock 3122 -52 -10 minecraft:sea_lantern
 setblock 3122 -52 -7 minecraft:sea_lantern
 setblock 3122 -52 -4 minecraft:sea_lantern
@@ -2803,8 +2903,8 @@ setblock 3172 -60 0 minecraft:smooth_quartz
 setblock 3172 -60 1 minecraft:smooth_quartz
 fill 3168 -60 8 3172 -60 10 minecraft:quartz_block
 fill 3169 -60 -11 3171 -60 -11 minecraft:orange_stained_glass
-summon minecraft:text_display 3170.5 -57.5 -10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"extra":[""]}'}
-summon minecraft:text_display 3170.5 -53.5 10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"5번 체육관","color":"gold","bold":true,"extra":[""]}'}
+summon minecraft:text_display 3170.5 -57.5 -10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+summon minecraft:text_display 3170.5 -53.5 10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"5번 체육관","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 setblock 3162 -52 -10 minecraft:sea_lantern
 setblock 3162 -52 -7 minecraft:sea_lantern
 setblock 3162 -52 -4 minecraft:sea_lantern
@@ -2895,8 +2995,8 @@ setblock 3212 -60 0 minecraft:smooth_quartz
 setblock 3212 -60 1 minecraft:smooth_quartz
 fill 3208 -60 8 3212 -60 10 minecraft:quartz_block
 fill 3209 -60 -11 3211 -60 -11 minecraft:orange_stained_glass
-summon minecraft:text_display 3210.5 -57.5 -10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"extra":[""]}'}
-summon minecraft:text_display 3210.5 -53.5 10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"6번 체육관","color":"gold","bold":true,"extra":[""]}'}
+summon minecraft:text_display 3210.5 -57.5 -10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+summon minecraft:text_display 3210.5 -53.5 10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"6번 체육관","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 setblock 3202 -52 -10 minecraft:sea_lantern
 setblock 3202 -52 -7 minecraft:sea_lantern
 setblock 3202 -52 -4 minecraft:sea_lantern
@@ -2987,8 +3087,8 @@ setblock 3252 -60 0 minecraft:smooth_quartz
 setblock 3252 -60 1 minecraft:smooth_quartz
 fill 3248 -60 8 3252 -60 10 minecraft:quartz_block
 fill 3249 -60 -11 3251 -60 -11 minecraft:orange_stained_glass
-summon minecraft:text_display 3250.5 -57.5 -10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"extra":[""]}'}
-summon minecraft:text_display 3250.5 -53.5 10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"7번 체육관","color":"gold","bold":true,"extra":[""]}'}
+summon minecraft:text_display 3250.5 -57.5 -10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+summon minecraft:text_display 3250.5 -53.5 10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"7번 체육관","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 setblock 3242 -52 -10 minecraft:sea_lantern
 setblock 3242 -52 -7 minecraft:sea_lantern
 setblock 3242 -52 -4 minecraft:sea_lantern
@@ -3079,8 +3179,8 @@ setblock 3292 -60 0 minecraft:smooth_quartz
 setblock 3292 -60 1 minecraft:smooth_quartz
 fill 3288 -60 8 3292 -60 10 minecraft:quartz_block
 fill 3289 -60 -11 3291 -60 -11 minecraft:orange_stained_glass
-summon minecraft:text_display 3290.5 -57.5 -10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"extra":[""]}'}
-summon minecraft:text_display 3290.5 -53.5 10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"8번 체육관","color":"gold","bold":true,"extra":[""]}'}
+summon minecraft:text_display 3290.5 -57.5 -10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+summon minecraft:text_display 3290.5 -53.5 10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"8번 체육관","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 setblock 3282 -52 -10 minecraft:sea_lantern
 setblock 3282 -52 -7 minecraft:sea_lantern
 setblock 3282 -52 -4 minecraft:sea_lantern
@@ -3181,7 +3281,7 @@ setblock 3433 -51 -43 minecraft:sea_lantern
 setblock 3433 -51 -37 minecraft:sea_lantern
 setblock 3436 -51 -43 minecraft:sea_lantern
 setblock 3436 -51 -37 minecraft:sea_lantern
-summon minecraft:text_display 3433.5 -55.8 -39.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.2f,1.2f,1.2f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"사천왕 1번째 방","color":"light_purple","bold":true,"extra":[{"text":"\\n역대 최강 챔피언","color":"gray","bold":false}]}'}
+summon minecraft:text_display 3433.5 -55.8 -39.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.2f,1.2f,1.2f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"사천왕 1번째 방","color":"light_purple","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n역대 최강 챔피언","color":"gray","bold":false}]}'}
 fill 3401 -60 -34 3439 -60 -24 minecraft:purpur_block
 fill 3401 -51 -34 3439 -51 -24 minecraft:quartz_block
 fill 3401 -59 -23 3439 -51 -23 minecraft:quartz_bricks
@@ -3209,7 +3309,7 @@ setblock 3433 -51 -32 minecraft:sea_lantern
 setblock 3433 -51 -26 minecraft:sea_lantern
 setblock 3436 -51 -32 minecraft:sea_lantern
 setblock 3436 -51 -26 minecraft:sea_lantern
-summon minecraft:text_display 3433.5 -55.8 -28.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.2f,1.2f,1.2f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"사천왕 2번째 방","color":"light_purple","bold":true,"extra":[{"text":"\\n역대 최강 챔피언","color":"gray","bold":false}]}'}
+summon minecraft:text_display 3433.5 -55.8 -28.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.2f,1.2f,1.2f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"사천왕 2번째 방","color":"light_purple","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n역대 최강 챔피언","color":"gray","bold":false}]}'}
 fill 3401 -60 -23 3439 -60 -13 minecraft:blackstone
 fill 3401 -51 -23 3439 -51 -13 minecraft:quartz_block
 fill 3401 -59 -12 3439 -51 -12 minecraft:quartz_bricks
@@ -3237,7 +3337,7 @@ setblock 3433 -51 -21 minecraft:sea_lantern
 setblock 3433 -51 -15 minecraft:sea_lantern
 setblock 3436 -51 -21 minecraft:sea_lantern
 setblock 3436 -51 -15 minecraft:sea_lantern
-summon minecraft:text_display 3433.5 -55.8 -17.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.2f,1.2f,1.2f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"사천왕 3번째 방","color":"light_purple","bold":true,"extra":[{"text":"\\n역대 최강 챔피언","color":"gray","bold":false}]}'}
+summon minecraft:text_display 3433.5 -55.8 -17.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.2f,1.2f,1.2f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"사천왕 3번째 방","color":"light_purple","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n역대 최강 챔피언","color":"gray","bold":false}]}'}
 fill 3401 -60 -12 3439 -60 -2 minecraft:light_blue_concrete
 fill 3401 -51 -12 3439 -51 -2 minecraft:quartz_block
 fill 3401 -59 -1 3439 -51 -1 minecraft:quartz_bricks
@@ -3265,7 +3365,7 @@ setblock 3433 -51 -10 minecraft:sea_lantern
 setblock 3433 -51 -4 minecraft:sea_lantern
 setblock 3436 -51 -10 minecraft:sea_lantern
 setblock 3436 -51 -4 minecraft:sea_lantern
-summon minecraft:text_display 3433.5 -55.8 -6.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.2f,1.2f,1.2f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"사천왕 4번째 방","color":"light_purple","bold":true,"extra":[{"text":"\\n역대 최강 챔피언","color":"gray","bold":false}]}'}
+summon minecraft:text_display 3433.5 -55.8 -6.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.2f,1.2f,1.2f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"사천왕 4번째 방","color":"light_purple","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n역대 최강 챔피언","color":"gray","bold":false}]}'}
 fill 3401 -60 -1 3439 -60 9 minecraft:gold_block
 fill 3401 -51 -1 3439 -51 9 minecraft:quartz_block
 setblock 3403 -51 1 minecraft:sea_lantern
@@ -3293,7 +3393,7 @@ setblock 3433 -51 7 minecraft:sea_lantern
 setblock 3436 -51 1 minecraft:sea_lantern
 setblock 3436 -51 7 minecraft:sea_lantern
 fill 3436 -59 1 3438 -57 7 minecraft:gold_block
-summon minecraft:text_display 3433.5 -56 4.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[2.0f,2.0f,2.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"명예의 전당","color":"gold","bold":true,"extra":[{"text":"\\n사천왕을 모두 이긴 트레이너","color":"gray","bold":false}]}'}
+summon minecraft:text_display 3433.5 -56 4.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[2.0f,2.0f,2.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"명예의 전당","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n사천왕을 모두 이긴 트레이너","color":"gray","bold":false}]}'}
 fill 3402 -60 3 3402 -60 5 minecraft:orange_stained_glass
-summon minecraft:text_display 3402.5 -57.5 4.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"extra":[""]}'}
+summon minecraft:text_display 3402.5 -57.5 4.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 fill 3400 -50 -46 3440 -50 12 minecraft:purple_terracotta

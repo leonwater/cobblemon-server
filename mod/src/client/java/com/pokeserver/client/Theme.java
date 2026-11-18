@@ -2,7 +2,10 @@ package com.pokeserver.client;
 
 import java.util.HashMap;
 import java.util.Map;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 
 /** 어두운 반투명 UI 색·패널·짧은 상태 애니메이션 (마우스 올림 120ms, 누름 100ms). */
 public final class Theme {
@@ -17,6 +20,19 @@ public final class Theme {
     public static final int SUBTEXT = 0xFFA8B0BE;
     public static final int GOLD = 0xFFF0C040;
     public static final int SHADOW = 0x70000000;
+    /** 갈무리9: 닌텐도 DS 글꼴에서 영감을 받은 한글 픽셀 글꼴 (SIL OFL). 없는 글자는 기본 글꼴로. */
+    public static final ResourceLocation FONT = ResourceLocation.fromNamespaceAndPath("pokeserver", "galmuri");
+
+    /** 우리 화면의 글자는 모두 이 글꼴로. */
+    public static Component t(String s) {
+        return Component.literal(s).withStyle(st -> st.withFont(FONT));
+    }
+
+    /** 너비 w에 맞게 뒤를 자름. */
+    public static String fit(Font f, String s, int w) {
+        while (!s.isEmpty() && f.width(t(s)) > w) s = s.substring(0, s.length() - 1);
+        return s;
+    }
 
     /** 모서리 1픽셀을 깎은 패널 + 아래쪽 그림자. */
     public static void panel(GuiGraphics g, int x1, int y1, int x2, int y2, int fill) {
