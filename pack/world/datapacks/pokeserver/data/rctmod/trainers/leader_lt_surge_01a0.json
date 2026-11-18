@@ -1,0 +1,61 @@
+{
+ "name": "마티스",
+ "identity": "관장 마티스",
+ "ai": {
+  "type": "rct",
+  "data": {
+   "maxSelectMargin": 0.15
+  }
+ },
+ "battleRules": {
+  "maxItemUses": 2
+ },
+ "bag": [
+  {
+   "item": "cobblemon:hyper_potion",
+   "quantity": 2
+  }
+ ],
+ "team": [
+  {
+   "species": "voltorb",
+   "level": 24,
+   "moveset": [
+    "spark",
+    "sonicboom",
+    "screech",
+    "selfdestruct"
+   ]
+  },
+  {
+   "species": "magnemite",
+   "level": 25,
+   "moveset": [
+    "thundershock",
+    "sonicboom",
+    "supersonic",
+    "flashcannon"
+   ]
+  },
+  {
+   "species": "pikachu",
+   "level": 25,
+   "moveset": [
+    "spark",
+    "quickattack",
+    "doubleteam",
+    "irontail"
+   ]
+  },
+  {
+   "species": "raichu",
+   "level": 27,
+   "moveset": [
+    "spark",
+    "quickattack",
+    "thunderwave",
+    "irontail"
+   ]
+  }
+ ]
+}

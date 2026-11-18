@@ -1,0 +1,61 @@
+{
+ "name": "민화",
+ "identity": "관장 민화",
+ "ai": {
+  "type": "rct",
+  "data": {
+   "maxSelectMargin": 0.15
+  }
+ },
+ "battleRules": {
+  "maxItemUses": 2
+ },
+ "bag": [
+  {
+   "item": "cobblemon:hyper_potion",
+   "quantity": 2
+  }
+ ],
+ "team": [
+  {
+   "species": "tangela",
+   "level": 30,
+   "moveset": [
+    "megadrain",
+    "vinewhip",
+    "sleeppowder",
+    "constrict"
+   ]
+  },
+  {
+   "species": "weepinbell",
+   "level": 31,
+   "moveset": [
+    "razorleaf",
+    "poisonpowder",
+    "wrap",
+    "acid"
+   ]
+  },
+  {
+   "species": "gloom",
+   "level": 31,
+   "moveset": [
+    "megadrain",
+    "acid",
+    "sleeppowder",
+    "moonlight"
+   ]
+  },
+  {
+   "species": "vileplume",
+   "level": 33,
+   "moveset": [
+    "gigadrain",
+    "sludgebomb",
+    "stunspore",
+    "moonblast"
+   ]
+  }
+ ]
+}

@@ -3,6 +3,7 @@ scoreboard objectives add poke.left minecraft.custom:minecraft.leave_game
 scoreboard objectives add poke.died deathCount
 scoreboard objectives add poke.id dummy
 scoreboard objectives add poke.timer dummy
+scoreboard objectives add poke.e4 dummy
 scoreboard objectives add home trigger
 function poke:config
 # 4. 포켓몬 외 몹 스폰 끔 (Cobblemon은 자체 규칙 doPokemonSpawning을 따로 씀)

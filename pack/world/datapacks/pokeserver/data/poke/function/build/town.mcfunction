@@ -1,45 +1,39 @@
 # 자동 생성: tools/build_world.py (직접 수정하지 말고 생성기를 고치세요)
 kill @e[type=minecraft:text_display,tag=poke.deco]
-fill 21 -60 -19 91 -60 -15 minecraft:polished_andesite
-fill 21 -60 -19 91 -60 -19 minecraft:stone_bricks
-fill 21 -60 -15 91 -60 -15 minecraft:stone_bricks
-summon minecraft:text_display 23.5 -56 -13.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.5f,1.5f,1.5f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"▶ 체육관","color":"red","bold":true,"extra":[""]}'}
-setblock 27 -59 -20 minecraft:stone_brick_wall
-setblock 27 -58 -20 minecraft:stone_brick_wall
-setblock 27 -57 -20 minecraft:lantern
-setblock 27 -59 -14 minecraft:stone_brick_wall
-setblock 27 -58 -14 minecraft:stone_brick_wall
-setblock 27 -57 -14 minecraft:lantern
-setblock 39 -59 -20 minecraft:stone_brick_wall
-setblock 39 -58 -20 minecraft:stone_brick_wall
-setblock 39 -57 -20 minecraft:lantern
-setblock 39 -59 -14 minecraft:stone_brick_wall
-setblock 39 -58 -14 minecraft:stone_brick_wall
-setblock 39 -57 -14 minecraft:lantern
-setblock 51 -59 -20 minecraft:stone_brick_wall
-setblock 51 -58 -20 minecraft:stone_brick_wall
-setblock 51 -57 -20 minecraft:lantern
-setblock 51 -59 -14 minecraft:stone_brick_wall
-setblock 51 -58 -14 minecraft:stone_brick_wall
-setblock 51 -57 -14 minecraft:lantern
-setblock 63 -59 -20 minecraft:stone_brick_wall
-setblock 63 -58 -20 minecraft:stone_brick_wall
-setblock 63 -57 -20 minecraft:lantern
-setblock 63 -59 -14 minecraft:stone_brick_wall
-setblock 63 -58 -14 minecraft:stone_brick_wall
-setblock 63 -57 -14 minecraft:lantern
-setblock 75 -59 -20 minecraft:stone_brick_wall
-setblock 75 -58 -20 minecraft:stone_brick_wall
-setblock 75 -57 -20 minecraft:lantern
-setblock 75 -59 -14 minecraft:stone_brick_wall
-setblock 75 -58 -14 minecraft:stone_brick_wall
-setblock 75 -57 -14 minecraft:lantern
-setblock 87 -59 -20 minecraft:stone_brick_wall
-setblock 87 -58 -20 minecraft:stone_brick_wall
-setblock 87 -57 -20 minecraft:lantern
-setblock 87 -59 -14 minecraft:stone_brick_wall
-setblock 87 -58 -14 minecraft:stone_brick_wall
-setblock 87 -57 -14 minecraft:lantern
+fill 21 -60 -19 199 -60 -15 minecraft:polished_andesite
+fill 21 -60 -19 199 -60 -19 minecraft:stone_bricks
+fill 21 -60 -15 199 -60 -15 minecraft:stone_bricks
+summon minecraft:text_display 23.5 -56 -13.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.5f,1.5f,1.5f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"▶ 체육관 거리 · 사천왕","color":"red","bold":true,"extra":[""]}'}
+setblock 30 -59 -20 minecraft:stone_brick_wall
+setblock 30 -58 -20 minecraft:stone_brick_wall
+setblock 30 -57 -20 minecraft:lantern
+setblock 30 -59 -14 minecraft:stone_brick_wall
+setblock 30 -58 -14 minecraft:stone_brick_wall
+setblock 30 -57 -14 minecraft:lantern
+setblock 70 -59 -20 minecraft:stone_brick_wall
+setblock 70 -58 -20 minecraft:stone_brick_wall
+setblock 70 -57 -20 minecraft:lantern
+setblock 70 -59 -14 minecraft:stone_brick_wall
+setblock 70 -58 -14 minecraft:stone_brick_wall
+setblock 70 -57 -14 minecraft:lantern
+setblock 110 -59 -20 minecraft:stone_brick_wall
+setblock 110 -58 -20 minecraft:stone_brick_wall
+setblock 110 -57 -20 minecraft:lantern
+setblock 110 -59 -14 minecraft:stone_brick_wall
+setblock 110 -58 -14 minecraft:stone_brick_wall
+setblock 110 -57 -14 minecraft:lantern
+setblock 150 -59 -20 minecraft:stone_brick_wall
+setblock 150 -58 -20 minecraft:stone_brick_wall
+setblock 150 -57 -20 minecraft:lantern
+setblock 150 -59 -14 minecraft:stone_brick_wall
+setblock 150 -58 -14 minecraft:stone_brick_wall
+setblock 150 -57 -14 minecraft:lantern
+setblock 190 -59 -20 minecraft:stone_brick_wall
+setblock 190 -58 -20 minecraft:stone_brick_wall
+setblock 190 -57 -20 minecraft:lantern
+setblock 190 -59 -14 minecraft:stone_brick_wall
+setblock 190 -58 -14 minecraft:stone_brick_wall
+setblock 190 -57 -14 minecraft:lantern
 # ── 회의장: 흰 벽 + 짙은 나무 기둥 + 슬레이트 박공지붕 ──
 fill -15 -60 -10 15 -60 10 minecraft:stone_bricks
 fill -13 -60 -8 13 -60 8 minecraft:dark_oak_planks
@@ -486,242 +480,652 @@ setblock 21 -53 -69 minecraft:sea_lantern
 setblock 21 -53 -64 minecraft:sea_lantern
 setblock 21 -53 -59 minecraft:sea_lantern
 setblock 21 -53 -54 minecraft:sea_lantern
-# ── 체육관 (원작풍): 입구 석상 + 몬스터볼 엠블럼 + 주황 계단식 지붕 (문은 서쪽) ──
-fill 91 -60 -41 133 -60 7 minecraft:polished_andesite
-fill 92 -60 -40 132 -60 6 minecraft:polished_andesite
-fill 92 -59 -40 132 -58 -40 minecraft:polished_deepslate
-fill 92 -59 6 132 -58 6 minecraft:polished_deepslate
-fill 92 -59 -40 92 -58 6 minecraft:polished_deepslate
-fill 132 -59 -40 132 -58 6 minecraft:polished_deepslate
-fill 92 -57 -40 132 -52 -40 minecraft:light_gray_concrete
-fill 92 -57 6 132 -52 6 minecraft:light_gray_concrete
-fill 92 -57 -40 92 -52 6 minecraft:light_gray_concrete
-fill 132 -57 -40 132 -52 6 minecraft:light_gray_concrete
-fill 92 -59 -40 92 -52 -40 minecraft:quartz_pillar
-fill 92 -59 6 92 -52 6 minecraft:quartz_pillar
-fill 94 -55 -40 96 -53 -40 minecraft:glass_pane
-fill 94 -55 6 96 -53 6 minecraft:glass_pane
-fill 98 -59 -40 98 -52 -40 minecraft:quartz_pillar
-fill 98 -59 6 98 -52 6 minecraft:quartz_pillar
-fill 100 -55 -40 102 -53 -40 minecraft:glass_pane
-fill 100 -55 6 102 -53 6 minecraft:glass_pane
-fill 104 -59 -40 104 -52 -40 minecraft:quartz_pillar
-fill 104 -59 6 104 -52 6 minecraft:quartz_pillar
-fill 106 -55 -40 108 -53 -40 minecraft:glass_pane
-fill 106 -55 6 108 -53 6 minecraft:glass_pane
-fill 110 -59 -40 110 -52 -40 minecraft:quartz_pillar
-fill 110 -59 6 110 -52 6 minecraft:quartz_pillar
-fill 112 -55 -40 114 -53 -40 minecraft:glass_pane
-fill 112 -55 6 114 -53 6 minecraft:glass_pane
-fill 116 -59 -40 116 -52 -40 minecraft:quartz_pillar
-fill 116 -59 6 116 -52 6 minecraft:quartz_pillar
-fill 118 -55 -40 120 -53 -40 minecraft:glass_pane
-fill 118 -55 6 120 -53 6 minecraft:glass_pane
-fill 122 -59 -40 122 -52 -40 minecraft:quartz_pillar
-fill 122 -59 6 122 -52 6 minecraft:quartz_pillar
-fill 124 -55 -40 126 -53 -40 minecraft:glass_pane
-fill 124 -55 6 126 -53 6 minecraft:glass_pane
-fill 128 -59 -40 128 -52 -40 minecraft:quartz_pillar
-fill 128 -59 6 128 -52 6 minecraft:quartz_pillar
-fill 130 -55 -40 132 -53 -40 minecraft:glass_pane
-fill 130 -55 6 132 -53 6 minecraft:glass_pane
-fill 92 -59 -40 92 -52 -40 minecraft:quartz_pillar
-fill 132 -59 -40 132 -52 -40 minecraft:quartz_pillar
-fill 92 -59 -34 92 -52 -34 minecraft:quartz_pillar
-fill 132 -59 -34 132 -52 -34 minecraft:quartz_pillar
-fill 92 -59 -28 92 -52 -28 minecraft:quartz_pillar
-fill 132 -59 -28 132 -52 -28 minecraft:quartz_pillar
-fill 92 -59 -22 92 -52 -22 minecraft:quartz_pillar
-fill 132 -59 -22 132 -52 -22 minecraft:quartz_pillar
-fill 92 -59 -16 92 -52 -16 minecraft:quartz_pillar
-fill 132 -59 -16 132 -52 -16 minecraft:quartz_pillar
-fill 92 -59 -10 92 -52 -10 minecraft:quartz_pillar
-fill 132 -59 -10 132 -52 -10 minecraft:quartz_pillar
-fill 92 -59 -4 92 -52 -4 minecraft:quartz_pillar
-fill 132 -59 -4 132 -52 -4 minecraft:quartz_pillar
-fill 92 -59 2 92 -52 2 minecraft:quartz_pillar
-fill 132 -59 2 132 -52 2 minecraft:quartz_pillar
-fill 92 -59 -19 92 -55 -15 minecraft:air
-fill 91 -54 -20 91 -54 -14 minecraft:red_terracotta
-fill 92 -53 -22 92 -46 -12 minecraft:light_gray_concrete
-summon minecraft:text_display 90.4 -53.8 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[2.0f,2.0f,2.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"체육관","color":"gold","bold":true,"extra":[{"text":"\\nPOKéMON GYM","color":"gray","bold":false}]}'}
-setblock 91 -51 -21 minecraft:black_concrete
-setblock 91 -50 -21 minecraft:black_concrete
-setblock 91 -49 -21 minecraft:black_concrete
-setblock 91 -53 -20 minecraft:black_concrete
-setblock 91 -52 -20 minecraft:black_concrete
-setblock 91 -51 -20 minecraft:white_concrete
-setblock 91 -50 -20 minecraft:black_concrete
-setblock 91 -49 -20 minecraft:red_concrete
-setblock 91 -48 -20 minecraft:black_concrete
-setblock 91 -47 -20 minecraft:black_concrete
-setblock 91 -53 -19 minecraft:black_concrete
-setblock 91 -52 -19 minecraft:white_concrete
-setblock 91 -51 -19 minecraft:white_concrete
-setblock 91 -50 -19 minecraft:black_concrete
-setblock 91 -49 -19 minecraft:red_concrete
-setblock 91 -48 -19 minecraft:red_concrete
-setblock 91 -47 -19 minecraft:black_concrete
-setblock 91 -54 -18 minecraft:black_concrete
-setblock 91 -53 -18 minecraft:white_concrete
-setblock 91 -52 -18 minecraft:white_concrete
-setblock 91 -51 -18 minecraft:black_concrete
-setblock 91 -50 -18 minecraft:black_concrete
-setblock 91 -49 -18 minecraft:black_concrete
-setblock 91 -48 -18 minecraft:red_concrete
-setblock 91 -47 -18 minecraft:red_concrete
-setblock 91 -46 -18 minecraft:black_concrete
-setblock 91 -54 -17 minecraft:black_concrete
-setblock 91 -53 -17 minecraft:white_concrete
-setblock 91 -52 -17 minecraft:white_concrete
-setblock 91 -51 -17 minecraft:black_concrete
-setblock 91 -50 -17 minecraft:white_concrete
-setblock 91 -49 -17 minecraft:black_concrete
-setblock 91 -48 -17 minecraft:red_concrete
-setblock 91 -47 -17 minecraft:red_concrete
-setblock 91 -46 -17 minecraft:black_concrete
-setblock 91 -54 -16 minecraft:black_concrete
-setblock 91 -53 -16 minecraft:white_concrete
-setblock 91 -52 -16 minecraft:white_concrete
-setblock 91 -51 -16 minecraft:black_concrete
-setblock 91 -50 -16 minecraft:black_concrete
-setblock 91 -49 -16 minecraft:black_concrete
-setblock 91 -48 -16 minecraft:red_concrete
-setblock 91 -47 -16 minecraft:red_concrete
-setblock 91 -46 -16 minecraft:black_concrete
-setblock 91 -53 -15 minecraft:black_concrete
-setblock 91 -52 -15 minecraft:white_concrete
-setblock 91 -51 -15 minecraft:white_concrete
-setblock 91 -50 -15 minecraft:black_concrete
-setblock 91 -49 -15 minecraft:red_concrete
-setblock 91 -48 -15 minecraft:red_concrete
-setblock 91 -47 -15 minecraft:black_concrete
-setblock 91 -53 -14 minecraft:black_concrete
-setblock 91 -52 -14 minecraft:black_concrete
-setblock 91 -51 -14 minecraft:white_concrete
-setblock 91 -50 -14 minecraft:black_concrete
-setblock 91 -49 -14 minecraft:red_concrete
-setblock 91 -48 -14 minecraft:black_concrete
-setblock 91 -47 -14 minecraft:black_concrete
-setblock 91 -51 -13 minecraft:black_concrete
-setblock 91 -50 -13 minecraft:black_concrete
-setblock 91 -49 -13 minecraft:black_concrete
-fill 86 -59 -23 88 -59 -21 minecraft:polished_andesite
-fill 87 -58 -22 87 -58 -22 minecraft:chiseled_stone_bricks
-fill 86 -57 -23 88 -57 -21 minecraft:white_concrete
-fill 86 -56 -23 88 -56 -21 minecraft:black_concrete
-fill 86 -55 -23 88 -55 -21 minecraft:red_concrete
-setblock 86 -56 -22 minecraft:white_concrete
-fill 86 -59 -13 88 -59 -11 minecraft:polished_andesite
-fill 87 -58 -12 87 -58 -12 minecraft:chiseled_stone_bricks
-fill 86 -57 -13 88 -57 -11 minecraft:white_concrete
-fill 86 -56 -13 88 -56 -11 minecraft:black_concrete
-fill 86 -55 -13 88 -55 -11 minecraft:red_concrete
-setblock 86 -56 -12 minecraft:white_concrete
-fill 91 -51 -41 133 -51 7 minecraft:white_concrete
-fill 92 -51 -40 132 -51 6 minecraft:orange_terracotta
-fill 95 -50 -37 129 -50 3 minecraft:orange_terracotta
-fill 99 -49 -33 125 -49 -1 minecraft:orange_terracotta
-fill 100 -60 -31 124 -60 -3 minecraft:moss_block
-fill 100 -60 -31 124 -60 -31 minecraft:smooth_quartz
-fill 100 -60 -3 124 -60 -3 minecraft:smooth_quartz
-fill 100 -60 -31 100 -60 -3 minecraft:smooth_quartz
-fill 124 -60 -31 124 -60 -3 minecraft:smooth_quartz
-fill 112 -60 -31 112 -60 -3 minecraft:smooth_quartz
-setblock 108 -60 -19 minecraft:smooth_quartz
-setblock 108 -60 -18 minecraft:smooth_quartz
-setblock 108 -60 -17 minecraft:smooth_quartz
-setblock 108 -60 -16 minecraft:smooth_quartz
-setblock 108 -60 -15 minecraft:smooth_quartz
-setblock 109 -60 -20 minecraft:smooth_quartz
-setblock 109 -60 -19 minecraft:smooth_quartz
-setblock 109 -60 -15 minecraft:smooth_quartz
-setblock 109 -60 -14 minecraft:smooth_quartz
-setblock 110 -60 -21 minecraft:smooth_quartz
-setblock 110 -60 -20 minecraft:smooth_quartz
-setblock 110 -60 -14 minecraft:smooth_quartz
-setblock 110 -60 -13 minecraft:smooth_quartz
-setblock 111 -60 -21 minecraft:smooth_quartz
-setblock 111 -60 -13 minecraft:smooth_quartz
-setblock 112 -60 -21 minecraft:smooth_quartz
-setblock 112 -60 -13 minecraft:smooth_quartz
-setblock 113 -60 -21 minecraft:smooth_quartz
-setblock 113 -60 -13 minecraft:smooth_quartz
-setblock 114 -60 -21 minecraft:smooth_quartz
-setblock 114 -60 -20 minecraft:smooth_quartz
-setblock 114 -60 -14 minecraft:smooth_quartz
-setblock 114 -60 -13 minecraft:smooth_quartz
-setblock 115 -60 -20 minecraft:smooth_quartz
-setblock 115 -60 -19 minecraft:smooth_quartz
-setblock 115 -60 -15 minecraft:smooth_quartz
-setblock 115 -60 -14 minecraft:smooth_quartz
-setblock 116 -60 -19 minecraft:smooth_quartz
-setblock 116 -60 -18 minecraft:smooth_quartz
-setblock 116 -60 -17 minecraft:smooth_quartz
-setblock 116 -60 -16 minecraft:smooth_quartz
-setblock 116 -60 -15 minecraft:smooth_quartz
-fill 100 -59 -39 124 -59 -39 minecraft:stone_brick_stairs[facing=north]
-fill 100 -59 5 124 -59 5 minecraft:stone_brick_stairs[facing=south]
-fill 100 -58 -38 124 -58 -38 minecraft:stone_brick_stairs[facing=north]
-fill 100 -58 4 124 -58 4 minecraft:stone_brick_stairs[facing=south]
-fill 100 -59 -39 124 -59 -38 minecraft:stone_bricks
-fill 100 -59 4 124 -59 5 minecraft:stone_bricks
-fill 100 -57 -37 124 -57 -37 minecraft:stone_brick_stairs[facing=north]
-fill 100 -57 3 124 -57 3 minecraft:stone_brick_stairs[facing=south]
-fill 100 -59 -39 124 -58 -37 minecraft:stone_bricks
-fill 100 -59 3 124 -58 5 minecraft:stone_bricks
-fill 127 -59 -21 131 -59 -13 minecraft:quartz_block
-fill 129 -58 -19 131 -58 -15 minecraft:quartz_block
-fill 126 -59 -21 126 -59 -13 minecraft:quartz_stairs[facing=east]
-setblock 96 -52 -36 minecraft:sea_lantern
-setblock 96 -52 -30 minecraft:sea_lantern
-setblock 96 -52 -24 minecraft:sea_lantern
-setblock 96 -52 -18 minecraft:sea_lantern
-setblock 96 -52 -12 minecraft:sea_lantern
-setblock 96 -52 -6 minecraft:sea_lantern
-setblock 96 -52 0 minecraft:sea_lantern
-setblock 102 -52 -36 minecraft:sea_lantern
-setblock 102 -52 -30 minecraft:sea_lantern
-setblock 102 -52 -24 minecraft:sea_lantern
-setblock 102 -52 -18 minecraft:sea_lantern
-setblock 102 -52 -12 minecraft:sea_lantern
-setblock 102 -52 -6 minecraft:sea_lantern
-setblock 102 -52 0 minecraft:sea_lantern
-setblock 108 -52 -36 minecraft:sea_lantern
-setblock 108 -52 -30 minecraft:sea_lantern
-setblock 108 -52 -24 minecraft:sea_lantern
-setblock 108 -52 -18 minecraft:sea_lantern
-setblock 108 -52 -12 minecraft:sea_lantern
-setblock 108 -52 -6 minecraft:sea_lantern
-setblock 108 -52 0 minecraft:sea_lantern
-setblock 114 -52 -36 minecraft:sea_lantern
-setblock 114 -52 -30 minecraft:sea_lantern
-setblock 114 -52 -24 minecraft:sea_lantern
-setblock 114 -52 -18 minecraft:sea_lantern
-setblock 114 -52 -12 minecraft:sea_lantern
-setblock 114 -52 -6 minecraft:sea_lantern
-setblock 114 -52 0 minecraft:sea_lantern
-setblock 120 -52 -36 minecraft:sea_lantern
-setblock 120 -52 -30 minecraft:sea_lantern
-setblock 120 -52 -24 minecraft:sea_lantern
-setblock 120 -52 -18 minecraft:sea_lantern
-setblock 120 -52 -12 minecraft:sea_lantern
-setblock 120 -52 -6 minecraft:sea_lantern
-setblock 120 -52 0 minecraft:sea_lantern
-setblock 126 -52 -36 minecraft:sea_lantern
-setblock 126 -52 -30 minecraft:sea_lantern
-setblock 126 -52 -24 minecraft:sea_lantern
-setblock 126 -52 -18 minecraft:sea_lantern
-setblock 126 -52 -12 minecraft:sea_lantern
-setblock 126 -52 -6 minecraft:sea_lantern
-setblock 126 -52 0 minecraft:sea_lantern
+# ── 1번 체육관 ──
+fill 39 -60 -47 61 -60 -21 minecraft:polished_andesite
+fill 41 -60 -45 59 -60 -23 minecraft:cobblestone
+fill 40 -59 -46 60 -58 -46 minecraft:polished_deepslate
+fill 40 -59 -22 60 -58 -22 minecraft:polished_deepslate
+fill 40 -59 -46 40 -58 -22 minecraft:polished_deepslate
+fill 60 -59 -46 60 -58 -22 minecraft:polished_deepslate
+fill 40 -57 -46 60 -53 -46 minecraft:light_gray_concrete
+fill 40 -57 -22 60 -53 -22 minecraft:light_gray_concrete
+fill 40 -57 -46 40 -53 -22 minecraft:light_gray_concrete
+fill 60 -57 -46 60 -53 -22 minecraft:light_gray_concrete
+fill 40 -59 -46 40 -53 -46 minecraft:quartz_pillar
+fill 40 -59 -22 40 -53 -22 minecraft:quartz_pillar
+fill 45 -59 -46 45 -53 -46 minecraft:quartz_pillar
+fill 45 -59 -22 45 -53 -22 minecraft:quartz_pillar
+fill 50 -59 -46 50 -53 -46 minecraft:quartz_pillar
+fill 50 -59 -22 50 -53 -22 minecraft:quartz_pillar
+fill 55 -59 -46 55 -53 -46 minecraft:quartz_pillar
+fill 55 -59 -22 55 -53 -22 minecraft:quartz_pillar
+fill 60 -59 -46 60 -53 -46 minecraft:quartz_pillar
+fill 60 -59 -22 60 -53 -22 minecraft:quartz_pillar
+fill 40 -59 -46 40 -53 -46 minecraft:quartz_pillar
+fill 60 -59 -46 60 -53 -46 minecraft:quartz_pillar
+fill 40 -59 -40 40 -53 -40 minecraft:quartz_pillar
+fill 60 -59 -40 60 -53 -40 minecraft:quartz_pillar
+fill 40 -59 -34 40 -53 -34 minecraft:quartz_pillar
+fill 60 -59 -34 60 -53 -34 minecraft:quartz_pillar
+fill 40 -59 -28 40 -53 -28 minecraft:quartz_pillar
+fill 60 -59 -28 60 -53 -28 minecraft:quartz_pillar
+fill 40 -59 -22 40 -53 -22 minecraft:quartz_pillar
+fill 60 -59 -22 60 -53 -22 minecraft:quartz_pillar
+fill 49 -59 -22 51 -57 -22 minecraft:light_blue_stained_glass
+fill 47 -56 -21 53 -56 -21 minecraft:gray_terracotta
+fill 47 -55 -22 53 -55 -22 minecraft:red_concrete
+fill 47 -54 -22 53 -54 -22 minecraft:black_concrete
+fill 47 -53 -22 53 -53 -22 minecraft:white_concrete
+summon minecraft:text_display 50.5 -51 -20.0 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"1번 체육관","color":"gold","bold":true,"extra":[""]}'}
+fill 45 -59 -21 45 -58 -21 minecraft:chiseled_stone_bricks
+setblock 45 -57 -21 minecraft:red_concrete
+fill 55 -59 -21 55 -58 -21 minecraft:chiseled_stone_bricks
+setblock 55 -57 -21 minecraft:red_concrete
+fill 39 -52 -47 61 -52 -21 minecraft:white_concrete
+fill 40 -52 -46 60 -52 -22 minecraft:gray_terracotta
+fill 43 -51 -43 57 -51 -25 minecraft:gray_terracotta
+fill 46 -50 -40 54 -50 -28 minecraft:gray_terracotta
+fill 43 -60 -34 57 -60 -34 minecraft:smooth_quartz
+fill 48 -60 -43 52 -60 -41 minecraft:quartz_block
+fill 49 -60 -21 51 -60 -21 minecraft:lime_stained_glass
+fill 49 -60 -23 51 -60 -23 minecraft:orange_stained_glass
+summon minecraft:text_display 50.5 -57.5 -22.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"extra":[""]}'}
+setblock 43 -53 -43 minecraft:sea_lantern
+setblock 43 -53 -38 minecraft:sea_lantern
+setblock 43 -53 -33 minecraft:sea_lantern
+setblock 43 -53 -28 minecraft:sea_lantern
+setblock 48 -53 -43 minecraft:sea_lantern
+setblock 48 -53 -38 minecraft:sea_lantern
+setblock 48 -53 -33 minecraft:sea_lantern
+setblock 48 -53 -28 minecraft:sea_lantern
+setblock 53 -53 -43 minecraft:sea_lantern
+setblock 53 -53 -38 minecraft:sea_lantern
+setblock 53 -53 -33 minecraft:sea_lantern
+setblock 53 -53 -28 minecraft:sea_lantern
+setblock 58 -53 -43 minecraft:sea_lantern
+setblock 58 -53 -38 minecraft:sea_lantern
+setblock 58 -53 -33 minecraft:sea_lantern
+setblock 58 -53 -28 minecraft:sea_lantern
+# ── 2번 체육관 ──
+fill 39 -60 -13 61 -60 13 minecraft:polished_andesite
+fill 41 -60 -11 59 -60 11 minecraft:prismarine
+fill 40 -59 -12 60 -58 -12 minecraft:polished_deepslate
+fill 40 -59 12 60 -58 12 minecraft:polished_deepslate
+fill 40 -59 -12 40 -58 12 minecraft:polished_deepslate
+fill 60 -59 -12 60 -58 12 minecraft:polished_deepslate
+fill 40 -57 -12 60 -53 -12 minecraft:light_gray_concrete
+fill 40 -57 12 60 -53 12 minecraft:light_gray_concrete
+fill 40 -57 -12 40 -53 12 minecraft:light_gray_concrete
+fill 60 -57 -12 60 -53 12 minecraft:light_gray_concrete
+fill 40 -59 -12 40 -53 -12 minecraft:quartz_pillar
+fill 40 -59 12 40 -53 12 minecraft:quartz_pillar
+fill 45 -59 -12 45 -53 -12 minecraft:quartz_pillar
+fill 45 -59 12 45 -53 12 minecraft:quartz_pillar
+fill 50 -59 -12 50 -53 -12 minecraft:quartz_pillar
+fill 50 -59 12 50 -53 12 minecraft:quartz_pillar
+fill 55 -59 -12 55 -53 -12 minecraft:quartz_pillar
+fill 55 -59 12 55 -53 12 minecraft:quartz_pillar
+fill 60 -59 -12 60 -53 -12 minecraft:quartz_pillar
+fill 60 -59 12 60 -53 12 minecraft:quartz_pillar
+fill 40 -59 -12 40 -53 -12 minecraft:quartz_pillar
+fill 60 -59 -12 60 -53 -12 minecraft:quartz_pillar
+fill 40 -59 -6 40 -53 -6 minecraft:quartz_pillar
+fill 60 -59 -6 60 -53 -6 minecraft:quartz_pillar
+fill 40 -59 0 40 -53 0 minecraft:quartz_pillar
+fill 60 -59 0 60 -53 0 minecraft:quartz_pillar
+fill 40 -59 6 40 -53 6 minecraft:quartz_pillar
+fill 60 -59 6 60 -53 6 minecraft:quartz_pillar
+fill 40 -59 12 40 -53 12 minecraft:quartz_pillar
+fill 60 -59 12 60 -53 12 minecraft:quartz_pillar
+fill 49 -59 -12 51 -57 -12 minecraft:light_blue_stained_glass
+fill 47 -56 -13 53 -56 -13 minecraft:blue_terracotta
+fill 47 -55 -12 53 -55 -12 minecraft:red_concrete
+fill 47 -54 -12 53 -54 -12 minecraft:black_concrete
+fill 47 -53 -12 53 -53 -12 minecraft:white_concrete
+summon minecraft:text_display 50.5 -51 -13.0 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"2번 체육관","color":"gold","bold":true,"extra":[""]}'}
+fill 45 -59 -13 45 -58 -13 minecraft:chiseled_stone_bricks
+setblock 45 -57 -13 minecraft:red_concrete
+fill 55 -59 -13 55 -58 -13 minecraft:chiseled_stone_bricks
+setblock 55 -57 -13 minecraft:red_concrete
+fill 39 -52 -13 61 -52 13 minecraft:white_concrete
+fill 40 -52 -12 60 -52 12 minecraft:blue_terracotta
+fill 43 -51 -9 57 -51 9 minecraft:blue_terracotta
+fill 46 -50 -6 54 -50 6 minecraft:blue_terracotta
+fill 43 -60 0 57 -60 0 minecraft:smooth_quartz
+fill 48 -60 8 52 -60 10 minecraft:quartz_block
+fill 49 -60 -14 51 -60 -14 minecraft:lime_stained_glass
+fill 49 -60 -11 51 -60 -11 minecraft:orange_stained_glass
+summon minecraft:text_display 50.5 -57.5 -10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"extra":[""]}'}
+setblock 43 -53 -9 minecraft:sea_lantern
+setblock 43 -53 -4 minecraft:sea_lantern
+setblock 43 -53 1 minecraft:sea_lantern
+setblock 43 -53 6 minecraft:sea_lantern
+setblock 48 -53 -9 minecraft:sea_lantern
+setblock 48 -53 -4 minecraft:sea_lantern
+setblock 48 -53 1 minecraft:sea_lantern
+setblock 48 -53 6 minecraft:sea_lantern
+setblock 53 -53 -9 minecraft:sea_lantern
+setblock 53 -53 -4 minecraft:sea_lantern
+setblock 53 -53 1 minecraft:sea_lantern
+setblock 53 -53 6 minecraft:sea_lantern
+setblock 58 -53 -9 minecraft:sea_lantern
+setblock 58 -53 -4 minecraft:sea_lantern
+setblock 58 -53 1 minecraft:sea_lantern
+setblock 58 -53 6 minecraft:sea_lantern
+# ── 3번 체육관 ──
+fill 79 -60 -47 101 -60 -21 minecraft:polished_andesite
+fill 81 -60 -45 99 -60 -23 minecraft:yellow_concrete
+fill 80 -59 -46 100 -58 -46 minecraft:polished_deepslate
+fill 80 -59 -22 100 -58 -22 minecraft:polished_deepslate
+fill 80 -59 -46 80 -58 -22 minecraft:polished_deepslate
+fill 100 -59 -46 100 -58 -22 minecraft:polished_deepslate
+fill 80 -57 -46 100 -53 -46 minecraft:light_gray_concrete
+fill 80 -57 -22 100 -53 -22 minecraft:light_gray_concrete
+fill 80 -57 -46 80 -53 -22 minecraft:light_gray_concrete
+fill 100 -57 -46 100 -53 -22 minecraft:light_gray_concrete
+fill 80 -59 -46 80 -53 -46 minecraft:quartz_pillar
+fill 80 -59 -22 80 -53 -22 minecraft:quartz_pillar
+fill 85 -59 -46 85 -53 -46 minecraft:quartz_pillar
+fill 85 -59 -22 85 -53 -22 minecraft:quartz_pillar
+fill 90 -59 -46 90 -53 -46 minecraft:quartz_pillar
+fill 90 -59 -22 90 -53 -22 minecraft:quartz_pillar
+fill 95 -59 -46 95 -53 -46 minecraft:quartz_pillar
+fill 95 -59 -22 95 -53 -22 minecraft:quartz_pillar
+fill 100 -59 -46 100 -53 -46 minecraft:quartz_pillar
+fill 100 -59 -22 100 -53 -22 minecraft:quartz_pillar
+fill 80 -59 -46 80 -53 -46 minecraft:quartz_pillar
+fill 100 -59 -46 100 -53 -46 minecraft:quartz_pillar
+fill 80 -59 -40 80 -53 -40 minecraft:quartz_pillar
+fill 100 -59 -40 100 -53 -40 minecraft:quartz_pillar
+fill 80 -59 -34 80 -53 -34 minecraft:quartz_pillar
+fill 100 -59 -34 100 -53 -34 minecraft:quartz_pillar
+fill 80 -59 -28 80 -53 -28 minecraft:quartz_pillar
+fill 100 -59 -28 100 -53 -28 minecraft:quartz_pillar
+fill 80 -59 -22 80 -53 -22 minecraft:quartz_pillar
+fill 100 -59 -22 100 -53 -22 minecraft:quartz_pillar
+fill 89 -59 -22 91 -57 -22 minecraft:light_blue_stained_glass
+fill 87 -56 -21 93 -56 -21 minecraft:yellow_terracotta
+fill 87 -55 -22 93 -55 -22 minecraft:red_concrete
+fill 87 -54 -22 93 -54 -22 minecraft:black_concrete
+fill 87 -53 -22 93 -53 -22 minecraft:white_concrete
+summon minecraft:text_display 90.5 -51 -20.0 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"3번 체육관","color":"gold","bold":true,"extra":[""]}'}
+fill 85 -59 -21 85 -58 -21 minecraft:chiseled_stone_bricks
+setblock 85 -57 -21 minecraft:red_concrete
+fill 95 -59 -21 95 -58 -21 minecraft:chiseled_stone_bricks
+setblock 95 -57 -21 minecraft:red_concrete
+fill 79 -52 -47 101 -52 -21 minecraft:white_concrete
+fill 80 -52 -46 100 -52 -22 minecraft:yellow_terracotta
+fill 83 -51 -43 97 -51 -25 minecraft:yellow_terracotta
+fill 86 -50 -40 94 -50 -28 minecraft:yellow_terracotta
+fill 83 -60 -34 97 -60 -34 minecraft:smooth_quartz
+fill 88 -60 -43 92 -60 -41 minecraft:quartz_block
+fill 89 -60 -21 91 -60 -21 minecraft:lime_stained_glass
+fill 89 -60 -23 91 -60 -23 minecraft:orange_stained_glass
+summon minecraft:text_display 90.5 -57.5 -22.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"extra":[""]}'}
+setblock 83 -53 -43 minecraft:sea_lantern
+setblock 83 -53 -38 minecraft:sea_lantern
+setblock 83 -53 -33 minecraft:sea_lantern
+setblock 83 -53 -28 minecraft:sea_lantern
+setblock 88 -53 -43 minecraft:sea_lantern
+setblock 88 -53 -38 minecraft:sea_lantern
+setblock 88 -53 -33 minecraft:sea_lantern
+setblock 88 -53 -28 minecraft:sea_lantern
+setblock 93 -53 -43 minecraft:sea_lantern
+setblock 93 -53 -38 minecraft:sea_lantern
+setblock 93 -53 -33 minecraft:sea_lantern
+setblock 93 -53 -28 minecraft:sea_lantern
+setblock 98 -53 -43 minecraft:sea_lantern
+setblock 98 -53 -38 minecraft:sea_lantern
+setblock 98 -53 -33 minecraft:sea_lantern
+setblock 98 -53 -28 minecraft:sea_lantern
+# ── 4번 체육관 ──
+fill 79 -60 -13 101 -60 13 minecraft:polished_andesite
+fill 81 -60 -11 99 -60 11 minecraft:moss_block
+fill 80 -59 -12 100 -58 -12 minecraft:polished_deepslate
+fill 80 -59 12 100 -58 12 minecraft:polished_deepslate
+fill 80 -59 -12 80 -58 12 minecraft:polished_deepslate
+fill 100 -59 -12 100 -58 12 minecraft:polished_deepslate
+fill 80 -57 -12 100 -53 -12 minecraft:light_gray_concrete
+fill 80 -57 12 100 -53 12 minecraft:light_gray_concrete
+fill 80 -57 -12 80 -53 12 minecraft:light_gray_concrete
+fill 100 -57 -12 100 -53 12 minecraft:light_gray_concrete
+fill 80 -59 -12 80 -53 -12 minecraft:quartz_pillar
+fill 80 -59 12 80 -53 12 minecraft:quartz_pillar
+fill 85 -59 -12 85 -53 -12 minecraft:quartz_pillar
+fill 85 -59 12 85 -53 12 minecraft:quartz_pillar
+fill 90 -59 -12 90 -53 -12 minecraft:quartz_pillar
+fill 90 -59 12 90 -53 12 minecraft:quartz_pillar
+fill 95 -59 -12 95 -53 -12 minecraft:quartz_pillar
+fill 95 -59 12 95 -53 12 minecraft:quartz_pillar
+fill 100 -59 -12 100 -53 -12 minecraft:quartz_pillar
+fill 100 -59 12 100 -53 12 minecraft:quartz_pillar
+fill 80 -59 -12 80 -53 -12 minecraft:quartz_pillar
+fill 100 -59 -12 100 -53 -12 minecraft:quartz_pillar
+fill 80 -59 -6 80 -53 -6 minecraft:quartz_pillar
+fill 100 -59 -6 100 -53 -6 minecraft:quartz_pillar
+fill 80 -59 0 80 -53 0 minecraft:quartz_pillar
+fill 100 -59 0 100 -53 0 minecraft:quartz_pillar
+fill 80 -59 6 80 -53 6 minecraft:quartz_pillar
+fill 100 -59 6 100 -53 6 minecraft:quartz_pillar
+fill 80 -59 12 80 -53 12 minecraft:quartz_pillar
+fill 100 -59 12 100 -53 12 minecraft:quartz_pillar
+fill 89 -59 -12 91 -57 -12 minecraft:light_blue_stained_glass
+fill 87 -56 -13 93 -56 -13 minecraft:lime_terracotta
+fill 87 -55 -12 93 -55 -12 minecraft:red_concrete
+fill 87 -54 -12 93 -54 -12 minecraft:black_concrete
+fill 87 -53 -12 93 -53 -12 minecraft:white_concrete
+summon minecraft:text_display 90.5 -51 -13.0 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"4번 체육관","color":"gold","bold":true,"extra":[""]}'}
+fill 85 -59 -13 85 -58 -13 minecraft:chiseled_stone_bricks
+setblock 85 -57 -13 minecraft:red_concrete
+fill 95 -59 -13 95 -58 -13 minecraft:chiseled_stone_bricks
+setblock 95 -57 -13 minecraft:red_concrete
+fill 79 -52 -13 101 -52 13 minecraft:white_concrete
+fill 80 -52 -12 100 -52 12 minecraft:lime_terracotta
+fill 83 -51 -9 97 -51 9 minecraft:lime_terracotta
+fill 86 -50 -6 94 -50 6 minecraft:lime_terracotta
+fill 83 -60 0 97 -60 0 minecraft:smooth_quartz
+fill 88 -60 8 92 -60 10 minecraft:quartz_block
+fill 89 -60 -14 91 -60 -14 minecraft:lime_stained_glass
+fill 89 -60 -11 91 -60 -11 minecraft:orange_stained_glass
+summon minecraft:text_display 90.5 -57.5 -10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"extra":[""]}'}
+setblock 83 -53 -9 minecraft:sea_lantern
+setblock 83 -53 -4 minecraft:sea_lantern
+setblock 83 -53 1 minecraft:sea_lantern
+setblock 83 -53 6 minecraft:sea_lantern
+setblock 88 -53 -9 minecraft:sea_lantern
+setblock 88 -53 -4 minecraft:sea_lantern
+setblock 88 -53 1 minecraft:sea_lantern
+setblock 88 -53 6 minecraft:sea_lantern
+setblock 93 -53 -9 minecraft:sea_lantern
+setblock 93 -53 -4 minecraft:sea_lantern
+setblock 93 -53 1 minecraft:sea_lantern
+setblock 93 -53 6 minecraft:sea_lantern
+setblock 98 -53 -9 minecraft:sea_lantern
+setblock 98 -53 -4 minecraft:sea_lantern
+setblock 98 -53 1 minecraft:sea_lantern
+setblock 98 -53 6 minecraft:sea_lantern
+# ── 5번 체육관 ──
+fill 119 -60 -47 141 -60 -21 minecraft:polished_andesite
+fill 121 -60 -45 139 -60 -23 minecraft:purple_concrete
+fill 120 -59 -46 140 -58 -46 minecraft:polished_deepslate
+fill 120 -59 -22 140 -58 -22 minecraft:polished_deepslate
+fill 120 -59 -46 120 -58 -22 minecraft:polished_deepslate
+fill 140 -59 -46 140 -58 -22 minecraft:polished_deepslate
+fill 120 -57 -46 140 -53 -46 minecraft:light_gray_concrete
+fill 120 -57 -22 140 -53 -22 minecraft:light_gray_concrete
+fill 120 -57 -46 120 -53 -22 minecraft:light_gray_concrete
+fill 140 -57 -46 140 -53 -22 minecraft:light_gray_concrete
+fill 120 -59 -46 120 -53 -46 minecraft:quartz_pillar
+fill 120 -59 -22 120 -53 -22 minecraft:quartz_pillar
+fill 125 -59 -46 125 -53 -46 minecraft:quartz_pillar
+fill 125 -59 -22 125 -53 -22 minecraft:quartz_pillar
+fill 130 -59 -46 130 -53 -46 minecraft:quartz_pillar
+fill 130 -59 -22 130 -53 -22 minecraft:quartz_pillar
+fill 135 -59 -46 135 -53 -46 minecraft:quartz_pillar
+fill 135 -59 -22 135 -53 -22 minecraft:quartz_pillar
+fill 140 -59 -46 140 -53 -46 minecraft:quartz_pillar
+fill 140 -59 -22 140 -53 -22 minecraft:quartz_pillar
+fill 120 -59 -46 120 -53 -46 minecraft:quartz_pillar
+fill 140 -59 -46 140 -53 -46 minecraft:quartz_pillar
+fill 120 -59 -40 120 -53 -40 minecraft:quartz_pillar
+fill 140 -59 -40 140 -53 -40 minecraft:quartz_pillar
+fill 120 -59 -34 120 -53 -34 minecraft:quartz_pillar
+fill 140 -59 -34 140 -53 -34 minecraft:quartz_pillar
+fill 120 -59 -28 120 -53 -28 minecraft:quartz_pillar
+fill 140 -59 -28 140 -53 -28 minecraft:quartz_pillar
+fill 120 -59 -22 120 -53 -22 minecraft:quartz_pillar
+fill 140 -59 -22 140 -53 -22 minecraft:quartz_pillar
+fill 129 -59 -22 131 -57 -22 minecraft:light_blue_stained_glass
+fill 127 -56 -21 133 -56 -21 minecraft:purple_terracotta
+fill 127 -55 -22 133 -55 -22 minecraft:red_concrete
+fill 127 -54 -22 133 -54 -22 minecraft:black_concrete
+fill 127 -53 -22 133 -53 -22 minecraft:white_concrete
+summon minecraft:text_display 130.5 -51 -20.0 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"5번 체육관","color":"gold","bold":true,"extra":[""]}'}
+fill 125 -59 -21 125 -58 -21 minecraft:chiseled_stone_bricks
+setblock 125 -57 -21 minecraft:red_concrete
+fill 135 -59 -21 135 -58 -21 minecraft:chiseled_stone_bricks
+setblock 135 -57 -21 minecraft:red_concrete
+fill 119 -52 -47 141 -52 -21 minecraft:white_concrete
+fill 120 -52 -46 140 -52 -22 minecraft:purple_terracotta
+fill 123 -51 -43 137 -51 -25 minecraft:purple_terracotta
+fill 126 -50 -40 134 -50 -28 minecraft:purple_terracotta
+fill 123 -60 -34 137 -60 -34 minecraft:smooth_quartz
+fill 128 -60 -43 132 -60 -41 minecraft:quartz_block
+fill 129 -60 -21 131 -60 -21 minecraft:lime_stained_glass
+fill 129 -60 -23 131 -60 -23 minecraft:orange_stained_glass
+summon minecraft:text_display 130.5 -57.5 -22.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"extra":[""]}'}
+setblock 123 -53 -43 minecraft:sea_lantern
+setblock 123 -53 -38 minecraft:sea_lantern
+setblock 123 -53 -33 minecraft:sea_lantern
+setblock 123 -53 -28 minecraft:sea_lantern
+setblock 128 -53 -43 minecraft:sea_lantern
+setblock 128 -53 -38 minecraft:sea_lantern
+setblock 128 -53 -33 minecraft:sea_lantern
+setblock 128 -53 -28 minecraft:sea_lantern
+setblock 133 -53 -43 minecraft:sea_lantern
+setblock 133 -53 -38 minecraft:sea_lantern
+setblock 133 -53 -33 minecraft:sea_lantern
+setblock 133 -53 -28 minecraft:sea_lantern
+setblock 138 -53 -43 minecraft:sea_lantern
+setblock 138 -53 -38 minecraft:sea_lantern
+setblock 138 -53 -33 minecraft:sea_lantern
+setblock 138 -53 -28 minecraft:sea_lantern
+# ── 6번 체육관 ──
+fill 119 -60 -13 141 -60 13 minecraft:polished_andesite
+fill 121 -60 -11 139 -60 11 minecraft:magenta_concrete
+fill 120 -59 -12 140 -58 -12 minecraft:polished_deepslate
+fill 120 -59 12 140 -58 12 minecraft:polished_deepslate
+fill 120 -59 -12 120 -58 12 minecraft:polished_deepslate
+fill 140 -59 -12 140 -58 12 minecraft:polished_deepslate
+fill 120 -57 -12 140 -53 -12 minecraft:light_gray_concrete
+fill 120 -57 12 140 -53 12 minecraft:light_gray_concrete
+fill 120 -57 -12 120 -53 12 minecraft:light_gray_concrete
+fill 140 -57 -12 140 -53 12 minecraft:light_gray_concrete
+fill 120 -59 -12 120 -53 -12 minecraft:quartz_pillar
+fill 120 -59 12 120 -53 12 minecraft:quartz_pillar
+fill 125 -59 -12 125 -53 -12 minecraft:quartz_pillar
+fill 125 -59 12 125 -53 12 minecraft:quartz_pillar
+fill 130 -59 -12 130 -53 -12 minecraft:quartz_pillar
+fill 130 -59 12 130 -53 12 minecraft:quartz_pillar
+fill 135 -59 -12 135 -53 -12 minecraft:quartz_pillar
+fill 135 -59 12 135 -53 12 minecraft:quartz_pillar
+fill 140 -59 -12 140 -53 -12 minecraft:quartz_pillar
+fill 140 -59 12 140 -53 12 minecraft:quartz_pillar
+fill 120 -59 -12 120 -53 -12 minecraft:quartz_pillar
+fill 140 -59 -12 140 -53 -12 minecraft:quartz_pillar
+fill 120 -59 -6 120 -53 -6 minecraft:quartz_pillar
+fill 140 -59 -6 140 -53 -6 minecraft:quartz_pillar
+fill 120 -59 0 120 -53 0 minecraft:quartz_pillar
+fill 140 -59 0 140 -53 0 minecraft:quartz_pillar
+fill 120 -59 6 120 -53 6 minecraft:quartz_pillar
+fill 140 -59 6 140 -53 6 minecraft:quartz_pillar
+fill 120 -59 12 120 -53 12 minecraft:quartz_pillar
+fill 140 -59 12 140 -53 12 minecraft:quartz_pillar
+fill 129 -59 -12 131 -57 -12 minecraft:light_blue_stained_glass
+fill 127 -56 -13 133 -56 -13 minecraft:magenta_terracotta
+fill 127 -55 -12 133 -55 -12 minecraft:red_concrete
+fill 127 -54 -12 133 -54 -12 minecraft:black_concrete
+fill 127 -53 -12 133 -53 -12 minecraft:white_concrete
+summon minecraft:text_display 130.5 -51 -13.0 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"6번 체육관","color":"gold","bold":true,"extra":[""]}'}
+fill 125 -59 -13 125 -58 -13 minecraft:chiseled_stone_bricks
+setblock 125 -57 -13 minecraft:red_concrete
+fill 135 -59 -13 135 -58 -13 minecraft:chiseled_stone_bricks
+setblock 135 -57 -13 minecraft:red_concrete
+fill 119 -52 -13 141 -52 13 minecraft:white_concrete
+fill 120 -52 -12 140 -52 12 minecraft:magenta_terracotta
+fill 123 -51 -9 137 -51 9 minecraft:magenta_terracotta
+fill 126 -50 -6 134 -50 6 minecraft:magenta_terracotta
+fill 123 -60 0 137 -60 0 minecraft:smooth_quartz
+fill 128 -60 8 132 -60 10 minecraft:quartz_block
+fill 129 -60 -14 131 -60 -14 minecraft:lime_stained_glass
+fill 129 -60 -11 131 -60 -11 minecraft:orange_stained_glass
+summon minecraft:text_display 130.5 -57.5 -10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"extra":[""]}'}
+setblock 123 -53 -9 minecraft:sea_lantern
+setblock 123 -53 -4 minecraft:sea_lantern
+setblock 123 -53 1 minecraft:sea_lantern
+setblock 123 -53 6 minecraft:sea_lantern
+setblock 128 -53 -9 minecraft:sea_lantern
+setblock 128 -53 -4 minecraft:sea_lantern
+setblock 128 -53 1 minecraft:sea_lantern
+setblock 128 -53 6 minecraft:sea_lantern
+setblock 133 -53 -9 minecraft:sea_lantern
+setblock 133 -53 -4 minecraft:sea_lantern
+setblock 133 -53 1 minecraft:sea_lantern
+setblock 133 -53 6 minecraft:sea_lantern
+setblock 138 -53 -9 minecraft:sea_lantern
+setblock 138 -53 -4 minecraft:sea_lantern
+setblock 138 -53 1 minecraft:sea_lantern
+setblock 138 -53 6 minecraft:sea_lantern
+# ── 7번 체육관 ──
+fill 159 -60 -47 181 -60 -21 minecraft:polished_andesite
+fill 161 -60 -45 179 -60 -23 minecraft:red_nether_bricks
+fill 160 -59 -46 180 -58 -46 minecraft:polished_deepslate
+fill 160 -59 -22 180 -58 -22 minecraft:polished_deepslate
+fill 160 -59 -46 160 -58 -22 minecraft:polished_deepslate
+fill 180 -59 -46 180 -58 -22 minecraft:polished_deepslate
+fill 160 -57 -46 180 -53 -46 minecraft:light_gray_concrete
+fill 160 -57 -22 180 -53 -22 minecraft:light_gray_concrete
+fill 160 -57 -46 160 -53 -22 minecraft:light_gray_concrete
+fill 180 -57 -46 180 -53 -22 minecraft:light_gray_concrete
+fill 160 -59 -46 160 -53 -46 minecraft:quartz_pillar
+fill 160 -59 -22 160 -53 -22 minecraft:quartz_pillar
+fill 165 -59 -46 165 -53 -46 minecraft:quartz_pillar
+fill 165 -59 -22 165 -53 -22 minecraft:quartz_pillar
+fill 170 -59 -46 170 -53 -46 minecraft:quartz_pillar
+fill 170 -59 -22 170 -53 -22 minecraft:quartz_pillar
+fill 175 -59 -46 175 -53 -46 minecraft:quartz_pillar
+fill 175 -59 -22 175 -53 -22 minecraft:quartz_pillar
+fill 180 -59 -46 180 -53 -46 minecraft:quartz_pillar
+fill 180 -59 -22 180 -53 -22 minecraft:quartz_pillar
+fill 160 -59 -46 160 -53 -46 minecraft:quartz_pillar
+fill 180 -59 -46 180 -53 -46 minecraft:quartz_pillar
+fill 160 -59 -40 160 -53 -40 minecraft:quartz_pillar
+fill 180 -59 -40 180 -53 -40 minecraft:quartz_pillar
+fill 160 -59 -34 160 -53 -34 minecraft:quartz_pillar
+fill 180 -59 -34 180 -53 -34 minecraft:quartz_pillar
+fill 160 -59 -28 160 -53 -28 minecraft:quartz_pillar
+fill 180 -59 -28 180 -53 -28 minecraft:quartz_pillar
+fill 160 -59 -22 160 -53 -22 minecraft:quartz_pillar
+fill 180 -59 -22 180 -53 -22 minecraft:quartz_pillar
+fill 169 -59 -22 171 -57 -22 minecraft:light_blue_stained_glass
+fill 167 -56 -21 173 -56 -21 minecraft:red_terracotta
+fill 167 -55 -22 173 -55 -22 minecraft:red_concrete
+fill 167 -54 -22 173 -54 -22 minecraft:black_concrete
+fill 167 -53 -22 173 -53 -22 minecraft:white_concrete
+summon minecraft:text_display 170.5 -51 -20.0 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"7번 체육관","color":"gold","bold":true,"extra":[""]}'}
+fill 165 -59 -21 165 -58 -21 minecraft:chiseled_stone_bricks
+setblock 165 -57 -21 minecraft:red_concrete
+fill 175 -59 -21 175 -58 -21 minecraft:chiseled_stone_bricks
+setblock 175 -57 -21 minecraft:red_concrete
+fill 159 -52 -47 181 -52 -21 minecraft:white_concrete
+fill 160 -52 -46 180 -52 -22 minecraft:red_terracotta
+fill 163 -51 -43 177 -51 -25 minecraft:red_terracotta
+fill 166 -50 -40 174 -50 -28 minecraft:red_terracotta
+fill 163 -60 -34 177 -60 -34 minecraft:smooth_quartz
+fill 168 -60 -43 172 -60 -41 minecraft:quartz_block
+fill 169 -60 -21 171 -60 -21 minecraft:lime_stained_glass
+fill 169 -60 -23 171 -60 -23 minecraft:orange_stained_glass
+summon minecraft:text_display 170.5 -57.5 -22.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"extra":[""]}'}
+setblock 163 -53 -43 minecraft:sea_lantern
+setblock 163 -53 -38 minecraft:sea_lantern
+setblock 163 -53 -33 minecraft:sea_lantern
+setblock 163 -53 -28 minecraft:sea_lantern
+setblock 168 -53 -43 minecraft:sea_lantern
+setblock 168 -53 -38 minecraft:sea_lantern
+setblock 168 -53 -33 minecraft:sea_lantern
+setblock 168 -53 -28 minecraft:sea_lantern
+setblock 173 -53 -43 minecraft:sea_lantern
+setblock 173 -53 -38 minecraft:sea_lantern
+setblock 173 -53 -33 minecraft:sea_lantern
+setblock 173 -53 -28 minecraft:sea_lantern
+setblock 178 -53 -43 minecraft:sea_lantern
+setblock 178 -53 -38 minecraft:sea_lantern
+setblock 178 -53 -33 minecraft:sea_lantern
+setblock 178 -53 -28 minecraft:sea_lantern
+# ── 8번 체육관 ──
+fill 159 -60 -13 181 -60 13 minecraft:polished_andesite
+fill 161 -60 -11 179 -60 11 minecraft:coarse_dirt
+fill 160 -59 -12 180 -58 -12 minecraft:polished_deepslate
+fill 160 -59 12 180 -58 12 minecraft:polished_deepslate
+fill 160 -59 -12 160 -58 12 minecraft:polished_deepslate
+fill 180 -59 -12 180 -58 12 minecraft:polished_deepslate
+fill 160 -57 -12 180 -53 -12 minecraft:light_gray_concrete
+fill 160 -57 12 180 -53 12 minecraft:light_gray_concrete
+fill 160 -57 -12 160 -53 12 minecraft:light_gray_concrete
+fill 180 -57 -12 180 -53 12 minecraft:light_gray_concrete
+fill 160 -59 -12 160 -53 -12 minecraft:quartz_pillar
+fill 160 -59 12 160 -53 12 minecraft:quartz_pillar
+fill 165 -59 -12 165 -53 -12 minecraft:quartz_pillar
+fill 165 -59 12 165 -53 12 minecraft:quartz_pillar
+fill 170 -59 -12 170 -53 -12 minecraft:quartz_pillar
+fill 170 -59 12 170 -53 12 minecraft:quartz_pillar
+fill 175 -59 -12 175 -53 -12 minecraft:quartz_pillar
+fill 175 -59 12 175 -53 12 minecraft:quartz_pillar
+fill 180 -59 -12 180 -53 -12 minecraft:quartz_pillar
+fill 180 -59 12 180 -53 12 minecraft:quartz_pillar
+fill 160 -59 -12 160 -53 -12 minecraft:quartz_pillar
+fill 180 -59 -12 180 -53 -12 minecraft:quartz_pillar
+fill 160 -59 -6 160 -53 -6 minecraft:quartz_pillar
+fill 180 -59 -6 180 -53 -6 minecraft:quartz_pillar
+fill 160 -59 0 160 -53 0 minecraft:quartz_pillar
+fill 180 -59 0 180 -53 0 minecraft:quartz_pillar
+fill 160 -59 6 160 -53 6 minecraft:quartz_pillar
+fill 180 -59 6 180 -53 6 minecraft:quartz_pillar
+fill 160 -59 12 160 -53 12 minecraft:quartz_pillar
+fill 180 -59 12 180 -53 12 minecraft:quartz_pillar
+fill 169 -59 -12 171 -57 -12 minecraft:light_blue_stained_glass
+fill 167 -56 -13 173 -56 -13 minecraft:brown_terracotta
+fill 167 -55 -12 173 -55 -12 minecraft:red_concrete
+fill 167 -54 -12 173 -54 -12 minecraft:black_concrete
+fill 167 -53 -12 173 -53 -12 minecraft:white_concrete
+summon minecraft:text_display 170.5 -51 -13.0 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"8번 체육관","color":"gold","bold":true,"extra":[""]}'}
+fill 165 -59 -13 165 -58 -13 minecraft:chiseled_stone_bricks
+setblock 165 -57 -13 minecraft:red_concrete
+fill 175 -59 -13 175 -58 -13 minecraft:chiseled_stone_bricks
+setblock 175 -57 -13 minecraft:red_concrete
+fill 159 -52 -13 181 -52 13 minecraft:white_concrete
+fill 160 -52 -12 180 -52 12 minecraft:brown_terracotta
+fill 163 -51 -9 177 -51 9 minecraft:brown_terracotta
+fill 166 -50 -6 174 -50 6 minecraft:brown_terracotta
+fill 163 -60 0 177 -60 0 minecraft:smooth_quartz
+fill 168 -60 8 172 -60 10 minecraft:quartz_block
+fill 169 -60 -14 171 -60 -14 minecraft:lime_stained_glass
+fill 169 -60 -11 171 -60 -11 minecraft:orange_stained_glass
+summon minecraft:text_display 170.5 -57.5 -10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"extra":[""]}'}
+setblock 163 -53 -9 minecraft:sea_lantern
+setblock 163 -53 -4 minecraft:sea_lantern
+setblock 163 -53 1 minecraft:sea_lantern
+setblock 163 -53 6 minecraft:sea_lantern
+setblock 168 -53 -9 minecraft:sea_lantern
+setblock 168 -53 -4 minecraft:sea_lantern
+setblock 168 -53 1 minecraft:sea_lantern
+setblock 168 -53 6 minecraft:sea_lantern
+setblock 173 -53 -9 minecraft:sea_lantern
+setblock 173 -53 -4 minecraft:sea_lantern
+setblock 173 -53 1 minecraft:sea_lantern
+setblock 173 -53 6 minecraft:sea_lantern
+setblock 178 -53 -9 minecraft:sea_lantern
+setblock 178 -53 -4 minecraft:sea_lantern
+setblock 178 -53 1 minecraft:sea_lantern
+setblock 178 -53 6 minecraft:sea_lantern
+# ── 사천왕 본부 ──
+fill 199 -60 -47 241 -60 13 minecraft:polished_andesite
+fill 200 -59 -46 240 -51 -46 minecraft:quartz_bricks
+fill 200 -59 12 240 -51 12 minecraft:quartz_bricks
+fill 200 -59 -46 200 -51 12 minecraft:quartz_bricks
+fill 240 -59 -46 240 -51 12 minecraft:quartz_bricks
+fill 200 -59 -46 200 -51 -46 minecraft:quartz_pillar
+fill 200 -59 -41 200 -51 -41 minecraft:quartz_pillar
+fill 200 -59 -36 200 -51 -36 minecraft:quartz_pillar
+fill 200 -59 -31 200 -51 -31 minecraft:quartz_pillar
+fill 200 -59 -26 200 -51 -26 minecraft:quartz_pillar
+fill 200 -59 -21 200 -51 -21 minecraft:quartz_pillar
+fill 200 -59 -16 200 -51 -16 minecraft:quartz_pillar
+fill 200 -59 -11 200 -51 -11 minecraft:quartz_pillar
+fill 200 -59 -6 200 -51 -6 minecraft:quartz_pillar
+fill 200 -59 -1 200 -51 -1 minecraft:quartz_pillar
+fill 200 -59 4 200 -51 4 minecraft:quartz_pillar
+fill 200 -59 9 200 -51 9 minecraft:quartz_pillar
+fill 201 -60 -45 239 -60 -35 minecraft:packed_ice
+fill 201 -51 -45 239 -51 -35 minecraft:quartz_block
+fill 201 -59 -34 239 -51 -34 minecraft:quartz_bricks
+setblock 204 -51 -40 minecraft:sea_lantern
+setblock 210 -51 -40 minecraft:sea_lantern
+setblock 216 -51 -40 minecraft:sea_lantern
+setblock 222 -51 -40 minecraft:sea_lantern
+setblock 228 -51 -40 minecraft:sea_lantern
+setblock 234 -51 -40 minecraft:sea_lantern
+fill 201 -60 -34 239 -60 -24 minecraft:smooth_stone
+fill 201 -51 -34 239 -51 -24 minecraft:quartz_block
+fill 201 -59 -23 239 -51 -23 minecraft:quartz_bricks
+setblock 204 -51 -29 minecraft:sea_lantern
+setblock 210 -51 -29 minecraft:sea_lantern
+setblock 216 -51 -29 minecraft:sea_lantern
+setblock 222 -51 -29 minecraft:sea_lantern
+setblock 228 -51 -29 minecraft:sea_lantern
+setblock 234 -51 -29 minecraft:sea_lantern
+fill 201 -60 -23 239 -60 -13 minecraft:blackstone
+fill 201 -51 -23 239 -51 -13 minecraft:quartz_block
+fill 201 -59 -12 239 -51 -12 minecraft:quartz_bricks
+setblock 204 -51 -18 minecraft:sea_lantern
+setblock 210 -51 -18 minecraft:sea_lantern
+setblock 216 -51 -18 minecraft:sea_lantern
+setblock 222 -51 -18 minecraft:sea_lantern
+setblock 228 -51 -18 minecraft:sea_lantern
+setblock 234 -51 -18 minecraft:sea_lantern
+fill 201 -60 -12 239 -60 -2 minecraft:purpur_block
+fill 201 -51 -12 239 -51 -2 minecraft:quartz_block
+fill 201 -59 -1 239 -51 -1 minecraft:quartz_bricks
+setblock 204 -51 -7 minecraft:sea_lantern
+setblock 210 -51 -7 minecraft:sea_lantern
+setblock 216 -51 -7 minecraft:sea_lantern
+setblock 222 -51 -7 minecraft:sea_lantern
+setblock 228 -51 -7 minecraft:sea_lantern
+setblock 234 -51 -7 minecraft:sea_lantern
+fill 201 -60 -1 239 -60 9 minecraft:gold_block
+fill 201 -51 -1 239 -51 9 minecraft:quartz_block
+setblock 204 -51 4 minecraft:sea_lantern
+setblock 210 -51 4 minecraft:sea_lantern
+setblock 216 -51 4 minecraft:sea_lantern
+setblock 222 -51 4 minecraft:sea_lantern
+setblock 228 -51 4 minecraft:sea_lantern
+setblock 234 -51 4 minecraft:sea_lantern
+fill 236 -59 1 238 -57 7 minecraft:gold_block
+summon minecraft:text_display 233.5 -56 4.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[2.0f,2.0f,2.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"명예의 전당","color":"gold","bold":true,"extra":[{"text":"\\n사천왕을 모두 이긴 트레이너","color":"gray","bold":false}]}'}
+fill 198 -60 -18 198 -60 -16 minecraft:lime_stained_glass
+fill 200 -59 -18 200 -56 -16 minecraft:light_blue_stained_glass
+summon minecraft:text_display 198.5 -48 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[3.0f,3.0f,3.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"사천왕","color":"gold","bold":true,"extra":[{"text":"\\nPOKéMON LEAGUE · 배지 8개 필요","color":"gray","bold":false}]}'}
+setblock 199 -54 -20 minecraft:black_concrete
+setblock 199 -53 -20 minecraft:black_concrete
+setblock 199 -52 -20 minecraft:black_concrete
+setblock 199 -55 -19 minecraft:black_concrete
+setblock 199 -54 -19 minecraft:white_concrete
+setblock 199 -53 -19 minecraft:black_concrete
+setblock 199 -52 -19 minecraft:red_concrete
+setblock 199 -51 -19 minecraft:black_concrete
+setblock 199 -56 -18 minecraft:black_concrete
+setblock 199 -55 -18 minecraft:white_concrete
+setblock 199 -54 -18 minecraft:black_concrete
+setblock 199 -53 -18 minecraft:black_concrete
+setblock 199 -52 -18 minecraft:black_concrete
+setblock 199 -51 -18 minecraft:red_concrete
+setblock 199 -50 -18 minecraft:black_concrete
+setblock 199 -56 -17 minecraft:black_concrete
+setblock 199 -55 -17 minecraft:white_concrete
+setblock 199 -54 -17 minecraft:black_concrete
+setblock 199 -53 -17 minecraft:white_concrete
+setblock 199 -52 -17 minecraft:black_concrete
+setblock 199 -51 -17 minecraft:red_concrete
+setblock 199 -50 -17 minecraft:black_concrete
+setblock 199 -56 -16 minecraft:black_concrete
+setblock 199 -55 -16 minecraft:white_concrete
+setblock 199 -54 -16 minecraft:black_concrete
+setblock 199 -53 -16 minecraft:black_concrete
+setblock 199 -52 -16 minecraft:black_concrete
+setblock 199 -51 -16 minecraft:red_concrete
+setblock 199 -50 -16 minecraft:black_concrete
+setblock 199 -55 -15 minecraft:black_concrete
+setblock 199 -54 -15 minecraft:white_concrete
+setblock 199 -53 -15 minecraft:black_concrete
+setblock 199 -52 -15 minecraft:red_concrete
+setblock 199 -51 -15 minecraft:black_concrete
+setblock 199 -54 -14 minecraft:black_concrete
+setblock 199 -53 -14 minecraft:black_concrete
+setblock 199 -52 -14 minecraft:black_concrete
+fill 202 -60 3 202 -60 5 minecraft:orange_stained_glass
+summon minecraft:text_display 202.5 -57.5 4.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"extra":[""]}'}
+fill 199 -50 -47 241 -50 13 minecraft:white_concrete
+fill 200 -50 -46 240 -50 12 minecraft:purple_terracotta
+fill 204 -49 -42 236 -49 8 minecraft:purple_terracotta
 fill -40 -59 -125 39 319 -125 minecraft:barrier
 fill -40 -59 20 39 319 20 minecraft:barrier
 fill 40 -59 -125 119 319 -125 minecraft:barrier
 fill 40 -59 20 119 319 20 minecraft:barrier
-fill 120 -59 -125 140 319 -125 minecraft:barrier
-fill 120 -59 20 140 319 20 minecraft:barrier
+fill 120 -59 -125 199 319 -125 minecraft:barrier
+fill 120 -59 20 199 319 20 minecraft:barrier
+fill 200 -59 -125 250 319 -125 minecraft:barrier
+fill 200 -59 20 250 319 20 minecraft:barrier
 fill -40 -59 -125 -40 319 -46 minecraft:barrier
-fill 140 -59 -125 140 319 -46 minecraft:barrier
+fill 250 -59 -125 250 319 -46 minecraft:barrier
 fill -40 -59 -45 -40 319 20 minecraft:barrier
-fill 140 -59 -45 140 319 20 minecraft:barrier
+fill 250 -59 -45 250 319 20 minecraft:barrier

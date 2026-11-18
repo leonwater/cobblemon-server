@@ -10,7 +10,7 @@ Minecraft 1.21.1 · Fabric 0.20.1 · Cobblemon 1.8.4
 | `pack/world/datapacks/pokeserver/` | 튜토리얼·마을·NPC, 서버 규칙, 워프, 체육관 1인 제한 |
 | `pack/config/` | 모드 설정 (상점 목록, 농장 땅, 메뉴 공지, 폭발 방지, 포켓몬 스폰 차원) |
 | `mod/` | 전용 모드 (땅·상점·메뉴·배틀 제한·NPC 스킨·어두운 UI). 수정 후 `mod/install.sh` → 모드팩에 반영 |
-| `tools/` | 마을·농장 생성기 `build_world.py`, NPC 스킨 `make_skins.py`, UI 색 `make_ui.py`, 야생 스폰 계산 `spawn_levels.py`, 실제 화면 확인 `shots.sh` |
+| `tools/` | 마을·농장 생성기 `build_world.py`, 체육관 리그 `build_league.py`, NPC 스킨 `make_skins.py`, UI 색 `make_ui.py`, 야생 스폰 계산 `spawn_levels.py`, 실제 화면 확인 `shots.sh` |
 | `server/` | 서버 실행 파일 (`start.bat`, `update.bat`) |
 | `tests/` | 자동 테스트: 데이터팩(`run.sh`), 모드(`mod-test.sh`) |
 
@@ -146,14 +146,22 @@ NPC는 Cobblemon NPC 하나로 통일합니다 (대화·회복·배틀 파티를
 
 바꾼 스킨은 월드에 저장되어 마을을 다시 지어도 유지됩니다. 기본 스킨 그림은 `tools/make_skins.py`.
 
-## 체육관 (명령 블록)
+## 체육관 리그 (RCT 모드)
 
-| 용도 | 명령 블록 내용 (압력판과 함께) |
+체육관 거리(마을 동쪽)에 **배지 체육관 8곳 + 사천왕 본부**. 관장·사천왕은 RCT(Radical Cobblemon Trainers) 트레이너로, 플레이어가 처음 접속하면 자동 배치됩니다.
+
+- 입장: 체육관 문 앞 **초록 발판**. 이전 배지가 모두 있어야 입장, 이미 이긴 체육관은 재입장 불가
+- 체육관마다 **도전자 한 명만** (안에는 관장만 있음). 지거나 나가기(주황 발판)·로그아웃·사망 시 자동으로 비워짐
+- 이기면 배지 아이템 + 전체 알림. **레벨 제한**: 처음 15 → 배지마다 다음 관장 최고 레벨로 오름 (21·27·33·39·45·51·57)
+- 사천왕: 배지 8개 필요, 4명을 **연속으로** 이겨야 클리어(지면 처음부터). 클리어하면 명예의 전당
+
+| 바꿀 것 | 방법 |
 |---|---|
-| 체육관 입구 | `execute as @p run function poke:gym/enter {id:1}` |
-| 체육관 출구 | `execute as @p run function poke:gym/leave` |
+| 관장 이름·포켓몬·기술·레벨·대사 | `tools/build_league.py` 수정 → 실행 → `reload` |
+| 관장 다시 배치 | `/data modify storage poke:state leaders set value 0` (다음 틱에 다시 소환) |
 
-- 같은 번호의 체육관엔 한 명만. 도전자가 **나가기 / 로그아웃 / 사망**하면 자동으로 비워짐.
+## 관리자 명령
+
 - 관리자: `/pokeserver money give|take|set <플레이어> <금액>`, `/pokeserver deed <플레이어>` 땅 문서, `/pokeserver unclaim <번호>` 땅 주인 해제, `/pokeserver reload` 설정 다시 읽기
 - 관리자: `/function poke:admin/reset_me` 내 진행 초기화(튜토리얼부터, 보상은 다시 안 줌), `/function poke:admin/rebuild` 마을·NPC 다시 짓기
 

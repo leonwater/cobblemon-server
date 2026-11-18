@@ -113,7 +113,7 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   act('warp:hall'); await sleep(800)
   assert.equal(await dimOf('A'), 'poke:town', '메뉴 워프: 회의장')
   act('warp:gym'); await sleep(800)
-  assert.match(await cmd('data get entity A Pos[0]'), /86\.5d$/, '메뉴 워프: 체육관')
+  assert.match(await cmd('data get entity A Pos[0]'), /25\.5d$/, '메뉴 워프: 체육관 거리')
   act('warp:farm'); await sleep(800)
   assert.equal(await dimOf('A'), 'poke:farm', '메뉴 워프: 농장')
   act('warp:street'); await sleep(500)

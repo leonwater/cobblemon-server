@@ -1,0 +1,56 @@
+{
+ "parent": "minecraft:item/generated",
+ "textures": {
+  "layer0": "minecraft:item/gold_nugget"
+ },
+ "overrides": [
+  {
+   "predicate": {
+    "custom_model_data": 1001
+   },
+   "model": "pokeserver:item/badge_1"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 1002
+   },
+   "model": "pokeserver:item/badge_2"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 1003
+   },
+   "model": "pokeserver:item/badge_3"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 1004
+   },
+   "model": "pokeserver:item/badge_4"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 1005
+   },
+   "model": "pokeserver:item/badge_5"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 1006
+   },
+   "model": "pokeserver:item/badge_6"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 1007
+   },
+   "model": "pokeserver:item/badge_7"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 1008
+   },
+   "model": "pokeserver:item/badge_8"
+  }
+ ]
+}

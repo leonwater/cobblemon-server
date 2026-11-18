@@ -1,0 +1,61 @@
+{
+ "name": "초련",
+ "identity": "관장 초련",
+ "ai": {
+  "type": "rct",
+  "data": {
+   "maxSelectMargin": 0.15
+  }
+ },
+ "battleRules": {
+  "maxItemUses": 2
+ },
+ "bag": [
+  {
+   "item": "cobblemon:hyper_potion",
+   "quantity": 2
+  }
+ ],
+ "team": [
+  {
+   "species": "kadabra",
+   "level": 42,
+   "moveset": [
+    "psybeam",
+    "recover",
+    "reflect",
+    "shadowball"
+   ]
+  },
+  {
+   "species": "mrmime",
+   "level": 42,
+   "moveset": [
+    "psybeam",
+    "barrier",
+    "lightscreen",
+    "dazzlinggleam"
+   ]
+  },
+  {
+   "species": "venomoth",
+   "level": 43,
+   "moveset": [
+    "psybeam",
+    "sleeppowder",
+    "bugbuzz",
+    "sludgebomb"
+   ]
+  },
+  {
+   "species": "alakazam",
+   "level": 45,
+   "moveset": [
+    "psychic",
+    "recover",
+    "shadowball",
+    "energyball"
+   ]
+  }
+ ]
+}

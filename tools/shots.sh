@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # 검증용 스크린샷: 모드 서버(Cobblemon 포함) + 실제 클라이언트를 띄워 장면별로 찍음
 # 사용: tools/shots.sh <단계 파일> <저장 폴더>
-#   단계 파일 한 줄씩:  rcon <명령>  |  wait <밀리초>  |  shot <이름>
+#   단계 파일 한 줄씩:  rcon <명령>  |  wait <밀리초>  |  shot <이름>  |  xdo <xdotool 인자> (클릭·키 입력)
 set -uo pipefail
 R=$(cd "$(dirname "$0")/.." && pwd); STEPS=$1; OUT=$2; W=${SHOTS_WORK:-/tmp/pokeserver-shots}
 mkdir -p "$OUT" $W/srv/mods $W/srv/config
@@ -39,7 +39,11 @@ for (const line of fs.readFileSync(process.argv[1],"utf8").split("\n")) {
   const [k,...rest]=line.trim().split(" "); const a=rest.join(" ");
   if (k==="rcon") console.log(">",a,"→",(await r.send(a)).slice(0,160));
   else if (k==="wait") await new Promise(s=>setTimeout(s,+a));
+  else if (k==="xdo") { execSync(`DISPLAY=:99 xdotool ${a}`); console.log("xdo",a) }
   else if (k==="shot") { execSync(`import -display :99 -window root ${process.argv[2]}/${a}.png`); console.log("shot",a) }
 }
 await r.send("stop"); r.end()})().catch(e=>{console.error("FAIL",e.message);process.exit(1)})' "$STEPS" "$OUT"
 kill $CL $XV 2>/dev/null; sleep 3; kill -9 $CL 2>/dev/null; true
+# 서버가 stop 후 30초 안에 안 꺼지면 HANG 기록 후 강제 종료
+for i in $(seq 30); do pgrep -f fabric-server-launch.jar >/dev/null || exit 0; sleep 1; done
+echo "HANG server did not exit after stop"; pkill -9 -f fabric-server-launch.jar; true

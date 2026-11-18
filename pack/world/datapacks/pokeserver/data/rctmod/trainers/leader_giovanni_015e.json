@@ -1,0 +1,81 @@
+{
+ "name": "비주기",
+ "identity": "관장 비주기",
+ "ai": {
+  "type": "rct",
+  "data": {
+   "maxSelectMargin": 0.15
+  }
+ },
+ "battleRules": {
+  "maxItemUses": 2
+ },
+ "bag": [
+  {
+   "item": "cobblemon:hyper_potion",
+   "quantity": 2
+  }
+ ],
+ "team": [
+  {
+   "species": "dugtrio",
+   "level": 54,
+   "moveset": [
+    "earthquake",
+    "slash",
+    "suckerpunch",
+    "sandtomb"
+   ]
+  },
+  {
+   "species": "nidoqueen",
+   "level": 54,
+   "moveset": [
+    "earthpower",
+    "sludgewave",
+    "icebeam",
+    "superpower"
+   ]
+  },
+  {
+   "species": "nidoking",
+   "level": 55,
+   "moveset": [
+    "earthpower",
+    "sludgewave",
+    "thunderbolt",
+    "icebeam"
+   ]
+  },
+  {
+   "species": "rhydon",
+   "level": 55,
+   "moveset": [
+    "earthquake",
+    "rockslide",
+    "megahorn",
+    "hammerarm"
+   ]
+  },
+  {
+   "species": "marowak",
+   "level": 56,
+   "moveset": [
+    "bonemerang",
+    "swordsdance",
+    "rockslide",
+    "firepunch"
+   ]
+  },
+  {
+   "species": "rhyperior",
+   "level": 57,
+   "moveset": [
+    "earthquake",
+    "stoneedge",
+    "megahorn",
+    "icepunch"
+   ]
+  }
+ ]
+}

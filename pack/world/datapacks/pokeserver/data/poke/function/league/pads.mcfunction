@@ -1,0 +1,19 @@
+# 자동 생성: tools/build_league.py
+execute in poke:town as @a[x=49,y=-59,z=-21,dx=2,dy=1,dz=0] run function poke:gym/try/1
+execute in poke:town as @a[x=49,y=-59,z=-23,dx=2,dy=1,dz=0] run function poke:gym/leave
+execute in poke:town as @a[x=49,y=-59,z=-14,dx=2,dy=1,dz=0] run function poke:gym/try/2
+execute in poke:town as @a[x=49,y=-59,z=-11,dx=2,dy=1,dz=0] run function poke:gym/leave
+execute in poke:town as @a[x=89,y=-59,z=-21,dx=2,dy=1,dz=0] run function poke:gym/try/3
+execute in poke:town as @a[x=89,y=-59,z=-23,dx=2,dy=1,dz=0] run function poke:gym/leave
+execute in poke:town as @a[x=89,y=-59,z=-14,dx=2,dy=1,dz=0] run function poke:gym/try/4
+execute in poke:town as @a[x=89,y=-59,z=-11,dx=2,dy=1,dz=0] run function poke:gym/leave
+execute in poke:town as @a[x=129,y=-59,z=-21,dx=2,dy=1,dz=0] run function poke:gym/try/5
+execute in poke:town as @a[x=129,y=-59,z=-23,dx=2,dy=1,dz=0] run function poke:gym/leave
+execute in poke:town as @a[x=129,y=-59,z=-14,dx=2,dy=1,dz=0] run function poke:gym/try/6
+execute in poke:town as @a[x=129,y=-59,z=-11,dx=2,dy=1,dz=0] run function poke:gym/leave
+execute in poke:town as @a[x=169,y=-59,z=-21,dx=2,dy=1,dz=0] run function poke:gym/try/7
+execute in poke:town as @a[x=169,y=-59,z=-23,dx=2,dy=1,dz=0] run function poke:gym/leave
+execute in poke:town as @a[x=169,y=-59,z=-14,dx=2,dy=1,dz=0] run function poke:gym/try/8
+execute in poke:town as @a[x=169,y=-59,z=-11,dx=2,dy=1,dz=0] run function poke:gym/leave
+execute in poke:town as @a[x=198,y=-59,z=-18,dx=0,dy=1,dz=2] run function poke:gym/try/9
+execute in poke:town as @a[x=202,y=-59,z=3,dx=0,dy=1,dz=2] run function poke:gym/leave
