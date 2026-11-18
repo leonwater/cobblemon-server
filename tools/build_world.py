@@ -890,3 +890,19 @@ if __name__ == '__main__':
     farms.write_text(json.dumps({'dimension': 'poke:farm', 'plots': [
         {'id': n, 'x1': x1, 'z1': z1, 'x2': x2, 'z2': z2} for n, x1, z1, x2, z2 in plots()]}, indent=2), encoding='utf-8')
     print({k: len(v) for k, v in out.items() if not k.startswith('build/terrain/run')}, 'farm box', box)
+
+
+def refresh_pack():
+    """생성한 파일이 바뀌면 모드팩 목록(index.toml)의 지문도 갱신해야 함. 안 하면 설치 프로그램이 "Hash invalid"로 멈춤."""
+    import os
+    import shutil
+    import subprocess
+    exe = shutil.which('packwiz') or os.path.expanduser('~/go/bin/packwiz')
+    if os.path.exists(exe):
+        subprocess.run([exe, 'refresh'], cwd=Path(__file__).resolve().parent.parent / 'pack', check=True, capture_output=True)
+    else:
+        print('경고: packwiz가 없어 pack/index.toml을 갱신하지 못함 → 올리기 전에 packwiz refresh 실행 필요')
+
+
+if __name__ == '__main__':
+    refresh_pack()
