@@ -548,14 +548,7 @@ def town_mod():
     for x in (x1 + 3, x1 + 5):
         L += [sb(x, G + 1, z1 + 1, 'cobblemon:pc[facing=north,part=bottom]'), sb(x, G + 2, z1 + 1, 'cobblemon:pc[facing=north,part=top]')]
     L.append(label(x1 + 4.5, G + 3.6, z1 + 1.8, 'PC 박스', 'aqua', 0.9))
-    # 교환 장치: 두 사람이 차례로 우클릭하면 교환 창 (모드가 태그 poke.trade로 처리)
-    tx = x1 + 10
-    L += ['kill @e[type=minecraft:interaction,tag=poke.trade]',
-          fill(tx - 1, G + 1, z1 + 1, tx + 1, G + 1, z1 + 1, 'minecraft:light_blue_concrete'),
-          sb(tx, G + 2, z1 + 1, 'minecraft:light_blue_stained_glass'), sb(tx - 1, G + 2, z1 + 1, 'minecraft:light_gray_concrete'),
-          sb(tx + 1, G + 2, z1 + 1, 'minecraft:light_gray_concrete'), sb(tx, G + 3, z1 + 1, 'minecraft:sea_lantern'),
-          f'summon minecraft:interaction {tx + .5} {G + 1} {z1 + 1.5} {{Tags:["poke.trade"],width:3.2f,height:2.5f,response:1b}}',
-          label(tx + .5, G + 4.2, z1 + 1.8, '교환 장치', 'aqua', 1.1, sub='두 사람이 차례로 우클릭하면 교환 시작')]
+    L.append('kill @e[type=minecraft:interaction,tag=poke.trade]')   # 예전 교환 장치 정리 (Cobblemon 기본 교환을 씀)
     return L
 
 

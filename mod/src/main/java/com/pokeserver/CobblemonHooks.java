@@ -81,38 +81,6 @@ final class CobblemonHooks {
 
     static final int SAFE_LEVEL = 15, SAFE_RADIUS = 200;
 
-    /** Cobblemon 교환은 서로 바라보고 있어야 해서, 장치를 쓰면 두 사람의 시선을 서로에게 돌림. */
-    static boolean lookAt(net.minecraft.server.level.ServerPlayer a, net.minecraft.server.level.ServerPlayer b) {
-        a.lookAt(net.minecraft.commands.arguments.EntityAnchorArgument.Anchor.EYES, b.getEyePosition());
-        return true;
-    }
-
-    static void face(net.minecraft.server.level.ServerPlayer a, net.minecraft.server.level.ServerPlayer b) {
-        lookAt(a, b);
-        lookAt(b, a);
-    }
-
-    /** 교환 장치: 장치 앞(6칸)의 다른 플레이어가 먼저 신청했으면 수락, 아니면 그 사람에게 신청. */
-    static void trade(net.minecraft.server.level.ServerPlayer p, net.minecraft.world.entity.Entity machine) {
-        var tm = com.cobblemon.mod.common.trade.TradeManager.INSTANCE;
-        var inbound = tm.getInboundRequests(p.getUUID());   // 신청이 없으면 null
-        for (var req : inbound == null ? java.util.List.<com.cobblemon.mod.common.trade.TradeManager.TradeRequest>of() : inbound) {
-            if (req.getSender().distanceTo(machine) <= 6) {
-                face(p, req.getSender());
-                tm.acceptRequest(p, req.getRequestID(), req.getSender());
-                return;
-            }
-        }
-        var other = p.serverLevel().getPlayers(o -> o != p && o.distanceTo(machine) <= 6).stream()
-                .min(java.util.Comparator.comparingDouble(o -> o.distanceTo(p))).orElse(null);
-        if (other == null) {
-            p.displayClientMessage(Component.literal("교환할 상대도 장치 앞에 있어야 해요.").withStyle(ChatFormatting.YELLOW), true);
-        } else if (lookAt(p, other) && tm.sendRequest(new com.cobblemon.mod.common.trade.TradeManager.TradeRequest(p, other, 30))) {
-            p.displayClientMessage(Component.literal(other.getGameProfile().getName() + "님에게 교환을 신청했어요.").withStyle(ChatFormatting.GREEN), true);
-            other.displayClientMessage(Component.literal(p.getGameProfile().getName() + "님이 교환을 신청했어요. 교환 장치를 우클릭하면 시작!").withStyle(ChatFormatting.GREEN), false);
-        }
-    }
-
     /** 레벨 차이에 따른 포획률 배율. */
     static float catchFactor(int target, int mine) {
         int over = target - mine - 5;
