@@ -161,11 +161,15 @@ hash = "df0c7dd0a8957bb5812cbccc1c2a00082f3bb6ed1dbd2e1220ef82f61957cecf"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/terrain/0.mcfunction"
-hash = "d811c0d0d0a61ae2f64a8537b606ede2d23862435db565d563bd290c3fabacd4"
+hash = "20d6da555940cf22cf294653ace729f72e59b535d1e3b94104fe9f5a571a8c83"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/terrain/1.mcfunction"
-hash = "39b55248af7875351c4f2a0c4dacc85020a0096eaa84f99f6756f0001b6fe7d2"
+hash = "39871eb79d9f81302e508a87685e1613a0c56d1896403f2bafd9e8117fa5698d"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/build/terrain/2.mcfunction"
+hash = "a7463897cf3217c9f233f49ba097cb950460d4a86457b786334902c4a2c715e0"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/terrain/run_0.mcfunction"
@@ -173,11 +177,15 @@ hash = "f5c62f5b12b740626c2028d01dd35ee09dc8c8f221aac053e6407f23bbb9c93a"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/terrain/run_1.mcfunction"
-hash = "1d00120cadcda8c9e65aa864bca4c142df4902e85cb15403b7032363fc9b3f4c"
+hash = "5d29abf3d758f7f81930ee861b95f3e74a0ca3dedf81b8065f4f2bd7678a6b15"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/build/terrain/run_2.mcfunction"
+hash = "5922f334d61bad7b03c5bdc9f06f71658af498cc00870f6ba8e475372fc0fed7"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/town.mcfunction"
-hash = "224bed4c545179edcaa38baf3e6369625b8720f16ca74725a949b19a77326ef2"
+hash = "1897b4f17583cdcacc08b1a07f23cbdb0c02f53380698300ce7a7248b8d2a501"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/tutorial.mcfunction"
