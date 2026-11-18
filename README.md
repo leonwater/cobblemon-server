@@ -7,13 +7,12 @@ Minecraft 1.21.1 · Fabric 0.20.1 · Cobblemon 1.8.4
 | 폴더 | 내용 |
 |---|---|
 | `pack/` | 모드 목록 + 데이터팩 (packwiz). 서버·클라이언트가 실행할 때 여기서 자동으로 받아감 |
-| `pack/world/datapacks/pokeserver/` | 튜토리얼·시작 마을·NPC, 서버 규칙, 포탈, 체육관 1인 제한 |
-| `pack/config/` | 모드 설정 (상점 목록, 폭발 방지, 포켓몬 스폰 차원) |
-| `mod/` | 전용 모드 소스 (땅·상점·메뉴). 수정 후 `mod/install.sh` → 모드팩에 반영 |
-| `tools/` | 마을·농장 생성기(`build_world.py`), UI 생성기(`make_ui.py`) |
-| `pack/resourcepacks/pokeserver-ui/` | 어두운 반투명 UI (대화창·버튼). `tools/make_ui.py`로 생성 |
+| `pack/world/datapacks/pokeserver/` | 튜토리얼·마을·NPC, 서버 규칙, 워프, 체육관 1인 제한 |
+| `pack/config/` | 모드 설정 (상점 목록, 농장 땅, 메뉴 공지, 폭발 방지, 포켓몬 스폰 차원) |
+| `mod/` | 전용 모드 (땅·상점·메뉴·배틀 제한·NPC 스킨·어두운 UI). 수정 후 `mod/install.sh` → 모드팩에 반영 |
+| `tools/` | 마을·농장 생성기 `build_world.py`, NPC 스킨 `make_skins.py`, UI 색 `make_ui.py`, 야생 스폰 계산 `spawn_levels.py`, 실제 화면 확인 `shots.sh` |
 | `server/` | 서버 실행 파일 (`start.bat`, `update.bat`) |
-| `tests/` | 데이터팩 로직 테스트 (봇 2명) |
+| `tests/` | 자동 테스트: 데이터팩(`run.sh`), 모드(`mod-test.sh`) |
 
 ## 서버 켜기 (Windows, 설치 없이 폴더 하나로)
 
@@ -96,10 +95,7 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
 3. 타이틀 화면 **Mods**에 **Cobblemon**이 있으면 성공
 4. 이후엔 실행할 때마다 서버와 모드가 자동으로 맞춰짐
 
-### 5. 어두운 UI 켜기 (처음 한 번)
-게임 실행 → **옵션 → 리소스 팩** → 왼쪽의 **pokeserver-ui**를 오른쪽으로 옮기기 → 완료
-
-### 6. 서버 접속
+### 5. 서버 접속
 서버(`start.bat`)를 켜둔 상태에서 **멀티플레이 → 서버 추가 → 주소 `localhost`**
 
 ### 막힐 때
@@ -113,17 +109,13 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
 
 ## 게임 흐름
 
-1. 첫 접속 → **튜토리얼 방**에서 시작. 3칸 앞 **안내원 하늘** 우클릭 → 코블몬·서버 기초 안내
-2. "준비 완료!" → **시작 마을** 정중앙. 기본 물품(5,000원·러닝 슈즈·몬스터볼 10개)은 **처음 한 번만**
-3. 시작 마을 (원형 돌 바닥, 블록 파괴 불가)
-   - **북쪽 길 끝**: 상점(상인 우클릭 → 구매/판매 탭 상점 화면), 포켓몬센터(간호사 = 회복, PC)
-   - **동쪽 초록 발판 → 농장** (32×32 땅 16칸, 둘레 막힘)
-   - **서쪽 파란 발판 → 채집 맵** (끝없는 맵, 모든 바이옴이 256×256 칸으로 같은 넓이씩 반복)
-4. 농장·채집 맵은 **마지막으로 있던 곳**으로, 마을은 항상 **정중앙**으로 이동. 어디서든 `/trigger home` → 마을
-5. **포켓몬은 채집 맵에서만** 자연 스폰. 야생·플레이어 배틀도 채집 맵에서만 (NPC·체육관 배틀은 어디서나)
-6. **농장 땅**: 상점에서 산 **땅 문서**를 들고 빈 땅을 우클릭 → 팝업에서 확인 → 내 땅. 다른 사람 땅은 구경만 (부수기·놓기·상자 열기·물 붓기 불가)
-
-**G 키: 메인 메뉴** — 포켓몬(내 파티·PC·도감), 간편 메뉴(튜토리얼·휴지통), 워프(시작 마을·농장·채집 맵), 내 정보·공지
+1. 첫 접속 → **튜토리얼 방**. 3칸 앞 **안내원 하늘** 우클릭 → 코블몬·서버 기초 안내
+2. "준비 완료!" → **회의장**. 기본 물품(5,000원·러닝 슈즈·몬스터볼 10개)은 **처음 한 번만**
+3. **마을** (평지, 블록 파괴 불가): 회의장 → 분수 광장 → 북쪽 **상점가**(프렌들리 숍·포켓몬센터) / 동쪽 길 끝 **체육관**
+4. **G 키 메인 메뉴 → 워프**: 회의장·상점가·체육관은 항상 같은 자리, 농장·야생은 **마지막으로 있던 곳**. `/trigger home` → 회의장
+5. **야생**: 끝없는 맵, 모든 바이옴이 256×256 칸으로 같은 넓이씩 반복. 첫 방문은 **모두 같은 자리**(포켓몬 평균 레벨이 가장 낮은 꽃 숲)
+6. **포켓몬은 야생에서만** 자연 스폰. 야생·플레이어 배틀도 야생에서만 (NPC·체육관 배틀은 어디서나)
+7. **농장**: 상점에서 산 **땅 문서**로 빈 땅 우클릭 → 확인 → 내 땅. 남의 땅을 건드리면 체력바 위에 "OO님의 땅" 알림
 
 화폐: `/money`(`/돈`) 잔액, `/pay 닉네임 금액`(`/송금`) 보내기
 
@@ -131,15 +123,28 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
 
 ## 수정하는 곳
 
-| 바꿀 것 | 파일 |
+| 바꿀 것 | 방법 |
 |---|---|
-| 마을·길·건물·농장 크기와 위치 | `tools/build_world.py` 수정 → 실행 → `load.mcfunction`의 `build:2`(농장은 `farm:1`) 숫자 +1 |
-| 튜토리얼·마을·농장 도착 위치, 체육관 | `pack/world/datapacks/pokeserver/data/poke/function/config.mcfunction` |
+| 마을·건물·농장 모양과 위치 | `tools/build_world.py` 수정 → 실행 → `load.mcfunction`의 `build:4`(농장은 `farm:2`) 숫자 +1 |
+| 워프 도착 위치, 체육관 | `pack/world/datapacks/pokeserver/data/poke/function/config.mcfunction` |
 | 기본 물품 | `.../function/kit.mcfunction`(러닝 슈즈), `.../function/mod/kit.mcfunction`(돈·몬스터볼) |
 | 안내원·간호사 대화 | `.../data/poke/dialogues/tutorial.json`, `nurse.json` |
-| 상점 분류·상품·구매가·판매가 | `pack/config/pokeserver/shop.json` (`buy`/`sell`이 0이면 그 탭에 안 나옴). 서버 실행 중엔 `/pokeserver reload` |
+| 상점 분류·상품·가격 | `pack/config/pokeserver/shop.json` (`buy`/`sell`이 0이면 그 탭에 안 나옴). 실행 중엔 `/pokeserver reload` |
 | 메인 메뉴 공지사항 | `pack/config/pokeserver/menu.json` |
 | 포켓몬 스폰 금지 차원 | `pack/config/cobblemon/main.json`의 `worldSpawningBlocklist` |
+
+## NPC
+
+NPC는 Cobblemon NPC 하나로 통일합니다 (대화·회복·배틀 파티를 모두 지원). 사람 크기 모델에 기본 스킨이 입혀져 있고, 게임 안에서 바꿀 수 있습니다.
+
+| 하고 싶은 것 | 방법 (관리자) |
+|---|---|
+| NPC 스킨을 다른 플레이어 스킨으로 | `/pokeserver npc skin poke.nurse 플레이어이름` (태그: `poke.tutor`·`poke.nurse`·`poke.merchant`) |
+| 스킨 이미지 주소로 | `/pokeserver npc skin poke.nurse https://.../skin.png` |
+| 기본 스킨으로 되돌리기 | `/pokeserver npc skin poke.nurse reset` |
+| 이름·파티 등 세부 편집 | NPC를 바라보고 `/npcedit` (Cobblemon 편집기) |
+
+바꾼 스킨은 월드에 저장되어 마을을 다시 지어도 유지됩니다. 기본 스킨 그림은 `tools/make_skins.py`.
 
 ## 체육관 (명령 블록)
 
@@ -149,7 +154,7 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
 | 체육관 출구 | `execute as @p run function poke:gym/leave` |
 
 - 같은 번호의 체육관엔 한 명만. 도전자가 **나가기 / 로그아웃 / 사망**하면 자동으로 비워짐.
-- 관리자: `/pokeserver money give|take|set <플레이어> <금액>`, `/pokeserver deed <플레이어>` 땅 문서 지급, `/pokeserver unclaim <번호>` 땅 주인 해제
+- 관리자: `/pokeserver money give|take|set <플레이어> <금액>`, `/pokeserver deed <플레이어>` 땅 문서, `/pokeserver unclaim <번호>` 땅 주인 해제, `/pokeserver reload` 설정 다시 읽기
 - 관리자: `/function poke:admin/reset_me` 내 진행 초기화(튜토리얼부터, 보상은 다시 안 줌), `/function poke:admin/rebuild` 마을·NPC 다시 짓기
 
 ## 친구 초대 (나중에)
@@ -167,4 +172,8 @@ cd pack && packwiz modrinth add <모드 이름> && packwiz refresh
 
 ```bash
 tests/run.sh
+```
+
+```bash
+tests/mod-test.sh
 ```
