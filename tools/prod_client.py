@@ -6,6 +6,8 @@
 import json, os, subprocess, sys, urllib.request
 from pathlib import Path
 
+WIN = os.environ.get('WIN', '1280x720').split('x')   # 창 크기 (좁은 화면 시험용), GUI_SCALE 로 UI 크기
+
 MC, LOADER = '1.21.1', '0.20.1'
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = Path.home() / '.gradle/caches/fabric-loom/assets'   # mod/ 에서 gradle runClient 한 번 하면 생김
@@ -55,16 +57,24 @@ def main(work, server, user='Dev'):
             continue
         name = t.split('filename = "')[1].split('"')[0]
         get(t.split('url = "')[1].split('"')[0], game / 'mods' / name)
+    # 셰이더: SHADERS=1 이면 모드팩 설정대로 켜고, 아니면 꺼서 시험 화면을 가볍게
+    (game / 'shaderpacks').mkdir(exist_ok=True)
+    for f in (ROOT / 'pack/shaderpacks').glob('*.pw.toml'):
+        t = f.read_text()
+        get(t.split('url = "')[1].split('"')[0], game / 'shaderpacks' / t.split('filename = "')[1].split('"')[0])
+    (game / 'config').mkdir(exist_ok=True)
+    iris = (ROOT / 'pack/config/iris.properties').read_text()
+    (game / 'config/iris.properties').write_text(iris if os.environ.get('SHADERS') == '1' else iris.replace('enableShaders=true', 'enableShaders=false'))
     for j in (game / 'mods').glob('pokeserver-*.jar'):
         j.unlink()
     for j in (ROOT / 'pack/mods').glob('pokeserver-*.jar'):
         (game / 'mods' / j.name).write_bytes(j.read_bytes())
-    (game / 'options.txt').write_text('onboardAccessibility:false\nguiScale:2\nlang:ko_kr\nsoundCategory_master:0.0\n'
+    (game / 'options.txt').write_text('onboardAccessibility:false\nguiScale:' + os.environ.get('GUI_SCALE', '2') + '\nlang:ko_kr\nsoundCategory_master:0.0\n'
                                       'tutorialStep:none\njoinedFirstServer:true\nskipMultiplayerWarning:true\n')
     cmd = ['java', '-Xmx3G', '-cp', ':'.join(map(str, cp)), fabric['mainClass'],
            '--username', user, '--version', MC, '--gameDir', str(game), '--assetsDir', str(ASSETS),
            '--assetIndex', vjson['assetIndex']['id'], '--uuid', '0000000000000000000000000000000' + ('1' if user == 'Dev' else '2'), '--accessToken', '0',
-           '--userType', 'legacy', '--versionType', 'release', '--width', '1280', '--height', '720',
+           '--userType', 'legacy', '--versionType', 'release', '--width', WIN[0], '--height', WIN[1],
            '--quickPlayMultiplayer', server]
     env = dict(os.environ, LIBGL_ALWAYS_SOFTWARE='1')
     sys.exit(subprocess.call(cmd, env=env, cwd=game))

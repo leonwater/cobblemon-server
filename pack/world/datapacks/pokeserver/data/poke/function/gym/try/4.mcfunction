@@ -6,7 +6,7 @@ execute if entity @s[tag=poke.badge4] run return run function poke:gym/deny/4 {m
 execute unless entity @s[tag=poke.badge3] run return run function poke:gym/deny/4 {msg:"3번 체육관 배지를 먼저 얻어야 도전할 수 있어요."}
 execute if entity @a[scores={poke.gym=4}] run return run function poke:gym/deny/4 {msg:"다른 도전자가 관장과 싸우는 중이에요. 잠시 후 다시 와 주세요."}
 scoreboard players set @s poke.gym 4
-execute in poke:town run tp @s 3130.5 -59 -6.5 0 0
+execute in poke:town run tp @s 3165.5 -59 -13.5 0 0
 title @s title {"text":"4번 체육관","color":"gold"}
 title @s subtitle {"text":"풀 타입 · 관장 민화","color":"white"}
 tellraw @s {"text":"관장을 우클릭하면 배틀이 시작돼요. 나가려면 주황 발판을 밟으세요.","color":"gray"}
