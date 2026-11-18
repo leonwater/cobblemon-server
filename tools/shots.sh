@@ -25,7 +25,7 @@ printf 'online-mode=false\nenable-rcon=true\nrcon.password=test\nrcon.port=25575
 (cd $S && java -Xmx4G -jar fabric-server-launch.jar nogui > run.log 2>&1 &)
 timeout 240 bash -c "until grep -qE 'Done \(|Exception in thread' $S/run.log; do sleep 1; done" || { echo "FAIL server boot"; exit 1; }
 # 클라이언트 (화면 :99)
-Xvfb :99 -screen 0 1280x720x24 > /dev/null 2>&1 &
+Xvfb :99 -screen 0 ${WIN:-1280x720}x24 > /dev/null 2>&1 &
 XV=$!
 sleep 2
 DISPLAY=:99 python3 $R/tools/prod_client.py $W/client localhost:25565 > $W/client.log 2>&1 &

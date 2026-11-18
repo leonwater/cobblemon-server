@@ -195,7 +195,7 @@ import build_world as W  # noqa: E402  (체육관 위치는 build_world.py 한 �
 FN = DATA / 'poke/function'
 ASSETS = ROOT / 'mod/src/main/resources/assets'
 Y = W.G + 1
-ARENA_CHUNKS = f'{W.ARENA_X} {W.E4[2]} {W.E4[1]} 12'   # 경기장·사천왕 본부 청크 (관장 소환 때 불러옴)
+ARENA_CHUNKS = f'{W.ARENA_X} {W.E4[2]} {W.E4[1]} 18'   # 경기장·사천왕 본부 청크 (관장 소환 때 불러옴)
 
 
 def fn(path, lines):
