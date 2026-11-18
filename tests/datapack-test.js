@@ -10,7 +10,7 @@ const join = name => new Promise((res, rej) => {
 })
 
 ;(async () => {
-  const rc = await Rcon.connect({ host: 'localhost', port: 25576, password: 'test', timeout: 15000 })  // 야생 지형 생성 중엔 서버가 몇 초 느려짐
+  const rc = await Rcon.connect({ host: 'localhost', port: 25576, password: 'test', timeout: 30000 })  // 야생 지형 생성 중엔 서버가 몇 초 느려짐
   const cmd = async c => { const r = await rc.send(c); console.log('>', c, '→', r.slice(0, 300)); return r }
   const ok = async (c, msg) => assert.match(await cmd(c), /passed/, msg)
   const gym = async p => cmd(`scoreboard players get ${p} poke.gym`)
@@ -62,6 +62,9 @@ const join = name => new Promise((res, rej) => {
   await cmd('item replace entity A armor.feet from entity A container.0'); await sleep(500)
   assert.match(await cmd('attribute A minecraft:generic.movement_speed get'), /0\.13/, '러닝 슈즈 +30%')
 
+  // 예전 마을(허공)에 남아 있던 플레이어 → 회의장으로 옮김
+  await cmd('execute in poke:hub run tp A 0.5 65 200.5'); await sleep(500)
+  await at('A', 'poke:town', 0, 6, '허공 공간의 기존 플레이어 → 회의장')
   // 8. 워프: 회의장·상점가·체육관은 고정, 농장·야생은 마지막 위치
   await warp('A', 'street'); await sleep(300)
   await at('A', 'poke:town', 0, -28, '상점가')

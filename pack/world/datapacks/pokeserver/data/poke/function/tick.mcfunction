@@ -1,6 +1,7 @@
 execute as @a[tag=!poke.joined] run function poke:join/first
 execute as @a unless score @s poke.id matches 1.. run function poke:join/assign_id
 execute as @a[scores={poke.left=1..}] run function poke:join/rejoin
+execute as @a[tag=poke.tutorial_done] at @s if dimension poke:hub run function poke:join/migrate
 execute as @a[scores={poke.died=1..}] run function poke:gym/release
 execute as @a[scores={home=1..}] run function poke:home
 scoreboard players enable @a home
