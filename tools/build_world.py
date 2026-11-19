@@ -35,11 +35,11 @@ ARENA_X, ARENA_STEP = 3000, 50       # n번 경기장: x ARENA_X+50(n-1) ~ +30, 
 E4 = (3500, 3540, -46, 12)           # 사천왕 본부 (닫힌 방 4개 + 명예의 전당)
 # 워프 도착 (x, y, z, yaw): 0 남, 180 북
 WARPS = {'hall': (0.5, G + 2, PLAZA_C[1] + 0.5, 0), 'street': (1000.5, G + 1, 30.5, 180), 'gym': (2000.5, LOBBY_Y + 1, -11.5, 0)}
-NPCS = [  # (NPC 종류, 차원, x, y, z, 태그, yaw, 이름표)
-    ('poke:nurse', 'poke:town', CENTER[1] - 3, G + 1, 0, 'poke.nurse', 90, ('간호사', '우클릭 → 포켓몬 회복')),
-    ('poke:merchant', 'poke:town', MART[0] + 5, G + 1, -3, 'poke.merchant', -90, ('점원', '우클릭 → 상점')),   # 숍 안쪽(뒤편) 계산대
-    ('poke:merchant', 'poke:town', MART[0] + 5, G + 1, 3, 'poke.merchant', -90, ('점원', '우클릭 → 상점')),
-    ('poke:gym_guide', 'poke:town', 2000, LOBBY_Y + 1, 12, 'poke.gymguide', 180, ('체육관 안내원', '우클릭 → 도전 신청')),
+NPCS = [  # (NPC 종류, 차원, x, y, z, 태그, yaw). 이름은 Cobblemon NPC 이름표가 보여 줌
+    ('poke:nurse', 'poke:town', CENTER[1] - 3, G + 1, 0, 'poke.nurse', 90),
+    ('poke:merchant', 'poke:town', MART[0] + 5, G + 1, -3, 'poke.merchant', -90),   # 숍 안쪽(뒤편) 계산대
+    ('poke:merchant', 'poke:town', MART[0] + 5, G + 1, 3, 'poke.merchant', -90),
+    ('poke:gym_guide', 'poke:town', 2000, LOBBY_Y + 1, 12, 'poke.gymguide', 180),
 ]
 
 
@@ -50,7 +50,7 @@ def tip_npcs():
     homes.update(zip(('evolve', 'dojo'), PAGODAS))
     for key, home in homes.items():
         mine = [t for t in tips.TIPS if t[1] == key]
-        for k, (tid, _b, name, role, _skin, _pages) in enumerate(mine):
+        for k, (tid, *_rest) in enumerate(mine):
             if len(home) == 5:
                 x1, x2, z1, z2, door = home
                 zm = (z1 + z2) // 2
@@ -58,7 +58,7 @@ def tip_npcs():
             else:
                 x1, x2, z1, z2 = home
                 x, y, z, yaw = (x1 + x2) // 2 + (-2 if k == 0 else 2), G + 2, z1 + 3, 0
-            out.append((f'poke:tip_{tid}', 'poke:town', x, y, z, f'poke.tip_{tid}', yaw, (name, f'{role} · 우클릭')))
+            out.append((f'poke:tip_{tid}', 'poke:town', x, y, z, f'poke.tip_{tid}', yaw))
     return out
 
 
@@ -799,8 +799,6 @@ def town():
     for n in range(1, 9):
         L += arena(n)
     L += e4_hall()
-    for _kind, _dim, x, y, z, _tag, _yaw, (name, sub) in NPCS:      # NPC 머리 위 이름표 (홀로그램)
-        L.append(label(x + .5, y + 2.6, z + .5, name, 'aqua', 0.9, sub=sub))
     return L
 
 
@@ -826,7 +824,7 @@ def spawn_npcs():
          '# 튜토리얼 안내원: 스폰 지점(0,65,3)을 바라보게',
          'execute in poke:hub run function poke:mod/spawn_npc {id:"poke:tutorial_guide", x:0, y:65, z:0, tag:"poke.tutor", yaw:0}',
          '# 간호사(회복), 점원(우클릭 → 상점), 체육관 안내원(우클릭 → 도전 목록; 모드가 태그로 처리)']
-    for kind, dim, x, y, z, tag, yaw, _ in NPCS:
+    for kind, dim, x, y, z, tag, yaw in NPCS:
         L.append(f'execute in {dim} run function poke:mod/spawn_npc {{id:"{kind}", x:{x}, y:{y}, z:{z}, tag:"{tag}", yaw:{yaw}}}')
     return L
 
@@ -962,15 +960,20 @@ def config_warps():
 
 if __name__ == '__main__':
     f, box = farm()
-    out = {'build/town.mcfunction': town(), 'mod/build_town.mcfunction': town_mod() + lab_mod(), 'build/tutorial.mcfunction': lab(), 'mod/spawn_npcs.mcfunction': spawn_npcs(),
+    out = {'mod/build_town.mcfunction': town_mod() + lab_mod(), 'build/tutorial.mcfunction': lab(), 'mod/spawn_npcs.mcfunction': spawn_npcs(),
            'build/start.mcfunction': build_start(), 'bounds.mcfunction': bounds(box), 'build/farm.mcfunction': f}
     tdir = FN / 'build/terrain'
     tdir.mkdir(parents=True, exist_ok=True)
     for old in tdir.glob('*.mcfunction'):
         old.unlink()
-    parts = terrain_parts()
+    # 지형 조각들 뒤에 마을 건물(6천여 줄)도 2,000줄씩 이어서 지음 → 한 틱이 길어지지 않게 (예전엔 build/town 한 번에)
+    t = town()
+    parts = terrain_parts() + [t[i:i + 2000] for i in range(0, len(t), 2000)]
+    old_town = FN / 'build/town.mcfunction'
+    if old_town.exists():
+        old_town.unlink()
     for k, part in enumerate(parts):
-        out[f'build/terrain/{k}.mcfunction'] = ['# 자동 생성: tools/terrain.py (판타지 지형)'] + part
+        out[f'build/terrain/{k}.mcfunction'] = ['# 자동 생성: tools/build_world.py (지형 → 마을 건물 순서)'] + part
         nxt = f'poke:build/terrain/run_{k + 1}' if k + 1 < len(parts) else 'poke:build/finish'
         out[f'build/terrain/run_{k}.mcfunction'] = [f'execute in poke:town run function poke:build/terrain/{k}', f'schedule function {nxt} 2t']
     # 짓는 도중 서버가 꺼지면 남은 예약이 저장됨 → 새로 짓기 전에 지워 두 번 짓지 않게
@@ -980,9 +983,9 @@ if __name__ == '__main__':
                                    'function poke:build/terrain/run_0']
     out['build/finish.mcfunction'] = [
         '# 자동 생성: tools/build_world.py',
-        'execute in poke:hub run function poke:build/tutorial', 'execute in poke:town run function poke:build/town',
+        'execute in poke:hub run function poke:build/tutorial',
         'execute in poke:town run function poke:mod/build_town', 'execute in poke:hub run function poke:mod/spawn_npcs',
-        'execute in poke:town run forceload remove all', 'data modify storage poke:state build set value 11',
+        'execute in poke:town run forceload remove all', 'data modify storage poke:state build set value 12',
         '# 관장·사천왕은 플레이어가 접속하면 소환 (RCT 명령이 플레이어를 요구)', 'data modify storage poke:state leaders set value 0',
         'say [pokeserver] 튜토리얼 방·마을(스폰 광장·상점가·체육관)과 지형을 지었습니다.']
     for path, lines in out.items():

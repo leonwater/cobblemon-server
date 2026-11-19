@@ -1,4 +1,4 @@
-# 자동 생성: tools/terrain.py (판타지 지형)
+# 자동 생성: tools/build_world.py (지형 → 마을 건물 순서)
 fill 1920 -29 60 1920 -28 88 minecraft:stone
 fill 1921 -29 -102 1921 -28 -22 minecraft:stone
 fill 1921 -29 61 1921 -28 88 minecraft:stone

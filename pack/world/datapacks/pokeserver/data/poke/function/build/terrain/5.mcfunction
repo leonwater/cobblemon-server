@@ -1,4 +1,4 @@
-# 자동 생성: tools/terrain.py (판타지 지형)
+# 자동 생성: tools/build_world.py (지형 → 마을 건물 순서)
 fill 936 -53 -39 938 -53 -33 minecraft:diorite
 fill 938 -53 -7 938 -53 -5 minecraft:diorite
 fill 937 -53 69 938 -53 98 minecraft:diorite

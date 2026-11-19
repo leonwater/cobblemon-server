@@ -1,4 +1,4 @@
-# 자동 생성: tools/terrain.py (판타지 지형)
+# 자동 생성: tools/build_world.py (지형 → 마을 건물 순서)
 fill 6 -33 62 7 -33 66 minecraft:grass_block
 fill 8 -33 37 10 -33 39 minecraft:grass_block
 fill 8 -33 63 11 -33 67 minecraft:grass_block

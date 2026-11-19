@@ -34,24 +34,16 @@ public class MenuScreen extends Screen {
 
     private final long balance;
     private final String notice;
+    private final boolean tutorialDone;   // 튜토리얼을 끝내기 전엔 워프 칸 잠금 (서버도 따로 막음)
     private final Theme.Anim anim = new Theme.Anim();
     private String pressed = "";
     private long pressedAt;
-    private int[] dex = {0, 0, 1};
-    private int party;
 
-    public MenuScreen(long balance, String notice) {
+    public MenuScreen(long balance, String notice, boolean tutorialDone) {
         super(Component.literal("메인 메뉴"));
         this.balance = balance;
         this.notice = notice;
-    }
-
-    @Override
-    protected void init() {
-        if (FabricLoader.getInstance().isModLoaded("cobblemon")) {
-            dex = CobblemonClientHooks.dexCounts();
-            party = CobblemonClientHooks.partySize();
-        }
+        this.tutorialDone = tutorialDone;
     }
 
     /** RCT 레벨 제한 (RCT가 클라이언트에 보내 주는 값). RCT가 없으면 -1. */
@@ -92,18 +84,6 @@ public class MenuScreen extends Screen {
     private void center(GuiGraphics g, String s, int cx, int y, int color) { text(g, s, cx - font.width(Theme.t(s)) / 2, y, color); }
     private int w(String s) { return font.width(Theme.t(s)); }
 
-    private String sub(int i) {
-        return switch (TILES.get(i).action()) {
-            case "client:party" -> "(" + party + " / 6)";
-            case "pc" -> "(보관함)";
-            case "client:dex" -> "(" + dex[0] + " / " + dex[2] + ")";
-            case "warp:gym" -> "(배지 도전)";
-            case "warp:hall" -> "(회의장)";
-            case "warp:street" -> "(숍·센터)";
-            default -> "(마지막 위치)";
-        };
-    }
-
     @Override
     public void renderBackground(GuiGraphics g, int mx, int my, float pt) {
         anim.frame();
@@ -116,8 +96,8 @@ public class MenuScreen extends Screen {
         g.hLine(px + 1, px + pw - 2, py + 22, Theme.BORDER);
         center(g, "메인 메뉴", width / 2, py + 8, Theme.TEXT);
         int cap = minecraft != null && minecraft.player != null ? levelCap(minecraft.player) : -1;
-        g.renderItem(Shop.stack("minecraft:experience_bottle"), px + 5, py + 3);
-        text(g, "레벨 제한 " + (cap > 0 ? "Lv" + cap : "-"), px + 23, py + 8, Theme.ACCENT);
+        g.renderItem(Shop.stack("cobblemon:poke_ball"), px + 5, py + 3);   // 포켓몬 레벨 제한
+        text(g, "포켓몬 레벨 제한 " + (cap > 0 ? "Lv" + cap : "-"), px + 23, py + 8, Theme.ACCENT);
         String money = String.format("%,d원", balance);
         text(g, money, px + pw - 8 - w(money), py + 8, Theme.GOLD);
         g.renderItem(Shop.stack("minecraft:gold_nugget"), px + pw - 26 - w(money), py + 3);
@@ -147,20 +127,16 @@ public class MenuScreen extends Screen {
         g.pose().scale(sc, sc, 1);
         g.pose().translate(-tw / 2f, -th / 2f, 0);
         Theme.panel(g, 0, 0, tw, th, Theme.mix(0xE01C2029, 0xF0363D4C, h), Theme.mix(0xFF2E3442, Theme.ACCENT, h));
-        // 아이콘 · 이름 · 작은 설명을 세로 가운데로
-        int block = 24 + 4 + 9 + 2 + 9, top = Math.max(3, (th - block) / 2);
+        // 아이콘 · 이름을 세로 가운데로. 튜토리얼 전엔 워프 칸을 흐리게 (누르면 안내만)
+        boolean locked = !tutorialDone && TILES.get(i).action().startsWith("warp:");
+        int block = 24 + 4 + 9, top = Math.max(3, (th - block) / 2);
         g.pose().pushPose();
         g.pose().translate(tw / 2f - 12, top, 0);
         g.pose().scale(1.5f, 1.5f, 1);
         g.renderItem(Shop.stack(TILES.get(i).icon()), 0, 0);
         g.pose().popPose();
-        center(g, Theme.fit(font, TILES.get(i).label(), tw - 6), tw / 2, top + 28, Theme.TEXT);
-        g.pose().pushPose();   // 설명은 0.75배 작은 글씨 (참고 사진의 "(0/20)"처럼)
-        g.pose().translate(tw / 2f, top + 40, 0);
-        g.pose().scale(0.75f, 0.75f, 1);
-        String sub = Theme.fit(font, sub(i), (int) ((tw - 6) / 0.75f));
-        text(g, sub, -w(sub) / 2, 0, Theme.mix(Theme.SUBTEXT, Theme.ACCENT, h));
-        g.pose().popPose();
+        center(g, Theme.fit(font, TILES.get(i).label(), tw - 6), tw / 2, top + 28, locked ? Theme.SUBTEXT : Theme.TEXT);
+        if (locked) g.fill(1, 1, tw - 1, th - 1, 0x90101319);
         g.pose().popPose();
     }
 
@@ -179,6 +155,7 @@ public class MenuScreen extends Screen {
         for (int i = 0; i < TILES.size(); i++) {
             int x = tileX(i), y = tileY(i);
             if (mx >= x && mx < x + tileW() && my >= y && my < y + tileH()) {
+                if (!tutorialDone && TILES.get(i).action().startsWith("warp:")) { toast("튜토리얼을 끝낸 뒤에 이동할 수 있어요."); return true; }
                 pressed = TILES.get(i).action();
                 pressedAt = System.currentTimeMillis();
                 act(pressed);
@@ -217,7 +194,7 @@ public class MenuScreen extends Screen {
     private void help() {
         onClose();
         for (String line : new String[]{"── 기본 명령어 ──", "G 키: 메인 메뉴", "/money (/돈): 잔액", "/pay 닉네임 금액 (/송금): 돈 보내기",
-                "/trigger home: 회의장으로", "R 키: 포켓몬 꺼내기 · M 키: 상태창 · ↑↓: 파티 선택"}) toast(line);
+                "/trigger home: 회의장으로", "/초기화: 모든 진행 삭제 (확인 필요)", "R 키: 포켓몬 꺼내기 · M 키: 상태창 · ↑↓: 파티 선택"}) toast(line);
     }
 
     private void toast(String s) {

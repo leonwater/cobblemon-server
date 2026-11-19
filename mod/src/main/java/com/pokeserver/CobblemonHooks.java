@@ -34,7 +34,10 @@ final class CobblemonHooks {
             var level = e.getSpawnablePosition().getWorld();
             if (!level.dimension().location().toString().equals("poke:wild")) { e.cancel(); return Unit.INSTANCE; }
             var mon = pe.getPokemon();
-            if (mon.getLevel() > SAFE_LEVEL && nearFirstSpawn(level.getServer(), e.getSpawnablePosition().getPosition())) {
+            boolean near = nearFirstSpawn(level.getServer(), e.getSpawnablePosition().getPosition());
+            // 전설·환상·울트라비스트·패러독스(Complete Cobblemon Collection의 야생 출현)는 첫 스폰 근처에선 아예 안 나옴 (15레벨로 깎이면 너무 쉬움)
+            if (near && mon.getSpecies().getLabels().stream().anyMatch(STRONG::contains)) { e.cancel(); return Unit.INSTANCE; }
+            if (mon.getLevel() > SAFE_LEVEL && near) {
                 mon.setLevel(SAFE_LEVEL - 7 + level.getRandom().nextInt(8));   // 8~15
                 mon.initializeMoveset(true);
             }
@@ -81,6 +84,7 @@ final class CobblemonHooks {
     }
 
     static final int SAFE_LEVEL = 15, SAFE_RADIUS = 200;
+    static final Set<String> STRONG = Set.of("legendary", "mythical", "ultra_beast", "paradox");
     /** 스타팅 포켓몬 세대 (Cobblemon 기본 분류 이름). 피카츄·이브이(Special)와 히스이는 뺌. */
     static final java.util.List<String> GENS = java.util.List.of("kanto", "johto", "hoenn", "sinnoh", "unova", "kalos", "alola", "galar", "paldea");
 
@@ -122,6 +126,22 @@ final class CobblemonHooks {
                 data.sendToPlayer(p);
             }
         }
+    }
+
+    /** 전체 초기화: 파티·PC의 포켓몬을 모두 지우고 스타팅 포켓몬을 다시 고를 수 있게 (세대도 새로 뽑음). */
+    static void wipe(net.minecraft.server.level.ServerPlayer p) {
+        com.cobblemon.mod.common.util.PlayerExtensionsKt.party(p).clearParty();
+        var pc = com.cobblemon.mod.common.util.PlayerExtensionsKt.pc(p);
+        var mons = new java.util.ArrayList<com.cobblemon.mod.common.pokemon.Pokemon>();
+        pc.forEach(mons::add);
+        mons.forEach(pc::remove);
+        var data = com.cobblemon.mod.common.Cobblemon.INSTANCE.getPlayerDataManager().getGenericData(p);
+        data.setStarterSelected(false);
+        data.setStarterUUID(null);
+        data.setStarterPrompted(false);
+        data.setStarterLocked(true);   // 튜토리얼을 다시 끝내면 starterLocks가 풂
+        data.sendToPlayer(p);
+        p.getTags().removeIf(t -> t.startsWith("poke.gen_"));
     }
 
     /** 튜토리얼을 끝냈고 아직 안 골랐으면 스타팅 포켓몬 선택 창을 엶. */

@@ -56,11 +56,12 @@ public final class Net {
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
 
-    /** 서버 → 클라이언트: 메인 메뉴 열기 (잔액, 공지). */
-    public record MenuOpen(long balance, String notice) implements CustomPacketPayload {
+    /** 서버 → 클라이언트: 메인 메뉴 열기 (잔액, 공지, 튜토리얼을 끝냈는지 — 끝내기 전엔 워프 잠금). */
+    public record MenuOpen(long balance, String notice, boolean tutorialDone) implements CustomPacketPayload {
         public static final Type<MenuOpen> TYPE = id("menu_open");
         public static final StreamCodec<RegistryFriendlyByteBuf, MenuOpen> CODEC = StreamCodec.composite(
-                ByteBufCodecs.VAR_LONG, MenuOpen::balance, ByteBufCodecs.stringUtf8(4096), MenuOpen::notice, MenuOpen::new);
+                ByteBufCodecs.VAR_LONG, MenuOpen::balance, ByteBufCodecs.stringUtf8(4096), MenuOpen::notice,
+                ByteBufCodecs.BOOL, MenuOpen::tutorialDone, MenuOpen::new);
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
 

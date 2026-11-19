@@ -14,7 +14,7 @@ import net.minecraft.world.item.Items;
 
 /** 4. 상점 화면: 왼쪽 분류, 위 구매/판매 탭·검색·잔액, 가운데 카드 격자. */
 public class ShopScreen extends Screen {
-    static final int SIDE = 128, CARD_W = 84, CARD_H = 98, GAP = 8, TOP = 52;
+    static final int SIDE = 128, CARD_H = 98, GAP = 8, TOP = 52;
     static final int RED = 0xFFC8323C, GREEN = 0xFF3C9650;
 
     private final Shop.Data data;
@@ -71,8 +71,9 @@ public class ShopScreen extends Screen {
         }
     }
 
-    private int cols() { return Math.max(1, Math.min(5, (width - SIDE - 32 + GAP) / (CARD_W + GAP))); }   // 가로 최대 5개
-    private int cardX(int k) { return SIDE + 16 + (k % cols()) * (CARD_W + GAP); }
+    private int cols() { return 5; }   // 가로 5칸 고정: 화면이 좁으면 카드 폭을 줄임
+    private int cardW() { return Math.max(44, Math.min(84, (width - SIDE - 32 + GAP) / 5 - GAP)); }
+    private int cardX(int k) { return SIDE + 16 + (k % cols()) * (cardW() + GAP); }
     private int cardY(int k) { return TOP + 14 + (k / cols()) * (CARD_H + GAP) - (int) scroll; }
 
     @Override
@@ -92,7 +93,7 @@ public class ShopScreen extends Screen {
         g.enableScissor(SIDE, TOP + 10, width, height - 20);
         for (int k = 0; k < shown.size(); k++) {
             int x = cardX(k), y = cardY(k);
-            boolean hov = mx >= x && mx < x + CARD_W && my >= y && my < y + CARD_H && my >= TOP + 10 && my < height - 20;
+            boolean hov = mx >= x && mx < x + cardW() && my >= y && my < y + CARD_H && my >= TOP + 10 && my < height - 20;
             if (hov) hovered = k;
             float h = anim.to(k, hov);
             if (y > height || y + CARD_H < TOP) continue;
@@ -248,26 +249,26 @@ public class ShopScreen extends Screen {
         boolean blocked = sell ? have == 0 : balance < price;
         float sc = k == pressedKey ? Theme.press(pressedAt) : 1f;
         g.pose().pushPose();
-        g.pose().translate(x + CARD_W / 2f, y + CARD_H / 2f - h, 0);   // 마우스를 올리면 1픽셀 떠오름
+        g.pose().translate(x + cardW() / 2f, y + CARD_H / 2f - h, 0);   // 마우스를 올리면 1픽셀 떠오름
         g.pose().scale(sc, sc, 1);
-        g.pose().translate(-CARD_W / 2f, -CARD_H / 2f, 0);
-        Theme.panel(g, 0, 0, CARD_W, CARD_H, Theme.mix(Theme.TILE, Theme.TILE_HOVER, h), Theme.mix(Theme.BORDER, Theme.ACCENT, h));
-        g.fill(5, 5, CARD_W - 5, 44, Theme.mix(0x30FFFFFF, 0x48FFFFFF, h));
+        g.pose().translate(-cardW() / 2f, -CARD_H / 2f, 0);
+        Theme.panel(g, 0, 0, cardW(), CARD_H, Theme.mix(Theme.TILE, Theme.TILE_HOVER, h), Theme.mix(Theme.BORDER, Theme.ACCENT, h));
+        g.fill(5, 5, cardW() - 5, 44, Theme.mix(0x30FFFFFF, 0x48FFFFFF, h));
         g.pose().pushPose();
-        g.pose().translate(CARD_W / 2f - 16, 8, 0);
+        g.pose().translate(cardW() / 2f - 16, 8, 0);
         g.pose().scale(2, 2, 1);
         g.renderItem(st, 0, 0);
         g.pose().popPose();
-        g.drawString(font, Theme.t("x1"), CARD_W - 16, 34, Theme.SUBTEXT);
-        g.drawCenteredString(font, Theme.t(Theme.fit(font, st.getHoverName().getString(), CARD_W - 8)), CARD_W / 2, 49, Theme.TEXT);
+        g.drawString(font, Theme.t("x1"), cardW() - 16, 34, Theme.SUBTEXT);
+        g.drawCenteredString(font, Theme.t(Theme.fit(font, st.getHoverName().getString(), cardW() - 8)), cardW() / 2, 49, Theme.TEXT);
         // 상태 띠: 판매 탭은 보유 수량, 구매 탭은 잔액 부족만
         String badge = sell ? (have == 0 ? "보유 아이템 없음" : "보유 " + have + "개") : (blocked ? "잔액 부족" : null);
         if (badge != null) {
-            g.fill(4, 60, CARD_W - 4, 71, sell && have > 0 ? GREEN : RED);
-            g.drawCenteredString(font, Theme.t(badge), CARD_W / 2, 62, Theme.TEXT);
+            g.fill(4, 60, cardW() - 4, 71, sell && have > 0 ? GREEN : RED);
+            g.drawCenteredString(font, Theme.t(Theme.fit(font, badge, cardW() - 8)), cardW() / 2, 62, Theme.TEXT);
         }
-        g.drawCenteredString(font, Theme.t(sell ? "판매가" : "구매가"), CARD_W / 2, 75, Theme.SUBTEXT);
-        g.drawCenteredString(font, Theme.t(String.format("%,d", price)), CARD_W / 2, 86, blocked ? Theme.SUBTEXT : Theme.GOLD);
+        g.drawCenteredString(font, Theme.t(sell ? "판매가" : "구매가"), cardW() / 2, 75, Theme.SUBTEXT);
+        g.drawCenteredString(font, Theme.t(String.format("%,d", price)), cardW() / 2, 86, blocked ? Theme.SUBTEXT : Theme.GOLD);
         g.pose().popPose();
     }
 
@@ -300,7 +301,7 @@ public class ShopScreen extends Screen {
         if (my < TOP + 10 || my >= height - 20) return false;
         for (int k = 0; k < shown.size(); k++) {
             int x = cardX(k), y = cardY(k);
-            if (mx >= x && mx < x + CARD_W && my >= y && my < y + CARD_H) {
+            if (mx >= x && mx < x + cardW() && my >= y && my < y + CARD_H) {
                 int[] r = shown.get(k);
                 pressedKey = k;
                 pressedAt = System.currentTimeMillis();

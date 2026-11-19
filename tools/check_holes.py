@@ -1,4 +1,4 @@
-"""건물 빈칸 검사: build/town.mcfunction(+ mod/build_town)의 fill·setblock을 그대로 따라 해 블록 지도를 만들고,
+"""건물 빈칸 검사: build/terrain/*(지형→마을 건물, + mod/build_town)의 fill·setblock을 그대로 따라 해 블록 지도를 만들고,
 건물마다 벽·바닥에 빈칸이 있는지, 실내 위가 지붕으로 덮였는지 확인. 문·통로처럼 일부러 비운 곳은 제외.
 사용: python3 tools/check_holes.py   (빈칸이 있으면 위치를 출력하고 종료 코드 1)
 """
@@ -11,7 +11,13 @@ import build_world as W  # noqa: E402
 G = W.G
 
 
-def simulate(boxes, paths=('build/town.mcfunction', 'mod/build_town.mcfunction'), ground=G, hub=False):
+def town_paths():
+    """지형 → 마을 건물 조각 순서대로 (build/terrain/0, 1, …) + 모드 블록."""
+    ks = sorted(int(p.stem) for p in (W.FN / 'build/terrain').glob('*.mcfunction') if p.stem.isdigit())
+    return tuple(f'build/terrain/{k}.mcfunction' for k in ks) + ('mod/build_town.mcfunction',)
+
+
+def simulate(boxes, paths=None, ground=G, hub=False):
     """hub=True: 튜토리얼 방 차원(poke:hub) 줄만, 아니면 마을 줄만."""
     """boxes 안의 칸만 기록 (세상 전체를 다 들고 있지 않게). 땅(G 이하)은 지형이 채워 둔 것으로 봄."""
     world = {}
@@ -22,7 +28,7 @@ def simulate(boxes, paths=('build/town.mcfunction', 'mod/build_town.mcfunction')
     def get(x, y, z):
         return world.get((x, y, z), 'ground' if y <= ground and abs(x) < 2800 else 'air')
 
-    for path in paths:
+    for path in paths or town_paths():
         for line in (W.FN / path).read_text(encoding='utf-8').splitlines():
             p = line.split()
             in_hub = p[:4] == ['execute', 'in', 'poke:hub', 'run']
