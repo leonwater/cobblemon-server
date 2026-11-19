@@ -98,7 +98,7 @@ metafile = true
 
 [[files]]
 file = "mods/pokeserver-0.1.0.jar"
-hash = "a841b0cd5a9245793176b552e7773428bac14ad6a1f9329d0d24c3b1e1941757"
+hash = "342a9d1397a1ea627d13bd5362fa6ccb7c9f49356027df1ca343c361fef18e68"
 
 [[files]]
 file = "mods/rctapi.pw.toml"
@@ -498,7 +498,7 @@ hash = "8fa4bb1ad601e723cf128d6c27523a17c6b54c9adbce0f20439541a2c20eef84"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/join/first.mcfunction"
-hash = "999b2ec8674124b38eb0c15eeb7ae1137397d4e5d375c14c39a4c580a32e698c"
+hash = "6d497624d6c6021675108332e87f958f44e95cac471377e27a7c83108a5e1c87"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/join/migrate.mcfunction"
