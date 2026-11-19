@@ -84,18 +84,18 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   assert.equal(opened.length, 1, '상점 열기 패킷')
   assert.ok(opened[0].toString('utf8').includes('farm_deed'), '상점 목록 JSON 전달')
   await cmd('clear A'); await sleep(300)
-  trade(false, 3, 1, 16); await sleep(800)                                     // 밀 씨앗 16개 = 160원
+  trade(false, 4, 1, 16); await sleep(800)                                     // 밀 씨앗 16개 = 160원
   assert.equal(await bal('A'), 840, '구매: 잔액 차감')
   assert.match(await cmd('clear A minecraft:wheat_seeds 0'), /Found 16 /, '구매: 아이템 받음')
-  trade(false, 3, 0, 1); await sleep(800)                                      // 땅 문서 50,000원: 잔액 부족
+  trade(false, 4, 0, 1); await sleep(800)                                      // 땅 문서 50,000원: 잔액 부족
   assert.equal(await bal('A'), 840, '잔액 부족이면 구매 안 됨')
   assert.match(await cmd('clear A minecraft:paper 0'), /No items/, '잔액 부족: 문서 안 받음')
-  trade(true, 3, 1, 10); await sleep(800)                                      // 밀 씨앗 10개 판매 = +10
+  trade(true, 4, 1, 10); await sleep(800)                                      // 밀 씨앗 10개 판매 = +10
   assert.equal(await bal('A'), 850, '판매: 잔액 증가')
   assert.match(await cmd('clear A minecraft:wheat_seeds 0'), /Found 6 /, '판매: 아이템 빠짐')
-  trade(true, 5, 0, 1); await sleep(800)                                       // 석탄 없음
+  trade(true, 6, 0, 1); await sleep(800)                                       // 석탄 없음
   assert.equal(await bal('A'), 850, '없는 아이템은 판매 안 됨')
-  for (const bad of [[false, 99, 0, 1], [false, 3, 99, 1], [false, 3, 1, 0], [false, 3, 1, 100], [false, 3, 9, 1]]) trade(...bad)
+  for (const bad of [[false, 99, 0, 1], [false, 4, 99, 1], [false, 4, 1, 0], [false, 4, 1, 100], [false, 4, 9, 1]]) trade(...bad)
   await sleep(800)                                                             // 9번(물 양동이)은 판매가 0 → 구매만 가능, 여기선 구매라 정상 처리
   assert.equal(await bal('A'), 750, '잘못된 요청은 무시 (마지막 물 양동이 구매 100원만 처리)')
   await cmd('execute as A run pay B 100')
@@ -161,19 +161,19 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   assert.equal(await bal('A'), 2000, '1번 관장 승리 상금 2,000원')
   // 12. 배지가 있어야 사는 상품: 광물 분류 3번째(철 주괴)는 배지 1개 필요, 판매는 제한 없음 (테스트 서버엔 Cobblemon이 없어 바닐라 아이템으로)
   await cmd('tag A remove poke.badge1'); await cmd('pokeserver money set A 5000')
-  trade(false, 5, 2, 1); await sleep(600)
+  trade(false, 6, 2, 1); await sleep(600)
   assert.equal(await bal('A'), 5000, '배지 없으면 철 주괴 못 삼')
-  await cmd('tag A add poke.badge1'); trade(false, 5, 2, 1); await sleep(600)
+  await cmd('tag A add poke.badge1'); trade(false, 6, 2, 1); await sleep(600)
   assert.equal(await bal('A'), 4880, '배지 1개 → 철 주괴 구매')
-  await cmd('tag A remove poke.badge1'); trade(true, 5, 2, 1); await sleep(600)
+  await cmd('tag A remove poke.badge1'); trade(true, 6, 2, 1); await sleep(600)
   assert.equal(await bal('A'), 4920, '판매는 배지와 상관없음')
   // 3. 땅 문서는 한 사람이 살수록 비싸짐 (기본가 × (산 개수 + 1)), 사람마다 따로
   await cmd('pokeserver money set A 300000'); await cmd('pokeserver money set B 300000')
-  trade(false, 3, 0, 1); await sleep(600)
+  trade(false, 4, 0, 1); await sleep(600)
   assert.equal(await bal('A'), 250000, '첫 땅 문서 50,000')
-  trade(false, 3, 0, 1); await sleep(600)
+  trade(false, 4, 0, 1); await sleep(600)
   assert.equal(await bal('A'), 150000, '두 번째 땅 문서 100,000')
-  B._client.write('custom_payload', { channel: 'pokeserver:shop_trade', data: Buffer.from([0, 3, 0, 1]) }); await sleep(600)
+  B._client.write('custom_payload', { channel: 'pokeserver:shop_trade', data: Buffer.from([0, 4, 0, 1]) }); await sleep(600)
   assert.equal(await bal('B'), 250000, '다른 사람은 따로 셈: B의 첫 문서는 50,000')
   // 10. 마을(야생·농장 밖)은 아무도 못 부숨
   await cmd('execute in poke:town run tp A 2000.5 -59 -11.5 0 90'); await sleep(800)

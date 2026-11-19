@@ -56,18 +56,6 @@
           "badges": 3
         },
         {
-          "item": "cobblemon:timer_ball",
-          "buy": 1000,
-          "sell": 250,
-          "badges": 3
-        },
-        {
-          "item": "cobblemon:quick_ball",
-          "buy": 1000,
-          "sell": 250,
-          "badges": 3
-        },
-        {
           "item": "cobblemon:dusk_ball",
           "buy": 1000,
           "sell": 250,
@@ -120,6 +108,18 @@
           "buy": 1500,
           "sell": 375,
           "badges": 5
+        },
+        {
+          "item": "cobblemon:timer_ball",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 8
+        },
+        {
+          "item": "cobblemon:quick_ball",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 8
         }
       ]
     },
@@ -193,8 +193,8 @@
       "items": [
         {
           "item": "cobblemon:rare_candy",
-          "buy": 5000,
-          "sell": 1200,
+          "buy": 20000,
+          "sell": 5000,
           "badges": 6
         },
         {
@@ -219,6 +219,222 @@
           "buy": 10000,
           "sell": 2500,
           "badges": 4
+        },
+        {
+          "item": "cobblemon:pp_up",
+          "buy": 9800,
+          "sell": 2450,
+          "badges": 3
+        }
+      ]
+    },
+    {
+      "name": "성격·노력치",
+      "icon": "cobblemon:hp_up",
+      "items": [
+        {
+          "item": "cobblemon:hp_up",
+          "buy": 9800,
+          "sell": 2450,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:protein",
+          "buy": 9800,
+          "sell": 2450,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:iron",
+          "buy": 9800,
+          "sell": 2450,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:calcium",
+          "buy": 9800,
+          "sell": 2450,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:zinc",
+          "buy": 9800,
+          "sell": 2450,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:carbos",
+          "buy": 9800,
+          "sell": 2450,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:power_weight",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:power_bracer",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:power_belt",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:power_lens",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:power_band",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:power_anklet",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:ability_capsule",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:lonely_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:adamant_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:naughty_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:brave_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:bold_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:impish_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:lax_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:relaxed_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:modest_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:mild_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:rash_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:quiet_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:calm_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:gentle_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:careful_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:sassy_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:timid_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:hasty_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:jolly_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:naive_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:serious_mint",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 6
         }
       ]
     },
