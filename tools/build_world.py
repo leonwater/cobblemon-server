@@ -37,8 +37,8 @@ E4 = (3500, 3540, -46, 12)           # 사천왕 본부 (닫힌 방 4개 + 명�
 WARPS = {'hall': (0.5, G + 2, PLAZA_C[1] + 0.5, 0), 'street': (1000.5, G + 1, 30.5, 180), 'gym': (2000.5, LOBBY_Y + 1, -11.5, 0)}
 NPCS = [  # (NPC 종류, 차원, x, y, z, 태그, yaw, 이름표)
     ('poke:nurse', 'poke:town', CENTER[1] - 3, G + 1, 0, 'poke.nurse', 90, ('간호사', '우클릭 → 포켓몬 회복')),
-    ('poke:merchant', 'poke:town', MART[1] - 4, G + 1, -3, 'poke.merchant', -90, ('점원', '우클릭 → 상점')),
-    ('poke:merchant', 'poke:town', MART[1] - 4, G + 1, 3, 'poke.merchant', -90, ('점원', '우클릭 → 상점')),
+    ('poke:merchant', 'poke:town', MART[0] + 4, G + 1, -3, 'poke.merchant', -90, ('점원', '우클릭 → 상점')),   # 숍 안쪽(뒤편) 계산대
+    ('poke:merchant', 'poke:town', MART[0] + 4, G + 1, 3, 'poke.merchant', -90, ('점원', '우클릭 → 상점')),
     ('poke:gym_guide', 'poke:town', 2000, LOBBY_Y + 1, 12, 'poke.gymguide', 180, ('체육관 안내원', '우클릭 → 도전 신청')),
 ]
 
@@ -587,9 +587,9 @@ def mart():
     for z in (zm - 6, zm + 6):
         L += [fill(x1 + 3, G + 1, z, x2 - 8, G + 1, z, 'minecraft:barrel[facing=up]'),
               fill(x1 + 3, G + 2, z, x2 - 8, G + 2, z, 'minecraft:spruce_trapdoor[half=bottom,open=false]')]
-    for a, b in ((zm - 4, zm - 2), (zm + 2, zm + 4)):                    # 점원(문 앞 양옆) 앞 계산대: 1칸 높이라 점원 상반신이 보임
-        L += [fill(x2 - 3, G + 1, a, x2 - 3, G + 1, b, 'minecraft:stripped_dark_oak_wood'),
-              fill(x2 - 3, G + 2, a, x2 - 3, G + 2, b, 'minecraft:air')]
+    for a, b in ((zm - 4, zm - 2), (zm + 2, zm + 4)):                    # 점원(숍 안쪽, 진열대 끝) 앞 계산대: 1칸 높이라 점원 상반신이 보임
+        L += [fill(x1 + 6, G + 1, a, x1 + 6, G + 1, b, 'minecraft:stripped_dark_oak_wood'),
+              fill(x1 + 6, G + 2, a, x1 + 6, G + 2, b, 'minecraft:air')]
     L += [fill(x1 + 1, G + 1, z1 + 1, x1 + 1, G + 3, z2 - 1, 'minecraft:bookshelf')]
     L += glow(x1, x2, z1, z2, G + 4)
     for x in range(x1 + 3, x2 - 1, 4):
@@ -889,10 +889,10 @@ LAB = (-8, 8, -11, 7)                  # 튜토리얼: 오박사 연구소 (poke
 
 
 def lab():
-    """튜토리얼 방 = 오박사 연구소. 다른 건물과 같은 붉은 벽돌·짙은 목재 양식, 큰 창, 책장 벽, 연구 기계, 몬스터볼 3개 놓인 탁자.
+    """튜토리얼 방 = 오박사 연구소. 원작 연구소처럼 흰 벽(석영)·밝은 회색 타일 바닥·흰 천장 조명, 책장 줄, 연구 기계, 몬스터볼 3개 놓인 탁자.
     밖은 울타리 친 잔디 마당(창밖이 허공이 아니게). 문은 철문이라 나갈 수 없음."""
     x1, x2, z1, z2 = LAB
-    F, f2, top = 64, 70, 72
+    F, top = 64, 72
     L = ['# 자동 생성: tools/build_world.py. 튜토리얼 방 = 오박사 연구소',
          'kill @e[type=minecraft:text_display,tag=poke.lab]',
          fill(-16, 63, -16, 16, 90, 16, 'minecraft:air'),
@@ -900,19 +900,28 @@ def lab():
          fill(-16, 64, -16, 16, 64, 16, 'minecraft:grass_block'),
          *walls(-16, 16, -16, 16, 65, 65, 'minecraft:oak_fence'),
          fill(-1, 64, z2 + 1, 1, 64, 16, 'minecraft:dirt_path'),                     # 문 앞 길
-         fill(x1, F, z1, x2, F, z2, 'minecraft:birch_planks')]
+         fill(x1, F, z1, x2, F, z2, 'minecraft:smooth_quartz')]
+    L += [fill(x, F, z1 + 1, x, F, z2 - 1, 'minecraft:light_gray_concrete') for x in range(x1 + 1, x2, 4)]      # 타일 줄눈
+    L += [fill(x1 + 1, F, z, x2 - 1, F, z, 'minecraft:light_gray_concrete') for z in range(z1 + 1, z2, 4)]
     for x, z, b in ((-12, -12, 'oak'), (12, -12, 'birch'), (-12, 12, 'oak'), (12, 12, 'birch')):   # 마당 나무
         L += [fill(x, 65, z, x, 69, z, f'minecraft:{b}_log'), fill(x - 2, 68, z - 2, x + 2, 69, z + 2, f'minecraft:{b}_leaves[persistent=true]', 'keep'),
               fill(x - 1, 70, z - 1, x + 1, 71, z + 1, f'minecraft:{b}_leaves[persistent=true]', 'keep')]
     for x, z in ((-4, 11), (4, 11), (-11, 0), (11, 0), (-6, -14), (6, -14)):
         L += [sb(x, 65, z, 'minecraft:poppy'), sb(x + 1, 65, z, 'minecraft:dandelion'), sb(x - 1, 65, z, 'minecraft:cornflower')]
-    L += brick_wood_walls(x1, x2, z1, z2, F + 1, f2, top)
+    L += walls(x1, x2, z1, z2, F + 1, top, 'minecraft:smooth_quartz')
+    for x in range(x1, x2 + 1, 4):                                                     # 흰 석영 기둥
+        L += [fill(x, F + 1, z, x, top, z, 'minecraft:quartz_pillar') for z in (z1, z2)]
+    for z in range(z1, z2 + 1, 4):
+        L += [fill(x, F + 1, z, x, top, z, 'minecraft:quartz_pillar') for x in (x1, x2)]
+    L += walls(x1, x2, z1, z2, F + 1, F + 1, 'minecraft:light_gray_concrete')         # 벽 아래 띠
     L += big_windows(x1, x2, z1, z2, F + 2, F + 4)
+    L += [fill(x1 + 1, top, z1 + 1, x2 - 1, top, z2 - 1, 'minecraft:smooth_quartz')]    # 흰 천장 + 천장 조명
+    L += [sb(x, top, z, 'minecraft:sea_lantern') for x in range(x1 + 2, x2 - 1, 4) for z in range(z1 + 2, z2 - 1, 4)]
     # 문(남쪽): 닫힌 철문 + 양옆 창, 위 간판
-    L += [fill(-1, F + 1, z2, 1, F + 4, z2, 'minecraft:bricks'),
+    L += [fill(-1, F + 1, z2, 1, F + 4, z2, 'minecraft:smooth_quartz'),
           sb(0, F + 1, z2, 'minecraft:iron_door[facing=north,half=lower]'), sb(0, F + 2, z2, 'minecraft:iron_door[facing=north,half=upper]'),
           label(0.5, F + 4.4, z2 + 0.6, '오박사 연구소', 'gold', 1.2, tag='poke.lab')]
-    roof, _ = hip_roof(x1, x2, z1, z2, top + 1, 'minecraft:dark_oak_planks', 'minecraft:dark_oak_stairs')
+    roof, _ = hip_roof(x1, x2, z1, z2, top + 1, 'minecraft:polished_andesite', 'minecraft:polished_andesite_stairs')
     L += roof
     # 안: 붉은 카펫(입구 → 오박사), 북쪽 벽 책장 + 간판, 가운데 책장 두 줄, 양옆 연구 기계, 몬스터볼 탁자
     L += [fill(0, F + 1, 1, 0, F + 1, z2 - 1, 'minecraft:red_carpet'),
@@ -932,9 +941,6 @@ def lab():
           sb(x1 + 1, F + 1, z2 - 1, 'minecraft:potted_fern'), sb(x2 - 1, F + 1, z2 - 1, 'minecraft:potted_azalea_bush'),
           sb(x1 + 1, F + 1, -8, 'minecraft:potted_bamboo'), sb(x2 - 1, F + 1, -8, 'minecraft:potted_cactus')]
     L += glow(x1, x2, z1, z2, F + 5)
-    for x in (-4, 4):
-        for z in (-8, -2, 4):
-            L.append(sb(x, top, z, 'minecraft:lantern[hanging=true]'))
     return L
 
 
@@ -973,7 +979,7 @@ if __name__ == '__main__':
         '# 자동 생성: tools/build_world.py',
         'execute in poke:hub run function poke:build/tutorial', 'execute in poke:town run function poke:build/town',
         'execute in poke:town run function poke:mod/build_town', 'execute in poke:hub run function poke:mod/spawn_npcs',
-        'execute in poke:town run forceload remove all', 'data modify storage poke:state build set value 9',
+        'execute in poke:town run forceload remove all', 'data modify storage poke:state build set value 10',
         '# 관장·사천왕은 플레이어가 접속하면 소환 (RCT 명령이 플레이어를 요구)', 'data modify storage poke:state leaders set value 0',
         'say [pokeserver] 튜토리얼 방·마을(스폰 광장·상점가·체육관)과 지형을 지었습니다.']
     for path, lines in out.items():

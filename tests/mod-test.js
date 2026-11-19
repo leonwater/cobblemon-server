@@ -155,6 +155,10 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   pick(2); await sleep(600)
   assert.match(await gymOf(), /has 2 /, '고른 2번 체육관 경기장으로')
   await cmd('execute as A run function poke:gym/leave')
+  // 상금: 1번 관장을 이기면 레벨 제한 20 × 100 = 2,000원
+  await cmd('pokeserver money set A 0'); await cmd('tag A remove poke.badge1'); await cmd('scoreboard players set A poke.gym 1')
+  await cmd('execute as A run function poke:gym/win'); await sleep(400)
+  assert.equal(await bal('A'), 2000, '1번 관장 승리 상금 2,000원')
   // 12. 배지가 있어야 사는 상품: 광물 분류 3번째(철 주괴)는 배지 1개 필요, 판매는 제한 없음 (테스트 서버엔 Cobblemon이 없어 바닐라 아이템으로)
   await cmd('tag A remove poke.badge1'); await cmd('pokeserver money set A 5000')
   trade(false, 5, 2, 1); await sleep(600)

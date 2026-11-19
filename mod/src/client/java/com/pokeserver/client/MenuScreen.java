@@ -10,8 +10,8 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
-/** 5. 메인 메뉴 (G키). 처음 방향(평평한 어두운 반투명 칸, 1픽셀 테두리)으로, 참고 사진처럼 같은 크기 칸 5×2 격자.
- *  위: 제목 + 레벨 제한·잔액, 가운데: 메뉴 5칸 + 워프 5칸, 아래: 공지 + 명령어·닫기 버튼. 글자는 칸에 맞춰 자름(…). */
+/** 5. 메인 메뉴 (G키). 처음 방향(평평한 어두운 반투명 칸, 1픽셀 테두리), 참고 사진처럼 같은 크기 칸.
+ *  위: 제목 + 레벨 제한·잔액, 가운데: 주요 메뉴 4×2 (파티·PC·도감 + 워프 5곳), 아래: 공지 + 작은 버튼(튜토리얼·휴지통·명령어 / 닫기). */
 public class MenuScreen extends Screen {
     record Tile(String label, String icon, String action) {}
 
@@ -19,14 +19,18 @@ public class MenuScreen extends Screen {
             new Tile("내 파티", "cobblemon:poke_ball", "client:party"),
             new Tile("PC", "cobblemon:pc", "pc"),
             new Tile("도감", "cobblemon:pokedex_red", "client:dex"),
-            new Tile("튜토리얼", "minecraft:book", "tutorial"),
-            new Tile("휴지통", "minecraft:cauldron", "trash"),
+            new Tile("체육관", "minecraft:red_banner", "warp:gym"),
             new Tile("광장", "minecraft:beacon", "warp:hall"),
             new Tile("상점가", "minecraft:emerald", "warp:street"),
             new Tile("야생", "minecraft:grass_block", "warp:wild"),
-            new Tile("농장", "minecraft:wheat", "warp:farm"),
-            new Tile("체육관", "minecraft:red_banner", "warp:gym"));
-    static final int COLS = 5, GAP = 3;
+            new Tile("농장", "minecraft:wheat", "warp:farm"));
+    /** 자주 안 쓰는 것: 아래 줄 작은 버튼 (닫기는 오른쪽 끝). */
+    static final List<Tile> SMALL = List.of(
+            new Tile("튜토리얼", "minecraft:book", "tutorial"),
+            new Tile("휴지통", "minecraft:cauldron", "trash"),
+            new Tile("명령어", "minecraft:paper", "help"),
+            new Tile("닫기", "minecraft:barrier", "close"));
+    static final int COLS = 4, GAP = 3;
 
     private final long balance;
     private final String notice;
@@ -62,38 +66,41 @@ public class MenuScreen extends Screen {
     }
 
     // ── 배치: 화면 크기에서 계산 (전체 화면 480×270 GUI px, 작은 창 426×240에서도 겹치지 않음) ──
-    private int pw() { return Math.max(300, Math.min(width - 16, 440)); }
+    private int pw() { return Math.max(300, Math.min(width - 16, 380)); }
     private int ph() { return Math.max(200, Math.min(height - 16, 250)); }
     private int px() { return (width - pw()) / 2; }
     private int py() { return (height - ph()) / 2; }
     private int gx() { return px() + 10; }                      // 격자 틀 안쪽 시작
     private int gy() { return py() + 30; }
     private int gw() { return pw() - 20; }
-    private int btnY() { return py() + ph() - 28; }
-    private int noticeY() { return btnY() - 24; }
+    private int btnY() { return py() + ph() - 26; }
+    private int noticeY() { return btnY() - 23; }
     private int tileW() { return (gw() - 8 - GAP * (COLS - 1)) / COLS; }
     private int tileH() { return Math.min(tileW(), (noticeY() - 6 - gy() - 8 - GAP) / 2); }   // 참고 사진처럼 거의 정사각형
     private int gh() { return tileH() * 2 + GAP + 8; }
     private int tileX(int i) { return gx() + 4 + (i % COLS) * (tileW() + GAP) + (gw() - 8 - COLS * tileW() - GAP * (COLS - 1)) / 2; }
     private int tileY(int i) { return gy() + 4 + (i / COLS) * (tileH() + GAP); }
-    private int btnW() { return Math.min(110, (pw() - 40) / 2); }
-    private int btnX(int i) { return width / 2 + (i == 0 ? -btnW() - 6 : 6); }
+    private int btnW(int i) { return w(SMALL.get(i).label()) + 26; }
+    private int btnX(int i) {                                  // 왼쪽부터 차례로, 마지막(닫기)만 오른쪽 끝
+        if (i == SMALL.size() - 1) return gx() + gw() - btnW(i);
+        int x = gx();
+        for (int k = 0; k < i; k++) x += btnW(k) + 4;
+        return x;
+    }
 
     private void text(GuiGraphics g, String s, int x, int y, int color) { g.drawString(font, Theme.t(s), x, y, color, false); }
     private void center(GuiGraphics g, String s, int cx, int y, int color) { text(g, s, cx - font.width(Theme.t(s)) / 2, y, color); }
     private int w(String s) { return font.width(Theme.t(s)); }
 
     private String sub(int i) {
-        return switch (i) {
-            case 0 -> "(" + party + " / 6)";
-            case 1 -> "(보관함)";
-            case 2 -> "(" + dex[0] + " / " + dex[2] + ")";
-            case 3 -> "(다시 보기)";
-            case 4 -> "(버리기)";
-            case 5 -> "(회의장)";
-            case 6 -> "(숍·센터)";
-            case 7, 8 -> "(마지막 위치)";
-            default -> "(배지 도전)";
+        return switch (TILES.get(i).action()) {
+            case "client:party" -> "(" + party + " / 6)";
+            case "pc" -> "(보관함)";
+            case "client:dex" -> "(" + dex[0] + " / " + dex[2] + ")";
+            case "warp:gym" -> "(배지 도전)";
+            case "warp:hall" -> "(회의장)";
+            case "warp:street" -> "(숍·센터)";
+            default -> "(마지막 위치)";
         };
     }
 
@@ -127,8 +134,7 @@ public class MenuScreen extends Screen {
             g.renderComponentTooltip(font, font.getSplitter().splitLines(Theme.t(notice), 220, net.minecraft.network.chat.Style.EMPTY).stream()
                     .map(l -> (Component) Theme.t(l.getString())).toList(), mx, my);
         }
-        button(g, 0, "명령어", mx, my);
-        button(g, 1, "닫기", mx, my);
+        for (int i = 0; i < SMALL.size(); i++) button(g, i, mx, my);
     }
 
     private void tile(GuiGraphics g, int i, int mx, int my) {
@@ -158,12 +164,14 @@ public class MenuScreen extends Screen {
         g.pose().popPose();
     }
 
-    private void button(GuiGraphics g, int i, String label, int mx, int my) {
-        int x = btnX(i), y = btnY(), bw = btnW();
-        boolean hov = mx >= x && mx < x + bw && my >= y && my < y + 20;
+    /** 작은 버튼: 아이콘 + 이름, 높이 18 (주요 칸보다 눈에 덜 띄게 흐린 글씨). */
+    private void button(GuiGraphics g, int i, int mx, int my) {
+        int x = btnX(i), y = btnY(), bw = btnW(i);
+        boolean hov = mx >= x && mx < x + bw && my >= y && my < y + 18;
         float h = anim.to("b" + i, hov);
-        Theme.panel(g, x, y, x + bw, y + 20, Theme.mix(0xE0262C38, 0xF0384256, h), Theme.mix(Theme.BORDER, Theme.ACCENT, h));
-        center(g, label, x + bw / 2, y + 6, Theme.TEXT);
+        Theme.panel(g, x, y, x + bw, y + 18, Theme.mix(0xC0181B22, 0xF0343A47, h), Theme.mix(0xFF2A303C, Theme.ACCENT, h));
+        g.renderItem(Shop.stack(SMALL.get(i).icon()), x + 3, y + 1);
+        text(g, SMALL.get(i).label(), x + 21, y + 5, Theme.mix(Theme.SUBTEXT, Theme.TEXT, h));
     }
 
     @Override
@@ -177,9 +185,16 @@ public class MenuScreen extends Screen {
                 return true;
             }
         }
-        if (my >= btnY() && my < btnY() + 20) {
-            if (mx >= btnX(0) && mx < btnX(0) + btnW()) { help(); return true; }
-            if (mx >= btnX(1) && mx < btnX(1) + btnW()) { onClose(); return true; }
+        if (my >= btnY() && my < btnY() + 18) {
+            for (int i = 0; i < SMALL.size(); i++) {
+                if (mx < btnX(i) || mx >= btnX(i) + btnW(i)) continue;
+                switch (SMALL.get(i).action()) {
+                    case "help" -> help();
+                    case "close" -> onClose();
+                    default -> act(SMALL.get(i).action());
+                }
+                return true;
+            }
         }
         return super.mouseClicked(mx, my, button);
     }

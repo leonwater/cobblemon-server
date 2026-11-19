@@ -100,7 +100,7 @@
           "item": "cobblemon:rare_candy",
           "buy": 5000,
           "sell": 1200,
-          "badges": 4
+          "badges": 6
         },
         {
           "item": "cobblemon:exp_candy_xs",
@@ -123,7 +123,7 @@
           "item": "cobblemon:lucky_egg",
           "buy": 10000,
           "sell": 2500,
-          "badges": 6
+          "badges": 4
         }
       ]
     },

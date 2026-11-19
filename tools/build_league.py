@@ -216,6 +216,14 @@ def badge_item(n, name, color):
             f"minecraft:custom_model_data={1000 + n},minecraft:custom_data={{pokeserver:\"badge{n}\"}}] 1")
 
 
+def prize(amount):
+    """상금: 관장은 레벨 제한 × 100원 (2,000~9,000), 사천왕 클리어 10,000원. 돈은 모드 명령이라 mod/prize/<금액> (기본 물품 mod/kit과 같은 방식)."""
+    fn(f'mod/prize/{amount}.mcfunction', ['# 자동 생성: tools/build_league.py. 체육관·사천왕 상금',
+                                         f'pokeserver money give @s {amount}',
+                                         f'tellraw @s {{"text":"상금 {amount:,}원을 받았어요!","color":"gold"}}'])
+    return f'function poke:mod/prize/{amount}'
+
+
 def functions():
     pads, win, spawn = [], [], []
     for n, (tid, name, typ, badge, color, _) in enumerate(GYMS, 1):
@@ -238,7 +246,7 @@ def functions():
             f'tag @s add poke.badge{n}', badge_item(n, badge, color),
             f'title @s title {{"text":"{badge} 획득!","color":"gold"}}',
             f'tellraw @a [{{"text":"[리그] ","color":"gold"}},{{"selector":"@s"}},{{"text":"님이 {n}번 체육관 관장 {name}을(를) 이기고 {badge}를 얻었습니다!","color":"yellow"}}]',
-            'function poke:gym/leave'])
+            prize(max(m['level'] for m in GYMS[n - 1][5]) * 100), 'function poke:gym/leave'])
         px, pz, w, d = g['exit']
         pads.append(f'execute in poke:town as @a[x={px},y={Y},z={pz},dx={w - 1},dy=1,dz={d - 1}] run function poke:gym/leave')
         win.append(f'execute if score @s poke.gym matches {n} run return run function poke:gym/award/{n}')
@@ -264,7 +272,7 @@ def functions():
     fn('e4/win.mcfunction', ['# 사천왕 한 명을 이기면 다음 방, 네 명 모두 이기면 클리어',
                              'scoreboard players add @s poke.e4 1',
                              'execute if score @s poke.e4 matches 4.. run return run function poke:e4/clear', *nxt])
-    fn('e4/clear.mcfunction', ['tag @s add poke.e4clear', tp(e['inside'][4]),
+    fn('e4/clear.mcfunction', ['tag @s add poke.e4clear', tp(e['inside'][4]), prize(10000),
                                'title @s title {"text":"사천왕 클리어!","color":"gold"}',
                                'title @s subtitle {"text":"명예의 전당에 이름을 올렸습니다","color":"yellow"}',
                                'tellraw @a [{"text":"[리그] ","color":"gold"},{"selector":"@s"},{"text":"님이 사천왕을 모두 이기고 명예의 전당에 올랐습니다!","color":"yellow"}]'])
