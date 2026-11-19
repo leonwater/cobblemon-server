@@ -64,7 +64,7 @@ public final class Net {
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
 
-    /** 클라이언트 → 서버: 메인 메뉴 동작 (open, pc, trash, tutorial, warp:hall|street|gym|farm|wild). */
+    /** 클라이언트 → 서버: 메인 메뉴 동작 (open, pc, trash, tutorial, tutorial_done, starter, warp:hall|street|gym|farm|wild). */
     public record MenuAction(String action) implements CustomPacketPayload {
         public static final Type<MenuAction> TYPE = id("menu_action");
         public static final StreamCodec<RegistryFriendlyByteBuf, MenuAction> CODEC =
@@ -85,6 +85,13 @@ public final class Net {
         public static final Type<GymPick> TYPE = id("gym_pick");
         public static final StreamCodec<RegistryFriendlyByteBuf, GymPick> CODEC =
                 StreamCodec.composite(ByteBufCodecs.VAR_INT, GymPick::n, GymPick::new);
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
+
+    /** 서버 → 클라이언트: 튜토리얼 설명 창 열기 (오박사 우클릭). */
+    public record TutorialOpen() implements CustomPacketPayload {
+        public static final Type<TutorialOpen> TYPE = id("tutorial_open");
+        public static final StreamCodec<RegistryFriendlyByteBuf, TutorialOpen> CODEC = StreamCodec.unit(new TutorialOpen());
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
 }

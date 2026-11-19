@@ -17,8 +17,8 @@
         },
         {
           "item": "cobblemon:ultra_ball",
-          "buy": 1200,
-          "sell": 300,
+          "buy": 800,
+          "sell": 200,
           "badges": 3
         },
         {
@@ -34,8 +34,8 @@
       "items": [
         {
           "item": "cobblemon:potion",
-          "buy": 300,
-          "sell": 75
+          "buy": 200,
+          "sell": 50
         },
         {
           "item": "cobblemon:super_potion",
@@ -45,8 +45,8 @@
         },
         {
           "item": "cobblemon:hyper_potion",
-          "buy": 1200,
-          "sell": 300,
+          "buy": 1500,
+          "sell": 375,
           "badges": 3
         },
         {
@@ -63,8 +63,8 @@
         },
         {
           "item": "cobblemon:revive",
-          "buy": 1500,
-          "sell": 375,
+          "buy": 2000,
+          "sell": 500,
           "badges": 2
         },
         {

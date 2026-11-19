@@ -33,6 +33,13 @@ final class Menu {
                     Component.literal("휴지통 (닫으면 사라짐)")));
             case "pc" -> run(p, "pc");
             case "tutorial" -> run(p, "function poke:admin/reset_me");
+            // 튜토리얼 설명 창의 "준비 완료!" (튜토리얼 방에서만) → 회의장 + 스타팅 포켓몬 고르기
+            case "tutorial_done" -> {
+                if (!p.level().dimension().location().toString().equals("poke:hub")) return;
+                run(p, "function poke:tutorial/finish");
+                if (FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.offerStarter(p);
+            }
+            case "starter" -> { if (FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.offerStarter(p); }
             case "warp:hall", "warp:street", "warp:gym", "warp:farm", "warp:wild" -> {
                 // 튜토리얼을 건너뛰지 못하게
                 if (!p.getTags().contains("poke.tutorial_done")) {

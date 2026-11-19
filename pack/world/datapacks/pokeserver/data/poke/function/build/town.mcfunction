@@ -2524,10 +2524,10 @@ fill 965 -59 -6 976 -59 -6 minecraft:barrel[facing=up]
 fill 965 -58 -6 976 -58 -6 minecraft:spruce_trapdoor[half=bottom,open=false]
 fill 965 -59 6 976 -59 6 minecraft:barrel[facing=up]
 fill 965 -58 6 976 -58 6 minecraft:spruce_trapdoor[half=bottom,open=false]
-fill 981 -59 -4 981 -59 -2 minecraft:dark_oak_planks
-fill 981 -58 -4 981 -58 -2 minecraft:smooth_quartz_slab
-fill 981 -59 2 981 -59 4 minecraft:dark_oak_planks
-fill 981 -58 2 981 -58 4 minecraft:smooth_quartz_slab
+fill 981 -59 -4 981 -59 -2 minecraft:stripped_dark_oak_wood
+fill 981 -58 -4 981 -58 -2 minecraft:air
+fill 981 -59 2 981 -59 4 minecraft:stripped_dark_oak_wood
+fill 981 -58 2 981 -58 4 minecraft:air
 fill 963 -59 -9 963 -57 9 minecraft:bookshelf
 setblock 964 -56 -8 minecraft:light[level=15]
 setblock 964 -56 -4 minecraft:light[level=15]

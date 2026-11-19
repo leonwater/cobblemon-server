@@ -587,9 +587,9 @@ def mart():
     for z in (zm - 6, zm + 6):
         L += [fill(x1 + 3, G + 1, z, x2 - 8, G + 1, z, 'minecraft:barrel[facing=up]'),
               fill(x1 + 3, G + 2, z, x2 - 8, G + 2, z, 'minecraft:spruce_trapdoor[half=bottom,open=false]')]
-    for a, b in ((zm - 4, zm - 2), (zm + 2, zm + 4)):                    # 점원(문 앞 양옆) 앞 계산대
-        L += [fill(x2 - 3, G + 1, a, x2 - 3, G + 1, b, 'minecraft:dark_oak_planks'),
-              fill(x2 - 3, G + 2, a, x2 - 3, G + 2, b, 'minecraft:smooth_quartz_slab')]
+    for a, b in ((zm - 4, zm - 2), (zm + 2, zm + 4)):                    # 점원(문 앞 양옆) 앞 계산대: 1칸 높이라 점원 상반신이 보임
+        L += [fill(x2 - 3, G + 1, a, x2 - 3, G + 1, b, 'minecraft:stripped_dark_oak_wood'),
+              fill(x2 - 3, G + 2, a, x2 - 3, G + 2, b, 'minecraft:air')]
     L += [fill(x1 + 1, G + 1, z1 + 1, x1 + 1, G + 3, z2 - 1, 'minecraft:bookshelf')]
     L += glow(x1, x2, z1, z2, G + 4)
     for x in range(x1 + 3, x2 - 1, 4):
@@ -885,6 +885,70 @@ def bounds(farm_box):
             f'{who} if dimension poke:hub if entity @s[y=-100,dy=155] run function poke:util/tp with storage poke:config tutorial']
 
 
+LAB = (-8, 8, -11, 7)                  # 튜토리얼: 오박사 연구소 (poke:hub, 바닥 y=64). 스폰 (0,65,3) → 3칸 앞 (0,65,0)에 오박사
+
+
+def lab():
+    """튜토리얼 방 = 오박사 연구소. 다른 건물과 같은 붉은 벽돌·짙은 목재 양식, 큰 창, 책장 벽, 연구 기계, 몬스터볼 3개 놓인 탁자.
+    밖은 울타리 친 잔디 마당(창밖이 허공이 아니게). 문은 철문이라 나갈 수 없음."""
+    x1, x2, z1, z2 = LAB
+    F, f2, top = 64, 70, 72
+    L = ['# 자동 생성: tools/build_world.py. 튜토리얼 방 = 오박사 연구소',
+         'kill @e[type=minecraft:text_display,tag=poke.lab]',
+         fill(-16, 63, -16, 16, 90, 16, 'minecraft:air'),
+         fill(-16, 62, -16, 16, 62, 16, 'minecraft:dirt'), fill(-16, 63, -16, 16, 63, 16, 'minecraft:dirt'),
+         fill(-16, 64, -16, 16, 64, 16, 'minecraft:grass_block'),
+         *walls(-16, 16, -16, 16, 65, 65, 'minecraft:oak_fence'),
+         fill(-1, 64, z2 + 1, 1, 64, 16, 'minecraft:dirt_path'),                     # 문 앞 길
+         fill(x1, F, z1, x2, F, z2, 'minecraft:birch_planks')]
+    for x, z, b in ((-12, -12, 'oak'), (12, -12, 'birch'), (-12, 12, 'oak'), (12, 12, 'birch')):   # 마당 나무
+        L += [fill(x, 65, z, x, 69, z, f'minecraft:{b}_log'), fill(x - 2, 68, z - 2, x + 2, 69, z + 2, f'minecraft:{b}_leaves[persistent=true]', 'keep'),
+              fill(x - 1, 70, z - 1, x + 1, 71, z + 1, f'minecraft:{b}_leaves[persistent=true]', 'keep')]
+    for x, z in ((-4, 11), (4, 11), (-11, 0), (11, 0), (-6, -14), (6, -14)):
+        L += [sb(x, 65, z, 'minecraft:poppy'), sb(x + 1, 65, z, 'minecraft:dandelion'), sb(x - 1, 65, z, 'minecraft:cornflower')]
+    L += brick_wood_walls(x1, x2, z1, z2, F + 1, f2, top)
+    L += big_windows(x1, x2, z1, z2, F + 2, F + 4)
+    # 문(남쪽): 닫힌 철문 + 양옆 창, 위 간판
+    L += [fill(-1, F + 1, z2, 1, F + 4, z2, 'minecraft:bricks'),
+          sb(0, F + 1, z2, 'minecraft:iron_door[facing=north,half=lower]'), sb(0, F + 2, z2, 'minecraft:iron_door[facing=north,half=upper]'),
+          label(0.5, F + 4.4, z2 + 0.6, '오박사 연구소', 'gold', 1.2, tag='poke.lab')]
+    roof, _ = hip_roof(x1, x2, z1, z2, top + 1, 'minecraft:dark_oak_planks', 'minecraft:dark_oak_stairs')
+    L += roof
+    # 안: 붉은 카펫(입구 → 오박사), 북쪽 벽 책장 + 간판, 가운데 책장 두 줄, 양옆 연구 기계, 몬스터볼 탁자
+    L += [fill(0, F + 1, 1, 0, F + 1, z2 - 1, 'minecraft:red_carpet'),
+          fill(x1 + 1, F + 1, z1 + 1, x2 - 1, F + 4, z1 + 1, 'minecraft:bookshelf'),
+          fill(-1, F + 2, z1 + 1, 1, F + 3, z1 + 1, 'minecraft:white_concrete'),        # 연구 칠판
+          label(0.5, F + 5.2, z1 + 2.0, '오박사 포켓몬 연구소', 'gold', 1.0, tag='poke.lab', sub='POKéMON LAB'),
+          fill(x1 + 1, F + 1, -6, -3, F + 2, -6, 'minecraft:bookshelf'), fill(3, F + 1, -6, x2 - 1, F + 2, -6, 'minecraft:bookshelf'),
+          fill(-1, F + 1, -2, 1, F + 1, -2, 'minecraft:stripped_dark_oak_wood')]          # 몬스터볼 탁자 (볼은 모드 파일)
+    for z in (-4, -3, -2):                                                             # 동쪽: 컴퓨터 (콘솔 + 화면)
+        L += [sb(x2 - 1, F + 1, z, 'minecraft:polished_deepslate'), sb(x2 - 1, F + 2, z, 'minecraft:daylight_detector'),
+              sb(x2 - 1, F + 3, z, 'minecraft:verdant_froglight' if z == -3 else 'minecraft:black_stained_glass')]
+    for z in (-4, -2):                                                                 # 서쪽: 분석 기계
+        L += [sb(x1 + 1, F + 1, z, 'minecraft:iron_block'), sb(x1 + 1, F + 2, z, 'minecraft:observer[facing=up]'),
+              sb(x1 + 1, F + 3, z, 'minecraft:lightning_rod')]
+    L += [sb(x1 + 2, F + 1, 2, 'minecraft:lectern[facing=east]'), sb(x2 - 2, F + 1, 2, 'minecraft:cartography_table'),
+          sb(x2 - 2, F + 2, 2, 'minecraft:brewing_stand'),
+          sb(x1 + 1, F + 1, z2 - 1, 'minecraft:potted_fern'), sb(x2 - 1, F + 1, z2 - 1, 'minecraft:potted_azalea_bush'),
+          sb(x1 + 1, F + 1, -8, 'minecraft:potted_bamboo'), sb(x2 - 1, F + 1, -8, 'minecraft:potted_cactus')]
+    L += glow(x1, x2, z1, z2, F + 5)
+    for x in (-4, 4):
+        for z in (-8, -2, 4):
+            L.append(sb(x, top, z, 'minecraft:lantern[hanging=true]'))
+    return L
+
+
+def lab_mod():
+    """연구소의 Cobblemon 물건: 탁자 위 몬스터볼 3개, 회복 장치 (모드 전용, poke:hub)."""
+    L = ['execute in poke:hub run kill @e[type=minecraft:item_display,tag=poke.lab]',
+         'execute in poke:hub run setblock -6 65 -8 cobblemon:healing_machine[facing=east,natural=false]']
+    for x in (-1, 0, 1):
+        L.append(f'execute in poke:hub run summon minecraft:item_display {x + 0.5} 66.2 -1.5 {{Tags:["poke.lab"],'
+                 f'item:{{id:"cobblemon:poke_ball",count:1}},transformation:{{scale:[0.6f,0.6f,0.6f],translation:[0f,0f,0f],'
+                 f'left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]}}}}')
+    return L
+
+
 def config_warps():
     return [f'data modify storage poke:config {k} set value {{dim:"poke:town", x:{x}, y:{y}, z:{z}, yaw:{yaw}}}'
             for k, (x, y, z, yaw) in WARPS.items()]
@@ -892,7 +956,7 @@ def config_warps():
 
 if __name__ == '__main__':
     f, box = farm()
-    out = {'build/town.mcfunction': town(), 'mod/build_town.mcfunction': town_mod(), 'mod/spawn_npcs.mcfunction': spawn_npcs(),
+    out = {'build/town.mcfunction': town(), 'mod/build_town.mcfunction': town_mod() + lab_mod(), 'build/tutorial.mcfunction': lab(), 'mod/spawn_npcs.mcfunction': spawn_npcs(),
            'build/start.mcfunction': build_start(), 'bounds.mcfunction': bounds(box), 'build/farm.mcfunction': f}
     tdir = FN / 'build/terrain'
     tdir.mkdir(parents=True, exist_ok=True)
@@ -909,7 +973,7 @@ if __name__ == '__main__':
         '# 자동 생성: tools/build_world.py',
         'execute in poke:hub run function poke:build/tutorial', 'execute in poke:town run function poke:build/town',
         'execute in poke:town run function poke:mod/build_town', 'execute in poke:hub run function poke:mod/spawn_npcs',
-        'execute in poke:town run forceload remove all', 'data modify storage poke:state build set value 8',
+        'execute in poke:town run forceload remove all', 'data modify storage poke:state build set value 9',
         '# 관장·사천왕은 플레이어가 접속하면 소환 (RCT 명령이 플레이어를 요구)', 'data modify storage poke:state leaders set value 0',
         'say [pokeserver] 튜토리얼 방·마을(스폰 광장·상점가·체육관)과 지형을 지었습니다.']
     for path, lines in out.items():
