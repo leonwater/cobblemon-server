@@ -1,4 +1,27 @@
 # 자동 생성: tools/build_world.py (지형 → 마을 건물 순서)
+fill 3301 -47 -13 3329 -47 -13 minecraft:shroomlight
+fill 3301 -47 -11 3329 -47 -11 minecraft:shroomlight
+fill 3301 -47 -9 3329 -47 -9 minecraft:shroomlight
+fill 3301 -47 -7 3329 -47 -7 minecraft:shroomlight
+fill 3301 -47 -5 3329 -47 -5 minecraft:shroomlight
+fill 3301 -47 -3 3329 -47 -3 minecraft:shroomlight
+fill 3301 -47 -1 3329 -47 -1 minecraft:shroomlight
+fill 3301 -47 1 3329 -47 1 minecraft:shroomlight
+fill 3301 -47 3 3329 -47 3 minecraft:shroomlight
+fill 3301 -47 5 3329 -47 5 minecraft:shroomlight
+fill 3301 -47 7 3329 -47 7 minecraft:shroomlight
+fill 3301 -47 9 3329 -47 9 minecraft:shroomlight
+fill 3301 -47 11 3329 -47 11 minecraft:shroomlight
+fill 3301 -47 13 3329 -47 13 minecraft:shroomlight
+fill 3301 -47 15 3329 -47 15 minecraft:shroomlight
+fill 3301 -47 17 3329 -47 17 minecraft:shroomlight
+setblock 3301 -54 -15 minecraft:lantern
+setblock 3329 -54 -15 minecraft:lantern
+setblock 3301 -54 -9 minecraft:lantern
+setblock 3329 -54 -9 minecraft:lantern
+setblock 3301 -54 -3 minecraft:lantern
+setblock 3329 -54 -3 minecraft:lantern
+setblock 3301 -54 3 minecraft:lantern
 setblock 3329 -54 3 minecraft:lantern
 setblock 3301 -54 9 minecraft:lantern
 setblock 3329 -54 9 minecraft:lantern

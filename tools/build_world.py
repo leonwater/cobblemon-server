@@ -26,7 +26,7 @@ PLAZA_C, PLAZA_R = (0, -54), 26      # 서버 스폰 광장 (원형)
 CITY_SHOPS = [(-46, -34, -72, -60, 'e'), (-46, -34, -48, -36, 'e'), (34, 46, -72, -60, 'w'), (34, 46, -48, -36, 'w')]   # 광장 둘레 상가 (문 방향)
 PAGODAS = [(-30, -18, -98, -88), (18, 30, -98, -88)]                  # 북쪽 동양풍 건물 (문은 남쪽)
 SHOP_PLAY = (944, 1056, -58, 58)     # 상점가 섬
-MART = (962, 984, -10, 10)           # 프렌들리 숍 (문은 동쪽, 광장 쪽)
+MART = (966, 988, -11, 11)           # 프렌들리 숍 (문은 동쪽). 1. 포켓몬센터와 같은 크기, x=1000 기준 좌우 대칭
 CENTER = (1012, 1034, -11, 11)       # 포켓몬센터 (문은 서쪽, 광장 쪽, 2층 발코니)
 GYM_PLAY = (1944, 2056, -66, 48)     # 체육관 섬
 LOBBY = (1985, 2015, -14, 18)        # 체육관 선택 건물 (문은 북쪽, 넓은 계단 위)
@@ -457,7 +457,7 @@ def spawn_plaza():
     L += [sb(cx + dx, G + 1, cz + dz, 'minecraft:smooth_quartz') for dx, dz in circle(4)]   # 흰 단상
     L += [sb(cx + dx, G + 1, cz + dz, 'minecraft:quartz_slab') for dx, dz in ring(5)]
     L += [sb(cx + dx, G + 1, cz + dz, 'minecraft:quartz_block') for dx, dz in ring(2)]
-    L.append(label(cx + .5, G + 4.5, cz + .5, '포켓서버', 'gold', 2.4, sub='G 키: 메인 메뉴 · 워프'))
+    L.append(label(cx + .5, G + 4.5, cz + .5, '포켓서버', 'gold', 2.4))
     # 광장 → 회의장 현관 길
     L += [fill(-3, G, cz + R, 3, G, HALL[2] - 9, 'minecraft:polished_deepslate'),
           fill(-1, G + 1, cz + R, 1, G + 1, HALL[2] - 9, 'minecraft:red_carpet')]
@@ -651,7 +651,9 @@ def mart():
 
 def shop_area():
     """상점가 광장: 서쪽 프렌들리 숍, 동쪽 포켓몬센터, 남쪽 아치 (나무 없음)."""
-    zx1, zx2 = MART[1] + 4, CENTER[0] - 5
+    zx2 = CENTER[0] - 5
+    zx1 = 2000 - zx2                                   # x=1000 기준 좌우 대칭 (숍 x2 = 2000 - 센터 x1)
+    assert MART[1] == 2000 - CENTER[0] and MART[1] - MART[0] == CENTER[1] - CENTER[0] and MART[2:] == CENTER[2:]
     L = ['# ── 상점가 광장 ──', fill(zx1, G, -20, zx2, G, 36, 'minecraft:polished_andesite'),
          fill(MART[1] + 1, G, -2, CENTER[0] - 1, G, 2, 'minecraft:smooth_stone')]
     L += walls(zx1, zx2, -20, 36, G, G, 'minecraft:stone_bricks')
@@ -1036,7 +1038,7 @@ if __name__ == '__main__':
         '# 자동 생성: tools/build_world.py',
         'execute in poke:hub run function poke:build/tutorial',
         'execute in poke:town run function poke:mod/build_town', 'execute in poke:hub run function poke:mod/spawn_npcs',
-        'execute in poke:town run forceload remove all', 'data modify storage poke:state build set value 13',
+        'execute in poke:town run forceload remove all', 'data modify storage poke:state build set value 14',
         '# 관장·사천왕은 플레이어가 접속하면 소환 (RCT 명령이 플레이어를 요구)', 'data modify storage poke:state leaders set value 0',
         'say [pokeserver] 튜토리얼 방·마을(스폰 광장·상점가·체육관)과 지형을 지었습니다.']
     for path, lines in out.items():

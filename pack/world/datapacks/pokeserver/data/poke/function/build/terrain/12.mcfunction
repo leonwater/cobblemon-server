@@ -1,4 +1,27 @@
 # 자동 생성: tools/build_world.py (지형 → 마을 건물 순서)
+setblock 1994 -57 17 minecraft:light_gray_concrete
+setblock 1996 -57 17 minecraft:light_gray_concrete
+setblock 1998 -57 17 minecraft:light_gray_concrete
+setblock 2000 -57 17 minecraft:light_gray_concrete
+setblock 2002 -57 17 minecraft:light_gray_concrete
+setblock 2004 -57 17 minecraft:light_gray_concrete
+setblock 2006 -57 17 minecraft:light_gray_concrete
+setblock 2008 -57 17 minecraft:light_gray_concrete
+setblock 2010 -57 17 minecraft:light_gray_concrete
+setblock 2012 -57 17 minecraft:light_gray_concrete
+setblock 2014 -57 17 minecraft:light_gray_concrete
+setblock 1985 -57 18 minecraft:light_gray_concrete
+setblock 1987 -57 18 minecraft:light_gray_concrete
+setblock 1989 -57 18 minecraft:light_gray_concrete
+setblock 1991 -57 18 minecraft:light_gray_concrete
+setblock 1993 -57 18 minecraft:light_gray_concrete
+setblock 1995 -57 18 minecraft:light_gray_concrete
+setblock 1997 -57 18 minecraft:light_gray_concrete
+setblock 1999 -57 18 minecraft:light_gray_concrete
+setblock 2001 -57 18 minecraft:light_gray_concrete
+setblock 2003 -57 18 minecraft:light_gray_concrete
+setblock 2005 -57 18 minecraft:light_gray_concrete
+setblock 2007 -57 18 minecraft:light_gray_concrete
 setblock 2009 -57 18 minecraft:light_gray_concrete
 setblock 2011 -57 18 minecraft:light_gray_concrete
 setblock 2013 -57 18 minecraft:light_gray_concrete
@@ -1976,26 +1999,3 @@ fill 3330 -59 18 3330 -48 18 minecraft:quartz_pillar
 fill 3300 -47 -18 3330 -47 18 minecraft:red_concrete
 fill 3301 -47 -17 3329 -47 -17 minecraft:shroomlight
 fill 3301 -47 -15 3329 -47 -15 minecraft:shroomlight
-fill 3301 -47 -13 3329 -47 -13 minecraft:shroomlight
-fill 3301 -47 -11 3329 -47 -11 minecraft:shroomlight
-fill 3301 -47 -9 3329 -47 -9 minecraft:shroomlight
-fill 3301 -47 -7 3329 -47 -7 minecraft:shroomlight
-fill 3301 -47 -5 3329 -47 -5 minecraft:shroomlight
-fill 3301 -47 -3 3329 -47 -3 minecraft:shroomlight
-fill 3301 -47 -1 3329 -47 -1 minecraft:shroomlight
-fill 3301 -47 1 3329 -47 1 minecraft:shroomlight
-fill 3301 -47 3 3329 -47 3 minecraft:shroomlight
-fill 3301 -47 5 3329 -47 5 minecraft:shroomlight
-fill 3301 -47 7 3329 -47 7 minecraft:shroomlight
-fill 3301 -47 9 3329 -47 9 minecraft:shroomlight
-fill 3301 -47 11 3329 -47 11 minecraft:shroomlight
-fill 3301 -47 13 3329 -47 13 minecraft:shroomlight
-fill 3301 -47 15 3329 -47 15 minecraft:shroomlight
-fill 3301 -47 17 3329 -47 17 minecraft:shroomlight
-setblock 3301 -54 -15 minecraft:lantern
-setblock 3329 -54 -15 minecraft:lantern
-setblock 3301 -54 -9 minecraft:lantern
-setblock 3329 -54 -9 minecraft:lantern
-setblock 3301 -54 -3 minecraft:lantern
-setblock 3329 -54 -3 minecraft:lantern
-setblock 3301 -54 3 minecraft:lantern

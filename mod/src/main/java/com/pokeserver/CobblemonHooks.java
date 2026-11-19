@@ -171,8 +171,8 @@ final class CobblemonHooks {
     }
 
     /** 데이터팩이 저장한 야생 첫 스폰(storage poke:state wildspawn) 근처인가. */
-    /** 6. 1시간마다(서버가 켜져 있는 동안) 야생의 무작위 플레이어 근처에, 그 바이옴에 출현 설정이 있는 전설·환상 포켓몬 하나.
-     *  첫 스폰 근처(초보 구역, 15레벨 이하 규칙)에 있는 플레이어는 고르지 않음. 맞는 플레이어·전설이 없으면 이번 시간은 건너뜀. */
+    /** 6. 1시간마다(서버가 켜져 있는 동안) 야생 맵의 무작위 플레이어 근처에, 그 바이옴에 출현 설정이 있는 전설·환상 포켓몬 하나.
+     *  초보 구역(첫 스폰 근처)엔 안 나옴. 그 시각에 야생에 (초보 구역 밖) 아무도 없으면 이번은 건너뛰고 다음 시각에. */
     static final int LEGEND_TICKS = 72000;
     static java.util.List<com.cobblemon.mod.common.api.spawning.detail.PokemonSpawnDetail> legends;
 
@@ -208,6 +208,7 @@ final class CobblemonHooks {
             var mon = props.createEntity(level);
             double a = level.getRandom().nextDouble() * Math.PI * 2;
             int x = (int) (p.getX() + Math.cos(a) * 16), z = (int) (p.getZ() + Math.sin(a) * 16);
+            if (nearFirstSpawn(server, new net.minecraft.core.BlockPos(x, 0, z))) continue;   // 6. 나올 자리도 초보 구역이면 안 됨
             int y = level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
             mon.moveTo(x + .5, y, z + .5, level.getRandom().nextFloat() * 360, 0);
             level.addFreshEntity(mon);
