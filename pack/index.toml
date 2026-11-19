@@ -31,7 +31,7 @@ hash = "a344cbc4e4e69b4c507e5e616dd95d9414263eb1958c79d4d9c12629c63ef8fe"
 
 [[files]]
 file = "config/pokeserver/shop.json"
-hash = "8e1c397b6e23e93825cf590c93e2597841a9fcb2dbf6867aac68278d66129ff6"
+hash = "fe9b6765637800490c15b2cbdbcf977368888826ae8ffbc83d9bcb23133fcd7b"
 
 [[files]]
 file = "config/rctmod-server.toml"
@@ -90,6 +90,10 @@ metafile = true
 file = "shaderpacks/complementary-reimagined.pw.toml"
 hash = "75d1d2488a0c332a9a58af7e57f980a1b006c02b3a1c580fbd50443088e4eab0"
 metafile = true
+
+[[files]]
+file = "world/datapacks/pokeserver/data/cobblemon/recipe/master_ball.json"
+hash = "cd2a707f6a4463283d1ac9ba3433b71d477708f8bed3aca4387bd45146955208"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/minecraft/tags/function/load.json"
