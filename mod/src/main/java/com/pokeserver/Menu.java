@@ -27,7 +27,7 @@ final class Menu {
 
     static void action(ServerPlayer p, String a) {
         switch (a) {
-            case "open" -> ServerPlayNetworking.send(p, new Net.MenuOpen(Money.get(p), notice));
+            case "open" -> ServerPlayNetworking.send(p, new Net.MenuOpen(Money.get(p), notice, p.getTags().contains("poke.tutorial_done")));
             // 휴지통: 넣은 아이템은 창을 닫으면 사라짐 (돌려주지 않음)
             case "trash" -> p.openMenu(new SimpleMenuProvider((id, inv, pl) -> ChestMenu.threeRows(id, inv, new SimpleContainer(27)),
                     Component.literal("휴지통 (닫으면 사라짐)")));
@@ -52,6 +52,23 @@ final class Menu {
             }
             default -> { }
         }
+    }
+
+    /** 전체 초기화: 인벤토리·엔더 상자·돈·농장 땅·포켓몬(파티·PC)·스타팅 선택·배지·진행도를 모두 지우고 첫 튜토리얼부터.
+     *  되돌릴 수 없음 → 플레이어는 /초기화 확인 처럼 한 번 더 입력해야 실행됨. */
+    static void wipe(ServerPlayer p) {
+        p.getInventory().clearContent();
+        p.getEnderChestInventory().clearContent();
+        var data = ServerData.get(p.server);
+        data.money.put(p.getUUID(), 0L);
+        data.deedsBought.remove(p.getUUID());
+        data.plotOwners.values().removeIf(o -> o.id().equals(p.getUUID()));
+        data.setDirty();
+        Farms.refreshLabels(p.server);
+        if (FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.wipe(p);
+        run(p, "function poke:admin/wipe_me");   // 체육관 상태·마지막 위치·RCT 진행도·태그 → 다음 틱에 튜토리얼 방으로
+        ServerPlayNetworking.send(p, new Net.Balance(0));
+        p.sendSystemMessage(Component.literal("모든 진행을 초기화했습니다. 튜토리얼부터 다시 시작합니다.").withStyle(ChatFormatting.YELLOW));
     }
 
     /** 플레이어 위치·이름으로, 관리자 권한을 빌려 실행 (함수·/pc는 권한이 필요). */

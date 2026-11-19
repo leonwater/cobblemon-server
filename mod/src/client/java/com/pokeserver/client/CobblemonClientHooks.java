@@ -1,7 +1,5 @@
 package com.pokeserver.client;
 
-import com.cobblemon.mod.common.api.pokedex.PokedexEntryProgress;
-import com.cobblemon.mod.common.api.pokemon.PokemonSpecies;
 import com.cobblemon.mod.common.client.CobblemonClient;
 import com.cobblemon.mod.common.client.gui.pokedex.PokedexGUI;
 import com.cobblemon.mod.common.client.gui.summary.Summary;
@@ -20,21 +18,8 @@ final class CobblemonClientHooks {
         return true;
     }
 
-    static int partySize() {
-        return (int) CobblemonClient.INSTANCE.getStorage().getParty().getSlots().stream().filter(Objects::nonNull).count();
-    }
-
     static void openDex() {
         PokedexGUI.Companion.open(CobblemonClient.INSTANCE.getClientPokedexData(), PokedexType.RED, null, null);
     }
 
-    /** {잡은 수, 마주친 수, 전체 종 수} */
-    static int[] dexCounts() {
-        int caught = 0, seen = 0;
-        for (var r : CobblemonClient.INSTANCE.getClientPokedexData().getSpeciesRecords().values()) {
-            if (r.getKnowledge() == PokedexEntryProgress.OWNED) caught++;
-            if (r.getKnowledge() != PokedexEntryProgress.UNREGISTERED) seen++;
-        }
-        return new int[]{caught, seen, PokemonSpecies.getImplemented().size()};
-    }
 }

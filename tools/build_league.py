@@ -225,6 +225,8 @@ def prize(amount):
 
 
 def functions():
+    fn('mod/rct_reset.mcfunction', ['# 전체 초기화(/초기화): RCT 진행도를 첫 관장 전으로 → 레벨 제한 20으로',
+                                    f'rctmod player set progress @s before {GYMS[0][0]}'])
     pads, win, spawn = [], [], []
     for n, (tid, name, typ, badge, color, _) in enumerate(GYMS, 1):
         g = W.gym_geom(n)

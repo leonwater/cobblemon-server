@@ -20,7 +20,7 @@ public class PokeServerClient implements ClientModInitializer {
                 (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new GymScreen(p.json()))));
         ClientPlayNetworking.registerGlobalReceiver(Net.Balance.TYPE, (p, ctx) -> ShopScreen.balance = p.balance());
         ClientPlayNetworking.registerGlobalReceiver(Net.MenuOpen.TYPE,
-                (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new MenuScreen(p.balance(), p.notice()))));
+                (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new MenuScreen(p.balance(), p.notice(), p.tutorialDone()))));
         ClientPlayNetworking.registerGlobalReceiver(Net.TutorialOpen.TYPE,
                 (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new TutorialScreen())));
         // 5. G 키: 메인 메뉴 (설정 → 조작에서 바꿀 수 있음)

@@ -23,7 +23,7 @@ const join = name => new Promise((res, rej) => {
   const warp = async (p, key) => cmd(`execute as ${p} run function poke:warp/${['farm', 'wild'].includes(key) ? 'go' : 'fixed'} {key:"${key}"}`)
 
   // 건물이 지어질 때까지 (load 후 60틱)
-  await waitFor('data get storage poke:state', /build: 11.*farm: 2|farm: 2.*build: 11/, 240)  // 지형은 여러 틱에 나눠 지음
+  await waitFor('data get storage poke:state', /build: 12.*farm: 2|farm: 2.*build: 12/, 240)  // 지형은 여러 틱에 나눠 지음
   await ok('execute in poke:hub if block 0 64 3 minecraft:smooth_quartz', '튜토리얼 방 바닥')
   for (const fl of ['-40 -80 140 30', '960 -32 1040 32', '1960 -36 2040 36', '3000 -18 3380 18', '3500 -46 3540 12'])
     await cmd(`execute in poke:town run forceload add ${fl}`)
@@ -50,6 +50,8 @@ const join = name => new Promise((res, rej) => {
   let A = await join('A'), B = await join('B'); await sleep(1500)
   await at('A', 'poke:hub', 0, 3, '튜토리얼 방에서 시작')
   assert.match(await cmd('data get entity A playerGameType'), /: 2$/, '튜토리얼 방은 모험 모드')
+  await cmd('execute as A run trigger home'); await sleep(500)
+  await at('A', 'poke:hub', 0, 3, '튜토리얼을 끝내기 전엔 /trigger home 으로 못 나감')
 
   // 4·7. 규칙
   assert.match(await cmd('gamerule keepInventory'), /true/, '인벤세이브')

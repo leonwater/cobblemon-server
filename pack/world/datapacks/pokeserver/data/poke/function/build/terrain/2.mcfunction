@@ -1,4 +1,4 @@
-# 자동 생성: tools/terrain.py (판타지 지형)
+# 자동 생성: tools/build_world.py (지형 → 마을 건물 순서)
 fill 25 -52 47 27 -52 47 minecraft:dirt
 fill 27 -52 -122 28 -52 -122 minecraft:dirt
 fill 29 -52 -122 31 -52 -121 minecraft:dirt

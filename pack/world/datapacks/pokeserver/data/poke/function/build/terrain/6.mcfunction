@@ -1,4 +1,4 @@
-# 자동 생성: tools/terrain.py (판타지 지형)
+# 자동 생성: tools/build_world.py (지형 → 마을 건물 순서)
 fill 950 -30 -77 950 -30 -75 minecraft:stone
 fill 950 -30 73 950 -30 88 minecraft:stone
 fill 951 -30 73 952 -30 87 minecraft:stone

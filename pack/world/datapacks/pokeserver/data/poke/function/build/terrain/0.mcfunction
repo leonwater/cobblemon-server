@@ -1,4 +1,4 @@
-# 자동 생성: tools/terrain.py (판타지 지형)
+# 자동 생성: tools/build_world.py (지형 → 마을 건물 순서)
 # ── 회의장 섬 지형 ──
 fill -106 -64 -162 -91 4 -147 minecraft:air
 fill -106 -64 -146 -91 4 -131 minecraft:air

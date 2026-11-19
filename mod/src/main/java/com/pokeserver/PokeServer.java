@@ -68,6 +68,12 @@ public class PokeServer implements ModInitializer {
         CommandRegistrationCallback.EVENT.register((dispatcher, registries, env) -> {
             dispatcher.register(admin());
             for (String name : new String[]{"money", "돈"}) dispatcher.register(Commands.literal(name).executes(PokeServer::balance));
+            // 전체 초기화 (자기 자신만): /초기화 → 안내, /초기화 확인 → 실행
+            dispatcher.register(Commands.literal("초기화").executes(c -> {
+                c.getSource().sendSuccess(() -> Component.literal("가진 아이템·돈·농장 땅·포켓몬·배지가 모두 사라지고 튜토리얼부터 다시 시작합니다. "
+                        + "정말 하려면  /초기화 확인  을 입력하세요.").withStyle(ChatFormatting.RED), false);
+                return 0;
+            }).then(Commands.literal("확인").executes(c -> { Menu.wipe(c.getSource().getPlayerOrException()); return 1; })));
             for (String name : new String[]{"pay", "송금"}) dispatcher.register(Commands.literal(name)
                     .then(Commands.argument("player", EntityArgument.player())
                             .then(Commands.argument("amount", LongArgumentType.longArg(1)).executes(PokeServer::pay))));
@@ -134,6 +140,12 @@ public class PokeServer implements ModInitializer {
                 .then(Commands.literal("tutorial").then(Commands.argument("targets", EntityArgument.players()).executes(c -> {
                     var targets = EntityArgument.getPlayers(c, "targets");
                     targets.forEach(p -> ServerPlayNetworking.send(p, new Net.TutorialOpen()));
+                    return targets.size();
+                })))
+                .then(Commands.literal("reset").then(Commands.argument("targets", EntityArgument.players()).executes(c -> {
+                    var targets = EntityArgument.getPlayers(c, "targets");
+                    targets.forEach(Menu::wipe);
+                    c.getSource().sendSuccess(() -> Component.literal("전체 초기화: " + targets.size() + "명"), true);
                     return targets.size();
                 })))
                 .then(Commands.literal("menu").then(Commands.argument("targets", EntityArgument.players()).executes(c -> {

@@ -11,6 +11,10 @@ schedule clear poke:build/terrain/run_6
 schedule clear poke:build/terrain/run_7
 schedule clear poke:build/terrain/run_8
 schedule clear poke:build/terrain/run_9
+schedule clear poke:build/terrain/run_10
+schedule clear poke:build/terrain/run_11
+schedule clear poke:build/terrain/run_12
+schedule clear poke:build/terrain/run_13
 execute in poke:hub run forceload add -16 -16 16 16
 execute in poke:town run forceload add -106 -162 106 74
 execute in poke:town run forceload add 904 -98 1096 98

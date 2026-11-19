@@ -14,16 +14,17 @@ import org.lwjgl.glfw.GLFW;
 public class TutorialScreen extends Screen {
     record Page(String img, String title, String text) {}
 
+    // §e…§r = 노란색 강조 (중요한 부분만)
     static final List<Page> PAGES = List.of(
-            new Page("catch", "포켓몬 잡기", "야생에서 몬스터볼을 들고 우클릭하면 던져서 잡을 수 있다네. HP를 줄이거나 잠듦·마비 상태로 만들면 더 잘 잡히지."),
-            new Page("battle", "배틀", "왼쪽의 내 파티에서 ↑↓ 키로 포켓몬을 고르고, 야생 포켓몬을 보며 R 키를 누르면 배틀 시작! 기술을 골라 싸우고 이기면 경험치를 얻는다네."),
-            new Page("summary", "상태창 (M 키)", "M 키로 포켓몬의 능력치·기술·성격을 볼 수 있다네. 기술 바꾸기, 도구 들려 주기, 진화도 여기서 하지."),
-            new Page("menu", "메인 메뉴 (G 키)", "G 키로 파티·PC·도감을 바로 열고, 체육관·광장·상점가·야생·농장으로 순간이동할 수 있다네. 튜토리얼·휴지통은 아래 작은 버튼이지."),
-            new Page("shop", "상점", "상점가 프렌들리 숍의 점원을 우클릭하면 사고팔 수 있지. 상품을 누르고 수량을 정한 뒤 구매하기! 배지를 모을수록 상품이 늘어난다네."),
-            new Page("center", "포켓몬센터", "지친 포켓몬은 포켓몬센터의 회복 장치에서 회복시켜 주게. PC에 포켓몬을 맡기거나 꺼낼 수도 있다네."),
-            new Page("gym", "체육관", "체육관 안내원에게 말을 걸면 도전할 관장을 고를 수 있다네. 이기면 배지를 받고 레벨 제한이 10씩 오르지. 도전은 한 번에 한 명씩!"),
-            new Page("plaza", "서버 규칙", "포켓몬 말고 다른 몬스터·동물은 없고 배고픔도 없다네. 죽어도 아이템은 그대로, 폭발로 블록이 부서지지 않지. 잔액은 /money, 송금은 /pay."),
-            new Page("starter", "스타팅 포켓몬", "준비가 되면 아래 버튼을 누르게! 회의장으로 보내 주고, 무작위로 정해진 세대의 스타팅 포켓몬 3마리 중 한 마리를 고르게 해 주지."));
+            new Page("catch", "포켓몬 잡기", "§e몬스터볼§r을 들고 §e우클릭§r으로 던진다네. HP를 줄이면 더 잘 잡히지."),
+            new Page("battle", "배틀", "야생 포켓몬을 보며 §eR 키§r를 누르면 배틀 시작! §e↑↓ 키§r로 내보낼 포켓몬을 고르게."),
+            new Page("summary", "상태창 (M 키)", "§eM 키§r로 능력치·기술·성격을 보고, 기술 변경·진화도 여기서 한다네."),
+            new Page("menu", "메인 메뉴 (G 키)", "§eG 키§r로 파티·PC·도감을 열고, 광장·상점가·야생·농장·체육관으로 §e순간이동§r!"),
+            new Page("shop", "상점", "상점가 §e점원을 우클릭§r하면 사고팔 수 있지. §e배지§r를 모을수록 상품이 늘어난다네."),
+            new Page("center", "포켓몬센터", "지친 포켓몬은 §e회복 장치§r에서 회복! §ePC§r도 여기 있다네."),
+            new Page("gym", "체육관", "§e체육관 안내원§r에게 도전 신청. 이기면 §e배지·상금§r을 받고 §e레벨 제한 +10§r!"),
+            new Page("plaza", "서버 규칙", "다른 몬스터·배고픔 없음. §e죽어도 아이템 유지§r. 잔액은 §e/money§r."),
+            new Page("starter", "스타팅 포켓몬", "§e준비 완료!§r를 누르면 회의장으로 가서 §e스타팅 포켓몬§r을 고르게 된다네."));
     static final ResourceLocation FACE = ResourceLocation.fromNamespaceAndPath("pokeserver", "textures/npcs/tutorial_guide.png");
 
     private final Theme.Anim anim = new Theme.Anim();

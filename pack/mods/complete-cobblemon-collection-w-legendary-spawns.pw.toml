@@ -1,0 +1,13 @@
+name = "Complete Cobblemon Collection w Legendary Spawns"
+filename = "modcccwlegends-1.8.4.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/578VPQc9/versions/ImoA1PH7/modcccwlegends-1.8.4.jar"
+hash-format = "sha512"
+hash = "fe7c96c5b2f0db46b02b89a9d0a3e9834d246640eaf87740f5eb00f77598fb6f8f853af48b313361c2a77c983c76635c39e29f7c97841e78a1fa35a219a56f64"
+
+[update]
+[update.modrinth]
+mod-id = "578VPQc9"
+version = "ImoA1PH7"
