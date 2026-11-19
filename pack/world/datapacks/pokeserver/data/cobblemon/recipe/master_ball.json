@@ -1,0 +1,8 @@
+{
+  "fabric:load_conditions": [{"condition": "fabric:false"}],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": ["x"],
+  "key": {"x": {"item": "minecraft:barrier"}},
+  "result": {"id": "minecraft:barrier"}
+}

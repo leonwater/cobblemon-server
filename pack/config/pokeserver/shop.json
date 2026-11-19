@@ -10,10 +10,44 @@
           "sell": 50
         },
         {
+          "item": "cobblemon:premier_ball",
+          "buy": 300,
+          "sell": 75
+        },
+        {
+          "item": "cobblemon:heal_ball",
+          "buy": 300,
+          "sell": 75
+        },
+        {
           "item": "cobblemon:great_ball",
           "buy": 600,
           "sell": 150,
           "badges": 1
+        },
+        {
+          "item": "cobblemon:nest_ball",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 1
+        },
+        {
+          "item": "cobblemon:net_ball",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 1
+        },
+        {
+          "item": "cobblemon:dive_ball",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:repeat_ball",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 2
         },
         {
           "item": "cobblemon:ultra_ball",
@@ -22,9 +56,70 @@
           "badges": 3
         },
         {
-          "item": "cobblemon:premier_ball",
-          "buy": 300,
-          "sell": 75
+          "item": "cobblemon:timer_ball",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:quick_ball",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:dusk_ball",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:luxury_ball",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:level_ball",
+          "buy": 1500,
+          "sell": 375,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:lure_ball",
+          "buy": 1500,
+          "sell": 375,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:heavy_ball",
+          "buy": 1500,
+          "sell": 375,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:moon_ball",
+          "buy": 1500,
+          "sell": 375,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:love_ball",
+          "buy": 1500,
+          "sell": 375,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:friend_ball",
+          "buy": 1500,
+          "sell": 375,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:fast_ball",
+          "buy": 1500,
+          "sell": 375,
+          "badges": 5
         }
       ]
     },
