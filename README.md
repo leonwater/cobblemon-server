@@ -211,6 +211,8 @@ cd pack && packwiz modrinth add <모드 이름> && packwiz refresh
 
 ## 테스트
 
+`tests/all.sh` 하나로 두 테스트를 동시에 돌립니다 (약 1분 20초). 데이터팩이 바뀌지 않았으면 지어 둔 월드를 재사용합니다.
+
 `tests/run.sh`는 데이터팩 테스트 전에 `tools/check_holes.py`로 건물 벽·바닥·지붕 빈칸도 검사합니다.
 
 ```bash

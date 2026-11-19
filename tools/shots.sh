@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # 검증용 스크린샷: 모드 서버(Cobblemon 포함) + 실제 클라이언트를 띄워 장면별로 찍음
 # 사용: tools/shots.sh <단계 파일> <저장 폴더>
-#   단계 파일 한 줄씩:  rcon <명령>  |  wait <밀리초>  |  shot <이름>  |  xdo <xdotool 인자> (클릭·키 입력)
+#   단계 파일 한 줄씩:  rcon <명령>  |  wait <밀리초>  |  until <명령> ~ <정규식> ~ <최대 ms> (조건이 맞을 때까지 대기)  |  shot <이름>  |  xdo <xdotool 인자>
 set -uo pipefail
 R=$(cd "$(dirname "$0")/.." && pwd); STEPS=$1; OUT=$2; W=${SHOTS_WORK:-/tmp/pokeserver-shots}
 PW=${PACKWIZ_JARS:-$W/packwiz}   # PROD=1: packwiz-installer-bootstrap.jar(bootstrap.jar)·packwiz-installer.jar 가 있는 곳
@@ -29,10 +29,21 @@ rm -f $S/mods/pokeserver-*.jar; cp $R/pack/mods/pokeserver-*.jar $S/mods/
 cp -r $R/pack/config/. $S/config/
 rm -rf $S/world && mkdir -p $S/world/datapacks && cp -r $R/pack/world/datapacks/* $S/world/datapacks/
 fi
+# 데이터팩·모드가 같으면 "건물·야생 사전 생성까지 끝난 월드"를 복사해 씀 (매번 짓기·사전 생성 3분 아낌)
+KEY=$(cat $(find $R/pack/world/datapacks -type f | sort) $R/pack/mods/*.pw.toml $R/pack/mods/pokeserver-*.jar | sha1sum | cut -c1-12); CACHE=$W/cache/world-$KEY
+if [ -d $CACHE ]; then rm -rf $S/world && cp -r $CACHE $S/world && echo "지어 둔 월드 재사용 ($KEY)"; fi
+rc() { node -e 'require("'$R'/tests/node_modules/rcon-client").Rcon.connect({host:"localhost",port:25575,password:"test"}).then(async r=>{console.log(await r.send(process.argv[1]));r.end()})' "$1"; }
 echo eula=true > $S/eula.txt
 printf 'online-mode=false\nenable-rcon=true\nrcon.password=test\nrcon.port=25575\nspawn-protection=0\n' > $S/server.properties
 (cd $S && java -Xmx4G -jar fabric-server-launch.jar nogui > run.log 2>&1 &)
 timeout 240 bash -c "until grep -qE 'Done \(|Exception in thread' $S/run.log; do sleep 1; done" || { echo "FAIL server boot"; exit 1; }
+if [ ! -d $CACHE ]; then   # 처음 보는 조합: 짓기·사전 생성이 끝나길 기다렸다가 월드 저장 (클라이언트 접속 전이라 플레이어 기록 없음)
+  N=$(grep -o '{build:[0-9]*}' $S/world/datapacks/pokeserver/data/poke/function/load.mcfunction | grep -o '[0-9]*')
+  for i in $(seq 200); do rc 'data get storage poke:state' | grep -q "build: $N[,}]" && grep -q 'Chunky\] Task finished' $S/run.log && break; sleep 3; done
+  rc save-off > /dev/null; rc 'save-all flush' > /dev/null; sleep 2
+  rm -rf $W/cache && mkdir -p $W/cache && cp -r $S/world $CACHE && rm -f $CACHE/session.lock
+  rc save-on > /dev/null; echo "지어 둔 월드 저장 ($KEY)"
+fi
 # 클라이언트 (화면 :99)
 Xvfb :99 -screen 0 ${WIN:-1280x720}x24 > /dev/null 2>&1 &
 XV=$!
@@ -52,6 +63,9 @@ const {Rcon}=require("'$R'/tests/node_modules/rcon-client");const {execSync}=req
 for (const line of fs.readFileSync(process.argv[1],"utf8").split("\n")) {
   const [k,...rest]=line.trim().split(" "); const a=rest.join(" ");
   if (k==="rcon") console.log(">",a,"→",(await r.send(a)).slice(0,160));
+  else if (k==="until") { const [cmd,re,ms]=a.split(" ~ "); const t0=Date.now(); let o="";
+    while (Date.now()-t0 < (+ms||60000)) { o=await r.send(cmd); if (new RegExp(re).test(o)) break; await new Promise(s=>setTimeout(s,500)) }
+    console.log("until",cmd,"→",o.slice(0,120),((Date.now()-t0)/1000).toFixed(1)+"s") }
   else if (k==="wait") await new Promise(s=>setTimeout(s,+a));
   else if (k==="xdo") { execSync(`DISPLAY=:99 xdotool ${a}`); console.log("xdo",a) }
   else if (k==="xdo2") { execSync(`DISPLAY=:100 xdotool ${a}`); console.log("xdo2",a) }
