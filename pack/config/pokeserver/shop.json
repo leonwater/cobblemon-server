@@ -63,62 +63,62 @@
         },
         {
           "item": "cobblemon:luxury_ball",
-          "buy": 3000,
-          "sell": 750,
+          "buy": 1000,
+          "sell": 250,
           "badges": 4
         },
         {
           "item": "cobblemon:level_ball",
-          "buy": 1500,
-          "sell": 375,
+          "buy": 1000,
+          "sell": 250,
           "badges": 5
         },
         {
           "item": "cobblemon:lure_ball",
-          "buy": 1500,
-          "sell": 375,
+          "buy": 1000,
+          "sell": 250,
           "badges": 5
         },
         {
           "item": "cobblemon:heavy_ball",
-          "buy": 1500,
-          "sell": 375,
+          "buy": 1000,
+          "sell": 250,
           "badges": 5
         },
         {
           "item": "cobblemon:moon_ball",
-          "buy": 1500,
-          "sell": 375,
+          "buy": 1000,
+          "sell": 250,
           "badges": 5
         },
         {
           "item": "cobblemon:love_ball",
-          "buy": 1500,
-          "sell": 375,
+          "buy": 1000,
+          "sell": 250,
           "badges": 5
         },
         {
           "item": "cobblemon:friend_ball",
-          "buy": 1500,
-          "sell": 375,
+          "buy": 1000,
+          "sell": 250,
           "badges": 5
         },
         {
           "item": "cobblemon:fast_ball",
-          "buy": 1500,
-          "sell": 375,
+          "buy": 1000,
+          "sell": 250,
           "badges": 5
         },
         {
           "item": "cobblemon:timer_ball",
-          "buy": 10000,
-          "sell": 2500,
+          "buy": 1500,
+          "sell": 375,
           "badges": 8
         },
         {
           "item": "cobblemon:quick_ball",
-          "buy": 10000,
-          "sell": 2500,
+          "buy": 1500,
+          "sell": 375,
           "badges": 8
         }
       ]
@@ -193,8 +193,8 @@
       "items": [
         {
           "item": "cobblemon:rare_candy",
-          "buy": 20000,
-          "sell": 5000,
+          "buy": 4800,
+          "sell": 1200,
           "badges": 6
         },
         {
@@ -306,8 +306,8 @@
         },
         {
           "item": "cobblemon:ability_capsule",
-          "buy": 1000,
-          "sell": 250,
+          "buy": 10000,
+          "sell": 2500,
           "badges": 5
         },
         {
@@ -586,8 +586,8 @@
         },
         {
           "item": "minecraft:emerald",
-          "buy": 900,
-          "sell": 300,
+          "buy": 400,
+          "sell": 100,
           "badges": 4
         },
         {
