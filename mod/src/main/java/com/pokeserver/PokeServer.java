@@ -35,6 +35,7 @@ public class PokeServer implements ModInitializer {
         PayloadTypeRegistry.playC2S().register(Net.MenuAction.TYPE, Net.MenuAction.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.GymOpen.TYPE, Net.GymOpen.CODEC);
         PayloadTypeRegistry.playC2S().register(Net.GymPick.TYPE, Net.GymPick.CODEC);
+        PayloadTypeRegistry.playS2C().register(Net.TutorialOpen.TYPE, Net.TutorialOpen.CODEC);
         ServerPlayNetworking.registerGlobalReceiver(Net.GymPick.TYPE,
                 (m, ctx) -> ctx.player().server.execute(() -> Gym.pick(ctx.player(), m.n())));
         ServerPlayNetworking.registerGlobalReceiver(Net.MenuAction.TYPE,
@@ -49,14 +50,16 @@ public class PokeServer implements ModInitializer {
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             if (server.getTickCount() % 100 == 0) Farms.refreshLabels(server);
             if (server.getTickCount() % 200 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.reapply(server);
+            if (server.getTickCount() % 20 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.starterLocks(server);
         });
-        // 상인(poke.merchant) → 상점, 체육관 안내원(poke.gymguide) → 도전 목록 (Cobblemon NPC 스크립트 대신 직접 처리)
+        // 상인(poke.merchant) → 상점, 체육관 안내원(poke.gymguide) → 도전 목록, 오박사(poke.tutor) → 튜토리얼 설명 창 (Cobblemon NPC 스크립트 대신 직접 처리)
         net.fabricmc.fabric.api.event.player.UseEntityCallback.EVENT.register((player, level, hand, entity, hit) -> {
             var tags = entity.getTags();
-            if (level.isClientSide() || !(tags.contains("poke.merchant") || tags.contains("poke.gymguide")))
+            if (level.isClientSide() || !(tags.contains("poke.merchant") || tags.contains("poke.gymguide") || tags.contains("poke.tutor")))
                 return net.minecraft.world.InteractionResult.PASS;
             if (hit == null && hand == net.minecraft.world.InteractionHand.MAIN_HAND) {   // 우클릭 한 번에 한 번만
                 if (tags.contains("poke.merchant")) Shop.open((ServerPlayer) player);
+                else if (tags.contains("poke.tutor")) ServerPlayNetworking.send((ServerPlayer) player, new Net.TutorialOpen());
                 else Gym.open((ServerPlayer) player);
             }
             return net.minecraft.world.InteractionResult.SUCCESS;   // 땅 보호 알림이 뜨지 않게 우리 NPC는 여기서 끝냄
@@ -128,6 +131,11 @@ public class PokeServer implements ModInitializer {
                                     c.getSource().sendSuccess(() -> Component.literal("NPC 스킨 " + (skin.equals("reset") ? "기본으로" : "→ " + skin) + ": " + n + "명 (저장됨)"), true);
                                     return n;
                                 })))))
+                .then(Commands.literal("tutorial").then(Commands.argument("targets", EntityArgument.players()).executes(c -> {
+                    var targets = EntityArgument.getPlayers(c, "targets");
+                    targets.forEach(p -> ServerPlayNetworking.send(p, new Net.TutorialOpen()));
+                    return targets.size();
+                })))
                 .then(Commands.literal("menu").then(Commands.argument("targets", EntityArgument.players()).executes(c -> {
                     var targets = EntityArgument.getPlayers(c, "targets");
                     targets.forEach(p -> Menu.action(p, "open"));

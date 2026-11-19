@@ -31,7 +31,7 @@ hash = "a344cbc4e4e69b4c507e5e616dd95d9414263eb1958c79d4d9c12629c63ef8fe"
 
 [[files]]
 file = "config/pokeserver/shop.json"
-hash = "8cc1c4e405105bb10d302cbc0bffdde07bb5abbecc45170e50e624f54fb1d974"
+hash = "128e863b1a766da4e5b0c1422e0fe51892eadf16672e4598f82c33babb53e8fd"
 
 [[files]]
 file = "config/rctmod-server.toml"
@@ -69,7 +69,7 @@ metafile = true
 
 [[files]]
 file = "mods/pokeserver-0.1.0.jar"
-hash = "b4baabfe3bbd873e2fe7be8f27bf73874db9bb8cc9a4ec8b506f06b7ec2ba86f"
+hash = "793eb28d220f911eb5aa8c541363a91b923e78ba7933cb3073455783cf83465a"
 
 [[files]]
 file = "mods/rctapi.pw.toml"
@@ -148,10 +148,6 @@ file = "world/datapacks/pokeserver/data/poke/dialogues/tip_types.json"
 hash = "4d8d0bb0c7446b289a10ef010647fbef9aa85cd76e9214f6edcdf800ce450c90"
 
 [[files]]
-file = "world/datapacks/pokeserver/data/poke/dialogues/tutorial.json"
-hash = "a0c5094f4e051a5d50364e009a8f1119160ec8bb4ea9a5ae8468f99b58c4afb4"
-
-[[files]]
 file = "world/datapacks/pokeserver/data/poke/dimension/farm.json"
 hash = "f0890af1f948d918b0c1f38c5d6b0dfac95e17b3b8fd451c57454306fc8df04d"
 
@@ -193,7 +189,7 @@ hash = "9b4aac41b2ea63cf4c4e7227512823670b65ad3e04fd3f7ffa4ee94715827d10"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/finish.mcfunction"
-hash = "dc029207a2a894dbfd4fa6c289e073984c02c5a663d71c152742c6a5c3167758"
+hash = "fd4e2d1715bea51d7f675e4d6938c91b333eb0b64271a0446dd7e02bbf063855"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/run.mcfunction"
@@ -229,11 +225,11 @@ hash = "5922f334d61bad7b03c5bdc9f06f71658af498cc00870f6ba8e475372fc0fed7"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/town.mcfunction"
-hash = "0aedac2a5e76827258f4723a6ced5c79bbeabf68174110e04c29fe7ef6c56874"
+hash = "731871c300256bc03fa1fa656f4c156c406508d1e211aad3bb780ce6aa97bf0b"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/tutorial.mcfunction"
-hash = "3ddbdb05b0ecb233dde008723c1722d9197bd7c6b8ebd94c65248f606c950ca7"
+hash = "5d13d97456547f32cb71b0565cdd79f8a9b4f57d42d4df014987d3dfab838334"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/config.mcfunction"
@@ -401,11 +397,11 @@ hash = "00eaf422f3aab81529b4b331f7c9d785ec5b468b7df85f18da141eb09474a7e5"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/load.mcfunction"
-hash = "3a8b937dc4cdc5819d601657b863ff6034ce12d169015b7b32709ae6ecf67a18"
+hash = "d816ea4aebc18761052e31e495e82c68434689b2a798fbc9a6282e27ce10d605"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/build_town.mcfunction"
-hash = "d362286c852cccc3356dd8de5df274600e7a22b65fdd1c36c1bd0b9ab0a6614a"
+hash = "66509a4d7febcb370b666386dee84ab7445ded9048c14619933027f552d0129e"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/kit.mcfunction"
@@ -549,7 +545,7 @@ hash = "b92fc2c6bbc8e42877ac083bd053f7f07853339f92f679297caf66b56dce7251"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/npcs/tutorial_guide.json"
-hash = "7403996cdb59628d0f5315a79107a1139e3011e42fb18ff7032715717069d805"
+hash = "91e1e183bc64561eb06c861c9fe3db77d1e62b9b607d94e9b0706135bda850f6"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/predicate/has_saturation.json"

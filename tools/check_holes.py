@@ -11,7 +11,8 @@ import build_world as W  # noqa: E402
 G = W.G
 
 
-def simulate(boxes):
+def simulate(boxes, paths=('build/town.mcfunction', 'mod/build_town.mcfunction'), ground=G, hub=False):
+    """hub=True: 튜토리얼 방 차원(poke:hub) 줄만, 아니면 마을 줄만."""
     """boxes 안의 칸만 기록 (세상 전체를 다 들고 있지 않게). 땅(G 이하)은 지형이 채워 둔 것으로 봄."""
     world = {}
 
@@ -19,11 +20,16 @@ def simulate(boxes):
         return any(a <= x <= b and c <= z <= d for a, b, c, d in boxes)
 
     def get(x, y, z):
-        return world.get((x, y, z), 'ground' if y <= G and abs(x) < 2800 else 'air')
+        return world.get((x, y, z), 'ground' if y <= ground and abs(x) < 2800 else 'air')
 
-    for path in ('build/town.mcfunction', 'mod/build_town.mcfunction'):
+    for path in paths:
         for line in (W.FN / path).read_text(encoding='utf-8').splitlines():
             p = line.split()
+            in_hub = p[:4] == ['execute', 'in', 'poke:hub', 'run']
+            if in_hub:
+                p = p[4:]
+            if in_hub != hub and path != 'build/tutorial.mcfunction':
+                continue
             if not p or p[0] not in ('fill', 'setblock'):
                 continue
             if p[0] == 'setblock':
@@ -104,7 +110,11 @@ if __name__ == '__main__':
     holes = []
     for name, box, floor, top, openings in bs:
         holes += check(name, box, floor, top, openings, get)
+    # 튜토리얼 방(오박사 연구소, poke:hub): 문은 철문이라 빈칸이 아님
+    x1, x2, z1, z2 = W.LAB
+    hub = simulate([(x1 - 1, x2 + 1, z1 - 1, z2 + 1)], ('build/tutorial.mcfunction', 'mod/build_town.mcfunction'), ground=62, hub=True)
+    holes += check('오박사 연구소', W.LAB, 64, 72, [], hub)
     for h in holes[:80]:
         print('빈칸', h)
-    print(f'검사한 건물 {len(bs)}채, 빈칸 {len(holes)}개')
+    print(f'검사한 건물 {len(bs) + 1}채, 빈칸 {len(holes)}개')
     sys.exit(1 if holes else 0)

@@ -20,6 +20,10 @@ final class CobblemonClientHooks {
         return true;
     }
 
+    static int partySize() {
+        return (int) CobblemonClient.INSTANCE.getStorage().getParty().getSlots().stream().filter(Objects::nonNull).count();
+    }
+
     static void openDex() {
         PokedexGUI.Companion.open(CobblemonClient.INSTANCE.getClientPokedexData(), PokedexType.RED, null, null);
     }

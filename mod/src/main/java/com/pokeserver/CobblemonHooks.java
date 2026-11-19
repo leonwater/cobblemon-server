@@ -50,6 +50,7 @@ final class CobblemonHooks {
             }
             return Unit.INSTANCE;
         });
+        installStarters();
         PokeServer.LOG.info("배틀 제한 등록: 야생·플레이어 배틀은 야생에서만");
         // 9. 야생·플레이어 배틀은 야생에서만. NPC(체육관 관장 등) 배틀은 어디서나.
         CobblemonEvents.BATTLE_STARTED_PRE.subscribe(Priority.NORMAL, e -> {
@@ -80,6 +81,56 @@ final class CobblemonHooks {
     }
 
     static final int SAFE_LEVEL = 15, SAFE_RADIUS = 200;
+    /** 스타팅 포켓몬 세대 (Cobblemon 기본 분류 이름). 피카츄·이브이(Special)와 히스이는 뺌. */
+    static final java.util.List<String> GENS = java.util.List.of("kanto", "johto", "hoenn", "sinnoh", "unova", "kalos", "alola", "galar", "paldea");
+
+    /** 4. 스타팅 포켓몬: 플레이어마다 세대 하나를 무작위로 정해(태그 poke.gen_<세대>로 기억) 그 세대 3마리만 보여 줌.
+     *  고르기 검사(chooseStarter)도 같은 목록을 써서 다른 세대는 고를 수 없음. 튜토리얼을 끝내야 고를 수 있음. */
+    static void installStarters() {
+        com.cobblemon.mod.common.Cobblemon.INSTANCE.setStarterHandler(new com.cobblemon.mod.common.starter.CobblemonStarterHandler() {
+            @Override
+            public java.util.List<com.cobblemon.mod.common.config.starter.StarterCategory> getStarterList(net.minecraft.server.level.ServerPlayer p) {
+                var all = super.getStarterList(p);
+                var gens = all.stream().filter(c -> GENS.contains(c.getName().toLowerCase(java.util.Locale.ROOT))).toList();
+                if (gens.isEmpty()) return all;
+                String saved = p.getTags().stream().filter(t -> t.startsWith("poke.gen_")).map(t -> t.substring(9)).findFirst().orElse("");
+                for (var c : gens) if (c.getName().toLowerCase(java.util.Locale.ROOT).equals(saved)) return java.util.List.of(c);
+                var c = gens.get(p.getRandom().nextInt(gens.size()));
+                p.getTags().removeIf(t -> t.startsWith("poke.gen_"));
+                p.addTag("poke.gen_" + c.getName().toLowerCase(java.util.Locale.ROOT));
+                return java.util.List.of(c);
+            }
+
+            @Override
+            public void requestStarterChoice(net.minecraft.server.level.ServerPlayer p) {
+                if (!p.getTags().contains("poke.tutorial_done")) {
+                    p.displayClientMessage(Component.literal("오박사의 튜토리얼을 끝내면 스타팅 포켓몬을 고를 수 있어요.").withStyle(ChatFormatting.YELLOW), true);
+                    return;
+                }
+                super.requestStarterChoice(p);
+            }
+        });
+    }
+
+    /** 튜토리얼 전에는 고르기를 잠가 "스타팅 포켓몬을 선택하세요" 안내가 뜨지 않게, 끝낸 뒤엔 풂. */
+    static void starterLocks(MinecraftServer server) {
+        for (var p : server.getPlayerList().getPlayers()) {
+            var data = com.cobblemon.mod.common.Cobblemon.INSTANCE.getPlayerDataManager().getGenericData(p);
+            boolean lock = !p.getTags().contains("poke.tutorial_done");
+            if (!data.getStarterSelected() && data.getStarterLocked() != lock) {
+                data.setStarterLocked(lock);
+                data.sendToPlayer(p);
+            }
+        }
+    }
+
+    /** 튜토리얼을 끝냈고 아직 안 골랐으면 스타팅 포켓몬 선택 창을 엶. */
+    static void offerStarter(net.minecraft.server.level.ServerPlayer p) {
+        var data = com.cobblemon.mod.common.Cobblemon.INSTANCE.getPlayerDataManager().getGenericData(p);
+        if (data.getStarterSelected()) return;
+        data.setStarterLocked(false);
+        com.cobblemon.mod.common.Cobblemon.INSTANCE.getStarterHandler().requestStarterChoice(p);
+    }
 
     /** 레벨 차이에 따른 포획률 배율. */
     static float catchFactor(int target, int mine) {
