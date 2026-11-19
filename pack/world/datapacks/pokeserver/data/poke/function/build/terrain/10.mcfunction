@@ -1831,7 +1831,7 @@ setblock 1 -59 -52 minecraft:quartz_block
 setblock 2 -59 -55 minecraft:quartz_block
 setblock 2 -59 -54 minecraft:quartz_block
 setblock 2 -59 -53 minecraft:quartz_block
-summon minecraft:text_display 0.5 -55.5 -53.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[2.4f,2.4f,2.4f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포켓서버","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\nG 키: 메인 메뉴 · 워프","color":"gray","bold":false}]}'}
+summon minecraft:text_display 0.5 -55.5 -53.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[2.4f,2.4f,2.4f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포켓서버","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 fill -3 -60 -28 3 -60 -19 minecraft:polished_deepslate
 fill -1 -59 -28 1 -59 -19 minecraft:red_carpet
 fill -46 -60 -72 -34 -60 -60 minecraft:smooth_quartz

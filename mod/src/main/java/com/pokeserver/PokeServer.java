@@ -71,8 +71,8 @@ public class PokeServer implements ModInitializer {
             dispatcher.register(admin());
             Teleport.register(dispatcher);
             for (String name : new String[]{"money", "돈"}) dispatcher.register(Commands.literal(name).executes(PokeServer::balance));
-            // 전체 초기화 (자기 자신만): /초기화 → 안내, /초기화 확인 → 실행
-            dispatcher.register(Commands.literal("초기화").executes(c -> {
+            // 전체 초기화 (자기 자신만, OP만): /초기화 → 안내, /초기화 확인 → 실행
+            dispatcher.register(Commands.literal("초기화").requires(s -> s.hasPermission(2)).executes(c -> {
                 c.getSource().sendSuccess(() -> Component.literal("가진 아이템·돈·농장 땅·포켓몬·배지가 모두 사라지고 튜토리얼부터 다시 시작합니다. "
                         + "정말 하려면  /초기화 확인  을 입력하세요.").withStyle(ChatFormatting.RED), false);
                 return 0;

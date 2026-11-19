@@ -3,7 +3,7 @@
 외형 이름 = NPC 종류 ID(poke:nurse 등). 모델은 Cobblemon의 사람 크기 모델(cobblemon:steve.geo).
 사용: python3 tools/make_skins.py
 """
-import json, random
+import json, random, sys
 from pathlib import Path
 from PIL import Image
 
@@ -48,18 +48,18 @@ def face_details(img, eyes, hair_front_rows, hair, extra=None):
             img.putpixel((fx + x, fy + y), c + (255,))
 
 
-def head(rng, hair, hair_dark, long_hair=False, bangs=2):
+def head(rng, hair, hair_dark, long_hair=False, bangs=2, skin=SKIN):
     def at(face, x, y, w, h):
         if face == 'top' or face == 'back':
             return hair if (x + y) % 5 else hair_dark
         if face == 'bottom':
-            return SKIN
+            return skin
         if face in ('right', 'left'):
-            return hair if y < (7 if long_hair else 3) else SKIN
+            return hair if y < (7 if long_hair else 3) else skin
         # 앞: 앞머리 + 옆머리
         if y < bangs or (long_hair and (x == 0 or x == 7) and y < 7):
             return hair if (x + y) % 4 else hair_dark
-        return SKIN
+        return skin
     return at
 
 
@@ -79,10 +79,10 @@ def hair_layer(hair, hair_dark, long_hair, hat_at=None):
 
 
 def build(name, hair, hair_dark, body_at, arm_at, leg_at, eye=(60, 50, 90), long_hair=False, hat_at=None, extra=None,
-          jacket_at=None, sleeve_at=None):
+          jacket_at=None, sleeve_at=None, skin=SKIN):
     rng = random.Random(name)
     img = Image.new('RGBA', (64, 64), (0, 0, 0, 0))
-    paint(img, 'head', head(rng, hair, hair_dark, long_hair), rng)
+    paint(img, 'head', head(rng, hair, hair_dark, long_hair, skin=skin), rng)
     paint(img, 'hat', hair_layer(hair, hair_dark, long_hair, hat_at), rng)
     if jacket_at:
         paint(img, 'jacket', jacket_at, rng)
@@ -98,7 +98,7 @@ def build(name, hair, hair_dark, body_at, arm_at, leg_at, eye=(60, 50, 90), long
     lash = tuple(int(c * 0.5) for c in eye)
     eyes = [(1, 4, lash), (2, 4, lash), (5, 4, lash), (6, 4, lash),        # 위 속눈썹
             (1, 5, white), (2, 5, eye), (5, 5, eye), (6, 5, white)]      # 흰자 + 눈동자
-    mouth = [(3, 6, (200, 110, 110)), (4, 6, (200, 110, 110))]
+    mouth = [(3, 6, (200, 110, 110)), (4, 6, (200, 110, 110))] if skin == SKIN else [(3, 6, tuple(int(c * .75) for c in skin)), (4, 6, tuple(int(c * .75) for c in skin))]
     face_details(img, eyes + mouth, 2, hair, extra)
     return img
 
@@ -270,7 +270,211 @@ def champion_steven_ps():
     return build('champion_steven_ps', (170, 185, 210), (120, 135, 165), body, arm, leg, eye=(60, 90, 160))
 
 
-if __name__ == '__main__':
+
+# ── 관장·챔피언 원작풍 스킨 (RCT 기본 스킨이 원작과 달라서). 아직 적용 전: --preview 폴더로만 저장 ──
+TAN = (205, 150, 105)
+
+
+def leader_brock_ps():
+    """웅: 까만 피부, 뾰족한 갈색 머리, 실눈, 주황 셔츠 + 초록 조끼, 갈색 바지."""
+    def body(face, x, y, w, h):
+        return (90, 120, 60) if face != 'front' or x in (0, 1, 6, 7) else (230, 130, 40)
+
+    def arm(face, x, y, w, h):
+        return (230, 130, 40) if y < 4 else TAN
+
+    def leg(face, x, y, w, h):
+        return (60, 40, 25) if y >= 10 else (120, 85, 50)
+
+    def spikes(face, x, y, w, h):                                       # 뾰족 머리 (겉 층)
+        if face == 'top' or (face == 'front' and y == 0) or (face in ('right', 'left', 'back') and y < 3):
+            return (95, 60, 35) if (x + y) % 3 else (70, 45, 25)
+        return None
+    closed = [(1, 5, TAN), (2, 5, (60, 40, 30)), (5, 5, (60, 40, 30)), (6, 5, TAN),
+              (1, 4, (95, 60, 35)), (2, 4, (95, 60, 35)), (5, 4, (95, 60, 35)), (6, 4, (95, 60, 35))]
+    return build('leader_brock_ps', (95, 60, 35), (70, 45, 25), body, arm, leg, skin=TAN, hat_at=spikes, extra=closed)
+
+
+def leader_misty_ps():
+    """이슬: 주황 머리(옆으로 묶음), 노란 짧은 상의 + 빨간 멜빵, 청반바지."""
+    hair, dark = (240, 130, 50), (200, 95, 35)
+
+    def body(face, x, y, w, h):
+        if face == 'front' and x in (2, 5):
+            return (210, 40, 40)
+        return (250, 215, 60) if y < 7 else SKIN
+
+    def arm(face, x, y, w, h):
+        return SKIN
+
+    def leg(face, x, y, w, h):
+        return (70, 110, 190) if y < 4 else (SKIN if y < 10 else (220, 60, 50))
+
+    def tail(face, x, y, w, h):                                         # 옆으로 묶은 머리
+        return (hair if y % 2 else dark) if face == 'right' and y < 7 and x >= 2 else None
+    return build('leader_misty_ps', hair, dark, body, arm, leg, eye=(60, 110, 170), hat_at=tail)
+
+
+def leader_lt_surge_ps():
+    """마티스: 금발 짧은 머리, 국방색 민소매, 얼룩무늬 군복 바지."""
+    olive = (95, 110, 55)
+
+    def body(face, x, y, w, h):
+        return olive if y < 10 else (40, 40, 30)
+
+    def arm(face, x, y, w, h):
+        return SKIN
+
+    def leg(face, x, y, w, h):
+        if y >= 10:
+            return (40, 35, 30)
+        return [(110, 120, 70), (80, 90, 50), (120, 100, 60)][(x * 2 + y) % 3]
+    tags = [(3, 6, (200, 110, 110)), (4, 6, (200, 110, 110))]
+    return build('leader_lt_surge_ps', (240, 210, 90), (210, 180, 60), body, arm, leg, eye=(60, 100, 60), extra=tags)
+
+
+def leader_erika_ps():
+    """민화: 까만 단발 + 빨간 머리띠, 초록 기모노(흰 깃·노란 띠), 빨간 하카마."""
+    def body(face, x, y, w, h):
+        if face == 'front' and y < 4 and abs(x - 3.5) < 4 - y:
+            return (245, 245, 240)                                     # V 깃
+        return (240, 200, 70) if y in (8, 9) else (80, 150, 80)
+
+    def arm(face, x, y, w, h):
+        return (80, 150, 80) if y < 10 else SKIN
+
+    def leg(face, x, y, w, h):
+        return (190, 50, 50) if y < 11 else (245, 245, 240)
+
+    def band(face, x, y, w, h):
+        return (210, 40, 40) if face in ('top',) and y == 3 or face in ('right', 'left') and y == 1 else None
+    return build('leader_erika_ps', (25, 25, 30), (10, 10, 15), body, arm, leg, eye=(40, 40, 50), long_hair=True, hat_at=band)
+
+
+def leader_koga_ps():
+    """독수: 보라 닌자복, 얼굴 아래 가리개, 회색 목도리, 까만 머리."""
+    purple = (80, 50, 110)
+
+    def body(face, x, y, w, h):
+        return (170, 170, 180) if y < 2 else (purple if y != 8 else (40, 30, 50))
+
+    def arm(face, x, y, w, h):
+        return purple if y < 10 else (40, 30, 50)
+
+    def leg(face, x, y, w, h):
+        return purple if y < 9 else (40, 30, 50)
+    mask = [(x, 6, (70, 45, 95)) for x in range(8)] + [(x, 7, (70, 45, 95)) for x in range(8)]
+    return build('leader_koga_ps', (30, 30, 35), (15, 15, 20), body, arm, leg, eye=(80, 60, 40), extra=mask)
+
+
+def leader_sabrina_ps():
+    """초련: 긴 까만(녹색빛) 머리, 빨간 상의 + 까만 허리띠, 까만 타이츠."""
+    def body(face, x, y, w, h):
+        return (40, 30, 40) if y in (9, 10) else (190, 40, 60)
+
+    def arm(face, x, y, w, h):
+        return (190, 40, 60) if y < 11 else SKIN
+
+    def leg(face, x, y, w, h):
+        return (30, 25, 35)
+    def back_hair(face, x, y, w, h):                                    # 등까지 내려오는 긴 머리
+        return ((35, 55, 50) if (x + y) % 4 else (20, 35, 30)) if face == 'back' and y < 8 else None
+    return build('leader_sabrina_ps', (35, 55, 50), (20, 35, 30), body, arm, leg, eye=(170, 40, 60), long_hair=True, jacket_at=back_hair)
+
+
+def leader_blaine_ps():
+    """강연: 대머리, 흰 콧수염, 까만 선글라스, 흰 가운."""
+    bald, mous = (235, 190, 160), (240, 240, 240)
+
+    def body(face, x, y, w, h):
+        if face == 'front' and x in (3, 4):
+            return (60, 60, 70)                                        # 가운 안 셔츠
+        return (245, 245, 245)
+
+    def arm(face, x, y, w, h):
+        return (245, 245, 245) if y < 10 else SKIN
+
+    def leg(face, x, y, w, h):
+        return (110, 80, 55) if y < 10 else (50, 35, 25)
+    glasses = [(x, 4, (25, 25, 30)) for x in range(1, 7)] + [(1, 5, (25, 25, 30)), (2, 5, (25, 25, 30)), (5, 5, (25, 25, 30)), (6, 5, (25, 25, 30)),
+                                                             (3, 5, (25, 25, 30)), (4, 5, (25, 25, 30))]
+    glasses += [(x, 6, mous) for x in range(2, 6)] + [(1, 7, mous), (6, 7, mous)]
+    return build('leader_blaine_ps', bald, (225, 180, 150), body, arm, leg, extra=glasses)
+
+
+def leader_giovanni_ps():
+    """비주기: 까만 머리, 주황빛 갈색 정장 + 검은 셔츠·빨간 넥타이."""
+    suit = (190, 110, 50)
+
+    def body(face, x, y, w, h):
+        if face == 'front' and x in (3, 4):
+            return (180, 30, 40) if x == 3 and 1 <= y <= 6 else (30, 30, 35)
+        return suit
+
+    def arm(face, x, y, w, h):
+        return suit if y < 11 else SKIN
+
+    def leg(face, x, y, w, h):
+        return suit if y < 10 else (30, 25, 25)
+    return build('leader_giovanni_ps', (30, 30, 35), (15, 15, 20), body, arm, leg, eye=(50, 40, 40))
+
+
+def champion_cynthia_ps():
+    """난천: 긴 금발(한쪽 눈을 가림), 까만 코트, 까만 바지."""
+    gold, dark = (245, 215, 120), (215, 180, 90)
+
+    def body(face, x, y, w, h):
+        return (30, 30, 35) if not (face == 'front' and x in (3, 4) and y < 3) else (240, 240, 240)
+
+    def arm(face, x, y, w, h):
+        return (30, 30, 35) if y < 11 else SKIN
+
+    def leg(face, x, y, w, h):
+        return (30, 30, 35)
+
+    def coat(face, x, y, w, h):                                         # 코트 자락·털 장식
+        if face == 'front' and y < 1:
+            return (60, 60, 65)
+        if face == 'back' and y < 9:
+            return gold if (x + y) % 4 else dark                       # 등까지 내려오는 금발
+        return (25, 25, 30) if face in ('back', 'right', 'left') else None
+    cover = [(5, 4, gold), (6, 4, gold), (5, 5, dark), (6, 5, gold), (7, 5, gold)]
+    return build('champion_cynthia_ps', gold, dark, body, arm, leg, eye=(70, 70, 80), long_hair=True, jacket_at=coat, extra=cover)
+
+
+def trainer_red_ps():
+    """레드: 빨강·흰 모자, 까만 머리, 빨간 반팔 재킷 + 까만 셔츠, 청바지."""
+    red = (200, 40, 40)
+
+    def body(face, x, y, w, h):
+        if face == 'front' and x in (3, 4):
+            return (30, 30, 35)
+        return red if y < 10 else (240, 240, 240)
+
+    def arm(face, x, y, w, h):
+        return (240, 240, 240) if y < 2 else (red if y < 4 else SKIN)
+
+    def leg(face, x, y, w, h):
+        return (60, 90, 160) if y < 10 else red
+
+    def cap(face, x, y, w, h):
+        if face == 'top':
+            return red if y > 2 else (240, 240, 240)
+        if face in ('front', 'right', 'left', 'back') and y <= 1:
+            return (240, 240, 240) if face == 'front' and y == 1 else red
+        return None
+    return build('trainer_red_ps', (30, 25, 25), (15, 10, 10), body, arm, leg, eye=(170, 40, 40), hat_at=cap)
+
+
+LEADERS = (leader_brock_ps, leader_misty_ps, leader_lt_surge_ps, leader_erika_ps, leader_koga_ps, leader_sabrina_ps,
+           leader_blaine_ps, leader_giovanni_ps, champion_cynthia_ps, trainer_red_ps)
+
+if __name__ == '__main__' and sys.argv[1:2] == ['--preview']:
+    # 적용하지 않고 미리보기 폴더에만: python3 tools/make_skins.py --preview <폴더>
+    Path(sys.argv[2]).mkdir(parents=True, exist_ok=True)
+    for make in LEADERS:
+        make().save(Path(sys.argv[2]) / f'{make.__name__}.png')
+elif __name__ == '__main__':
     (OUT / 'textures/npcs').mkdir(parents=True, exist_ok=True)
     (OUT / 'bedrock/npcs/variations').mkdir(parents=True, exist_ok=True)
     for make in (nurse, merchant, gym_guide, tutorial_guide):

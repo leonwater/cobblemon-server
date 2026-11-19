@@ -195,7 +195,7 @@ public class MenuScreen extends Screen {
     private void help() {
         onClose();
         for (String line : new String[]{"── 기본 명령어 ──", "G 키: 메인 메뉴", "/money (/돈): 잔액", "/pay 닉네임 금액 (/송금): 돈 보내기",
-                "/텔포 닉네임: 텔레포트 요청 (상대 동의)", "/trigger home: 회의장으로", "/초기화: 모든 진행 삭제 (확인 필요)", "R 키: 포켓몬 꺼내기 · M 키: 상태창 · ↑↓: 파티 선택"}) toast(line);
+                "/텔포 닉네임: 텔레포트 요청 (상대 동의)", "/trigger home: 회의장으로", "R 키: 포켓몬 꺼내기 · M 키: 상태창 · ↑↓: 파티 선택"}) toast(line);
     }
 
     private void toast(String s) {
