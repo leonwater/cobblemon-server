@@ -14,7 +14,7 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   const rc = await Rcon.connect({ host: 'localhost', port: 25577, password: 'test', timeout: 15000 })
   const cmd = async c => { const r = await rc.send(c); console.log('>', c, '→', r.slice(0, 200)); return r }
   // 농장·마을 짓기가 끝날 때까지 (짓는 동안엔 서버가 바빠 응답이 늦음)
-  for (let i = 0; i < 240 && !/build: 12.*farm: 2|farm: 2.*build: 12/.test(await cmd('data get storage poke:state')); i++) await sleep(500)
+  for (let i = 0; i < 240 && !/build: 13.*farm: 3|farm: 3.*build: 13/.test(await cmd('data get storage poke:state')); i++) await sleep(500)
 
   const A = await join('A'), B = await join('B'); await sleep(1000)
   const popups = []
@@ -180,6 +180,21 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   await cmd('execute in poke:town run tp A 2000.5 -59 -11.5 0 90'); await sleep(800)
   await within(A.dig(A.blockAt(new Vec3(2000, -60, -12))), 3000)
   assert.ok(!(await cmd('execute in poke:town if block 2000 -60 -12 minecraft:air')).includes('passed'), '마을 블록은 못 부숨')
+
+  // 새 2. 텔레포트: 일반 사용자는 상대가 [예]를 눌러야 이동, 10초 지나면 취소
+  const msgs = []; B.on('message', m => msgs.push(m.toString()))
+  await cmd('execute in poke:town run tp A 0.5 -59 -53.5'); await cmd('execute in poke:town run tp B 10.5 -59 -53.5'); await sleep(500)
+  A.chat('/텔포 B'); await sleep(800)
+  assert.ok(msgs.some(m => m.includes('A님이 당신에게 오려고 해요') && m.includes('[예]') && m.includes('[아니요]')), '2. 상대에게 예/아니요가 뜸')
+  assert.match(await cmd('data get entity A Pos[0]'), /: 0\.5d/, '2. 동의 전엔 이동 안 함')
+  B.chat('/텔포 예'); await sleep(800)
+  assert.match(await cmd('data get entity A Pos[0]'), /10\.5d/, '2. [예]를 누르면 상대에게 이동')
+  await cmd('execute in poke:town run tp A 0.5 -59 -53.5'); await sleep(300)
+  A.chat('/텔포 B 여기로'); await sleep(11500)
+  assert.ok(msgs.some(m => m.includes('10초 동안 대답이 없어 취소')), '2. 10초가 지나면 자동 취소')
+  B.chat('/텔포 예'); await sleep(800)
+  assert.match(await cmd('data get entity B Pos[0]'), /10\.5d/, '2. 취소된 요청은 수락해도 이동 안 함')
+  console.log('> 새 2. 텔레포트 동의·10초 취소')
 
   console.log('ALL PASS'); A.quit(); B.quit(); await rc.end(); process.exit(0)
 })().catch(e => { console.error('FAIL', e.message); process.exit(1) })

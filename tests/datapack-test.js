@@ -23,7 +23,7 @@ const join = name => new Promise((res, rej) => {
   const warp = async (p, key) => cmd(`execute as ${p} run function poke:warp/${['farm', 'wild'].includes(key) ? 'go' : 'fixed'} {key:"${key}"}`)
 
   // 건물이 지어질 때까지 (load 후 60틱)
-  await waitFor('data get storage poke:state', /build: 12.*farm: 2|farm: 2.*build: 12/, 240)  // 지형은 여러 틱에 나눠 지음
+  await waitFor('data get storage poke:state', /build: 13.*farm: 3|farm: 3.*build: 13/, 240)  // 지형은 여러 틱에 나눠 지음
   await ok('execute in poke:hub if block 0 64 3 minecraft:smooth_quartz', '튜토리얼 방 바닥')
   for (const fl of ['-40 -80 140 30', '960 -32 1040 32', '1960 -36 2040 36', '3000 -18 3380 18', '3500 -46 3540 12'])
     await cmd(`execute in poke:town run forceload add ${fl}`)
@@ -36,16 +36,17 @@ const join = name => new Promise((res, rej) => {
   await cmd('execute in poke:town run forceload add -66 0 -66 0'); await cmd('execute in poke:town run forceload add 300 0 300 0'); await sleep(1500)
   await ok('execute in poke:town if block -66 0 0 minecraft:barrier', '15. 회의장 섬 둘레 벽')
   await ok('execute in poke:town if block 300 -60 0 minecraft:air', '15. 섬 밖은 땅 없음(허공)')
-  await ok('execute in poke:town if block 962 -59 -8 minecraft:bricks', '프렌들리 숍 붉은 벽돌')
-  await ok('execute in poke:town if block 1012 -59 -9 minecraft:bricks', '포켓몬센터 붉은 벽돌')
-  await ok('execute in poke:town if block 1012 -52 -11 minecraft:stripped_dark_oak_log', '포켓몬센터 짙은 목재 기둥')
+  await ok('execute in poke:town if block 962 -57 -8 minecraft:white_concrete', '8. 프렌들리 숍 흰 벽')
+  await ok('execute in poke:town if block 973 -50 0 minecraft:blue_concrete', '8. 프렌들리 숍 파란 지붕')
+  await ok('execute in poke:town if block 1012 -54 -9 minecraft:red_concrete', '8. 포켓몬센터 빨간 띠')
+  await ok('execute in poke:town if block 1023 -49 0 minecraft:red_concrete', '8. 포켓몬센터 빨간 지붕')
   await ok('execute in poke:town if block 2000 -56 14 minecraft:quartz_block', '3. 체육관 접수대 (계단 위)')
   await ok('execute in poke:town if block 3000 -58 -18 minecraft:quartz_pillar', '1번 경기장')
   await ok('execute in poke:town if block 3350 -58 18 minecraft:quartz_pillar', '8번 경기장')
   await ok('execute in poke:town if block 3500 -58 -46 minecraft:quartz_pillar', '사천왕 본부')
   assert.doesNotMatch(await cmd('execute in poke:town if block 0 -59 -60 minecraft:polished_andesite'), /passed/, '14. 회의장과 상점가는 이어지지 않음')
-  await cmd('execute in poke:farm run forceload add 64 40 80 60'); await sleep(1500)  // 짓고 나면 농장 청크는 풀려 있음
-  await ok('execute in poke:farm if block 73 0 50 minecraft:barrier', '농장 둘레 벽')
+  await cmd('execute in poke:farm run forceload add 96 40 112 60'); await sleep(1500)  // 짓고 나면 농장 청크는 풀려 있음
+  await ok('execute in poke:farm if block 108 0 50 minecraft:barrier', '농장 둘레 벽')
 
   let A = await join('A'), B = await join('B'); await sleep(1500)
   await at('A', 'poke:hub', 0, 3, '튜토리얼 방에서 시작')

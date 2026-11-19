@@ -115,19 +115,25 @@ def arenas():
 # ── 농장 (poke:farm, 평지 지면 y=-60) ──
 FY = -60
 PLOT, GAP = 32, 3                   # 땅 한 칸 32x32, 땅 사이 길 3
-COLS_X = [4, 4 + PLOT + GAP, -4 - PLOT + 1, -4 - 2 * PLOT - GAP + 1]  # 각 열의 x 시작
+COLS_X = [4, 4 + PLOT + GAP, -4 - PLOT + 1, -4 - 2 * PLOT - GAP + 1]  # 처음 4열의 x 시작 (1~16번, 4줄)
 ROWS = 4
+EAST_X = 4 + 2 * (PLOT + GAP)       # 7. 25칸으로 넓힘: 동쪽 5번째 열 + 남쪽 5번째 줄 (기존 1~16번 자리는 그대로 → 주인 있는 땅이 안 바뀜)
 FARM_RETURN = (-1, 1, -8, -6)       # 회의장으로 돌아가는 발판
+OLD_FARM_BOX = (-73, -12, 73, 142)  # 16칸 시절 둘레 벽 (넓힐 때 지움)
 
 
 def plots():
-    """(번호, x1, z1, x2, z2) 목록. 모드에서도 같은 순서·번호를 씀."""
+    """(번호, x1, z1, x2, z2) 목록. 모드에서도 같은 순서·번호를 씀. 1~16 예전 그대로, 17~25는 새 땅 (위→아래, 왼→오)."""
     out, n = [], 0
+    z = lambda r: 3 + r * (PLOT + GAP)
     for r in range(ROWS):
-        z1 = 3 + r * (PLOT + GAP)
         for x1 in sorted(COLS_X):
             n += 1
-            out.append((n, x1, z1, x1 + PLOT - 1, z1 + PLOT - 1))
+            out.append((n, x1, z(r), x1 + PLOT - 1, z(r) + PLOT - 1))
+    new = [(z(r), EAST_X) for r in range(ROWS)] + [(z(ROWS), x1) for x1 in sorted(COLS_X + [EAST_X])]
+    for z1, x1 in new:
+        n += 1
+        out.append((n, x1, z1, x1 + PLOT - 1, z1 + PLOT - 1))
     return out
 
 
@@ -158,17 +164,21 @@ def walls(x1, x2, z1, z2, y1, y2, block):
 
 
 def emblem(plane_x, cz, cy, r=3, top='red_concrete'):
-    """원작풍 몬스터볼 엠블럼 (x 고정 벽면에, 지름 2r+1): 위 빨강, 가운데 검은 띠, 아래 흰색, 가운데 단추."""
+    """원작풍 몬스터볼 엠블럼 (x 고정 벽면에, 지름 2r+1): 얇은 검은 테두리, 위 색·아래 흰색, 가운데 검은 띠, 검은 테 두른 흰 단추."""
     L = []
     for dz in range(-r, r + 1):
         for dy in range(-r, r + 1):
             d = math.hypot(dz, dy)
             if d > r + 0.3:
                 continue
-            if d > r - 0.7:
+            if d > r - 0.6:
                 b = 'black_concrete'
-            elif abs(dy) <= 0 or (abs(dy) <= 1 and abs(dz) <= 1):
-                b = 'white_concrete' if dz == 0 and dy == 0 else 'black_concrete'
+            elif d <= (1.5 if r >= 5 else 0.5):
+                b = 'white_concrete'
+            elif d <= (2.5 if r >= 5 else 1.0):
+                b = 'black_concrete'
+            elif dy == 0:
+                b = 'black_concrete'
             else:
                 b = top if dy > 0 else 'white_concrete'
             L.append(sb(plane_x, cy + dy, cz + dz, 'minecraft:' + b))
@@ -200,11 +210,20 @@ def farm():
     xs = [p[1] for p in plots()] + [p[3] for p in plots()]
     zs = [p[2] for p in plots()] + [p[4] for p in plots()]
     bx1, bx2, bz1, bz2 = min(xs) - 3, max(xs) + 3, -12, max(zs) + 3
-    L.append(fill(bx1 + 1, FY, bz1 + 1, bx2 - 1, FY, bz2 - 1, 'minecraft:dirt_path'))   # 전체를 길로 깔고
-    for n, x1, z1, x2, z2 in plots():                                                  # 땅만 잔디로
+    # 예전(16칸) 둘레 벽 지우기 → 넓어진 농장 안에 보이지 않는 벽이 남지 않게
+    ox1, oz1, ox2, oz2 = OLD_FARM_BOX
+    for a in range(ox1, ox2 + 1, 80):
+        L.append(fill(a, FY + 1, oz2, min(a + 79, ox2), 319, oz2, 'minecraft:air replace minecraft:barrier'))
+    for a in range(oz1, oz2 + 1, 80):
+        L.append(fill(ox2, FY + 1, a, ox2, 319, min(a + 79, oz2), 'minecraft:air replace minecraft:barrier'))
+    # 잔디만 길로 바꾸고 땅 안쪽은 길만 잔디로 되돌림 → 다시 지어도 플레이어가 깐 블록(경작지 등)은 그대로
+    for a in range(bx1 + 1, bx2, 160):
+        L.append(fill(a, FY, bz1 + 1, min(a + 159, bx2 - 1), FY, bz2 - 1, 'minecraft:dirt_path', 'replace minecraft:grass_block'))
+    for n, x1, z1, x2, z2 in plots():
         # 땅 한가운데 이름표: 주인이 생기면 모드가 숨김 (배경 투명)
-        L += [fill(x1, FY, z1, x2, FY, z2, 'minecraft:polished_andesite'),
-              fill(x1 + 1, FY, z1 + 1, x2 - 1, FY, z2 - 1, 'minecraft:grass_block'),
+        L += [fill(x1, FY, z1, x2, FY, z1, 'minecraft:polished_andesite'), fill(x1, FY, z2, x2, FY, z2, 'minecraft:polished_andesite'),
+              fill(x1, FY, z1, x1, FY, z2, 'minecraft:polished_andesite'), fill(x2, FY, z1, x2, FY, z2, 'minecraft:polished_andesite'),
+              fill(x1 + 1, FY, z1 + 1, x2 - 1, FY, z2 - 1, 'minecraft:grass_block', 'replace minecraft:dirt_path'),
               label(x1 + PLOT / 2, FY + 2.5, z1 + PLOT / 2, f'농장 {n}', 'yellow', 2.0, tag='poke.farmdeco",'
                     f'"poke.plot{n}', sub='빈 땅 · 땅 문서로 등록', bg=0)]
     x1, x2, z1, z2 = FARM_RETURN
@@ -460,23 +479,6 @@ def spawn_plaza():
     return L
 
 
-def brick_wood_walls(x1, x2, z1, z2, f1, f2, top):
-    """1층 붉은 벽돌(f1~f2-1), 2층 짙은 목재(f2~top) + 기둥."""
-    L = walls(x1, x2, z1, z2, f1, f2 - 1, 'minecraft:bricks')
-    L += walls(x1, x2, z1, z2, f2, top, 'minecraft:dark_oak_planks')
-    L += walls(x1, x2, z1, z2, f2 - 1, f2 - 1, 'minecraft:stripped_dark_oak_log[axis=x]')
-    for x in range(x1, x2 + 1, 4):
-        for z in (z1, z2):
-            L.append(fill(x, f2, z, x, top, z, 'minecraft:stripped_dark_oak_log'))
-    for z in range(z1, z2 + 1, 4):
-        for x in (x1, x2):
-            L.append(fill(x, f2, z, x, top, z, 'minecraft:stripped_dark_oak_log'))
-    for x in (x1, x2):
-        for z in (z1, z2):
-            L.append(fill(x, f1, z, x, top, z, 'minecraft:stripped_dark_oak_log'))
-    return L
-
-
 def big_windows(x1, x2, z1, z2, y1, y2, skip_x=None):
     """큰 유리창 (벽 기둥 사이 3칸)."""
     L = []
@@ -486,20 +488,6 @@ def big_windows(x1, x2, z1, z2, y1, y2, skip_x=None):
         for x in (x1, x2):
             if x != skip_x:
                 L.append(fill(x, y1, z, x, y2, z + 1, 'minecraft:glass_pane'))
-    return L
-
-
-def pokeball(cx, cy, cz, r=3, front='w'):
-    """지붕 위 입체 몬스터볼."""
-    L = []
-    for dx in range(-r, r + 1):
-        for dy in range(-r, r + 1):
-            for dz in range(-r, r + 1):
-                if dx * dx + dy * dy + dz * dz <= r * r + 1:
-                    b = 'black_concrete' if dy == 0 else ('red_concrete' if dy > 0 else 'white_concrete')
-                    L.append(sb(cx + dx, cy + dy, cz + dz, 'minecraft:' + b))
-    fx = cx - r - 1 if front == 'w' else cx + r + 1
-    L += [sb(fx, cy, cz, 'minecraft:white_concrete'), sb(fx + (1 if front == 'w' else -1), cy, cz, 'minecraft:black_concrete')]
     return L
 
 
@@ -516,85 +504,148 @@ def hip_roof(x1, x2, z1, z2, y, block, stairs):
     return L, y + i
 
 
+ROOF_STEPS = [0, 1, 2, 3, 5, 7, 9, 11]   # 층마다 안으로 들어가는 칸 → 둥근 빵 모양 계단 지붕 (원작 센터·숍 지붕)
+
+
+def poke_building(box, door, top, roof, roof_dark, band, inner, inner_band):
+    """8. 원작풍 포켓몬센터·프렌들리 숍 공통 외관 (참고 사진: 흰 벽, 층층이 쌓인 둥근 지붕, 정면 몬스터볼 간판, 파란 창 격자).
+    벽은 2겹(바깥 흰색, 안쪽 실내색은 각 건물이 칠함). door: 문이 있는 쪽 'w'(x1) / 'e'(x2). 지붕 꼭대기 y를 함께 돌려줌."""
+    x1, x2, z1, z2 = box
+    zm = (z1 + z2) // 2
+    fx = x1 if door == 'w' else x2            # 정면 벽
+    out = -1 if door == 'w' else 1            # 바깥쪽 방향
+    L = [fill(x1 - 2, G, z1 - 2, x2 + 2, G, z2 + 2, 'minecraft:smooth_stone'),                      # 받침
+         fill(x1, G, z1, x2, G, z2, 'minecraft:smooth_quartz')]
+    L += walls(x1, x2, z1, z2, G + 1, top, 'minecraft:white_concrete')
+    L += walls(x1, x2, z1, z2, G + 1, G + 1, 'minecraft:light_gray_concrete')                       # 밑동
+    L += walls(x1, x2, z1, z2, G + 6, G + 6, f'minecraft:{band}')                                   # 창 사이 색 띠
+    L += walls(x1, x2, z1, z2, top, top, 'minecraft:smooth_quartz')                                 # 처마 밑
+    L += walls(x1 + 1, x2 - 1, z1 + 1, z2 - 1, G + 1, top - 1, f'minecraft:{inner}')                 # 안쪽 벽
+    L += walls(x1 + 1, x2 - 1, z1 + 1, z2 - 1, G + 5, G + 5, f'minecraft:{inner_band}')
+    L.append(fill(x1 + 1, top, z1 + 1, x2 - 1, top, z2 - 1, 'minecraft:smooth_quartz'))             # 천장
+    # 파란 창 격자 (3칸 유리 + 흰 창살), 아래·위 두 줄. 벽 두 겹을 함께 뚫음
+    for y1, y2 in ((G + 2, G + 4), (G + 7, G + 8)):
+        for x in range(x1 + 2, x2 - 2, 4):
+            L += [fill(x, y1, z1, x + 2, y2, z1 + 1, 'minecraft:light_blue_stained_glass'),
+                  fill(x, y1, z2 - 1, x + 2, y2, z2, 'minecraft:light_blue_stained_glass')]
+        for z in range(z1 + 2, z2 - 2, 4):
+            for x in (x1, x2):
+                if x == fx and abs(z + 1 - zm) <= 6 or x != fx:
+                    continue                                                                          # 정면 현관 자리·뒷벽(벽화·진열)
+                L.append(fill(min(x, x - out), y1, z, max(x, x - out), y2, z + 2, 'minecraft:light_blue_stained_glass'))
+    # 지붕: 처마는 벽 밖으로 1칸, 위로 갈수록 둥글게 들어감. 2번째 층은 흰 줄무늬, 가장자리는 짙은 색
+    y = top + 1
+    for i, d in enumerate(ROOF_STEPS):
+        a1, a2, c1, c2 = x1 - 1 + d, x2 + 1 - d, z1 - 1 + d, z2 + 1 - d
+        if a1 > a2 or c1 > c2:
+            break
+        blk = 'minecraft:white_concrete' if i == 2 else f'minecraft:{roof}'
+        L.append(fill(a1, y, c1, a2, y, c2, blk))
+        if i != 2:
+            L += walls(a1, a2, c1, c2, y, y, f'minecraft:{roof_dark}') if i == 0 else []
+        y += 1
+    roof_top = y - 1
+    # 정면 현관: 벽에서 2칸 튀어나온 흰 탑 + 둥근 윗모서리 + 몬스터볼 간판 + 유리문
+    px1, px2 = sorted((fx + out, fx + 2 * out))
+    ptop = top + 8
+    L += [fill(px1, G, zm - 6, px2, G, zm + 6, 'minecraft:smooth_stone'),
+          fill(px1, G + 1, zm - 6, px2, ptop, zm + 6, 'minecraft:white_concrete'),
+          fill(px1, ptop, zm - 6, px2, ptop, zm - 6, 'minecraft:air'), fill(px1, ptop, zm + 6, px2, ptop, zm + 6, 'minecraft:air'),
+          fill(px1, ptop - 1, zm - 6, px2, ptop - 1, zm - 6, 'minecraft:smooth_quartz_stairs[facing=south]'),
+          fill(px1, ptop - 1, zm + 6, px2, ptop - 1, zm + 6, 'minecraft:smooth_quartz_stairs[facing=north]'),
+          fill(px1, ptop, zm - 5, px2, ptop, zm + 5, 'minecraft:smooth_quartz'),
+          fill(px1, G + 1, zm - 6, px2, G + 1, zm + 6, 'minecraft:light_gray_concrete'),
+          fill(px1, G + 6, zm - 6, px2, G + 6, zm + 6, f'minecraft:{band}')]
+    # 문 (3칸 폭, 4칸 높이) + 양옆 유리 + 문 위 유리
+    ix1, ix2 = sorted((fx - out, fx + 2 * out))
+    L += [fill(ix1, G + 1, zm - 1, ix2, G + 4, zm + 1, 'minecraft:air'),
+          fill(px1, G + 1, zm - 3, px2, G + 4, zm - 2, 'minecraft:light_blue_stained_glass'),
+          fill(px1, G + 1, zm + 2, px2, G + 4, zm + 3, 'minecraft:light_blue_stained_glass'),
+          fill(fx + 2 * out, G + 5, zm - 1, fx + 2 * out, G + 5, zm + 1, 'minecraft:light_blue_stained_glass'),
+          fill(fx + 3 * out, G, zm - 2, fx + 6 * out, G, zm + 2, 'minecraft:smooth_quartz')]                # 문 앞 흰 발판
+    L += [sb(fx + 3 * out, top + 2 + dy, zm + dz, 'minecraft:yellow_concrete')                            # 노란 테두리
+          for dz in range(-6, 7) for dy in range(-6, 7) if 5.3 < math.hypot(dz, dy) <= 6.4]
+    L += emblem(fx + 3 * out, zm, top + 2, 5, top=roof)                                                   # 정면 몬스터볼 간판 (튀어나옴)
+    # 화단 (참고 사진의 초록 덤불): 현관 양옆
+    for z in (zm - 8, zm + 8):
+        L += [fill(fx + out, G + 1, z - 1, fx + 2 * out, G + 1, z + 1, 'minecraft:moss_block'),
+              fill(fx + out, G + 2, z - 1, fx + 2 * out, G + 2, z + 1, 'minecraft:azalea_leaves[persistent=true]'),
+              sb(fx + out, G + 3, z, 'minecraft:flowering_azalea_leaves[persistent=true]')]
+    return L, roof_top
+
+
+def checker_floor(x1, x2, z1, z2, a, b, mark):
+    """원작 센터 바닥: 4칸 타일 체크 + 줄 교차점 분홍 표시 (참고 사진 1)."""
+    L = []
+    for x in range(x1, x2 + 1):
+        for z in range(z1, z2 + 1):
+            if (x - x1) % 4 == 0 and (z - z1) % 4 == 0:
+                L.append(sb(x, G, z, f'minecraft:{mark}'))
+            elif ((x - x1) // 4 + (z - z1) // 4) % 2:
+                L.append(sb(x, G, z, f'minecraft:{b}'))
+    return [fill(x1, G, z1, x2, G, z2, f'minecraft:{a}')] + L
+
+
 def center():
-    """포켓몬센터: 붉은 벽돌·짙은 목재 벽, 큰 유리창, 2층 발코니, 흰 지붕 위 몬스터볼. 안: 카운터·회복기·간호사 자리·따뜻한 조명."""
+    """포켓몬센터 (문은 서쪽): 흰 벽·빨간 계단 지붕·몬스터볼 간판. 안: 빨간 벽, 뒷벽 대형 몬스터볼 벽화, 체크 바닥, 흰·청록 카운터, 벤치·화분."""
     x1, x2, z1, z2 = CENTER
     zm = 0
-    f2, top = G + 7, G + 12
-    L = ['# ── 포켓몬센터 ──', fill(x1 - 4, G, z1 - 1, x2 + 1, G, z2 + 1, 'minecraft:polished_andesite'),
-         fill(x1, G, z1, x2, G, z2, 'minecraft:smooth_quartz'), fill(x1 + 1, f2, z1 + 1, x2 - 1, f2, z2 - 1, 'minecraft:spruce_planks')]
-    L += brick_wood_walls(x1, x2, z1, z2, G + 1, f2, top)
-    L += big_windows(x1, x2, z1, z2, G + 2, G + 4, skip_x=None) + big_windows(x1, x2, z1, z2, f2 + 1, f2 + 3)
-    # 정면(서쪽): 유리 자동문, 간판, 2층 발코니
-    L += [fill(x1, G + 1, zm - 1, x1, G + 4, zm + 1, 'minecraft:air'),
-          fill(x1, G + 1, zm - 3, x1, G + 4, zm - 2, 'minecraft:glass_pane'), fill(x1, G + 1, zm + 2, x1, G + 4, zm + 3, 'minecraft:glass_pane'),
-          fill(x1 - 3, f2, z1 + 3, x1 - 1, f2, z2 - 3, 'minecraft:dark_oak_slab[type=top]'),
-          fill(x1 - 3, f2 + 1, z1 + 3, x1 - 3, f2 + 1, z2 - 3, 'minecraft:dark_oak_fence'),
-          fill(x1 - 3, f2 + 1, z1 + 3, x1 - 1, f2 + 1, z1 + 3, 'minecraft:dark_oak_fence'),
-          fill(x1 - 3, f2 + 1, z2 - 3, x1 - 1, f2 + 1, z2 - 3, 'minecraft:dark_oak_fence'),
-          fill(x1 - 3, G + 1, z1 + 3, x1 - 3, f2 - 1, z1 + 3, 'minecraft:dark_oak_log'), fill(x1 - 3, G + 1, z2 - 3, x1 - 3, f2 - 1, z2 - 3, 'minecraft:dark_oak_log'),
-          fill(x1, f2 + 1, zm - 1, x1, f2 + 2, zm + 1, 'minecraft:air'),                       # 발코니로 나가는 문
-          sb(x1 - 3, f2 + 2, z1 + 3, 'minecraft:lantern'), sb(x1 - 3, f2 + 2, z2 - 3, 'minecraft:lantern'),
-          label(x1 - 0.6, G + 5.4, zm + .5, '포켓몬센터', 'red', 1.5, sub='POKéMON CENTER'),
-          label(x1 - 3.6, f2 + 4.2, zm + .5, 'POKéMON CENTER', 'white', 2.2, bg=0x80A01020)]
-    roof, ry = hip_roof(x1, x2, z1, z2, top + 1, 'minecraft:smooth_quartz', 'minecraft:smooth_quartz_stairs')
-    L += roof + pokeball((x1 + x2) // 2, ry + 4, zm, 3)
-    # 안 1층: 붉은 카펫, 카운터(목재 + 흰 상판), 간호사 자리, 회복기(모드), PC(모드), 벤치, 따뜻한 조명
-    L += [fill(x1 + 1, G + 1, zm - 1, x2 - 6, G + 1, zm + 1, 'minecraft:red_carpet'),
-          fill(x2 - 5, G + 1, zm - 6, x2 - 5, G + 1, zm + 6, 'minecraft:dark_oak_planks'),
+    top = G + 10
+    L = ['# ── 포켓몬센터 ──']
+    body, rtop = poke_building(CENTER, 'w', top, 'red_concrete', 'red_terracotta', 'red_concrete', 'red_concrete', 'red_terracotta')
+    L += body
+    L += checker_floor(x1 + 2, x2 - 2, z1 + 2, z2 - 2, 'smooth_sandstone', 'birch_planks', 'pink_terracotta')
+    for x in range(x1 + 4, x2 - 2, 4):                                                                     # 천장 조명 격자 + 흰 들보
+        L.append(fill(x, top, z1 + 2, x, top, z2 - 2, 'minecraft:quartz_pillar[axis=z]'))
+        for z in range(z1 + 4, z2 - 2, 4):
+            L.append(sb(x, top, z, 'minecraft:sea_lantern'))
+    # 뒷벽 대형 몬스터볼 벽화 (노란 테두리)
+    L += emblem(x2 - 1, zm, G + 5, 5)
+    # 카운터 (청록 몸통 + 석영 상판), 간호사는 카운터 뒤 (x2-3)
+    L += [fill(x2 - 5, G + 1, zm - 6, x2 - 5, G + 1, zm + 6, 'minecraft:cyan_concrete'),           # 1칸 깊이: 회복 장치·간호사에 손이 닿게
           fill(x2 - 5, G + 2, zm - 6, x2 - 5, G + 2, zm + 6, 'minecraft:smooth_quartz_slab'),
-          fill(x2 - 4, G + 1, zm - 6, x2 - 1, G + 1, zm - 6, 'minecraft:dark_oak_planks'),
-          fill(x2 - 4, G + 1, zm + 6, x2 - 1, G + 1, zm + 6, 'minecraft:dark_oak_planks'),
-          fill(x2 - 1, G + 1, zm - 2, x2 - 1, G + 3, zm + 2, 'minecraft:red_wool')]
-    for x in range(x1 + 2, x1 + 9, 2):
-        L += [sb(x, G + 1, z2 - 1, 'minecraft:spruce_stairs[facing=south]')]
-    for x in range(x1 + 3, x2 - 1, 4):
-        for z in range(z1 + 3, z2 - 1, 4):
-            L += [sb(x, f2, z, 'minecraft:shroomlight'), sb(x, f2 - 1, z, 'minecraft:lantern[hanging=true]')]
-    # 2층으로 가는 계단 (남쪽 벽) + 2층 휴게실
-    for k in range(6):
-        L.append(fill(x1 + 15 - k, G + 1 + k, z2 - 2, x1 + 15 - k, G + 1 + k, z2 - 1, 'minecraft:dark_oak_stairs[facing=west]'))
-    L.append(fill(x1 + 9, f2, z2 - 2, x1 + 16, f2, z2 - 1, 'minecraft:air'))
-    L += [fill(x1 + 3, f2 + 1, z1 + 3, x1 + 5, f2 + 1, z1 + 5, 'minecraft:dark_oak_slab[type=top]'),
-          sb(x1 + 4, f2 + 2, z1 + 4, 'minecraft:potted_red_tulip'),
-          fill(x2 - 1, f2 + 1, z1 + 1, x2 - 1, f2 + 3, z1 + 6, 'minecraft:bookshelf')]
-    for x in range(x1 + 3, x2 - 1, 5):
-        L.append(sb(x, top - 1, zm, 'minecraft:lantern[hanging=true]'))
-    L += glow(x1, x2, z1, z2, G + 4) + [c for c in glow(x1, x2, z1, z2, f2 + 4) if not (x1 + 8 <= int(c.split()[1]) <= x1 + 16 and int(c.split()[3]) >= z2 - 2)]
+          fill(x2 - 4, G + 1, zm - 6, x2 - 2, G + 1, zm - 6, 'minecraft:white_concrete'),
+          fill(x2 - 4, G + 1, zm + 6, x2 - 2, G + 1, zm + 6, 'minecraft:white_concrete'),
+          fill(x2 - 4, G, zm - 5, x2 - 2, G, zm + 5, 'minecraft:light_gray_concrete')]
+    # 입구 빨간 카펫 길, 벤치 (빨간 방석 + 유리 칸막이 + 화분)
+    L.append(fill(x1 + 2, G + 1, zm - 1, x2 - 7, G + 1, zm + 1, 'minecraft:red_carpet'))
+    for z in (z1 + 3, z2 - 3):
+        for x in range(x1 + 4, x1 + 13, 4):
+            L += [sb(x, G + 1, z, 'minecraft:dark_oak_slab'), sb(x + 1, G + 1, z, 'minecraft:dark_oak_slab'),
+                  sb(x, G + 2, z, 'minecraft:red_carpet'), sb(x + 1, G + 2, z, 'minecraft:red_carpet'),
+                  sb(x + 2, G + 1, z, 'minecraft:glass_pane'), sb(x + 2, G + 2, z, 'minecraft:glass_pane')]
+        L += [sb(x1 + 3, G + 1, z, 'minecraft:spruce_planks'), sb(x1 + 3, G + 2, z, 'minecraft:potted_azalea_bush')]
+    L += glow(x1 + 1, x2 - 1, z1 + 1, z2 - 1, G + 4)
+    L += [label(x1 - 3.6, G + 5.4, zm + .5, '포켓몬센터', 'white', 1.2, bg=0xC0B01020),
+          label(x1 - 3.6, top + 9.6, zm + .5, 'POKéMON CENTER', 'white', 1.6, bg=0x80A01020)]
     return L
 
 
 def mart():
-    """프렌들리 숍: 포켓몬센터와 같은 붉은 벽돌·짙은 목재 양식 + 파란 간판·몬스터볼 아이콘. 안: 진열대, 계산대."""
+    """프렌들리 숍 (문은 동쪽): 센터와 같은 흰 몸통 + 파란 계단 지붕·파란 몬스터볼 간판. 안: 흰·하늘색 벽, 진열대, 계산대(점원은 숍 안쪽)."""
     x1, x2, z1, z2 = MART
     zm = (z1 + z2) // 2
-    f2, top = G + 6, G + 10
-    L = ['# ── 프렌들리 숍 ──', fill(x1 - 1, G, z1 - 1, x2 + 4, G, z2 + 1, 'minecraft:polished_andesite'),
-         fill(x1, G, z1, x2, G, z2, 'minecraft:smooth_quartz')]
-    L += brick_wood_walls(x1, x2, z1, z2, G + 1, f2, top)
-    L += big_windows(x1, x2, z1, z2, G + 2, G + 4, skip_x=x2) + big_windows(x1, x2, z1, z2, f2 + 1, f2 + 2)
-    L += [fill(x2, G + 1, zm - 1, x2, G + 4, zm + 1, 'minecraft:air'),
-          fill(x2, G + 2, z1 + 2, x2, G + 4, zm - 3, 'minecraft:glass_pane'), fill(x2, G + 2, zm + 3, x2, G + 4, z2 - 2, 'minecraft:glass_pane'),
-          fill(x2 + 1, G + 5, zm - 4, x2 + 1, G + 5, zm + 4, 'minecraft:blue_concrete'),                 # 차양
-          fill(x2 + 1, top + 2, zm - 5, x2 + 1, top + 10, zm + 5, 'minecraft:blue_concrete'),            # 지붕 위 파란 간판판
-          fill(x2 + 1, top + 2, zm - 5, x2 + 1, top + 2, zm + 5, 'minecraft:light_blue_concrete'),
-          label(x2 + 1.7, f2 + 1.4, zm + .5, 'POKé MART', 'white', 2.0, bg=0x80104090),
-          label(x2 + 1.7, G + 5.6, zm + .5, '프렌들리 숍', 'aqua', 1.0)]
-    L += emblem(x2 + 2, zm, top + 6, top='light_blue_concrete')
-    roof, _ = hip_roof(x1, x2, z1, z2, top + 1, 'minecraft:smooth_quartz', 'minecraft:smooth_quartz_stairs')
-    L += roof
-    # 안: 진열대 두 줄, 계산대(점원 자리 앞), 따뜻한 조명
+    top = G + 9
+    L = ['# ── 프렌들리 숍 ──']
+    body, rtop = poke_building(MART, 'e', top, 'blue_concrete', 'blue_terracotta', 'blue_concrete', 'white_concrete', 'light_blue_concrete')
+    L += body
+    L += checker_floor(x1 + 2, x2 - 2, z1 + 2, z2 - 2, 'smooth_quartz', 'light_gray_concrete', 'light_blue_concrete')
+    for x in range(x1 + 4, x2 - 2, 4):
+        for z in range(z1 + 4, z2 - 2, 4):
+            L.append(sb(x, top, z, 'minecraft:sea_lantern'))
+    # 진열대 두 줄 (파란 받침 + 통 + 다락문 선반), 뒷벽 파란 몬스터볼
     for z in (zm - 6, zm + 6):
-        L += [fill(x1 + 3, G + 1, z, x2 - 8, G + 1, z, 'minecraft:barrel[facing=up]'),
-              fill(x1 + 3, G + 2, z, x2 - 8, G + 2, z, 'minecraft:spruce_trapdoor[half=bottom,open=false]')]
-    for a, b in ((zm - 4, zm - 2), (zm + 2, zm + 4)):                    # 점원(숍 안쪽, 진열대 끝) 앞 계산대: 1칸 높이라 점원 상반신이 보임
-        L += [fill(x1 + 6, G + 1, a, x1 + 6, G + 1, b, 'minecraft:stripped_dark_oak_wood'),
-              fill(x1 + 6, G + 2, a, x1 + 6, G + 2, b, 'minecraft:air')]
-    L += [fill(x1 + 1, G + 1, z1 + 1, x1 + 1, G + 3, z2 - 1, 'minecraft:bookshelf')]
-    L += glow(x1, x2, z1, z2, G + 4)
-    for x in range(x1 + 3, x2 - 1, 4):
-        for z in range(z1 + 3, z2 - 1, 4):
-            L += [sb(x, f2, z, 'minecraft:shroomlight'), sb(x, f2 - 1, z, 'minecraft:lantern[hanging=true]')]
+        L += [fill(x1 + 9, G + 1, z, x2 - 5, G + 1, z, 'minecraft:blue_concrete'),
+              fill(x1 + 9, G + 2, z, x2 - 5, G + 2, z, 'minecraft:barrel[facing=up]'),
+              fill(x1 + 9, G + 3, z, x2 - 5, G + 3, z, 'minecraft:birch_trapdoor[half=bottom,open=false]')]
+    L += emblem(x1 + 1, zm, G + 5, 5, top='blue_concrete')
+    # 점원(숍 안쪽, x1+5) 앞 계산대: 1칸 높이라 상반신이 보임. 입구 쪽 카펫
+    for a, b in ((zm - 4, zm - 2), (zm + 2, zm + 4)):
+        L.append(fill(x1 + 6, G + 1, a, x1 + 6, G + 1, b, 'minecraft:light_blue_concrete'))
+    L.append(fill(x1 + 8, G + 1, zm - 1, x2 - 2, G + 1, zm + 1, 'minecraft:light_blue_carpet'))
+    L += glow(x1 + 1, x2 - 1, z1 + 1, z2 - 1, G + 4)
+    L += [label(x2 + 3.6, G + 5.4, zm + .5, '프렌들리 숍', 'white', 1.2, bg=0xC0104090),
+          label(x2 + 3.6, top + 9.6, zm + .5, 'POKé MART', 'white', 1.6, bg=0x80104090)]
     return L
 
 
@@ -811,9 +862,9 @@ def town_mod():
     for z in (-3, 3):
         L += [sb(x2 - 5, G + 2, z, 'minecraft:air'), sb(x2 - 5, G + 1, z, 'cobblemon:healing_machine[facing=west,natural=false]')]
     # PC: Cobblemon PC는 화면이 facing의 반대쪽
-    for x in (x1 + 4, x1 + 6):
-        L += [sb(x, G + 1, z1 + 1, 'cobblemon:pc[facing=north,part=bottom]'), sb(x, G + 2, z1 + 1, 'cobblemon:pc[facing=north,part=top]')]
-    L.append(label(x1 + 5.5, G + 3.6, z1 + 1.8, 'PC 박스', 'aqua', 0.9))
+    for x in (x1 + 15, x1 + 17):
+        L += [sb(x, G + 1, z1 + 2, 'cobblemon:pc[facing=north,part=bottom]'), sb(x, G + 2, z1 + 2, 'cobblemon:pc[facing=north,part=top]')]
+    L.append(label(x1 + 16.5, G + 3.6, z1 + 2.8, 'PC 박스', 'aqua', 0.9))
     return L
 
 
@@ -985,7 +1036,7 @@ if __name__ == '__main__':
         '# 자동 생성: tools/build_world.py',
         'execute in poke:hub run function poke:build/tutorial',
         'execute in poke:town run function poke:mod/build_town', 'execute in poke:hub run function poke:mod/spawn_npcs',
-        'execute in poke:town run forceload remove all', 'data modify storage poke:state build set value 12',
+        'execute in poke:town run forceload remove all', 'data modify storage poke:state build set value 13',
         '# 관장·사천왕은 플레이어가 접속하면 소환 (RCT 명령이 플레이어를 요구)', 'data modify storage poke:state leaders set value 0',
         'say [pokeserver] 튜토리얼 방·마을(스폰 광장·상점가·체육관)과 지형을 지었습니다.']
     for path, lines in out.items():

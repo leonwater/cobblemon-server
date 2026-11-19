@@ -1,4 +1,480 @@
 # 자동 생성: tools/build_world.py (지형 → 마을 건물 순서)
+setblock 2009 -57 18 minecraft:light_gray_concrete
+setblock 2011 -57 18 minecraft:light_gray_concrete
+setblock 2013 -57 18 minecraft:light_gray_concrete
+setblock 2015 -57 18 minecraft:light_gray_concrete
+fill 1988 -59 -21 2012 -59 -20 minecraft:polished_andesite
+fill 1988 -59 -21 2012 -59 -21 minecraft:polished_andesite_stairs[facing=south]
+fill 1988 -59 -19 2012 -58 -18 minecraft:polished_andesite
+fill 1988 -58 -19 2012 -58 -19 minecraft:polished_andesite_stairs[facing=south]
+fill 1988 -59 -17 2012 -57 -16 minecraft:polished_andesite
+fill 1988 -57 -17 2012 -57 -17 minecraft:polished_andesite_stairs[facing=south]
+fill 1985 -56 -14 2015 -56 -14 minecraft:stone_bricks
+fill 1985 -56 18 2015 -56 18 minecraft:stone_bricks
+fill 1985 -56 -14 1985 -56 18 minecraft:stone_bricks
+fill 2015 -56 -14 2015 -56 18 minecraft:stone_bricks
+fill 1985 -55 -14 2015 -48 -14 minecraft:smooth_sandstone
+fill 1985 -55 18 2015 -48 18 minecraft:smooth_sandstone
+fill 1985 -55 -14 1985 -48 18 minecraft:smooth_sandstone
+fill 2015 -55 -14 2015 -48 18 minecraft:smooth_sandstone
+fill 1985 -47 -14 2015 -47 -14 minecraft:cut_sandstone
+fill 1985 -47 18 2015 -47 18 minecraft:cut_sandstone
+fill 1985 -47 -14 1985 -47 18 minecraft:cut_sandstone
+fill 2015 -47 -14 2015 -47 18 minecraft:cut_sandstone
+fill 1985 -56 -14 1985 -47 -14 minecraft:chiseled_sandstone
+fill 1985 -56 18 1985 -47 18 minecraft:chiseled_sandstone
+fill 1990 -56 -14 1990 -47 -14 minecraft:chiseled_sandstone
+fill 1990 -56 18 1990 -47 18 minecraft:chiseled_sandstone
+fill 1995 -56 -14 1995 -47 -14 minecraft:chiseled_sandstone
+fill 1995 -56 18 1995 -47 18 minecraft:chiseled_sandstone
+fill 2000 -56 -14 2000 -47 -14 minecraft:chiseled_sandstone
+fill 2000 -56 18 2000 -47 18 minecraft:chiseled_sandstone
+fill 2005 -56 -14 2005 -47 -14 minecraft:chiseled_sandstone
+fill 2005 -56 18 2005 -47 18 minecraft:chiseled_sandstone
+fill 2010 -56 -14 2010 -47 -14 minecraft:chiseled_sandstone
+fill 2010 -56 18 2010 -47 18 minecraft:chiseled_sandstone
+fill 2015 -56 -14 2015 -47 -14 minecraft:chiseled_sandstone
+fill 2015 -56 18 2015 -47 18 minecraft:chiseled_sandstone
+fill 1985 -56 -14 1985 -47 -14 minecraft:chiseled_sandstone
+fill 2015 -56 -14 2015 -47 -14 minecraft:chiseled_sandstone
+fill 1985 -54 -12 1985 -51 -11 minecraft:glass_pane
+fill 2015 -54 -12 2015 -51 -11 minecraft:glass_pane
+fill 1985 -56 -9 1985 -47 -9 minecraft:chiseled_sandstone
+fill 2015 -56 -9 2015 -47 -9 minecraft:chiseled_sandstone
+fill 1985 -54 -7 1985 -51 -6 minecraft:glass_pane
+fill 2015 -54 -7 2015 -51 -6 minecraft:glass_pane
+fill 1985 -56 -4 1985 -47 -4 minecraft:chiseled_sandstone
+fill 2015 -56 -4 2015 -47 -4 minecraft:chiseled_sandstone
+fill 1985 -54 -2 1985 -51 -1 minecraft:glass_pane
+fill 2015 -54 -2 2015 -51 -1 minecraft:glass_pane
+fill 1985 -56 1 1985 -47 1 minecraft:chiseled_sandstone
+fill 2015 -56 1 2015 -47 1 minecraft:chiseled_sandstone
+fill 1985 -54 3 1985 -51 4 minecraft:glass_pane
+fill 2015 -54 3 2015 -51 4 minecraft:glass_pane
+fill 1985 -56 6 1985 -47 6 minecraft:chiseled_sandstone
+fill 2015 -56 6 2015 -47 6 minecraft:chiseled_sandstone
+fill 1985 -54 8 1985 -51 9 minecraft:glass_pane
+fill 2015 -54 8 2015 -51 9 minecraft:glass_pane
+fill 1985 -56 11 1985 -47 11 minecraft:chiseled_sandstone
+fill 2015 -56 11 2015 -47 11 minecraft:chiseled_sandstone
+fill 1985 -54 13 1985 -51 14 minecraft:glass_pane
+fill 2015 -54 13 2015 -51 14 minecraft:glass_pane
+fill 1985 -56 16 1985 -47 16 minecraft:chiseled_sandstone
+fill 2015 -56 16 2015 -47 16 minecraft:chiseled_sandstone
+fill 1985 -56 18 1985 -47 18 minecraft:chiseled_sandstone
+fill 2015 -56 18 2015 -47 18 minecraft:chiseled_sandstone
+fill 1984 -46 -15 2016 -46 19 minecraft:dark_prismarine
+fill 1984 -46 -15 2016 -46 -15 minecraft:dark_prismarine_stairs[facing=south]
+fill 1984 -46 19 2016 -46 19 minecraft:dark_prismarine_stairs[facing=north]
+fill 1984 -46 -14 1984 -46 18 minecraft:dark_prismarine_stairs[facing=east]
+fill 2016 -46 -14 2016 -46 18 minecraft:dark_prismarine_stairs[facing=west]
+fill 1986 -45 -13 2014 -45 17 minecraft:dark_prismarine
+fill 1986 -45 -13 2014 -45 -13 minecraft:dark_prismarine_stairs[facing=south]
+fill 1986 -45 17 2014 -45 17 minecraft:dark_prismarine_stairs[facing=north]
+fill 1986 -45 -12 1986 -45 16 minecraft:dark_prismarine_stairs[facing=east]
+fill 2014 -45 -12 2014 -45 16 minecraft:dark_prismarine_stairs[facing=west]
+fill 1988 -44 -11 2012 -44 15 minecraft:dark_prismarine
+fill 1988 -44 -11 2012 -44 -11 minecraft:dark_prismarine_stairs[facing=south]
+fill 1988 -44 15 2012 -44 15 minecraft:dark_prismarine_stairs[facing=north]
+fill 1988 -44 -10 1988 -44 14 minecraft:dark_prismarine_stairs[facing=east]
+fill 2012 -44 -10 2012 -44 14 minecraft:dark_prismarine_stairs[facing=west]
+fill 1990 -43 -9 2010 -43 13 minecraft:dark_prismarine
+fill 1990 -43 -9 2010 -43 -9 minecraft:dark_prismarine_stairs[facing=south]
+fill 1990 -43 13 2010 -43 13 minecraft:dark_prismarine_stairs[facing=north]
+fill 1990 -43 -8 1990 -43 12 minecraft:dark_prismarine_stairs[facing=east]
+fill 2010 -43 -8 2010 -43 12 minecraft:dark_prismarine_stairs[facing=west]
+fill 1992 -42 -7 2008 -42 11 minecraft:dark_prismarine
+fill 1992 -42 -7 2008 -42 -7 minecraft:dark_prismarine_stairs[facing=south]
+fill 1992 -42 11 2008 -42 11 minecraft:dark_prismarine_stairs[facing=north]
+fill 1992 -42 -6 1992 -42 10 minecraft:dark_prismarine_stairs[facing=east]
+fill 2008 -42 -6 2008 -42 10 minecraft:dark_prismarine_stairs[facing=west]
+fill 1994 -41 -5 2006 -41 9 minecraft:dark_prismarine
+fill 1994 -41 -5 2006 -41 -5 minecraft:dark_prismarine_stairs[facing=south]
+fill 1994 -41 9 2006 -41 9 minecraft:dark_prismarine_stairs[facing=north]
+fill 1994 -41 -4 1994 -41 8 minecraft:dark_prismarine_stairs[facing=east]
+fill 2006 -41 -4 2006 -41 8 minecraft:dark_prismarine_stairs[facing=west]
+fill 1996 -40 -3 2004 -40 7 minecraft:dark_prismarine
+fill 1996 -40 -3 2004 -40 -3 minecraft:dark_prismarine_stairs[facing=south]
+fill 1996 -40 7 2004 -40 7 minecraft:dark_prismarine_stairs[facing=north]
+fill 1996 -40 -2 1996 -40 6 minecraft:dark_prismarine_stairs[facing=east]
+fill 2004 -40 -2 2004 -40 6 minecraft:dark_prismarine_stairs[facing=west]
+fill 1998 -39 -1 2002 -39 5 minecraft:dark_prismarine
+fill 1998 -39 -1 2002 -39 -1 minecraft:dark_prismarine_stairs[facing=south]
+fill 1998 -39 5 2002 -39 5 minecraft:dark_prismarine_stairs[facing=north]
+fill 1998 -39 0 1998 -39 4 minecraft:dark_prismarine_stairs[facing=east]
+fill 2002 -39 0 2002 -39 4 minecraft:dark_prismarine_stairs[facing=west]
+fill 2000 -38 1 2000 -38 3 minecraft:dark_prismarine
+fill 2000 -38 1 2000 -38 1 minecraft:dark_prismarine_stairs[facing=south]
+fill 2000 -38 3 2000 -38 3 minecraft:dark_prismarine_stairs[facing=north]
+fill 2000 -38 2 2000 -38 2 minecraft:dark_prismarine_stairs[facing=east]
+fill 2000 -38 2 2000 -38 2 minecraft:dark_prismarine_stairs[facing=west]
+fill 1987 -56 -15 2013 -25 -15 minecraft:smooth_sandstone
+fill 1987 -56 -15 1987 -25 -15 minecraft:chiseled_quartz_block
+fill 2013 -56 -15 2013 -25 -15 minecraft:chiseled_quartz_block
+fill 1987 -24 -15 2013 -24 -15 minecraft:gold_block
+fill 1990 -46 -16 2010 -38 -16 minecraft:gold_block
+fill 1991 -45 -16 2009 -39 -16 minecraft:polished_blackstone
+setblock 2008 -39 -17 minecraft:gold_block
+setblock 2007 -39 -17 minecraft:gold_block
+setblock 2006 -39 -17 minecraft:gold_block
+setblock 2002 -39 -17 minecraft:gold_block
+setblock 1998 -39 -17 minecraft:gold_block
+setblock 1995 -39 -17 minecraft:gold_block
+setblock 1991 -39 -17 minecraft:gold_block
+setblock 2009 -40 -17 minecraft:gold_block
+setblock 2005 -40 -17 minecraft:gold_block
+setblock 2002 -40 -17 minecraft:gold_block
+setblock 1998 -40 -17 minecraft:gold_block
+setblock 1995 -40 -17 minecraft:gold_block
+setblock 1994 -40 -17 minecraft:gold_block
+setblock 1992 -40 -17 minecraft:gold_block
+setblock 1991 -40 -17 minecraft:gold_block
+setblock 2009 -41 -17 minecraft:gold_block
+setblock 2001 -41 -17 minecraft:gold_block
+setblock 1999 -41 -17 minecraft:gold_block
+setblock 1995 -41 -17 minecraft:gold_block
+setblock 1993 -41 -17 minecraft:gold_block
+setblock 1991 -41 -17 minecraft:gold_block
+setblock 2009 -42 -17 minecraft:gold_block
+setblock 2007 -42 -17 minecraft:gold_block
+setblock 2006 -42 -17 minecraft:gold_block
+setblock 2005 -42 -17 minecraft:gold_block
+setblock 2000 -42 -17 minecraft:gold_block
+setblock 1995 -42 -17 minecraft:gold_block
+setblock 1993 -42 -17 minecraft:gold_block
+setblock 1991 -42 -17 minecraft:gold_block
+setblock 2009 -43 -17 minecraft:gold_block
+setblock 2005 -43 -17 minecraft:gold_block
+setblock 2000 -43 -17 minecraft:gold_block
+setblock 1995 -43 -17 minecraft:gold_block
+setblock 1991 -43 -17 minecraft:gold_block
+setblock 2009 -44 -17 minecraft:gold_block
+setblock 2005 -44 -17 minecraft:gold_block
+setblock 2000 -44 -17 minecraft:gold_block
+setblock 1995 -44 -17 minecraft:gold_block
+setblock 1991 -44 -17 minecraft:gold_block
+setblock 2008 -45 -17 minecraft:gold_block
+setblock 2007 -45 -17 minecraft:gold_block
+setblock 2006 -45 -17 minecraft:gold_block
+setblock 2000 -45 -17 minecraft:gold_block
+setblock 1995 -45 -17 minecraft:gold_block
+setblock 1991 -45 -17 minecraft:gold_block
+setblock 1996 -33 -16 minecraft:black_concrete
+setblock 1996 -32 -16 minecraft:black_concrete
+setblock 1996 -31 -16 minecraft:black_concrete
+setblock 1997 -35 -16 minecraft:black_concrete
+setblock 1997 -34 -16 minecraft:black_concrete
+setblock 1997 -33 -16 minecraft:white_concrete
+setblock 1997 -32 -16 minecraft:black_concrete
+setblock 1997 -31 -16 minecraft:red_concrete
+setblock 1997 -30 -16 minecraft:black_concrete
+setblock 1997 -29 -16 minecraft:black_concrete
+setblock 1998 -35 -16 minecraft:black_concrete
+setblock 1998 -34 -16 minecraft:white_concrete
+setblock 1998 -33 -16 minecraft:white_concrete
+setblock 1998 -32 -16 minecraft:black_concrete
+setblock 1998 -31 -16 minecraft:red_concrete
+setblock 1998 -30 -16 minecraft:red_concrete
+setblock 1998 -29 -16 minecraft:black_concrete
+setblock 1999 -36 -16 minecraft:black_concrete
+setblock 1999 -35 -16 minecraft:white_concrete
+setblock 1999 -34 -16 minecraft:white_concrete
+setblock 1999 -33 -16 minecraft:white_concrete
+setblock 1999 -32 -16 minecraft:black_concrete
+setblock 1999 -31 -16 minecraft:red_concrete
+setblock 1999 -30 -16 minecraft:red_concrete
+setblock 1999 -29 -16 minecraft:red_concrete
+setblock 1999 -28 -16 minecraft:black_concrete
+setblock 2000 -36 -16 minecraft:black_concrete
+setblock 2000 -35 -16 minecraft:white_concrete
+setblock 2000 -34 -16 minecraft:white_concrete
+setblock 2000 -33 -16 minecraft:black_concrete
+setblock 2000 -32 -16 minecraft:white_concrete
+setblock 2000 -31 -16 minecraft:black_concrete
+setblock 2000 -30 -16 minecraft:red_concrete
+setblock 2000 -29 -16 minecraft:red_concrete
+setblock 2000 -28 -16 minecraft:black_concrete
+setblock 2001 -36 -16 minecraft:black_concrete
+setblock 2001 -35 -16 minecraft:white_concrete
+setblock 2001 -34 -16 minecraft:white_concrete
+setblock 2001 -33 -16 minecraft:white_concrete
+setblock 2001 -32 -16 minecraft:black_concrete
+setblock 2001 -31 -16 minecraft:red_concrete
+setblock 2001 -30 -16 minecraft:red_concrete
+setblock 2001 -29 -16 minecraft:red_concrete
+setblock 2001 -28 -16 minecraft:black_concrete
+setblock 2002 -35 -16 minecraft:black_concrete
+setblock 2002 -34 -16 minecraft:white_concrete
+setblock 2002 -33 -16 minecraft:white_concrete
+setblock 2002 -32 -16 minecraft:black_concrete
+setblock 2002 -31 -16 minecraft:red_concrete
+setblock 2002 -30 -16 minecraft:red_concrete
+setblock 2002 -29 -16 minecraft:black_concrete
+setblock 2003 -35 -16 minecraft:black_concrete
+setblock 2003 -34 -16 minecraft:black_concrete
+setblock 2003 -33 -16 minecraft:white_concrete
+setblock 2003 -32 -16 minecraft:black_concrete
+setblock 2003 -31 -16 minecraft:red_concrete
+setblock 2003 -30 -16 minecraft:black_concrete
+setblock 2003 -29 -16 minecraft:black_concrete
+setblock 2004 -33 -16 minecraft:black_concrete
+setblock 2004 -32 -16 minecraft:black_concrete
+setblock 2004 -31 -16 minecraft:black_concrete
+summon minecraft:text_display 2000.5 -49.6 -16.6 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포켓몬 체육관","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\nPOKéMON GYM · 안내원에게 도전 신청","color":"gray","bold":false}]}'}
+fill 1997 -56 -15 2003 -52 -14 minecraft:air
+fill 1996 -56 -15 1996 -51 -15 minecraft:polished_blackstone
+fill 2004 -56 -15 2004 -51 -15 minecraft:polished_blackstone
+fill 1996 -51 -15 2004 -51 -15 minecraft:gold_block
+fill 1991 -56 -18 1993 -56 -16 minecraft:polished_andesite
+setblock 1992 -55 -17 minecraft:chiseled_stone_bricks
+setblock 1992 -54 -17 minecraft:andesite_wall
+setblock 1992 -53 -17 minecraft:stone_bricks
+setblock 1992 -52 -17 minecraft:stone_brick_stairs[facing=north]
+setblock 1992 -55 -18 minecraft:gold_block
+fill 2007 -56 -18 2009 -56 -16 minecraft:polished_andesite
+setblock 2008 -55 -17 minecraft:chiseled_stone_bricks
+setblock 2008 -54 -17 minecraft:andesite_wall
+setblock 2008 -53 -17 minecraft:stone_bricks
+setblock 2008 -52 -17 minecraft:stone_brick_stairs[facing=north]
+setblock 2008 -55 -18 minecraft:gold_block
+setblock 1986 -59 -32 minecraft:stone_bricks
+setblock 1986 -58 -32 minecraft:stone_brick_wall
+setblock 1986 -57 -32 minecraft:lantern
+fill 1985 -56 -33 1987 -56 -31 minecraft:stone_brick_slab
+setblock 1986 -56 -32 minecraft:stone_bricks
+setblock 1986 -55 -32 minecraft:stone_button[face=floor]
+setblock 1986 -59 -24 minecraft:stone_bricks
+setblock 1986 -58 -24 minecraft:stone_brick_wall
+setblock 1986 -57 -24 minecraft:lantern
+fill 1985 -56 -25 1987 -56 -23 minecraft:stone_brick_slab
+setblock 1986 -56 -24 minecraft:stone_bricks
+setblock 1986 -55 -24 minecraft:stone_button[face=floor]
+setblock 2014 -59 -32 minecraft:stone_bricks
+setblock 2014 -58 -32 minecraft:stone_brick_wall
+setblock 2014 -57 -32 minecraft:lantern
+fill 2013 -56 -33 2015 -56 -31 minecraft:stone_brick_slab
+setblock 2014 -56 -32 minecraft:stone_bricks
+setblock 2014 -55 -32 minecraft:stone_button[face=floor]
+setblock 2014 -59 -24 minecraft:stone_bricks
+setblock 2014 -58 -24 minecraft:stone_brick_wall
+setblock 2014 -57 -24 minecraft:lantern
+fill 2013 -56 -25 2015 -56 -23 minecraft:stone_brick_slab
+setblock 2014 -56 -24 minecraft:stone_bricks
+setblock 2014 -55 -24 minecraft:stone_button[face=floor]
+fill 1993 -57 -6 2007 -57 8 minecraft:smooth_sandstone
+fill 1993 -57 -6 2007 -57 -6 minecraft:quartz_block
+fill 1993 -57 8 2007 -57 8 minecraft:quartz_block
+fill 1993 -57 -6 1993 -57 8 minecraft:quartz_block
+fill 2007 -57 -6 2007 -57 8 minecraft:quartz_block
+fill 1993 -57 1 2007 -57 1 minecraft:quartz_block
+setblock 1998 -57 0 minecraft:quartz_block
+setblock 1998 -57 1 minecraft:quartz_block
+setblock 1998 -57 2 minecraft:quartz_block
+setblock 1999 -57 -1 minecraft:quartz_block
+setblock 1999 -57 3 minecraft:quartz_block
+setblock 2000 -57 -1 minecraft:quartz_block
+setblock 2000 -57 3 minecraft:quartz_block
+setblock 2001 -57 -1 minecraft:quartz_block
+setblock 2001 -57 3 minecraft:quartz_block
+setblock 2002 -57 0 minecraft:quartz_block
+setblock 2002 -57 1 minecraft:quartz_block
+setblock 2002 -57 2 minecraft:quartz_block
+fill 1995 -56 14 2005 -56 14 minecraft:quartz_block
+fill 1995 -55 14 2005 -55 14 minecraft:smooth_quartz_slab
+fill 2009 -51 18 2010 -50 18 minecraft:gray_concrete
+setblock 2009 -52 17 minecraft:quartz_slab[type=top]
+setblock 2010 -52 17 minecraft:quartz_slab[type=top]
+summon minecraft:item_display 2010.0 -50.0 17.94 {Tags:["poke.deco"],item:{id:"minecraft:gold_nugget",count:1,components:{"minecraft:custom_model_data":1001}},transformation:{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],left_rotation:[0f,1f,0f,0f],right_rotation:[0f,0f,0f,1f]}}
+fill 2006 -51 18 2007 -50 18 minecraft:blue_concrete
+setblock 2006 -52 17 minecraft:quartz_slab[type=top]
+setblock 2007 -52 17 minecraft:quartz_slab[type=top]
+summon minecraft:item_display 2007.0 -50.0 17.94 {Tags:["poke.deco"],item:{id:"minecraft:gold_nugget",count:1,components:{"minecraft:custom_model_data":1002}},transformation:{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],left_rotation:[0f,1f,0f,0f],right_rotation:[0f,0f,0f,1f]}}
+fill 2003 -51 18 2004 -50 18 minecraft:orange_concrete
+setblock 2003 -52 17 minecraft:quartz_slab[type=top]
+setblock 2004 -52 17 minecraft:quartz_slab[type=top]
+summon minecraft:item_display 2004.0 -50.0 17.94 {Tags:["poke.deco"],item:{id:"minecraft:gold_nugget",count:1,components:{"minecraft:custom_model_data":1003}},transformation:{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],left_rotation:[0f,1f,0f,0f],right_rotation:[0f,0f,0f,1f]}}
+fill 2000 -51 18 2001 -50 18 minecraft:lime_concrete
+setblock 2000 -52 17 minecraft:quartz_slab[type=top]
+setblock 2001 -52 17 minecraft:quartz_slab[type=top]
+summon minecraft:item_display 2001.0 -50.0 17.94 {Tags:["poke.deco"],item:{id:"minecraft:gold_nugget",count:1,components:{"minecraft:custom_model_data":1004}},transformation:{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],left_rotation:[0f,1f,0f,0f],right_rotation:[0f,0f,0f,1f]}}
+fill 1997 -51 18 1998 -50 18 minecraft:pink_concrete
+setblock 1997 -52 17 minecraft:quartz_slab[type=top]
+setblock 1998 -52 17 minecraft:quartz_slab[type=top]
+summon minecraft:item_display 1998.0 -50.0 17.94 {Tags:["poke.deco"],item:{id:"minecraft:gold_nugget",count:1,components:{"minecraft:custom_model_data":1005}},transformation:{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],left_rotation:[0f,1f,0f,0f],right_rotation:[0f,0f,0f,1f]}}
+fill 1994 -51 18 1995 -50 18 minecraft:yellow_concrete
+setblock 1994 -52 17 minecraft:quartz_slab[type=top]
+setblock 1995 -52 17 minecraft:quartz_slab[type=top]
+summon minecraft:item_display 1995.0 -50.0 17.94 {Tags:["poke.deco"],item:{id:"minecraft:gold_nugget",count:1,components:{"minecraft:custom_model_data":1006}},transformation:{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],left_rotation:[0f,1f,0f,0f],right_rotation:[0f,0f,0f,1f]}}
+fill 1991 -51 18 1992 -50 18 minecraft:red_concrete
+setblock 1991 -52 17 minecraft:quartz_slab[type=top]
+setblock 1992 -52 17 minecraft:quartz_slab[type=top]
+summon minecraft:item_display 1992.0 -50.0 17.94 {Tags:["poke.deco"],item:{id:"minecraft:gold_nugget",count:1,components:{"minecraft:custom_model_data":1007}},transformation:{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],left_rotation:[0f,1f,0f,0f],right_rotation:[0f,0f,0f,1f]}}
+fill 1988 -51 18 1989 -50 18 minecraft:green_concrete
+setblock 1988 -52 17 minecraft:quartz_slab[type=top]
+setblock 1989 -52 17 minecraft:quartz_slab[type=top]
+summon minecraft:item_display 1989.0 -50.0 17.94 {Tags:["poke.deco"],item:{id:"minecraft:gold_nugget",count:1,components:{"minecraft:custom_model_data":1008}},transformation:{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],left_rotation:[0f,1f,0f,0f],right_rotation:[0f,0f,0f,1f]}}
+summon minecraft:text_display 2000.5 -48.6 17.4 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"배지 8개를 모으면 사천왕에 도전!","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n체육관을 이기면 이 배지를 받아요","color":"gray","bold":false}]}'}
+setblock 1986 -56 -8 minecraft:spruce_stairs[facing=west]
+setblock 2014 -56 -8 minecraft:spruce_stairs[facing=east]
+setblock 1986 -56 -4 minecraft:spruce_stairs[facing=west]
+setblock 2014 -56 -4 minecraft:spruce_stairs[facing=east]
+setblock 1986 -56 0 minecraft:spruce_stairs[facing=west]
+setblock 2014 -56 0 minecraft:spruce_stairs[facing=east]
+setblock 1986 -56 4 minecraft:spruce_stairs[facing=west]
+setblock 2014 -56 4 minecraft:spruce_stairs[facing=east]
+setblock 1986 -56 8 minecraft:spruce_stairs[facing=west]
+setblock 2014 -56 8 minecraft:spruce_stairs[facing=east]
+setblock 1986 -51 -10 minecraft:red_wall_banner[facing=east]
+setblock 2014 -51 -10 minecraft:red_wall_banner[facing=west]
+setblock 1986 -51 0 minecraft:red_wall_banner[facing=east]
+setblock 2014 -51 0 minecraft:red_wall_banner[facing=west]
+setblock 1986 -51 10 minecraft:red_wall_banner[facing=east]
+setblock 2014 -51 10 minecraft:red_wall_banner[facing=west]
+setblock 1988 -47 -11 minecraft:sea_lantern
+setblock 1988 -47 -6 minecraft:sea_lantern
+setblock 1988 -47 -1 minecraft:sea_lantern
+setblock 1988 -47 4 minecraft:sea_lantern
+setblock 1988 -47 9 minecraft:sea_lantern
+setblock 1988 -47 14 minecraft:sea_lantern
+setblock 1993 -47 -11 minecraft:sea_lantern
+setblock 1993 -47 -6 minecraft:sea_lantern
+setblock 1993 -47 -1 minecraft:sea_lantern
+setblock 1993 -47 4 minecraft:sea_lantern
+setblock 1993 -47 9 minecraft:sea_lantern
+setblock 1993 -47 14 minecraft:sea_lantern
+setblock 1998 -47 -11 minecraft:sea_lantern
+setblock 1998 -47 -6 minecraft:sea_lantern
+setblock 1998 -47 -1 minecraft:sea_lantern
+setblock 1998 -47 4 minecraft:sea_lantern
+setblock 1998 -47 9 minecraft:sea_lantern
+setblock 1998 -47 14 minecraft:sea_lantern
+setblock 2003 -47 -11 minecraft:sea_lantern
+setblock 2003 -47 -6 minecraft:sea_lantern
+setblock 2003 -47 -1 minecraft:sea_lantern
+setblock 2003 -47 4 minecraft:sea_lantern
+setblock 2003 -47 9 minecraft:sea_lantern
+setblock 2003 -47 14 minecraft:sea_lantern
+setblock 2008 -47 -11 minecraft:sea_lantern
+setblock 2008 -47 -6 minecraft:sea_lantern
+setblock 2008 -47 -1 minecraft:sea_lantern
+setblock 2008 -47 4 minecraft:sea_lantern
+setblock 2008 -47 9 minecraft:sea_lantern
+setblock 2008 -47 14 minecraft:sea_lantern
+setblock 2013 -47 -11 minecraft:sea_lantern
+setblock 2013 -47 -6 minecraft:sea_lantern
+setblock 2013 -47 -1 minecraft:sea_lantern
+setblock 2013 -47 4 minecraft:sea_lantern
+setblock 2013 -47 9 minecraft:sea_lantern
+setblock 2013 -47 14 minecraft:sea_lantern
+setblock 1987 -53 -12 minecraft:light[level=15]
+setblock 1987 -53 -8 minecraft:light[level=15]
+setblock 1987 -53 -4 minecraft:light[level=15]
+setblock 1987 -53 0 minecraft:light[level=15]
+setblock 1987 -53 4 minecraft:light[level=15]
+setblock 1987 -53 8 minecraft:light[level=15]
+setblock 1987 -53 12 minecraft:light[level=15]
+setblock 1987 -53 16 minecraft:light[level=15]
+setblock 1991 -53 -12 minecraft:light[level=15]
+setblock 1991 -53 -8 minecraft:light[level=15]
+setblock 1991 -53 -4 minecraft:light[level=15]
+setblock 1991 -53 0 minecraft:light[level=15]
+setblock 1991 -53 4 minecraft:light[level=15]
+setblock 1991 -53 8 minecraft:light[level=15]
+setblock 1991 -53 12 minecraft:light[level=15]
+setblock 1991 -53 16 minecraft:light[level=15]
+setblock 1995 -53 -12 minecraft:light[level=15]
+setblock 1995 -53 -8 minecraft:light[level=15]
+setblock 1995 -53 -4 minecraft:light[level=15]
+setblock 1995 -53 0 minecraft:light[level=15]
+setblock 1995 -53 4 minecraft:light[level=15]
+setblock 1995 -53 8 minecraft:light[level=15]
+setblock 1995 -53 12 minecraft:light[level=15]
+setblock 1995 -53 16 minecraft:light[level=15]
+setblock 1999 -53 -12 minecraft:light[level=15]
+setblock 1999 -53 -8 minecraft:light[level=15]
+setblock 1999 -53 -4 minecraft:light[level=15]
+setblock 1999 -53 0 minecraft:light[level=15]
+setblock 1999 -53 4 minecraft:light[level=15]
+setblock 1999 -53 8 minecraft:light[level=15]
+setblock 1999 -53 12 minecraft:light[level=15]
+setblock 1999 -53 16 minecraft:light[level=15]
+setblock 2003 -53 -12 minecraft:light[level=15]
+setblock 2003 -53 -8 minecraft:light[level=15]
+setblock 2003 -53 -4 minecraft:light[level=15]
+setblock 2003 -53 0 minecraft:light[level=15]
+setblock 2003 -53 4 minecraft:light[level=15]
+setblock 2003 -53 8 minecraft:light[level=15]
+setblock 2003 -53 12 minecraft:light[level=15]
+setblock 2003 -53 16 minecraft:light[level=15]
+setblock 2007 -53 -12 minecraft:light[level=15]
+setblock 2007 -53 -8 minecraft:light[level=15]
+setblock 2007 -53 -4 minecraft:light[level=15]
+setblock 2007 -53 0 minecraft:light[level=15]
+setblock 2007 -53 4 minecraft:light[level=15]
+setblock 2007 -53 8 minecraft:light[level=15]
+setblock 2007 -53 12 minecraft:light[level=15]
+setblock 2007 -53 16 minecraft:light[level=15]
+setblock 2011 -53 -12 minecraft:light[level=15]
+setblock 2011 -53 -8 minecraft:light[level=15]
+setblock 2011 -53 -4 minecraft:light[level=15]
+setblock 2011 -53 0 minecraft:light[level=15]
+setblock 2011 -53 4 minecraft:light[level=15]
+setblock 2011 -53 8 minecraft:light[level=15]
+setblock 2011 -53 12 minecraft:light[level=15]
+setblock 2011 -53 16 minecraft:light[level=15]
+# ── 체육관 섬 투명 벽 ──
+fill 1944 -59 -66 2023 319 -66 minecraft:barrier replace minecraft:air
+fill 1944 -59 48 2023 319 48 minecraft:barrier replace minecraft:air
+fill 2024 -59 -66 2056 319 -66 minecraft:barrier replace minecraft:air
+fill 2024 -59 48 2056 319 48 minecraft:barrier replace minecraft:air
+fill 1944 -59 -66 1944 319 13 minecraft:barrier replace minecraft:air
+fill 2056 -59 -66 2056 319 13 minecraft:barrier replace minecraft:air
+fill 1944 -59 14 1944 319 48 minecraft:barrier replace minecraft:air
+fill 2056 -59 14 2056 319 48 minecraft:barrier replace minecraft:air
+# ── 1번 경기장 (바위) ──
+fill 3000 -61 -18 3030 -61 18 minecraft:bedrock
+fill 3000 -60 -18 3030 -60 18 minecraft:stone_bricks
+fill 3001 -60 -17 3029 -60 17 minecraft:polished_andesite
+fill 3000 -59 -18 3030 -58 -18 minecraft:chiseled_stone_bricks
+fill 3000 -59 18 3030 -58 18 minecraft:chiseled_stone_bricks
+fill 3000 -59 -18 3000 -58 18 minecraft:chiseled_stone_bricks
+fill 3030 -59 -18 3030 -58 18 minecraft:chiseled_stone_bricks
+fill 3000 -57 -18 3030 -48 -18 minecraft:stone_bricks
+fill 3000 -57 18 3030 -48 18 minecraft:stone_bricks
+fill 3000 -57 -18 3000 -48 18 minecraft:stone_bricks
+fill 3030 -57 -18 3030 -48 18 minecraft:stone_bricks
+fill 3000 -59 -18 3000 -48 -18 minecraft:quartz_pillar
+fill 3000 -59 18 3000 -48 18 minecraft:quartz_pillar
+fill 3005 -59 -18 3005 -48 -18 minecraft:quartz_pillar
+fill 3005 -59 18 3005 -48 18 minecraft:quartz_pillar
+fill 3010 -59 -18 3010 -48 -18 minecraft:quartz_pillar
+fill 3010 -59 18 3010 -48 18 minecraft:quartz_pillar
+fill 3015 -59 -18 3015 -48 -18 minecraft:quartz_pillar
+fill 3015 -59 18 3015 -48 18 minecraft:quartz_pillar
+fill 3020 -59 -18 3020 -48 -18 minecraft:quartz_pillar
+fill 3020 -59 18 3020 -48 18 minecraft:quartz_pillar
+fill 3025 -59 -18 3025 -48 -18 minecraft:quartz_pillar
+fill 3025 -59 18 3025 -48 18 minecraft:quartz_pillar
+fill 3030 -59 -18 3030 -48 -18 minecraft:quartz_pillar
+fill 3030 -59 18 3030 -48 18 minecraft:quartz_pillar
+fill 3000 -59 -18 3000 -48 -18 minecraft:quartz_pillar
+fill 3030 -59 -18 3030 -48 -18 minecraft:quartz_pillar
+fill 3000 -59 -12 3000 -48 -12 minecraft:quartz_pillar
+fill 3030 -59 -12 3030 -48 -12 minecraft:quartz_pillar
+fill 3000 -59 -6 3000 -48 -6 minecraft:quartz_pillar
+fill 3030 -59 -6 3030 -48 -6 minecraft:quartz_pillar
+fill 3000 -59 0 3000 -48 0 minecraft:quartz_pillar
+fill 3030 -59 0 3030 -48 0 minecraft:quartz_pillar
+fill 3000 -59 6 3000 -48 6 minecraft:quartz_pillar
+fill 3030 -59 6 3030 -48 6 minecraft:quartz_pillar
+fill 3000 -59 12 3000 -48 12 minecraft:quartz_pillar
+fill 3030 -59 12 3030 -48 12 minecraft:quartz_pillar
+fill 3000 -59 18 3000 -48 18 minecraft:quartz_pillar
+fill 3030 -59 18 3030 -48 18 minecraft:quartz_pillar
+fill 3000 -47 -18 3030 -47 18 minecraft:brown_concrete
+fill 3001 -47 -17 3029 -47 -17 minecraft:glowstone
+fill 3001 -47 -15 3029 -47 -15 minecraft:glowstone
+fill 3001 -47 -13 3029 -47 -13 minecraft:glowstone
 fill 3001 -47 -11 3029 -47 -11 minecraft:glowstone
 fill 3001 -47 -9 3029 -47 -9 minecraft:glowstone
 fill 3001 -47 -7 3029 -47 -7 minecraft:glowstone
@@ -1523,479 +1999,3 @@ setblock 3329 -54 -9 minecraft:lantern
 setblock 3301 -54 -3 minecraft:lantern
 setblock 3329 -54 -3 minecraft:lantern
 setblock 3301 -54 3 minecraft:lantern
-setblock 3329 -54 3 minecraft:lantern
-setblock 3301 -54 9 minecraft:lantern
-setblock 3329 -54 9 minecraft:lantern
-setblock 3301 -54 15 minecraft:lantern
-setblock 3329 -54 15 minecraft:lantern
-fill 3308 -60 -12 3322 -60 12 minecraft:red_nether_bricks
-fill 3308 -60 -12 3322 -60 -12 minecraft:quartz_block
-fill 3308 -60 12 3322 -60 12 minecraft:quartz_block
-fill 3308 -60 -12 3308 -60 12 minecraft:quartz_block
-fill 3322 -60 -12 3322 -60 12 minecraft:quartz_block
-fill 3308 -60 0 3322 -60 0 minecraft:quartz_block
-setblock 3315 -60 -5 minecraft:orange_concrete
-setblock 3314 -60 -4 minecraft:orange_concrete
-setblock 3315 -60 -4 minecraft:orange_concrete
-setblock 3314 -60 -3 minecraft:orange_concrete
-setblock 3315 -60 -3 minecraft:orange_concrete
-setblock 3316 -60 -3 minecraft:orange_concrete
-setblock 3319 -60 -3 minecraft:orange_concrete
-setblock 3313 -60 -2 minecraft:orange_concrete
-setblock 3314 -60 -2 minecraft:orange_concrete
-setblock 3315 -60 -2 minecraft:orange_concrete
-setblock 3316 -60 -2 minecraft:orange_concrete
-setblock 3318 -60 -2 minecraft:orange_concrete
-setblock 3319 -60 -2 minecraft:orange_concrete
-setblock 3312 -60 -1 minecraft:orange_concrete
-setblock 3313 -60 -1 minecraft:orange_concrete
-setblock 3314 -60 -1 minecraft:yellow_concrete
-setblock 3315 -60 -1 minecraft:orange_concrete
-setblock 3316 -60 -1 minecraft:orange_concrete
-setblock 3317 -60 -1 minecraft:orange_concrete
-setblock 3318 -60 -1 minecraft:orange_concrete
-setblock 3311 -60 0 minecraft:orange_concrete
-setblock 3312 -60 0 minecraft:orange_concrete
-setblock 3313 -60 0 minecraft:yellow_concrete
-setblock 3314 -60 0 minecraft:yellow_concrete
-setblock 3315 -60 0 minecraft:orange_concrete
-setblock 3316 -60 0 minecraft:orange_concrete
-setblock 3317 -60 0 minecraft:orange_concrete
-setblock 3311 -60 1 minecraft:orange_concrete
-setblock 3312 -60 1 minecraft:yellow_concrete
-setblock 3313 -60 1 minecraft:yellow_concrete
-setblock 3314 -60 1 minecraft:yellow_concrete
-setblock 3315 -60 1 minecraft:orange_concrete
-setblock 3316 -60 1 minecraft:orange_concrete
-setblock 3317 -60 1 minecraft:yellow_concrete
-setblock 3318 -60 1 minecraft:orange_concrete
-setblock 3319 -60 1 minecraft:orange_concrete
-setblock 3311 -60 2 minecraft:orange_concrete
-setblock 3312 -60 2 minecraft:yellow_concrete
-setblock 3313 -60 2 minecraft:yellow_concrete
-setblock 3314 -60 2 minecraft:yellow_concrete
-setblock 3315 -60 2 minecraft:yellow_concrete
-setblock 3316 -60 2 minecraft:yellow_concrete
-setblock 3317 -60 2 minecraft:yellow_concrete
-setblock 3318 -60 2 minecraft:yellow_concrete
-setblock 3319 -60 2 minecraft:orange_concrete
-setblock 3311 -60 3 minecraft:orange_concrete
-setblock 3312 -60 3 minecraft:orange_concrete
-setblock 3313 -60 3 minecraft:yellow_concrete
-setblock 3314 -60 3 minecraft:yellow_concrete
-setblock 3315 -60 3 minecraft:yellow_concrete
-setblock 3316 -60 3 minecraft:yellow_concrete
-setblock 3317 -60 3 minecraft:yellow_concrete
-setblock 3318 -60 3 minecraft:orange_concrete
-setblock 3319 -60 3 minecraft:orange_concrete
-setblock 3312 -60 4 minecraft:orange_concrete
-setblock 3313 -60 4 minecraft:orange_concrete
-setblock 3314 -60 4 minecraft:yellow_concrete
-setblock 3315 -60 4 minecraft:yellow_concrete
-setblock 3316 -60 4 minecraft:yellow_concrete
-setblock 3317 -60 4 minecraft:orange_concrete
-setblock 3318 -60 4 minecraft:orange_concrete
-setblock 3313 -60 5 minecraft:orange_concrete
-setblock 3314 -60 5 minecraft:orange_concrete
-setblock 3315 -60 5 minecraft:orange_concrete
-setblock 3316 -60 5 minecraft:orange_concrete
-setblock 3317 -60 5 minecraft:orange_concrete
-fill 3304 -59 -14 3304 -59 14 minecraft:mangrove_planks
-fill 3305 -59 -14 3305 -59 14 minecraft:mangrove_stairs[facing=west]
-fill 3326 -59 -14 3326 -59 14 minecraft:mangrove_planks
-fill 3325 -59 -14 3325 -59 14 minecraft:mangrove_stairs[facing=east]
-fill 3302 -59 -14 3303 -59 14 minecraft:mangrove_planks
-fill 3302 -58 -14 3302 -58 14 minecraft:mangrove_planks
-fill 3303 -58 -14 3303 -58 14 minecraft:mangrove_stairs[facing=west]
-fill 3327 -59 -14 3328 -59 14 minecraft:mangrove_planks
-fill 3328 -58 -14 3328 -58 14 minecraft:mangrove_planks
-fill 3327 -58 -14 3327 -58 14 minecraft:mangrove_stairs[facing=east]
-fill 3301 -59 -14 3301 -58 14 minecraft:mangrove_planks
-fill 3301 -57 -14 3301 -57 14 minecraft:mangrove_stairs[facing=west]
-fill 3329 -59 -14 3329 -58 14 minecraft:mangrove_planks
-fill 3329 -57 -14 3329 -57 14 minecraft:mangrove_stairs[facing=east]
-fill 3312 -60 13 3318 -60 16 minecraft:quartz_block
-fill 3312 -59 16 3318 -59 16 minecraft:orange_concrete
-fill 3314 -60 -17 3316 -60 -17 minecraft:orange_stained_glass
-summon minecraft:text_display 3315.5 -57.5 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
-summon minecraft:text_display 3315.5 -52 16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"7번 체육관 · 불꽃 타입","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
-setblock 3302 -55 -16 minecraft:light[level=15]
-setblock 3302 -55 -12 minecraft:light[level=15]
-setblock 3302 -55 -8 minecraft:light[level=15]
-setblock 3302 -55 -4 minecraft:light[level=15]
-setblock 3302 -55 0 minecraft:light[level=15]
-setblock 3302 -55 4 minecraft:light[level=15]
-setblock 3302 -55 8 minecraft:light[level=15]
-setblock 3302 -55 12 minecraft:light[level=15]
-setblock 3302 -55 16 minecraft:light[level=15]
-setblock 3306 -55 -16 minecraft:light[level=15]
-setblock 3306 -55 -12 minecraft:light[level=15]
-setblock 3306 -55 -8 minecraft:light[level=15]
-setblock 3306 -55 -4 minecraft:light[level=15]
-setblock 3306 -55 0 minecraft:light[level=15]
-setblock 3306 -55 4 minecraft:light[level=15]
-setblock 3306 -55 8 minecraft:light[level=15]
-setblock 3306 -55 12 minecraft:light[level=15]
-setblock 3306 -55 16 minecraft:light[level=15]
-setblock 3310 -55 -16 minecraft:light[level=15]
-setblock 3310 -55 -12 minecraft:light[level=15]
-setblock 3310 -55 -8 minecraft:light[level=15]
-setblock 3310 -55 -4 minecraft:light[level=15]
-setblock 3310 -55 0 minecraft:light[level=15]
-setblock 3310 -55 4 minecraft:light[level=15]
-setblock 3310 -55 8 minecraft:light[level=15]
-setblock 3310 -55 12 minecraft:light[level=15]
-setblock 3310 -55 16 minecraft:light[level=15]
-setblock 3314 -55 -16 minecraft:light[level=15]
-setblock 3314 -55 -12 minecraft:light[level=15]
-setblock 3314 -55 -8 minecraft:light[level=15]
-setblock 3314 -55 -4 minecraft:light[level=15]
-setblock 3314 -55 0 minecraft:light[level=15]
-setblock 3314 -55 4 minecraft:light[level=15]
-setblock 3314 -55 8 minecraft:light[level=15]
-setblock 3314 -55 12 minecraft:light[level=15]
-setblock 3314 -55 16 minecraft:light[level=15]
-setblock 3318 -55 -16 minecraft:light[level=15]
-setblock 3318 -55 -12 minecraft:light[level=15]
-setblock 3318 -55 -8 minecraft:light[level=15]
-setblock 3318 -55 -4 minecraft:light[level=15]
-setblock 3318 -55 0 minecraft:light[level=15]
-setblock 3318 -55 4 minecraft:light[level=15]
-setblock 3318 -55 8 minecraft:light[level=15]
-setblock 3318 -55 12 minecraft:light[level=15]
-setblock 3318 -55 16 minecraft:light[level=15]
-setblock 3322 -55 -16 minecraft:light[level=15]
-setblock 3322 -55 -12 minecraft:light[level=15]
-setblock 3322 -55 -8 minecraft:light[level=15]
-setblock 3322 -55 -4 minecraft:light[level=15]
-setblock 3322 -55 0 minecraft:light[level=15]
-setblock 3322 -55 4 minecraft:light[level=15]
-setblock 3322 -55 8 minecraft:light[level=15]
-setblock 3322 -55 12 minecraft:light[level=15]
-setblock 3322 -55 16 minecraft:light[level=15]
-setblock 3326 -55 -16 minecraft:light[level=15]
-setblock 3326 -55 -12 minecraft:light[level=15]
-setblock 3326 -55 -8 minecraft:light[level=15]
-setblock 3326 -55 -4 minecraft:light[level=15]
-setblock 3326 -55 0 minecraft:light[level=15]
-setblock 3326 -55 4 minecraft:light[level=15]
-setblock 3326 -55 8 minecraft:light[level=15]
-setblock 3326 -55 12 minecraft:light[level=15]
-setblock 3326 -55 16 minecraft:light[level=15]
-setblock 3302 -50 -16 minecraft:light[level=15]
-setblock 3302 -50 -10 minecraft:light[level=15]
-setblock 3302 -50 -4 minecraft:light[level=15]
-setblock 3302 -50 2 minecraft:light[level=15]
-setblock 3302 -50 8 minecraft:light[level=15]
-setblock 3302 -50 14 minecraft:light[level=15]
-setblock 3308 -50 -16 minecraft:light[level=15]
-setblock 3308 -50 -10 minecraft:light[level=15]
-setblock 3308 -50 -4 minecraft:light[level=15]
-setblock 3308 -50 2 minecraft:light[level=15]
-setblock 3308 -50 8 minecraft:light[level=15]
-setblock 3308 -50 14 minecraft:light[level=15]
-setblock 3314 -50 -16 minecraft:light[level=15]
-setblock 3314 -50 -10 minecraft:light[level=15]
-setblock 3314 -50 -4 minecraft:light[level=15]
-setblock 3314 -50 2 minecraft:light[level=15]
-setblock 3314 -50 8 minecraft:light[level=15]
-setblock 3314 -50 14 minecraft:light[level=15]
-setblock 3320 -50 -16 minecraft:light[level=15]
-setblock 3320 -50 -10 minecraft:light[level=15]
-setblock 3320 -50 -4 minecraft:light[level=15]
-setblock 3320 -50 2 minecraft:light[level=15]
-setblock 3320 -50 8 minecraft:light[level=15]
-setblock 3320 -50 14 minecraft:light[level=15]
-setblock 3326 -50 -16 minecraft:light[level=15]
-setblock 3326 -50 -10 minecraft:light[level=15]
-setblock 3326 -50 -4 minecraft:light[level=15]
-setblock 3326 -50 2 minecraft:light[level=15]
-setblock 3326 -50 8 minecraft:light[level=15]
-setblock 3326 -50 14 minecraft:light[level=15]
-# ── 8번 경기장 (땅) ──
-fill 3350 -61 -18 3380 -61 18 minecraft:bedrock
-fill 3350 -60 -18 3380 -60 18 minecraft:terracotta
-fill 3351 -60 -17 3379 -60 17 minecraft:polished_andesite
-fill 3350 -59 -18 3380 -58 -18 minecraft:packed_mud
-fill 3350 -59 18 3380 -58 18 minecraft:packed_mud
-fill 3350 -59 -18 3350 -58 18 minecraft:packed_mud
-fill 3380 -59 -18 3380 -58 18 minecraft:packed_mud
-fill 3350 -57 -18 3380 -48 -18 minecraft:terracotta
-fill 3350 -57 18 3380 -48 18 minecraft:terracotta
-fill 3350 -57 -18 3350 -48 18 minecraft:terracotta
-fill 3380 -57 -18 3380 -48 18 minecraft:terracotta
-fill 3350 -59 -18 3350 -48 -18 minecraft:quartz_pillar
-fill 3350 -59 18 3350 -48 18 minecraft:quartz_pillar
-fill 3355 -59 -18 3355 -48 -18 minecraft:quartz_pillar
-fill 3355 -59 18 3355 -48 18 minecraft:quartz_pillar
-fill 3360 -59 -18 3360 -48 -18 minecraft:quartz_pillar
-fill 3360 -59 18 3360 -48 18 minecraft:quartz_pillar
-fill 3365 -59 -18 3365 -48 -18 minecraft:quartz_pillar
-fill 3365 -59 18 3365 -48 18 minecraft:quartz_pillar
-fill 3370 -59 -18 3370 -48 -18 minecraft:quartz_pillar
-fill 3370 -59 18 3370 -48 18 minecraft:quartz_pillar
-fill 3375 -59 -18 3375 -48 -18 minecraft:quartz_pillar
-fill 3375 -59 18 3375 -48 18 minecraft:quartz_pillar
-fill 3380 -59 -18 3380 -48 -18 minecraft:quartz_pillar
-fill 3380 -59 18 3380 -48 18 minecraft:quartz_pillar
-fill 3350 -59 -18 3350 -48 -18 minecraft:quartz_pillar
-fill 3380 -59 -18 3380 -48 -18 minecraft:quartz_pillar
-fill 3350 -59 -12 3350 -48 -12 minecraft:quartz_pillar
-fill 3380 -59 -12 3380 -48 -12 minecraft:quartz_pillar
-fill 3350 -59 -6 3350 -48 -6 minecraft:quartz_pillar
-fill 3380 -59 -6 3380 -48 -6 minecraft:quartz_pillar
-fill 3350 -59 0 3350 -48 0 minecraft:quartz_pillar
-fill 3380 -59 0 3380 -48 0 minecraft:quartz_pillar
-fill 3350 -59 6 3350 -48 6 minecraft:quartz_pillar
-fill 3380 -59 6 3380 -48 6 minecraft:quartz_pillar
-fill 3350 -59 12 3350 -48 12 minecraft:quartz_pillar
-fill 3380 -59 12 3380 -48 12 minecraft:quartz_pillar
-fill 3350 -59 18 3350 -48 18 minecraft:quartz_pillar
-fill 3380 -59 18 3380 -48 18 minecraft:quartz_pillar
-fill 3350 -47 -18 3380 -47 18 minecraft:brown_terracotta
-fill 3351 -47 -17 3379 -47 -17 minecraft:ochre_froglight
-fill 3351 -47 -15 3379 -47 -15 minecraft:ochre_froglight
-fill 3351 -47 -13 3379 -47 -13 minecraft:ochre_froglight
-fill 3351 -47 -11 3379 -47 -11 minecraft:ochre_froglight
-fill 3351 -47 -9 3379 -47 -9 minecraft:ochre_froglight
-fill 3351 -47 -7 3379 -47 -7 minecraft:ochre_froglight
-fill 3351 -47 -5 3379 -47 -5 minecraft:ochre_froglight
-fill 3351 -47 -3 3379 -47 -3 minecraft:ochre_froglight
-fill 3351 -47 -1 3379 -47 -1 minecraft:ochre_froglight
-fill 3351 -47 1 3379 -47 1 minecraft:ochre_froglight
-fill 3351 -47 3 3379 -47 3 minecraft:ochre_froglight
-fill 3351 -47 5 3379 -47 5 minecraft:ochre_froglight
-fill 3351 -47 7 3379 -47 7 minecraft:ochre_froglight
-fill 3351 -47 9 3379 -47 9 minecraft:ochre_froglight
-fill 3351 -47 11 3379 -47 11 minecraft:ochre_froglight
-fill 3351 -47 13 3379 -47 13 minecraft:ochre_froglight
-fill 3351 -47 15 3379 -47 15 minecraft:ochre_froglight
-fill 3351 -47 17 3379 -47 17 minecraft:ochre_froglight
-setblock 3351 -54 -15 minecraft:lantern
-setblock 3379 -54 -15 minecraft:lantern
-setblock 3351 -54 -9 minecraft:lantern
-setblock 3379 -54 -9 minecraft:lantern
-setblock 3351 -54 -3 minecraft:lantern
-setblock 3379 -54 -3 minecraft:lantern
-setblock 3351 -54 3 minecraft:lantern
-setblock 3379 -54 3 minecraft:lantern
-setblock 3351 -54 9 minecraft:lantern
-setblock 3379 -54 9 minecraft:lantern
-setblock 3351 -54 15 minecraft:lantern
-setblock 3379 -54 15 minecraft:lantern
-fill 3358 -60 -12 3372 -60 12 minecraft:coarse_dirt
-fill 3358 -60 -12 3372 -60 -12 minecraft:quartz_block
-fill 3358 -60 12 3372 -60 12 minecraft:quartz_block
-fill 3358 -60 -12 3358 -60 12 minecraft:quartz_block
-fill 3372 -60 -12 3372 -60 12 minecraft:quartz_block
-fill 3358 -60 0 3372 -60 0 minecraft:quartz_block
-setblock 3365 -60 -4 minecraft:brown_concrete
-setblock 3364 -60 -3 minecraft:brown_concrete
-setblock 3365 -60 -3 minecraft:brown_concrete
-setblock 3366 -60 -3 minecraft:brown_concrete
-setblock 3363 -60 -2 minecraft:brown_concrete
-setblock 3364 -60 -2 minecraft:brown_concrete
-setblock 3365 -60 -2 minecraft:orange_terracotta
-setblock 3366 -60 -2 minecraft:brown_concrete
-setblock 3367 -60 -2 minecraft:brown_concrete
-setblock 3362 -60 -1 minecraft:brown_concrete
-setblock 3363 -60 -1 minecraft:brown_concrete
-setblock 3364 -60 -1 minecraft:orange_terracotta
-setblock 3365 -60 -1 minecraft:orange_terracotta
-setblock 3366 -60 -1 minecraft:orange_terracotta
-setblock 3367 -60 -1 minecraft:brown_concrete
-setblock 3368 -60 -1 minecraft:brown_concrete
-setblock 3361 -60 0 minecraft:brown_concrete
-setblock 3362 -60 0 minecraft:brown_concrete
-setblock 3363 -60 0 minecraft:orange_terracotta
-setblock 3364 -60 0 minecraft:brown_concrete
-setblock 3365 -60 0 minecraft:orange_terracotta
-setblock 3366 -60 0 minecraft:orange_terracotta
-setblock 3367 -60 0 minecraft:orange_terracotta
-setblock 3368 -60 0 minecraft:brown_concrete
-setblock 3369 -60 0 minecraft:brown_concrete
-setblock 3360 -60 1 minecraft:brown_concrete
-setblock 3361 -60 1 minecraft:brown_concrete
-setblock 3362 -60 1 minecraft:orange_terracotta
-setblock 3363 -60 1 minecraft:brown_concrete
-setblock 3364 -60 1 minecraft:brown_concrete
-setblock 3365 -60 1 minecraft:brown_concrete
-setblock 3366 -60 1 minecraft:orange_terracotta
-setblock 3367 -60 1 minecraft:orange_terracotta
-setblock 3368 -60 1 minecraft:orange_terracotta
-setblock 3369 -60 1 minecraft:brown_concrete
-setblock 3370 -60 1 minecraft:brown_concrete
-setblock 3360 -60 2 minecraft:brown_concrete
-setblock 3361 -60 2 minecraft:orange_terracotta
-setblock 3362 -60 2 minecraft:orange_terracotta
-setblock 3363 -60 2 minecraft:orange_terracotta
-setblock 3364 -60 2 minecraft:orange_terracotta
-setblock 3365 -60 2 minecraft:orange_terracotta
-setblock 3366 -60 2 minecraft:brown_concrete
-setblock 3367 -60 2 minecraft:orange_terracotta
-setblock 3368 -60 2 minecraft:orange_terracotta
-setblock 3369 -60 2 minecraft:orange_terracotta
-setblock 3370 -60 2 minecraft:brown_concrete
-setblock 3360 -60 3 minecraft:brown_concrete
-setblock 3361 -60 3 minecraft:brown_concrete
-setblock 3362 -60 3 minecraft:brown_concrete
-setblock 3363 -60 3 minecraft:brown_concrete
-setblock 3364 -60 3 minecraft:brown_concrete
-setblock 3365 -60 3 minecraft:brown_concrete
-setblock 3366 -60 3 minecraft:brown_concrete
-setblock 3367 -60 3 minecraft:brown_concrete
-setblock 3368 -60 3 minecraft:brown_concrete
-setblock 3369 -60 3 minecraft:brown_concrete
-setblock 3370 -60 3 minecraft:brown_concrete
-setblock 3360 -60 4 minecraft:orange_terracotta
-setblock 3362 -60 4 minecraft:orange_terracotta
-setblock 3364 -60 4 minecraft:orange_terracotta
-setblock 3366 -60 4 minecraft:orange_terracotta
-setblock 3368 -60 4 minecraft:orange_terracotta
-setblock 3370 -60 4 minecraft:orange_terracotta
-setblock 3361 -60 5 minecraft:orange_terracotta
-setblock 3363 -60 5 minecraft:orange_terracotta
-setblock 3365 -60 5 minecraft:orange_terracotta
-setblock 3367 -60 5 minecraft:orange_terracotta
-setblock 3369 -60 5 minecraft:orange_terracotta
-fill 3354 -59 -14 3354 -59 14 minecraft:mud_bricks
-fill 3355 -59 -14 3355 -59 14 minecraft:mud_brick_stairs[facing=west]
-fill 3376 -59 -14 3376 -59 14 minecraft:mud_bricks
-fill 3375 -59 -14 3375 -59 14 minecraft:mud_brick_stairs[facing=east]
-fill 3352 -59 -14 3353 -59 14 minecraft:mud_bricks
-fill 3352 -58 -14 3352 -58 14 minecraft:mud_bricks
-fill 3353 -58 -14 3353 -58 14 minecraft:mud_brick_stairs[facing=west]
-fill 3377 -59 -14 3378 -59 14 minecraft:mud_bricks
-fill 3378 -58 -14 3378 -58 14 minecraft:mud_bricks
-fill 3377 -58 -14 3377 -58 14 minecraft:mud_brick_stairs[facing=east]
-fill 3351 -59 -14 3351 -58 14 minecraft:mud_bricks
-fill 3351 -57 -14 3351 -57 14 minecraft:mud_brick_stairs[facing=west]
-fill 3379 -59 -14 3379 -58 14 minecraft:mud_bricks
-fill 3379 -57 -14 3379 -57 14 minecraft:mud_brick_stairs[facing=east]
-fill 3362 -60 13 3368 -60 16 minecraft:quartz_block
-fill 3362 -59 16 3368 -59 16 minecraft:brown_concrete
-fill 3364 -60 -17 3366 -60 -17 minecraft:orange_stained_glass
-summon minecraft:text_display 3365.5 -57.5 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
-summon minecraft:text_display 3365.5 -52 16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"8번 체육관 · 땅 타입","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
-setblock 3352 -55 -16 minecraft:light[level=15]
-setblock 3352 -55 -12 minecraft:light[level=15]
-setblock 3352 -55 -8 minecraft:light[level=15]
-setblock 3352 -55 -4 minecraft:light[level=15]
-setblock 3352 -55 0 minecraft:light[level=15]
-setblock 3352 -55 4 minecraft:light[level=15]
-setblock 3352 -55 8 minecraft:light[level=15]
-setblock 3352 -55 12 minecraft:light[level=15]
-setblock 3352 -55 16 minecraft:light[level=15]
-setblock 3356 -55 -16 minecraft:light[level=15]
-setblock 3356 -55 -12 minecraft:light[level=15]
-setblock 3356 -55 -8 minecraft:light[level=15]
-setblock 3356 -55 -4 minecraft:light[level=15]
-setblock 3356 -55 0 minecraft:light[level=15]
-setblock 3356 -55 4 minecraft:light[level=15]
-setblock 3356 -55 8 minecraft:light[level=15]
-setblock 3356 -55 12 minecraft:light[level=15]
-setblock 3356 -55 16 minecraft:light[level=15]
-setblock 3360 -55 -16 minecraft:light[level=15]
-setblock 3360 -55 -12 minecraft:light[level=15]
-setblock 3360 -55 -8 minecraft:light[level=15]
-setblock 3360 -55 -4 minecraft:light[level=15]
-setblock 3360 -55 0 minecraft:light[level=15]
-setblock 3360 -55 4 minecraft:light[level=15]
-setblock 3360 -55 8 minecraft:light[level=15]
-setblock 3360 -55 12 minecraft:light[level=15]
-setblock 3360 -55 16 minecraft:light[level=15]
-setblock 3364 -55 -16 minecraft:light[level=15]
-setblock 3364 -55 -12 minecraft:light[level=15]
-setblock 3364 -55 -8 minecraft:light[level=15]
-setblock 3364 -55 -4 minecraft:light[level=15]
-setblock 3364 -55 0 minecraft:light[level=15]
-setblock 3364 -55 4 minecraft:light[level=15]
-setblock 3364 -55 8 minecraft:light[level=15]
-setblock 3364 -55 12 minecraft:light[level=15]
-setblock 3364 -55 16 minecraft:light[level=15]
-setblock 3368 -55 -16 minecraft:light[level=15]
-setblock 3368 -55 -12 minecraft:light[level=15]
-setblock 3368 -55 -8 minecraft:light[level=15]
-setblock 3368 -55 -4 minecraft:light[level=15]
-setblock 3368 -55 0 minecraft:light[level=15]
-setblock 3368 -55 4 minecraft:light[level=15]
-setblock 3368 -55 8 minecraft:light[level=15]
-setblock 3368 -55 12 minecraft:light[level=15]
-setblock 3368 -55 16 minecraft:light[level=15]
-setblock 3372 -55 -16 minecraft:light[level=15]
-setblock 3372 -55 -12 minecraft:light[level=15]
-setblock 3372 -55 -8 minecraft:light[level=15]
-setblock 3372 -55 -4 minecraft:light[level=15]
-setblock 3372 -55 0 minecraft:light[level=15]
-setblock 3372 -55 4 minecraft:light[level=15]
-setblock 3372 -55 8 minecraft:light[level=15]
-setblock 3372 -55 12 minecraft:light[level=15]
-setblock 3372 -55 16 minecraft:light[level=15]
-setblock 3376 -55 -16 minecraft:light[level=15]
-setblock 3376 -55 -12 minecraft:light[level=15]
-setblock 3376 -55 -8 minecraft:light[level=15]
-setblock 3376 -55 -4 minecraft:light[level=15]
-setblock 3376 -55 0 minecraft:light[level=15]
-setblock 3376 -55 4 minecraft:light[level=15]
-setblock 3376 -55 8 minecraft:light[level=15]
-setblock 3376 -55 12 minecraft:light[level=15]
-setblock 3376 -55 16 minecraft:light[level=15]
-setblock 3352 -50 -16 minecraft:light[level=15]
-setblock 3352 -50 -10 minecraft:light[level=15]
-setblock 3352 -50 -4 minecraft:light[level=15]
-setblock 3352 -50 2 minecraft:light[level=15]
-setblock 3352 -50 8 minecraft:light[level=15]
-setblock 3352 -50 14 minecraft:light[level=15]
-setblock 3358 -50 -16 minecraft:light[level=15]
-setblock 3358 -50 -10 minecraft:light[level=15]
-setblock 3358 -50 -4 minecraft:light[level=15]
-setblock 3358 -50 2 minecraft:light[level=15]
-setblock 3358 -50 8 minecraft:light[level=15]
-setblock 3358 -50 14 minecraft:light[level=15]
-setblock 3364 -50 -16 minecraft:light[level=15]
-setblock 3364 -50 -10 minecraft:light[level=15]
-setblock 3364 -50 -4 minecraft:light[level=15]
-setblock 3364 -50 2 minecraft:light[level=15]
-setblock 3364 -50 8 minecraft:light[level=15]
-setblock 3364 -50 14 minecraft:light[level=15]
-setblock 3370 -50 -16 minecraft:light[level=15]
-setblock 3370 -50 -10 minecraft:light[level=15]
-setblock 3370 -50 -4 minecraft:light[level=15]
-setblock 3370 -50 2 minecraft:light[level=15]
-setblock 3370 -50 8 minecraft:light[level=15]
-setblock 3370 -50 14 minecraft:light[level=15]
-setblock 3376 -50 -16 minecraft:light[level=15]
-setblock 3376 -50 -10 minecraft:light[level=15]
-setblock 3376 -50 -4 minecraft:light[level=15]
-setblock 3376 -50 2 minecraft:light[level=15]
-setblock 3376 -50 8 minecraft:light[level=15]
-setblock 3376 -50 14 minecraft:light[level=15]
-# ── 사천왕 본부 ──
-fill 3500 -61 -46 3540 -61 12 minecraft:bedrock
-fill 3500 -60 -46 3540 -60 12 minecraft:polished_andesite
-fill 3500 -59 -46 3540 -51 -46 minecraft:quartz_bricks
-fill 3500 -59 12 3540 -51 12 minecraft:quartz_bricks
-fill 3500 -59 -46 3500 -51 12 minecraft:quartz_bricks
-fill 3540 -59 -46 3540 -51 12 minecraft:quartz_bricks
-fill 3500 -59 -46 3500 -51 -46 minecraft:quartz_pillar
-fill 3540 -59 -46 3540 -51 -46 minecraft:quartz_pillar
-fill 3500 -59 -41 3500 -51 -41 minecraft:quartz_pillar
-fill 3540 -59 -41 3540 -51 -41 minecraft:quartz_pillar
-fill 3500 -59 -36 3500 -51 -36 minecraft:quartz_pillar
-fill 3540 -59 -36 3540 -51 -36 minecraft:quartz_pillar
-fill 3500 -59 -31 3500 -51 -31 minecraft:quartz_pillar
-fill 3540 -59 -31 3540 -51 -31 minecraft:quartz_pillar
-fill 3500 -59 -26 3500 -51 -26 minecraft:quartz_pillar
-fill 3540 -59 -26 3540 -51 -26 minecraft:quartz_pillar
-fill 3500 -59 -21 3500 -51 -21 minecraft:quartz_pillar
-fill 3540 -59 -21 3540 -51 -21 minecraft:quartz_pillar
-fill 3500 -59 -16 3500 -51 -16 minecraft:quartz_pillar
-fill 3540 -59 -16 3540 -51 -16 minecraft:quartz_pillar
-fill 3500 -59 -11 3500 -51 -11 minecraft:quartz_pillar
-fill 3540 -59 -11 3540 -51 -11 minecraft:quartz_pillar
-fill 3500 -59 -6 3500 -51 -6 minecraft:quartz_pillar
-fill 3540 -59 -6 3540 -51 -6 minecraft:quartz_pillar
-fill 3500 -59 -1 3500 -51 -1 minecraft:quartz_pillar
-fill 3540 -59 -1 3540 -51 -1 minecraft:quartz_pillar
-fill 3500 -59 4 3500 -51 4 minecraft:quartz_pillar
-fill 3540 -59 4 3540 -51 4 minecraft:quartz_pillar

@@ -45,8 +45,14 @@ public class ShopScreen extends Screen {
         ShopScreen.balance = balance;
     }
 
+    /** 화면(GUI)이 640×360보다 작으면 전체를 줄여 그림 → GUI 크기 4(전체 화면)에서도 분류·안내 글이 잘리지 않음. */
+    private float k = 1;
+
     @Override
     protected void init() {
+        k = Math.min(1f, Math.min(width / 640f, height / 360f));
+        width = Math.round(width / k);
+        height = Math.round(height / k);
         search = new EditBox(font, width - 16 - 130, 14, 130, 16, Component.literal("검색"));
         search.setHint(Component.literal("아이템 이름 검색").withColor(Theme.SUBTEXT));
         search.setResponder(s -> refilter());
@@ -77,6 +83,14 @@ public class ShopScreen extends Screen {
     private int cardY(int k) { return TOP + 14 + (k / cols()) * (CARD_H + GAP) - (int) scroll; }
 
     @Override
+    public void render(GuiGraphics g, int mx, int my, float pt) {
+        g.pose().pushPose();
+        g.pose().scale(k, k, 1);
+        super.render(g, Math.round(mx / k), Math.round(my / k), pt);
+        g.pose().popPose();
+    }
+
+    @Override
     public void renderBackground(GuiGraphics g, int mx, int my, float pt) {
         super.renderBackground(g, mx, my, pt);
         anim.frame();
@@ -90,7 +104,7 @@ public class ShopScreen extends Screen {
         g.drawString(font, Theme.t(shown.size() + "개"), SIDE + 22 + font.width(Theme.t(title)), TOP, Theme.SUBTEXT);
         // 카드
         int hovered = -1;
-        g.enableScissor(SIDE, TOP + 10, width, height - 20);
+        g.enableScissor(Math.round(SIDE * k), Math.round((TOP + 10) * k), Math.round(width * k), Math.round((height - 20) * k));   // 가위 영역은 화면 축소(k)를 따르지 않아 직접 곱함
         for (int k = 0; k < shown.size(); k++) {
             int x = cardX(k), y = cardY(k);
             boolean hov = mx >= x && mx < x + cardW() && my >= y && my < y + CARD_H && my >= TOP + 10 && my < height - 20;
@@ -101,7 +115,7 @@ public class ShopScreen extends Screen {
         }
         g.disableScissor();
         if (shown.isEmpty()) g.drawCenteredString(font, Theme.t(sell ? "판매할 수 있는 상품이 없습니다" : "상품이 없습니다"), (SIDE + width) / 2, height / 2, Theme.SUBTEXT);
-        g.drawCenteredString(font, Theme.t((sell ? "" : "배지 " + badges + "개 · 배지를 모으면 상품이 늘어나요  ·  ") + "클릭: 수량 고르기  ·  ESC: 닫기"),
+        g.drawCenteredString(font, Theme.t(Theme.fit(font, (sell ? "" : "배지 " + badges + "개 · 배지를 모으면 상품이 늘어나요  ·  ") + "클릭: 수량 고르기  ·  ESC: 닫기", width - SIDE - 16)),
                 (SIDE + width) / 2, height - 13, Theme.SUBTEXT);
         if (modal == null) tooltip(g, hovered, mx, my);
         else modal(g, mx, my);
@@ -138,7 +152,7 @@ public class ShopScreen extends Screen {
         g.fill(x + MW - 12 - chipW, y + 12, x + MW - 12, y + 24, modalSell ? GREEN : Theme.SELECT);
         g.drawString(font, Theme.t(verb), x + MW - 7 - chipW, y + 14, Theme.TEXT, false);
         g.drawString(font, Theme.t(Theme.fit(font, st.getHoverName().getString(), MW - 50 - chipW - 16)), x + 42, y + 12, Theme.TEXT, false);
-        g.drawString(font, Theme.t("개당 " + String.format("%,d원", unit())), x + 42, y + 24, Theme.SUBTEXT, false);
+        g.drawString(font, Theme.t("개당 " + Theme.money(font, unit(), "원", MW - 54 - font.width(Theme.t("개당 ")))), x + 42, y + 24, Theme.SUBTEXT, false);
         // 수량: [-] 숫자 [+]
         int ry = y + 44;
         button(g, mx, my, x + 12, ry, 24, 20, "-", qty > 1, false);
@@ -159,7 +173,7 @@ public class ShopScreen extends Screen {
             String why = modalSell ? "보유 아이템 없음" : "잔액 부족";
             g.drawString(font, Theme.t(why), x + MW - 12 - font.width(Theme.t(why)), ty, 0xFFFF6B6B, false);
         } else {
-            String total = String.format("%,d원", unit() * qty);
+            String total = Theme.money(font, unit() * qty, "원", MW - 60);
             g.drawString(font, Theme.t(total), x + MW - 12 - font.width(Theme.t(total)), ty, Theme.GOLD, false);
         }
         button(g, mx, my, x + 12, y + MH - 30, 98, 20, "취소", true, false);
@@ -232,7 +246,8 @@ public class ShopScreen extends Screen {
         g.drawCenteredString(font, Theme.t("구매"), tx + 32, 18, Theme.mix(Theme.TEXT, Theme.SUBTEXT, s));
         g.drawCenteredString(font, Theme.t("판매"), tx + 92, 18, Theme.mix(Theme.SUBTEXT, Theme.TEXT, s));
         // 잔액: 거래하면 0.4초간 밝게 빛남
-        String bal = String.format("%,d", balance);
+        int room = width - 16 - 130 - 10 - (SIDE + 16 + 124 + 8);                     // 탭과 검색창 사이
+        String bal = Theme.money(font, balance, "", room - 34);
         int bw = font.width(Theme.t(bal)) + 34, bx = width - 16 - 130 - 10 - bw;
         float flash = Math.max(0, 1 - (System.currentTimeMillis() - balanceChangedAt) / 400f);
         Theme.panel(g, bx, 14, bx + bw, 30, 0xE0181B22, Theme.mix(Theme.BORDER, Theme.GOLD, flash));
@@ -268,7 +283,7 @@ public class ShopScreen extends Screen {
             g.drawCenteredString(font, Theme.t(Theme.fit(font, badge, cardW() - 8)), cardW() / 2, 62, Theme.TEXT);
         }
         g.drawCenteredString(font, Theme.t(sell ? "판매가" : "구매가"), cardW() / 2, 75, Theme.SUBTEXT);
-        g.drawCenteredString(font, Theme.t(String.format("%,d", price)), cardW() / 2, 86, blocked ? Theme.SUBTEXT : Theme.GOLD);
+        g.drawCenteredString(font, Theme.t(Theme.money(font, price, "", cardW() - 8)), cardW() / 2, 86, blocked ? Theme.SUBTEXT : Theme.GOLD);
         g.pose().popPose();
     }
 
@@ -285,6 +300,7 @@ public class ShopScreen extends Screen {
 
     @Override
     public boolean mouseClicked(double mx, double my, int button) {
+        mx /= k; my /= k;
         if (modal != null) return modalClick(mx, my);
         if (super.mouseClicked(mx, my, button)) return true;
         int tx = SIDE + 16;
@@ -316,6 +332,7 @@ public class ShopScreen extends Screen {
 
     @Override
     public boolean mouseScrolled(double mx, double my, double sx, double sy) {
+        mx /= k; my /= k;
         if (modal != null) {                                       // 수량 창에서는 휠로 수량 조절
             qty = (int) Math.max(1, Math.min(maxQty(), qty + Math.signum(sy) * (hasShiftDown() ? 10 : 1)));
             return true;
