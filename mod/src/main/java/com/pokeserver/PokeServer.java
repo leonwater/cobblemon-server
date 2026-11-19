@@ -49,8 +49,10 @@ public class PokeServer implements ModInitializer {
         ServerLifecycleEvents.SERVER_STARTED.register(server -> { Farms.load(); Shop.load(); Menu.load(); Gym.load(); });
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             if (server.getTickCount() % 100 == 0) Farms.refreshLabels(server);
+            if (server.getTickCount() % 20 == 0) Teleport.tick(server);
             if (server.getTickCount() % 200 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.reapply(server);
             if (server.getTickCount() % 20 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.starterLocks(server);
+            if (server.getTickCount() % CobblemonHooks.LEGEND_TICKS == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.spawnLegend(server);
         });
         // 상인(poke.merchant) → 상점, 체육관 안내원(poke.gymguide) → 도전 목록, 오박사(poke.tutor) → 튜토리얼 설명 창 (Cobblemon NPC 스크립트 대신 직접 처리)
         net.fabricmc.fabric.api.event.player.UseEntityCallback.EVENT.register((player, level, hand, entity, hit) -> {
@@ -67,6 +69,7 @@ public class PokeServer implements ModInitializer {
         Protection.register();
         CommandRegistrationCallback.EVENT.register((dispatcher, registries, env) -> {
             dispatcher.register(admin());
+            Teleport.register(dispatcher);
             for (String name : new String[]{"money", "돈"}) dispatcher.register(Commands.literal(name).executes(PokeServer::balance));
             // 전체 초기화 (자기 자신만): /초기화 → 안내, /초기화 확인 → 실행
             dispatcher.register(Commands.literal("초기화").executes(c -> {
@@ -142,6 +145,11 @@ public class PokeServer implements ModInitializer {
                     targets.forEach(p -> ServerPlayNetworking.send(p, new Net.TutorialOpen()));
                     return targets.size();
                 })))
+                .then(Commands.literal("legend").executes(c -> {   // 6. 전설 출현을 지금 한 번 (관리자·테스트용)
+                    String s = CobblemonHooks.spawnLegend(c.getSource().getServer());
+                    c.getSource().sendSuccess(() -> Component.literal(s == null ? "전설 출현: 맞는 플레이어·전설 없음" : "전설 출현: " + s), true);
+                    return s == null ? 0 : 1;
+                }))
                 .then(Commands.literal("reset").then(Commands.argument("targets", EntityArgument.players()).executes(c -> {
                     var targets = EntityArgument.getPlayers(c, "targets");
                     targets.forEach(Menu::wipe);

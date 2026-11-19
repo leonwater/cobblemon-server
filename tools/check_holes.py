@@ -92,9 +92,9 @@ def buildings():
     x1, x2, z1, z2 = W.HALL
     out.append(('회의장', W.HALL, G, G + 9, [(-1, 1, G + 1, G + 4, z1, z1)]))
     x1, x2, z1, z2 = W.CENTER
-    out.append(('포켓몬센터', W.CENTER, G, G + 12, [(x1, x1, G + 1, G + 4, -1, 1), (x1, x1, G + 8, G + 9, -1, 1)]))
+    out.append(('포켓몬센터', W.CENTER, G, G + 10, [(x1, x1, G + 1, G + 4, -1, 1)]))
     x1, x2, z1, z2 = W.MART
-    out.append(('프렌들리 숍', W.MART, G, G + 10, [(x2, x2, G + 1, G + 4, -1, 1)]))
+    out.append(('프렌들리 숍', W.MART, G, G + 9, [(x2, x2, G + 1, G + 4, -1, 1)]))
     for k, (x1, x2, z1, z2, door) in enumerate(W.CITY_SHOPS):
         fx, zm = (x2 if door == 'e' else x1), (z1 + z2) // 2
         out.append((f'상가{k + 1}', (x1, x2, z1, z2), G, G + 7, [(fx, fx, G + 1, G + 3, zm - 1, zm + 1)]))

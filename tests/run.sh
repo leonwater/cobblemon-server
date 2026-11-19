@@ -23,7 +23,7 @@ trap 'node rcon.js 25576 stop > /dev/null 2>&1' EXIT   # 실패해도 서버 종
 # 처음 보는 데이터팩이면: 건물을 다 지은 뒤 월드를 저장해 두고 다음부터 재사용 (봇 접속 전이라 플레이어 기록 없음)
 if [ ! -d $CACHE ]; then
   N=$(grep -o '{build:[0-9]*}' ../pack/world/datapacks/pokeserver/data/poke/function/load.mcfunction | grep -o '[0-9]*')
-  for i in $(seq 240); do s=$(node rcon.js 25576 'data get storage poke:state' 2>/dev/null || true); [[ $s =~ build:\ $N[,}] && $s =~ farm:\ 2 ]] && break; sleep 0.5; done
+  for i in $(seq 240); do s=$(node rcon.js 25576 'data get storage poke:state' 2>/dev/null || true); [[ $s =~ build:\ $N[,}] && $s =~ farm:\ 3 ]] && break; sleep 0.5; done
   node rcon.js 25576 save-off > /dev/null; node rcon.js 25576 'save-all flush' > /dev/null; sleep 1
   rm -rf .cache/world-* && mkdir -p $CACHE && cp -r $W/world/. $CACHE/ && rm -f $CACHE/session.lock
   node rcon.js 25576 save-on > /dev/null

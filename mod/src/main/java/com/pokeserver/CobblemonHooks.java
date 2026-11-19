@@ -54,13 +54,13 @@ final class CobblemonHooks {
             return Unit.INSTANCE;
         });
         installStarters();
-        PokeServer.LOG.info("배틀 제한 등록: 야생·플레이어 배틀은 야생에서만");
-        // 9. 야생·플레이어 배틀은 야생에서만. NPC(체육관 관장 등) 배틀은 어디서나.
+        PokeServer.LOG.info("배틀 제한 등록: 야생·플레이어 배틀은 야생·광장에서만");
+        // 9. 야생·플레이어 배틀은 야생과 스폰 광장(회의장 섬)에서만. NPC(체육관 관장 등) 배틀은 어디서나.
         CobblemonEvents.BATTLE_STARTED_PRE.subscribe(Priority.NORMAL, e -> {
             var b = e.getBattle();
-            boolean outside = b.getPlayers().stream().anyMatch(p -> !p.level().dimension().location().toString().equals("poke:wild"));
+            boolean outside = b.getPlayers().stream().anyMatch(p -> !battleArea(p));
             if (!b.isPvN() && outside) {
-                e.setReason(Component.literal("배틀은 야생에서만 할 수 있어요.").withStyle(ChatFormatting.RED));
+                e.setReason(Component.literal("배틀은 야생·광장에서만 할 수 있어요.").withStyle(ChatFormatting.RED));
                 e.cancel();
             }
             return Unit.INSTANCE;
@@ -81,6 +81,12 @@ final class CobblemonHooks {
             if (e.getBattle().isPvN()) gymResult(e.getPlayer().getEntity().server, e.getPlayer().getUuid(), "lose");
             return Unit.INSTANCE;
         });
+    }
+
+    /** 야생 또는 광장(poke:town 회의장 섬, tools/build_world.py HALL_PLAY). */
+    static boolean battleArea(net.minecraft.server.level.ServerPlayer p) {
+        String dim = p.level().dimension().location().toString();
+        return dim.equals("poke:wild") || dim.equals("poke:town") && p.getX() >= -66 && p.getX() < 67 && p.getZ() >= -122 && p.getZ() < 35;
     }
 
     static final int SAFE_LEVEL = 15, SAFE_RADIUS = 200;
@@ -165,6 +171,55 @@ final class CobblemonHooks {
     }
 
     /** 데이터팩이 저장한 야생 첫 스폰(storage poke:state wildspawn) 근처인가. */
+    /** 6. 1시간마다(서버가 켜져 있는 동안) 야생의 무작위 플레이어 근처에, 그 바이옴에 출현 설정이 있는 전설·환상 포켓몬 하나.
+     *  첫 스폰 근처(초보 구역, 15레벨 이하 규칙)에 있는 플레이어는 고르지 않음. 맞는 플레이어·전설이 없으면 이번 시간은 건너뜀. */
+    static final int LEGEND_TICKS = 72000;
+    static java.util.List<com.cobblemon.mod.common.api.spawning.detail.PokemonSpawnDetail> legends;
+
+    static String spawnLegend(MinecraftServer server) {
+        if (legends == null) {
+            legends = new java.util.ArrayList<>();
+            for (var d : com.cobblemon.mod.common.api.spawning.CobblemonSpawnPools.WORLD_SPAWN_POOL.getDetails()) {
+                if (!(d instanceof com.cobblemon.mod.common.api.spawning.detail.PokemonSpawnDetail pd) || pd.getPokemon().getSpecies() == null) continue;
+                String name = pd.getPokemon().getSpecies();
+                var sp = name.contains(":") ? com.cobblemon.mod.common.api.pokemon.PokemonSpecies.getByIdentifier(net.minecraft.resources.ResourceLocation.parse(name))
+                        : com.cobblemon.mod.common.api.pokemon.PokemonSpecies.getByName(name);
+                if (sp != null && (sp.getLabels().contains("legendary") || sp.getLabels().contains("mythical"))) legends.add(pd);
+            }
+            PokeServer.LOG.info("전설·환상 출현 설정 {}개", legends.size());
+        }
+        var players = new java.util.ArrayList<>(server.getPlayerList().getPlayers().stream()
+                .filter(p -> p.level().dimension().location().toString().equals("poke:wild") && !p.isSpectator()
+                        && !nearFirstSpawn(server, p.blockPosition())).toList());
+        java.util.Collections.shuffle(players);
+        for (var p : players) {
+            var level = p.serverLevel();
+            var biome = level.getBiome(p.blockPosition());
+            // 바이옴 조건이 있는 설정은 그중 하나가 맞아야 함 (프리셋이 바이옴 없는 조건을 덧붙여도 무시). 바이옴 조건이 아예 없으면 어디서나
+            var fit = legends.stream().filter(d -> {
+                var withBiome = d.getConditions().stream().filter(c -> c.getBiomes() != null && !c.getBiomes().isEmpty()).toList();
+                return withBiome.isEmpty() || withBiome.stream().anyMatch(c -> c.getBiomes().stream().anyMatch(b -> b.fits(biome)));
+            }).toList();
+            if (fit.isEmpty()) continue;
+            var d = fit.get(level.getRandom().nextInt(fit.size()));
+            var props = d.getPokemon().copy();
+            var range = d.getLevelRange();
+            if (props.getLevel() == null) props.setLevel(range != null ? range.getFirst() + level.getRandom().nextInt(range.getLast() - range.getFirst() + 1) : 70);
+            var mon = props.createEntity(level);
+            double a = level.getRandom().nextDouble() * Math.PI * 2;
+            int x = (int) (p.getX() + Math.cos(a) * 16), z = (int) (p.getZ() + Math.sin(a) * 16);
+            int y = level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
+            mon.moveTo(x + .5, y, z + .5, level.getRandom().nextFloat() * 360, 0);
+            level.addFreshEntity(mon);
+            var name = mon.getPokemon().getSpecies().getTranslatedName();
+            server.getPlayerList().broadcastSystemMessage(Component.literal("✦ 전설의 포켓몬 ").withStyle(ChatFormatting.GOLD)
+                    .append(name.copy().withStyle(ChatFormatting.YELLOW)).append(Component.literal(" 이(가) " + p.getGameProfile().getName() + " 근처에 나타났다!").withStyle(ChatFormatting.GOLD)), false);
+            PokeServer.LOG.info("전설 출현: {} Lv{} → {} ({} {} {})", d.getPokemon().getSpecies(), mon.getPokemon().getLevel(), p.getGameProfile().getName(), x, y, z);
+            return d.getPokemon().getSpecies();
+        }
+        return null;
+    }
+
     static boolean nearFirstSpawn(MinecraftServer server, net.minecraft.core.BlockPos pos) {
         var spawn = server.getCommandStorage().get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("poke", "state")).getCompound("wildspawn");
         if (!spawn.contains("x")) return false;

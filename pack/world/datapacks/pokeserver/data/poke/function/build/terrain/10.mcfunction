@@ -1042,9 +1042,9 @@ setblock -2 -46 -18 minecraft:red_concrete
 setblock -2 -45 -18 minecraft:black_concrete
 setblock -1 -50 -18 minecraft:black_concrete
 setblock -1 -49 -18 minecraft:white_concrete
-setblock -1 -48 -18 minecraft:black_concrete
+setblock -1 -48 -18 minecraft:white_concrete
 setblock -1 -47 -18 minecraft:black_concrete
-setblock -1 -46 -18 minecraft:black_concrete
+setblock -1 -46 -18 minecraft:red_concrete
 setblock -1 -45 -18 minecraft:red_concrete
 setblock -1 -44 -18 minecraft:black_concrete
 setblock 0 -50 -18 minecraft:black_concrete
@@ -1056,9 +1056,9 @@ setblock 0 -45 -18 minecraft:red_concrete
 setblock 0 -44 -18 minecraft:black_concrete
 setblock 1 -50 -18 minecraft:black_concrete
 setblock 1 -49 -18 minecraft:white_concrete
-setblock 1 -48 -18 minecraft:black_concrete
+setblock 1 -48 -18 minecraft:white_concrete
 setblock 1 -47 -18 minecraft:black_concrete
-setblock 1 -46 -18 minecraft:black_concrete
+setblock 1 -46 -18 minecraft:red_concrete
 setblock 1 -45 -18 minecraft:red_concrete
 setblock 1 -44 -18 minecraft:black_concrete
 setblock 2 -49 -18 minecraft:black_concrete

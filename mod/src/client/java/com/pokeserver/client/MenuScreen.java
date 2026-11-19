@@ -98,7 +98,8 @@ public class MenuScreen extends Screen {
         int cap = minecraft != null && minecraft.player != null ? levelCap(minecraft.player) : -1;
         g.renderItem(Shop.stack("cobblemon:poke_ball"), px + 5, py + 3);   // 포켓몬 레벨 제한
         text(g, "포켓몬 레벨 제한 " + (cap > 0 ? "Lv" + cap : "-"), px + 23, py + 8, Theme.ACCENT);
-        String money = String.format("%,d원", balance);
+        int titleEnd = width / 2 + w("메인 메뉴") / 2 + 10;
+        String money = Theme.money(font, balance, "원", px + pw - 8 - 20 - titleEnd);
         text(g, money, px + pw - 8 - w(money), py + 8, Theme.GOLD);
         g.renderItem(Shop.stack("minecraft:gold_nugget"), px + pw - 26 - w(money), py + 3);
         // 격자 틀 (참고 사진처럼 한 단계 어두운 판 위에 칸)
@@ -111,8 +112,8 @@ public class MenuScreen extends Screen {
         String shown = Theme.fit(font, notice, gw() - w("공지") - 18);
         text(g, shown, gx() + 12 + w("공지"), ny + 5, Theme.GOLD);
         if (!shown.equals(notice) && mx >= gx() && mx < gx() + gw() && my >= ny && my < ny + 18) {
-            g.renderComponentTooltip(font, font.getSplitter().splitLines(Theme.t(notice), 220, net.minecraft.network.chat.Style.EMPTY).stream()
-                    .map(l -> (Component) Theme.t(l.getString())).toList(), mx, my);
+            g.renderComponentTooltip(font, Theme.wrap(font, notice, 220, 99).stream()
+                    .map(l -> (Component) Theme.t(l)).toList(), mx, my);
         }
         for (int i = 0; i < SMALL.size(); i++) button(g, i, mx, my);
     }
@@ -194,7 +195,7 @@ public class MenuScreen extends Screen {
     private void help() {
         onClose();
         for (String line : new String[]{"── 기본 명령어 ──", "G 키: 메인 메뉴", "/money (/돈): 잔액", "/pay 닉네임 금액 (/송금): 돈 보내기",
-                "/trigger home: 회의장으로", "/초기화: 모든 진행 삭제 (확인 필요)", "R 키: 포켓몬 꺼내기 · M 키: 상태창 · ↑↓: 파티 선택"}) toast(line);
+                "/텔포 닉네임: 텔레포트 요청 (상대 동의)", "/trigger home: 회의장으로", "/초기화: 모든 진행 삭제 (확인 필요)", "R 키: 포켓몬 꺼내기 · M 키: 상태창 · ↑↓: 파티 선택"}) toast(line);
     }
 
     private void toast(String s) {
