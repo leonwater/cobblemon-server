@@ -2524,10 +2524,10 @@ fill 965 -59 -6 976 -59 -6 minecraft:barrel[facing=up]
 fill 965 -58 -6 976 -58 -6 minecraft:spruce_trapdoor[half=bottom,open=false]
 fill 965 -59 6 976 -59 6 minecraft:barrel[facing=up]
 fill 965 -58 6 976 -58 6 minecraft:spruce_trapdoor[half=bottom,open=false]
-fill 981 -59 -4 981 -59 -2 minecraft:stripped_dark_oak_wood
-fill 981 -58 -4 981 -58 -2 minecraft:air
-fill 981 -59 2 981 -59 4 minecraft:stripped_dark_oak_wood
-fill 981 -58 2 981 -58 4 minecraft:air
+fill 968 -59 -4 968 -59 -2 minecraft:stripped_dark_oak_wood
+fill 968 -58 -4 968 -58 -2 minecraft:air
+fill 968 -59 2 968 -59 4 minecraft:stripped_dark_oak_wood
+fill 968 -58 2 968 -58 4 minecraft:air
 fill 963 -59 -9 963 -57 9 minecraft:bookshelf
 setblock 964 -56 -8 minecraft:light[level=15]
 setblock 964 -56 -4 minecraft:light[level=15]
@@ -6284,8 +6284,8 @@ setblock 3538 -56 0 minecraft:light[level=15]
 setblock 3538 -56 4 minecraft:light[level=15]
 setblock 3538 -56 8 minecraft:light[level=15]
 summon minecraft:text_display 1031.5 -56.4 0.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"간호사","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n우클릭 → 포켓몬 회복","color":"gray","bold":false}]}'}
-summon minecraft:text_display 980.5 -56.4 -2.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"점원","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n우클릭 → 상점","color":"gray","bold":false}]}'}
-summon minecraft:text_display 980.5 -56.4 3.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"점원","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n우클릭 → 상점","color":"gray","bold":false}]}'}
+summon minecraft:text_display 966.5 -56.4 -2.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"점원","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n우클릭 → 상점","color":"gray","bold":false}]}'}
+summon minecraft:text_display 966.5 -56.4 3.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"점원","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n우클릭 → 상점","color":"gray","bold":false}]}'}
 summon minecraft:text_display 2000.5 -53.4 12.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"체육관 안내원","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n우클릭 → 도전 신청","color":"gray","bold":false}]}'}
 summon minecraft:text_display -42.5 -56.4 -67.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"노장 트레이너 철수","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n개체값 · 우클릭","color":"gray","bold":false}]}'}
 summon minecraft:text_display -42.5 -56.4 -63.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"연구원 시우","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n노력치 · 우클릭","color":"gray","bold":false}]}'}
