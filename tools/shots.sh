@@ -4,6 +4,7 @@
 #   단계 파일 한 줄씩:  rcon <명령>  |  wait <밀리초>  |  shot <이름>  |  xdo <xdotool 인자> (클릭·키 입력)
 set -uo pipefail
 R=$(cd "$(dirname "$0")/.." && pwd); STEPS=$1; OUT=$2; W=${SHOTS_WORK:-/tmp/pokeserver-shots}
+PW=${PACKWIZ_JARS:-$W/packwiz}   # PROD=1: packwiz-installer-bootstrap.jar(bootstrap.jar)·packwiz-installer.jar 가 있는 곳
 mkdir -p "$OUT" $W/srv/mods $W/srv/config
 S=$W/srv
 # 서버: Fabric + 팩의 서버용 모드 + 우리 모드 + 데이터팩·설정 (새 월드)
@@ -13,6 +14,13 @@ if [ ! -f $S/fabric-server-launch.jar ]; then
   curl -sfL -o $S/installer.jar https://maven.fabricmc.net/net/fabricmc/fabric-installer/$v/fabric-installer-$v.jar
   (cd $S && java -jar installer.jar server -mcversion 1.21.1 -loader 0.20.1 > /dev/null)
 fi
+if [ "${PROD:-}" = 1 ]; then
+  # 실제 배포와 똑같이: GitHub main의 모드팩을 packwiz 설치기로 받음 (start.bat과 같은 명령)
+  PACK=https://raw.githubusercontent.com/leonwater/cobblemon-server/main/pack/pack.toml
+  rm -rf $S/mods $S/config $S/world $S/packwiz.json && mkdir -p $S/mods
+  cp $PW/bootstrap.jar $PW/packwiz-installer.jar $S/
+  (cd $S && java -jar bootstrap.jar -g -s server $PACK > pw.log 2>&1) || { echo "FAIL packwiz server"; tail -5 $S/pw.log; exit 1; }
+else
 for f in $R/pack/mods/*.pw.toml; do
   grep -q '^side = "client"' $f && continue
   n=$(grep '^filename' $f | cut -d'"' -f2); [ -f "$S/mods/$n" ] || curl -sfL -o "$S/mods/$n" "$(grep '^url' $f | cut -d'"' -f2)"
@@ -20,6 +28,7 @@ done
 rm -f $S/mods/pokeserver-*.jar; cp $R/pack/mods/pokeserver-*.jar $S/mods/
 cp -r $R/pack/config/. $S/config/
 rm -rf $S/world && mkdir -p $S/world/datapacks && cp -r $R/pack/world/datapacks/* $S/world/datapacks/
+fi
 echo eula=true > $S/eula.txt
 printf 'online-mode=false\nenable-rcon=true\nrcon.password=test\nrcon.port=25575\nspawn-protection=0\n' > $S/server.properties
 (cd $S && java -Xmx4G -jar fabric-server-launch.jar nogui > run.log 2>&1 &)
@@ -28,6 +37,11 @@ timeout 240 bash -c "until grep -qE 'Done \(|Exception in thread' $S/run.log; do
 Xvfb :99 -screen 0 ${WIN:-1280x720}x24 > /dev/null 2>&1 &
 XV=$!
 sleep 2
+if [ "${PROD:-}" = 1 ]; then
+  G=$W/client/game-prod; rm -rf $G; mkdir -p $G; cp $PW/bootstrap.jar $PW/packwiz-installer.jar $G/
+  (cd $G && java -jar bootstrap.jar -g -s client $PACK > pw.log 2>&1) || { echo "FAIL packwiz client"; tail -5 $G/pw.log; exit 1; }
+  export PROD_GAME=$G
+fi
 DISPLAY=:99 python3 $R/tools/prod_client.py $W/client localhost:25565 > $W/client.log 2>&1 &
 CL=$!
 timeout 300 bash -c "until grep -q 'Dev joined the game' $S/run.log; do sleep 2; done" || { echo "FAIL client join"; tail -5 $W/client.log; kill $CL $XV; exit 1; }
