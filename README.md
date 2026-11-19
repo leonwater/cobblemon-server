@@ -135,7 +135,7 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
 | 바꿀 것 | 방법 |
 |---|---|
 | 섬 둘레 지형 (절벽·아치·기둥·언덕) | `tools/terrain.py` (높이·블록), 섬 크기는 `tools/build_world.py`의 `*_PLAY` → 실행 → `build` 숫자 +1 |
-| 마을·건물·농장 모양과 위치, 회의장·상점가·체육관 도착 위치 | `tools/build_world.py` 수정 → 실행 → `load.mcfunction`의 `build:10`(농장은 `farm:2`) 숫자 +1 |
+| 마을·건물·농장 모양과 위치, 회의장·상점가·체육관 도착 위치 | `tools/build_world.py` 수정 → 실행 → `load.mcfunction`의 `build:11`(농장은 `farm:2`) 숫자 +1 |
 | 튜토리얼·농장 도착 위치 | `pack/world/datapacks/pokeserver/data/poke/function/config.mcfunction` |
 | 월드 초기화 | `pack/config/pokeserver/reset.json`의 `season` +1 → 다음 서버 시작 때 새 월드 (이전 월드는 서버 폴더의 `world-backup-...`에 보관, 지우지 않음) |
 | 기본 물품 | `.../function/kit.mcfunction`(러닝 슈즈), `.../function/mod/kit.mcfunction`(돈·몬스터볼) |

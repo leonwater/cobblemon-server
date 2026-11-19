@@ -5,8 +5,8 @@ execute as @e[type=cobblemon:npc,tag=poke.tutor] run npcdelete @s
 execute in poke:hub run function poke:mod/spawn_npc {id:"poke:tutorial_guide", x:0, y:65, z:0, tag:"poke.tutor", yaw:0}
 # 간호사(회복), 점원(우클릭 → 상점), 체육관 안내원(우클릭 → 도전 목록; 모드가 태그로 처리)
 execute in poke:town run function poke:mod/spawn_npc {id:"poke:nurse", x:1031, y:-59, z:0, tag:"poke.nurse", yaw:90}
-execute in poke:town run function poke:mod/spawn_npc {id:"poke:merchant", x:966, y:-59, z:-3, tag:"poke.merchant", yaw:-90}
-execute in poke:town run function poke:mod/spawn_npc {id:"poke:merchant", x:966, y:-59, z:3, tag:"poke.merchant", yaw:-90}
+execute in poke:town run function poke:mod/spawn_npc {id:"poke:merchant", x:967, y:-59, z:-3, tag:"poke.merchant", yaw:-90}
+execute in poke:town run function poke:mod/spawn_npc {id:"poke:merchant", x:967, y:-59, z:3, tag:"poke.merchant", yaw:-90}
 execute in poke:town run function poke:mod/spawn_npc {id:"poke:gym_guide", x:2000, y:-56, z:12, tag:"poke.gymguide", yaw:180}
 execute in poke:town run function poke:mod/spawn_npc {id:"poke:tip_iv", x:-43, y:-59, z:-68, tag:"poke.tip_iv", yaw:-90}
 execute in poke:town run function poke:mod/spawn_npc {id:"poke:tip_ev", x:-43, y:-59, z:-64, tag:"poke.tip_ev", yaw:-90}

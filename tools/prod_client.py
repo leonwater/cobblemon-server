@@ -50,8 +50,10 @@ def main(work, server, user='Dev'):
     for lib in fabric['libraries']:
         cp.append(get(lib['url'].rstrip('/') + '/' + maven_path(lib['name']), libs / maven_path(lib['name'])))
     game = work / ('game' if user == 'Dev' else 'game-' + user)   # 두 번째 플레이어(교환 시험 등)는 따로
+    if os.environ.get('PROD_GAME'):   # 실제 배포 검증: packwiz로 설치된 폴더를 그대로 씀 (모드를 고쳐 넣지 않음)
+        game = Path(os.environ['PROD_GAME'])
     (game / 'mods').mkdir(parents=True, exist_ok=True)
-    for f in (ROOT / 'pack/mods').glob('*.pw.toml'):
+    for f in ([] if os.environ.get('PROD_GAME') else (ROOT / 'pack/mods').glob('*.pw.toml')):
         t = f.read_text()
         if 'side = "server"' in t:
             continue
@@ -65,9 +67,9 @@ def main(work, server, user='Dev'):
     (game / 'config').mkdir(exist_ok=True)
     iris = (ROOT / 'pack/config/iris.properties').read_text()
     (game / 'config/iris.properties').write_text(iris if os.environ.get('SHADERS') == '1' else iris.replace('enableShaders=true', 'enableShaders=false'))
-    for j in (game / 'mods').glob('pokeserver-*.jar'):
+    for j in ([] if os.environ.get('PROD_GAME') else (game / 'mods').glob('pokeserver-*.jar')):
         j.unlink()
-    for j in (ROOT / 'pack/mods').glob('pokeserver-*.jar'):
+    for j in ([] if os.environ.get('PROD_GAME') else (ROOT / 'pack/mods').glob('pokeserver-*.jar')):
         (game / 'mods' / j.name).write_bytes(j.read_bytes())
     (game / 'options.txt').write_text('onboardAccessibility:false\nguiScale:' + os.environ.get('GUI_SCALE', '2') + '\nlang:ko_kr\nsoundCategory_master:0.0\n'
                                       'tutorialStep:none\njoinedFirstServer:true\nskipMultiplayerWarning:true\n')

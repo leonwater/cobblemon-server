@@ -37,8 +37,8 @@ E4 = (3500, 3540, -46, 12)           # 사천왕 본부 (닫힌 방 4개 + 명�
 WARPS = {'hall': (0.5, G + 2, PLAZA_C[1] + 0.5, 0), 'street': (1000.5, G + 1, 30.5, 180), 'gym': (2000.5, LOBBY_Y + 1, -11.5, 0)}
 NPCS = [  # (NPC 종류, 차원, x, y, z, 태그, yaw, 이름표)
     ('poke:nurse', 'poke:town', CENTER[1] - 3, G + 1, 0, 'poke.nurse', 90, ('간호사', '우클릭 → 포켓몬 회복')),
-    ('poke:merchant', 'poke:town', MART[0] + 4, G + 1, -3, 'poke.merchant', -90, ('점원', '우클릭 → 상점')),   # 숍 안쪽(뒤편) 계산대
-    ('poke:merchant', 'poke:town', MART[0] + 4, G + 1, 3, 'poke.merchant', -90, ('점원', '우클릭 → 상점')),
+    ('poke:merchant', 'poke:town', MART[0] + 5, G + 1, -3, 'poke.merchant', -90, ('점원', '우클릭 → 상점')),   # 숍 안쪽(뒤편) 계산대
+    ('poke:merchant', 'poke:town', MART[0] + 5, G + 1, 3, 'poke.merchant', -90, ('점원', '우클릭 → 상점')),
     ('poke:gym_guide', 'poke:town', 2000, LOBBY_Y + 1, 12, 'poke.gymguide', 180, ('체육관 안내원', '우클릭 → 도전 신청')),
 ]
 
@@ -979,7 +979,7 @@ if __name__ == '__main__':
         '# 자동 생성: tools/build_world.py',
         'execute in poke:hub run function poke:build/tutorial', 'execute in poke:town run function poke:build/town',
         'execute in poke:town run function poke:mod/build_town', 'execute in poke:hub run function poke:mod/spawn_npcs',
-        'execute in poke:town run forceload remove all', 'data modify storage poke:state build set value 10',
+        'execute in poke:town run forceload remove all', 'data modify storage poke:state build set value 11',
         '# 관장·사천왕은 플레이어가 접속하면 소환 (RCT 명령이 플레이어를 요구)', 'data modify storage poke:state leaders set value 0',
         'say [pokeserver] 튜토리얼 방·마을(스폰 광장·상점가·체육관)과 지형을 지었습니다.']
     for path, lines in out.items():

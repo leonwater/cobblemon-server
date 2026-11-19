@@ -193,7 +193,7 @@ hash = "9b4aac41b2ea63cf4c4e7227512823670b65ad3e04fd3f7ffa4ee94715827d10"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/finish.mcfunction"
-hash = "e2039bbf290923ca9508624c99a5f291ccc390d3bd1f47916b043199b8c54a8f"
+hash = "c8f7fbbd911f332f0f5bcafe3b50a5c13e09dbe68b12dc050436eeba4361c6a4"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/run.mcfunction"
@@ -229,7 +229,7 @@ hash = "5922f334d61bad7b03c5bdc9f06f71658af498cc00870f6ba8e475372fc0fed7"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/town.mcfunction"
-hash = "92373c25893158661bfcfee9b8d748ca4203a72fa87d04bdf5bc14eb73328985"
+hash = "39b9303f2e40ea7c6dfb6a78d2d4dca531b6f5426473cab244562bf74e391274"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/tutorial.mcfunction"
@@ -401,7 +401,7 @@ hash = "00eaf422f3aab81529b4b331f7c9d785ec5b468b7df85f18da141eb09474a7e5"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/load.mcfunction"
-hash = "6d0331420486b1edbaac834dc8f6ce4f513c31ada8fe4d96e3cf0743ec0f5282"
+hash = "014bbdded54f030ddc056c00ee446b88d25df0a4333c44f5d2d41aa25789489f"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/build_town.mcfunction"
@@ -457,7 +457,7 @@ hash = "a9b407dc5e1e3753b13e5364db040f17c0e3defaaaf3369c54aa7c39fe5715e1"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/spawn_npcs.mcfunction"
-hash = "2d0261242f5391e60e19b563bc2e37ea1598dfa5d22aede5fefbbdf8847f0848"
+hash = "365b7215de893019ad008d076b3583dd4da701d514f864f3020891d1d15908ce"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/tick.mcfunction"
