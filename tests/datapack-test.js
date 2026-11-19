@@ -134,6 +134,10 @@ const join = name => new Promise((res, rej) => {
   await cmd('execute in poke:town run tp B 3015.5 -59 -16.5'); await sleep(500)
   assert.doesNotMatch(await g('B'), /has /, '나가기 발판 → 잠금 해제')
   await at('B', 'poke:town', 2000, -12, '나가기 발판 → 체육관 로비')
+  // G 메뉴로 농장·야생에 가도 잠금 해제 (안 풀면 다른 사람이 체육관에 못 들어감)
+  await cmd('execute as B run function poke:gym/try/1')
+  await cmd('execute as B run function poke:warp/go {key:"farm"}'); await sleep(300)
+  assert.doesNotMatch(await g('B'), /has /, '농장 워프 → 잠금 해제')
   // 로그아웃하면 잠금 해제
   await cmd('execute as A run function poke:gym/try/2')
   assert.match(await g('A'), /has 2 /, '배지1 → 2번 체육관 입장')

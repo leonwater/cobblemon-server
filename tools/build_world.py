@@ -859,7 +859,7 @@ def clear_box(x1, x2, z1, z2, y1, y2):
 
 
 def terrain_parts():
-    """지형 명령을 여러 틱에 나눠 실행할 조각들 (한 조각 최대 12000개)."""
+    """지형 명령을 여러 틱에 나눠 실행할 조각들 (한 조각 최대 3000개: 한 틱이 1초를 넘지 않게)."""
     cmds = []
     for I in islands():
         x1, x2, z1, z2 = I.outer
@@ -868,7 +868,7 @@ def terrain_parts():
         cmds += I.biomes() + I.commands()
     a1, a2, c1, c2 = ARENA_REGION
     cmds += ['# ── 경기장 자리 비우기 ──'] + clear_box(a1, a2, c1, c2, G - 2, G + 16)
-    return [cmds[i:i + 12000] for i in range(0, len(cmds), 12000)]
+    return [cmds[i:i + 3000] for i in range(0, len(cmds), 3000)]
 
 
 def bounds(farm_box):
@@ -973,6 +973,9 @@ if __name__ == '__main__':
         out[f'build/terrain/{k}.mcfunction'] = ['# 자동 생성: tools/terrain.py (판타지 지형)'] + part
         nxt = f'poke:build/terrain/run_{k + 1}' if k + 1 < len(parts) else 'poke:build/finish'
         out[f'build/terrain/run_{k}.mcfunction'] = [f'execute in poke:town run function poke:build/terrain/{k}', f'schedule function {nxt} 2t']
+    # 짓는 도중 서버가 꺼지면 남은 예약이 저장됨 → 새로 짓기 전에 지워 두 번 짓지 않게
+    out['build/start.mcfunction'][1:1] = ['schedule clear poke:build/run', 'schedule clear poke:build/finish'] + [
+        f'schedule clear poke:build/terrain/run_{k}' for k in range(len(parts))]
     out['build/run.mcfunction'] = ['# 자동 생성: tools/build_world.py. 지형을 여러 틱에 나눠 지은 뒤 build/finish',
                                    'function poke:build/terrain/run_0']
     out['build/finish.mcfunction'] = [
