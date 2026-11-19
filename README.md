@@ -2,6 +2,8 @@
 
 Minecraft 1.21.1 · Fabric 0.20.1 · Cobblemon 1.8.4
 
+문서: [작업 규칙](docs/작업규칙.md) · [서버 안내](docs/서버안내.md) · [UI 정리](docs/UI정리.md)
+
 ## 폴더 구조
 
 | 폴더 | 내용 |
