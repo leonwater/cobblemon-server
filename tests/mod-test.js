@@ -195,6 +195,12 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   B.chat('/텔포 예'); await sleep(800)
   assert.match(await cmd('data get entity B Pos[0]'), /10\.5d/, '2. 취소된 요청은 수락해도 이동 안 함')
   console.log('> 새 2. 텔레포트 동의·10초 취소')
+  // 7. /초기화는 OP만: 일반 사용자에겐 명령어가 없음 → 돈이 그대로
+  const aMsgs = []; A.on('message', m => aMsgs.push(m.toString()))
+  const balA = await bal('A'); A.chat('/초기화 확인'); await sleep(800)
+  assert.equal(await bal('A'), balA, '7. 일반 사용자는 /초기화 불가')
+  assert.ok(aMsgs.some(m => /Unknown|unknown|알 수 없/.test(m)), '7. 알 수 없는 명령어 안내')
+  console.log('> 7. 초기화는 OP만')
 
   console.log('ALL PASS'); A.quit(); B.quit(); await rc.end(); process.exit(0)
 })().catch(e => { console.error('FAIL', e.message); process.exit(1) })
