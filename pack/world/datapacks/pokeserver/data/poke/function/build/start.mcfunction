@@ -1,4 +1,16 @@
 # 자동 생성: tools/build_world.py
+schedule clear poke:build/run
+schedule clear poke:build/finish
+schedule clear poke:build/terrain/run_0
+schedule clear poke:build/terrain/run_1
+schedule clear poke:build/terrain/run_2
+schedule clear poke:build/terrain/run_3
+schedule clear poke:build/terrain/run_4
+schedule clear poke:build/terrain/run_5
+schedule clear poke:build/terrain/run_6
+schedule clear poke:build/terrain/run_7
+schedule clear poke:build/terrain/run_8
+schedule clear poke:build/terrain/run_9
 execute in poke:hub run forceload add -16 -16 16 16
 execute in poke:town run forceload add -106 -162 106 74
 execute in poke:town run forceload add 904 -98 1096 98
