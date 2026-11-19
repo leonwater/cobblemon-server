@@ -31,7 +31,7 @@ hash = "a344cbc4e4e69b4c507e5e616dd95d9414263eb1958c79d4d9c12629c63ef8fe"
 
 [[files]]
 file = "config/pokeserver/shop.json"
-hash = "b920c6a7d37c5355864ecac263c008803a3f5d9cf396f5206f55d58a8df56832"
+hash = "6863890e9476c2942e36c99d2e18b5861d72e7b724af106f706a7e9bffed5009"
 
 [[files]]
 file = "config/rctmod-server.toml"
