@@ -54,7 +54,7 @@ public class TitleScreen extends Screen {
         g.fill(x + 12, y + 12, x + 15, y + 26, Theme.ACCENT);
         g.drawString(font, Theme.t("별명"), x + 20, y + 15, Theme.TEXT, false);
         int sx = x + 20 + font.width(Theme.t("별명")) + 10;
-        g.drawString(font, Theme.t(Theme.fit(font, "누르면 이름 앞에 보여요 · 마우스를 올리면 얻는 조건", x + w - 12 - sx)), sx, y + 15, Theme.SUBTEXT, false);
+        g.drawString(font, Theme.t(Theme.fit(font, "눌러서 고르기 · 마우스를 올리면 얻는 조건", x + w - 12 - sx)), sx, y + 15, Theme.SUBTEXT, false);
         int over = -1;
         for (int i = 0; i < rows.size(); i++) {
             card(g, i, mx, my);
