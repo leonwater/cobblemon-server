@@ -24,15 +24,15 @@ public class MenuScreen extends Screen {
                     new Tile("도감", "cobblemon:pokedex_red", "client:dex"))),
             new Cat("간편 메뉴", "minecraft:book", List.of(
                     new Tile("튜토리얼", "minecraft:book", "tutorial"),
-                    new Tile("기본 명령어", "minecraft:paper", "help"),
-                    new Tile("휴지통", "minecraft:cauldron", "trash"))),
+                    new Tile("기본 명령어", "minecraft:oak_sign", "help"),
+                    new Tile("휴지통", "minecraft:lava_bucket", "trash"))),
             new Cat("워프", "minecraft:ender_pearl", List.of(
                     new Tile("광장", "minecraft:beacon", "warp:hall"),
                     new Tile("야생", "minecraft:grass_block", "warp:wild"),
                     new Tile("농장", "minecraft:wheat", "warp:farm"),
                     new Tile("체육관", "minecraft:red_banner", "warp:gym"))));
     /** 왼쪽 아래 작은 버튼 (참고 사진). */
-    static final List<Tile> SMALL = List.of(new Tile("명령어", "minecraft:paper", "help"), new Tile("휴지통", "minecraft:cauldron", "trash"));
+    static final List<Tile> SMALL = List.of(new Tile("명령어", "minecraft:oak_sign", "help"), new Tile("휴지통", "minecraft:lava_bucket", "trash"));
     static int cat;                       // 마지막으로 고른 분류 (다시 열어도 유지)
 
     private final long balance;
@@ -63,14 +63,14 @@ public class MenuScreen extends Screen {
     private int catY(int i) { return 52 + i * 38; }
     private int cx() { return side() + 22; }                                 // 오른쪽 내용 시작
     private int cw() { return Math.min(width - cx() - 22, 460); }
-    static final int TILE = 64, GAP = 8;
+    static final int TILE = 78, GAP = 8, SW = 58;   // SW: 왼쪽 아래 작은 버튼 폭
     private int perRow() { return Math.max(1, (cw() + GAP) / (TILE + GAP)); }
     private List<Tile> tiles() { return CATS.get(cat).tiles(); }
     private int tileX(int i) { return cx() + (i % perRow()) * (TILE + GAP); }
     private int tileY(int i) { return 26 + (i / perRow()) * (TILE + GAP); }
-    private int cardY() { return 26 + 2 * (TILE + GAP) + 4; }                // 칸은 두 줄 자리를 비워 둠 (분류를 바꿔도 카드가 안 움직이게)
+    private int cardY() { return 26 + TILE + 14; }                           // 분류마다 칸은 한 줄 (가장 많은 워프 4칸)
     private int noticeY() { return cardY() + 84; }
-    private int smallX(int i) { return 18 + i * 54; }
+    private int smallX(int i) { return 18 + i * 66; }
     private int smallY() { return height - 64; }
 
     private void text(GuiGraphics g, String s, int x, int y, int color) { g.drawString(font, Theme.t(s), x, y, color, false); }
@@ -125,11 +125,11 @@ public class MenuScreen extends Screen {
     /** 왼쪽 아래 작은 버튼: 위에 이름, 아래 아이콘 (참고 사진). */
     private void small(GuiGraphics g, int i, int mx, int my) {
         int x = smallX(i), y = smallY();
-        boolean hov = mx >= x && mx < x + 46 && my >= y && my < y + 46;
+        boolean hov = mx >= x && mx < x + SW && my >= y && my < y + 46;
         float h = anim.to("s" + i, hov);
-        Theme.panel(g, x, y, x + 46, y + 46, Theme.mix(0xC0181B22, 0xF0343A47, h), Theme.mix(0xFF2A303C, Theme.ACCENT, h));
-        center(g, SMALL.get(i).label(), x + 23, y + 7, Theme.mix(Theme.SUBTEXT, Theme.TEXT, h));
-        g.renderItem(Shop.stack(SMALL.get(i).icon()), x + 15, y + 22);
+        Theme.panel(g, x, y, x + SW, y + 46, Theme.mix(0xC0181B22, 0xF0343A47, h), Theme.mix(0xFF2A303C, Theme.ACCENT, h));
+        center(g, SMALL.get(i).label(), x + SW / 2, y + 7, Theme.mix(Theme.SUBTEXT, Theme.TEXT, h));
+        g.renderItem(Shop.stack(SMALL.get(i).icon()), x + SW / 2 - 8, y + 22);
     }
 
     private void tile(GuiGraphics g, int i, int mx, int my) {
@@ -191,7 +191,7 @@ public class MenuScreen extends Screen {
             if (mx >= 16 && mx < side() - 16 && my >= catY(i) && my < catY(i) + 30) { cat = i; return true; }
         }
         for (int i = 0; i < SMALL.size(); i++) {
-            if (mx >= smallX(i) && mx < smallX(i) + 46 && my >= smallY() && my < smallY() + 46) { act(SMALL.get(i).action()); return true; }
+            if (mx >= smallX(i) && mx < smallX(i) + SW && my >= smallY() && my < smallY() + 46) { act(SMALL.get(i).action()); return true; }
         }
         for (int i = 0; i < tiles().size(); i++) {
             int x = tileX(i), y = tileY(i);
