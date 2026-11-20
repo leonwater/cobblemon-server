@@ -54,7 +54,10 @@ public class TutorialScreen extends Screen {
     private int px() { return (vw() - pw()) / 2; }
     private int py() { return (vh() - ph()) / 2; }
     private int btnY() { return py() + ph() - 26; }
-    private List<String> lines() { return Theme.wrap(font, PAGES.get(page).text(), pw() - 28, MAX_LINES); }
+    private List<String> lines() {
+        String t = nickPage() && locked ? "닉네임은 이미 정했네. §e준비 완료!§r를 누르면 바로 광장으로 간다네." : PAGES.get(page).text();
+        return Theme.wrap(font, t, pw() - 28, MAX_LINES);
+    }
     private int imgH() {
         int textTop = btnY() - 6 - MAX_LINES * LINE;
         return Math.min((pw() - 24) * 9 / 16, textTop - 6 - (py() + 28));
