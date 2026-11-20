@@ -91,6 +91,14 @@ public class PokeServer implements ModInitializer {
                         + "정말 하려면  /" + n[0] + " " + n[1] + "  을 입력하세요.").withStyle(ChatFormatting.RED), false);
                 return 0;
             }).then(Commands.literal(n[1]).executes(c -> { Menu.wipe(c.getSource().getPlayerOrException()); return 1; })));
+            // 1. /공지 /announce 내용: 운영자(OP)만, 서버 전체 채팅에 공지
+            for (String name : new String[]{"announce", "공지"}) dispatcher.register(Commands.literal(name).requires(s -> s.hasPermission(2))
+                    .then(Commands.argument("message", com.mojang.brigadier.arguments.StringArgumentType.greedyString()).executes(c -> {
+                        String msg = com.mojang.brigadier.arguments.StringArgumentType.getString(c, "message");
+                        c.getSource().getServer().getPlayerList().broadcastSystemMessage(Component.literal("[공지] ").withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD)
+                                .append(Component.literal(msg).withStyle(ChatFormatting.YELLOW)), false);
+                        return 1;
+                    })));
             // /송금 닉네임 금액 (닉네임은 한글도 되게 한 덩어리로 받아 마지막 칸을 금액으로)
             for (String name : new String[]{"pay", "송금"}) dispatcher.register(Commands.literal(name)
                     .then(Commands.argument("args", com.mojang.brigadier.arguments.StringArgumentType.greedyString()).suggests(Nicknames::suggest).executes(PokeServer::pay)));

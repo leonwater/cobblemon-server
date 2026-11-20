@@ -53,7 +53,7 @@ final class Menu {
                     Component.literal("휴지통 (닫으면 사라짐)")));
             case "pc" -> run(p, "pc");
             case "tutorial" -> run(p, "function poke:admin/reset_me");
-            // 튜토리얼 설명 창의 "준비 완료!" (튜토리얼 방에서만) → 보상 + 스타팅 포켓몬 고르기. 광장엔 뒤의 철문으로 나가서 감
+            // 튜토리얼 설명 창의 "준비 완료!" (튜토리얼 방에서만) → 보상 → 바로 광장 → 스타팅 포켓몬 고르기
             case "tutorial_done" -> {
                 if (!p.level().dimension().location().toString().equals("poke:hub")) return;
                 if (!ServerData.get(p.server).nicks.containsKey(p.getUUID())) { ServerPlayNetworking.send(p, Net.TutorialOpen.of(p)); return; }
@@ -62,15 +62,15 @@ final class Menu {
                 if (FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.STARTER_AT.put(p.getUUID(), p.server.getTickCount() + 40);
             }
             case "starter" -> { if (FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.offerStarter(p); }
-            case "warp:hall", "warp:gym", "warp:farm", "warp:wild" -> {
+            case "warp:hall", "warp:gym", "warp:farm" -> {
                 // 튜토리얼을 건너뛰지 못하게
                 if (!p.getTags().contains("poke.tutorial_done")) {
                     p.displayClientMessage(Component.literal("튜토리얼을 먼저 끝내 주세요.").withStyle(ChatFormatting.RED), true);
                     return;
                 }
                 String key = a.substring(5);
-                // 광장·체육관은 항상 같은 자리, 농장·야생은 마지막 위치
-                run(p, (key.equals("farm") || key.equals("wild") ? "function poke:warp/go {key:\"" : "function poke:warp/fixed {key:\"") + key + "\"}");
+                // 광장·체육관은 항상 같은 자리, 농장은 마지막 위치
+                run(p, (key.equals("farm") ? "function poke:warp/go {key:\"" : "function poke:warp/fixed {key:\"") + key + "\"}");
             }
             default -> { }
         }

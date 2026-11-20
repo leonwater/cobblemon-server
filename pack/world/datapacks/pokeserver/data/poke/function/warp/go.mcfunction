@@ -1,4 +1,4 @@
-# 8. 농장·야생: 마지막 위치로, 처음이면 기본 위치로.  function poke:warp/go {key:"farm"} / {key:"wild"}
+# 농장: 마지막 위치로, 처음이면 기본 위치로.  function poke:warp/go {key:"farm"}
 function poke:warp/save_here
 # 체육관 도전 중 떠나면 잠금 해제 (warp/fixed와 같게)
 function poke:gym/release

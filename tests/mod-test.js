@@ -14,7 +14,7 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   const rc = await Rcon.connect({ host: 'localhost', port: 25577, password: 'test', timeout: 60000 })
   const cmd = async c => { const r = await rc.send(c); console.log('>', c, '→', r.slice(0, 200)); return r }
   // 농장·마을 짓기가 끝날 때까지 (짓는 동안엔 서버가 바빠 응답이 늦음)
-  for (let i = 0; i < 240 && !/build: 15.*farm: 3|farm: 3.*build: 15/.test(await cmd('data get storage poke:state')); i++) await sleep(500)
+  for (let i = 0; i < 240 && !/build: 16.*farm: 3|farm: 3.*build: 16/.test(await cmd('data get storage poke:state')); i++) await sleep(500)
 
   const A = await join('A'), B = await join('B'); await sleep(1000)
   const popups = []

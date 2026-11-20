@@ -9,7 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import org.lwjgl.glfw.GLFW;
 
-/** 3. 오박사의 튜토리얼: 쪽마다 실제 게임 화면(textures/gui/tutorial/*.png, 640×360) + 설명. 마지막 쪽 닉네임 + "준비 완료!" → 스타팅 포켓몬, 뒤의 철문 → 광장. */
+/** 3. 오박사의 튜토리얼: 쪽마다 실제 게임 화면(textures/gui/tutorial/*.png, 640×360) + 설명. 마지막 쪽 닉네임 + "준비 완료!" → 바로 광장 → 스타팅 포켓몬. */
 public class TutorialScreen extends Screen {
     record Page(String img, String title, String text) {}
 

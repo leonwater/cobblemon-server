@@ -31,7 +31,7 @@ public class TitleScreen extends Screen {
         height = Math.round(height / k);
     }
 
-    static final int COLS = 3, CW = 168, CH = 22, GAP = 6;
+    static final int COLS = 3, CW = 132, CH = 22, GAP = 6;
     private int px() { return (width - (COLS * CW + (COLS - 1) * GAP + 24)) / 2; }
     private int py() { return (height - (40 + ((rows.size() + COLS - 1) / COLS) * (CH + GAP) + 12)) / 2; }
     private int cx(int i) { return px() + 12 + (i % COLS) * (CW + GAP); }
@@ -53,7 +53,8 @@ public class TitleScreen extends Screen {
         Theme.panel(g, x, y, x + w, y + h, Theme.PANEL, Theme.BORDER);
         g.fill(x + 12, y + 12, x + 15, y + 26, Theme.ACCENT);
         g.drawString(font, Theme.t("별명"), x + 20, y + 15, Theme.TEXT, false);
-        g.drawString(font, Theme.t("얻은 별명을 누르면 이름 앞에 보여요 · 마우스를 올리면 얻는 조건"), x + 20 + font.width(Theme.t("별명")) + 10, y + 15, Theme.SUBTEXT, false);
+        int sx = x + 20 + font.width(Theme.t("별명")) + 10;
+        g.drawString(font, Theme.t(Theme.fit(font, "누르면 이름 앞에 보여요 · 마우스를 올리면 얻는 조건", x + w - 12 - sx)), sx, y + 15, Theme.SUBTEXT, false);
         int over = -1;
         for (int i = 0; i < rows.size(); i++) {
             card(g, i, mx, my);
@@ -80,13 +81,17 @@ public class TitleScreen extends Screen {
         int x = cx(i), y = cy(i);
         boolean hov = r.has() && mx >= x && mx < x + CW && my >= y && my < y + CH;
         float h = anim.to(i, hov);
-        int fill = r.on() ? Theme.SELECT : r.has() ? Theme.mix(Theme.TILE, Theme.TILE_HOVER, h) : 0xA0181B22;
-        Theme.panel(g, x, y, x + CW, y + CH, fill, r.on() ? Theme.ACCENT : Theme.mix(0xFF2A303C, Theme.BORDER, h));
-        String tag = r.on() ? "사용 중" : r.has() ? "" : "잠김";
-        int tagW = tag.isEmpty() ? 0 : font.width(Theme.t(tag)) + 6;
-        g.drawString(font, Theme.t(Theme.fit(font, r.name(), CW - 14 - tagW)), x + 7, y + 7, r.has() ? Theme.TEXT : 0xFF6A7080, false);
-        if (!tag.isEmpty()) g.drawString(font, Theme.t(tag), x + CW - tagW - 1, y + 7, r.on() ? Theme.GOLD : 0xFF6A7080, false);
-        if (!r.has()) g.fill(x + 1, y + 1, x + CW - 1, y + CH - 1, 0x40101319);
+        if (r.has()) {   // 가진 별명: 밝은 칸 + 별명 색
+            Theme.panel(g, x, y, x + CW, y + CH, r.on() ? Theme.SELECT : Theme.mix(0xE02A303B, 0xF03A4252, h), r.on() ? Theme.ACCENT : Theme.mix(0xFF4A5366, Theme.ACCENT, h));
+            String tag = r.on() ? "사용 중" : "";
+            int tagW = tag.isEmpty() ? 0 : font.width(Theme.t(tag)) + 6;
+            g.drawString(font, Theme.t(Theme.fit(font, r.name(), CW - 12 - tagW)), x + 6, y + 7, Theme.TEXT, false);
+            if (!tag.isEmpty()) g.drawString(font, Theme.t(tag), x + CW - tagW - 1, y + 7, Theme.GOLD, false);
+        } else {         // 없는 별명: 어두운 칸 + 회색 글자 (색 없이)
+            Theme.panel(g, x, y, x + CW, y + CH, 0x80101319, 0xFF23272F);
+            String plain = net.minecraft.ChatFormatting.stripFormatting(r.name());
+            g.drawString(font, Theme.t(Theme.fit(font, plain, CW - 12)), x + 6, y + 7, 0xFF5A5F69, false);
+        }
     }
 
     @Override

@@ -20,10 +20,10 @@ const join = name => new Promise((res, rej) => {
     assert.equal(await dim(p), d, msg); assert.equal(await pos(p, 0), x, msg); assert.equal(await pos(p, 2), z, msg)
   }
   const waitFor = async (c, re, n = 30) => { for (let i = 0; i < n && !re.test(await cmd(c)); i++) await sleep(500) }
-  const warp = async (p, key) => cmd(`execute as ${p} run function poke:warp/${['farm', 'wild'].includes(key) ? 'go' : 'fixed'} {key:"${key}"}`)
+  const warp = async (p, key) => cmd(`execute as ${p} run function poke:warp/${key === 'farm' ? 'go' : 'fixed'} {key:"${key}"}`)
 
   // 건물이 지어질 때까지 (load 후 60틱)
-  await waitFor('data get storage poke:state', /build: 15.*farm: 3|farm: 3.*build: 15/, 240)  // 지형은 여러 틱에 나눠 지음
+  await waitFor('data get storage poke:state', /build: 16.*farm: 3|farm: 3.*build: 16/, 240)  // 지형은 여러 틱에 나눠 지음
   await ok('execute in poke:hub if block 0 64 3 minecraft:smooth_quartz', '튜토리얼 방 바닥')
   for (const fl of ['-40 -80 140 30', '960 -32 1040 32', '1960 -36 2040 36', '3000 -18 3380 18', '3500 -46 3540 12'])
     await cmd(`execute in poke:town run forceload add ${fl}`)
@@ -58,8 +58,7 @@ const join = name => new Promise((res, rej) => {
   await ok('execute in minecraft:overworld if entity @e[type=villager]', '주민은 유지')
 
   // 튜토리얼 → 회의장, 보상은 처음 한 번만
-  await cmd('execute in poke:hub run tp A 0.5 65 8.5'); await sleep(500)
-  await at('A', 'poke:hub', 0, 3, '10. 튜토리얼 전엔 철문 밖으로 못 나감')
+  await ok('execute in poke:hub unless block 0 65 7 minecraft:iron_door', '연구소 철문 없음 (튜토리얼 끝나면 바로 광장)')
   await cmd('execute as A run function poke:tutorial/finish'); await sleep(500)
   assert.match(await cmd('clear A minecraft:leather_boots 0'), /Found 1 /, '첫 완료: 러닝 슈즈')
   await at('A', 'poke:town', 2000, -12, '2. 완료하면 바로 광장으로 (모드 없으면 체육관 로비)')
@@ -74,7 +73,7 @@ const join = name => new Promise((res, rej) => {
   // 예전 마을(허공)에 남아 있던 플레이어 → 회의장으로 옮김
   await cmd('execute in poke:hub run tp A 0.5 65 200.5'); await sleep(500)
   await at('A', 'poke:town', 2000, -12, '허공 공간의 기존 플레이어 → 회의장')
-  // 8. 워프: 광장·체육관은 고정, 농장·야생은 마지막 위치 (모드가 없으니 광장 = 체육관 로비)
+  // 8. 워프: 광장·체육관은 고정, 농장은 마지막 위치 (모드가 없으니 광장 = 체육관 로비)
   await warp('A', 'gym'); await sleep(300)
   await at('A', 'poke:town', 2000, -12, '체육관 로비')
   await warp('A', 'farm'); await sleep(500)
@@ -90,18 +89,7 @@ const join = name => new Promise((res, rej) => {
   await warp('A', 'farm'); await sleep(500)
   await at('A', 'poke:farm', 20, 50, '발판으로 나와도 마지막 위치 유지')
 
-  // 4·추가 1. 야생 첫 스폰: 모두 같은 자리, 꽃 숲(포켓몬 평균 레벨 최저) 칸
-  await warp('A', 'wild'); await waitFor('data get entity A Dimension', /poke:wild/)
-  const wx = await pos('A', 0), wz = await pos('A', 2)
-  await ok(`execute in poke:wild if biome ${wx} 70 ${wz} minecraft:flower_forest`, '스폰 지점 바이옴 = 꽃 숲')
-  await cmd('execute as B run function poke:tutorial/finish')
-  await warp('B', 'wild'); await waitFor('data get entity B Dimension', /poke:wild/)
-  assert.equal(await pos('B', 0), wx, 'B도 같은 야생 스폰'); assert.equal(await pos('B', 2), wz)
-  await cmd(`execute in poke:wild run tp A ${wx + 10} ~ ${wz}`); await sleep(2500)
-  const lx = await pos('A', 0)
-  await cmd('execute as A run trigger home'); await sleep(500)
-  await warp('A', 'wild'); await waitFor('data get entity A Dimension', /poke:wild/)
-  assert.equal(await pos('A', 0), lx, '야생 두 번째부터는 마지막 위치')
+  await cmd('execute as B run function poke:tutorial/finish')   // 야생 첫 스폰(광장)은 모드 테스트에서 확인
 
   // ── 리그: 배지 체육관 8 + 사천왕 (승패는 모드가 gym/win·gym/lose 를 호출 → 여기선 직접 호출) ──
   await cmd('execute as A run trigger home'); await cmd('execute as B run trigger home'); await sleep(500)
