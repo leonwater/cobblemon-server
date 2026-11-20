@@ -15,6 +15,7 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   const cmd = async c => { const r = await rc.send(c); console.log('>', c, '→', r.slice(0, 200)); return r }
   // 농장·마을 짓기가 끝날 때까지 (짓는 동안엔 서버가 바빠 응답이 늦음)
   for (let i = 0; i < 240 && !/build: 16.*farm: 3|farm: 3.*build: 16/.test(await cmd('data get storage poke:state')); i++) await sleep(500)
+  assert.match(await cmd('data get storage poke:state'), /build: 16/, '건물 번호가 load와 같아야 함 (기다리다 시간만 버리지 않게 바로 실패)')
 
   const A = await join('A'), B = await join('B'); await sleep(1000)
   const popups = []
@@ -209,6 +210,7 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
 
   // 15. 광장 마을: 모드가 자리·지형을 정하고 지음, 둘레 72칸은 수정 금지
   for (let i = 0; i < 120 && !/built: 2/.test(await cmd('data get storage poke:state plaza')); i++) await sleep(1000)
+  assert.match(await cmd('data get storage poke:state plaza'), /built: 2/, '광장 짓기 끝')
   const pz = (await cmd('data get storage poke:state plaza')).match(/x: (-?\d+), y: (-?\d+), z: (-?\d+)/)
   assert.ok(pz, '15. 광장 자리 저장'); const [px, py, pzz] = pz.slice(1).map(Number)
   await cmd(`execute in poke:wild run forceload add ${px} ${pzz}`); await sleep(1500)
