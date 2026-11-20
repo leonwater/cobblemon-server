@@ -488,11 +488,6 @@
           "sell": 2
         },
         {
-          "item": "minecraft:water_bucket",
-          "buy": 100,
-          "sell": 0
-        },
-        {
           "item": "minecraft:iron_hoe",
           "buy": 200,
           "sell": 0

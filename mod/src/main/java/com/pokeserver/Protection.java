@@ -36,6 +36,13 @@ final class Protection {
     }
 
     static void register() {
+        // 9. 블록을 못 고치는 곳(광장·마을·연구소·남의 농장 땅)에선 플레이어끼리 때릴 수 없음 (화살 등 포함)
+        net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents.ALLOW_DAMAGE.register((victim, source, amount) -> {
+            if (!(victim instanceof Player) || !(source.getEntity() instanceof Player attacker) || attacker == victim) return true;
+            if (Farms.canEdit(attacker, victim.level(), victim.blockPosition())) return true;
+            attacker.displayClientMessage(Component.literal("여기서는 다른 플레이어를 공격할 수 없어요.").withStyle(ChatFormatting.RED), true);
+            return false;
+        });
         PlayerBlockBreakEvents.BEFORE.register((level, player, pos, state, be) -> {
             if (Farms.canEdit(player, level, pos)) return true;
             deny(player, level, pos);

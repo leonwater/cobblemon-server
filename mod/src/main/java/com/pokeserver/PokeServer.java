@@ -33,7 +33,12 @@ public class PokeServer implements ModInitializer {
         PayloadTypeRegistry.playS2C().register(Net.Names.TYPE, Net.Names.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.TitlesOpen.TYPE, Net.TitlesOpen.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.Hud.TYPE, Net.Hud.CODEC);
-        net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents.JOIN.register((h, s, server) -> Nicknames.join());
+        net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents.JOIN.register((h, s, server) -> {
+            Nicknames.join();
+            var d = ServerData.get(server);
+            if (!h.player.getTags().contains("poke.joined")) { d.resetSeen.put(h.player.getUUID(), d.resetEpoch); d.setDirty(); }   // 처음 온 사람: 초기화할 것 없음
+            else Menu.joinCheck(h.player);
+        });
         PayloadTypeRegistry.playC2S().register(Net.ShopTrade.TYPE, Net.ShopTrade.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.MenuOpen.TYPE, Net.MenuOpen.CODEC);
         PayloadTypeRegistry.playC2S().register(Net.MenuAction.TYPE, Net.MenuAction.CODEC);
@@ -50,14 +55,22 @@ public class PokeServer implements ModInitializer {
         ServerPlayNetworking.registerGlobalReceiver(Net.ShopTrade.TYPE, (t, ctx) -> ctx.player().server.execute(
                 () -> Shop.trade(ctx.player(), t.sell(), t.category(), t.item(), t.qty())));
 
-        ServerLifecycleEvents.SERVER_STARTED.register(server -> { Farms.load(); Shop.load(); Menu.load(); Gym.load(); Plaza.start(server); });
+        ServerLifecycleEvents.SERVER_STARTED.register(server -> {
+            Farms.load(); Shop.load(); Menu.load(); Gym.load(); Plaza.start(server);
+            // 3. 렉 줄이기: server.properties가 기본값(10)이면 보이는 거리 8·처리 거리 6 (직접 바꿔 두었으면 그대로)
+            if (server instanceof net.minecraft.server.dedicated.DedicatedServer ds) {
+                var props = ds.getProperties();
+                if (props.viewDistance == 10) server.getPlayerList().setViewDistance(8);
+                if (props.simulationDistance == 10) server.getPlayerList().setSimulationDistance(6);
+            }
+        });
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             Plaza.tick(server);
             ItemCleaner.tick(server);
             if (server.getTickCount() % 100 == 0) Farms.refreshLabels(server);
             if (server.getTickCount() % 20 == 0) { Teleport.tick(server); Nicknames.tick(server); }
             if (server.getTickCount() % 200 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.reapply(server);
-            if (server.getTickCount() % 20 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.starterLocks(server);
+            if (server.getTickCount() % 20 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) { CobblemonHooks.starterLocks(server); CobblemonHooks.countWild(server); }
             if (server.getTickCount() % CobblemonHooks.LEGEND_TICKS == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.spawnLegend(server);
         });
         // 상인(poke.merchant) → 상점, 체육관 안내원(poke.gymguide) → 도전 목록, 오박사(poke.tutor) → 튜토리얼 설명 창 (Cobblemon NPC 스크립트 대신 직접 처리)
@@ -85,12 +98,18 @@ public class PokeServer implements ModInitializer {
             for (String name : new String[]{"commands", "명령어"}) dispatcher.register(Commands.literal(name).executes(c -> {
                 for (String line : HELP) c.getSource().sendSystemMessage(Component.literal(line).withStyle(line.startsWith("──") ? ChatFormatting.GOLD : ChatFormatting.WHITE));
                 return 1; }));
-            // 전체 초기화 (자기 자신만, OP만): /초기화 → 안내, /초기화 확인 → 실행
-            for (String[] n : new String[][]{{"초기화", "확인"}, {"reset", "confirm"}}) dispatcher.register(Commands.literal(n[0]).requires(s -> s.hasPermission(2)).executes(c -> {
-                c.getSource().sendSuccess(() -> Component.literal("가진 아이템·돈·농장 땅·포켓몬·배지가 모두 사라지고 튜토리얼부터 다시 시작합니다. "
-                        + "정말 하려면  /" + n[0] + " " + n[1] + "  을 입력하세요.").withStyle(ChatFormatting.RED), false);
-                return 0;
-            }).then(Commands.literal(n[1]).executes(c -> { Menu.wipe(c.getSource().getPlayerOrException()); return 1; })));
+            // 8. 초기화 (운영자만): /초기화 → 서버의 모든 플레이어 (접속 안 한 사람은 다음 접속 때), /초기화 닉네임 → 그 사람만
+            for (String name : new String[]{"초기화", "reset"}) dispatcher.register(Commands.literal(name).requires(s -> s.hasPermission(2))
+                    .executes(c -> { int n = Menu.wipeAll(c.getSource().getServer());
+                        c.getSource().sendSuccess(() -> Component.literal("전체 초기화: 접속 중 " + n + "명 + 나머지는 다음 접속 때").withStyle(ChatFormatting.RED), true); return n; })
+                    .then(Commands.argument("player", com.mojang.brigadier.arguments.StringArgumentType.greedyString()).suggests(Nicknames::suggest).executes(c -> {
+                        String who = com.mojang.brigadier.arguments.StringArgumentType.getString(c, "player");
+                        ServerPlayer t = Nicknames.find(c.getSource().getServer(), who);
+                        if (t == null) { c.getSource().sendFailure(Component.literal("접속 중인 플레이어가 아니에요: " + who)); return 0; }
+                        Menu.wipe(t);
+                        c.getSource().sendSuccess(() -> Component.literal("초기화: " + Nicknames.nick(t)).withStyle(ChatFormatting.RED), true);
+                        return 1;
+                    })));
             // 1. /공지 /announce 내용: 운영자(OP)만, 서버 전체 채팅에 공지
             for (String name : new String[]{"announce", "공지"}) dispatcher.register(Commands.literal(name).requires(s -> s.hasPermission(2))
                     .then(Commands.argument("message", com.mojang.brigadier.arguments.StringArgumentType.greedyString()).executes(c -> {

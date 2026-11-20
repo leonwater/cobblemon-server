@@ -39,8 +39,8 @@ public final class Net {
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
 
-    /** 서버 → 클라이언트: 보이는 이름 목록 ("uuid\t[별명] 닉네임" 줄들). */
-    /** 서버 → 클라이언트: 별명 고르기 창 (Titles.list 형식). */
+    /** 서버 → 클라이언트: 보이는 이름 목록 ("uuid\t[칭호] 닉네임" 줄들). */
+    /** 서버 → 클라이언트: 칭호 고르기 창 (Titles.list 형식). */
     public record TitlesOpen(String data) implements CustomPacketPayload {
         public static final Type<TitlesOpen> TYPE = id("titles_open");
         public static final StreamCodec<RegistryFriendlyByteBuf, TitlesOpen> CODEC =
@@ -120,12 +120,14 @@ public final class Net {
 
     /** 서버 → 클라이언트: 튜토리얼 설명 창 열기 (오박사 우클릭). */
     /** nick: 이미 정한 닉네임 (없으면 ""). 있으면 튜토리얼 마지막 쪽에서 바꿀 수 없음. */
-    public record TutorialOpen(String nick) implements CustomPacketPayload {
+    /** error: 닉네임을 못 쓰는 이유 (겹침 등). 있으면 닉네임 쪽을 바로 열고 빨간 글씨로 보여 줌. */
+    public record TutorialOpen(String nick, String error) implements CustomPacketPayload {
         public static final Type<TutorialOpen> TYPE = id("tutorial_open");
         public static final StreamCodec<RegistryFriendlyByteBuf, TutorialOpen> CODEC =
-                StreamCodec.composite(ByteBufCodecs.stringUtf8(64), TutorialOpen::nick, TutorialOpen::new);
-        public static TutorialOpen of(net.minecraft.server.level.ServerPlayer p) {
-            return new TutorialOpen(ServerData.get(p.server).nicks.getOrDefault(p.getUUID(), ""));
+                StreamCodec.composite(ByteBufCodecs.stringUtf8(64), TutorialOpen::nick, ByteBufCodecs.stringUtf8(256), TutorialOpen::error, TutorialOpen::new);
+        public static TutorialOpen of(net.minecraft.server.level.ServerPlayer p) { return of(p, ""); }
+        public static TutorialOpen of(net.minecraft.server.level.ServerPlayer p, String error) {
+            return new TutorialOpen(ServerData.get(p.server).nicks.getOrDefault(p.getUUID(), ""), error);
         }
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }

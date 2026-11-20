@@ -8,7 +8,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
-/** 7. 별명 고르기 (G 메뉴 → 간편 메뉴 → 별명): 3칸씩, 얻은 별명을 누르면 그 별명으로 보임. 얻는 조건은 마우스를 올리면 말풍선으로. */
+/** 7. 칭호 고르기 (G 메뉴 → 간편 메뉴 → 칭호): 3칸씩, 얻은 칭호를 누르면 그 칭호로 보임. 얻는 조건은 마우스를 올리면 말풍선으로. */
 public class TitleScreen extends Screen {
     record Row(String id, String name, String how, boolean has, boolean on) {}
 
@@ -17,7 +17,7 @@ public class TitleScreen extends Screen {
     private float k = 1;
 
     public TitleScreen(String data) {
-        super(Component.literal("별명"));
+        super(Component.literal("칭호"));
         for (String line : data.split("\n")) {
             String[] f = line.split("\t");
             if (f.length == 5) rows.add(new Row(f[0], f[1], f[2], f[3].equals("1"), f[4].equals("1")));
@@ -52,8 +52,8 @@ public class TitleScreen extends Screen {
         int x = px(), y = py(), w = COLS * CW + (COLS - 1) * GAP + 24, h = 40 + ((rows.size() + COLS - 1) / COLS) * (CH + GAP) + 12;
         Theme.panel(g, x, y, x + w, y + h, Theme.PANEL, Theme.BORDER);
         g.fill(x + 12, y + 12, x + 15, y + 26, Theme.ACCENT);
-        g.drawString(font, Theme.t("별명"), x + 20, y + 15, Theme.TEXT, false);
-        int sx = x + 20 + font.width(Theme.t("별명")) + 10;
+        g.drawString(font, Theme.t("칭호"), x + 20, y + 15, Theme.TEXT, false);
+        int sx = x + 20 + font.width(Theme.t("칭호")) + 10;
         g.drawString(font, Theme.t(Theme.fit(font, "눌러서 고르기 · 마우스를 올리면 얻는 조건", x + w - 12 - sx)), sx, y + 15, Theme.SUBTEXT, false);
         int over = -1;
         for (int i = 0; i < rows.size(); i++) {
@@ -81,13 +81,13 @@ public class TitleScreen extends Screen {
         int x = cx(i), y = cy(i);
         boolean hov = r.has() && mx >= x && mx < x + CW && my >= y && my < y + CH;
         float h = anim.to(i, hov);
-        if (r.has()) {   // 가진 별명: 밝은 칸 + 별명 색
+        if (r.has()) {   // 가진 칭호: 밝은 칸 + 칭호 색
             Theme.panel(g, x, y, x + CW, y + CH, r.on() ? Theme.SELECT : Theme.mix(0xE02A303B, 0xF03A4252, h), r.on() ? Theme.ACCENT : Theme.mix(0xFF4A5366, Theme.ACCENT, h));
             String tag = r.on() ? "사용 중" : "";
             int tagW = tag.isEmpty() ? 0 : font.width(Theme.t(tag)) + 6;
             g.drawString(font, Theme.t(Theme.fit(font, r.name(), CW - 12 - tagW)), x + 6, y + 7, Theme.TEXT, false);
             if (!tag.isEmpty()) g.drawString(font, Theme.t(tag), x + CW - tagW - 1, y + 7, Theme.GOLD, false);
-        } else {         // 없는 별명: 어두운 칸 + 회색 글자 (색 없이)
+        } else {         // 없는 칭호: 어두운 칸 + 회색 글자 (색 없이)
             Theme.panel(g, x, y, x + CW, y + CH, 0x80101319, 0xFF23272F);
             String plain = net.minecraft.ChatFormatting.stripFormatting(r.name());
             g.drawString(font, Theme.t(Theme.fit(font, plain, CW - 12)), x + 6, y + 7, 0xFF5A5F69, false);

@@ -24,7 +24,7 @@ public class MenuScreen extends Screen {
                     new Tile("도감", "cobblemon:pokedex_red", "client:dex"))),
             new Cat("간편 메뉴", "minecraft:book", List.of(
                     new Tile("튜토리얼", "minecraft:book", "tutorial"),
-                    new Tile("별명", "minecraft:name_tag", "titles"),
+                    new Tile("칭호", "minecraft:name_tag", "titles"),
                     new Tile("기본 명령어", "minecraft:oak_sign", "help"),
                     new Tile("휴지통", "minecraft:lava_bucket", "trash"))),
             new Cat("워프", "minecraft:ender_pearl", List.of(
@@ -168,7 +168,7 @@ public class MenuScreen extends Screen {
         g.pose().popPose();
     }
 
-    /** 내 정보: 얼굴·[별명] 닉네임, 잡은/마주친 포켓몬 막대 | 잔액·배지. */
+    /** 내 정보: 얼굴·[칭호] 닉네임, 잡은/마주친 포켓몬 막대 | 잔액·배지. */
     private void card(GuiGraphics g) {
         int x = cx(), y = cardY(), cw = cw(), split = x + cw * 62 / 100;
         Theme.panel(g, x, y, x + cw, y + 76, 0xD0181B22, 0xFF2A303C);

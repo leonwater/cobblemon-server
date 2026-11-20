@@ -201,7 +201,11 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   const balA = await bal('A'); A.chat('/초기화 확인'); await sleep(800)
   assert.equal(await bal('A'), balA, '7. 일반 사용자는 /초기화 불가')
   assert.ok(aMsgs.some(m => /Unknown|unknown|알 수 없/.test(m)), '7. 알 수 없는 명령어 안내')
-  console.log('> 7. 초기화는 OP만')
+  await cmd('pokeserver money set B 777'); await cmd('초기화 B'); await sleep(800)
+  assert.equal(await bal('B'), 0, '8. /초기화 이름 → 그 사람만')
+  assert.ok(await bal('A') > 0, '8. 다른 사람은 그대로')
+  await cmd('tag B add poke.tutorial_done')
+  console.log('> 7·8. 초기화는 OP만, 이름을 붙이면 그 사람만')
 
   // 15. 광장 마을: 모드가 자리·지형을 정하고 지음, 둘레 72칸은 수정 금지
   for (let i = 0; i < 120 && !/built: 1/.test(await cmd('data get storage poke:state plaza')); i++) await sleep(1000)

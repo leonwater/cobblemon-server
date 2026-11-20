@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-/** 8·9. "[별명] 닉네임": 서버에선 채팅·안내 문구, 클라이언트에선 머리 위 이름표에 쓰임. */
+/** 8·9. "[칭호] 닉네임": 서버에선 채팅·안내 문구, 클라이언트에선 머리 위 이름표에 쓰임. */
 @Mixin(Player.class)
 abstract class PlayerNameMixin {
     @Inject(method = "getDisplayName", at = @At("RETURN"), cancellable = true)
