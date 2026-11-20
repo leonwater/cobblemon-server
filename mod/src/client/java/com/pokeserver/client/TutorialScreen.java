@@ -26,19 +26,25 @@ public class TutorialScreen extends Screen {
             new Page("plaza", "서버 규칙", "몬스터·배고픔 없음. §e죽어도 아이템 유지§r. 배틀은 §e야생·광장§r에서."),
             new Page("starter", "스타팅 포켓몬", "마지막에 §e준비 완료!§r를 누르면 §e도감·몬스터볼·돈·땅 문서§r를 받고 §e스타팅 포켓몬§r을 고른다네."),
             new Page("nick", "닉네임 정하기", "모두에게 보일 §e닉네임§r을 적게. 고른 뒤 §e준비 완료!§r를 누르면 바로 광장으로 간다네."));
+    static String LAST_TRY;   // 마지막으로 보낸 닉네임 (거절되면 그대로 다시 보여 줌)
     static final java.util.regex.Pattern NICK = java.util.regex.Pattern.compile("[가-힣A-Za-z0-9_]{2,12}");
     private String nick = "";
     private final boolean locked;   // 3. 닉네임은 첫 튜토리얼에서만 (다시 하는 튜토리얼은 보여 주기만)
+    private String error;           // 서버가 거절한 이유 (겹치는 닉네임 등). 닉네임을 고치면 지움
+    private String rejected = "";
     static final ResourceLocation FACE = ResourceLocation.fromNamespaceAndPath("pokeserver", "textures/npcs/tutorial_guide.png");
 
     private final Theme.Anim anim = new Theme.Anim();
     private int page;
 
-    public TutorialScreen(String fixedNick) {
+    public TutorialScreen(String fixedNick, String error) {
         super(Component.literal("오박사의 튜토리얼"));
         locked = !fixedNick.isEmpty();
+        this.error = error;
+        if (!error.isEmpty()) page = PAGES.size() - 1;   // 거절되면 닉네임 쪽부터
         var mc = net.minecraft.client.Minecraft.getInstance();
         if (locked) nick = fixedNick;
+        else if (!error.isEmpty() && LAST_TRY != null) { nick = LAST_TRY; rejected = LAST_TRY; }
         else if (mc.player != null && NICK.matcher(mc.player.getGameProfile().getName()).matches()) nick = mc.player.getGameProfile().getName();
     }
 
@@ -114,11 +120,12 @@ public class TutorialScreen extends Screen {
         int bw = Math.min(w - 40, 200), bx = x + (w - bw) / 2, by = y + h / 2 - 12;
         String head = "닉네임";
         text(g, head, x + (w - w(head)) / 2, by - 18, Theme.GOLD);
-        boolean ok = NICK.matcher(nick).matches();
+        if (!error.isEmpty() && !nick.equals(rejected)) error = "";
+        boolean ok = NICK.matcher(nick).matches() && error.isEmpty();
         Theme.panel(g, bx, by, bx + bw, by + 22, 0xF0101319, ok ? Theme.ACCENT : 0xFFC8323C);
         String shown = nick + (!locked && (System.currentTimeMillis() / 500) % 2 == 0 ? "_" : "");
         text(g, shown, bx + (bw - w(nick)) / 2, by + 7, Theme.TEXT);
-        String hint = locked ? "닉네임은 첫 튜토리얼에서만 정할 수 있어요" : nick.isEmpty() ? "키보드로 적어 주세요" : ok ? "준비 완료!를 누르세요" : "한글·영어·숫자·_  2~12글자";
+        String hint = !error.isEmpty() ? error : locked ? "닉네임은 첫 튜토리얼에서만 정할 수 있어요" : nick.isEmpty() ? "키보드로 적어 주세요" : ok ? "준비 완료!를 누르세요" : "한글·영어·숫자·_  2~12글자";
         text(g, hint, x + (w - w(hint)) / 2, by + 30, ok ? Theme.SUBTEXT : 0xFFFF8080);
     }
 
@@ -141,8 +148,9 @@ public class TutorialScreen extends Screen {
 
     private void go(int d) {
         if (d > 0 && page == PAGES.size() - 1) {
-            if (!NICK.matcher(nick).matches()) return;                 // 닉네임을 바르게 적어야 끝남
+            if (!NICK.matcher(nick).matches() || !error.isEmpty() && nick.equals(rejected)) return;   // 바르게 적고, 거절된 그대로면 못 끝냄
             onClose();
+            if (!locked) LAST_TRY = nick;
             ClientPlayNetworking.send(new Net.MenuAction(locked ? "tutorial_done" : "tutorial_done:" + nick));
             return;
         }

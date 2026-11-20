@@ -17,7 +17,7 @@ import net.minecraft.network.protocol.game.ClientboundPlayerInfoUpdatePacket;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 
-/** 8·9. 닉네임(튜토리얼에서 직접 입력) + 업적 별명. 화면에는 "[별명] 닉네임"으로 보임 (채팅·머리 위·탭 목록). */
+/** 8·9. 닉네임(튜토리얼에서 직접 입력) + 업적 칭호. 화면에는 "[칭호] 닉네임"으로 보임 (채팅·머리 위·탭 목록). */
 public final class Nicknames {
     private Nicknames() {}
 
@@ -69,11 +69,13 @@ public final class Nicknames {
         return b.buildFuture();
     }
 
-    static void join() { last = ""; }   // 새로 들어온 사람에게도 보내게
+    static final Map<UUID, Net.Hud> LAST_HUD = new HashMap<>();
+    static void join() { last = ""; LAST_HUD.clear(); }   // 새로 들어온 사람에게도 보내게
 
     /** 1초마다: 보이는 이름이 바뀌었으면 모두에게 보내고 탭 목록 갱신. HUD 정보(돈·배지·도감)도 보냄. */
     static void tick(MinecraftServer server) {
         var players = server.getPlayerList().getPlayers();
+        Titles.DEX.clear();
         Map<UUID, String> now = new HashMap<>();
         for (ServerPlayer p : players) { Titles.check(p); now.put(p.getUUID(), shown(p)); }
         StringBuilder sb = new StringBuilder();
@@ -87,7 +89,10 @@ public final class Nicknames {
             server.getPlayerList().broadcastAll(new ClientboundPlayerInfoUpdatePacket(
                     java.util.EnumSet.of(ClientboundPlayerInfoUpdatePacket.Action.UPDATE_DISPLAY_NAME), new ArrayList<>(players)));
         }
-        for (ServerPlayer p : players) ServerPlayNetworking.send(p, new Net.Hud(Money.get(p), badges(p), place(p)));
+        for (ServerPlayer p : players) {   // 정보창: 바뀐 사람에게만 보냄
+            var hud = new Net.Hud(Money.get(p), badges(p), place(p));
+            if (!hud.equals(LAST_HUD.put(p.getUUID(), hud))) ServerPlayNetworking.send(p, hud);
+        }
     }
 
     /** 정보창 "위치": 광장 마을 / 야생 / 농장 / 체육관 / 연구소. */

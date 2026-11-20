@@ -32,9 +32,12 @@ public final class CobblemonHooks {
         CobblemonEvents.ENTITY_SPAWN.subscribe(Priority.NORMAL, e -> {
             if (!(e.getEntity() instanceof com.cobblemon.mod.common.entity.pokemon.PokemonEntity pe)) return Unit.INSTANCE;
             var level = e.getSpawnablePosition().getWorld();
-            if (!level.dimension().location().toString().equals("poke:wild") || Plaza.protects(level, e.getSpawnablePosition().getPosition())) {
-                e.cancel(); return Unit.INSTANCE;                         // 15. 광장 둘레(마을)엔 포켓몬이 안 나옴
+            if (!level.dimension().location().toString().equals("poke:wild") || Plaza.noSpawn(level, e.getSpawnablePosition().getPosition())) {
+                e.cancel(); return Unit.INSTANCE;                         // 15. 광장 둘레(마을의 1.5배)엔 포켓몬이 안 나옴
             }
+            // 10. 렉 방지: 야생 포켓몬 수 상한 (야생에 있는 사람 1명당 WILD_PER_PLAYER마리)
+            if (wildCount >= wildCap) { e.cancel(); return Unit.INSTANCE; }
+            wildCount++;
             var mon = pe.getPokemon();
             boolean near = nearFirstSpawn(level.getServer(), e.getSpawnablePosition().getPosition());
             // 전설·환상·울트라비스트·패러독스(Complete Cobblemon Collection의 야생 출현)는 첫 스폰 근처에선 아예 안 나옴 (15레벨로 깎이면 너무 쉬움)
@@ -69,7 +72,7 @@ public final class CobblemonHooks {
         });
         // 체육관·사천왕: NPC 배틀이 끝나면 승패를 데이터팩에 알림 (체육관 안이 아니면 함수가 아무것도 안 함)
         CobblemonEvents.BATTLE_VICTORY.subscribe(Priority.NORMAL, e -> {
-            if (e.getBattle().isPvP()) {   // 7. 별명: 플레이어 배틀 승수
+            if (e.getBattle().isPvP()) {   // 7. 칭호: 플레이어 배틀 승수
                 MinecraftServer server = null;
                 for (var p : e.getBattle().getPlayers()) server = p.server;
                 if (server != null) for (var a : e.getWinners()) for (UUID id : a.getPlayerUUIDs()) Titles.add(server, id, "pvp", 1);
@@ -84,7 +87,7 @@ public final class CobblemonHooks {
             }
             return Unit.INSTANCE;
         });
-        // 7. 별명: 전설·환상 포켓몬을 잡으면 기록
+        // 7. 칭호: 전설·환상 포켓몬을 잡으면 기록
         CobblemonEvents.POKEMON_CAPTURED.subscribe(Priority.NORMAL, e -> {
             var labels = e.getPokemon().getSpecies().getLabels();
             if (labels.contains("legendary") || labels.contains("mythical")) Titles.add(e.getPlayer(), "legend", 1);
@@ -108,6 +111,50 @@ public final class CobblemonHooks {
 
     /** 4. 스타팅 포켓몬: 플레이어마다 세대 하나를 무작위로 정해(태그 poke.gen_<세대>로 기억) 그 세대 3마리만 보여 줌.
      *  고르기 검사(chooseStarter)도 같은 목록을 써서 다른 세대는 고를 수 없음. 튜토리얼을 끝내야 고를 수 있음. */
+    /** 7. 스타팅 포켓몬: 레벨 5, 기술은 그 포켓몬이 처음 나온 원작(레드·블루 ~ 스칼렛·바이올렛)에서 레벨 5까지 배우는 것.
+     *  출처: Pokémon Showdown 세대별 레벨업 기술 데이터 (Cobblemon 데이터는 여러 세대가 섞여 있어 따로 정함). */
+    static final int STARTER_LEVEL = 5;
+    static final java.util.Map<String, java.util.List<String>> STARTER_MOVES = java.util.Map.ofEntries(
+            java.util.Map.entry("bulbasaur", java.util.List.of("growl", "tackle")),
+            java.util.Map.entry("charmander", java.util.List.of("growl", "scratch")),
+            java.util.Map.entry("squirtle", java.util.List.of("tackle", "tailwhip")),
+            java.util.Map.entry("chikorita", java.util.List.of("growl", "tackle")),
+            java.util.Map.entry("cyndaquil", java.util.List.of("leer", "tackle")),
+            java.util.Map.entry("totodile", java.util.List.of("leer", "scratch")),
+            java.util.Map.entry("treecko", java.util.List.of("leer", "pound")),
+            java.util.Map.entry("torchic", java.util.List.of("growl", "scratch")),
+            java.util.Map.entry("mudkip", java.util.List.of("growl", "tackle")),
+            java.util.Map.entry("turtwig", java.util.List.of("tackle", "withdraw")),
+            java.util.Map.entry("chimchar", java.util.List.of("leer", "scratch")),
+            java.util.Map.entry("piplup", java.util.List.of("pound", "growl")),
+            java.util.Map.entry("snivy", java.util.List.of("tackle", "leer")),
+            java.util.Map.entry("tepig", java.util.List.of("tackle", "tailwhip")),
+            java.util.Map.entry("oshawott", java.util.List.of("tackle", "tailwhip")),
+            java.util.Map.entry("chespin", java.util.List.of("growl", "tackle", "vinewhip")),
+            java.util.Map.entry("fennekin", java.util.List.of("scratch", "tailwhip", "ember")),
+            java.util.Map.entry("froakie", java.util.List.of("growl", "pound", "bubble")),
+            java.util.Map.entry("rowlet", java.util.List.of("leafage", "tackle", "growl")),
+            java.util.Map.entry("litten", java.util.List.of("ember", "scratch", "growl")),
+            java.util.Map.entry("popplio", java.util.List.of("pound", "watergun", "growl")),
+            java.util.Map.entry("grookey", java.util.List.of("growl", "scratch")),
+            java.util.Map.entry("scorbunny", java.util.List.of("growl", "tackle")),
+            java.util.Map.entry("sobble", java.util.List.of("growl", "pound")),
+            java.util.Map.entry("sprigatito", java.util.List.of("leafage", "scratch", "tailwhip")),
+            java.util.Map.entry("fuecoco", java.util.List.of("ember", "leer", "tackle")),
+            java.util.Map.entry("quaxly", java.util.List.of("growl", "pound", "watergun")));
+
+    static com.cobblemon.mod.common.config.starter.StarterCategory starterLv5(com.cobblemon.mod.common.config.starter.StarterCategory c) {
+        var list = new java.util.ArrayList<com.cobblemon.mod.common.api.pokemon.PokemonProperties>();
+        for (var props : c.getPokemon()) {
+            var q = props.copy();
+            q.setLevel(STARTER_LEVEL);
+            var moves = STARTER_MOVES.get(String.valueOf(q.getSpecies()).toLowerCase(java.util.Locale.ROOT));
+            if (moves != null) q.setMoves(new java.util.ArrayList<>(moves));
+            list.add(q);
+        }
+        return new com.cobblemon.mod.common.config.starter.StarterCategory(c.getName(), c.getOrder(), c.getDisplayName(), list, c.getRandomStarter());
+    }
+
     static void installStarters() {
         com.cobblemon.mod.common.Cobblemon.INSTANCE.setStarterHandler(new com.cobblemon.mod.common.starter.CobblemonStarterHandler() {
             @Override
@@ -116,11 +163,11 @@ public final class CobblemonHooks {
                 var gens = all.stream().filter(c -> GENS.contains(c.getName().toLowerCase(java.util.Locale.ROOT))).toList();
                 if (gens.isEmpty()) return all;
                 String saved = p.getTags().stream().filter(t -> t.startsWith("poke.gen_")).map(t -> t.substring(9)).findFirst().orElse("");
-                for (var c : gens) if (c.getName().toLowerCase(java.util.Locale.ROOT).equals(saved)) return java.util.List.of(c);
+                for (var c : gens) if (c.getName().toLowerCase(java.util.Locale.ROOT).equals(saved)) return java.util.List.of(starterLv5(c));
                 var c = gens.get(p.getRandom().nextInt(gens.size()));
                 p.getTags().removeIf(t -> t.startsWith("poke.gen_"));
                 p.addTag("poke.gen_" + c.getName().toLowerCase(java.util.Locale.ROOT));
-                return java.util.List.of(c);
+                return java.util.List.of(starterLv5(c));
             }
 
             @Override
@@ -262,6 +309,18 @@ public final class CobblemonHooks {
         var obj = sb.getObjective("poke.gym");
         var score = obj == null ? null : sb.getPlayerScoreInfo(p, obj);
         return score != null && score.value() > 0;
+    }
+
+    static final int WILD_PER_PLAYER = 30, WILD_MIN = 30;
+    static int wildCount, wildCap = WILD_MIN;
+
+    /** 1초마다: 야생에 있는 주인 없는 포켓몬 수와 상한을 다시 셈 (스폰 때마다 세면 느려서). */
+    static void countWild(MinecraftServer server) {
+        var level = Plaza.wild(server);
+        if (level == null) return;
+        wildCount = level.getEntities(net.minecraft.world.level.entity.EntityTypeTest.forClass(com.cobblemon.mod.common.entity.pokemon.PokemonEntity.class),
+                pe -> pe.getOwnerUUID() == null).size();
+        wildCap = Math.max(WILD_MIN, WILD_PER_PLAYER * level.players().size());
     }
 
     static boolean nearFirstSpawn(MinecraftServer server, net.minecraft.core.BlockPos pos) {

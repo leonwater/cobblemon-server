@@ -188,6 +188,13 @@ public final class Plaza {
                 "execute in " + DIM + " positioned " + center.getX() + " " + center.getY() + " " + center.getZ() + " run function poke:build/plaza/start");
     }
 
+    /** 11. 포켓몬이 안 나오는 범위: 광장 보호 반경의 1.5배. */
+    public static boolean noSpawn(net.minecraft.world.level.Level level, BlockPos pos) {
+        if (center == null || !level.dimension().location().toString().equals(DIM)) return false;
+        double dx = pos.getX() - center.getX(), dz = pos.getZ() - center.getZ(), r = PROTECT * 1.5;
+        return dx * dx + dz * dz <= r * r;
+    }
+
     /** 광장 둘레: 블록 수정 금지 (관리자 크리에이티브 제외는 Farms.canEdit). */
     public static boolean protects(net.minecraft.world.level.Level level, BlockPos pos) {
         if (center == null || !level.dimension().location().toString().equals(DIM)) return false;

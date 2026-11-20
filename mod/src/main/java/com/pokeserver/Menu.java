@@ -32,12 +32,12 @@ final class Menu {
             String why = ServerData.get(p.server).nicks.containsKey(p.getUUID()) ? null : Nicknames.set(p, a.substring("tutorial_done:".length()));
             if (why != null) {
                 p.sendSystemMessage(Component.literal(why + " 다시 정해 주세요.").withStyle(ChatFormatting.RED));
-                ServerPlayNetworking.send(p, Net.TutorialOpen.of(p));
+                ServerPlayNetworking.send(p, Net.TutorialOpen.of(p, why));   // 1. 닉네임 쪽에 바로 "겹친다" 등 이유를 보여 줌
                 return;
             }
             a = "tutorial_done";
         }
-        if (a.startsWith("title:")) {                              // 7. 별명 고르기
+        if (a.startsWith("title:")) {                              // 7. 칭호 고르기
             Titles.pick(p, a.substring(6));
             a = "titles";
         }
@@ -78,6 +78,26 @@ final class Menu {
 
     /** 전체 초기화: 인벤토리·엔더 상자·돈·농장 땅·포켓몬(파티·PC)·스타팅 선택·배지·진행도를 모두 지우고 첫 튜토리얼부터.
      *  되돌릴 수 없음 → 플레이어는 /초기화 확인 처럼 한 번 더 입력해야 실행됨. */
+    /** 8. 서버 전체 초기화: 땅·돈·닉네임·칭호 기록을 모두 지우고, 접속 중인 사람은 바로, 나머지는 다음 접속 때(joinCheck) 초기화. */
+    static int wipeAll(net.minecraft.server.MinecraftServer server) {
+        var data = ServerData.get(server);
+        data.resetEpoch++;
+        data.plotOwners.clear(); data.money.clear(); data.deedsBought.clear(); data.nicks.clear(); data.stats.clear();
+        data.setDirty();
+        var players = server.getPlayerList().getPlayers();
+        for (ServerPlayer p : java.util.List.copyOf(players)) joinCheck(p);
+        server.getPlayerList().broadcastSystemMessage(Component.literal("[서버] 운영자가 서버 전체를 초기화했습니다. 모두 튜토리얼부터 다시 시작합니다.").withStyle(ChatFormatting.RED), false);
+        return players.size();
+    }
+
+    /** 접속할 때: 마지막 전체 초기화를 아직 안 받았으면 초기화. */
+    static void joinCheck(ServerPlayer p) {
+        var data = ServerData.get(p.server);
+        if (data.resetSeen.getOrDefault(p.getUUID(), 0) >= data.resetEpoch) return;
+        data.resetSeen.put(p.getUUID(), data.resetEpoch);
+        wipe(p);
+    }
+
     static void wipe(ServerPlayer p) {
         p.getInventory().clearContent();
         p.getEnderChestInventory().clearContent();

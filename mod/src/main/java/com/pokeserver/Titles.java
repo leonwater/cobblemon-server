@@ -9,7 +9,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 
-/** 7. 별명: 조건을 채우면 얻고, G 메뉴 → 별명에서 고름 (안 고르면 우선순위가 가장 높은 것). 화면엔 "[별명] 닉네임". */
+/** 7. 칭호: 조건을 채우면 얻고, G 메뉴 → 칭호에서 고름 (안 고르면 우선순위가 가장 높은 것). 화면엔 "[칭호] 닉네임". */
 public final class Titles {
     private Titles() {}
 
@@ -22,8 +22,11 @@ public final class Titles {
     static long op(ServerPlayer p) { return p.server.getPlayerList().isOp(p.getGameProfile()) ? 1 : 0; }
     static long champ(ServerPlayer p) { return p.getTags().contains("poke.e4clear") ? 1 : 0; }
     static long badges(ServerPlayer p) { return Nicknames.badges(p); }
+    /** 잡은 종 수: 1초에 한 번만 셈 (칭호 4개가 같은 값을 씀). */
+    static final java.util.Map<java.util.UUID, Long> DEX = new java.util.HashMap<>();
     static long dex(ServerPlayer p) {
-        return net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon") ? CobblemonHooks.dex(p).get(0) : 0;
+        if (!net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) return 0;
+        return DEX.computeIfAbsent(p.getUUID(), id -> (long) CobblemonHooks.dex(p).get(0));
     }
     static long stat(ServerPlayer p, String k) { return ServerData.get(p.server).stats.getOrDefault(p.getUUID(), new net.minecraft.nbt.CompoundTag()).getLong(k); }
     static long plots(ServerPlayer p) {
@@ -61,7 +64,7 @@ public final class Titles {
         t.putLong(key, t.getLong(key) + n);
     }
 
-    /** 보이는 별명 (§색[이름]) 또는 "" — 고른 것이 아직 있으면 그것, "none"이면 숨김, 아니면 가장 높은 것. */
+    /** 보이는 칭호 (§색[이름]) 또는 "" — 고른 것이 아직 있으면 그것, "none"이면 숨김, 아니면 가장 높은 것. */
     static String shown(ServerPlayer p) {
         String pick = stat(p) .getString("title");
         if (pick.equals("none")) return "";
@@ -78,7 +81,7 @@ public final class Titles {
         return ServerData.get(p.server).stats.getOrDefault(p.getUUID(), new net.minecraft.nbt.CompoundTag());
     }
 
-    /** 1초마다: 새로 얻은 별명 알림 (처음 한 번은 조용히 기록만). */
+    /** 1초마다: 새로 얻은 칭호 알림 (처음 한 번은 조용히 기록만). */
     static void check(ServerPlayer p) {
         var st = ServerData.get(p.server).stats.get(p.getUUID());
         boolean first = st == null || !st.contains("got");
@@ -89,20 +92,20 @@ public final class Titles {
             got.add(t.id());
             changed = true;
             if (first) continue;
-            p.sendSystemMessage(Component.literal("새 별명을 얻었어요: ").withStyle(ChatFormatting.GOLD)
-                    .append(Component.literal(t.shown())).append(Component.literal("  (G 메뉴 → 별명에서 고를 수 있어요)").withStyle(ChatFormatting.GRAY)));
-            if (t.announce()) p.server.getPlayerList().broadcastSystemMessage(Component.literal("[별명] ").withStyle(ChatFormatting.GOLD)
+            p.sendSystemMessage(Component.literal("새 칭호를 얻었어요: ").withStyle(ChatFormatting.GOLD)
+                    .append(Component.literal(t.shown())).append(Component.literal("  (G 메뉴 → 칭호에서 고를 수 있어요)").withStyle(ChatFormatting.GRAY)));
+            if (t.announce()) p.server.getPlayerList().broadcastSystemMessage(Component.literal("[칭호] ").withStyle(ChatFormatting.GOLD)
                     .append(Component.literal(Nicknames.nick(p) + "님이 ")).append(Component.literal(t.shown()))
-                    .append(Component.literal(" 별명을 얻었습니다!").withStyle(ChatFormatting.YELLOW)), false);
+                    .append(Component.literal(" 칭호를 얻었습니다!").withStyle(ChatFormatting.YELLOW)), false);
         }
         if (changed || first) ServerData.get(p.server).stats(p.getUUID()).putString("got", String.join(",", got));
     }
 
-    /** 별명 고르기 창 내용: 한 줄에 id \t 보이는 이름 \t 조건 \t 얻음(1/0) \t 사용 중(1/0). 맨 위 "none" = 숨기기. */
+    /** 칭호 고르기 창 내용: 한 줄에 id \t 보이는 이름 \t 조건 \t 얻음(1/0) \t 사용 중(1/0). 맨 위 "none" = 숨기기. */
     static String list(ServerPlayer p) {
         String now = shown(p);
         List<String> rows = new ArrayList<>();
-        rows.add("none\t§7[표시 안 함]\t별명을 숨겨요\t1\t" + (now.isEmpty() ? 1 : 0));
+        rows.add("none\t§7[표시 안 함]\t칭호를 숨겨요\t1\t" + (now.isEmpty() ? 1 : 0));
         for (Title t : ALL) rows.add(t.id() + "\t" + t.shown() + "\t" + t.how() + "\t" + (t.has(p) ? 1 : 0) + "\t" + (t.shown().equals(now) ? 1 : 0));
         return String.join("\n", rows);
     }
