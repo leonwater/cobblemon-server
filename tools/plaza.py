@@ -170,7 +170,7 @@ def house(x1, z1, door, roof='prismarine_brick', roof_dark='dark_prismarine', wa
     L += W.glow(x1, x2, z1, z2, 4, step=3)
     occupy(x1, x2, z1, z2, 1)
     occupy(xm - 1, xm + 1, min(fz, fz + out * 2), max(fz, fz + out * 2))
-    return L, door_spot(x1, x2, z1, z2, door, 1)
+    return L, door_spot(x1, x2, z1, z2, door, 2)   # 마루(y=1) 위에 서게
 
 
 # ── 식당풍: 나무 정면 + 높은 가운데 박공 + 초록 차양 (참고 사진 1) ──
@@ -305,7 +305,7 @@ def gymlet(x1, z1, door):
     L += W.glow(x1, x2, z1, z2, 4, step=3)
     occupy(x1 - 1, x2 + 1, z1 - 1, z2 + 1, 1)
     occupy(xm - 3, xm + 3, min(fz, fz + out * 2), max(fz, fz + out * 2))
-    return L, door_spot(x1, x2, z1, z2, door, 1)
+    return L, door_spot(x1, x2, z1, z2, door, 2)   # 마루(y=1) 위에 서게
 
 
 def door_spot(x1, x2, z1, z2, door, y):

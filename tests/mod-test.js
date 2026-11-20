@@ -97,14 +97,14 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   trade(true, 6, 0, 1); await sleep(800)                                       // 석탄 없음
   assert.equal(await bal('A'), 850, '없는 아이템은 판매 안 됨')
   for (const bad of [[false, 99, 0, 1], [false, 4, 99, 1], [false, 4, 1, 0], [false, 4, 1, 100], [false, 4, 9, 1]]) trade(...bad)
-  await sleep(800)                                                             // 9번(물 양동이)은 판매가 0 → 구매만 가능, 여기선 구매라 정상 처리
-  assert.equal(await bal('A'), 750, '잘못된 요청은 무시 (마지막 물 양동이 구매 100원만 처리)')
+  await sleep(800)                                                             // 9번(철 괭이 200원)은 판매가 0 → 구매만 가능, 여기선 구매라 정상 처리
+  assert.equal(await bal('A'), 650, '잘못된 요청은 무시 (마지막 철 괭이 구매 200원만 처리)')
   await cmd('execute as A run pay B 100')
-  assert.equal(await bal('A'), 650); assert.equal(await bal('B'), 100, '송금')
+  assert.equal(await bal('A'), 550); assert.equal(await bal('B'), 100, '송금')
   await cmd('execute as A run pay B 99999')
-  assert.equal(await bal('A'), 650, '잔액보다 큰 송금은 안 됨')
+  assert.equal(await bal('A'), 550, '잔액보다 큰 송금은 안 됨')
   await cmd('execute as A run pay B -5')
-  assert.equal(await bal('A'), 650, '음수 송금 불가'); assert.equal(await bal('B'), 100)
+  assert.equal(await bal('A'), 550, '음수 송금 불가'); assert.equal(await bal('B'), 100)
 
   // ── 5. 메인 메뉴 (G키) 서버 동작 ──
   const menus = []
@@ -208,7 +208,7 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   console.log('> 7·8. 초기화는 OP만, 이름을 붙이면 그 사람만')
 
   // 15. 광장 마을: 모드가 자리·지형을 정하고 지음, 둘레 72칸은 수정 금지
-  for (let i = 0; i < 120 && !/built: 1/.test(await cmd('data get storage poke:state plaza')); i++) await sleep(1000)
+  for (let i = 0; i < 120 && !/built: 2/.test(await cmd('data get storage poke:state plaza')); i++) await sleep(1000)
   const pz = (await cmd('data get storage poke:state plaza')).match(/x: (-?\d+), y: (-?\d+), z: (-?\d+)/)
   assert.ok(pz, '15. 광장 자리 저장'); const [px, py, pzz] = pz.slice(1).map(Number)
   await cmd(`execute in poke:wild run forceload add ${px} ${pzz}`); await sleep(1500)
