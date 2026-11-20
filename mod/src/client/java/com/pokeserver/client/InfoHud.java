@@ -18,7 +18,7 @@ public final class InfoHud {
     static void render(GuiGraphics g, DeltaTracker dt) {
         Minecraft mc = Minecraft.getInstance();
         // 화면(배틀·메뉴)이 열려 있으면 숨김: 배틀 확장 UI의 정보창과 같은 자리라서
-        if (mc.player == null || mc.level == null || mc.screen != null || mc.options.hideGui || mc.getDebugOverlay().showDebugScreen()) return;
+        if (mc.player == null || mc.level == null || mc.screen != null || BattleScale.inBattle() || mc.options.hideGui || mc.getDebugOverlay().showDebugScreen()) return;
         var font = mc.font;
         var p = mc.player;
         Component name = Nicknames.SHOWN.getOrDefault(p.getUUID(), Component.literal(p.getGameProfile().getName()));
