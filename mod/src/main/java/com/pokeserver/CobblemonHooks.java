@@ -15,7 +15,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 
 /** Cobblemon이 있을 때만 불림 (테스트 서버엔 Cobblemon이 없음). */
-final class CobblemonHooks {
+public final class CobblemonHooks {
     private CobblemonHooks() {}
 
     static void register() {
@@ -231,6 +231,17 @@ final class CobblemonHooks {
             if (k != com.cobblemon.mod.common.api.pokedex.PokedexEntryProgress.UNREGISTERED) seen++;
         }
         return java.util.List.of(own, seen, com.cobblemon.mod.common.api.pokemon.PokemonSpecies.INSTANCE.getImplemented().size());
+    }
+
+    /** 다이맥스 장소 제한을 푸는 배틀: 플레이어끼리, 또는 체육관·사천왕 도전 중(점수 poke.gym 1~9)의 NPC 배틀. */
+    public static boolean dynamaxAnywhere(net.minecraft.server.level.ServerPlayer p) {
+        var battle = com.cobblemon.mod.common.battles.BattleRegistry.INSTANCE.getBattleByParticipatingPlayer(p);
+        if (battle == null) return false;
+        if (battle.isPvP()) return true;
+        var sb = p.server.getScoreboard();
+        var obj = sb.getObjective("poke.gym");
+        var score = obj == null ? null : sb.getPlayerScoreInfo(p, obj);
+        return score != null && score.value() > 0;
     }
 
     static boolean nearFirstSpawn(MinecraftServer server, net.minecraft.core.BlockPos pos) {
