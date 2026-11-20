@@ -31,6 +31,7 @@ public class PokeServer implements ModInitializer {
         PayloadTypeRegistry.playS2C().register(Net.ShopOpen.TYPE, Net.ShopOpen.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.Balance.TYPE, Net.Balance.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.Names.TYPE, Net.Names.CODEC);
+        PayloadTypeRegistry.playS2C().register(Net.TitlesOpen.TYPE, Net.TitlesOpen.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.Hud.TYPE, Net.Hud.CODEC);
         net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents.JOIN.register((h, s, server) -> Nicknames.join());
         PayloadTypeRegistry.playC2S().register(Net.ShopTrade.TYPE, Net.ShopTrade.CODEC);
@@ -52,6 +53,7 @@ public class PokeServer implements ModInitializer {
         ServerLifecycleEvents.SERVER_STARTED.register(server -> { Farms.load(); Shop.load(); Menu.load(); Gym.load(); Plaza.start(server); });
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             Plaza.tick(server);
+            ItemCleaner.tick(server);
             if (server.getTickCount() % 100 == 0) Farms.refreshLabels(server);
             if (server.getTickCount() % 20 == 0) { Teleport.tick(server); Nicknames.tick(server); }
             if (server.getTickCount() % 200 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.reapply(server);
@@ -135,7 +137,7 @@ public class PokeServer implements ModInitializer {
                         var targets = EntityArgument.getPlayers(c, "targets");
                         for (ServerPlayer p : targets) {
                             switch (op) {
-                                case "give" -> Money.add(p.server, p.getUUID(), n);
+                                case "give" -> { Money.add(p.server, p.getUUID(), n); Titles.add(p, "earned", n); }
                                 case "take" -> Money.add(p.server, p.getUUID(), -Math.min(n, Money.get(p)));
                                 default -> Money.set(p.server, p.getUUID(), n);
                             }
@@ -184,6 +186,11 @@ public class PokeServer implements ModInitializer {
                     targets.forEach(p -> Menu.action(p, "open"));
                     return targets.size();
                 })))
+                .then(Commands.literal("clearitems").executes(c -> {   // 바닥 아이템 지금 정리 (원래 10분마다 자동)
+                    int n = ItemCleaner.clear(c.getSource().getServer());
+                    c.getSource().sendSuccess(() -> Component.literal("바닥 아이템 " + n + "개 정리"), true);
+                    return n;
+                }))
                 .then(Commands.literal("reload").executes(c -> {
                     Farms.load(); Shop.load(); Menu.load();
                     c.getSource().sendSuccess(() -> Component.literal("농장·상점·메뉴 설정을 다시 불러왔습니다."), true);

@@ -30,6 +30,8 @@ public class PokeServerClient implements ClientModInitializer {
                 net.fabricmc.fabric.api.resource.ResourcePackActivationType.ALWAYS_ENABLED);
         ClientPlayNetworking.registerGlobalReceiver(Net.MenuOpen.TYPE,
                 (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new MenuScreen(p))));
+        ClientPlayNetworking.registerGlobalReceiver(Net.TitlesOpen.TYPE,
+                (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new TitleScreen(p.data()))));
         ClientPlayNetworking.registerGlobalReceiver(Net.TutorialOpen.TYPE,
                 (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new TutorialScreen())));
         // 5. G 키: 메인 메뉴 (설정 → 조작에서 바꿀 수 있음)

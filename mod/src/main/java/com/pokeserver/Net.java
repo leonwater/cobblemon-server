@@ -40,6 +40,14 @@ public final class Net {
     }
 
     /** 서버 → 클라이언트: 보이는 이름 목록 ("uuid\t[별명] 닉네임" 줄들). */
+    /** 서버 → 클라이언트: 별명 고르기 창 (Titles.list 형식). */
+    public record TitlesOpen(String data) implements CustomPacketPayload {
+        public static final Type<TitlesOpen> TYPE = id("titles_open");
+        public static final StreamCodec<RegistryFriendlyByteBuf, TitlesOpen> CODEC =
+                StreamCodec.composite(ByteBufCodecs.stringUtf8(1 << 14), TitlesOpen::data, TitlesOpen::new);
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
+
     public record Names(String data) implements CustomPacketPayload {
         public static final Type<Names> TYPE = id("names");
         public static final StreamCodec<RegistryFriendlyByteBuf, Names> CODEC =

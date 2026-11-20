@@ -24,11 +24,11 @@ public class MenuScreen extends Screen {
                     new Tile("도감", "cobblemon:pokedex_red", "client:dex"))),
             new Cat("간편 메뉴", "minecraft:book", List.of(
                     new Tile("튜토리얼", "minecraft:book", "tutorial"),
+                    new Tile("별명", "minecraft:name_tag", "titles"),
                     new Tile("기본 명령어", "minecraft:oak_sign", "help"),
                     new Tile("휴지통", "minecraft:lava_bucket", "trash"))),
             new Cat("워프", "minecraft:ender_pearl", List.of(
-                    new Tile("광장", "minecraft:beacon", "warp:hall"),
-                    new Tile("야생", "minecraft:grass_block", "warp:wild"),
+                    new Tile("야생·광장", "minecraft:grass_block", "warp:hall"),   // 광장 마을은 야생 첫 스폰 자리에 있어 하나로
                     new Tile("농장", "minecraft:wheat", "warp:farm"),
                     new Tile("체육관", "minecraft:red_banner", "warp:gym"))));
     /** 왼쪽 아래 작은 버튼 (참고 사진). */
@@ -43,11 +43,24 @@ public class MenuScreen extends Screen {
     private String pressed = "";
     private long pressedAt;
     private float k = 1;
+    private final int cap = minecraftCap();
 
     public MenuScreen(Net.MenuOpen p) {
         super(Component.literal("메인 메뉴"));
         balance = p.balance(); notice = p.notice(); tutorialDone = p.tutorialDone();
         caught = p.caught(); seen = p.seen(); total = p.total(); badges = p.badges();
+    }
+
+    /** 포켓몬 레벨 제한 (관장 모드 RCT가 클라이언트에 보내 주는 값). 없으면 -1. */
+    static int minecraftCap() {
+        try {
+            var p = net.minecraft.client.Minecraft.getInstance().player;
+            Object st = Class.forName("com.gitlab.srcmc.rctmod.api.data.sync.PlayerState")
+                    .getMethod("get", net.minecraft.world.entity.player.Player.class).invoke(null, p);
+            return (int) st.getClass().getMethod("getLevelCap").invoke(st);
+        } catch (ReflectiveOperationException | RuntimeException ex) {
+            return -1;
+        }
     }
 
     /** GUI가 640×360보다 작으면(전체 화면 자동 크기) 전체를 줄여 그림 → 어느 크기에서나 같은 배치. */
@@ -172,8 +185,11 @@ public class MenuScreen extends Screen {
         int rx = split + 12;
         text(g, "잔액", rx, y + 14, Theme.SUBTEXT);
         text(g, Theme.money(font, balance, "원", x + cw - rx - 10), rx, y + 26, Theme.GOLD);
+        int half = (x + cw - rx) / 2;
         text(g, "배지", rx, y + 44, Theme.SUBTEXT);
         text(g, badges + " / 8", rx, y + 56, Theme.TEXT);
+        text(g, "레벨 제한", rx + half, y + 44, Theme.SUBTEXT);
+        text(g, cap > 0 ? "Lv. " + cap : "-", rx + half, y + 56, Theme.TEXT);
     }
 
     private void bar(GuiGraphics g, int x, int y, int w, String label, int n) {
