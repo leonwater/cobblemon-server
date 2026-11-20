@@ -108,7 +108,7 @@ metafile = true
 
 [[files]]
 file = "mods/pokeserver-0.1.0.jar"
-hash = "b9c16e7dc53609d23e7ab227df47d649fd641eeaec91dd23f064fb5443f69906"
+hash = "5a728373175682d1cdda471b813e2ce1a49a4ac268aac309fb6afb405d194034"
 
 [[files]]
 file = "mods/rctapi.pw.toml"
@@ -545,7 +545,7 @@ hash = "00eaf422f3aab81529b4b331f7c9d785ec5b468b7df85f18da141eb09474a7e5"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/load.mcfunction"
-hash = "255a53996859fec1ecde968993d849cc7a0cbd761cd1117fbf5a2f0ba423cc5f"
+hash = "88dc0ce6e0f49edac45aa8f6755ccfdc2204db6faed091dd3540978006b1ff16"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/build_town.mcfunction"
