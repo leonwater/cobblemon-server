@@ -105,7 +105,7 @@ if __name__ == '__main__':
     holes = []
     for name, box, floor, top, openings in bs:
         holes += check(name, box, floor, top, openings, get)
-    # 튜토리얼 방(오박사 연구소, poke:hub): 문은 철문이라 빈칸이 아님
+    # 튜토리얼 방(오박사 연구소, poke:hub): 출입문 없음
     x1, x2, z1, z2 = W.LAB
     hub = simulate([(x1 - 1, x2 + 1, z1 - 1, z2 + 1)], ('build/tutorial.mcfunction', 'mod/build_town.mcfunction'), ground=62, hub=True)
     holes += check('오박사 연구소', W.LAB, 64, 72, [], hub)

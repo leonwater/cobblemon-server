@@ -8,7 +8,6 @@ fill -16 65 -16 16 65 -16 minecraft:oak_fence
 fill -16 65 16 16 65 16 minecraft:oak_fence
 fill -16 65 -16 -16 65 16 minecraft:oak_fence
 fill 16 65 -16 16 65 16 minecraft:oak_fence
-fill -1 64 8 1 64 16 minecraft:dirt_path
 fill -8 64 -11 8 64 7 minecraft:smooth_quartz
 fill -7 64 -10 -7 64 6 minecraft:light_gray_concrete
 fill -3 64 -10 -3 64 6 minecraft:light_gray_concrete
@@ -109,11 +108,7 @@ setblock 6 72 -5 minecraft:sea_lantern
 setblock 6 72 -1 minecraft:sea_lantern
 setblock 6 72 3 minecraft:sea_lantern
 fill -1 65 7 1 68 7 minecraft:smooth_quartz
-setblock 0 65 7 minecraft:iron_door[facing=north,half=lower]
-setblock 0 66 7 minecraft:iron_door[facing=north,half=upper]
-setblock 0 65 8 minecraft:polished_blackstone_pressure_plate
 summon minecraft:text_display 0.5 68.4 7.6 {Tags:["poke.lab"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.2f,1.2f,1.2f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"오박사 연구소","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
-summon minecraft:text_display 0.5 67.4 6.6 {Tags:["poke.lab"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.8f,0.8f,0.8f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"광장으로 나가는 문","color":"yellow","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 fill -9 73 -12 9 73 8 minecraft:polished_andesite
 fill -9 73 -12 9 73 -12 minecraft:polished_andesite_stairs[facing=south]
 fill -9 73 8 9 73 8 minecraft:polished_andesite_stairs[facing=north]
@@ -139,8 +134,7 @@ fill -1 77 -4 1 77 -4 minecraft:polished_andesite_stairs[facing=south]
 fill -1 77 0 1 77 0 minecraft:polished_andesite_stairs[facing=north]
 fill -1 77 -3 -1 77 -1 minecraft:polished_andesite_stairs[facing=east]
 fill 1 77 -3 1 77 -1 minecraft:polished_andesite_stairs[facing=west]
-fill 0 65 1 0 65 5 minecraft:red_carpet
-setblock 0 65 6 minecraft:polished_blackstone_pressure_plate
+fill 0 65 1 0 65 6 minecraft:red_carpet
 fill -7 65 -10 7 68 -10 minecraft:bookshelf
 fill -1 66 -10 1 67 -10 minecraft:white_concrete
 summon minecraft:text_display 0.5 69.2 -9.0 {Tags:["poke.lab"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"오박사 포켓몬 연구소","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\nPOKéMON LAB","color":"gray","bold":false}]}'}

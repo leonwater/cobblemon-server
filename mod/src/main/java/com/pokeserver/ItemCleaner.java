@@ -7,7 +7,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.level.entity.EntityTypeTest;
 
-/** 렉 줄이기: 10분마다 바닥에 떨어진 아이템을 모두 지움 (1분·10초 전에 채팅으로 알림). */
+/** 렉 줄이기: 10분마다 바닥에 떨어진 아이템을 모두 지움 (지우기 30초 전에 채팅으로 알림). */
 public final class ItemCleaner {
     private ItemCleaner() {}
 
@@ -15,8 +15,7 @@ public final class ItemCleaner {
 
     static void tick(MinecraftServer server) {
         int t = server.getTickCount() % PERIOD;
-        if (t == PERIOD - 20 * 60) say(server, "1분 뒤 바닥에 떨어진 아이템을 정리합니다. 필요한 아이템은 주워 두세요!");
-        else if (t == PERIOD - 20 * 10) say(server, "10초 뒤 바닥에 떨어진 아이템을 정리합니다!");
+        if (t == PERIOD - 20 * 30) say(server, "30초 뒤 바닥에 떨어진 아이템을 정리합니다. 필요한 아이템은 주워 두세요!");
         else if (t == 0 && server.getTickCount() > 0) {
             int n = clear(server);
             say(server, "바닥에 떨어진 아이템 " + n + "개를 정리했습니다.");

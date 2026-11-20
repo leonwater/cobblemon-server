@@ -20,7 +20,7 @@ public final class Plaza {
 
     public static final int PROTECT = 72, BLEND = 28, BUILD_VERSION = 1;
     static final String DIM = "poke:wild";
-    /** 꽃 숲 칸 가운데 (poke:warp/first_wild_find 와 같은 순서, 칸 = 256x256). */
+    /** 꽃 숲 칸 가운데 (칸 = 256x256), 앞부터 확인. */
     static final int[][] CELLS = {{1920, 2176}, {2176, 1920}, {1664, 2432}, {2432, 1664}, {1408, 2688}, {2688, 1408},
             {1152, 2944}, {2944, 1152}, {-4736, -4736}, {-4480, -4992}, {-4992, -4480}};
 

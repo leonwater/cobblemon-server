@@ -668,12 +668,7 @@ def bounds(farm_box):
     return ['# 자동 생성: tools/build_world.py. 마을·농장·튜토리얼 방 밖으로 나가거나 떨어지면 되돌림',
             f'{who} if dimension poke:town {town_boxes} run function poke:home',
             f'{who} if dimension poke:farm {inside((fx1, fx2, fz1, fz2))} run function poke:util/tp with storage poke:config farm',
-            f'{who} if dimension poke:hub if entity @s[y=-100,dy=155] run function poke:util/tp with storage poke:config tutorial',
-            # 10. 연구소 철문 밖 발판: 끝낸 사람은 광장으로, 아직이면 안으로 되돌림
-            f'execute as @a[tag=poke.tutorial_done] at @s if dimension poke:hub if entity @s[x=-1,y=64,z={LAB[3] + 1},dx=2,dy=3,dz=1] run function poke:tutorial/leave',
-            f'execute as @a[tag=!poke.tutorial_done] at @s if dimension poke:hub if entity @s[x=-1,y=64,z={LAB[3] + 1},dx=2,dy=3,dz=1] '
-            'run tellraw @s {"text":"오박사의 튜토리얼을 먼저 끝내 주세요.","color":"red"}',
-            f'execute as @a[tag=!poke.tutorial_done] at @s if dimension poke:hub if entity @s[x=-1,y=64,z={LAB[3] + 1},dx=2,dy=3,dz=1] run tp @s 0.5 65 3.5 180 0']
+            f'{who} if dimension poke:hub if entity @s[y=-100,dy=155] run function poke:util/tp with storage poke:config tutorial']
 
 
 LAB = (-8, 8, -11, 7)                  # 튜토리얼: 오박사 연구소 (poke:hub, 바닥 y=64). 스폰 (0,65,3) → 3칸 앞 (0,65,0)에 오박사
@@ -681,7 +676,7 @@ LAB = (-8, 8, -11, 7)                  # 튜토리얼: 오박사 연구소 (poke
 
 def lab():
     """튜토리얼 방 = 오박사 연구소. 원작 연구소처럼 흰 벽(석영)·밝은 회색 타일 바닥·흰 천장 조명, 책장 줄, 연구 기계, 몬스터볼 3개 놓인 탁자.
-    밖은 울타리 친 잔디 마당(창밖이 허공이 아니게). 문은 철문이라 나갈 수 없음."""
+    밖은 울타리 친 잔디 마당(창밖이 허공이 아니게). 출입문 없음: 튜토리얼을 끝내면 바로 광장으로 옮겨 줌."""
     x1, x2, z1, z2 = LAB
     F, top = 64, 72
     L = ['# 자동 생성: tools/build_world.py. 튜토리얼 방 = 오박사 연구소',
@@ -690,7 +685,6 @@ def lab():
          fill(-16, 62, -16, 16, 62, 16, 'minecraft:dirt'), fill(-16, 63, -16, 16, 63, 16, 'minecraft:dirt'),
          fill(-16, 64, -16, 16, 64, 16, 'minecraft:grass_block'),
          *walls(-16, 16, -16, 16, 65, 65, 'minecraft:oak_fence'),
-         fill(-1, 64, z2 + 1, 1, 64, 16, 'minecraft:dirt_path'),                     # 문 앞 길
          fill(x1, F, z1, x2, F, z2, 'minecraft:smooth_quartz')]
     L += [fill(x, F, z1 + 1, x, F, z2 - 1, 'minecraft:light_gray_concrete') for x in range(x1 + 1, x2, 4)]      # 타일 줄눈
     L += [fill(x1 + 1, F, z, x2 - 1, F, z, 'minecraft:light_gray_concrete') for z in range(z1 + 1, z2, 4)]
@@ -708,16 +702,12 @@ def lab():
     L += big_windows(x1, x2, z1, z2, F + 2, F + 4)
     L += [fill(x1 + 1, top, z1 + 1, x2 - 1, top, z2 - 1, 'minecraft:smooth_quartz')]    # 흰 천장 + 천장 조명
     L += [sb(x, top, z, 'minecraft:sea_lantern') for x in range(x1 + 2, x2 - 1, 4) for z in range(z1 + 2, z2 - 1, 4)]
-    # 문(남쪽): 철문 + 안팎 발판(밟으면 열림). 밖 발판을 밟으면 광장으로 (bounds)
-    L += [fill(-1, F + 1, z2, 1, F + 4, z2, 'minecraft:smooth_quartz'),
-          sb(0, F + 1, z2, 'minecraft:iron_door[facing=north,half=lower]'), sb(0, F + 2, z2, 'minecraft:iron_door[facing=north,half=upper]'),
-          sb(0, F + 1, z2 + 1, 'minecraft:polished_blackstone_pressure_plate'),
-          label(0.5, F + 4.4, z2 + 0.6, '오박사 연구소', 'gold', 1.2, tag='poke.lab'),
-          label(0.5, F + 3.4, z2 - 0.4, '광장으로 나가는 문', 'yellow', 0.8, tag='poke.lab')]
+    L += [fill(-1, F + 1, z2, 1, F + 4, z2, 'minecraft:smooth_quartz'),   # 남쪽 벽 (예전 철문 자리도 막음)
+          label(0.5, F + 4.4, z2 + 0.6, '오박사 연구소', 'gold', 1.2, tag='poke.lab')]
     roof, _ = hip_roof(x1, x2, z1, z2, top + 1, 'minecraft:polished_andesite', 'minecraft:polished_andesite_stairs')
     L += roof
     # 안: 붉은 카펫(입구 → 오박사), 북쪽 벽 책장 + 간판, 가운데 책장 두 줄, 양옆 연구 기계, 몬스터볼 탁자
-    L += [fill(0, F + 1, 1, 0, F + 1, z2 - 2, 'minecraft:red_carpet'), sb(0, F + 1, z2 - 1, 'minecraft:polished_blackstone_pressure_plate'),
+    L += [fill(0, F + 1, 1, 0, F + 1, z2 - 1, 'minecraft:red_carpet'),
           fill(x1 + 1, F + 1, z1 + 1, x2 - 1, F + 4, z1 + 1, 'minecraft:bookshelf'),
           fill(-1, F + 2, z1 + 1, 1, F + 3, z1 + 1, 'minecraft:white_concrete'),        # 연구 칠판
           label(0.5, F + 5.2, z1 + 2.0, '오박사 포켓몬 연구소', 'gold', 1.0, tag='poke.lab', sub='POKéMON LAB'),
