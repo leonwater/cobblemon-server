@@ -108,7 +108,7 @@ metafile = true
 
 [[files]]
 file = "mods/pokeserver-0.1.0.jar"
-hash = "40f9fe21e2beb3adc340d66c636d046aac4615705648d8014b2ab2cb8c94812a"
+hash = "2bf033d8b70b27fd0ab29b22be1fb5f48805c44f9fbd4c1f7a99e0f0ef3a04cc"
 
 [[files]]
 file = "mods/rctapi.pw.toml"
@@ -261,7 +261,7 @@ hash = "a5f15ee7d38192604739774a6083ea56f4b7c532598f248775ef64ccef317f17"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/plaza/finish.mcfunction"
-hash = "036bed28dca933e9ffc4b3769bf8ea47993ccb887fa413146e5cde54ab55e83f"
+hash = "eb5c9bdb4052d548db3641e8334b240a721930471451d938c9e688614e936aeb"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/plaza/run_0.mcfunction"
@@ -278,6 +278,46 @@ hash = "ac667aa2f3be9b41d9dc46842464e23f328d48a4dbe810677e2baf971ae05cd8"
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/plaza/start.mcfunction"
 hash = "bb3847e289a9134563e2458d61a2547479a7ddcb41a5865371baa65346b56212"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/build/plaza/unload_0.mcfunction"
+hash = "8dae31fe485e4698619b4e93a65ee55d946edf1259043d3d6f8ac8f1cbc8d838"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/build/plaza/unload_1.mcfunction"
+hash = "3f8b0fa6d7d587539006655d0e94915e1844e3f1b74eb4abfba0cd3be0224818"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/build/plaza/unload_2.mcfunction"
+hash = "a26a4ee5f46dd3e9c0fa2a95fba898e9618fa53cac665576dfdee12440092c71"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/build/plaza/unload_3.mcfunction"
+hash = "4d7ad579edfb5ca253110e3157111810bb3061d871ace0c47316e648f3f56b07"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/build/plaza/unload_4.mcfunction"
+hash = "c250de839627ff05ef6747fa4b8679a03bef922c6447d03c714f72bcc8aff131"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/build/plaza/unload_5.mcfunction"
+hash = "58ba254a73fefb6434a830e7bfb2140c69186908fc21266141a04b58490b5679"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/build/plaza/unload_6.mcfunction"
+hash = "a121e07f9ec10f50e995bb4fcc64f2f790adba81be7779488958e4587918693e"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/build/plaza/unload_7.mcfunction"
+hash = "0ed3ea23d6058c19664443ad54c3ea95c109e2258d758c5a4b9eb5092beafa98"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/build/plaza/unload_8.mcfunction"
+hash = "140c2bb807ba943beb06d0a3763b0d84ac90032e3c72549ac1093fd3c6cad65a"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/poke/function/build/plaza/unload_9.mcfunction"
+hash = "2addac639e0aaeee6e1f7372108aa643b7ef9d31dbba3f6b7e43af8fb137c4e2"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/run.mcfunction"

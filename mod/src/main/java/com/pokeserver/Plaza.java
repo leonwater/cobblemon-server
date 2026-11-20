@@ -94,20 +94,21 @@ public final class Plaza {
                     sum += h; sq += (double) h * h;
                 }
                 double mean = sum / n, sd = Math.sqrt(Math.max(0, sq / n - mean * mean));
-                double score = 100.0 * land / n - sd;
+                // 평평하고 낮은 땅 우선: 산 위면 깎을 흙이 많아 서버가 오래 멈춤 (조명 다시 계산)
+                double score = 100.0 * land / n - 3 * sd - Math.max(0, mean - (sea + 15));
                 if (score > best) {
                     best = score;
                     pick = new BlockPos(c[0] + ox, Math.max(sea + 1, (int) Math.round(mean)), c[1] + oz);
                 }
             }
-            if (best > 90) break;     // 거의 다 땅이고 평평하면 그 칸에서 끝
+            if (best > 85) break;     // 거의 다 땅이고 평평하면 그 칸에서 끝
         }
         return pick;
     }
 
     /** 지형 다듬기: 틱마다 청크 하나 (반지름 PROTECT+BLEND 둘레). 끝나면 건물을 지음. */
     static void tick(MinecraftServer s) {
-        if (job < 0 || center == null) return;
+        if (job < 0 || center == null || s.getTickCount() % 3 != 0) return;   // 3틱마다 청크 하나: 한 틱이 길어지지 않게
         ServerLevel level = wild(s);
         int r = PROTECT + BLEND, side = (2 * r) / 16 + 2;
         int cx0 = (center.getX() - r) >> 4, cz0 = (center.getZ() - r) >> 4;
