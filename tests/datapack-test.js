@@ -51,6 +51,7 @@ const join = name => new Promise((res, rej) => {
 
   // 4·7. 규칙
   assert.match(await cmd('gamerule keepInventory'), /true/, '인벤세이브')
+  assert.match(await cmd('gamerule doFireTick'), /false/, '불이 번지거나 블록을 태우지 않음')
   await ok('execute as A if predicate poke:has_saturation', '배고픔 없음')
   await cmd('execute in minecraft:overworld run summon minecraft:zombie 0 -59 0')
   await cmd('execute in minecraft:overworld run summon minecraft:villager 2 -59 0 {NoAI:1b}')

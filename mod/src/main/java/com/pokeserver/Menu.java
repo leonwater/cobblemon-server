@@ -26,8 +26,7 @@ final class Menu {
     }
 
     static void action(ServerPlayer p, String a) {
-        if (a.startsWith("tutorial_done:")) {                     // 8. 튜토리얼 마지막 쪽에서 정한 닉네임
-            if (!p.level().dimension().location().toString().equals("poke:hub")) return;
+        if (a.startsWith("tutorial_done:")) {                     // 8. 튜토리얼 마지막 쪽에서 정한 닉네임 (아직 없을 때만; 광장 이동은 튜토리얼 방에서만)
             // 3. 닉네임은 첫 튜토리얼에서만: 이미 있으면 새로 적은 것은 무시
             String why = ServerData.get(p.server).nicks.containsKey(p.getUUID()) ? null : Nicknames.set(p, a.substring("tutorial_done:".length()));
             if (why != null) {

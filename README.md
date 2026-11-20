@@ -61,8 +61,9 @@ C:\pokeserver\
 
 | 바뀐 것 | 할 일 |
 |---|---|
-| 데이터팩 (튜토리얼·체육관·포탈 등) | `update.bat` 더블클릭 → 서버 창에 `reload` (접속 유지) |
-| 모드 | 서버 창에 `stop` → `start.bat` 더블클릭 |
+| 모든 업데이트 (권장) | 서버 창에 `stop` → `start.bat` 더블클릭 (켜기 전에 최신을 자동으로 받음) |
+| 데이터팩만 (튜토리얼·체육관 등) | `update.bat` 더블클릭 → 서버 창에 `reload` (접속 유지) |
+| `start.bat` 자체 | `server/` 폴더에서 다시 내려받기 |
 
 ## 클라이언트 (플레이하는 PC)
 
@@ -146,7 +147,7 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
 | 체육관·튜토리얼·농장 모양과 위치 | `tools/build_world.py` 수정 → 실행 → `load.mcfunction`의 `build:15`(농장은 `farm:3`) 숫자 +1 |
 | 광장 마을 건물·조경 | `tools/plaza.py` 수정 → `tools/build_world.py` 실행 → `Plaza.java`의 `BUILD_VERSION` +1 (모드 다시 빌드) |
 | 튜토리얼·농장 도착 위치 | `pack/world/datapacks/pokeserver/data/poke/function/config.mcfunction` |
-| 월드 초기화 | `pack/config/pokeserver/reset.json`의 `season` +1 → 다음 서버 시작 때 새 월드 (이전 월드는 서버 폴더의 `world-backup-...`에 보관, 지우지 않음) |
+| 월드 초기화 | 게임 안에서 `/초기화` (운영자), 또는 `pack/config/pokeserver/reset.json`의 `season` +1 → 다음 서버 시작 때 새 월드 (이전 월드는 서버 폴더의 `world-backup-...`에 보관, 지우지 않음) |
 | 기본 물품 | `.../function/kit.mcfunction`(러닝 슈즈), `.../function/mod/kit.mcfunction`(돈·몬스터볼) |
 | 안내원·간호사 대화 | `.../data/poke/dialogues/tutorial.json`, `nurse.json` |
 | 상점 분류·상품·가격 | `pack/config/pokeserver/shop.json` (`buy`/`sell`이 0이면 그 탭에 안 나옴). 실행 중엔 `/pokeserver reload` |
@@ -191,7 +192,7 @@ NPC는 Cobblemon NPC 하나로 통일합니다 (대화·회복·배틀 파티를
 - 관리자: `/pokeserver money give|take|set <플레이어> <금액>`, `/pokeserver deed <플레이어>` 땅 문서, `/pokeserver unclaim <번호>` 땅 주인 해제, `/pokeserver reload` 설정 다시 읽기
 - 글꼴: 우리 화면·표지판 글자는 [갈무리9](https://github.com/quiple/galmuri) (닌텐도 DS 글꼴에서 영감을 받은 한글 픽셀 글꼴, SIL OFL 1.1, 라이선스는 모드 안 `assets/pokeserver/font/Galmuri-OFL.txt`)
 - 관리자: `/function poke:admin/reset_me` 튜토리얼만 다시(보상은 다시 안 줌), `/function poke:admin/rebuild` 마을·NPC 다시 짓기
-- **초기화**: OP만 `/초기화` = 서버의 모든 플레이어(접속 안 한 사람은 다음 접속 때, `ServerData.resetEpoch`), `/초기화 닉네임` = 그 사람만. 관리자 `/pokeserver reset <플레이어>`. 인벤토리·엔더 상자·돈·농장 땅·포켓몬(파티·PC)·스타팅 선택·배지·레벨 제한 진행을 모두 지우고 첫 튜토리얼부터 (기본 물품도 다시 받음). 도감 기록은 남음
+- **초기화**: OP만 `/초기화` = 맵까지 전부 (`Menu.wipeAll`이 서버 폴더에 `pokeserver-wipe.txt`를 남기고 서버를 끔 → 다음 시작 때 `Reset`이 월드를 `world-backup-...`으로 옮김, `start.bat`은 이 파일이 있으면 바로 다시 켬), `/초기화 닉네임` = 그 사람만 (도감 포함). 관리자 `/pokeserver reset <플레이어>`. 인벤토리·엔더 상자·돈·농장 땅·포켓몬(파티·PC)·스타팅 선택·배지·레벨 제한 진행을 모두 지우고 첫 튜토리얼부터 (기본 물품도 다시 받음). 도감 기록은 남음
 
 ## 친구와 같이 하기 (playit.gg 터널)
 

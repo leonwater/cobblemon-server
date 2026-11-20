@@ -20,9 +20,28 @@ import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 
-/** 6. 농장: 주인만 편집, 다른 사람은 구경만. */
-final class Protection {
+/** 6. 농장: 주인만 편집, 다른 사람은 구경만. 광장·마을·튜토리얼 방은 고정 구역(아무도 못 바꿈). */
+public final class Protection {
     private Protection() {}
+
+    /** 고정 구역: 광장 둘레, 마을, 튜토리얼 방. */
+    public static boolean frozen(net.minecraft.world.level.Level level, net.minecraft.core.BlockPos pos) {
+        String dim = level.dimension().location().toString();
+        return dim.equals("poke:town") || dim.equals("poke:hub") || Plaza.protects(level, pos);
+    }
+
+    /** 우클릭만으로 모습이 바뀌거나 물건이 나오는 블록 (화분 꽃 빼기, 통 안 물건, 모닥불 음식 등). 문·PC·회복 기계·작업대는 그대로 사용. */
+    static boolean changesOnUse(net.minecraft.world.level.block.Block b) {
+        return b instanceof net.minecraft.world.level.block.FlowerPotBlock || b instanceof net.minecraft.world.level.block.BarrelBlock
+                || b instanceof net.minecraft.world.level.block.ChestBlock || b instanceof net.minecraft.world.level.block.CampfireBlock
+                || b instanceof net.minecraft.world.level.block.LecternBlock || b instanceof net.minecraft.world.level.block.ComposterBlock
+                || b instanceof net.minecraft.world.level.block.CakeBlock || b instanceof net.minecraft.world.level.block.CandleBlock
+                || b instanceof net.minecraft.world.level.block.CandleCakeBlock || b instanceof net.minecraft.world.level.block.SweetBerryBushBlock
+                || b instanceof net.minecraft.world.level.block.JukeboxBlock || b instanceof net.minecraft.world.level.block.NoteBlock
+                || b instanceof net.minecraft.world.level.block.DiodeBlock || b instanceof net.minecraft.world.level.block.DaylightDetectorBlock
+                || b instanceof net.minecraft.world.level.block.BeehiveBlock || b instanceof net.minecraft.world.level.block.DecoratedPotBlock
+                || b instanceof net.minecraft.world.level.block.ChiseledBookShelfBlock;
+    }
 
     /** 체력바 위 가운데 알림: 누구 땅인지. */
     static void deny(Player p, net.minecraft.world.level.Level level, net.minecraft.core.BlockPos pos) {
@@ -55,10 +74,18 @@ final class Protection {
         });
         UseBlockCallback.EVENT.register((player, level, hand, hit) -> {
             if (level.isClientSide()) return InteractionResult.PASS;
-            // 5. 농장 밖(광장 등): 문·PC·회복 기계는 쓰고, 블록은 고칠 수 있는 자리에만 놓음
+            // 5. 농장 밖(광장 등): 문·PC·회복 기계는 쓰고, 블록·불·물은 고칠 수 있는 자리에만 놓음
             if (!Farms.isFarm(level)) {
-                if (!(player.getItemInHand(hand).getItem() instanceof BlockItem)
-                        || Farms.canEdit(player, level, hit.getBlockPos().relative(hit.getDirection()))) return InteractionResult.PASS;
+                // 고정 구역의 화분·통·모닥불 등은 우클릭도 막음 (관리자 크리에이티브는 canEdit가 허용)
+                if (Protection.frozen(level, hit.getBlockPos()) && !Farms.canEdit(player, level, hit.getBlockPos())
+                        && changesOnUse(level.getBlockState(hit.getBlockPos()).getBlock())) {
+                    deny(player, level, hit.getBlockPos());
+                    return InteractionResult.FAIL;
+                }
+                var item = player.getItemInHand(hand).getItem();
+                boolean changes = item instanceof BlockItem || item instanceof net.minecraft.world.item.FlintAndSteelItem
+                        || item instanceof net.minecraft.world.item.FireChargeItem || item instanceof BucketItem;
+                if (!changes || Farms.canEdit(player, level, hit.getBlockPos().relative(hit.getDirection()))) return InteractionResult.PASS;
                 deny(player, level, hit.getBlockPos().relative(hit.getDirection()));
                 return InteractionResult.FAIL;
             }
