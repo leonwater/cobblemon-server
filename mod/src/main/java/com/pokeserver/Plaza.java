@@ -26,6 +26,9 @@ public final class Plaza {
 
     static BlockPos center;            // 광장 가운데 (땅 블록 높이)
     private static int job = -1;       // 지형 다듬는 중인 청크 순번 (-1: 안 함)
+    private static int col;            // 그 청크 안에서 다음에 다듬을 칸 (0~255)
+    /** 블록 바꿀 때 이웃 모양 갱신을 건너뜀(16): 이웃 청크를 불러오느라 한 틱이 수십 초 걸려 서버가 멈추던 원인. */
+    static final int FLAGS = 2 | 16;
 
     static CompoundTag state(MinecraftServer s) {
         return s.getCommandStorage().get(ResourceLocation.fromNamespaceAndPath("poke", "state"));
@@ -66,7 +69,7 @@ public final class Plaza {
         CompoundTag cfg = s.getCommandStorage().get(ResourceLocation.fromNamespaceAndPath("poke", "config"));
         cfg.put("hall", hall);
         s.getCommandStorage().set(ResourceLocation.fromNamespaceAndPath("poke", "config"), cfg);
-        if (p.getInt("terrain") == 0) job = 0;
+        if (p.getInt("terrain") == 0) { job = 0; col = 0; }
         else if (p.getInt("built") != BUILD_VERSION) build(s);
     }
 
@@ -106,9 +109,10 @@ public final class Plaza {
         return pick;
     }
 
-    /** 지형 다듬기: 틱마다 청크 하나 (반지름 PROTECT+BLEND 둘레). 끝나면 건물을 지음. */
+    /** 지형 다듬기 (반지름 PROTECT+BLEND 둘레): 틱마다 15ms 안에서만 칸을 다듬음 → 느린 PC에서도 한 틱이 길어지지 않음.
+     *  끝나면 건물을 짓고, 그다음 야생 미리 만들기(Chunky)를 시작 (같이 돌면 서버가 버거움). */
     static void tick(MinecraftServer s) {
-        if (job < 0 || center == null || s.getTickCount() % 3 != 0) return;   // 3틱마다 청크 하나: 한 틱이 길어지지 않게
+        if (job < 0 || center == null) return;
         ServerLevel level = wild(s);
         int r = PROTECT + BLEND, side = (2 * r) / 16 + 2;
         int cx0 = (center.getX() - r) >> 4, cz0 = (center.getZ() - r) >> 4;
@@ -119,12 +123,19 @@ public final class Plaza {
             put(s, st);
             PokeServer.LOG.info("광장 지형 다듬기 끝");
             build(s);
+            cmd(s, "chunky continue");
+            cmd(s, "execute unless data storage poke:state {pregen:1} run function poke:mod/pregen");
             return;
         }
+        if (job == 0 && col == 0) cmd(s, "chunky pause");   // 이미 시작된 미리 만들기(서버를 다시 켜면 자동으로 이어짐)는 잠시 멈춤
         int ccx = cx0 + job % side, ccz = cz0 + job / side;
-        job++;
         level.getChunk(ccx, ccz);   // 없으면 만들어 불러옴
-        for (int x = ccx * 16; x < ccx * 16 + 16; x++) for (int z = ccz * 16; z < ccz * 16 + 16; z++) column(level, x, z);
+        long end = System.nanoTime() + 15_000_000L;
+        while (col < 256 && System.nanoTime() < end) {
+            column(level, ccx * 16 + (col & 15), ccz * 16 + (col >> 4));
+            col++;
+        }
+        if (col == 256) { col = 0; job++; }
     }
 
     static void column(ServerLevel level, int x, int z) {
@@ -140,15 +151,15 @@ public final class Plaza {
         int top = d <= PROTECT ? y0 + 40 : (t < h ? h + 12 : t);
         for (int y = t + 1; y <= top; y++) {
             pos.set(x, y, z);
-            if (!level.getBlockState(pos).isAir()) level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
+            if (!level.getBlockState(pos).isAir()) level.setBlock(pos, Blocks.AIR.defaultBlockState(), FLAGS);
         }
         // 아래 채우기: 빈칸·물을 흙·돌로 (바다 쪽이면 섬처럼 이어짐)
         for (int y = t - 14; y <= t; y++) {
             pos.set(x, y, z);
             BlockState b = level.getBlockState(pos);
             boolean soft = b.isAir() || !b.getFluidState().isEmpty() || b.canBeReplaced() || b.is(BlockTags.LOGS) || b.is(BlockTags.LEAVES);
-            if (y == t) level.setBlock(pos, Blocks.GRASS_BLOCK.defaultBlockState(), 2);
-            else if (soft || y >= t - 3) level.setBlock(pos, (y >= t - 3 ? Blocks.DIRT : Blocks.STONE).defaultBlockState(), 2);
+            if (y == t) level.setBlock(pos, Blocks.GRASS_BLOCK.defaultBlockState(), FLAGS);
+            else if (soft || y >= t - 3) level.setBlock(pos, (y >= t - 3 ? Blocks.DIRT : Blocks.STONE).defaultBlockState(), FLAGS);
         }
     }
 
@@ -162,6 +173,10 @@ public final class Plaza {
             y--;
         }
         return y;
+    }
+
+    static void cmd(MinecraftServer s, String c) {
+        s.getCommands().performPrefixedCommand(s.createCommandSourceStack().withSuppressedOutput(), c);
     }
 
     /** 건물·조경 (데이터팩): 광장 가운데 기준 상대 좌표로 지음. */
