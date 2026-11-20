@@ -47,11 +47,11 @@ public final class Net {
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
 
-    /** 서버 → 클라이언트: 오른쪽 정보창 (잔액, 배지 수, 잡은 종 수). 1초마다. */
-    public record Hud(long balance, int badges, int dex) implements CustomPacketPayload {
+    /** 서버 → 클라이언트: 오른쪽 정보창 (잔액, 배지 수, 지금 있는 곳 이름). 1초마다. */
+    public record Hud(long balance, int badges, String place) implements CustomPacketPayload {
         public static final Type<Hud> TYPE = id("hud");
         public static final StreamCodec<RegistryFriendlyByteBuf, Hud> CODEC = StreamCodec.composite(
-                ByteBufCodecs.VAR_LONG, Hud::balance, ByteBufCodecs.VAR_INT, Hud::badges, ByteBufCodecs.VAR_INT, Hud::dex, Hud::new);
+                ByteBufCodecs.VAR_LONG, Hud::balance, ByteBufCodecs.VAR_INT, Hud::badges, ByteBufCodecs.stringUtf8(64), Hud::place, Hud::new);
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
 
@@ -73,11 +73,16 @@ public final class Net {
     }
 
     /** 서버 → 클라이언트: 메인 메뉴 열기 (잔액, 공지, 튜토리얼을 끝냈는지 — 끝내기 전엔 워프 잠금). */
-    public record MenuOpen(long balance, String notice, boolean tutorialDone) implements CustomPacketPayload {
+    /** stats: 잡은 종, 마주친 종, 전체 종, 배지 (composite 칸 수 제한이라 목록으로). */
+    public record MenuOpen(long balance, String notice, boolean tutorialDone, java.util.List<Integer> stats) implements CustomPacketPayload {
         public static final Type<MenuOpen> TYPE = id("menu_open");
         public static final StreamCodec<RegistryFriendlyByteBuf, MenuOpen> CODEC = StreamCodec.composite(
                 ByteBufCodecs.VAR_LONG, MenuOpen::balance, ByteBufCodecs.stringUtf8(4096), MenuOpen::notice,
-                ByteBufCodecs.BOOL, MenuOpen::tutorialDone, MenuOpen::new);
+                ByteBufCodecs.BOOL, MenuOpen::tutorialDone, ByteBufCodecs.VAR_INT.apply(ByteBufCodecs.list(4)), MenuOpen::stats, MenuOpen::new);
+        public int caught() { return stats.get(0); }
+        public int seen() { return stats.get(1); }
+        public int total() { return stats.get(2); }
+        public int badges() { return stats.get(3); }
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
 

@@ -222,12 +222,15 @@ final class CobblemonHooks {
         return null;
     }
 
-    /** 도감: 잡은(OWNED) 종 수. */
-    static int caught(net.minecraft.server.level.ServerPlayer p) {
-        int n = 0;
-        for (var r : com.cobblemon.mod.common.Cobblemon.INSTANCE.getPlayerDataManager().getPokedexData(p).getSpeciesRecords().values())
-            if (r.getKnowledge() == com.cobblemon.mod.common.api.pokedex.PokedexEntryProgress.OWNED) n++;
-        return n;
+    /** 메뉴 카드: 잡은 종, 마주친 종(잡은 것 포함), 전체 종. */
+    static java.util.List<Integer> dex(net.minecraft.server.level.ServerPlayer p) {
+        int own = 0, seen = 0;
+        for (var r : com.cobblemon.mod.common.Cobblemon.INSTANCE.getPlayerDataManager().getPokedexData(p).getSpeciesRecords().values()) {
+            var k = r.getKnowledge();
+            if (k == com.cobblemon.mod.common.api.pokedex.PokedexEntryProgress.OWNED) own++;
+            if (k != com.cobblemon.mod.common.api.pokedex.PokedexEntryProgress.UNREGISTERED) seen++;
+        }
+        return java.util.List.of(own, seen, com.cobblemon.mod.common.api.pokemon.PokemonSpecies.INSTANCE.getImplemented().size());
     }
 
     static boolean nearFirstSpawn(MinecraftServer server, net.minecraft.core.BlockPos pos) {

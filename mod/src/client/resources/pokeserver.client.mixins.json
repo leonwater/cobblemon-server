@@ -1,0 +1,7 @@
+{
+  "required": true,
+  "package": "com.pokeserver.client.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": ["WindowMixin", "ScreenMixin", "BattleGuiMixin", "BattleOverlayMixin", "OptionTileMixin", "MoveTileMixin"],
+  "injectors": { "defaultRequire": 0 }
+}

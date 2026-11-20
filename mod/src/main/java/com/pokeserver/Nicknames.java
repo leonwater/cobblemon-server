@@ -95,13 +95,19 @@ public final class Nicknames {
             server.getPlayerList().broadcastAll(new ClientboundPlayerInfoUpdatePacket(
                     java.util.EnumSet.of(ClientboundPlayerInfoUpdatePacket.Action.UPDATE_DISPLAY_NAME), new ArrayList<>(players)));
         }
-        for (ServerPlayer p : players) ServerPlayNetworking.send(p, new Net.Hud(Money.get(p), badges(p), dex(p)));
+        for (ServerPlayer p : players) ServerPlayNetworking.send(p, new Net.Hud(Money.get(p), badges(p), place(p)));
     }
 
-    /** 잡은 포켓몬 종 수 (Cobblemon 없으면 -1). */
-    static int dex(ServerPlayer p) {
-        if (!net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) return -1;
-        return CobblemonHooks.caught(p);
+    /** 정보창 "위치": 광장 마을 / 야생 / 농장 / 체육관 / 연구소. */
+    static String place(ServerPlayer p) {
+        String d = p.level().dimension().location().toString();
+        return switch (d) {
+            case "poke:wild" -> Plaza.protects(p.level(), p.blockPosition()) ? "광장 마을" : "야생";
+            case "poke:farm" -> "농장";
+            case "poke:town" -> "체육관";
+            case "poke:hub" -> "오박사 연구소";
+            default -> "-";
+        };
     }
 
     /** 클라이언트: 패킷 내용 → 보이는 이름. */

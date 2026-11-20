@@ -23,6 +23,7 @@
     "fabric-api": "*"
   },
   "mixins": [
-    "pokeserver.mixins.json"
+    "pokeserver.mixins.json",
+    { "config": "pokeserver.client.mixins.json", "environment": "client" }
   ]
 }
