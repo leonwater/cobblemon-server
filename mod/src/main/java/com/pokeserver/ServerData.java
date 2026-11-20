@@ -19,9 +19,6 @@ public class ServerData extends SavedData {
     public final Map<UUID, String> nicks = new HashMap<>();         // 8. 튜토리얼에서 정한 닉네임
     /** 칭호용 기록: earned(번 돈) spent(상점에서 쓴 돈) pvp(플레이어 배틀 승) legend(전설 포획) title(고른 칭호) got(얻은 칭호 목록). */
     public final Map<UUID, CompoundTag> stats = new HashMap<>();
-    /** 8. 전체 초기화 횟수와 사람마다 반영한 횟수: 적으면 접속할 때 초기화 (접속 안 했던 사람). */
-    public int resetEpoch;
-    public final Map<UUID, Integer> resetSeen = new HashMap<>();
 
     public CompoundTag stats(UUID id) {
         setDirty();
@@ -48,9 +45,6 @@ public class ServerData extends SavedData {
         for (String k : deeds.getAllKeys()) d.deedsBought.put(UUID.fromString(k), deeds.getInt(k));
         CompoundTag nicks = tag.getCompound("nicks");
         for (String k : nicks.getAllKeys()) d.nicks.put(UUID.fromString(k), nicks.getString(k));
-        d.resetEpoch = tag.getInt("resetEpoch");
-        CompoundTag seen = tag.getCompound("resetSeen");
-        for (String k : seen.getAllKeys()) d.resetSeen.put(UUID.fromString(k), seen.getInt(k));
         CompoundTag stats = tag.getCompound("stats");
         for (String k : stats.getAllKeys()) d.stats.put(UUID.fromString(k), stats.getCompound(k));
         return d;
@@ -81,10 +75,6 @@ public class ServerData extends SavedData {
         CompoundTag stats = new CompoundTag();
         this.stats.forEach((id, t) -> stats.put(id.toString(), t));
         tag.put("stats", stats);
-        tag.putInt("resetEpoch", resetEpoch);
-        CompoundTag seen = new CompoundTag();
-        resetSeen.forEach((id, n) -> seen.putInt(id.toString(), n));
-        tag.put("resetSeen", seen);
         return tag;
     }
 }

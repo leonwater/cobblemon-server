@@ -1,10 +1,4 @@
 # 자동 생성: tools/plaza.py (광장 기준 상대 좌표)
-setblock ~-58 ~-1 ~6 minecraft:clay
-setblock ~-57 ~0 ~-3 minecraft:water
-setblock ~-57 ~-1 ~-3 minecraft:clay
-setblock ~-57 ~0 ~-2 minecraft:water
-setblock ~-57 ~-1 ~-2 minecraft:water
-setblock ~-57 ~0 ~-1 minecraft:water
 setblock ~-57 ~-1 ~-1 minecraft:clay
 setblock ~-57 ~1 ~-1 minecraft:lily_pad
 setblock ~-57 ~0 ~0 minecraft:water

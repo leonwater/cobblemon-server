@@ -423,14 +423,10 @@ def plaza():
         makers = {'house': lambda x, z, d: house(x, z, d), 'house2': lambda x, z, d: house(x, z, d, 'mossy_stone_brick', 'mossy_cobblestone', 'birch_planks', 'stripped_dark_oak_log'),
                   'diner': lambda x, z, d: diner(x, z, d), 'diner2': lambda x, z, d: diner(x, z, d, 'lime'),
                   'mimikyu': mimikyu, 'gymlet': gymlet}
-        names = {'academy': '개체값·노력치', 'nature': '성격·민트', 'types': '타입 상성', 'catch': '포획·레벨 제한', 'evolve': '진화', 'dojo': '기술·도구'}
         for key, kind, x1, z1, door in TIP_HOUSES:
             cmds, (spots, front) = makers[kind](x1, z1, door)
             L += cmds
             fronts.append(front)
-            w, d = SIZE[kind]
-            L.append(W.label(x1 + w / 2, (26.5 if kind == 'mimikyu' else 11.5 if kind.startswith('diner') else 9.5), z1 + d / 2,
-                             names[key], 'yellow', 1.1, tag='poke.plaza'))
             for (tid, *_rest), (x, y, z, yaw) in zip([t for t in tips.TIPS if t[1] == key], spots):
                 npcs.append((f'poke:tip_{tid}', x, y, z, f'poke.tip_{tid}', yaw))
         # 길: 출구 4곳 + 센터·숍 문 + 집마다 (굽게)

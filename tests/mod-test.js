@@ -135,8 +135,12 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   await A.activateEntity(Object.values(A.entities).find(e => e.name === 'villager'))
   await sleep(800)
   assert.equal(opened.length, before + 1, '6. 점원 우클릭 → 상점 화면')
+  // 7. 튜토리얼 다시 보기: 설명 창만 열고 자리는 그대로
+  let tut = 0; A._client.on('custom_payload', p => { if (p.channel === 'pokeserver:tutorial_open') tut++ })
+  const posBefore = await cmd('data get entity A Pos')
   act('tutorial'); await sleep(800)
-  assert.match(await cmd('data get entity A Pos[2]'), /3\.5d$/, '튜토리얼 다시 보기 → 튜토리얼 방')
+  assert.equal(tut, 1, '7. 튜토리얼 다시 보기 → 설명 창 패킷')
+  assert.equal(await cmd('data get entity A Pos'), posBefore, '7. 튜토리얼 다시 보기 → 오박사에게 이동하지 않음')
 
 
   // 3·4. 체육관 안내원(태그 poke.gymguide) → 도전 목록: 클리어한 곳과 도전 가능한 곳만, 고르면 경기장으로
@@ -209,8 +213,8 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   console.log('> 7·8. 초기화는 OP만, 이름을 붙이면 그 사람만')
 
   // 15. 광장 마을: 모드가 자리·지형을 정하고 지음, 둘레 72칸은 수정 금지
-  for (let i = 0; i < 120 && !/built: 2/.test(await cmd('data get storage poke:state plaza')); i++) await sleep(1000)
-  assert.match(await cmd('data get storage poke:state plaza'), /built: 2/, '광장 짓기 끝')
+  for (let i = 0; i < 120 && !/built: 3/.test(await cmd('data get storage poke:state plaza')); i++) await sleep(1000)
+  assert.match(await cmd('data get storage poke:state plaza'), /built: 3/, '광장 짓기 끝')
   const pz = (await cmd('data get storage poke:state plaza')).match(/x: (-?\d+), y: (-?\d+), z: (-?\d+)/)
   assert.ok(pz, '15. 광장 자리 저장'); const [px, py, pzz] = pz.slice(1).map(Number)
   await cmd(`execute in poke:wild run forceload add ${px} ${pzz}`); await sleep(1500)
@@ -218,6 +222,14 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   await cmd(`execute in poke:wild run tp A ${px + 5}.5 ${py + 1} ${pzz + 20}.5 0 90`); await sleep(1500)
   await within(A.dig(A.blockAt(new Vec3(px + 5, py, pzz + 21))), 3000)
   assert.ok(!(await cmd(`execute in poke:wild if block ${px + 5} ${py} ${pzz + 21} minecraft:air`)).includes('passed'), '15. 광장 둘레 블록은 못 부숨')
+  // 5. 광장 안: 모험 모드 + 블록 놓기 금지 (예전엔 놓기만 안 막혔음)
+  assert.ok((await cmd('execute if entity @a[name=A,gamemode=adventure]')).includes('passed'), '5. 광장 안은 모험 모드')
+  await cmd('give A minecraft:stone 1'); await sleep(500)
+  await A.equip(A.inventory.items().find(i => i.name === 'stone'), 'hand')
+  await within(A.placeBlock(A.blockAt(new Vec3(px + 5, py, pzz + 21)), new Vec3(0, 1, 0)), 2000); await sleep(500)
+  assert.ok((await cmd(`execute in poke:wild if block ${px + 5} ${py + 1} ${pzz + 21} minecraft:air`)).includes('passed'), '5. 광장에 블록을 못 놓음')
+  await cmd(`execute in poke:wild run tp A ${px + 120}.5 200 ${pzz}.5`); await sleep(1500)
+  assert.ok((await cmd('execute if entity @a[name=A,gamemode=survival]')).includes('passed'), '5. 광장 밖은 생존 모드')
   console.log('> 15. 광장 마을·보호')
 
   console.log('ALL PASS'); A.quit(); B.quit(); await rc.end(); process.exit(0)

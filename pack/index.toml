@@ -108,7 +108,7 @@ metafile = true
 
 [[files]]
 file = "mods/pokeserver-0.1.0.jar"
-hash = "84a66d3fb27508a58be9853bd2ab590c2332784bc1cad9889e10d606ad4fa245"
+hash = "ddc9a7165b02402050132e07fc4b26a480cd808097f1a58fb91d2c28685dbb7f"
 
 [[files]]
 file = "mods/rctapi.pw.toml"
@@ -253,11 +253,11 @@ hash = "897ae64e3101e4e3a161c045b5448114bc128788d5f2217256ce3aac660e4542"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/plaza/1.mcfunction"
-hash = "9b4d505f366a2f251fad6f453f67a9488c6677bfe654e5852e65ad2e750a0864"
+hash = "58fdef5bcf3b75c8463e1a812f0272d6261e65775675575cb6be876b15f5811d"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/plaza/2.mcfunction"
-hash = "a5f15ee7d38192604739774a6083ea56f4b7c532598f248775ef64ccef317f17"
+hash = "b57940e25a9a59ff5b279c06beed838c9f957a36f8e488e592cb4c7025facbd8"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/plaza/finish.mcfunction"
@@ -549,7 +549,7 @@ hash = "16d027bf29ec5a6904c3589a68c3429de4a129a5b1b2558c5534805a200d8cc1"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/build_town.mcfunction"
-hash = "067fbd6ca511abbbfea01585cdb3d20a3eafa908bbee457c8aeb2e82b475dfd7"
+hash = "9c4a7ed23d70137110ac390decdc85e0b2b542eb5d1762796e54fdeaaf7bce2a"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/kit.mcfunction"
@@ -609,15 +609,15 @@ hash = "8af8a6dc616e6150f16c752a26c6b6a4be3f0fdc09765bdd7ea0f3e97968e7d0"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/spawn_npc.mcfunction"
-hash = "7d9adb4e71b29cc53b04a8dfa6cf65cda998d8f2a6b52a94f613382047da9d3e"
+hash = "c419fc1f3c323afd61a794de4d312e4e497bf0ed2aed50a73c97c013dc76df7a"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/spawn_npcs.mcfunction"
-hash = "e82a636df50ae0cab213fe4dbcde6c0c0552d43a4f2a2393b71b958d284c45bf"
+hash = "b91d268fe51451d723799623f35d2c968aa94091c29eab03afafbada224df240"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/tick.mcfunction"
-hash = "c9c6b56ad5207e20962a920a452f4f970fd923aa4024404791a696e5c2d7e8b7"
+hash = "605df1e8599798361961e24c153127a33d83aa0f00a67a0f95984a8e9a7e6725"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/tutorial/finish.mcfunction"

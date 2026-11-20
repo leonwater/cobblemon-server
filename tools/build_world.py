@@ -604,8 +604,9 @@ def town():
 
 def spawn_npcs():
     L = ['# 자동 생성: tools/build_world.py. 기존 NPC 제거 후 다시 소환 (청크는 build/start에서 불러옴)',
-         'execute as @e[type=cobblemon:npc,tag=poke.npc] run npcdelete @s',
-         'execute as @e[type=cobblemon:npc,tag=poke.tutor] run npcdelete @s',
+         # 3. @e는 모든 차원을 고르므로 튜토리얼 방·마을 것만 지움 (예전엔 광장(야생) NPC까지 지웠음)
+         'execute as @e[type=cobblemon:npc,tag=poke.npc] at @s unless dimension poke:wild run npcdelete @s',
+         'execute as @e[type=cobblemon:npc,tag=poke.tutor] at @s unless dimension poke:wild run npcdelete @s',
          '# 튜토리얼 안내원: 스폰 지점(0,65,3)을 바라보게',
          'execute in poke:hub run function poke:mod/spawn_npc {id:"poke:tutorial_guide", x:0, y:65, z:0, tag:"poke.tutor", yaw:0}',
          '# 간호사(회복), 점원(우클릭 → 상점), 체육관 안내원(우클릭 → 도전 목록; 모드가 태그로 처리)']
@@ -750,7 +751,7 @@ if __name__ == '__main__':
     pl, pl_npcs = P.plaza()
     old_npcs = [f'execute in poke:town as @e[type=cobblemon:npc,tag=poke.npc,x={x1},y={G - 10},z={z1},dx={x2 - x1},dy=80,dz={z2 - z1}] run npcdelete @s'
                 for _, (x1, x2, z1, z2) in OLD_ISLANDS]           # 없앤 섬에 있던 NPC
-    out = {'mod/build_town.mcfunction': ['# 자동 생성: tools/build_world.py. Cobblemon 물건', 'kill @e[type=cobblemon:pokemon]'] + old_npcs + lab_mod(), 'build/tutorial.mcfunction': lab(), 'mod/spawn_npcs.mcfunction': spawn_npcs(),
+    out = {'mod/build_town.mcfunction': ['# 자동 생성: tools/build_world.py. Cobblemon 물건', 'execute as @e[type=cobblemon:pokemon] at @s if dimension poke:town run kill @s'] + old_npcs + lab_mod(), 'build/tutorial.mcfunction': lab(), 'mod/spawn_npcs.mcfunction': spawn_npcs(),
            'build/start.mcfunction': build_start(), 'bounds.mcfunction': bounds(box), 'build/farm.mcfunction': f}
     tdir = FN / 'build/terrain'
     tdir.mkdir(parents=True, exist_ok=True)
