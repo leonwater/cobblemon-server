@@ -8,6 +8,7 @@
 """
 import json
 import math
+import re
 import sys
 from pathlib import Path
 
@@ -770,11 +771,13 @@ if __name__ == '__main__':
         f'schedule clear poke:build/terrain/run_{k}' for k in range(len(parts))]
     out['build/run.mcfunction'] = ['# 자동 생성: tools/build_world.py. 지형을 여러 틱에 나눠 지은 뒤 build/finish',
                                    'function poke:build/terrain/run_0']
+    # 건물 번호는 load.mcfunction 한 곳에서만 정함 (둘이 다르면 서버를 켤 때마다 다시 지음)
+    BUILD = int(re.search(r'\{build:(\d+)\}', (FN / 'load.mcfunction').read_text()).group(1))
     out['build/finish.mcfunction'] = [
         '# 자동 생성: tools/build_world.py',
         'execute in poke:hub run function poke:build/tutorial',
         'execute in poke:town run function poke:mod/build_town', 'execute in poke:hub run function poke:mod/spawn_npcs',
-        'execute in poke:town run forceload remove all', 'data modify storage poke:state build set value 15',
+        'execute in poke:town run forceload remove all', f'data modify storage poke:state build set value {BUILD}',
         '# 관장·사천왕은 플레이어가 접속하면 소환 (RCT 명령이 플레이어를 요구)', 'data modify storage poke:state leaders set value 0',
         'say [pokeserver] 튜토리얼 방·체육관과 지형을 지었습니다.']
     # 15. 광장 마을 (야생): 모드가 자리·지형을 정한 뒤 그 자리에서 build/plaza/start 실행 → 마커 기준 상대 좌표로 2,000줄씩

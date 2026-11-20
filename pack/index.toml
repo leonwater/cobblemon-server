@@ -245,7 +245,7 @@ hash = "518d55a1c83476f020a3302eab5e3adc8e40a9625e14d0c739973871515820ef"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/finish.mcfunction"
-hash = "2ec4a0817488ba31322d4f6054810fe4c7fa34bdae7e523f248d3054c785fff4"
+hash = "36d3bfb33b45c919a40bdb595b142999db6a82b7dc99c75919b9380deee8bbcd"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/plaza/0.mcfunction"

@@ -24,6 +24,7 @@ const join = name => new Promise((res, rej) => {
 
   // 건물이 지어질 때까지 (load 후 60틱)
   await waitFor('data get storage poke:state', /build: 16.*farm: 3|farm: 3.*build: 16/, 240)  // 지형은 여러 틱에 나눠 지음
+  assert.match(await cmd('data get storage poke:state'), /build: 16/, '짓기 끝에 저장한 건물 번호가 load와 같아야 함 (다르면 켤 때마다 다시 지음)')
   await ok('execute in poke:hub if block 0 64 3 minecraft:smooth_quartz', '튜토리얼 방 바닥')
   for (const fl of ['-40 -80 140 30', '960 -32 1040 32', '1960 -36 2040 36', '3000 -18 3380 18', '3500 -46 3540 12'])
     await cmd(`execute in poke:town run forceload add ${fl}`)
