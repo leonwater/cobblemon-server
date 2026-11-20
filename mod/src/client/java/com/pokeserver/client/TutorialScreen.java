@@ -61,7 +61,7 @@ public class TutorialScreen extends Screen {
     private int py() { return (vh() - ph()) / 2; }
     private int btnY() { return py() + ph() - 26; }
     private List<String> lines() {
-        String t = nickPage() && locked ? "닉네임은 이미 정했네. §e준비 완료!§r를 누르면 바로 광장으로 간다네." : PAGES.get(page).text();
+        String t = nickPage() && locked ? "닉네임은 이미 정했네. 다 읽었으면 §e준비 완료!§r를 누르게." : PAGES.get(page).text();
         return Theme.wrap(font, t, pw() - 28, MAX_LINES);
     }
     private int imgH() {

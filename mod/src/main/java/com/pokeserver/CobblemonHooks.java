@@ -199,7 +199,7 @@ public final class CobblemonHooks {
         }
     }
 
-    /** 전체 초기화: 파티·PC의 포켓몬을 모두 지우고 스타팅 포켓몬을 다시 고를 수 있게 (세대도 새로 뽑음). */
+    /** 초기화: 파티·PC의 포켓몬·도감을 모두 지우고 스타팅 포켓몬을 다시 고를 수 있게 (세대도 새로 뽑음). */
     static void wipe(net.minecraft.server.level.ServerPlayer p) {
         com.cobblemon.mod.common.util.PlayerExtensionsKt.party(p).clearParty();
         var pc = com.cobblemon.mod.common.util.PlayerExtensionsKt.pc(p);
@@ -212,6 +212,12 @@ public final class CobblemonHooks {
         data.setStarterPrompted(false);
         data.setStarterLocked(true);   // 튜토리얼을 다시 끝내면 starterLocks가 풂
         data.sendToPlayer(p);
+        // 1. 도감 기록도 처음부터 (도감 칭호·보상이 다시 쌓이게)
+        var mgr = com.cobblemon.mod.common.Cobblemon.INSTANCE.getPlayerDataManager();
+        var dex = mgr.getPokedexData(p);
+        dex.getSpeciesRecords().clear();
+        mgr.saveSingle(dex, com.cobblemon.mod.common.api.storage.player.PlayerInstancedDataStoreTypes.INSTANCE.getPOKEDEX());
+        mgr.syncAllToPlayer(p);
         p.getTags().removeIf(t -> t.startsWith("poke.gen_"));
     }
 

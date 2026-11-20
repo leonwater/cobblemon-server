@@ -312,7 +312,6 @@ setblock ~-27 ~7 ~-39 minecraft:light[level=15]
 setblock ~-27 ~7 ~-35 minecraft:light[level=15]
 setblock ~-23 ~7 ~-39 minecraft:light[level=15]
 setblock ~-23 ~7 ~-35 minecraft:light[level=15]
-summon minecraft:text_display ~-26.5 ~11.5 ~-36.0 {Tags:["poke.plaza"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.1f,1.1f,1.1f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"개체값·노력치","color":"yellow","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 fill ~-9 ~0 ~-53 ~1 ~0 ~-45 minecraft:spruce_planks
 fill ~-9 ~1 ~-53 ~1 ~1 ~-45 minecraft:cobblestone
 fill ~-9 ~2 ~-53 ~1 ~4 ~-53 minecraft:oak_planks
@@ -392,7 +391,6 @@ setblock ~-4 ~4 ~-51 minecraft:light[level=15]
 setblock ~-4 ~4 ~-48 minecraft:light[level=15]
 setblock ~-1 ~4 ~-51 minecraft:light[level=15]
 setblock ~-1 ~4 ~-48 minecraft:light[level=15]
-summon minecraft:text_display ~-3.5 ~9.5 ~-48.5 {Tags:["poke.plaza"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.1f,1.1f,1.1f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"성격·민트","color":"yellow","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 fill ~30 ~0 ~-44 ~44 ~0 ~-30 minecraft:smooth_sandstone
 fill ~37 ~1 ~-44 ~37 ~1 ~-44 minecraft:smooth_sandstone
 fill ~34 ~1 ~-43 ~40 ~1 ~-43 minecraft:smooth_sandstone
@@ -800,7 +798,6 @@ setblock ~37 ~12 ~-34 minecraft:light[level=15]
 setblock ~40 ~12 ~-40 minecraft:light[level=15]
 setblock ~40 ~12 ~-37 minecraft:light[level=15]
 setblock ~40 ~12 ~-34 minecraft:light[level=15]
-summon minecraft:text_display ~37.5 ~26.5 ~-36.5 {Tags:["poke.plaza"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.1f,1.1f,1.1f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"타입 상성","color":"yellow","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 fill ~-45 ~0 ~29 ~-35 ~0 ~37 minecraft:spruce_planks
 fill ~-45 ~1 ~29 ~-35 ~1 ~37 minecraft:cobblestone
 fill ~-45 ~2 ~29 ~-35 ~4 ~29 minecraft:birch_planks
@@ -880,7 +877,6 @@ setblock ~-40 ~4 ~31 minecraft:light[level=15]
 setblock ~-40 ~4 ~34 minecraft:light[level=15]
 setblock ~-37 ~4 ~31 minecraft:light[level=15]
 setblock ~-37 ~4 ~34 minecraft:light[level=15]
-summon minecraft:text_display ~-39.5 ~9.5 ~33.5 {Tags:["poke.plaza"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.1f,1.1f,1.1f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포획·레벨 제한","color":"yellow","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 fill ~6 ~0 ~35 ~18 ~0 ~44 minecraft:stone_bricks
 fill ~7 ~1 ~36 ~17 ~1 ~43 minecraft:spruce_planks
 fill ~6 ~1 ~35 ~18 ~8 ~35 minecraft:spruce_planks
@@ -989,7 +985,6 @@ setblock ~12 ~7 ~37 minecraft:light[level=15]
 setblock ~12 ~7 ~41 minecraft:light[level=15]
 setblock ~16 ~7 ~37 minecraft:light[level=15]
 setblock ~16 ~7 ~41 minecraft:light[level=15]
-summon minecraft:text_display ~12.5 ~11.5 ~40.0 {Tags:["poke.plaza"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.1f,1.1f,1.1f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"진화","color":"yellow","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 fill ~27 ~0 ~23 ~39 ~0 ~32 minecraft:smooth_stone
 fill ~28 ~1 ~24 ~38 ~1 ~31 minecraft:birch_planks
 fill ~27 ~1 ~23 ~39 ~5 ~23 minecraft:white_concrete
@@ -1049,7 +1044,6 @@ setblock ~32 ~4 ~25 minecraft:light[level=15]
 setblock ~32 ~4 ~28 minecraft:light[level=15]
 setblock ~35 ~4 ~25 minecraft:light[level=15]
 setblock ~35 ~4 ~28 minecraft:light[level=15]
-summon minecraft:text_display ~33.5 ~9.5 ~28.0 {Tags:["poke.plaza"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.1f,1.1f,1.1f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"기술·도구","color":"yellow","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 setblock ~-4 ~0 ~50 minecraft:dirt_path
 setblock ~-4 ~0 ~51 minecraft:dirt_path
 setblock ~-4 ~0 ~52 minecraft:gravel
@@ -1999,3 +1993,9 @@ setblock ~-58 ~1 ~4 minecraft:lily_pad
 setblock ~-58 ~0 ~5 minecraft:water
 setblock ~-58 ~-1 ~5 minecraft:water
 setblock ~-58 ~0 ~6 minecraft:water
+setblock ~-58 ~-1 ~6 minecraft:clay
+setblock ~-57 ~0 ~-3 minecraft:water
+setblock ~-57 ~-1 ~-3 minecraft:clay
+setblock ~-57 ~0 ~-2 minecraft:water
+setblock ~-57 ~-1 ~-2 minecraft:water
+setblock ~-57 ~0 ~-1 minecraft:water

@@ -54,7 +54,14 @@ final class Protection {
             return InteractionResult.FAIL;
         });
         UseBlockCallback.EVENT.register((player, level, hand, hit) -> {
-            if (!Farms.isFarm(level) || level.isClientSide()) return InteractionResult.PASS;
+            if (level.isClientSide()) return InteractionResult.PASS;
+            // 5. 농장 밖(광장 등): 문·PC·회복 기계는 쓰고, 블록은 고칠 수 있는 자리에만 놓음
+            if (!Farms.isFarm(level)) {
+                if (!(player.getItemInHand(hand).getItem() instanceof BlockItem)
+                        || Farms.canEdit(player, level, hit.getBlockPos().relative(hit.getDirection()))) return InteractionResult.PASS;
+                deny(player, level, hit.getBlockPos().relative(hit.getDirection()));
+                return InteractionResult.FAIL;
+            }
             // 땅 문서로 빈 땅 우클릭 → 확인 팝업
             if (Farms.isDeed(player.getItemInHand(hand))) {
                 Farms.Plot plot = Farms.plotAt(hit.getBlockPos());

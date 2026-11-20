@@ -3,4 +3,4 @@
 $spawnnpcat $(x) $(y) $(z) $(id)
 $execute positioned $(x) $(y) $(z) run tag @e[type=cobblemon:npc,distance=..1.5,limit=1,sort=nearest] add poke.npc
 $execute positioned $(x) $(y) $(z) run tag @e[type=cobblemon:npc,distance=..1.5,limit=1,sort=nearest] add $(tag)
-$execute positioned $(x) $(y) $(z) align xz run tp @e[tag=$(tag),limit=1,sort=nearest] ~0.5 ~ ~0.5 $(yaw) 0
+$execute positioned $(x) $(y) $(z) align xz run tp @e[tag=$(tag),distance=..2,limit=1,sort=nearest] ~0.5 ~ ~0.5 $(yaw) 0

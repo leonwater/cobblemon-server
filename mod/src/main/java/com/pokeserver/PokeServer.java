@@ -35,9 +35,6 @@ public class PokeServer implements ModInitializer {
         PayloadTypeRegistry.playS2C().register(Net.Hud.TYPE, Net.Hud.CODEC);
         net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents.JOIN.register((h, s, server) -> {
             Nicknames.join();
-            var d = ServerData.get(server);
-            if (!h.player.getTags().contains("poke.joined")) { d.resetSeen.put(h.player.getUUID(), d.resetEpoch); d.setDirty(); }   // 처음 온 사람: 초기화할 것 없음
-            else Menu.joinCheck(h.player);
         });
         PayloadTypeRegistry.playC2S().register(Net.ShopTrade.TYPE, Net.ShopTrade.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.MenuOpen.TYPE, Net.MenuOpen.CODEC);
@@ -68,7 +65,7 @@ public class PokeServer implements ModInitializer {
             Plaza.tick(server);
             ItemCleaner.tick(server);
             if (server.getTickCount() % 100 == 0) Farms.refreshLabels(server);
-            if (server.getTickCount() % 20 == 0) { Teleport.tick(server); Nicknames.tick(server); }
+            if (server.getTickCount() % 20 == 0) { Teleport.tick(server); Nicknames.tick(server); Plaza.modes(server); }
             if (server.getTickCount() % 200 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.reapply(server);
             if (server.getTickCount() % 20 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) { CobblemonHooks.starterLocks(server); CobblemonHooks.countWild(server); }
             if (server.getTickCount() % CobblemonHooks.LEGEND_TICKS == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.spawnLegend(server);
@@ -98,10 +95,10 @@ public class PokeServer implements ModInitializer {
             for (String name : new String[]{"commands", "명령어"}) dispatcher.register(Commands.literal(name).executes(c -> {
                 for (String line : HELP) c.getSource().sendSystemMessage(Component.literal(line).withStyle(line.startsWith("──") ? ChatFormatting.GOLD : ChatFormatting.WHITE));
                 return 1; }));
-            // 8. 초기화 (운영자만): /초기화 → 서버의 모든 플레이어 (접속 안 한 사람은 다음 접속 때), /초기화 닉네임 → 그 사람만
+            // 8. 초기화 (운영자만): /초기화 → 월드(맵)까지 전부 새로 (서버를 끄고 다음 시작 때), /초기화 닉네임 → 그 사람만
             for (String name : new String[]{"초기화", "reset"}) dispatcher.register(Commands.literal(name).requires(s -> s.hasPermission(2))
-                    .executes(c -> { int n = Menu.wipeAll(c.getSource().getServer());
-                        c.getSource().sendSuccess(() -> Component.literal("전체 초기화: 접속 중 " + n + "명 + 나머지는 다음 접속 때").withStyle(ChatFormatting.RED), true); return n; })
+                    .executes(c -> { c.getSource().sendSuccess(() -> Component.literal("전체 초기화: 서버를 끄고, 다음에 켤 때 월드를 새로 시작합니다").withStyle(ChatFormatting.RED), true);
+                        Menu.wipeAll(c.getSource().getServer()); return 1; })
                     .then(Commands.argument("player", com.mojang.brigadier.arguments.StringArgumentType.greedyString()).suggests(Nicknames::suggest).executes(c -> {
                         String who = com.mojang.brigadier.arguments.StringArgumentType.getString(c, "player");
                         ServerPlayer t = Nicknames.find(c.getSource().getServer(), who);

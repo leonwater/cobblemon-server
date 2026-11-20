@@ -18,7 +18,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 public final class Plaza {
     private Plaza() {}
 
-    public static final int PROTECT = 72, BLEND = 28, BUILD_VERSION = 2;   // 2: 팁 NPC 높이 수정 (집 마루 위)
+    public static final int PROTECT = 72, BLEND = 28, BUILD_VERSION = 3;   // 2: 팁 NPC 높이 수정, 3: 건물 위 이름표 삭제
     static final String DIM = "poke:wild";
     /** 꽃 숲 칸 가운데 (칸 = 256x256), 앞부터 확인. */
     static final int[][] CELLS = {{1920, 2176}, {2176, 1920}, {1664, 2432}, {2432, 1664}, {1408, 2688}, {2688, 1408},
@@ -193,6 +193,18 @@ public final class Plaza {
         if (center == null || !level.dimension().location().toString().equals(DIM)) return false;
         double dx = pos.getX() - center.getX(), dz = pos.getZ() - center.getZ(), r = PROTECT * 1.5;
         return dx * dx + dz * dz <= r * r;
+    }
+
+    /** 5. 광장 안에 있으면 모험 모드, 나가면 생존 모드 (1초마다). 크리에이티브·관전은 그대로. */
+    static void modes(MinecraftServer s) {
+        ServerLevel level = wild(s);
+        if (level == null || center == null) return;
+        for (var p : level.players()) {
+            var mode = p.gameMode.getGameModeForPlayer();
+            boolean in = protects(level, p.blockPosition());
+            if (in && mode == net.minecraft.world.level.GameType.SURVIVAL) p.setGameMode(net.minecraft.world.level.GameType.ADVENTURE);
+            else if (!in && mode == net.minecraft.world.level.GameType.ADVENTURE) p.setGameMode(net.minecraft.world.level.GameType.SURVIVAL);
+        }
     }
 
     /** 광장 둘레: 블록 수정 금지 (관리자 크리에이티브 제외는 Farms.canEdit). */

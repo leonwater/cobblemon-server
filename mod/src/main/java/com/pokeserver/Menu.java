@@ -52,7 +52,7 @@ final class Menu {
             case "trash" -> p.openMenu(new SimpleMenuProvider((id, inv, pl) -> ChestMenu.threeRows(id, inv, new SimpleContainer(27)),
                     Component.literal("휴지통 (닫으면 사라짐)")));
             case "pc" -> run(p, "pc");
-            case "tutorial" -> run(p, "function poke:admin/reset_me");
+            case "tutorial" -> ServerPlayNetworking.send(p, Net.TutorialOpen.of(p));   // 7. 다시 보기: 오박사에게 가지 않고 설명 창만
             // 튜토리얼 설명 창의 "준비 완료!" (튜토리얼 방에서만) → 보상 → 바로 광장 → 스타팅 포켓몬 고르기
             case "tutorial_done" -> {
                 if (!p.level().dimension().location().toString().equals("poke:hub")) return;
@@ -76,26 +76,19 @@ final class Menu {
         }
     }
 
-    /** 전체 초기화: 인벤토리·엔더 상자·돈·농장 땅·포켓몬(파티·PC)·스타팅 선택·배지·진행도를 모두 지우고 첫 튜토리얼부터.
-     *  되돌릴 수 없음 → 플레이어는 /초기화 확인 처럼 한 번 더 입력해야 실행됨. */
-    /** 8. 서버 전체 초기화: 땅·돈·닉네임·칭호 기록을 모두 지우고, 접속 중인 사람은 바로, 나머지는 다음 접속 때(joinCheck) 초기화. */
-    static int wipeAll(net.minecraft.server.MinecraftServer server) {
-        var data = ServerData.get(server);
-        data.resetEpoch++;
-        data.plotOwners.clear(); data.money.clear(); data.deedsBought.clear(); data.nicks.clear(); data.stats.clear();
-        data.setDirty();
-        var players = server.getPlayerList().getPlayers();
-        for (ServerPlayer p : java.util.List.copyOf(players)) joinCheck(p);
-        server.getPlayerList().broadcastSystemMessage(Component.literal("[서버] 운영자가 서버 전체를 초기화했습니다. 모두 튜토리얼부터 다시 시작합니다.").withStyle(ChatFormatting.RED), false);
-        return players.size();
-    }
-
-    /** 접속할 때: 마지막 전체 초기화를 아직 안 받았으면 초기화. */
-    static void joinCheck(ServerPlayer p) {
-        var data = ServerData.get(p.server);
-        if (data.resetSeen.getOrDefault(p.getUUID(), 0) >= data.resetEpoch) return;
-        data.resetSeen.put(p.getUUID(), data.resetEpoch);
-        wipe(p);
+    /** 2. 서버 전체 초기화: 표시 파일을 남기고 모두 내보낸 뒤 서버를 끔 → 다음 시작 때 Reset이 월드(맵·플레이어·포켓몬·돈)를
+     *  통째로 백업 폴더로 옮기고 새 월드로 시작. start.bat은 표시 파일이 있으면 서버를 바로 다시 켬. */
+    static void wipeAll(net.minecraft.server.MinecraftServer server) {
+        try {
+            java.nio.file.Files.writeString(FabricLoader.getInstance().getGameDir().resolve(Reset.WIPE), "운영자가 /초기화를 실행함");
+        } catch (java.io.IOException ex) {
+            PokeServer.LOG.error("전체 초기화 표시 파일을 못 씀", ex);
+            server.getPlayerList().broadcastSystemMessage(Component.literal("[서버] 전체 초기화 실패: 서버 폴더에 파일을 쓸 수 없습니다.").withStyle(ChatFormatting.RED), false);
+            return;
+        }
+        for (ServerPlayer p : java.util.List.copyOf(server.getPlayerList().getPlayers()))
+            p.connection.disconnect(Component.literal("서버 전체를 초기화합니다. 1~2분 뒤 다시 접속해 주세요."));
+        server.halt(false);
     }
 
     static void wipe(ServerPlayer p) {

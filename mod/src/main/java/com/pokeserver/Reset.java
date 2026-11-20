@@ -23,6 +23,8 @@ final class Reset {
     private Reset() {}
     static final Set<String> KEEP = Set.of("datapacks", "serverconfig", "session.lock");
     static final String MARK = "pokeserver-season.txt";
+    /** 2. /초기화(전체)가 남기는 표시 (서버 폴더). 있으면 시즌과 상관없이 월드를 새로 시작하고 지움. */
+    static final String WIPE = "pokeserver-wipe.txt";
 
     static void run() {
         if (FabricLoader.getInstance().getEnvironmentType() != EnvType.SERVER) return;
@@ -33,10 +35,12 @@ final class Reset {
             Path world = root.resolve(levelName(root));
             Path mark = world.resolve(MARK);
             int have = Files.exists(mark) ? Integer.parseInt(Files.readString(mark).trim()) : 0;
-            if (have >= want) return;
+            Path wipe = root.resolve(WIPE);
+            if (have >= want && !Files.exists(wipe)) return;
             if (Files.exists(world.resolve("level.dat"))) backup(world, have);
             Files.createDirectories(world);
-            Files.writeString(mark, String.valueOf(want));
+            Files.writeString(mark, String.valueOf(Math.max(want, have)));
+            Files.deleteIfExists(wipe);
         } catch (IllegalStateException ex) {
             throw ex;
         } catch (IOException | RuntimeException ex) {

@@ -1,5 +1,5 @@
 # 자동 생성: tools/build_world.py. Cobblemon 물건
-kill @e[type=cobblemon:pokemon]
+execute as @e[type=cobblemon:pokemon] at @s if dimension poke:town run kill @s
 execute in poke:town as @e[type=cobblemon:npc,tag=poke.npc,x=-106,y=-70,z=-162,dx=212,dy=80,dz=236] run npcdelete @s
 execute in poke:town as @e[type=cobblemon:npc,tag=poke.npc,x=904,y=-70,z=-98,dx=192,dy=80,dz=196] run npcdelete @s
 execute in poke:hub run kill @e[type=minecraft:item_display,tag=poke.lab]

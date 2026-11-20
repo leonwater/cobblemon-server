@@ -11,7 +11,8 @@ tag @a[tag=poke.tutorial_done] add poke.kit_given
 # 튜토리얼 방·마을에서는 블록을 부수거나 놓을 수 없게 모험 모드
 execute as @a[gamemode=survival] at @s if dimension poke:hub run gamemode adventure @s
 execute as @a[gamemode=survival] at @s if dimension poke:town run gamemode adventure @s
-execute as @a[gamemode=adventure] at @s unless dimension poke:hub unless dimension poke:town run gamemode survival @s
+# 야생(광장 안은 모험 모드)은 모드가 정함 (Plaza.modes)
+execute as @a[gamemode=adventure] at @s unless dimension poke:hub unless dimension poke:town unless dimension poke:wild run gamemode survival @s
 # 15. 마을 섬·농장·튜토리얼 방 밖으로 못 나감
 function poke:bounds
 # 체육관·사천왕 나가기 발판, 관장 소환
