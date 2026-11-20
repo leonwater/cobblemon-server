@@ -30,7 +30,7 @@ public final class InfoHud {
                 {{"위치", place.isEmpty() ? "-" : place}, {"소지금", balance < 0 ? "-" : Theme.money(font, balance, "원", 90)}, {"배지", badges + " / 8"}},
                 {{"시간", String.format("%02d:%02d", (day / 1000 + 6) % 24, day % 1000 * 60 / 1000)}, {"바이옴", biome.getString()},
                         {"좌표", pos.getX() + " " + pos.getY() + " " + pos.getZ()}}};
-        float s = Math.min(1f, 3f / (float) mc.getWindow().getGuiScale());   // 전체 화면(GUI 4)에서도 너무 크지 않게
+        float s = Math.min(1f, 2f / (float) mc.getWindow().getGuiScale());   // 참고 사진 크기: 전체 화면에서 GUI 2배 크기로
         int lw = 0, vw = 0;
         for (String[][] gr : groups) for (String[] r : gr) { lw = Math.max(lw, font.width(Theme.t(r[0]))); vw = Math.max(vw, font.width(Theme.t(r[1]))); }
         int row = font.lineHeight + 6, gap = 8, sep = font.width(Theme.t(" ∥ "));

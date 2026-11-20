@@ -26,14 +26,6 @@ public final class Nicknames {
     static final Pattern VALID = Pattern.compile("[가-힣A-Za-z0-9_]{2,12}");
     private static String last = "";
 
-    /** 업적 별명: 운영자 > 챔피언 > 배지 8 > 배지 4+ > 배지 1+. */
-    static String title(ServerPlayer p) {
-        if (p.server.getPlayerList().isOp(p.getGameProfile())) return "§c[운영자]";
-        if (p.getTags().contains("poke.e4clear")) return "§6[챔피언]";
-        int b = badges(p);
-        return b >= 8 ? "§d[배지 마스터]" : b >= 4 ? "§b[베테랑 트레이너]" : b >= 1 ? "§a[견습 트레이너]" : "";
-    }
-
     static int badges(ServerPlayer p) {
         int n = 0;
         for (int i = 1; i <= 8; i++) if (p.getTags().contains("poke.badge" + i)) n++;
@@ -47,7 +39,7 @@ public final class Nicknames {
     }
 
     static String shown(ServerPlayer p) {
-        String t = title(p);
+        String t = Titles.shown(p);
         return (t.isEmpty() ? "" : t + "§r ") + nick(p);
     }
 
@@ -83,7 +75,7 @@ public final class Nicknames {
     static void tick(MinecraftServer server) {
         var players = server.getPlayerList().getPlayers();
         Map<UUID, String> now = new HashMap<>();
-        for (ServerPlayer p : players) now.put(p.getUUID(), shown(p));
+        for (ServerPlayer p : players) { Titles.check(p); now.put(p.getUUID(), shown(p)); }
         StringBuilder sb = new StringBuilder();
         now.forEach((id, s) -> sb.append(id).append('\t').append(s).append('\n'));
         String data = sb.toString();

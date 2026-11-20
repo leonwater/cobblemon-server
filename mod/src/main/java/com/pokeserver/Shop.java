@@ -95,6 +95,7 @@ public final class Shop {
             if (!Money.take(p, total)) {
                 msg(p, "잔액이 부족합니다.", ChatFormatting.RED);
             } else {
+                Titles.add(p, "spent", total);
                 for (int left = qty; left > 0; left -= proto.getMaxStackSize()) {
                     p.getInventory().placeItemBackInInventory(proto.copyWithCount(Math.min(left, proto.getMaxStackSize())));
                 }
@@ -122,6 +123,7 @@ public final class Shop {
                     left -= take;
                 }
                 Money.add(p.server, p.getUUID(), e.sell() * n);
+                Titles.add(p, "earned", e.sell() * n);
                 msg(p, proto.getHoverName().getString() + " " + n + "개 판매 (+" + Money.fmt(e.sell() * n) + ")", ChatFormatting.GREEN);
             }
         }

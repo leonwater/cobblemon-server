@@ -69,6 +69,11 @@ public final class CobblemonHooks {
         });
         // 체육관·사천왕: NPC 배틀이 끝나면 승패를 데이터팩에 알림 (체육관 안이 아니면 함수가 아무것도 안 함)
         CobblemonEvents.BATTLE_VICTORY.subscribe(Priority.NORMAL, e -> {
+            if (e.getBattle().isPvP()) {   // 7. 별명: 플레이어 배틀 승수
+                MinecraftServer server = null;
+                for (var p : e.getBattle().getPlayers()) server = p.server;
+                if (server != null) for (var a : e.getWinners()) for (UUID id : a.getPlayerUUIDs()) Titles.add(server, id, "pvp", 1);
+            }
             if (e.getBattle().isPvN()) {
                 MinecraftServer server = null;
                 for (var p : e.getBattle().getPlayers()) server = p.server;
@@ -77,6 +82,12 @@ public final class CobblemonHooks {
                     for (var a : e.getLosers()) for (UUID id : a.getPlayerUUIDs()) gymResult(server, id, "lose");
                 }
             }
+            return Unit.INSTANCE;
+        });
+        // 7. 별명: 전설·환상 포켓몬을 잡으면 기록
+        CobblemonEvents.POKEMON_CAPTURED.subscribe(Priority.NORMAL, e -> {
+            var labels = e.getPokemon().getSpecies().getLabels();
+            if (labels.contains("legendary") || labels.contains("mythical")) Titles.add(e.getPlayer(), "legend", 1);
             return Unit.INSTANCE;
         });
         CobblemonEvents.BATTLE_FLED.subscribe(Priority.NORMAL, e -> {

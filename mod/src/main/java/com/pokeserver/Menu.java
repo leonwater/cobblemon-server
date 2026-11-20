@@ -36,7 +36,12 @@ final class Menu {
             }
             a = "tutorial_done";
         }
+        if (a.startsWith("title:")) {                              // 7. 별명 고르기
+            Titles.pick(p, a.substring(6));
+            a = "titles";
+        }
         switch (a) {
+            case "titles" -> ServerPlayNetworking.send(p, new Net.TitlesOpen(Titles.list(p)));
             case "open" -> {
                 var st = new java.util.ArrayList<>(net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon") ? CobblemonHooks.dex(p) : java.util.List.of(0, 0, 0));
                 st.add(Nicknames.badges(p));
@@ -77,6 +82,7 @@ final class Menu {
         data.money.put(p.getUUID(), 0L);
         data.deedsBought.remove(p.getUUID());
         data.nicks.remove(p.getUUID());
+        data.stats.remove(p.getUUID());
         data.plotOwners.values().removeIf(o -> o.id().equals(p.getUUID()));
         data.setDirty();
         Farms.refreshLabels(p.server);
