@@ -205,8 +205,8 @@ NPC는 Cobblemon NPC 하나로 통일합니다 (대화·회복·배틀 파티를
 4. 서버 콘솔에서 아무나 못 들어오게 화이트리스트:
    ```
    whitelist on
-   whitelist add 내닉네임
-   whitelist add 친구닉네임
+   whitelist add 내마인크래프트아이디
+   whitelist add 친구마인크래프트아이디
    ```
 
 **친구 PC**
