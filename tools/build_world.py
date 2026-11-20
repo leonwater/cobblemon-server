@@ -807,8 +807,13 @@ if __name__ == '__main__':
     out['build/plaza/finish.mcfunction'] = [
         '# 자동 생성: tools/build_world.py',
         'execute in poke:wild at @e[type=minecraft:marker,tag=poke.plaza,limit=1] run function poke:mod/plaza',
-        'execute in poke:wild at @e[type=minecraft:marker,tag=poke.plaza,limit=1] run forceload remove ~-80 ~-80 ~80 ~80',
+        # 청크를 한 번에 풀면 조명 계산이 몰려 한 틱이 길어짐 → 16칸 줄씩 1초 간격으로 풂
+        *[f'schedule function poke:build/plaza/unload_{k} {20 * (i + 1)}t' for i, k in enumerate([0, 1, 2, 3, 4, 6, 7, 8, 9, 5])],   # 마커가 있는 줄(5)은 마지막
         'say [pokeserver] 광장 마을을 지었습니다.']
+    for k in range(10):
+        x = -80 + 16 * k
+        out[f'build/plaza/unload_{k}.mcfunction'] = [
+            f'execute in poke:wild at @e[type=minecraft:marker,tag=poke.plaza,limit=1] run forceload remove ~{x} ~-80 ~{x + 15} ~80']
     out['mod/plaza.mcfunction'] = ['# 자동 생성: tools/build_world.py. 광장의 Cobblemon 물건·NPC (마커 위치에서 실행)',
                                    'execute as @e[type=cobblemon:npc,tag=poke.npc,distance=..90] run npcdelete @s',
                                    *[P.relative(c) for c in P.plaza_mod()],
