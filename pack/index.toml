@@ -108,7 +108,7 @@ metafile = true
 
 [[files]]
 file = "mods/pokeserver-0.1.0.jar"
-hash = "5a728373175682d1cdda471b813e2ce1a49a4ac268aac309fb6afb405d194034"
+hash = "a8b2d087e29bc81edd2941ac64cb5bdff9af767a4536badfa87103660b40269b"
 
 [[files]]
 file = "mods/rctapi.pw.toml"
@@ -385,43 +385,43 @@ hash = "e07e05557758bd28edd3b922b3202d584add333a89a418a8beb4e5ab8c520365"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/e4/clear.mcfunction"
-hash = "1302bbc44b3d6b623c2ba5207f155045d4c7d6df3e3a0e7cdee841ac6c9b1c0f"
+hash = "b619a479d6551963a1504f281cf2f9c4177d42be79cd5bee029eea5db6e69cc9"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/e4/win.mcfunction"
-hash = "469fa06b59f0891b0ca16ca87be6e2e7645fd87277053372c755fc724e965730"
+hash = "0ed83d439fecd39091a9cd33add56fe0150a7f079ecba21f106e1432ff4f9cc6"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/gym/award/1.mcfunction"
-hash = "d405b77504d6a2820dc478decc84e0d7a3eaaf7af3fa240727d37647b8a77af0"
+hash = "b126edd7ff6e9a6d68ed37ce6594dc91cf00eb8828abbad7bde875d8db284e44"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/gym/award/2.mcfunction"
-hash = "53b4f1dc072fda6b42baab1afb9e9827ee65bd45e1a3526aff94d00d2c17877d"
+hash = "0f69ed0d7bf2ff46e5ac94d81399a433f6ab560af9a2a33dda952722cf08ce29"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/gym/award/3.mcfunction"
-hash = "01f5aef5246c8e91676dd883a75ccb641ef762fb497b6928619850c7e4b01767"
+hash = "f6e477c92b8866b551a11ef1d6e7252912ca7da686e6b58144e6a32ed266b0c7"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/gym/award/4.mcfunction"
-hash = "2da47a363ca99c5fe1b9186992313cd87516d488c6b0416968e7902e26b6a090"
+hash = "7eb31331764a20f0774c0b889588dd4771d08c11bb29c55d574fcb24fcfa7e67"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/gym/award/5.mcfunction"
-hash = "16f3802fdc769518c8da208a44420bf493f705cccf1a10910f56f2901855b728"
+hash = "307ca769cb93dbc802599517f13fc5df187948c8586a6b33acfdb752113d01ce"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/gym/award/6.mcfunction"
-hash = "3faa5921cb841db4e6feb75c8f685aed966ba63d71c8352042bb3038587b828b"
+hash = "897343defa68ee810f73f39d1c7b46f19ea28450f785684f6364006ff7919419"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/gym/award/7.mcfunction"
-hash = "c303b076e7fc912f914808b3b8f9c3bf167d33a5785e77ffcbdec3b91b659b48"
+hash = "66cd17bf92e01e9b95f1a3c9bec955cf6dc86a22b0735f954bbb44f076420d06"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/gym/award/8.mcfunction"
-hash = "03414c8d998e56eedfa4b59940df55818c0f388eca10aaccf161f72089a8042b"
+hash = "a04574f9af24efa548976b004a8c65e0b6e512debf7c69380ba5ffd634e805da"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/gym/deny/1.mcfunction"

@@ -211,6 +211,12 @@ def fn(path, lines):
     p.write_text('\n'.join(['# 자동 생성: tools/build_league.py'] + lines) + '\n', encoding='utf-8')
 
 
+def josa(name):
+    """을/를: 마지막 글자에 받침이 있으면 을."""
+    c = ord(name[-1]) - 0xAC00
+    return '을' if 0 <= c < 11172 and c % 28 else '를'
+
+
 def tp(pos):
     x, z, yaw = pos
     return f'execute in poke:town run tp @s {x} {Y} {z} {yaw} 0'
@@ -255,7 +261,7 @@ def functions():
         fn(f'gym/award/{n}.mcfunction', [
             f'tag @s add poke.badge{n}', badge_item(n, badge, color),
             f'title @s title {{"text":"{badge} 획득!","color":"gold"}}',
-            f'tellraw @a [{{"text":"[리그] ","color":"gold"}},{{"selector":"@s"}},{{"text":"님이 {n}번 체육관 관장 {name}을(를) 이기고 {badge}를 얻었습니다!","color":"yellow"}}]',
+            f'tellraw @a [{{"text":"[리그] ","color":"gold"}},{{"selector":"@s"}},{{"text":"님이 {n}번째 체육관을 클리어하였습니다! (관장 {name} · {badge})","color":"yellow"}}]',
             prize(max(m['level'] for m in GYMS[n - 1][5]) * 100), 'function poke:gym/leave'])
         px, pz, w, d = g['exit']
         pads.append(f'execute in poke:town as @a[x={px},y={Y},z={pz},dx={w - 1},dy=1,dz={d - 1}] run function poke:gym/leave')
@@ -279,14 +285,15 @@ def functions():
     for k in range(1, 4):
         nxt += [f'execute if score @s poke.e4 matches {k} run {tp(e["inside"][k])}',
                 f'execute if score @s poke.e4 matches {k} run title @s subtitle {{"text":"{k + 1}번째: {ELITE[k][1]} ({ELITE[k][2]})","color":"white"}}',
-                f'execute if score @s poke.e4 matches {k} run title @s title {{"text":"다음 방으로","color":"gold"}}']
+                f'execute if score @s poke.e4 matches {k} run title @s title {{"text":"다음 방으로","color":"gold"}}',
+                f'execute if score @s poke.e4 matches {k} run tellraw @a [{{"text":"[리그] ","color":"gold"}},{{"selector":"@s"}},{{"text":"님이 사천왕 {k}번째({ELITE[k - 1][1]}){josa(ELITE[k - 1][1])} 클리어하였습니다!","color":"yellow"}}]']
     fn('e4/win.mcfunction', ['# 사천왕 한 명을 이기면 다음 방, 네 명 모두 이기면 클리어',
                              'scoreboard players add @s poke.e4 1',
                              'execute if score @s poke.e4 matches 4.. run return run function poke:e4/clear', *nxt])
     fn('e4/clear.mcfunction', ['tag @s add poke.e4clear', tp(e['inside'][4]), prize(10000),
                                'title @s title {"text":"사천왕 클리어!","color":"gold"}',
                                'title @s subtitle {"text":"명예의 전당에 이름을 올렸습니다","color":"yellow"}',
-                               'tellraw @a [{"text":"[리그] ","color":"gold"},{"selector":"@s"},{"text":"님이 사천왕을 모두 이기고 명예의 전당에 올랐습니다!","color":"yellow"}]'])
+                               'tellraw @a [{"text":"[리그] ","color":"gold"},{"selector":"@s"},{"text":"님이 사천왕을 클리어하고 챔피언이 되었습니다!","color":"gold"}]'])
     px, pz, w, d = e['exit']
     pads.append(f'execute in poke:town as @a[x={px},y={Y},z={pz},dx={w - 1},dy=1,dz={d - 1}] run function poke:gym/leave')
     win.append('execute if score @s poke.gym matches 9 run function poke:e4/win')
