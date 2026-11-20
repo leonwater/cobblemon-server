@@ -1,3001 +1,1537 @@
 # 자동 생성: tools/build_world.py (지형 → 마을 건물 순서)
-fill 936 -53 -39 938 -53 -33 minecraft:diorite
-fill 938 -53 -7 938 -53 -5 minecraft:diorite
-fill 937 -53 69 938 -53 98 minecraft:diorite
-fill 938 -53 -98 939 -53 -71 minecraft:diorite
-fill 939 -53 -38 939 -53 -34 minecraft:diorite
-fill 940 -53 -37 940 -53 -35 minecraft:diorite
-fill 939 -53 70 940 -53 98 minecraft:diorite
-fill 939 -53 -8 941 -53 -4 minecraft:diorite
-fill 942 -53 -7 942 -53 -5 minecraft:diorite
-fill 940 -53 -98 943 -53 -72 minecraft:diorite
-fill 941 -53 71 946 -53 98 minecraft:diorite
-fill 972 -53 61 972 -53 63 minecraft:diorite
-fill 973 -53 60 973 -53 64 minecraft:diorite
-fill 974 -53 59 976 -53 65 minecraft:diorite
-fill 977 -53 60 977 -53 64 minecraft:diorite
-fill 978 -53 61 978 -53 63 minecraft:diorite
-fill 944 -53 -98 988 -53 -73 minecraft:diorite
-fill 995 -53 65 995 -53 67 minecraft:diorite
-fill 988 -53 -58 996 -53 -58 minecraft:diorite
-fill 996 -53 64 998 -53 68 minecraft:diorite
-fill 999 -53 65 999 -53 67 minecraft:diorite
-fill 989 -53 -98 1033 -53 -72 minecraft:diorite
-fill 947 -53 70 1050 -53 98 minecraft:diorite
-fill 1034 -53 -98 1054 -53 -71 minecraft:diorite
-fill 1054 -53 17 1054 -53 20 minecraft:diorite
-fill 1055 -53 14 1055 -53 23 minecraft:diorite
-fill 1056 -53 12 1056 -53 25 minecraft:diorite
-fill 1058 -53 23 1058 -53 25 minecraft:diorite
-fill 1051 -53 69 1059 -53 98 minecraft:diorite
-fill 1055 -53 -98 1060 -53 -70 minecraft:diorite
-fill 1060 -53 -46 1060 -53 -44 minecraft:diorite
-fill 1059 -53 22 1061 -53 26 minecraft:diorite
-fill 1060 -53 68 1061 -53 98 minecraft:diorite
-fill 1061 -53 -98 1062 -53 -69 minecraft:diorite
-fill 1062 -53 23 1062 -53 25 minecraft:diorite
-fill 1062 -53 67 1062 -53 98 minecraft:diorite
-fill 1063 -53 -98 1063 -53 -68 minecraft:diorite
-fill 1061 -53 -47 1063 -53 -43 minecraft:diorite
-fill 1064 -53 -98 1064 -53 -67 minecraft:diorite
-fill 1064 -53 -46 1064 -53 -44 minecraft:diorite
-fill 1063 -53 66 1064 -53 98 minecraft:diorite
-fill 1065 -53 -98 1065 -53 -66 minecraft:diorite
-fill 1065 -53 64 1065 -53 98 minecraft:diorite
-fill 1066 -53 -98 1066 -53 -65 minecraft:diorite
-fill 1066 -53 63 1066 -53 98 minecraft:diorite
-fill 1067 -53 -98 1067 -53 -63 minecraft:diorite
-fill 1067 -53 60 1067 -53 98 minecraft:diorite
-fill 1068 -53 -98 1068 -53 -57 minecraft:diorite
-fill 1068 -53 49 1068 -53 98 minecraft:diorite
-fill 1069 -53 -98 1069 -53 -39 minecraft:diorite
-fill 1069 -53 37 1069 -53 98 minecraft:diorite
-fill 1070 -53 -98 1070 -53 -20 minecraft:diorite
-fill 1070 -53 22 1070 -53 98 minecraft:diorite
-fill 1071 -53 -98 1096 -53 98 minecraft:diorite
-fill 932 -53 -63 932 -53 -63 minecraft:dirt
-fill 932 -53 -49 932 -53 -46 minecraft:dirt
-fill 932 -53 58 932 -53 60 minecraft:dirt
-fill 933 -53 -65 933 -53 -65 minecraft:dirt
-fill 933 -53 -38 933 -53 -35 minecraft:dirt
-fill 933 -53 51 933 -53 62 minecraft:dirt
-fill 934 -53 -28 934 -53 -25 minecraft:dirt
-fill 934 -53 42 934 -53 64 minecraft:dirt
-fill 935 -53 -68 935 -53 -68 minecraft:dirt
-fill 935 -53 -24 935 -53 -22 minecraft:dirt
-fill 935 -53 -19 935 -53 -14 minecraft:dirt
-fill 935 -53 32 935 -53 66 minecraft:dirt
-fill 936 -53 -25 936 -53 -10 minecraft:dirt
-fill 936 -53 -6 936 -53 3 minecraft:dirt
-fill 936 -53 14 936 -53 67 minecraft:dirt
-fill 937 -53 -26 937 -53 68 minecraft:dirt
-fill 938 -53 -27 938 -53 -8 minecraft:dirt
-fill 938 -53 -4 938 -53 68 minecraft:dirt
-fill 939 -53 -28 939 -53 -9 minecraft:dirt
-fill 940 -53 -71 940 -53 -71 minecraft:dirt
-fill 940 -53 -29 940 -53 -9 minecraft:dirt
-fill 939 -53 -3 940 -53 69 minecraft:dirt
-fill 941 -53 -30 941 -53 -9 minecraft:dirt
-fill 941 -53 -3 941 -53 70 minecraft:dirt
-fill 942 -53 -31 942 -53 -8 minecraft:dirt
-fill 942 -53 -4 942 -53 70 minecraft:dirt
-fill 943 -53 -32 943 -53 70 minecraft:dirt
-fill 944 -53 -43 944 -53 -2 minecraft:dirt
-fill 944 -53 14 944 -53 29 minecraft:dirt
-fill 944 -53 37 944 -53 57 minecraft:dirt
-fill 944 -53 59 944 -53 70 minecraft:dirt
-fill 945 -53 -33 945 -53 -2 minecraft:dirt
-fill 945 -53 41 945 -53 53 minecraft:dirt
-fill 946 -53 -23 946 -53 -4 minecraft:dirt
-fill 945 -53 58 946 -53 70 minecraft:dirt
-fill 947 -53 58 949 -53 69 minecraft:dirt
-fill 944 -53 -72 953 -53 -72 minecraft:dirt
-fill 954 -53 -58 955 -53 -58 minecraft:dirt
-fill 956 -53 -58 958 -53 -57 minecraft:dirt
-fill 959 -53 -58 960 -53 -56 minecraft:dirt
-fill 961 -53 -59 961 -53 -56 minecraft:dirt
-fill 950 -53 57 961 -53 69 minecraft:dirt
-fill 962 -53 -60 962 -53 -56 minecraft:dirt
-fill 963 -53 -61 963 -53 -57 minecraft:dirt
-fill 964 -53 -62 964 -53 -57 minecraft:dirt
-fill 965 -53 -64 965 -53 -57 minecraft:dirt
-fill 966 -53 -65 966 -53 -58 minecraft:dirt
-fill 967 -53 -66 967 -53 -59 minecraft:dirt
-fill 968 -53 -67 968 -53 -59 minecraft:dirt
-fill 969 -53 -69 969 -53 -59 minecraft:dirt
-fill 970 -53 -70 970 -53 -59 minecraft:dirt
-fill 971 -53 -71 971 -53 -59 minecraft:dirt
-fill 962 -53 56 971 -53 69 minecraft:dirt
-fill 972 -53 56 972 -53 60 minecraft:dirt
-fill 972 -53 64 972 -53 69 minecraft:dirt
-fill 973 -53 56 973 -53 59 minecraft:dirt
-fill 973 -53 65 973 -53 69 minecraft:dirt
-fill 974 -53 57 975 -53 58 minecraft:dirt
-fill 976 -53 58 976 -53 58 minecraft:dirt
-fill 974 -53 66 976 -53 69 minecraft:dirt
-fill 977 -53 58 977 -53 59 minecraft:dirt
-fill 977 -53 65 977 -53 69 minecraft:dirt
-fill 978 -53 59 978 -53 60 minecraft:dirt
-fill 978 -53 64 978 -53 69 minecraft:dirt
-fill 972 -53 -72 981 -53 -59 minecraft:dirt
-fill 982 -53 -72 983 -53 -58 minecraft:dirt
-fill 984 -53 -72 985 -53 -57 minecraft:dirt
-fill 986 -53 -72 987 -53 -56 minecraft:dirt
-fill 988 -53 -72 988 -53 -59 minecraft:dirt
-fill 988 -53 -57 988 -53 -56 minecraft:dirt
-fill 979 -53 59 994 -53 69 minecraft:dirt
-fill 995 -53 59 995 -53 64 minecraft:dirt
-fill 995 -53 68 995 -53 69 minecraft:dirt
-fill 989 -53 -71 996 -53 -59 minecraft:dirt
-fill 989 -53 -57 996 -53 -55 minecraft:dirt
-fill 997 -53 -71 997 -53 -55 minecraft:dirt
-fill 998 -53 -71 998 -53 -56 minecraft:dirt
-fill 996 -53 59 998 -53 63 minecraft:dirt
-fill 999 -53 59 999 -53 64 minecraft:dirt
-fill 999 -53 68 999 -53 68 minecraft:dirt
-fill 999 -53 -71 1001 -53 -59 minecraft:dirt
-fill 1000 -53 59 1001 -53 68 minecraft:dirt
-fill 1002 -53 -71 1002 -53 -57 minecraft:dirt
-fill 1002 -53 58 1003 -53 69 minecraft:dirt
-fill 1003 -53 -71 1005 -53 -58 minecraft:dirt
-fill 1004 -53 57 1005 -53 69 minecraft:dirt
-fill 1006 -53 -71 1009 -53 -59 minecraft:dirt
-fill 1006 -53 56 1012 -53 69 minecraft:dirt
-fill 1010 -53 -70 1013 -53 -59 minecraft:dirt
-fill 1013 -53 57 1016 -53 69 minecraft:dirt
-fill 1014 -53 -71 1023 -53 -59 minecraft:dirt
-fill 1024 -53 -71 1024 -53 -62 minecraft:dirt
-fill 1025 -53 -71 1025 -53 -64 minecraft:dirt
-fill 1017 -53 58 1025 -53 69 minecraft:dirt
-fill 1026 -53 -71 1026 -53 -67 minecraft:dirt
-fill 1027 -53 -71 1027 -53 -69 minecraft:dirt
-fill 1028 -53 -71 1028 -53 -70 minecraft:dirt
-fill 1026 -53 57 1031 -53 69 minecraft:dirt
-fill 1029 -53 -71 1033 -53 -71 minecraft:dirt
-fill 1036 -53 -58 1037 -53 -58 minecraft:dirt
-fill 1032 -53 56 1039 -53 69 minecraft:dirt
-fill 1038 -53 -58 1040 -53 -57 minecraft:dirt
-fill 1040 -53 57 1040 -53 69 minecraft:dirt
-fill 1041 -53 57 1043 -53 68 minecraft:dirt
-fill 1044 -53 58 1045 -53 69 minecraft:dirt
-fill 1041 -53 -58 1047 -53 -56 minecraft:dirt
-fill 1046 -53 59 1050 -53 69 minecraft:dirt
-fill 1051 -53 17 1051 -53 19 minecraft:dirt
-fill 1048 -53 -58 1052 -53 -57 minecraft:dirt
-fill 1052 -53 13 1052 -53 23 minecraft:dirt
-fill 1053 -53 10 1053 -53 25 minecraft:dirt
-fill 1047 -53 -70 1054 -53 -70 minecraft:dirt
-fill 1054 -53 -46 1054 -53 -38 minecraft:dirt
-fill 1054 -53 8 1054 -53 16 minecraft:dirt
-fill 1054 -53 21 1054 -53 27 minecraft:dirt
-fill 1055 -53 -49 1055 -53 -35 minecraft:dirt
-fill 1055 -53 -7 1055 -53 -5 minecraft:dirt
-fill 1055 -53 5 1055 -53 13 minecraft:dirt
-fill 1055 -53 24 1055 -53 28 minecraft:dirt
-fill 1056 -53 -69 1056 -53 -69 minecraft:dirt
-fill 1053 -53 -58 1056 -53 -58 minecraft:dirt
-fill 1056 -53 -53 1056 -53 -32 minecraft:dirt
-fill 1056 -53 -11 1056 -53 -2 minecraft:dirt
-fill 1056 -53 2 1056 -53 11 minecraft:dirt
-fill 1056 -53 26 1056 -53 30 minecraft:dirt
-fill 1051 -53 59 1056 -53 68 minecraft:dirt
-fill 1057 -53 -69 1057 -53 -68 minecraft:dirt
-fill 1057 -53 -19 1057 -53 68 minecraft:dirt
-fill 1058 -53 -69 1058 -53 -67 minecraft:dirt
-fill 1058 -53 -19 1058 -53 22 minecraft:dirt
-fill 1058 -53 26 1058 -53 68 minecraft:dirt
-fill 1059 -53 -68 1059 -53 -66 minecraft:dirt
-fill 1059 -53 27 1059 -53 68 minecraft:dirt
-fill 1060 -53 -69 1060 -53 -64 minecraft:dirt
-fill 1060 -53 27 1060 -53 67 minecraft:dirt
-fill 1061 -53 -68 1061 -53 -62 minecraft:dirt
-fill 1059 -53 -19 1061 -53 21 minecraft:dirt
-fill 1061 -53 27 1061 -53 66 minecraft:dirt
-fill 1062 -53 -68 1062 -53 -61 minecraft:dirt
-fill 1062 -53 -20 1062 -53 22 minecraft:dirt
-fill 1062 -53 26 1062 -53 66 minecraft:dirt
-fill 1063 -53 -66 1063 -53 -58 minecraft:dirt
-fill 1064 -53 -65 1064 -53 -56 minecraft:dirt
-fill 1063 -53 -20 1064 -53 65 minecraft:dirt
-fill 1065 -53 -65 1065 -53 -53 minecraft:dirt
-fill 1065 -53 -21 1065 -53 63 minecraft:dirt
-fill 1066 -53 -64 1066 -53 -50 minecraft:dirt
-fill 1066 -53 -22 1066 -53 54 minecraft:dirt
-fill 1066 -53 58 1066 -53 62 minecraft:dirt
-fill 1067 -53 -62 1067 -53 -62 minecraft:dirt
-fill 1067 -53 -60 1067 -53 -45 minecraft:dirt
-fill 1067 -53 -24 1067 -53 48 minecraft:dirt
-fill 1067 -53 57 1067 -53 59 minecraft:dirt
-fill 1068 -53 -56 1068 -53 -49 minecraft:dirt
-fill 1068 -53 -46 1068 -53 -37 minecraft:dirt
-fill 1068 -53 -29 1068 -53 43 minecraft:dirt
-fill 1068 -53 46 1068 -53 48 minecraft:dirt
-fill 1069 -53 -38 1069 -53 -32 minecraft:dirt
-fill 1069 -53 -29 1069 -53 30 minecraft:dirt
-fill 1069 -53 33 1069 -53 36 minecraft:dirt
-fill 1070 -53 -19 1070 -53 -10 minecraft:dirt
-fill 1070 -53 -4 1070 -53 7 minecraft:dirt
-fill 1070 -53 13 1070 -53 21 minecraft:dirt
-fill 932 -53 -61 932 -53 -53 minecraft:grass_block
-fill 933 -53 -64 933 -53 -42 minecraft:grass_block
-fill 934 -53 -66 934 -53 -38 minecraft:grass_block
-fill 934 -53 -34 934 -53 -32 minecraft:grass_block
-fill 935 -53 -67 935 -53 -39 minecraft:grass_block
-fill 935 -53 -33 935 -53 -25 minecraft:grass_block
-fill 936 -53 -68 936 -53 -40 minecraft:grass_block
-fill 936 -53 -32 936 -53 -26 minecraft:grass_block
-fill 937 -53 -32 937 -53 -27 minecraft:grass_block
-fill 937 -53 -69 938 -53 -40 minecraft:grass_block
-fill 938 -53 -32 938 -53 -28 minecraft:grass_block
-fill 939 -53 -70 939 -53 -39 minecraft:grass_block
-fill 939 -53 -33 939 -53 -29 minecraft:grass_block
-fill 940 -53 -70 940 -53 -38 minecraft:grass_block
-fill 940 -53 -34 940 -53 -30 minecraft:grass_block
-fill 941 -53 -71 941 -53 -31 minecraft:grass_block
-fill 942 -53 -71 942 -53 -32 minecraft:grass_block
-fill 943 -53 -71 943 -53 -33 minecraft:grass_block
-fill 944 -53 -47 944 -53 -44 minecraft:grass_block
-fill 944 -53 2 944 -53 13 minecraft:grass_block
-fill 944 -53 30 944 -53 36 minecraft:grass_block
-fill 944 -53 58 944 -53 58 minecraft:grass_block
-fill 945 -53 -40 945 -53 -34 minecraft:grass_block
-fill 945 -53 2 945 -53 3 minecraft:grass_block
-fill 945 -53 15 945 -53 40 minecraft:grass_block
-fill 945 -53 54 945 -53 57 minecraft:grass_block
-fill 946 -53 -32 946 -53 -24 minecraft:grass_block
-fill 946 -53 -3 946 -53 -2 minecraft:grass_block
-fill 946 -53 39 946 -53 50 minecraft:grass_block
-fill 947 -53 -26 947 -53 -2 minecraft:grass_block
-fill 946 -53 57 949 -53 57 minecraft:grass_block
-fill 944 -53 -71 951 -53 -59 minecraft:grass_block
-fill 952 -53 -71 953 -53 -58 minecraft:grass_block
-fill 954 -53 -57 955 -53 -57 minecraft:grass_block
-fill 956 -53 -56 957 -53 -56 minecraft:grass_block
-fill 958 -53 -56 958 -53 -55 minecraft:grass_block
-fill 954 -53 -71 960 -53 -59 minecraft:grass_block
-fill 961 -53 -71 961 -53 -60 minecraft:grass_block
-fill 955 -53 56 961 -53 56 minecraft:grass_block
-fill 962 -53 -71 962 -53 -61 minecraft:grass_block
-fill 959 -53 -55 962 -53 -55 minecraft:grass_block
-fill 963 -53 -71 963 -53 -62 minecraft:grass_block
-fill 964 -53 -71 964 -53 -63 minecraft:grass_block
-fill 963 -53 -56 964 -53 -55 minecraft:grass_block
-fill 965 -53 -71 965 -53 -65 minecraft:grass_block
-fill 965 -53 -56 965 -53 -56 minecraft:grass_block
-fill 966 -53 -71 966 -53 -66 minecraft:grass_block
-fill 966 -53 -57 966 -53 -56 minecraft:grass_block
-fill 967 -53 -71 967 -53 -67 minecraft:grass_block
-fill 962 -53 55 967 -53 55 minecraft:grass_block
-fill 968 -53 -71 968 -53 -68 minecraft:grass_block
-fill 967 -53 -58 968 -53 -57 minecraft:grass_block
-fill 969 -53 -71 969 -53 -70 minecraft:grass_block
-fill 969 -53 -58 969 -53 -58 minecraft:grass_block
-fill 970 -53 -71 970 -53 -71 minecraft:grass_block
-fill 968 -53 54 973 -53 55 minecraft:grass_block
-fill 974 -53 55 975 -53 56 minecraft:grass_block
-fill 976 -53 56 977 -53 57 minecraft:grass_block
-fill 978 -53 57 979 -53 58 minecraft:grass_block
-fill 980 -53 -58 981 -53 -58 minecraft:grass_block
-fill 982 -53 -57 983 -53 -57 minecraft:grass_block
-fill 980 -53 58 984 -53 58 minecraft:grass_block
-fill 984 -53 -56 985 -53 -56 minecraft:grass_block
-fill 986 -53 -55 988 -53 -55 minecraft:grass_block
-fill 989 -53 -54 997 -53 -54 minecraft:grass_block
-fill 998 -53 -55 998 -53 -55 minecraft:grass_block
-fill 994 -53 58 998 -53 58 minecraft:grass_block
-fill 1002 -53 -56 1002 -53 -56 minecraft:grass_block
-fill 1003 -53 -57 1003 -53 -56 minecraft:grass_block
-fill 1002 -53 56 1003 -53 57 minecraft:grass_block
-fill 1004 -53 55 1004 -53 56 minecraft:grass_block
-fill 1004 -53 -57 1005 -53 -57 minecraft:grass_block
-fill 1005 -53 54 1005 -53 56 minecraft:grass_block
-fill 1006 -53 -58 1006 -53 -57 minecraft:grass_block
-fill 1006 -53 54 1007 -53 55 minecraft:grass_block
-fill 1008 -53 53 1008 -53 55 minecraft:grass_block
-fill 1009 -53 54 1012 -53 55 minecraft:grass_block
-fill 1013 -53 55 1014 -53 56 minecraft:grass_block
-fill 1015 -53 56 1016 -53 56 minecraft:grass_block
-fill 1017 -53 56 1018 -53 57 minecraft:grass_block
-fill 1007 -53 -58 1023 -53 -58 minecraft:grass_block
-fill 1024 -53 -61 1024 -53 -59 minecraft:grass_block
-fill 1025 -53 -63 1025 -53 -59 minecraft:grass_block
-fill 1019 -53 57 1025 -53 57 minecraft:grass_block
-fill 1026 -53 -66 1026 -53 -59 minecraft:grass_block
-fill 1027 -53 -68 1027 -53 -59 minecraft:grass_block
-fill 1028 -53 -69 1028 -53 -59 minecraft:grass_block
-fill 1029 -53 -70 1031 -53 -59 minecraft:grass_block
-fill 1027 -53 56 1031 -53 56 minecraft:grass_block
-fill 1032 -53 -70 1032 -53 -58 minecraft:grass_block
-fill 1033 -53 -70 1035 -53 -57 minecraft:grass_block
-fill 1036 -53 -57 1037 -53 -56 minecraft:grass_block
-fill 1036 -53 -70 1038 -53 -59 minecraft:grass_block
-fill 1038 -53 -56 1038 -53 -56 minecraft:grass_block
-fill 1033 -53 55 1039 -53 55 minecraft:grass_block
-fill 1039 -53 -56 1040 -53 -55 minecraft:grass_block
-fill 1040 -53 56 1043 -53 56 minecraft:grass_block
-fill 1044 -53 57 1045 -53 57 minecraft:grass_block
-fill 1041 -53 -55 1047 -53 -55 minecraft:grass_block
-fill 1046 -53 58 1047 -53 58 minecraft:grass_block
-fill 1048 -53 -56 1048 -53 -55 minecraft:grass_block
-fill 1051 -53 12 1051 -53 16 minecraft:grass_block
-fill 1051 -53 20 1051 -53 23 minecraft:grass_block
-fill 1049 -53 -56 1052 -53 -56 minecraft:grass_block
-fill 1052 -53 10 1052 -53 12 minecraft:grass_block
-fill 1052 -53 24 1052 -53 25 minecraft:grass_block
-fill 1053 -53 -57 1053 -53 -56 minecraft:grass_block
-fill 1053 -53 -47 1053 -53 -39 minecraft:grass_block
-fill 1053 -53 7 1053 -53 9 minecraft:grass_block
-fill 1053 -53 26 1053 -53 27 minecraft:grass_block
-fill 1054 -53 -57 1054 -53 -57 minecraft:grass_block
-fill 1054 -53 -51 1054 -53 -47 minecraft:grass_block
-fill 1054 -53 -37 1054 -53 -35 minecraft:grass_block
-fill 1054 -53 -9 1054 -53 -2 minecraft:grass_block
-fill 1054 -53 2 1054 -53 7 minecraft:grass_block
-fill 1054 -53 28 1054 -53 29 minecraft:grass_block
-fill 1039 -53 -69 1055 -53 -59 minecraft:grass_block
-fill 1055 -53 -57 1055 -53 -50 minecraft:grass_block
-fill 1055 -53 -34 1055 -53 -33 minecraft:grass_block
-fill 1055 -53 -12 1055 -53 -8 minecraft:grass_block
-fill 1055 -53 -4 1055 -53 -2 minecraft:grass_block
-fill 1055 -53 2 1055 -53 4 minecraft:grass_block
-fill 1055 -53 29 1055 -53 30 minecraft:grass_block
-fill 1056 -53 -68 1056 -53 -59 minecraft:grass_block
-fill 1056 -53 -57 1056 -53 -54 minecraft:grass_block
-fill 1056 -53 -31 1056 -53 -30 minecraft:grass_block
-fill 1056 -53 -14 1056 -53 -12 minecraft:grass_block
-fill 1056 -53 31 1056 -53 32 minecraft:grass_block
-fill 1057 -53 -67 1057 -53 -20 minecraft:grass_block
-fill 1058 -53 -66 1058 -53 -20 minecraft:grass_block
-fill 1059 -53 -65 1059 -53 -20 minecraft:grass_block
-fill 1060 -53 -63 1060 -53 -47 minecraft:grass_block
-fill 1060 -53 -43 1060 -53 -20 minecraft:grass_block
-fill 1061 -53 -61 1061 -53 -48 minecraft:grass_block
-fill 1061 -53 -42 1061 -53 -20 minecraft:grass_block
-fill 1062 -53 -60 1062 -53 -48 minecraft:grass_block
-fill 1063 -53 -57 1063 -53 -48 minecraft:grass_block
-fill 1062 -53 -42 1063 -53 -21 minecraft:grass_block
-fill 1064 -53 -55 1064 -53 -47 minecraft:grass_block
-fill 1064 -53 -43 1064 -53 -21 minecraft:grass_block
-fill 1065 -53 -52 1065 -53 -22 minecraft:grass_block
-fill 1066 -53 -49 1066 -53 -23 minecraft:grass_block
-fill 1066 -53 55 1066 -53 57 minecraft:grass_block
-fill 1067 -53 -44 1067 -53 -25 minecraft:grass_block
-fill 1067 -53 49 1067 -53 54 minecraft:grass_block
-fill 1068 -53 -36 1068 -53 -30 minecraft:grass_block
-fill 944 -53 -1 945 -53 1 minecraft:dirt_path
-fill 999 -53 -58 1001 -53 -57 minecraft:dirt_path
-fill 999 -53 57 1001 -53 58 minecraft:dirt_path
-fill 1055 -53 -1 1056 -53 1 minecraft:dirt_path
-fill 904 -52 -98 931 -52 98 minecraft:diorite
-fill 932 -52 -98 932 -52 -64 minecraft:diorite
-fill 932 -52 -45 932 -52 57 minecraft:diorite
-fill 932 -52 61 932 -52 98 minecraft:diorite
-fill 933 -52 -98 933 -52 -66 minecraft:diorite
-fill 933 -52 -34 933 -52 50 minecraft:diorite
-fill 933 -52 64 933 -52 98 minecraft:diorite
-fill 934 -52 -98 934 -52 -67 minecraft:diorite
-fill 934 -52 -37 934 -52 -35 minecraft:diorite
-fill 934 -52 -24 934 -52 41 minecraft:diorite
-fill 934 -52 66 934 -52 98 minecraft:diorite
-fill 935 -52 -38 935 -52 -34 minecraft:diorite
-fill 935 -52 -13 935 -52 31 minecraft:diorite
-fill 935 -52 67 935 -52 98 minecraft:diorite
-fill 935 -52 -98 936 -52 -69 minecraft:diorite
-fill 936 -52 4 936 -52 13 minecraft:diorite
-fill 936 -52 68 936 -52 98 minecraft:diorite
-fill 937 -52 -98 937 -52 -70 minecraft:diorite
-fill 936 -52 -39 938 -52 -33 minecraft:diorite
-fill 938 -52 -7 938 -52 -5 minecraft:diorite
-fill 937 -52 69 938 -52 98 minecraft:diorite
-fill 938 -52 -98 939 -52 -71 minecraft:diorite
-fill 939 -52 -38 939 -52 -34 minecraft:diorite
-fill 940 -52 -37 940 -52 -35 minecraft:diorite
-fill 939 -52 70 940 -52 98 minecraft:diorite
-fill 939 -52 -8 941 -52 -4 minecraft:diorite
-fill 942 -52 -7 942 -52 -5 minecraft:diorite
-fill 940 -52 -98 943 -52 -72 minecraft:diorite
-fill 941 -52 71 946 -52 98 minecraft:diorite
-fill 972 -52 61 972 -52 63 minecraft:diorite
-fill 973 -52 60 973 -52 64 minecraft:diorite
-fill 974 -52 59 976 -52 65 minecraft:diorite
-fill 977 -52 60 977 -52 64 minecraft:diorite
-fill 978 -52 61 978 -52 63 minecraft:diorite
-fill 944 -52 -98 988 -52 -73 minecraft:diorite
-fill 995 -52 65 995 -52 67 minecraft:diorite
-fill 996 -52 64 998 -52 68 minecraft:diorite
-fill 999 -52 65 999 -52 67 minecraft:diorite
-fill 989 -52 -98 1033 -52 -72 minecraft:diorite
-fill 947 -52 70 1050 -52 98 minecraft:diorite
-fill 1034 -52 -98 1054 -52 -71 minecraft:diorite
-fill 1055 -52 17 1055 -52 20 minecraft:diorite
-fill 1056 -52 14 1056 -52 23 minecraft:diorite
-fill 1058 -52 23 1058 -52 25 minecraft:diorite
-fill 1051 -52 69 1059 -52 98 minecraft:diorite
-fill 1055 -52 -98 1060 -52 -70 minecraft:diorite
-fill 1060 -52 -46 1060 -52 -44 minecraft:diorite
-fill 1059 -52 22 1061 -52 26 minecraft:diorite
-fill 1060 -52 68 1061 -52 98 minecraft:diorite
-fill 1061 -52 -98 1062 -52 -69 minecraft:diorite
-fill 1062 -52 23 1062 -52 25 minecraft:diorite
-fill 1062 -52 67 1062 -52 98 minecraft:diorite
-fill 1063 -52 -98 1063 -52 -68 minecraft:diorite
-fill 1061 -52 -47 1063 -52 -43 minecraft:diorite
-fill 1064 -52 -98 1064 -52 -67 minecraft:diorite
-fill 1064 -52 -46 1064 -52 -44 minecraft:diorite
-fill 1063 -52 66 1064 -52 98 minecraft:diorite
-fill 1065 -52 -98 1065 -52 -66 minecraft:diorite
-fill 1065 -52 64 1065 -52 98 minecraft:diorite
-fill 1066 -52 -98 1066 -52 -65 minecraft:diorite
-fill 1066 -52 63 1066 -52 98 minecraft:diorite
-fill 1067 -52 -98 1067 -52 -63 minecraft:diorite
-fill 1067 -52 60 1067 -52 98 minecraft:diorite
-fill 1068 -52 -98 1068 -52 -57 minecraft:diorite
-fill 1068 -52 49 1068 -52 98 minecraft:diorite
-fill 1069 -52 -98 1069 -52 -39 minecraft:diorite
-fill 1069 -52 37 1069 -52 98 minecraft:diorite
-fill 1070 -52 -98 1070 -52 -20 minecraft:diorite
-fill 1070 -52 22 1070 -52 98 minecraft:diorite
-fill 1071 -52 -98 1096 -52 98 minecraft:diorite
-fill 932 -52 -63 932 -52 -63 minecraft:dirt
-fill 932 -52 -49 932 -52 -46 minecraft:dirt
-fill 932 -52 58 932 -52 60 minecraft:dirt
-fill 933 -52 -65 933 -52 -65 minecraft:dirt
-fill 933 -52 -38 933 -52 -35 minecraft:dirt
-fill 933 -52 51 933 -52 59 minecraft:dirt
-fill 934 -52 -28 934 -52 -25 minecraft:dirt
-fill 934 -52 42 934 -52 64 minecraft:dirt
-fill 935 -52 -68 935 -52 -68 minecraft:dirt
-fill 935 -52 -19 935 -52 -14 minecraft:dirt
-fill 935 -52 32 935 -52 66 minecraft:dirt
-fill 936 -52 -6 936 -52 3 minecraft:dirt
-fill 936 -52 14 936 -52 67 minecraft:dirt
-fill 937 -52 -4 938 -52 68 minecraft:dirt
-fill 940 -52 -71 940 -52 -71 minecraft:dirt
-fill 939 -52 -3 940 -52 69 minecraft:dirt
-fill 941 -52 -3 941 -52 70 minecraft:dirt
-fill 942 -52 -4 942 -52 70 minecraft:dirt
-fill 943 -52 -7 943 -52 70 minecraft:dirt
-fill 944 -52 -39 944 -52 -32 minecraft:dirt
-fill 944 -52 -20 944 -52 -4 minecraft:dirt
-fill 944 -52 43 944 -52 53 minecraft:dirt
-fill 945 -52 -18 945 -52 -7 minecraft:dirt
-fill 944 -52 59 946 -52 70 minecraft:dirt
-fill 947 -52 59 947 -52 69 minecraft:dirt
-fill 944 -52 -72 953 -52 -72 minecraft:dirt
-fill 948 -52 58 956 -52 69 minecraft:dirt
-fill 957 -52 -58 964 -52 -58 minecraft:dirt
-fill 957 -52 57 965 -52 69 minecraft:dirt
-fill 966 -52 58 971 -52 69 minecraft:dirt
-fill 972 -52 59 972 -52 60 minecraft:dirt
-fill 972 -52 64 972 -52 69 minecraft:dirt
-fill 973 -52 59 973 -52 59 minecraft:dirt
-fill 973 -52 65 973 -52 69 minecraft:dirt
-fill 974 -52 66 976 -52 69 minecraft:dirt
-fill 977 -52 59 977 -52 59 minecraft:dirt
-fill 977 -52 65 977 -52 69 minecraft:dirt
-fill 978 -52 59 978 -52 60 minecraft:dirt
-fill 978 -52 64 978 -52 69 minecraft:dirt
-fill 979 -52 -59 979 -52 -59 minecraft:dirt
-fill 980 -52 -60 980 -52 -59 minecraft:dirt
-fill 981 -52 -61 982 -52 -59 minecraft:dirt
-fill 983 -52 -62 983 -52 -59 minecraft:dirt
-fill 984 -52 -63 984 -52 -58 minecraft:dirt
-fill 985 -52 -64 985 -52 -58 minecraft:dirt
-fill 979 -52 59 985 -52 69 minecraft:dirt
-fill 986 -52 59 986 -52 67 minecraft:dirt
-fill 986 -52 -65 987 -52 -57 minecraft:dirt
-fill 972 -52 -72 988 -52 -72 minecraft:dirt
-fill 988 -52 -66 988 -52 -56 minecraft:dirt
-fill 989 -52 -67 990 -52 -56 minecraft:dirt
-fill 991 -52 -68 993 -52 -56 minecraft:dirt
-fill 986 -52 69 995 -52 69 minecraft:dirt
-fill 994 -52 -69 997 -52 -56 minecraft:dirt
-fill 998 -52 -69 998 -52 -57 minecraft:dirt
-fill 999 -52 -69 999 -52 -59 minecraft:dirt
-fill 1000 -52 -68 1001 -52 -59 minecraft:dirt
-fill 1002 -52 -67 1002 -52 -58 minecraft:dirt
-fill 1003 -52 -65 1003 -52 -59 minecraft:dirt
-fill 1004 -52 -63 1004 -52 -59 minecraft:dirt
-fill 1005 -52 -60 1005 -52 -59 minecraft:dirt
-fill 1024 -52 58 1030 -52 58 minecraft:dirt
-fill 1014 -52 -71 1033 -52 -71 minecraft:dirt
-fill 1031 -52 57 1040 -52 58 minecraft:dirt
-fill 1039 -52 -58 1041 -52 -58 minecraft:dirt
-fill 1041 -52 58 1043 -52 58 minecraft:dirt
-fill 1042 -52 -58 1047 -52 -57 minecraft:dirt
-fill 1044 -52 69 1050 -52 69 minecraft:dirt
-fill 1048 -52 -58 1052 -52 -58 minecraft:dirt
-fill 1052 -52 17 1052 -52 20 minecraft:dirt
-fill 1053 -52 13 1053 -52 23 minecraft:dirt
-fill 1047 -52 -70 1054 -52 -70 minecraft:dirt
-fill 1054 -52 11 1054 -52 25 minecraft:dirt
-fill 1055 -52 -45 1055 -52 -37 minecraft:dirt
-fill 1055 -52 9 1055 -52 16 minecraft:dirt
-fill 1055 -52 21 1055 -52 27 minecraft:dirt
-fill 1056 -52 -48 1056 -52 -34 minecraft:dirt
-fill 1056 -52 7 1056 -52 13 minecraft:dirt
-fill 1056 -52 24 1056 -52 28 minecraft:dirt
-fill 1057 -52 8 1057 -52 22 minecraft:dirt
-fill 1058 -52 13 1058 -52 17 minecraft:dirt
-fill 1059 -52 68 1059 -52 68 minecraft:dirt
-fill 1060 -52 -69 1060 -52 -69 minecraft:dirt
-fill 1062 -52 -68 1062 -52 -68 minecraft:dirt
-fill 1064 -52 65 1064 -52 65 minecraft:dirt
-fill 1065 -52 -65 1065 -52 -65 minecraft:dirt
-fill 1066 -52 -64 1066 -52 -64 minecraft:dirt
-fill 1066 -52 62 1066 -52 62 minecraft:dirt
-fill 1067 -52 -62 1067 -52 -62 minecraft:dirt
-fill 1067 -52 57 1067 -52 59 minecraft:dirt
-fill 1068 -52 -56 1068 -52 -49 minecraft:dirt
-fill 1068 -52 46 1068 -52 48 minecraft:dirt
-fill 1069 -52 -38 1069 -52 -32 minecraft:dirt
-fill 1069 -52 33 1069 -52 36 minecraft:dirt
-fill 1070 -52 -19 1070 -52 -10 minecraft:dirt
-fill 1070 -52 13 1070 -52 21 minecraft:dirt
-fill 933 -52 60 933 -52 62 minecraft:grass_block
-fill 935 -52 -24 935 -52 -22 minecraft:grass_block
-fill 936 -52 -25 936 -52 -10 minecraft:grass_block
-fill 937 -52 -26 937 -52 -5 minecraft:grass_block
-fill 938 -52 -27 938 -52 -8 minecraft:grass_block
-fill 939 -52 -28 939 -52 -9 minecraft:grass_block
-fill 940 -52 -29 940 -52 -9 minecraft:grass_block
-fill 941 -52 -30 941 -52 -9 minecraft:grass_block
-fill 942 -52 -31 942 -52 -8 minecraft:grass_block
-fill 943 -52 -32 943 -52 -8 minecraft:grass_block
-fill 944 -52 -43 944 -52 -40 minecraft:grass_block
-fill 944 -52 -31 944 -52 -21 minecraft:grass_block
-fill 944 -52 -3 944 -52 -2 minecraft:grass_block
-fill 944 -52 14 944 -52 29 minecraft:grass_block
-fill 944 -52 37 944 -52 42 minecraft:grass_block
-fill 944 -52 54 944 -52 57 minecraft:grass_block
-fill 945 -52 -33 945 -52 -19 minecraft:grass_block
-fill 945 -52 -6 945 -52 -2 minecraft:grass_block
-fill 945 -52 41 945 -52 53 minecraft:grass_block
-fill 946 -52 -23 946 -52 -4 minecraft:grass_block
-fill 945 -52 58 947 -52 58 minecraft:grass_block
-fill 954 -52 -58 955 -52 -58 minecraft:grass_block
-fill 956 -52 -58 956 -52 -57 minecraft:grass_block
-fill 950 -52 57 956 -52 57 minecraft:grass_block
-fill 957 -52 -57 958 -52 -57 minecraft:grass_block
-fill 961 -52 -59 961 -52 -59 minecraft:grass_block
-fill 962 -52 -60 962 -52 -59 minecraft:grass_block
-fill 959 -52 -57 962 -52 -56 minecraft:grass_block
-fill 963 -52 -61 963 -52 -59 minecraft:grass_block
-fill 964 -52 -62 964 -52 -59 minecraft:grass_block
-fill 963 -52 -57 964 -52 -57 minecraft:grass_block
-fill 965 -52 -64 965 -52 -57 minecraft:grass_block
-fill 962 -52 56 965 -52 56 minecraft:grass_block
-fill 966 -52 -65 966 -52 -58 minecraft:grass_block
-fill 967 -52 -66 967 -52 -59 minecraft:grass_block
-fill 968 -52 -67 968 -52 -59 minecraft:grass_block
-fill 969 -52 -69 969 -52 -59 minecraft:grass_block
-fill 970 -52 -70 970 -52 -59 minecraft:grass_block
-fill 966 -52 56 971 -52 57 minecraft:grass_block
-fill 972 -52 56 973 -52 58 minecraft:grass_block
-fill 974 -52 57 975 -52 58 minecraft:grass_block
-fill 976 -52 58 977 -52 58 minecraft:grass_block
-fill 971 -52 -71 978 -52 -59 minecraft:grass_block
-fill 979 -52 -71 979 -52 -60 minecraft:grass_block
-fill 980 -52 -71 980 -52 -61 minecraft:grass_block
-fill 981 -52 -71 982 -52 -62 minecraft:grass_block
-fill 983 -52 -71 983 -52 -63 minecraft:grass_block
-fill 982 -52 -58 983 -52 -58 minecraft:grass_block
-fill 984 -52 -71 984 -52 -64 minecraft:grass_block
-fill 985 -52 -71 985 -52 -65 minecraft:grass_block
-fill 984 -52 -57 985 -52 -57 minecraft:grass_block
-fill 986 -52 68 986 -52 68 minecraft:grass_block
-fill 986 -52 -71 987 -52 -66 minecraft:grass_block
-fill 986 -52 -56 987 -52 -56 minecraft:grass_block
-fill 988 -52 -71 988 -52 -67 minecraft:grass_block
-fill 989 -52 -71 990 -52 -68 minecraft:grass_block
-fill 991 -52 -71 993 -52 -69 minecraft:grass_block
-fill 987 -52 59 994 -52 68 minecraft:grass_block
-fill 995 -52 59 995 -52 64 minecraft:grass_block
-fill 995 -52 68 995 -52 68 minecraft:grass_block
-fill 989 -52 -55 997 -52 -55 minecraft:grass_block
-fill 998 -52 -56 998 -52 -56 minecraft:grass_block
-fill 996 -52 59 998 -52 63 minecraft:grass_block
-fill 994 -52 -71 999 -52 -70 minecraft:grass_block
-fill 999 -52 59 999 -52 64 minecraft:grass_block
-fill 999 -52 68 999 -52 68 minecraft:grass_block
-fill 1000 -52 -71 1001 -52 -69 minecraft:grass_block
-fill 1000 -52 59 1001 -52 68 minecraft:grass_block
-fill 1002 -52 -71 1002 -52 -68 minecraft:grass_block
-fill 1002 -52 -57 1002 -52 -57 minecraft:grass_block
-fill 1003 -52 -71 1003 -52 -66 minecraft:grass_block
-fill 1002 -52 58 1003 -52 69 minecraft:grass_block
-fill 1004 -52 -71 1004 -52 -64 minecraft:grass_block
-fill 1005 -52 -71 1005 -52 -61 minecraft:grass_block
-fill 1003 -52 -58 1005 -52 -58 minecraft:grass_block
-fill 1004 -52 57 1005 -52 69 minecraft:grass_block
-fill 1006 -52 -71 1009 -52 -59 minecraft:grass_block
-fill 1006 -52 56 1012 -52 69 minecraft:grass_block
-fill 1013 -52 57 1016 -52 69 minecraft:grass_block
-fill 1010 -52 -70 1023 -52 -59 minecraft:grass_block
-fill 1017 -52 58 1023 -52 69 minecraft:grass_block
-fill 1024 -52 -70 1024 -52 -62 minecraft:grass_block
-fill 1025 -52 -70 1025 -52 -64 minecraft:grass_block
-fill 1026 -52 -70 1026 -52 -67 minecraft:grass_block
-fill 1027 -52 -70 1027 -52 -69 minecraft:grass_block
-fill 1028 -52 -70 1028 -52 -70 minecraft:grass_block
-fill 1026 -52 57 1030 -52 57 minecraft:grass_block
-fill 1036 -52 -58 1037 -52 -58 minecraft:grass_block
-fill 1038 -52 -58 1038 -52 -57 minecraft:grass_block
-fill 1032 -52 56 1039 -52 56 minecraft:grass_block
-fill 1039 -52 -57 1040 -52 -57 minecraft:grass_block
-fill 1024 -52 59 1040 -52 69 minecraft:grass_block
-fill 1041 -52 -57 1041 -52 -56 minecraft:grass_block
-fill 1041 -52 57 1043 -52 57 minecraft:grass_block
-fill 1041 -52 59 1043 -52 68 minecraft:grass_block
-fill 1044 -52 58 1045 -52 68 minecraft:grass_block
-fill 1042 -52 -56 1047 -52 -56 minecraft:grass_block
-fill 1051 -52 17 1051 -52 19 minecraft:grass_block
-fill 1048 -52 -57 1052 -52 -57 minecraft:grass_block
-fill 1052 -52 13 1052 -52 16 minecraft:grass_block
-fill 1052 -52 21 1052 -52 23 minecraft:grass_block
-fill 1053 -52 10 1053 -52 12 minecraft:grass_block
-fill 1053 -52 24 1053 -52 25 minecraft:grass_block
-fill 1054 -52 -46 1054 -52 -38 minecraft:grass_block
-fill 1054 -52 8 1054 -52 10 minecraft:grass_block
-fill 1054 -52 26 1054 -52 27 minecraft:grass_block
-fill 1055 -52 -49 1055 -52 -46 minecraft:grass_block
-fill 1055 -52 -36 1055 -52 -35 minecraft:grass_block
-fill 1055 -52 -7 1055 -52 -5 minecraft:grass_block
-fill 1055 -52 5 1055 -52 8 minecraft:grass_block
-fill 1055 -52 28 1055 -52 28 minecraft:grass_block
-fill 1056 -52 -69 1056 -52 -69 minecraft:grass_block
-fill 1053 -52 -58 1056 -52 -58 minecraft:grass_block
-fill 1056 -52 -53 1056 -52 -49 minecraft:grass_block
-fill 1056 -52 -33 1056 -52 -32 minecraft:grass_block
-fill 1056 -52 -11 1056 -52 -2 minecraft:grass_block
-fill 1056 -52 2 1056 -52 6 minecraft:grass_block
-fill 1056 -52 29 1056 -52 30 minecraft:grass_block
-fill 1046 -52 59 1056 -52 68 minecraft:grass_block
-fill 1057 -52 -69 1057 -52 -68 minecraft:grass_block
-fill 1057 -52 -19 1057 -52 7 minecraft:grass_block
-fill 1057 -52 23 1057 -52 68 minecraft:grass_block
-fill 1058 -52 -69 1058 -52 -67 minecraft:grass_block
-fill 1058 -52 -19 1058 -52 12 minecraft:grass_block
-fill 1058 -52 18 1058 -52 22 minecraft:grass_block
-fill 1058 -52 26 1058 -52 68 minecraft:grass_block
-fill 1059 -52 -68 1059 -52 -66 minecraft:grass_block
-fill 1060 -52 -68 1060 -52 -64 minecraft:grass_block
-fill 1059 -52 27 1060 -52 67 minecraft:grass_block
-fill 1061 -52 -68 1061 -52 -62 minecraft:grass_block
-fill 1059 -52 -19 1061 -52 21 minecraft:grass_block
-fill 1061 -52 27 1061 -52 66 minecraft:grass_block
-fill 1062 -52 -67 1062 -52 -61 minecraft:grass_block
-fill 1062 -52 -20 1062 -52 22 minecraft:grass_block
-fill 1062 -52 26 1062 -52 66 minecraft:grass_block
-fill 1063 -52 -66 1063 -52 -58 minecraft:grass_block
-fill 1063 -52 -20 1063 -52 65 minecraft:grass_block
-fill 1064 -52 -65 1064 -52 -56 minecraft:grass_block
-fill 1064 -52 -20 1064 -52 64 minecraft:grass_block
-fill 1065 -52 -64 1065 -52 -53 minecraft:grass_block
-fill 1065 -52 -21 1065 -52 63 minecraft:grass_block
-fill 1066 -52 -63 1066 -52 -50 minecraft:grass_block
-fill 1066 -52 -22 1066 -52 54 minecraft:grass_block
-fill 1066 -52 58 1066 -52 61 minecraft:grass_block
-fill 1067 -52 -60 1067 -52 -45 minecraft:grass_block
-fill 1067 -52 -24 1067 -52 48 minecraft:grass_block
-fill 1068 -52 -46 1068 -52 -37 minecraft:grass_block
-fill 1068 -52 -29 1068 -52 43 minecraft:grass_block
-fill 1069 -52 -29 1069 -52 30 minecraft:grass_block
-fill 1070 -52 -4 1070 -52 7 minecraft:grass_block
-fill 904 -51 -98 930 -51 98 minecraft:calcite
-fill 931 -51 -98 931 -51 -62 minecraft:calcite
-fill 931 -51 -54 931 -51 98 minecraft:calcite
-fill 932 -51 -98 932 -51 -65 minecraft:calcite
-fill 932 -51 -40 932 -51 55 minecraft:calcite
-fill 932 -51 63 932 -51 98 minecraft:calcite
-fill 933 -51 -98 933 -51 -67 minecraft:calcite
-fill 933 -51 -29 933 -51 47 minecraft:calcite
-fill 933 -51 65 933 -51 98 minecraft:calcite
-fill 934 -51 -98 934 -51 -68 minecraft:calcite
-fill 934 -51 -37 934 -51 -35 minecraft:calcite
-fill 934 -51 -19 934 -51 38 minecraft:calcite
-fill 934 -51 67 934 -51 98 minecraft:calcite
-fill 935 -51 -98 935 -51 -69 minecraft:calcite
-fill 935 -51 -38 935 -51 -34 minecraft:calcite
-fill 935 -51 -4 935 -51 25 minecraft:calcite
-fill 935 -51 68 935 -51 98 minecraft:calcite
-fill 936 -51 -98 936 -51 -70 minecraft:calcite
-fill 936 -51 69 937 -51 98 minecraft:calcite
-fill 937 -51 -98 938 -51 -71 minecraft:calcite
-fill 936 -51 -39 938 -51 -33 minecraft:calcite
-fill 938 -51 -7 938 -51 -5 minecraft:calcite
-fill 939 -51 -38 939 -51 -34 minecraft:calcite
-fill 938 -51 70 939 -51 98 minecraft:calcite
-fill 940 -51 -37 940 -51 -35 minecraft:calcite
-fill 939 -51 -98 941 -51 -72 minecraft:calcite
-fill 939 -51 -8 941 -51 -4 minecraft:calcite
-fill 942 -51 -7 942 -51 -5 minecraft:calcite
-fill 940 -51 71 951 -51 98 minecraft:calcite
-fill 972 -51 61 972 -51 63 minecraft:calcite
-fill 973 -51 60 973 -51 64 minecraft:calcite
-fill 974 -51 59 976 -51 65 minecraft:calcite
-fill 977 -51 60 977 -51 64 minecraft:calcite
-fill 978 -51 61 978 -51 63 minecraft:calcite
-fill 995 -51 65 995 -51 67 minecraft:calcite
-fill 996 -51 64 998 -51 68 minecraft:calcite
-fill 999 -51 65 999 -51 67 minecraft:calcite
-fill 942 -51 -98 1001 -51 -73 minecraft:calcite
-fill 952 -51 70 1008 -51 98 minecraft:calcite
-fill 1009 -51 71 1029 -51 98 minecraft:calcite
-fill 1002 -51 -98 1042 -51 -72 minecraft:calcite
-fill 1056 -51 19 1056 -51 19 minecraft:calcite
-fill 1030 -51 70 1056 -51 98 minecraft:calcite
-fill 1043 -51 -98 1058 -51 -71 minecraft:calcite
-fill 1058 -51 23 1058 -51 25 minecraft:calcite
-fill 1060 -51 -46 1060 -51 -44 minecraft:calcite
-fill 1057 -51 69 1060 -51 98 minecraft:calcite
-fill 1059 -51 -98 1061 -51 -70 minecraft:calcite
-fill 1059 -51 22 1061 -51 26 minecraft:calcite
-fill 1062 -51 -98 1062 -51 -69 minecraft:calcite
-fill 1062 -51 23 1062 -51 25 minecraft:calcite
-fill 1061 -51 68 1062 -51 98 minecraft:calcite
-fill 1061 -51 -47 1063 -51 -43 minecraft:calcite
-fill 1063 -51 67 1063 -51 98 minecraft:calcite
-fill 1063 -51 -98 1064 -51 -68 minecraft:calcite
-fill 1064 -51 -46 1064 -51 -44 minecraft:calcite
-fill 1064 -51 66 1064 -51 98 minecraft:calcite
-fill 1065 -51 -98 1065 -51 -67 minecraft:calcite
-fill 1065 -51 65 1065 -51 98 minecraft:calcite
-fill 1066 -51 -98 1066 -51 -65 minecraft:calcite
-fill 1066 -51 63 1066 -51 98 minecraft:calcite
-fill 1067 -51 -98 1067 -51 -64 minecraft:calcite
-fill 1067 -51 61 1067 -51 98 minecraft:calcite
-fill 1068 -51 -98 1068 -51 -61 minecraft:calcite
-fill 1068 -51 52 1068 -51 98 minecraft:calcite
-fill 1069 -51 -98 1069 -51 -46 minecraft:calcite
-fill 1069 -51 41 1069 -51 98 minecraft:calcite
-fill 1070 -51 -98 1070 -51 -27 minecraft:calcite
-fill 1070 -51 28 1070 -51 98 minecraft:calcite
-fill 1071 -51 -98 1096 -51 98 minecraft:calcite
-fill 931 -51 -61 931 -51 -55 minecraft:dirt
-fill 932 -51 -64 932 -51 -64 minecraft:dirt
-fill 932 -51 -45 932 -51 -41 minecraft:dirt
-fill 932 -51 56 932 -51 57 minecraft:dirt
-fill 932 -51 61 932 -51 62 minecraft:dirt
-fill 933 -51 -66 933 -51 -66 minecraft:dirt
-fill 933 -51 -34 933 -51 -30 minecraft:dirt
-fill 933 -51 48 933 -51 50 minecraft:dirt
-fill 933 -51 64 933 -51 64 minecraft:dirt
-fill 934 -51 -67 934 -51 -67 minecraft:dirt
-fill 934 -51 -24 934 -51 -20 minecraft:dirt
-fill 934 -51 39 934 -51 41 minecraft:dirt
-fill 934 -51 66 934 -51 66 minecraft:dirt
-fill 935 -51 -13 935 -51 -5 minecraft:dirt
-fill 935 -51 26 935 -51 31 minecraft:dirt
-fill 935 -51 67 935 -51 67 minecraft:dirt
-fill 936 -51 -69 936 -51 -69 minecraft:dirt
-fill 936 -51 4 936 -51 13 minecraft:dirt
-fill 936 -51 68 936 -51 68 minecraft:dirt
-fill 937 -51 -70 937 -51 -70 minecraft:dirt
-fill 938 -51 69 938 -51 69 minecraft:dirt
-fill 939 -51 -71 939 -51 -71 minecraft:dirt
-fill 940 -51 70 940 -51 70 minecraft:dirt
-fill 942 -51 -72 943 -51 -72 minecraft:dirt
-fill 944 -51 -14 944 -51 -8 minecraft:dirt
-fill 947 -51 70 951 -51 70 minecraft:dirt
-fill 952 -51 58 964 -51 58 minecraft:dirt
-fill 986 -51 -58 987 -51 -58 minecraft:dirt
-fill 988 -51 -58 997 -51 -57 minecraft:dirt
-fill 998 -51 -58 998 -51 -58 minecraft:dirt
-fill 989 -51 -72 1001 -51 -72 minecraft:dirt
-fill 1009 -51 70 1029 -51 70 minecraft:dirt
-fill 1030 -51 58 1040 -51 58 minecraft:dirt
-fill 1034 -51 -71 1042 -51 -71 minecraft:dirt
-fill 1043 -51 -58 1047 -51 -58 minecraft:dirt
-fill 1053 -51 17 1053 -51 20 minecraft:dirt
-fill 1054 -51 13 1054 -51 23 minecraft:dirt
-fill 1055 -51 11 1055 -51 25 minecraft:dirt
-fill 1056 -51 -45 1056 -51 -36 minecraft:dirt
-fill 1056 -51 10 1056 -51 18 minecraft:dirt
-fill 1056 -51 20 1056 -51 27 minecraft:dirt
-fill 1051 -51 69 1056 -51 69 minecraft:dirt
-fill 1055 -51 -70 1058 -51 -70 minecraft:dirt
-fill 1060 -51 68 1060 -51 68 minecraft:dirt
-fill 1061 -51 -69 1061 -51 -69 minecraft:dirt
-fill 1062 -51 67 1062 -51 67 minecraft:dirt
-fill 1063 -51 66 1063 -51 66 minecraft:dirt
-fill 1064 -51 -67 1064 -51 -67 minecraft:dirt
-fill 1065 -51 -66 1065 -51 -66 minecraft:dirt
-fill 1065 -51 64 1065 -51 64 minecraft:dirt
-fill 1067 -51 -63 1067 -51 -63 minecraft:dirt
-fill 1067 -51 60 1067 -51 60 minecraft:dirt
-fill 1068 -51 -60 1068 -51 -57 minecraft:dirt
-fill 1068 -51 49 1068 -51 51 minecraft:dirt
-fill 1069 -51 -45 1069 -51 -39 minecraft:dirt
-fill 1069 -51 37 1069 -51 40 minecraft:dirt
-fill 1070 -51 -26 1070 -51 -20 minecraft:dirt
-fill 1070 -51 22 1070 -51 27 minecraft:dirt
-fill 932 -51 -63 932 -51 -63 minecraft:grass_block
-fill 932 -51 -49 932 -51 -46 minecraft:grass_block
-fill 932 -51 58 932 -51 60 minecraft:grass_block
-fill 933 -51 -65 933 -51 -65 minecraft:grass_block
-fill 933 -51 -38 933 -51 -35 minecraft:grass_block
-fill 933 -51 51 933 -51 59 minecraft:grass_block
-fill 934 -51 -28 934 -51 -25 minecraft:grass_block
-fill 934 -51 42 934 -51 64 minecraft:grass_block
-fill 935 -51 -68 935 -51 -68 minecraft:grass_block
-fill 935 -51 -19 935 -51 -14 minecraft:grass_block
-fill 935 -51 32 935 -51 66 minecraft:grass_block
-fill 936 -51 -6 936 -51 3 minecraft:grass_block
-fill 936 -51 14 936 -51 67 minecraft:grass_block
-fill 937 -51 -4 938 -51 68 minecraft:grass_block
-fill 940 -51 -71 940 -51 -71 minecraft:grass_block
-fill 939 -51 -3 940 -51 69 minecraft:grass_block
-fill 941 -51 -3 941 -51 70 minecraft:grass_block
-fill 942 -51 -4 942 -51 70 minecraft:grass_block
-fill 943 -51 -7 943 -51 70 minecraft:grass_block
-fill 944 -51 -39 944 -51 -32 minecraft:grass_block
-fill 944 -51 -20 944 -51 -15 minecraft:grass_block
-fill 944 -51 -7 944 -51 -4 minecraft:grass_block
-fill 944 -51 43 944 -51 53 minecraft:grass_block
-fill 945 -51 -18 945 -51 -7 minecraft:grass_block
-fill 944 -51 59 946 -51 70 minecraft:grass_block
-fill 947 -51 59 947 -51 69 minecraft:grass_block
-fill 948 -51 58 951 -51 69 minecraft:grass_block
-fill 944 -51 -72 953 -51 -72 minecraft:grass_block
-fill 957 -51 -58 964 -51 -58 minecraft:grass_block
-fill 957 -51 57 964 -51 57 minecraft:grass_block
-fill 952 -51 59 964 -51 69 minecraft:grass_block
-fill 965 -51 57 965 -51 69 minecraft:grass_block
-fill 966 -51 58 971 -51 69 minecraft:grass_block
-fill 972 -51 59 972 -51 60 minecraft:grass_block
-fill 972 -51 64 972 -51 69 minecraft:grass_block
-fill 973 -51 59 973 -51 59 minecraft:grass_block
-fill 973 -51 65 973 -51 69 minecraft:grass_block
-fill 974 -51 66 976 -51 69 minecraft:grass_block
-fill 977 -51 59 977 -51 59 minecraft:grass_block
-fill 977 -51 65 977 -51 69 minecraft:grass_block
-fill 978 -51 59 978 -51 60 minecraft:grass_block
-fill 978 -51 64 978 -51 69 minecraft:grass_block
-fill 979 -51 -59 979 -51 -59 minecraft:grass_block
-fill 980 -51 -60 980 -51 -59 minecraft:grass_block
-fill 981 -51 -61 982 -51 -59 minecraft:grass_block
-fill 983 -51 -62 983 -51 -59 minecraft:grass_block
-fill 984 -51 -63 984 -51 -58 minecraft:grass_block
-fill 985 -51 -64 985 -51 -58 minecraft:grass_block
-fill 979 -51 59 985 -51 69 minecraft:grass_block
-fill 986 -51 59 986 -51 67 minecraft:grass_block
-fill 986 -51 -65 987 -51 -59 minecraft:grass_block
-fill 986 -51 -57 987 -51 -57 minecraft:grass_block
-fill 972 -51 -72 988 -51 -72 minecraft:grass_block
-fill 988 -51 -66 988 -51 -59 minecraft:grass_block
-fill 989 -51 -67 990 -51 -59 minecraft:grass_block
-fill 991 -51 -68 993 -51 -59 minecraft:grass_block
-fill 986 -51 69 995 -51 69 minecraft:grass_block
-fill 988 -51 -56 997 -51 -56 minecraft:grass_block
-fill 998 -51 -57 998 -51 -57 minecraft:grass_block
-fill 994 -51 -69 999 -51 -59 minecraft:grass_block
-fill 1000 -51 -68 1001 -51 -59 minecraft:grass_block
-fill 1002 -51 -67 1002 -51 -58 minecraft:grass_block
-fill 1003 -51 -65 1003 -51 -59 minecraft:grass_block
-fill 1004 -51 -63 1004 -51 -59 minecraft:grass_block
-fill 1005 -51 -60 1005 -51 -59 minecraft:grass_block
-fill 1024 -51 58 1029 -51 58 minecraft:grass_block
-fill 1014 -51 -71 1033 -51 -71 minecraft:grass_block
-fill 1031 -51 57 1040 -51 57 minecraft:grass_block
-fill 1039 -51 -58 1041 -51 -58 minecraft:grass_block
-fill 1042 -51 -58 1042 -51 -57 minecraft:grass_block
-fill 1041 -51 58 1043 -51 58 minecraft:grass_block
-fill 1043 -51 -57 1047 -51 -57 minecraft:grass_block
-fill 1044 -51 69 1050 -51 69 minecraft:grass_block
-fill 1048 -51 -58 1052 -51 -58 minecraft:grass_block
-fill 1052 -51 17 1052 -51 20 minecraft:grass_block
-fill 1053 -51 13 1053 -51 16 minecraft:grass_block
-fill 1053 -51 21 1053 -51 23 minecraft:grass_block
-fill 1047 -51 -70 1054 -51 -70 minecraft:grass_block
-fill 1054 -51 11 1054 -51 12 minecraft:grass_block
-fill 1054 -51 24 1054 -51 25 minecraft:grass_block
-fill 1055 -51 -45 1055 -51 -37 minecraft:grass_block
-fill 1055 -51 9 1055 -51 10 minecraft:grass_block
-fill 1055 -51 26 1055 -51 27 minecraft:grass_block
-fill 1056 -51 -48 1056 -51 -46 minecraft:grass_block
-fill 1056 -51 -35 1056 -51 -34 minecraft:grass_block
-fill 1056 -51 7 1056 -51 9 minecraft:grass_block
-fill 1056 -51 28 1056 -51 28 minecraft:grass_block
-fill 1057 -51 8 1057 -51 22 minecraft:grass_block
-fill 1058 -51 13 1058 -51 17 minecraft:grass_block
-fill 1059 -51 68 1059 -51 68 minecraft:grass_block
-fill 1060 -51 -69 1060 -51 -69 minecraft:grass_block
-fill 1062 -51 -68 1062 -51 -68 minecraft:grass_block
-fill 1064 -51 65 1064 -51 65 minecraft:grass_block
-fill 1065 -51 -65 1065 -51 -65 minecraft:grass_block
-fill 1066 -51 -64 1066 -51 -64 minecraft:grass_block
-fill 1066 -51 62 1066 -51 62 minecraft:grass_block
-fill 1067 -51 -62 1067 -51 -62 minecraft:grass_block
-fill 1067 -51 57 1067 -51 59 minecraft:grass_block
-fill 1068 -51 -56 1068 -51 -49 minecraft:grass_block
-fill 1068 -51 46 1068 -51 48 minecraft:grass_block
-fill 1069 -51 -38 1069 -51 -32 minecraft:grass_block
-fill 1069 -51 33 1069 -51 36 minecraft:grass_block
-fill 1070 -51 -19 1070 -51 -10 minecraft:grass_block
-fill 1070 -51 13 1070 -51 21 minecraft:grass_block
-fill 904 -50 -98 930 -50 98 minecraft:calcite
-fill 931 -50 -98 931 -50 -62 minecraft:calcite
-fill 931 -50 -54 931 -50 98 minecraft:calcite
-fill 932 -50 -98 932 -50 -65 minecraft:calcite
-fill 932 -50 -40 932 -50 55 minecraft:calcite
-fill 932 -50 63 932 -50 98 minecraft:calcite
-fill 933 -50 -98 933 -50 -67 minecraft:calcite
-fill 933 -50 -29 933 -50 47 minecraft:calcite
-fill 933 -50 65 933 -50 98 minecraft:calcite
-fill 934 -50 -98 934 -50 -68 minecraft:calcite
-fill 934 -50 -37 934 -50 -35 minecraft:calcite
-fill 934 -50 -19 934 -50 38 minecraft:calcite
-fill 934 -50 67 934 -50 98 minecraft:calcite
-fill 935 -50 -98 935 -50 -69 minecraft:calcite
-fill 935 -50 -38 935 -50 -34 minecraft:calcite
-fill 935 -50 -4 935 -50 25 minecraft:calcite
-fill 935 -50 68 935 -50 98 minecraft:calcite
-fill 936 -50 -98 936 -50 -70 minecraft:calcite
-fill 936 -50 69 937 -50 98 minecraft:calcite
-fill 937 -50 -98 938 -50 -71 minecraft:calcite
-fill 936 -50 -39 938 -50 -33 minecraft:calcite
-fill 938 -50 -7 938 -50 -5 minecraft:calcite
-fill 939 -50 -38 939 -50 -34 minecraft:calcite
-fill 938 -50 70 939 -50 98 minecraft:calcite
-fill 940 -50 -37 940 -50 -35 minecraft:calcite
-fill 939 -50 -98 941 -50 -72 minecraft:calcite
-fill 939 -50 -8 941 -50 -4 minecraft:calcite
-fill 942 -50 -7 942 -50 -5 minecraft:calcite
-fill 940 -50 71 951 -50 98 minecraft:calcite
-fill 972 -50 61 972 -50 63 minecraft:calcite
-fill 973 -50 60 973 -50 64 minecraft:calcite
-fill 974 -50 59 976 -50 65 minecraft:calcite
-fill 977 -50 60 977 -50 64 minecraft:calcite
-fill 978 -50 61 978 -50 63 minecraft:calcite
-fill 995 -50 65 995 -50 67 minecraft:calcite
-fill 996 -50 64 998 -50 68 minecraft:calcite
-fill 999 -50 65 999 -50 67 minecraft:calcite
-fill 942 -50 -98 1001 -50 -73 minecraft:calcite
-fill 952 -50 70 1008 -50 98 minecraft:calcite
-fill 1009 -50 71 1029 -50 98 minecraft:calcite
-fill 1002 -50 -98 1042 -50 -72 minecraft:calcite
-fill 1056 -50 19 1056 -50 19 minecraft:calcite
-fill 1030 -50 70 1056 -50 98 minecraft:calcite
-fill 1043 -50 -98 1058 -50 -71 minecraft:calcite
-fill 1058 -50 23 1058 -50 25 minecraft:calcite
-fill 1060 -50 -46 1060 -50 -44 minecraft:calcite
-fill 1057 -50 69 1060 -50 98 minecraft:calcite
-fill 1059 -50 -98 1061 -50 -70 minecraft:calcite
-fill 1059 -50 22 1061 -50 26 minecraft:calcite
-fill 1062 -50 -98 1062 -50 -69 minecraft:calcite
-fill 1062 -50 23 1062 -50 25 minecraft:calcite
-fill 1061 -50 68 1062 -50 98 minecraft:calcite
-fill 1061 -50 -47 1063 -50 -43 minecraft:calcite
-fill 1063 -50 67 1063 -50 98 minecraft:calcite
-fill 1063 -50 -98 1064 -50 -68 minecraft:calcite
-fill 1064 -50 -46 1064 -50 -44 minecraft:calcite
-fill 1064 -50 66 1064 -50 98 minecraft:calcite
-fill 1065 -50 -98 1065 -50 -67 minecraft:calcite
-fill 1065 -50 65 1065 -50 98 minecraft:calcite
-fill 1066 -50 -98 1066 -50 -65 minecraft:calcite
-fill 1066 -50 63 1066 -50 98 minecraft:calcite
-fill 1067 -50 -98 1067 -50 -64 minecraft:calcite
-fill 1067 -50 61 1067 -50 98 minecraft:calcite
-fill 1068 -50 -98 1068 -50 -61 minecraft:calcite
-fill 1068 -50 52 1068 -50 98 minecraft:calcite
-fill 1069 -50 -98 1069 -50 -46 minecraft:calcite
-fill 1069 -50 41 1069 -50 98 minecraft:calcite
-fill 1070 -50 -98 1070 -50 -27 minecraft:calcite
-fill 1070 -50 28 1070 -50 98 minecraft:calcite
-fill 1071 -50 -98 1096 -50 98 minecraft:calcite
-fill 931 -50 -61 931 -50 -55 minecraft:dirt
-fill 932 -50 -64 932 -50 -64 minecraft:dirt
-fill 932 -50 -45 932 -50 -41 minecraft:dirt
-fill 932 -50 56 932 -50 57 minecraft:dirt
-fill 932 -50 61 932 -50 62 minecraft:dirt
-fill 933 -50 -66 933 -50 -66 minecraft:dirt
-fill 933 -50 -34 933 -50 -30 minecraft:dirt
-fill 933 -50 48 933 -50 50 minecraft:dirt
-fill 933 -50 64 933 -50 64 minecraft:dirt
-fill 934 -50 -67 934 -50 -67 minecraft:dirt
-fill 934 -50 -24 934 -50 -20 minecraft:dirt
-fill 934 -50 39 934 -50 41 minecraft:dirt
-fill 934 -50 66 934 -50 66 minecraft:dirt
-fill 935 -50 -13 935 -50 -5 minecraft:dirt
-fill 935 -50 26 935 -50 31 minecraft:dirt
-fill 935 -50 67 935 -50 67 minecraft:dirt
-fill 936 -50 -69 936 -50 -69 minecraft:dirt
-fill 936 -50 4 936 -50 13 minecraft:dirt
-fill 936 -50 68 936 -50 68 minecraft:dirt
-fill 937 -50 -70 937 -50 -70 minecraft:dirt
-fill 938 -50 69 938 -50 69 minecraft:dirt
-fill 939 -50 -71 939 -50 -71 minecraft:dirt
-fill 940 -50 70 940 -50 70 minecraft:dirt
-fill 942 -50 -72 943 -50 -72 minecraft:dirt
-fill 947 -50 70 951 -50 70 minecraft:dirt
-fill 988 -50 -58 996 -50 -58 minecraft:dirt
-fill 989 -50 -72 1001 -50 -72 minecraft:dirt
-fill 1009 -50 70 1029 -50 70 minecraft:dirt
-fill 1034 -50 -71 1042 -50 -71 minecraft:dirt
-fill 1054 -50 17 1054 -50 20 minecraft:dirt
-fill 1055 -50 14 1055 -50 23 minecraft:dirt
-fill 1056 -50 12 1056 -50 18 minecraft:dirt
-fill 1056 -50 20 1056 -50 25 minecraft:dirt
-fill 1051 -50 69 1056 -50 69 minecraft:dirt
-fill 1055 -50 -70 1058 -50 -70 minecraft:dirt
-fill 1060 -50 68 1060 -50 68 minecraft:dirt
-fill 1061 -50 -69 1061 -50 -69 minecraft:dirt
-fill 1062 -50 67 1062 -50 67 minecraft:dirt
-fill 1063 -50 66 1063 -50 66 minecraft:dirt
-fill 1064 -50 -67 1064 -50 -67 minecraft:dirt
-fill 1065 -50 -66 1065 -50 -66 minecraft:dirt
-fill 1065 -50 64 1065 -50 64 minecraft:dirt
-fill 1067 -50 -63 1067 -50 -63 minecraft:dirt
-fill 1067 -50 60 1067 -50 60 minecraft:dirt
-fill 1068 -50 -60 1068 -50 -57 minecraft:dirt
-fill 1068 -50 49 1068 -50 51 minecraft:dirt
-fill 1069 -50 -45 1069 -50 -39 minecraft:dirt
-fill 1069 -50 37 1069 -50 40 minecraft:dirt
-fill 1070 -50 -26 1070 -50 -20 minecraft:dirt
-fill 1070 -50 22 1070 -50 27 minecraft:dirt
-fill 944 -50 -14 944 -50 -8 minecraft:grass_block
-fill 952 -50 58 964 -50 58 minecraft:grass_block
-fill 986 -50 -58 987 -50 -58 minecraft:grass_block
-fill 988 -50 -57 996 -50 -57 minecraft:grass_block
-fill 997 -50 -58 997 -50 -57 minecraft:grass_block
-fill 998 -50 -58 998 -50 -58 minecraft:grass_block
-fill 1030 -50 58 1040 -50 58 minecraft:grass_block
-fill 1043 -50 -58 1047 -50 -58 minecraft:grass_block
-fill 1053 -50 17 1053 -50 20 minecraft:grass_block
-fill 1054 -50 13 1054 -50 16 minecraft:grass_block
-fill 1054 -50 21 1054 -50 23 minecraft:grass_block
-fill 1055 -50 11 1055 -50 13 minecraft:grass_block
-fill 1055 -50 24 1055 -50 25 minecraft:grass_block
-fill 1056 -50 -45 1056 -50 -36 minecraft:grass_block
-fill 1056 -50 10 1056 -50 11 minecraft:grass_block
-fill 1056 -50 26 1056 -50 27 minecraft:grass_block
-fill 904 -49 -98 930 -49 98 minecraft:calcite
-fill 931 -49 -98 931 -49 -62 minecraft:calcite
-fill 931 -49 -54 931 -49 98 minecraft:calcite
-fill 932 -49 -98 932 -49 -65 minecraft:calcite
-fill 932 -49 -40 932 -49 55 minecraft:calcite
-fill 932 -49 63 932 -49 98 minecraft:calcite
-fill 933 -49 -98 933 -49 -67 minecraft:calcite
-fill 933 -49 -29 933 -49 47 minecraft:calcite
-fill 933 -49 65 933 -49 98 minecraft:calcite
-fill 934 -49 -98 934 -49 -68 minecraft:calcite
-fill 934 -49 -37 934 -49 -35 minecraft:calcite
-fill 934 -49 -19 934 -49 38 minecraft:calcite
-fill 934 -49 67 934 -49 98 minecraft:calcite
-fill 935 -49 -98 935 -49 -69 minecraft:calcite
-fill 935 -49 -38 935 -49 -34 minecraft:calcite
-fill 935 -49 -4 935 -49 25 minecraft:calcite
-fill 935 -49 68 935 -49 98 minecraft:calcite
-fill 936 -49 -98 936 -49 -70 minecraft:calcite
-fill 936 -49 69 937 -49 98 minecraft:calcite
-fill 937 -49 -98 938 -49 -71 minecraft:calcite
-fill 936 -49 -39 938 -49 -33 minecraft:calcite
-fill 938 -49 -7 938 -49 -5 minecraft:calcite
-fill 939 -49 -38 939 -49 -34 minecraft:calcite
-fill 938 -49 70 939 -49 98 minecraft:calcite
-fill 940 -49 -37 940 -49 -35 minecraft:calcite
-fill 939 -49 -98 941 -49 -72 minecraft:calcite
-fill 939 -49 -8 941 -49 -4 minecraft:calcite
-fill 942 -49 -7 942 -49 -5 minecraft:calcite
-fill 940 -49 71 951 -49 98 minecraft:calcite
-fill 972 -49 61 972 -49 63 minecraft:calcite
-fill 973 -49 60 973 -49 64 minecraft:calcite
-fill 974 -49 59 976 -49 65 minecraft:calcite
-fill 977 -49 60 977 -49 64 minecraft:calcite
-fill 978 -49 61 978 -49 63 minecraft:calcite
-fill 995 -49 65 995 -49 67 minecraft:calcite
-fill 996 -49 64 998 -49 68 minecraft:calcite
-fill 999 -49 65 999 -49 67 minecraft:calcite
-fill 942 -49 -98 1001 -49 -73 minecraft:calcite
-fill 952 -49 70 1008 -49 98 minecraft:calcite
-fill 1009 -49 71 1029 -49 98 minecraft:calcite
-fill 1002 -49 -98 1042 -49 -72 minecraft:calcite
-fill 1056 -49 19 1056 -49 19 minecraft:calcite
-fill 1030 -49 70 1056 -49 98 minecraft:calcite
-fill 1043 -49 -98 1058 -49 -71 minecraft:calcite
-fill 1058 -49 23 1058 -49 25 minecraft:calcite
-fill 1060 -49 -46 1060 -49 -44 minecraft:calcite
-fill 1057 -49 69 1060 -49 98 minecraft:calcite
-fill 1059 -49 -98 1061 -49 -70 minecraft:calcite
-fill 1059 -49 22 1061 -49 26 minecraft:calcite
-fill 1062 -49 -98 1062 -49 -69 minecraft:calcite
-fill 1062 -49 23 1062 -49 25 minecraft:calcite
-fill 1061 -49 68 1062 -49 98 minecraft:calcite
-fill 1061 -49 -47 1063 -49 -43 minecraft:calcite
-fill 1063 -49 67 1063 -49 98 minecraft:calcite
-fill 1063 -49 -98 1064 -49 -68 minecraft:calcite
-fill 1064 -49 -46 1064 -49 -44 minecraft:calcite
-fill 1064 -49 66 1064 -49 98 minecraft:calcite
-fill 1065 -49 -98 1065 -49 -67 minecraft:calcite
-fill 1065 -49 65 1065 -49 98 minecraft:calcite
-fill 1066 -49 -98 1066 -49 -65 minecraft:calcite
-fill 1066 -49 63 1066 -49 98 minecraft:calcite
-fill 1067 -49 -98 1067 -49 -64 minecraft:calcite
-fill 1067 -49 61 1067 -49 98 minecraft:calcite
-fill 1068 -49 -98 1068 -49 -61 minecraft:calcite
-fill 1068 -49 52 1068 -49 98 minecraft:calcite
-fill 1069 -49 -98 1069 -49 -46 minecraft:calcite
-fill 1069 -49 41 1069 -49 98 minecraft:calcite
-fill 1070 -49 -98 1070 -49 -27 minecraft:calcite
-fill 1070 -49 28 1070 -49 98 minecraft:calcite
-fill 1071 -49 -98 1096 -49 98 minecraft:calcite
-fill 931 -49 -61 931 -49 -55 minecraft:dirt
-fill 932 -49 -64 932 -49 -64 minecraft:dirt
-fill 932 -49 -45 932 -49 -41 minecraft:dirt
-fill 932 -49 56 932 -49 57 minecraft:dirt
-fill 932 -49 61 932 -49 62 minecraft:dirt
-fill 933 -49 -66 933 -49 -66 minecraft:dirt
-fill 933 -49 -34 933 -49 -30 minecraft:dirt
-fill 933 -49 48 933 -49 50 minecraft:dirt
-fill 933 -49 64 933 -49 64 minecraft:dirt
-fill 934 -49 -67 934 -49 -67 minecraft:dirt
-fill 934 -49 -24 934 -49 -20 minecraft:dirt
-fill 934 -49 39 934 -49 41 minecraft:dirt
-fill 934 -49 66 934 -49 66 minecraft:dirt
-fill 935 -49 -13 935 -49 -5 minecraft:dirt
-fill 935 -49 26 935 -49 31 minecraft:dirt
-fill 935 -49 67 935 -49 67 minecraft:dirt
-fill 936 -49 -69 936 -49 -69 minecraft:dirt
-fill 936 -49 4 936 -49 13 minecraft:dirt
-fill 936 -49 68 936 -49 68 minecraft:dirt
-fill 937 -49 -70 937 -49 -70 minecraft:dirt
-fill 938 -49 69 938 -49 69 minecraft:dirt
-fill 939 -49 -71 939 -49 -71 minecraft:dirt
-fill 940 -49 70 940 -49 70 minecraft:dirt
-fill 942 -49 -72 943 -49 -72 minecraft:dirt
-fill 947 -49 70 951 -49 70 minecraft:dirt
-fill 989 -49 -72 1001 -49 -72 minecraft:dirt
-fill 1009 -49 70 1029 -49 70 minecraft:dirt
-fill 1034 -49 -71 1042 -49 -71 minecraft:dirt
-fill 1055 -49 17 1055 -49 20 minecraft:dirt
-fill 1056 -49 14 1056 -49 18 minecraft:dirt
-fill 1056 -49 20 1056 -49 23 minecraft:dirt
-fill 1051 -49 69 1056 -49 69 minecraft:dirt
-fill 1055 -49 -70 1058 -49 -70 minecraft:dirt
-fill 1060 -49 68 1060 -49 68 minecraft:dirt
-fill 1061 -49 -69 1061 -49 -69 minecraft:dirt
-fill 1062 -49 67 1062 -49 67 minecraft:dirt
-fill 1063 -49 66 1063 -49 66 minecraft:dirt
-fill 1064 -49 -67 1064 -49 -67 minecraft:dirt
-fill 1065 -49 -66 1065 -49 -66 minecraft:dirt
-fill 1065 -49 64 1065 -49 64 minecraft:dirt
-fill 1067 -49 -63 1067 -49 -63 minecraft:dirt
-fill 1067 -49 60 1067 -49 60 minecraft:dirt
-fill 1068 -49 -60 1068 -49 -57 minecraft:dirt
-fill 1068 -49 49 1068 -49 51 minecraft:dirt
-fill 1069 -49 -45 1069 -49 -39 minecraft:dirt
-fill 1069 -49 37 1069 -49 40 minecraft:dirt
-fill 1070 -49 -26 1070 -49 -20 minecraft:dirt
-fill 1070 -49 22 1070 -49 27 minecraft:dirt
-fill 988 -49 -58 996 -49 -58 minecraft:grass_block
-fill 1054 -49 17 1054 -49 20 minecraft:grass_block
-fill 1055 -49 14 1055 -49 16 minecraft:grass_block
-fill 1055 -49 21 1055 -49 23 minecraft:grass_block
-fill 1056 -49 12 1056 -49 13 minecraft:grass_block
-fill 1056 -49 24 1056 -49 25 minecraft:grass_block
-fill 904 -48 -98 930 -48 98 minecraft:stone
-fill 931 -48 -98 931 -48 -62 minecraft:stone
-fill 931 -48 -54 931 -48 98 minecraft:stone
-fill 932 -48 -98 932 -48 -65 minecraft:stone
-fill 932 -48 -40 932 -48 55 minecraft:stone
-fill 932 -48 63 932 -48 98 minecraft:stone
-fill 933 -48 -98 933 -48 -67 minecraft:stone
-fill 933 -48 -29 933 -48 47 minecraft:stone
-fill 933 -48 65 933 -48 98 minecraft:stone
-fill 934 -48 -98 934 -48 -68 minecraft:stone
-fill 934 -48 -37 934 -48 -35 minecraft:stone
-fill 934 -48 -19 934 -48 38 minecraft:stone
-fill 934 -48 67 934 -48 98 minecraft:stone
-fill 935 -48 -98 935 -48 -69 minecraft:stone
-fill 935 -48 -38 935 -48 -34 minecraft:stone
-fill 935 -48 -4 935 -48 25 minecraft:stone
-fill 935 -48 68 935 -48 98 minecraft:stone
-fill 936 -48 -98 936 -48 -70 minecraft:stone
-fill 936 -48 69 937 -48 98 minecraft:stone
-fill 937 -48 -98 938 -48 -71 minecraft:stone
-fill 936 -48 -39 938 -48 -33 minecraft:stone
-fill 938 -48 -7 938 -48 -5 minecraft:stone
-fill 939 -48 -38 939 -48 -34 minecraft:stone
-fill 938 -48 70 939 -48 98 minecraft:stone
-fill 940 -48 -37 940 -48 -35 minecraft:stone
-fill 939 -48 -98 941 -48 -72 minecraft:stone
-fill 939 -48 -8 941 -48 -4 minecraft:stone
-fill 942 -48 -7 942 -48 -5 minecraft:stone
-fill 940 -48 71 951 -48 98 minecraft:stone
-fill 972 -48 61 972 -48 63 minecraft:stone
-fill 973 -48 60 973 -48 64 minecraft:stone
-fill 974 -48 59 976 -48 65 minecraft:stone
-fill 977 -48 60 977 -48 64 minecraft:stone
-fill 978 -48 61 978 -48 63 minecraft:stone
-fill 995 -48 65 995 -48 67 minecraft:stone
-fill 996 -48 64 998 -48 68 minecraft:stone
-fill 999 -48 65 999 -48 67 minecraft:stone
-fill 942 -48 -98 1001 -48 -73 minecraft:stone
-fill 952 -48 70 1008 -48 98 minecraft:stone
-fill 1009 -48 71 1029 -48 98 minecraft:stone
-fill 1002 -48 -98 1042 -48 -72 minecraft:stone
-fill 1056 -48 19 1056 -48 19 minecraft:stone
-fill 1030 -48 70 1056 -48 98 minecraft:stone
-fill 1043 -48 -98 1058 -48 -71 minecraft:stone
-fill 1058 -48 23 1058 -48 25 minecraft:stone
-fill 1060 -48 -46 1060 -48 -44 minecraft:stone
-fill 1057 -48 69 1060 -48 98 minecraft:stone
-fill 1059 -48 -98 1061 -48 -70 minecraft:stone
-fill 1059 -48 22 1061 -48 26 minecraft:stone
-fill 1062 -48 -98 1062 -48 -69 minecraft:stone
-fill 1062 -48 23 1062 -48 25 minecraft:stone
-fill 1061 -48 68 1062 -48 98 minecraft:stone
-fill 1061 -48 -47 1063 -48 -43 minecraft:stone
-fill 1063 -48 67 1063 -48 98 minecraft:stone
-fill 1063 -48 -98 1064 -48 -68 minecraft:stone
-fill 1064 -48 -46 1064 -48 -44 minecraft:stone
-fill 1064 -48 66 1064 -48 98 minecraft:stone
-fill 1065 -48 -98 1065 -48 -67 minecraft:stone
-fill 1065 -48 65 1065 -48 98 minecraft:stone
-fill 1066 -48 -98 1066 -48 -65 minecraft:stone
-fill 1066 -48 63 1066 -48 98 minecraft:stone
-fill 1067 -48 -98 1067 -48 -64 minecraft:stone
-fill 1067 -48 61 1067 -48 98 minecraft:stone
-fill 1068 -48 -98 1068 -48 -61 minecraft:stone
-fill 1068 -48 52 1068 -48 98 minecraft:stone
-fill 1069 -48 -98 1069 -48 -46 minecraft:stone
-fill 1069 -48 41 1069 -48 98 minecraft:stone
-fill 1070 -48 -98 1070 -48 -27 minecraft:stone
-fill 1070 -48 28 1070 -48 98 minecraft:stone
-fill 1071 -48 -98 1096 -48 98 minecraft:stone
-fill 931 -48 -61 931 -48 -55 minecraft:grass_block
-fill 932 -48 -64 932 -48 -64 minecraft:grass_block
-fill 932 -48 -45 932 -48 -41 minecraft:grass_block
-fill 932 -48 56 932 -48 57 minecraft:grass_block
-fill 932 -48 61 932 -48 62 minecraft:grass_block
-fill 933 -48 -66 933 -48 -66 minecraft:grass_block
-fill 933 -48 -34 933 -48 -30 minecraft:grass_block
-fill 933 -48 48 933 -48 50 minecraft:grass_block
-fill 933 -48 64 933 -48 64 minecraft:grass_block
-fill 934 -48 -67 934 -48 -67 minecraft:grass_block
-fill 934 -48 -24 934 -48 -20 minecraft:grass_block
-fill 934 -48 39 934 -48 41 minecraft:grass_block
-fill 934 -48 66 934 -48 66 minecraft:grass_block
-fill 935 -48 -13 935 -48 -5 minecraft:grass_block
-fill 935 -48 26 935 -48 31 minecraft:grass_block
-fill 935 -48 67 935 -48 67 minecraft:grass_block
-fill 936 -48 -69 936 -48 -69 minecraft:grass_block
-fill 936 -48 4 936 -48 13 minecraft:grass_block
-fill 936 -48 68 936 -48 68 minecraft:grass_block
-fill 937 -48 -70 937 -48 -70 minecraft:grass_block
-fill 938 -48 69 938 -48 69 minecraft:grass_block
-fill 939 -48 -71 939 -48 -71 minecraft:grass_block
-fill 940 -48 70 940 -48 70 minecraft:grass_block
-fill 942 -48 -72 943 -48 -72 minecraft:grass_block
-fill 947 -48 70 951 -48 70 minecraft:grass_block
-fill 989 -48 -72 1001 -48 -72 minecraft:grass_block
-fill 1009 -48 70 1029 -48 70 minecraft:grass_block
-fill 1034 -48 -71 1042 -48 -71 minecraft:grass_block
-fill 1055 -48 17 1055 -48 20 minecraft:grass_block
-fill 1056 -48 14 1056 -48 18 minecraft:grass_block
-fill 1056 -48 20 1056 -48 23 minecraft:grass_block
-fill 1051 -48 69 1056 -48 69 minecraft:grass_block
-fill 1055 -48 -70 1058 -48 -70 minecraft:grass_block
-fill 1060 -48 68 1060 -48 68 minecraft:grass_block
-fill 1061 -48 -69 1061 -48 -69 minecraft:grass_block
-fill 1062 -48 67 1062 -48 67 minecraft:grass_block
-fill 1063 -48 66 1063 -48 66 minecraft:grass_block
-fill 1064 -48 -67 1064 -48 -67 minecraft:grass_block
-fill 1065 -48 -66 1065 -48 -66 minecraft:grass_block
-fill 1065 -48 64 1065 -48 64 minecraft:grass_block
-fill 1067 -48 -63 1067 -48 -63 minecraft:grass_block
-fill 1067 -48 60 1067 -48 60 minecraft:grass_block
-fill 1068 -48 -60 1068 -48 -57 minecraft:grass_block
-fill 1068 -48 49 1068 -48 51 minecraft:grass_block
-fill 1069 -48 -45 1069 -48 -39 minecraft:grass_block
-fill 1069 -48 37 1069 -48 40 minecraft:grass_block
-fill 1070 -48 -26 1070 -48 -20 minecraft:grass_block
-fill 1070 -48 22 1070 -48 27 minecraft:grass_block
-fill 904 -47 -98 930 -47 98 minecraft:stone
-fill 931 -47 -98 931 -47 -62 minecraft:stone
-fill 931 -47 -54 931 -47 98 minecraft:stone
-fill 932 -47 -98 932 -47 -65 minecraft:stone
-fill 932 -47 -40 932 -47 55 minecraft:stone
-fill 932 -47 63 932 -47 98 minecraft:stone
-fill 933 -47 -98 933 -47 -67 minecraft:stone
-fill 933 -47 -29 933 -47 47 minecraft:stone
-fill 933 -47 65 933 -47 98 minecraft:stone
-fill 934 -47 -98 934 -47 -68 minecraft:stone
-fill 934 -47 -37 934 -47 -35 minecraft:stone
-fill 934 -47 -19 934 -47 38 minecraft:stone
-fill 934 -47 67 934 -47 98 minecraft:stone
-fill 935 -47 -98 935 -47 -69 minecraft:stone
-fill 935 -47 -38 935 -47 -34 minecraft:stone
-fill 935 -47 -4 935 -47 25 minecraft:stone
-fill 935 -47 68 935 -47 98 minecraft:stone
-fill 936 -47 -98 936 -47 -70 minecraft:stone
-fill 936 -47 69 937 -47 98 minecraft:stone
-fill 937 -47 -98 938 -47 -71 minecraft:stone
-fill 936 -47 -39 938 -47 -33 minecraft:stone
-fill 938 -47 -7 938 -47 -5 minecraft:stone
-fill 939 -47 -38 939 -47 -34 minecraft:stone
-fill 938 -47 70 939 -47 98 minecraft:stone
-fill 940 -47 -37 940 -47 -35 minecraft:stone
-fill 939 -47 -98 941 -47 -72 minecraft:stone
-fill 939 -47 -8 941 -47 -4 minecraft:stone
-fill 942 -47 -7 942 -47 -5 minecraft:stone
-fill 940 -47 71 951 -47 98 minecraft:stone
-fill 972 -47 61 972 -47 63 minecraft:stone
-fill 973 -47 60 973 -47 64 minecraft:stone
-fill 974 -47 59 976 -47 65 minecraft:stone
-fill 977 -47 60 977 -47 64 minecraft:stone
-fill 978 -47 61 978 -47 63 minecraft:stone
-fill 995 -47 65 995 -47 67 minecraft:stone
-fill 996 -47 64 998 -47 68 minecraft:stone
-fill 999 -47 65 999 -47 67 minecraft:stone
-fill 942 -47 -98 1001 -47 -73 minecraft:stone
-fill 952 -47 70 1008 -47 98 minecraft:stone
-fill 1009 -47 71 1029 -47 98 minecraft:stone
-fill 1002 -47 -98 1042 -47 -72 minecraft:stone
-fill 1030 -47 70 1056 -47 98 minecraft:stone
-fill 1043 -47 -98 1058 -47 -71 minecraft:stone
-fill 1058 -47 23 1058 -47 25 minecraft:stone
-fill 1060 -47 -46 1060 -47 -44 minecraft:stone
-fill 1057 -47 69 1060 -47 98 minecraft:stone
-fill 1059 -47 -98 1061 -47 -70 minecraft:stone
-fill 1059 -47 22 1061 -47 26 minecraft:stone
-fill 1062 -47 -98 1062 -47 -69 minecraft:stone
-fill 1062 -47 23 1062 -47 25 minecraft:stone
-fill 1061 -47 68 1062 -47 98 minecraft:stone
-fill 1061 -47 -47 1063 -47 -43 minecraft:stone
-fill 1063 -47 67 1063 -47 98 minecraft:stone
-fill 1063 -47 -98 1064 -47 -68 minecraft:stone
-fill 1064 -47 -46 1064 -47 -44 minecraft:stone
-fill 1064 -47 66 1064 -47 98 minecraft:stone
-fill 1065 -47 -98 1065 -47 -67 minecraft:stone
-fill 1065 -47 65 1065 -47 98 minecraft:stone
-fill 1066 -47 -98 1066 -47 -65 minecraft:stone
-fill 1066 -47 63 1066 -47 98 minecraft:stone
-fill 1067 -47 -98 1067 -47 -64 minecraft:stone
-fill 1067 -47 61 1067 -47 98 minecraft:stone
-fill 1068 -47 -98 1068 -47 -61 minecraft:stone
-fill 1068 -47 52 1068 -47 98 minecraft:stone
-fill 1069 -47 -98 1069 -47 -46 minecraft:stone
-fill 1069 -47 41 1069 -47 98 minecraft:stone
-fill 1070 -47 -98 1070 -47 -27 minecraft:stone
-fill 1070 -47 28 1070 -47 98 minecraft:stone
-fill 1071 -47 -98 1096 -47 98 minecraft:stone
-fill 1056 -47 19 1056 -47 19 minecraft:grass_block
-fill 904 -46 -98 930 -46 98 minecraft:stone
-fill 931 -46 -98 931 -46 -62 minecraft:stone
-fill 931 -46 -54 931 -46 98 minecraft:stone
-fill 932 -46 -98 932 -46 -65 minecraft:stone
-fill 932 -46 -40 932 -46 55 minecraft:stone
-fill 932 -46 63 932 -46 98 minecraft:stone
-fill 933 -46 -98 933 -46 -67 minecraft:stone
-fill 933 -46 -29 933 -46 47 minecraft:stone
-fill 933 -46 65 933 -46 98 minecraft:stone
-fill 934 -46 -98 934 -46 -68 minecraft:stone
-fill 934 -46 -37 934 -46 -35 minecraft:stone
-fill 934 -46 -19 934 -46 38 minecraft:stone
-fill 934 -46 67 934 -46 98 minecraft:stone
-fill 935 -46 -98 935 -46 -69 minecraft:stone
-fill 935 -46 -38 935 -46 -34 minecraft:stone
-fill 935 -46 -4 935 -46 25 minecraft:stone
-fill 935 -46 68 935 -46 98 minecraft:stone
-fill 936 -46 -98 936 -46 -70 minecraft:stone
-fill 936 -46 69 937 -46 98 minecraft:stone
-fill 937 -46 -98 938 -46 -71 minecraft:stone
-fill 936 -46 -39 938 -46 -33 minecraft:stone
-fill 938 -46 -7 938 -46 -5 minecraft:stone
-fill 939 -46 -38 939 -46 -34 minecraft:stone
-fill 938 -46 70 939 -46 98 minecraft:stone
-fill 940 -46 -37 940 -46 -35 minecraft:stone
-fill 939 -46 -98 941 -46 -72 minecraft:stone
-fill 939 -46 -8 941 -46 -4 minecraft:stone
-fill 942 -46 -7 942 -46 -5 minecraft:stone
-fill 940 -46 71 951 -46 98 minecraft:stone
-fill 972 -46 61 972 -46 63 minecraft:stone
-fill 973 -46 60 973 -46 64 minecraft:stone
-fill 974 -46 59 976 -46 65 minecraft:stone
-fill 977 -46 60 977 -46 64 minecraft:stone
-fill 978 -46 61 978 -46 63 minecraft:stone
-fill 995 -46 65 995 -46 67 minecraft:stone
-fill 996 -46 64 998 -46 68 minecraft:stone
-fill 999 -46 65 999 -46 67 minecraft:stone
-fill 942 -46 -98 1001 -46 -73 minecraft:stone
-fill 952 -46 70 1008 -46 98 minecraft:stone
-fill 1009 -46 71 1029 -46 98 minecraft:stone
-fill 1002 -46 -98 1042 -46 -72 minecraft:stone
-fill 1030 -46 70 1056 -46 98 minecraft:stone
-fill 1043 -46 -98 1058 -46 -71 minecraft:stone
-fill 1058 -46 23 1058 -46 25 minecraft:stone
-fill 1060 -46 -46 1060 -46 -44 minecraft:stone
-fill 1057 -46 69 1060 -46 98 minecraft:stone
-fill 1059 -46 -98 1061 -46 -70 minecraft:stone
-fill 1059 -46 22 1061 -46 26 minecraft:stone
-fill 1062 -46 -98 1062 -46 -69 minecraft:stone
-fill 1062 -46 23 1062 -46 25 minecraft:stone
-fill 1061 -46 68 1062 -46 98 minecraft:stone
-fill 1061 -46 -47 1063 -46 -43 minecraft:stone
-fill 1063 -46 67 1063 -46 98 minecraft:stone
-fill 1063 -46 -98 1064 -46 -68 minecraft:stone
-fill 1064 -46 -46 1064 -46 -44 minecraft:stone
-fill 1064 -46 66 1064 -46 98 minecraft:stone
-fill 1065 -46 -98 1065 -46 -67 minecraft:stone
-fill 1065 -46 65 1065 -46 98 minecraft:stone
-fill 1066 -46 -98 1066 -46 -65 minecraft:stone
-fill 1066 -46 63 1066 -46 98 minecraft:stone
-fill 1067 -46 -98 1067 -46 -64 minecraft:stone
-fill 1067 -46 61 1067 -46 98 minecraft:stone
-fill 1068 -46 -98 1068 -46 -61 minecraft:stone
-fill 1068 -46 52 1068 -46 98 minecraft:stone
-fill 1069 -46 -98 1069 -46 -46 minecraft:stone
-fill 1069 -46 41 1069 -46 98 minecraft:stone
-fill 1070 -46 -98 1070 -46 -27 minecraft:stone
-fill 1070 -46 28 1070 -46 98 minecraft:stone
-fill 1071 -46 -98 1096 -46 98 minecraft:stone
-fill 904 -45 -98 930 -45 98 minecraft:smooth_sandstone
-fill 931 -45 -98 931 -45 -63 minecraft:smooth_sandstone
-fill 931 -45 -48 931 -45 98 minecraft:smooth_sandstone
-fill 932 -45 -98 932 -45 -65 minecraft:smooth_sandstone
-fill 932 -45 -35 932 -45 52 minecraft:smooth_sandstone
-fill 932 -45 64 932 -45 98 minecraft:smooth_sandstone
-fill 933 -45 -98 933 -45 -67 minecraft:smooth_sandstone
-fill 933 -45 -24 933 -45 43 minecraft:smooth_sandstone
-fill 933 -45 66 933 -45 98 minecraft:smooth_sandstone
-fill 934 -45 -98 934 -45 -68 minecraft:smooth_sandstone
-fill 934 -45 -37 934 -45 -35 minecraft:smooth_sandstone
-fill 934 -45 -11 934 -45 33 minecraft:smooth_sandstone
-fill 934 -45 67 934 -45 98 minecraft:smooth_sandstone
-fill 935 -45 -98 935 -45 -69 minecraft:smooth_sandstone
-fill 935 -45 -38 935 -45 -34 minecraft:smooth_sandstone
-fill 935 -45 68 935 -45 98 minecraft:smooth_sandstone
-fill 936 -45 -98 936 -45 -70 minecraft:smooth_sandstone
-fill 936 -45 69 936 -45 98 minecraft:smooth_sandstone
-fill 937 -45 -98 937 -45 -71 minecraft:smooth_sandstone
-fill 936 -45 -39 938 -45 -33 minecraft:smooth_sandstone
-fill 938 -45 -7 938 -45 -5 minecraft:smooth_sandstone
-fill 937 -45 70 938 -45 98 minecraft:smooth_sandstone
-fill 939 -45 -38 939 -45 -34 minecraft:smooth_sandstone
-fill 938 -45 -98 940 -45 -72 minecraft:smooth_sandstone
-fill 940 -45 -37 940 -45 -35 minecraft:smooth_sandstone
-fill 939 -45 -8 941 -45 -4 minecraft:smooth_sandstone
-fill 942 -45 -7 942 -45 -5 minecraft:smooth_sandstone
-fill 941 -45 -98 950 -45 -73 minecraft:smooth_sandstone
-fill 939 -45 71 960 -45 98 minecraft:smooth_sandstone
-fill 972 -45 61 972 -45 63 minecraft:smooth_sandstone
-fill 973 -45 60 973 -45 64 minecraft:smooth_sandstone
-fill 951 -45 -98 976 -45 -74 minecraft:smooth_sandstone
-fill 974 -45 59 976 -45 65 minecraft:smooth_sandstone
-fill 977 -45 60 977 -45 64 minecraft:smooth_sandstone
-fill 978 -45 61 978 -45 63 minecraft:smooth_sandstone
-fill 961 -45 70 985 -45 98 minecraft:smooth_sandstone
-fill 995 -45 65 995 -45 67 minecraft:smooth_sandstone
-fill 996 -45 64 998 -45 68 minecraft:smooth_sandstone
-fill 999 -45 65 999 -45 67 minecraft:smooth_sandstone
-fill 977 -45 -98 1033 -45 -73 minecraft:smooth_sandstone
-fill 986 -45 71 1040 -45 98 minecraft:smooth_sandstone
-fill 1034 -45 -98 1049 -45 -72 minecraft:smooth_sandstone
-fill 1058 -45 23 1058 -45 25 minecraft:smooth_sandstone
-fill 1041 -45 70 1058 -45 98 minecraft:smooth_sandstone
-fill 1050 -45 -98 1059 -45 -71 minecraft:smooth_sandstone
-fill 1060 -45 -46 1060 -45 -44 minecraft:smooth_sandstone
-fill 1060 -45 -98 1061 -45 -70 minecraft:smooth_sandstone
-fill 1059 -45 22 1061 -45 26 minecraft:smooth_sandstone
-fill 1059 -45 69 1061 -45 98 minecraft:smooth_sandstone
-fill 1062 -45 23 1062 -45 25 minecraft:smooth_sandstone
-fill 1062 -45 68 1062 -45 98 minecraft:smooth_sandstone
-fill 1062 -45 -98 1063 -45 -69 minecraft:smooth_sandstone
-fill 1061 -45 -47 1063 -45 -43 minecraft:smooth_sandstone
-fill 1063 -45 67 1063 -45 98 minecraft:smooth_sandstone
-fill 1064 -45 -98 1064 -45 -68 minecraft:smooth_sandstone
-fill 1064 -45 -46 1064 -45 -44 minecraft:smooth_sandstone
-fill 1064 -45 66 1064 -45 98 minecraft:smooth_sandstone
-fill 1065 -45 -98 1065 -45 -67 minecraft:smooth_sandstone
-fill 1065 -45 65 1065 -45 98 minecraft:smooth_sandstone
-fill 1066 -45 -98 1066 -45 -66 minecraft:smooth_sandstone
-fill 1066 -45 64 1066 -45 98 minecraft:smooth_sandstone
-fill 1067 -45 -98 1067 -45 -64 minecraft:smooth_sandstone
-fill 1067 -45 62 1067 -45 98 minecraft:smooth_sandstone
-fill 1068 -45 -98 1068 -45 -62 minecraft:smooth_sandstone
-fill 1068 -45 56 1068 -45 98 minecraft:smooth_sandstone
-fill 1069 -45 -98 1069 -45 -52 minecraft:smooth_sandstone
-fill 1069 -45 44 1069 -45 98 minecraft:smooth_sandstone
-fill 1070 -45 -98 1070 -45 -35 minecraft:smooth_sandstone
-fill 1070 -45 32 1070 -45 98 minecraft:smooth_sandstone
-fill 1071 -45 -98 1071 -45 -8 minecraft:smooth_sandstone
-fill 1071 -45 15 1071 -45 98 minecraft:smooth_sandstone
-fill 1072 -45 -98 1096 -45 98 minecraft:smooth_sandstone
-fill 931 -45 -62 931 -45 -62 minecraft:grass_block
-fill 931 -45 -54 931 -45 -49 minecraft:grass_block
-fill 932 -45 -40 932 -45 -36 minecraft:grass_block
-fill 932 -45 53 932 -45 55 minecraft:grass_block
-fill 932 -45 63 932 -45 63 minecraft:grass_block
-fill 933 -45 -29 933 -45 -25 minecraft:grass_block
-fill 933 -45 44 933 -45 47 minecraft:grass_block
-fill 933 -45 65 933 -45 65 minecraft:grass_block
-fill 934 -45 -19 934 -45 -12 minecraft:grass_block
-fill 934 -45 34 934 -45 38 minecraft:grass_block
-fill 935 -45 -4 935 -45 25 minecraft:grass_block
-fill 937 -45 69 937 -45 69 minecraft:grass_block
-fill 938 -45 -71 938 -45 -71 minecraft:grass_block
-fill 939 -45 70 939 -45 70 minecraft:grass_block
-fill 941 -45 -72 941 -45 -72 minecraft:grass_block
-fill 952 -45 70 960 -45 70 minecraft:grass_block
-fill 951 -45 -73 976 -45 -73 minecraft:grass_block
-fill 986 -45 70 1008 -45 70 minecraft:grass_block
-fill 1002 -45 -72 1033 -45 -72 minecraft:grass_block
-fill 1030 -45 70 1040 -45 70 minecraft:grass_block
-fill 1043 -45 -71 1049 -45 -71 minecraft:grass_block
-fill 1057 -45 69 1058 -45 69 minecraft:grass_block
-fill 1059 -45 -70 1059 -45 -70 minecraft:grass_block
-fill 1061 -45 68 1061 -45 68 minecraft:grass_block
-fill 1063 -45 -68 1063 -45 -68 minecraft:grass_block
-fill 1066 -45 -65 1066 -45 -65 minecraft:grass_block
-fill 1066 -45 63 1066 -45 63 minecraft:grass_block
-fill 1067 -45 61 1067 -45 61 minecraft:grass_block
-fill 1068 -45 -61 1068 -45 -61 minecraft:grass_block
-fill 1068 -45 52 1068 -45 55 minecraft:grass_block
-fill 1069 -45 -51 1069 -45 -46 minecraft:grass_block
-fill 1069 -45 41 1069 -45 43 minecraft:grass_block
-fill 1070 -45 -34 1070 -45 -27 minecraft:grass_block
-fill 1070 -45 28 1070 -45 31 minecraft:grass_block
-fill 1071 -45 -7 1071 -45 14 minecraft:grass_block
-fill 904 -44 -98 930 -43 98 minecraft:smooth_sandstone
-fill 931 -44 -98 931 -43 -63 minecraft:smooth_sandstone
-fill 931 -44 -48 931 -43 98 minecraft:smooth_sandstone
-fill 932 -44 -98 932 -43 -65 minecraft:smooth_sandstone
-fill 932 -44 -35 932 -43 52 minecraft:smooth_sandstone
-fill 932 -44 64 932 -43 98 minecraft:smooth_sandstone
-fill 933 -44 -98 933 -43 -67 minecraft:smooth_sandstone
-fill 933 -44 -24 933 -43 43 minecraft:smooth_sandstone
-fill 933 -44 66 933 -43 98 minecraft:smooth_sandstone
-fill 934 -44 -98 934 -43 -68 minecraft:smooth_sandstone
-fill 934 -44 -37 934 -43 -35 minecraft:smooth_sandstone
-fill 934 -44 -11 934 -43 33 minecraft:smooth_sandstone
-fill 934 -44 67 934 -43 98 minecraft:smooth_sandstone
-fill 935 -44 -98 935 -43 -69 minecraft:smooth_sandstone
-fill 935 -44 -38 935 -43 -34 minecraft:smooth_sandstone
-fill 935 -44 68 935 -43 98 minecraft:smooth_sandstone
-fill 936 -44 -98 936 -43 -70 minecraft:smooth_sandstone
-fill 936 -44 69 936 -43 98 minecraft:smooth_sandstone
-fill 937 -44 -98 937 -43 -71 minecraft:smooth_sandstone
-fill 936 -44 -39 938 -43 -33 minecraft:smooth_sandstone
-fill 938 -44 -7 938 -43 -5 minecraft:smooth_sandstone
-fill 937 -44 70 938 -43 98 minecraft:smooth_sandstone
-fill 939 -44 -38 939 -43 -34 minecraft:smooth_sandstone
-fill 938 -44 -98 940 -43 -72 minecraft:smooth_sandstone
-fill 940 -44 -37 940 -43 -35 minecraft:smooth_sandstone
-fill 939 -44 -8 941 -43 -4 minecraft:smooth_sandstone
-fill 942 -44 -7 942 -43 -5 minecraft:smooth_sandstone
-fill 941 -44 -98 950 -43 -73 minecraft:smooth_sandstone
-fill 939 -44 71 960 -43 98 minecraft:smooth_sandstone
-fill 972 -44 61 972 -43 63 minecraft:smooth_sandstone
-fill 973 -44 60 973 -43 64 minecraft:smooth_sandstone
-fill 951 -44 -98 976 -43 -74 minecraft:smooth_sandstone
-fill 974 -44 59 976 -43 65 minecraft:smooth_sandstone
-fill 977 -44 60 977 -43 64 minecraft:smooth_sandstone
-fill 978 -44 61 978 -43 63 minecraft:smooth_sandstone
-fill 961 -44 70 985 -43 98 minecraft:smooth_sandstone
-fill 995 -44 65 995 -43 67 minecraft:smooth_sandstone
-fill 996 -44 64 998 -43 68 minecraft:smooth_sandstone
-fill 999 -44 65 999 -43 67 minecraft:smooth_sandstone
-fill 977 -44 -98 1033 -43 -73 minecraft:smooth_sandstone
-fill 986 -44 71 1040 -43 98 minecraft:smooth_sandstone
-fill 1034 -44 -98 1049 -43 -72 minecraft:smooth_sandstone
-fill 1058 -44 23 1058 -43 25 minecraft:smooth_sandstone
-fill 1041 -44 70 1058 -43 98 minecraft:smooth_sandstone
-fill 1050 -44 -98 1059 -43 -71 minecraft:smooth_sandstone
-fill 1060 -44 -46 1060 -43 -44 minecraft:smooth_sandstone
-fill 1060 -44 -98 1061 -43 -70 minecraft:smooth_sandstone
-fill 1059 -44 22 1061 -43 26 minecraft:smooth_sandstone
-fill 1059 -44 69 1061 -43 98 minecraft:smooth_sandstone
-fill 1062 -44 23 1062 -43 25 minecraft:smooth_sandstone
-fill 1062 -44 68 1062 -43 98 minecraft:smooth_sandstone
-fill 1062 -44 -98 1063 -43 -69 minecraft:smooth_sandstone
-fill 1061 -44 -47 1063 -43 -43 minecraft:smooth_sandstone
-fill 1063 -44 67 1063 -43 98 minecraft:smooth_sandstone
-fill 1064 -44 -98 1064 -43 -68 minecraft:smooth_sandstone
-fill 1064 -44 -46 1064 -43 -44 minecraft:smooth_sandstone
-fill 1064 -44 66 1064 -43 98 minecraft:smooth_sandstone
-fill 1065 -44 -98 1065 -43 -67 minecraft:smooth_sandstone
-fill 1065 -44 65 1065 -43 98 minecraft:smooth_sandstone
-fill 1066 -44 -98 1066 -43 -66 minecraft:smooth_sandstone
-fill 1066 -44 64 1066 -43 98 minecraft:smooth_sandstone
-fill 1067 -44 -98 1067 -43 -64 minecraft:smooth_sandstone
-fill 1067 -44 62 1067 -43 98 minecraft:smooth_sandstone
-fill 1068 -44 -98 1068 -43 -62 minecraft:smooth_sandstone
-fill 1068 -44 56 1068 -43 98 minecraft:smooth_sandstone
-fill 1069 -44 -98 1069 -43 -52 minecraft:smooth_sandstone
-fill 1069 -44 44 1069 -43 98 minecraft:smooth_sandstone
-fill 1070 -44 -98 1070 -43 -35 minecraft:smooth_sandstone
-fill 1070 -44 32 1070 -43 98 minecraft:smooth_sandstone
-fill 1071 -44 -98 1071 -43 -8 minecraft:smooth_sandstone
-fill 1071 -44 15 1071 -43 98 minecraft:smooth_sandstone
-fill 1072 -44 -98 1096 -43 98 minecraft:smooth_sandstone
-fill 904 -42 -98 930 -42 98 minecraft:calcite
-fill 931 -42 -98 931 -42 -64 minecraft:calcite
-fill 931 -42 -43 931 -42 57 minecraft:calcite
-fill 931 -42 61 931 -42 98 minecraft:calcite
-fill 932 -42 -98 932 -42 -66 minecraft:calcite
-fill 932 -42 -30 932 -42 49 minecraft:calcite
-fill 932 -42 65 932 -42 98 minecraft:calcite
-fill 933 -42 -98 933 -42 -68 minecraft:calcite
-fill 933 -42 -18 933 -42 40 minecraft:calcite
-fill 933 -42 67 933 -42 98 minecraft:calcite
-fill 934 -42 -98 934 -42 -69 minecraft:calcite
-fill 934 -42 -37 934 -42 -35 minecraft:calcite
-fill 934 -42 -1 934 -42 26 minecraft:calcite
-fill 934 -42 68 934 -42 98 minecraft:calcite
-fill 935 -42 -98 935 -42 -70 minecraft:calcite
-fill 935 -42 -38 935 -42 -34 minecraft:calcite
-fill 935 -42 69 936 -42 98 minecraft:calcite
-fill 936 -42 -98 937 -42 -71 minecraft:calcite
-fill 937 -42 70 937 -42 98 minecraft:calcite
-fill 936 -42 -39 938 -42 -33 minecraft:calcite
-fill 938 -42 -7 938 -42 -5 minecraft:calcite
-fill 938 -42 -98 939 -42 -72 minecraft:calcite
-fill 939 -42 -38 939 -42 -34 minecraft:calcite
-fill 940 -42 -37 940 -42 -35 minecraft:calcite
-fill 938 -42 71 940 -42 98 minecraft:calcite
-fill 939 -42 -8 941 -42 -4 minecraft:calcite
-fill 942 -42 -7 942 -42 -5 minecraft:calcite
-fill 940 -42 -98 943 -42 -73 minecraft:calcite
-fill 941 -42 72 947 -42 98 minecraft:calcite
-fill 972 -42 61 972 -42 63 minecraft:calcite
-fill 973 -42 60 973 -42 64 minecraft:calcite
-fill 974 -42 59 976 -42 65 minecraft:calcite
-fill 977 -42 60 977 -42 64 minecraft:calcite
-fill 978 -42 61 978 -42 63 minecraft:calcite
-fill 944 -42 -98 986 -42 -74 minecraft:calcite
-fill 995 -42 65 995 -42 67 minecraft:calcite
-fill 996 -42 64 998 -42 68 minecraft:calcite
-fill 999 -42 65 999 -42 67 minecraft:calcite
-fill 987 -42 -98 1040 -42 -73 minecraft:calcite
-fill 948 -42 71 1048 -42 98 minecraft:calcite
-fill 1041 -42 -98 1055 -42 -72 minecraft:calcite
-fill 1058 -42 23 1058 -42 25 minecraft:calcite
-fill 1049 -42 70 1059 -42 98 minecraft:calcite
-fill 1056 -42 -98 1060 -42 -71 minecraft:calcite
-fill 1060 -42 -46 1060 -42 -44 minecraft:calcite
-fill 1059 -42 22 1061 -42 26 minecraft:calcite
-fill 1060 -42 69 1061 -42 98 minecraft:calcite
-fill 1061 -42 -98 1062 -42 -70 minecraft:calcite
-fill 1062 -42 23 1062 -42 25 minecraft:calcite
-fill 1063 -42 -98 1063 -42 -69 minecraft:calcite
-fill 1061 -42 -47 1063 -42 -43 minecraft:calcite
-fill 1062 -42 68 1063 -42 98 minecraft:calcite
-fill 1064 -42 -46 1064 -42 -44 minecraft:calcite
-fill 1064 -42 67 1064 -42 98 minecraft:calcite
-fill 1064 -42 -98 1065 -42 -68 minecraft:calcite
-fill 1065 -42 66 1065 -42 98 minecraft:calcite
-fill 1066 -42 -98 1066 -42 -66 minecraft:calcite
-fill 1066 -42 64 1066 -42 98 minecraft:calcite
-fill 1067 -42 -98 1067 -42 -65 minecraft:calcite
-fill 1067 -42 63 1067 -42 98 minecraft:calcite
-fill 1068 -42 -98 1068 -42 -63 minecraft:calcite
-fill 1068 -42 59 1068 -42 98 minecraft:calcite
-fill 1069 -42 -98 1069 -42 -59 minecraft:calcite
-fill 1069 -42 48 1069 -42 98 minecraft:calcite
-fill 1070 -42 -98 1070 -42 -42 minecraft:calcite
-fill 1070 -42 36 1070 -42 98 minecraft:calcite
-fill 1071 -42 -98 1071 -42 -19 minecraft:calcite
-fill 1071 -42 22 1071 -42 98 minecraft:calcite
-fill 1072 -42 -98 1096 -42 98 minecraft:calcite
-fill 931 -42 -63 931 -42 -63 minecraft:grass_block
-fill 931 -42 -48 931 -42 -44 minecraft:grass_block
-fill 931 -42 58 931 -42 60 minecraft:grass_block
-fill 932 -42 -65 932 -42 -65 minecraft:grass_block
-fill 932 -42 -35 932 -42 -31 minecraft:grass_block
-fill 932 -42 50 932 -42 52 minecraft:grass_block
-fill 932 -42 64 932 -42 64 minecraft:grass_block
-fill 933 -42 -67 933 -42 -67 minecraft:grass_block
-fill 933 -42 -24 933 -42 -19 minecraft:grass_block
-fill 933 -42 41 933 -42 43 minecraft:grass_block
-fill 933 -42 66 933 -42 66 minecraft:grass_block
-fill 934 -42 -68 934 -42 -68 minecraft:grass_block
-fill 934 -42 -11 934 -42 -2 minecraft:grass_block
-fill 934 -42 27 934 -42 33 minecraft:grass_block
-fill 934 -42 67 934 -42 67 minecraft:grass_block
-fill 935 -42 -69 935 -42 -69 minecraft:grass_block
-fill 935 -42 68 935 -42 68 minecraft:grass_block
-fill 936 -42 -70 936 -42 -70 minecraft:grass_block
-fill 938 -42 70 938 -42 70 minecraft:grass_block
-fill 940 -42 -72 940 -42 -72 minecraft:grass_block
-fill 941 -42 71 947 -42 71 minecraft:grass_block
-fill 944 -42 -73 950 -42 -73 minecraft:grass_block
-fill 961 -42 70 985 -42 70 minecraft:grass_block
-fill 977 -42 -73 986 -42 -73 minecraft:grass_block
-fill 1034 -42 -72 1040 -42 -72 minecraft:grass_block
-fill 1041 -42 70 1048 -42 70 minecraft:grass_block
-fill 1050 -42 -71 1055 -42 -71 minecraft:grass_block
-fill 1059 -42 69 1059 -42 69 minecraft:grass_block
-fill 1060 -42 -70 1060 -42 -70 minecraft:grass_block
-fill 1062 -42 -69 1062 -42 -69 minecraft:grass_block
-fill 1063 -42 67 1063 -42 67 minecraft:grass_block
-fill 1064 -42 66 1064 -42 66 minecraft:grass_block
-fill 1065 -42 -67 1065 -42 -67 minecraft:grass_block
-fill 1065 -42 65 1065 -42 65 minecraft:grass_block
-fill 1067 -42 -64 1067 -42 -64 minecraft:grass_block
-fill 1067 -42 62 1067 -42 62 minecraft:grass_block
-fill 1068 -42 -62 1068 -42 -62 minecraft:grass_block
-fill 1068 -42 56 1068 -42 58 minecraft:grass_block
-fill 1069 -42 -58 1069 -42 -52 minecraft:grass_block
-fill 1069 -42 44 1069 -42 47 minecraft:grass_block
-fill 1070 -42 -41 1070 -42 -35 minecraft:grass_block
-fill 1070 -42 32 1070 -42 35 minecraft:grass_block
-fill 1071 -42 -18 1071 -42 -8 minecraft:grass_block
-fill 1071 -42 15 1071 -42 21 minecraft:grass_block
-fill 904 -41 -98 930 -40 98 minecraft:calcite
-fill 931 -41 -98 931 -40 -64 minecraft:calcite
-fill 931 -41 -43 931 -40 57 minecraft:calcite
-fill 931 -41 61 931 -40 98 minecraft:calcite
-fill 932 -41 -98 932 -40 -66 minecraft:calcite
-fill 932 -41 -30 932 -40 49 minecraft:calcite
-fill 932 -41 65 932 -40 98 minecraft:calcite
-fill 933 -41 -98 933 -40 -68 minecraft:calcite
-fill 933 -41 -18 933 -40 40 minecraft:calcite
-fill 933 -41 67 933 -40 98 minecraft:calcite
-fill 934 -41 -98 934 -40 -69 minecraft:calcite
-fill 934 -41 -37 934 -40 -35 minecraft:calcite
-fill 934 -41 -1 934 -40 26 minecraft:calcite
-fill 934 -41 68 934 -40 98 minecraft:calcite
-fill 935 -41 -98 935 -40 -70 minecraft:calcite
-fill 935 -41 -38 935 -40 -34 minecraft:calcite
-fill 935 -41 69 936 -40 98 minecraft:calcite
-fill 936 -41 -98 937 -40 -71 minecraft:calcite
-fill 937 -41 70 937 -40 98 minecraft:calcite
-fill 936 -41 -39 938 -40 -33 minecraft:calcite
-fill 938 -41 -7 938 -40 -5 minecraft:calcite
-fill 938 -41 -98 939 -40 -72 minecraft:calcite
-fill 939 -41 -38 939 -40 -34 minecraft:calcite
-fill 940 -41 -37 940 -40 -35 minecraft:calcite
-fill 938 -41 71 940 -40 98 minecraft:calcite
-fill 939 -41 -8 941 -40 -4 minecraft:calcite
-fill 942 -41 -7 942 -40 -5 minecraft:calcite
-fill 940 -41 -98 943 -40 -73 minecraft:calcite
-fill 941 -41 72 947 -40 98 minecraft:calcite
-fill 972 -41 61 972 -40 63 minecraft:calcite
-fill 973 -41 60 973 -40 64 minecraft:calcite
-fill 974 -41 59 976 -40 65 minecraft:calcite
-fill 977 -41 60 977 -40 64 minecraft:calcite
-fill 978 -41 61 978 -40 63 minecraft:calcite
-fill 944 -41 -98 986 -40 -74 minecraft:calcite
-fill 995 -41 65 995 -40 67 minecraft:calcite
-fill 996 -41 64 998 -40 68 minecraft:calcite
-fill 999 -41 65 999 -40 67 minecraft:calcite
-fill 987 -41 -98 1040 -40 -73 minecraft:calcite
-fill 948 -41 71 1048 -40 98 minecraft:calcite
-fill 1041 -41 -98 1055 -40 -72 minecraft:calcite
-fill 1058 -41 23 1058 -40 25 minecraft:calcite
-fill 1049 -41 70 1059 -40 98 minecraft:calcite
-fill 1056 -41 -98 1060 -40 -71 minecraft:calcite
-fill 1060 -41 -46 1060 -40 -44 minecraft:calcite
-fill 1059 -41 22 1061 -40 26 minecraft:calcite
-fill 1060 -41 69 1061 -40 98 minecraft:calcite
-fill 1061 -41 -98 1062 -40 -70 minecraft:calcite
-fill 1062 -41 23 1062 -40 25 minecraft:calcite
-fill 1063 -41 -98 1063 -40 -69 minecraft:calcite
-fill 1061 -41 -47 1063 -40 -43 minecraft:calcite
-fill 1062 -41 68 1063 -40 98 minecraft:calcite
-fill 1064 -41 -46 1064 -40 -44 minecraft:calcite
-fill 1064 -41 67 1064 -40 98 minecraft:calcite
-fill 1064 -41 -98 1065 -40 -68 minecraft:calcite
-fill 1065 -41 66 1065 -40 98 minecraft:calcite
-fill 1066 -41 -98 1066 -40 -66 minecraft:calcite
-fill 1066 -41 64 1066 -40 98 minecraft:calcite
-fill 1067 -41 -98 1067 -40 -65 minecraft:calcite
-fill 1067 -41 63 1067 -40 98 minecraft:calcite
-fill 1068 -41 -98 1068 -40 -63 minecraft:calcite
-fill 1068 -41 59 1068 -40 98 minecraft:calcite
-fill 1069 -41 -98 1069 -40 -59 minecraft:calcite
-fill 1069 -41 48 1069 -40 98 minecraft:calcite
-fill 1070 -41 -98 1070 -40 -42 minecraft:calcite
-fill 1070 -41 36 1070 -40 98 minecraft:calcite
-fill 1071 -41 -98 1071 -40 -19 minecraft:calcite
-fill 1071 -41 22 1071 -40 98 minecraft:calcite
-fill 1072 -41 -98 1096 -40 98 minecraft:calcite
-fill 904 -39 -98 906 -39 98 minecraft:calcite
-fill 907 -39 -98 907 -39 2 minecraft:calcite
-fill 907 -39 12 907 -39 98 minecraft:calcite
-fill 908 -39 -98 908 -39 0 minecraft:calcite
-fill 908 -39 14 908 -39 98 minecraft:calcite
-fill 909 -39 -98 909 -39 -1 minecraft:calcite
-fill 909 -39 15 909 -39 98 minecraft:calcite
-fill 910 -39 -98 910 -39 -35 minecraft:calcite
-fill 910 -39 -31 910 -39 -2 minecraft:calcite
-fill 911 -39 -98 911 -39 -36 minecraft:calcite
-fill 910 -39 16 911 -39 98 minecraft:calcite
-fill 911 -39 -28 912 -39 -3 minecraft:calcite
-fill 912 -39 -98 913 -39 -37 minecraft:calcite
-fill 913 -39 -27 914 -39 -4 minecraft:calcite
-fill 914 -39 -98 915 -39 -36 minecraft:calcite
-fill 915 -39 -28 915 -39 -5 minecraft:calcite
-fill 916 -39 -98 916 -39 -34 minecraft:calcite
-fill 916 -39 -29 916 -39 -5 minecraft:calcite
-fill 912 -39 17 917 -39 98 minecraft:calcite
-fill 918 -39 16 919 -39 98 minecraft:calcite
-fill 917 -39 -98 921 -39 -6 minecraft:calcite
-fill 920 -39 15 921 -39 98 minecraft:calcite
-fill 922 -39 14 922 -39 98 minecraft:calcite
-fill 922 -39 -98 923 -39 -5 minecraft:calcite
-fill 923 -39 13 923 -39 98 minecraft:calcite
-fill 924 -39 -98 924 -39 -4 minecraft:calcite
-fill 924 -39 12 924 -39 98 minecraft:calcite
-fill 925 -39 -98 925 -39 -3 minecraft:calcite
-fill 925 -39 10 925 -39 98 minecraft:calcite
-fill 926 -39 -98 926 -39 -1 minecraft:calcite
-fill 926 -39 8 926 -39 98 minecraft:calcite
-fill 927 -39 -98 929 -39 98 minecraft:calcite
-fill 930 -39 -98 930 -39 -61 minecraft:calcite
-fill 930 -39 -54 930 -39 98 minecraft:calcite
-fill 931 -39 -98 931 -39 -65 minecraft:calcite
-fill 931 -39 -37 931 -39 54 minecraft:calcite
-fill 931 -39 63 931 -39 98 minecraft:calcite
-fill 932 -39 -98 932 -39 -67 minecraft:calcite
-fill 932 -39 -24 932 -39 46 minecraft:calcite
-fill 932 -39 66 932 -39 98 minecraft:calcite
-fill 933 -39 -98 933 -39 -68 minecraft:calcite
-fill 933 -39 -9 933 -39 35 minecraft:calcite
-fill 933 -39 67 933 -39 98 minecraft:calcite
-fill 934 -39 -98 934 -39 -69 minecraft:calcite
-fill 934 -39 -37 934 -39 -35 minecraft:calcite
-fill 934 -39 68 934 -39 98 minecraft:calcite
-fill 935 -39 -98 935 -39 -70 minecraft:calcite
-fill 935 -39 -38 935 -39 -34 minecraft:calcite
-fill 935 -39 69 935 -39 98 minecraft:calcite
-fill 936 -39 -98 936 -39 -71 minecraft:calcite
-fill 936 -39 70 936 -39 98 minecraft:calcite
-fill 937 -39 -98 938 -39 -72 minecraft:calcite
-fill 936 -39 -39 938 -39 -33 minecraft:calcite
-fill 938 -39 -7 938 -39 -5 minecraft:calcite
-fill 939 -39 -38 939 -39 -34 minecraft:calcite
-fill 937 -39 71 939 -39 98 minecraft:calcite
-fill 940 -39 -37 940 -39 -35 minecraft:calcite
-fill 939 -39 -98 941 -39 -73 minecraft:calcite
-fill 939 -39 -8 941 -39 -4 minecraft:calcite
-fill 942 -39 -7 942 -39 -5 minecraft:calcite
-fill 940 -39 72 953 -39 98 minecraft:calcite
-fill 942 -39 -98 957 -39 -74 minecraft:calcite
-fill 958 -39 -98 969 -39 -75 minecraft:calcite
-fill 972 -39 61 972 -39 63 minecraft:calcite
-fill 973 -39 60 973 -39 64 minecraft:calcite
-fill 974 -39 59 976 -39 65 minecraft:calcite
-fill 977 -39 60 977 -39 64 minecraft:calcite
-fill 978 -39 61 978 -39 63 minecraft:calcite
-fill 995 -39 65 995 -39 67 minecraft:calcite
-fill 970 -39 -98 998 -39 -74 minecraft:calcite
-fill 996 -39 64 998 -39 68 minecraft:calcite
-fill 999 -39 65 999 -39 67 minecraft:calcite
-fill 954 -39 71 1000 -39 98 minecraft:calcite
-fill 999 -39 -98 1012 -39 -73 minecraft:calcite
-fill 1001 -39 72 1029 -39 98 minecraft:calcite
-fill 1013 -39 -98 1032 -39 -74 minecraft:calcite
-fill 1033 -39 -98 1046 -39 -73 minecraft:calcite
-fill 1030 -39 71 1054 -39 98 minecraft:calcite
-fill 1047 -39 -98 1058 -39 -72 minecraft:calcite
-fill 1058 -39 23 1058 -39 25 minecraft:calcite
-fill 1060 -39 -46 1060 -39 -44 minecraft:calcite
-fill 1055 -39 70 1060 -39 98 minecraft:calcite
-fill 1059 -39 -98 1061 -39 -71 minecraft:calcite
-fill 1059 -39 22 1061 -39 26 minecraft:calcite
-fill 1062 -39 23 1062 -39 25 minecraft:calcite
-fill 1061 -39 69 1062 -39 98 minecraft:calcite
-fill 1062 -39 -98 1063 -39 -70 minecraft:calcite
-fill 1061 -39 -47 1063 -39 -43 minecraft:calcite
-fill 1063 -39 68 1063 -39 98 minecraft:calcite
-fill 1064 -39 -98 1064 -39 -69 minecraft:calcite
-fill 1064 -39 -46 1064 -39 -44 minecraft:calcite
-fill 1064 -39 67 1064 -39 98 minecraft:calcite
-fill 1065 -39 -98 1065 -39 -68 minecraft:calcite
-fill 1065 -39 66 1065 -39 98 minecraft:calcite
-fill 1066 -39 -98 1066 -39 -67 minecraft:calcite
-fill 1066 -39 65 1066 -39 98 minecraft:calcite
-fill 1067 -39 -98 1067 -39 -66 minecraft:calcite
-fill 1067 -39 63 1067 -39 98 minecraft:calcite
-fill 1068 -39 -98 1068 -39 -64 minecraft:calcite
-fill 1068 -39 61 1068 -39 98 minecraft:calcite
-fill 1069 -39 -98 1069 -39 -61 minecraft:calcite
-fill 1069 -39 51 1069 -39 98 minecraft:calcite
-fill 1070 -39 -98 1070 -39 -49 minecraft:calcite
-fill 1070 -39 40 1070 -39 98 minecraft:calcite
-fill 1071 -39 -98 1071 -39 -29 minecraft:calcite
-fill 1071 -39 27 1071 -39 98 minecraft:calcite
-fill 1072 -39 -98 1096 -39 98 minecraft:calcite
-fill 907 -39 3 907 -39 11 minecraft:grass_block
-fill 908 -39 1 908 -39 13 minecraft:grass_block
-fill 909 -39 0 909 -39 14 minecraft:grass_block
-fill 910 -39 -34 910 -39 -32 minecraft:grass_block
-fill 910 -39 -1 910 -39 15 minecraft:grass_block
-fill 911 -39 -35 911 -39 -29 minecraft:grass_block
-fill 911 -39 -2 911 -39 15 minecraft:grass_block
-fill 912 -39 -36 912 -39 -29 minecraft:grass_block
-fill 912 -39 -2 912 -39 16 minecraft:grass_block
-fill 913 -39 -36 913 -39 -28 minecraft:grass_block
-fill 914 -39 -35 914 -39 -28 minecraft:grass_block
-fill 913 -39 -3 914 -39 16 minecraft:grass_block
-fill 915 -39 -35 915 -39 -29 minecraft:grass_block
-fill 916 -39 -33 916 -39 -30 minecraft:grass_block
-fill 915 -39 -4 916 -39 16 minecraft:grass_block
-fill 917 -39 -5 917 -39 16 minecraft:grass_block
-fill 918 -39 -5 919 -39 15 minecraft:grass_block
-fill 920 -39 -5 921 -39 14 minecraft:grass_block
-fill 922 -39 -4 922 -39 13 minecraft:grass_block
-fill 923 -39 -4 923 -39 12 minecraft:grass_block
-fill 924 -39 -3 924 -39 11 minecraft:grass_block
-fill 925 -39 -2 925 -39 9 minecraft:grass_block
-fill 926 -39 0 926 -39 7 minecraft:grass_block
-fill 930 -39 -60 930 -39 -55 minecraft:grass_block
-fill 931 -39 -64 931 -39 -64 minecraft:grass_block
-fill 931 -39 -43 931 -39 -38 minecraft:grass_block
-fill 931 -39 55 931 -39 57 minecraft:grass_block
-fill 931 -39 61 931 -39 62 minecraft:grass_block
-fill 932 -39 -66 932 -39 -66 minecraft:grass_block
-fill 932 -39 -30 932 -39 -25 minecraft:grass_block
-fill 932 -39 47 932 -39 49 minecraft:grass_block
-fill 932 -39 65 932 -39 65 minecraft:grass_block
-fill 933 -39 -18 933 -39 -10 minecraft:grass_block
-fill 933 -39 36 933 -39 40 minecraft:grass_block
-fill 934 -39 -1 934 -39 26 minecraft:grass_block
-fill 936 -39 69 936 -39 69 minecraft:grass_block
-fill 937 -39 -71 937 -39 -71 minecraft:grass_block
-fill 937 -39 70 937 -39 70 minecraft:grass_block
-fill 939 -39 -72 939 -39 -72 minecraft:grass_block
-fill 940 -39 71 940 -39 71 minecraft:grass_block
-fill 942 -39 -73 943 -39 -73 minecraft:grass_block
-fill 948 -39 71 953 -39 71 minecraft:grass_block
-fill 958 -39 -74 969 -39 -74 minecraft:grass_block
-fill 987 -39 -73 998 -39 -73 minecraft:grass_block
-fill 1001 -39 71 1029 -39 71 minecraft:grass_block
-fill 1013 -39 -73 1032 -39 -73 minecraft:grass_block
-fill 1041 -39 -72 1046 -39 -72 minecraft:grass_block
-fill 1049 -39 70 1054 -39 70 minecraft:grass_block
-fill 1056 -39 -71 1058 -39 -71 minecraft:grass_block
-fill 1060 -39 69 1060 -39 69 minecraft:grass_block
-fill 1061 -39 -70 1061 -39 -70 minecraft:grass_block
-fill 1062 -39 68 1062 -39 68 minecraft:grass_block
-fill 1063 -39 -69 1063 -39 -69 minecraft:grass_block
-fill 1064 -39 -68 1064 -39 -68 minecraft:grass_block
-fill 1066 -39 -66 1066 -39 -66 minecraft:grass_block
-fill 1066 -39 64 1066 -39 64 minecraft:grass_block
-fill 1067 -39 -65 1067 -39 -65 minecraft:grass_block
-fill 1068 -39 -63 1068 -39 -63 minecraft:grass_block
-fill 1068 -39 59 1068 -39 60 minecraft:grass_block
-fill 1069 -39 -60 1069 -39 -59 minecraft:grass_block
-fill 1069 -39 48 1069 -39 50 minecraft:grass_block
-fill 1070 -39 -48 1070 -39 -42 minecraft:grass_block
-fill 1070 -39 36 1070 -39 39 minecraft:grass_block
-fill 1071 -39 -28 1071 -39 -19 minecraft:grass_block
-fill 1071 -39 22 1071 -39 26 minecraft:grass_block
-fill 904 -38 -98 906 -37 98 minecraft:calcite
-fill 907 -38 -98 907 -37 2 minecraft:calcite
-fill 907 -38 12 907 -37 98 minecraft:calcite
-fill 908 -38 -98 908 -37 0 minecraft:calcite
-fill 908 -38 14 908 -37 98 minecraft:calcite
-fill 909 -38 -98 909 -37 -1 minecraft:calcite
-fill 909 -38 15 909 -37 98 minecraft:calcite
-fill 910 -38 -98 910 -37 -35 minecraft:calcite
-fill 910 -38 -31 910 -37 -2 minecraft:calcite
-fill 911 -38 -98 911 -37 -36 minecraft:calcite
-fill 910 -38 16 911 -37 98 minecraft:calcite
-fill 911 -38 -28 912 -37 -3 minecraft:calcite
-fill 912 -38 -98 913 -37 -37 minecraft:calcite
-fill 913 -38 -27 914 -37 -4 minecraft:calcite
-fill 914 -38 -98 915 -37 -36 minecraft:calcite
-fill 915 -38 -28 915 -37 -5 minecraft:calcite
-fill 916 -38 -98 916 -37 -34 minecraft:calcite
-fill 916 -38 -29 916 -37 -5 minecraft:calcite
-fill 912 -38 17 917 -37 98 minecraft:calcite
-fill 918 -38 16 919 -37 98 minecraft:calcite
-fill 917 -38 -98 921 -37 -6 minecraft:calcite
-fill 920 -38 15 921 -37 98 minecraft:calcite
-fill 922 -38 14 922 -37 98 minecraft:calcite
-fill 922 -38 -98 923 -37 -5 minecraft:calcite
-fill 923 -38 13 923 -37 98 minecraft:calcite
-fill 924 -38 -98 924 -37 -4 minecraft:calcite
-fill 924 -38 12 924 -37 98 minecraft:calcite
-fill 925 -38 -98 925 -37 -3 minecraft:calcite
-fill 925 -38 10 925 -37 98 minecraft:calcite
-fill 926 -38 -98 926 -37 -1 minecraft:calcite
-fill 926 -38 8 926 -37 98 minecraft:calcite
-fill 927 -38 -98 929 -37 98 minecraft:calcite
-fill 930 -38 -98 930 -37 -61 minecraft:calcite
-fill 930 -38 -54 930 -37 98 minecraft:calcite
-fill 931 -38 -98 931 -37 -65 minecraft:calcite
-fill 931 -38 -37 931 -37 54 minecraft:calcite
-fill 931 -38 63 931 -37 98 minecraft:calcite
-fill 932 -38 -98 932 -37 -67 minecraft:calcite
-fill 932 -38 -24 932 -37 46 minecraft:calcite
-fill 932 -38 66 932 -37 98 minecraft:calcite
-fill 933 -38 -98 933 -37 -68 minecraft:calcite
-fill 933 -38 -9 933 -37 35 minecraft:calcite
-fill 933 -38 67 933 -37 98 minecraft:calcite
-fill 934 -38 -98 934 -37 -69 minecraft:calcite
-fill 934 -38 -37 934 -37 -35 minecraft:calcite
-fill 934 -38 68 934 -37 98 minecraft:calcite
-fill 935 -38 -98 935 -37 -70 minecraft:calcite
-fill 935 -38 -38 935 -37 -34 minecraft:calcite
-fill 935 -38 69 935 -37 98 minecraft:calcite
-fill 936 -38 -98 936 -37 -71 minecraft:calcite
-fill 936 -38 70 936 -37 98 minecraft:calcite
-fill 937 -38 -98 938 -37 -72 minecraft:calcite
-fill 936 -38 -39 938 -37 -33 minecraft:calcite
-fill 938 -38 -7 938 -37 -5 minecraft:calcite
-fill 939 -38 -38 939 -37 -34 minecraft:calcite
-fill 937 -38 71 939 -37 98 minecraft:calcite
-fill 940 -38 -37 940 -37 -35 minecraft:calcite
-fill 939 -38 -98 941 -37 -73 minecraft:calcite
-fill 939 -38 -8 941 -37 -4 minecraft:calcite
-fill 942 -38 -7 942 -37 -5 minecraft:calcite
-fill 940 -38 72 953 -37 98 minecraft:calcite
-fill 942 -38 -98 957 -37 -74 minecraft:calcite
-fill 958 -38 -98 969 -37 -75 minecraft:calcite
-fill 972 -38 61 972 -37 63 minecraft:calcite
-fill 973 -38 60 973 -37 64 minecraft:calcite
-fill 974 -38 59 976 -37 65 minecraft:calcite
-fill 977 -38 60 977 -37 64 minecraft:calcite
-fill 978 -38 61 978 -37 63 minecraft:calcite
-fill 995 -38 65 995 -37 67 minecraft:calcite
-fill 970 -38 -98 998 -37 -74 minecraft:calcite
-fill 996 -38 64 998 -37 68 minecraft:calcite
-fill 999 -38 65 999 -37 67 minecraft:calcite
-fill 954 -38 71 1000 -37 98 minecraft:calcite
-fill 999 -38 -98 1012 -37 -73 minecraft:calcite
-fill 1001 -38 72 1029 -37 98 minecraft:calcite
-fill 1013 -38 -98 1032 -37 -74 minecraft:calcite
-fill 1033 -38 -98 1046 -37 -73 minecraft:calcite
-fill 1030 -38 71 1054 -37 98 minecraft:calcite
-fill 1047 -38 -98 1058 -37 -72 minecraft:calcite
-fill 1058 -38 23 1058 -37 25 minecraft:calcite
-fill 1060 -38 -46 1060 -37 -44 minecraft:calcite
-fill 1055 -38 70 1060 -37 98 minecraft:calcite
-fill 1059 -38 -98 1061 -37 -71 minecraft:calcite
-fill 1059 -38 22 1061 -37 26 minecraft:calcite
-fill 1062 -38 23 1062 -37 25 minecraft:calcite
-fill 1061 -38 69 1062 -37 98 minecraft:calcite
-fill 1062 -38 -98 1063 -37 -70 minecraft:calcite
-fill 1061 -38 -47 1063 -37 -43 minecraft:calcite
-fill 1063 -38 68 1063 -37 98 minecraft:calcite
-fill 1064 -38 -98 1064 -37 -69 minecraft:calcite
-fill 1064 -38 -46 1064 -37 -44 minecraft:calcite
-fill 1064 -38 67 1064 -37 98 minecraft:calcite
-fill 1065 -38 -98 1065 -37 -68 minecraft:calcite
-fill 1065 -38 66 1065 -37 98 minecraft:calcite
-fill 1066 -38 -98 1066 -37 -67 minecraft:calcite
-fill 1066 -38 65 1066 -37 98 minecraft:calcite
-fill 1067 -38 -98 1067 -37 -66 minecraft:calcite
-fill 1067 -38 63 1067 -37 98 minecraft:calcite
-fill 1068 -38 -98 1068 -37 -64 minecraft:calcite
-fill 1068 -38 61 1068 -37 98 minecraft:calcite
-fill 1069 -38 -98 1069 -37 -61 minecraft:calcite
-fill 1069 -38 51 1069 -37 98 minecraft:calcite
-fill 1070 -38 -98 1070 -37 -49 minecraft:calcite
-fill 1070 -38 40 1070 -37 98 minecraft:calcite
-fill 1071 -38 -98 1071 -37 -29 minecraft:calcite
-fill 1071 -38 27 1071 -37 98 minecraft:calcite
-fill 1072 -38 -98 1096 -37 98 minecraft:calcite
-fill 904 -36 30 906 -36 98 minecraft:diorite
-fill 907 -36 29 910 -36 98 minecraft:diorite
-fill 904 -36 -98 911 -36 -52 minecraft:diorite
-fill 911 -36 28 913 -36 98 minecraft:diorite
-fill 912 -36 -98 914 -36 -51 minecraft:diorite
-fill 915 -36 -98 915 -36 -50 minecraft:diorite
-fill 914 -36 27 916 -36 98 minecraft:diorite
-fill 916 -36 -98 917 -36 -49 minecraft:diorite
-fill 918 -36 -98 918 -36 -48 minecraft:diorite
-fill 919 -36 -98 919 -36 -47 minecraft:diorite
-fill 917 -36 26 919 -36 98 minecraft:diorite
-fill 920 -36 -98 920 -36 -46 minecraft:diorite
-fill 921 -36 -98 921 -36 -45 minecraft:diorite
-fill 920 -36 25 921 -36 98 minecraft:diorite
-fill 922 -36 -98 922 -36 -44 minecraft:diorite
-fill 923 -36 -98 923 -36 -43 minecraft:diorite
-fill 922 -36 24 923 -36 98 minecraft:diorite
-fill 924 -36 -98 924 -36 -41 minecraft:diorite
-fill 925 -36 -98 925 -36 -40 minecraft:diorite
-fill 924 -36 23 925 -36 98 minecraft:diorite
-fill 926 -36 -98 926 -36 -38 minecraft:diorite
-fill 926 -36 22 926 -36 98 minecraft:diorite
-fill 927 -36 -98 927 -36 -36 minecraft:diorite
-fill 928 -36 -98 928 -36 -33 minecraft:diorite
-fill 927 -36 21 928 -36 98 minecraft:diorite
-fill 929 -36 -98 929 -36 -30 minecraft:diorite
-fill 929 -36 20 929 -36 98 minecraft:diorite
-fill 930 -36 -98 930 -36 -63 minecraft:diorite
-fill 930 -36 -46 930 -36 -28 minecraft:diorite
-fill 930 -36 19 930 -36 98 minecraft:diorite
-fill 931 -36 -98 931 -36 -65 minecraft:diorite
-fill 931 -36 -30 931 -36 -25 minecraft:diorite
-fill 931 -36 17 931 -36 51 minecraft:diorite
-fill 931 -36 64 931 -36 98 minecraft:diorite
-fill 932 -36 -98 932 -36 -67 minecraft:diorite
-fill 932 -36 16 932 -36 42 minecraft:diorite
-fill 932 -36 66 932 -36 98 minecraft:diorite
-fill 933 -36 -98 933 -36 -69 minecraft:diorite
-fill 933 -36 14 933 -36 26 minecraft:diorite
-fill 933 -36 68 933 -36 98 minecraft:diorite
-fill 934 -36 -98 934 -36 -70 minecraft:diorite
-fill 934 -36 -37 934 -36 -35 minecraft:diorite
-fill 934 -36 69 934 -36 98 minecraft:diorite
-fill 935 -36 -38 935 -36 -34 minecraft:diorite
-fill 935 -36 -98 936 -36 -71 minecraft:diorite
-fill 935 -36 70 936 -36 98 minecraft:diorite
-fill 937 -36 -98 937 -36 -72 minecraft:diorite
-fill 936 -36 -39 938 -36 -33 minecraft:diorite
-fill 938 -36 -7 938 -36 -5 minecraft:diorite
-fill 937 -36 71 938 -36 98 minecraft:diorite
-fill 939 -36 -38 939 -36 -34 minecraft:diorite
-fill 938 -36 -98 940 -36 -73 minecraft:diorite
-fill 940 -36 -37 940 -36 -35 minecraft:diorite
-fill 939 -36 -8 941 -36 -4 minecraft:diorite
-fill 942 -36 -7 942 -36 -5 minecraft:diorite
-fill 941 -36 -98 948 -36 -74 minecraft:diorite
-fill 973 -36 60 977 -36 64 minecraft:diorite
-fill 949 -36 -98 978 -36 -75 minecraft:diorite
-fill 995 -36 65 995 -36 67 minecraft:diorite
-fill 996 -36 64 998 -36 68 minecraft:diorite
-fill 999 -36 65 999 -36 67 minecraft:diorite
-fill 979 -36 -98 1019 -36 -74 minecraft:diorite
-fill 1020 -36 -98 1020 -36 -75 minecraft:diorite
-fill 1021 -36 -98 1021 -36 -77 minecraft:diorite
-fill 1022 -36 -98 1023 -36 -78 minecraft:diorite
-fill 1024 -36 -98 1025 -36 -79 minecraft:diorite
-fill 1026 -36 -98 1032 -36 -80 minecraft:diorite
-fill 1033 -36 -98 1035 -36 -79 minecraft:diorite
-fill 1036 -36 -98 1037 -36 -78 minecraft:diorite
-fill 1038 -36 -98 1038 -36 -77 minecraft:diorite
-fill 939 -36 72 1038 -36 98 minecraft:diorite
-fill 1039 -36 -98 1039 -36 -76 minecraft:diorite
-fill 1040 -36 -98 1040 -36 -75 minecraft:diorite
-fill 1041 -36 -98 1051 -36 -73 minecraft:diorite
-fill 1039 -36 71 1057 -36 98 minecraft:diorite
-fill 1058 -36 23 1058 -36 25 minecraft:diorite
-fill 1052 -36 -98 1059 -36 -72 minecraft:diorite
-fill 1060 -36 -46 1060 -36 -44 minecraft:diorite
-fill 1059 -36 22 1061 -36 26 minecraft:diorite
-fill 1058 -36 70 1061 -36 98 minecraft:diorite
-fill 1060 -36 -98 1062 -36 -71 minecraft:diorite
-fill 1062 -36 23 1062 -36 25 minecraft:diorite
-fill 1062 -36 69 1062 -36 98 minecraft:diorite
-fill 1063 -36 -98 1063 -36 -70 minecraft:diorite
-fill 1061 -36 -47 1063 -36 -43 minecraft:diorite
-fill 1064 -36 -46 1064 -36 -44 minecraft:diorite
-fill 1063 -36 68 1064 -36 98 minecraft:diorite
-fill 1064 -36 -98 1065 -36 -69 minecraft:diorite
-fill 1065 -36 67 1065 -36 98 minecraft:diorite
-fill 1066 -36 -98 1066 -36 -68 minecraft:diorite
-fill 1066 -36 66 1066 -36 98 minecraft:diorite
-fill 1067 -36 -98 1067 -36 -66 minecraft:diorite
-fill 1067 -36 64 1067 -36 98 minecraft:diorite
-fill 1068 -36 -98 1068 -36 -65 minecraft:diorite
-fill 1068 -36 62 1068 -36 98 minecraft:diorite
-fill 1069 -36 -98 1069 -36 -63 minecraft:diorite
-fill 1069 -36 54 1069 -36 98 minecraft:diorite
-fill 1070 -36 -98 1070 -36 -55 minecraft:diorite
-fill 1070 -36 43 1070 -36 98 minecraft:diorite
-fill 1071 -36 -98 1071 -36 -38 minecraft:diorite
-fill 1071 -36 31 1071 -36 98 minecraft:diorite
-fill 1072 -36 -98 1072 -36 -5 minecraft:diorite
-fill 1072 -36 15 1072 -36 98 minecraft:diorite
-fill 1073 -36 -98 1096 -36 98 minecraft:diorite
-fill 904 -36 -51 906 -36 29 minecraft:grass_block
-fill 907 -36 -51 907 -36 2 minecraft:grass_block
-fill 907 -36 12 907 -36 28 minecraft:grass_block
-fill 908 -36 -51 908 -36 0 minecraft:grass_block
-fill 908 -36 14 908 -36 28 minecraft:grass_block
-fill 909 -36 -51 909 -36 -1 minecraft:grass_block
-fill 909 -36 15 909 -36 28 minecraft:grass_block
-fill 910 -36 -51 910 -36 -35 minecraft:grass_block
-fill 910 -36 -31 910 -36 -2 minecraft:grass_block
-fill 910 -36 16 910 -36 28 minecraft:grass_block
-fill 911 -36 -51 911 -36 -36 minecraft:grass_block
-fill 911 -36 16 911 -36 27 minecraft:grass_block
-fill 911 -36 -28 912 -36 -3 minecraft:grass_block
-fill 912 -36 -50 913 -36 -37 minecraft:grass_block
-fill 912 -36 17 913 -36 27 minecraft:grass_block
-fill 914 -36 -50 914 -36 -36 minecraft:grass_block
-fill 913 -36 -27 914 -36 -4 minecraft:grass_block
-fill 915 -36 -49 915 -36 -36 minecraft:grass_block
-fill 915 -36 -28 915 -36 -5 minecraft:grass_block
-fill 916 -36 -48 916 -36 -34 minecraft:grass_block
-fill 916 -36 -29 916 -36 -5 minecraft:grass_block
-fill 914 -36 17 916 -36 26 minecraft:grass_block
-fill 917 -36 -48 917 -36 -6 minecraft:grass_block
-fill 917 -36 17 917 -36 25 minecraft:grass_block
-fill 918 -36 -47 918 -36 -6 minecraft:grass_block
-fill 919 -36 -46 919 -36 -6 minecraft:grass_block
-fill 918 -36 16 919 -36 25 minecraft:grass_block
-fill 920 -36 -45 920 -36 -6 minecraft:grass_block
-fill 921 -36 -44 921 -36 -6 minecraft:grass_block
-fill 920 -36 15 921 -36 24 minecraft:grass_block
-fill 922 -36 -43 922 -36 -5 minecraft:grass_block
-fill 922 -36 14 922 -36 23 minecraft:grass_block
-fill 923 -36 -42 923 -36 -5 minecraft:grass_block
-fill 923 -36 13 923 -36 23 minecraft:grass_block
-fill 924 -36 -40 924 -36 -4 minecraft:grass_block
-fill 924 -36 12 924 -36 22 minecraft:grass_block
-fill 925 -36 -39 925 -36 -3 minecraft:grass_block
-fill 925 -36 10 925 -36 22 minecraft:grass_block
-fill 926 -36 -37 926 -36 -1 minecraft:grass_block
-fill 926 -36 8 926 -36 21 minecraft:grass_block
-fill 927 -36 -35 927 -36 20 minecraft:grass_block
-fill 928 -36 -32 928 -36 20 minecraft:grass_block
-fill 929 -36 -29 929 -36 19 minecraft:grass_block
-fill 930 -36 -62 930 -36 -61 minecraft:grass_block
-fill 930 -36 -54 930 -36 -47 minecraft:grass_block
-fill 930 -36 -27 930 -36 18 minecraft:grass_block
-fill 931 -36 -37 931 -36 -31 minecraft:grass_block
-fill 931 -36 -24 931 -36 16 minecraft:grass_block
-fill 931 -36 52 931 -36 54 minecraft:grass_block
-fill 931 -36 63 931 -36 63 minecraft:grass_block
-fill 932 -36 -24 932 -36 15 minecraft:grass_block
-fill 932 -36 43 932 -36 46 minecraft:grass_block
-fill 933 -36 -68 933 -36 -68 minecraft:grass_block
-fill 933 -36 -9 933 -36 13 minecraft:grass_block
-fill 933 -36 27 933 -36 35 minecraft:grass_block
-fill 933 -36 67 933 -36 67 minecraft:grass_block
-fill 934 -36 -69 934 -36 -69 minecraft:grass_block
-fill 934 -36 68 934 -36 68 minecraft:grass_block
-fill 935 -36 -70 935 -36 -70 minecraft:grass_block
-fill 935 -36 69 935 -36 69 minecraft:grass_block
-fill 938 -36 -72 938 -36 -72 minecraft:grass_block
-fill 939 -36 71 939 -36 71 minecraft:grass_block
-fill 941 -36 -73 941 -36 -73 minecraft:grass_block
-fill 949 -36 -74 957 -36 -74 minecraft:grass_block
-fill 972 -36 61 972 -36 63 minecraft:grass_block
-fill 974 -36 59 976 -36 59 minecraft:grass_block
-fill 974 -36 65 976 -36 65 minecraft:grass_block
-fill 970 -36 -74 978 -36 -74 minecraft:grass_block
-fill 978 -36 61 978 -36 63 minecraft:grass_block
-fill 954 -36 71 1000 -36 71 minecraft:grass_block
-fill 999 -36 -73 1012 -36 -73 minecraft:grass_block
-fill 1020 -36 -74 1020 -36 -74 minecraft:grass_block
-fill 1021 -36 -76 1021 -36 -74 minecraft:grass_block
-fill 1022 -36 -77 1023 -36 -74 minecraft:grass_block
-fill 1024 -36 -78 1025 -36 -74 minecraft:grass_block
-fill 1026 -36 -79 1032 -36 -74 minecraft:grass_block
-fill 1033 -36 -78 1035 -36 -73 minecraft:grass_block
-fill 1036 -36 -77 1037 -36 -73 minecraft:grass_block
-fill 1038 -36 -76 1038 -36 -73 minecraft:grass_block
-fill 1030 -36 71 1038 -36 71 minecraft:grass_block
-fill 1039 -36 -75 1039 -36 -73 minecraft:grass_block
-fill 1040 -36 -74 1040 -36 -73 minecraft:grass_block
-fill 1047 -36 -72 1051 -36 -72 minecraft:grass_block
-fill 1055 -36 70 1057 -36 70 minecraft:grass_block
-fill 1059 -36 -71 1059 -36 -71 minecraft:grass_block
-fill 1061 -36 69 1061 -36 69 minecraft:grass_block
-fill 1062 -36 -70 1062 -36 -70 minecraft:grass_block
-fill 1064 -36 67 1064 -36 67 minecraft:grass_block
-fill 1065 -36 -68 1065 -36 -68 minecraft:grass_block
-fill 1065 -36 66 1065 -36 66 minecraft:grass_block
-fill 1066 -36 -67 1066 -36 -67 minecraft:grass_block
-fill 1066 -36 65 1066 -36 65 minecraft:grass_block
-fill 1067 -36 63 1067 -36 63 minecraft:grass_block
-fill 1068 -36 -64 1068 -36 -64 minecraft:grass_block
-fill 1068 -36 61 1068 -36 61 minecraft:grass_block
-fill 1069 -36 -62 1069 -36 -61 minecraft:grass_block
-fill 1069 -36 51 1069 -36 53 minecraft:grass_block
-fill 1070 -36 -54 1070 -36 -49 minecraft:grass_block
-fill 1070 -36 40 1070 -36 42 minecraft:grass_block
-fill 1071 -36 -37 1071 -36 -29 minecraft:grass_block
-fill 1071 -36 27 1071 -36 30 minecraft:grass_block
-fill 1072 -36 -4 1072 -36 14 minecraft:grass_block
-fill 904 -35 30 906 -34 98 minecraft:diorite
-fill 907 -35 29 910 -34 98 minecraft:diorite
-fill 904 -35 -98 911 -34 -52 minecraft:diorite
-fill 911 -35 28 913 -34 98 minecraft:diorite
-fill 912 -35 -98 914 -34 -51 minecraft:diorite
-fill 915 -35 -98 915 -34 -50 minecraft:diorite
-fill 914 -35 27 916 -34 98 minecraft:diorite
-fill 916 -35 -98 917 -34 -49 minecraft:diorite
-fill 918 -35 -98 918 -34 -48 minecraft:diorite
-fill 919 -35 -98 919 -34 -47 minecraft:diorite
-fill 917 -35 26 919 -34 98 minecraft:diorite
-fill 920 -35 -98 920 -34 -46 minecraft:diorite
-fill 921 -35 -98 921 -34 -45 minecraft:diorite
-fill 920 -35 25 921 -34 98 minecraft:diorite
-fill 922 -35 -98 922 -34 -44 minecraft:diorite
-fill 923 -35 -98 923 -34 -43 minecraft:diorite
-fill 922 -35 24 923 -34 98 minecraft:diorite
-fill 924 -35 -98 924 -34 -41 minecraft:diorite
-fill 925 -35 -98 925 -34 -40 minecraft:diorite
-fill 924 -35 23 925 -34 98 minecraft:diorite
-fill 926 -35 -98 926 -34 -38 minecraft:diorite
-fill 926 -35 22 926 -34 98 minecraft:diorite
-fill 927 -35 -98 927 -34 -36 minecraft:diorite
-fill 928 -35 -98 928 -34 -33 minecraft:diorite
-fill 927 -35 21 928 -34 98 minecraft:diorite
-fill 929 -35 -98 929 -34 -30 minecraft:diorite
-fill 929 -35 20 929 -34 98 minecraft:diorite
-fill 930 -35 -98 930 -34 -63 minecraft:diorite
-fill 930 -35 -46 930 -34 -28 minecraft:diorite
-fill 930 -35 19 930 -34 98 minecraft:diorite
-fill 931 -35 -98 931 -34 -65 minecraft:diorite
-fill 931 -35 -30 931 -34 -25 minecraft:diorite
-fill 931 -35 17 931 -34 51 minecraft:diorite
-fill 931 -35 64 931 -34 98 minecraft:diorite
-fill 932 -35 -98 932 -34 -67 minecraft:diorite
-fill 932 -35 16 932 -34 42 minecraft:diorite
-fill 932 -35 66 932 -34 98 minecraft:diorite
-fill 933 -35 -98 933 -34 -69 minecraft:diorite
-fill 933 -35 14 933 -34 26 minecraft:diorite
-fill 933 -35 68 933 -34 98 minecraft:diorite
-fill 934 -35 -98 934 -34 -70 minecraft:diorite
-fill 934 -35 -37 934 -34 -35 minecraft:diorite
-fill 934 -35 69 934 -34 98 minecraft:diorite
-fill 935 -35 -38 935 -34 -34 minecraft:diorite
-fill 935 -35 -98 936 -34 -71 minecraft:diorite
-fill 935 -35 70 936 -34 98 minecraft:diorite
-fill 937 -35 -98 937 -34 -72 minecraft:diorite
-fill 936 -35 -39 938 -34 -33 minecraft:diorite
-fill 938 -35 -7 938 -34 -5 minecraft:diorite
-fill 937 -35 71 938 -34 98 minecraft:diorite
-fill 939 -35 -38 939 -34 -34 minecraft:diorite
-fill 938 -35 -98 940 -34 -73 minecraft:diorite
-fill 940 -35 -37 940 -34 -35 minecraft:diorite
-fill 939 -35 -8 941 -34 -4 minecraft:diorite
-fill 942 -35 -7 942 -34 -5 minecraft:diorite
-fill 941 -35 -98 948 -34 -74 minecraft:diorite
-fill 973 -35 60 977 -34 64 minecraft:diorite
-fill 949 -35 -98 978 -34 -75 minecraft:diorite
-fill 995 -35 65 995 -34 67 minecraft:diorite
-fill 996 -35 64 998 -34 68 minecraft:diorite
-fill 999 -35 65 999 -34 67 minecraft:diorite
-fill 979 -35 -98 1019 -34 -74 minecraft:diorite
-fill 1020 -35 -98 1020 -34 -75 minecraft:diorite
-fill 1021 -35 -98 1021 -34 -77 minecraft:diorite
-fill 1022 -35 -98 1023 -34 -78 minecraft:diorite
-fill 1024 -35 -98 1025 -34 -79 minecraft:diorite
-fill 1026 -35 -98 1032 -34 -80 minecraft:diorite
-fill 1033 -35 -98 1035 -34 -79 minecraft:diorite
-fill 1036 -35 -98 1037 -34 -78 minecraft:diorite
-fill 1038 -35 -98 1038 -34 -77 minecraft:diorite
-fill 939 -35 72 1038 -34 98 minecraft:diorite
-fill 1039 -35 -98 1039 -34 -76 minecraft:diorite
-fill 1040 -35 -98 1040 -34 -75 minecraft:diorite
-fill 1041 -35 -98 1051 -34 -73 minecraft:diorite
-fill 1039 -35 71 1057 -34 98 minecraft:diorite
-fill 1058 -35 23 1058 -34 25 minecraft:diorite
-fill 1052 -35 -98 1059 -34 -72 minecraft:diorite
-fill 1060 -35 -46 1060 -34 -44 minecraft:diorite
-fill 1059 -35 22 1061 -34 26 minecraft:diorite
-fill 1058 -35 70 1061 -34 98 minecraft:diorite
-fill 1060 -35 -98 1062 -34 -71 minecraft:diorite
-fill 1062 -35 23 1062 -34 25 minecraft:diorite
-fill 1062 -35 69 1062 -34 98 minecraft:diorite
-fill 1063 -35 -98 1063 -34 -70 minecraft:diorite
-fill 1061 -35 -47 1063 -34 -43 minecraft:diorite
-fill 1064 -35 -46 1064 -34 -44 minecraft:diorite
-fill 1063 -35 68 1064 -34 98 minecraft:diorite
-fill 1064 -35 -98 1065 -34 -69 minecraft:diorite
-fill 1065 -35 67 1065 -34 98 minecraft:diorite
-fill 1066 -35 -98 1066 -34 -68 minecraft:diorite
-fill 1066 -35 66 1066 -34 98 minecraft:diorite
-fill 1067 -35 -98 1067 -34 -66 minecraft:diorite
-fill 1067 -35 64 1067 -34 98 minecraft:diorite
-fill 1068 -35 -98 1068 -34 -65 minecraft:diorite
-fill 1068 -35 62 1068 -34 98 minecraft:diorite
-fill 1069 -35 -98 1069 -34 -63 minecraft:diorite
-fill 1069 -35 54 1069 -34 98 minecraft:diorite
-fill 1070 -35 -98 1070 -34 -55 minecraft:diorite
-fill 1070 -35 43 1070 -34 98 minecraft:diorite
-fill 1071 -35 -98 1071 -34 -38 minecraft:diorite
-fill 1071 -35 31 1071 -34 98 minecraft:diorite
-fill 1072 -35 -98 1072 -34 -5 minecraft:diorite
-fill 1072 -35 15 1072 -34 98 minecraft:diorite
-fill 1073 -35 -98 1096 -34 98 minecraft:diorite
-fill 904 -33 -98 904 -33 -65 minecraft:calcite
-fill 904 -33 44 904 -33 98 minecraft:calcite
-fill 905 -33 43 905 -33 98 minecraft:calcite
-fill 905 -33 -98 906 -33 -64 minecraft:calcite
-fill 906 -33 42 906 -33 98 minecraft:calcite
-fill 907 -33 -98 907 -33 -63 minecraft:calcite
-fill 907 -33 41 907 -33 98 minecraft:calcite
-fill 908 -33 40 908 -33 98 minecraft:calcite
-fill 908 -33 -98 909 -33 -62 minecraft:calcite
-fill 909 -33 39 909 -33 98 minecraft:calcite
-fill 910 -33 -98 910 -33 -61 minecraft:calcite
-fill 910 -33 38 910 -33 98 minecraft:calcite
-fill 911 -33 -98 912 -33 -60 minecraft:calcite
-fill 911 -33 37 912 -33 98 minecraft:calcite
-fill 913 -33 -98 913 -33 -59 minecraft:calcite
-fill 913 -33 36 913 -33 98 minecraft:calcite
-fill 914 -33 -98 915 -33 -58 minecraft:calcite
-fill 914 -33 35 915 -33 98 minecraft:calcite
-fill 916 -33 -98 916 -33 -57 minecraft:calcite
-fill 916 -33 34 917 -33 98 minecraft:calcite
-fill 917 -33 -98 918 -33 -56 minecraft:calcite
-fill 919 -33 -98 919 -33 -55 minecraft:calcite
-fill 918 -33 33 919 -33 98 minecraft:calcite
-fill 920 -33 -98 920 -33 -54 minecraft:calcite
-fill 921 -33 -98 921 -33 -53 minecraft:calcite
-fill 920 -33 32 921 -33 98 minecraft:calcite
-fill 922 -33 -98 923 -33 -52 minecraft:calcite
-fill 924 -33 -98 924 -33 -51 minecraft:calcite
-fill 922 -33 31 924 -33 98 minecraft:calcite
-fill 925 -33 -98 925 -33 -49 minecraft:calcite
-fill 926 -33 -98 926 -33 -48 minecraft:calcite
-fill 925 -33 30 926 -33 98 minecraft:calcite
-fill 927 -33 -98 927 -33 -47 minecraft:calcite
-fill 927 -33 29 927 -33 98 minecraft:calcite
-fill 928 -33 -98 928 -33 -46 minecraft:calcite
-fill 929 -33 -98 929 -33 -44 minecraft:calcite
-fill 928 -33 28 929 -33 98 minecraft:calcite
-fill 930 -33 -98 930 -33 -64 minecraft:calcite
-fill 930 -33 27 930 -33 57 minecraft:calcite
-fill 930 -33 62 930 -33 98 minecraft:calcite
-fill 931 -33 -98 931 -33 -66 minecraft:calcite
-fill 931 -33 27 931 -33 48 minecraft:calcite
-fill 931 -33 65 931 -33 98 minecraft:calcite
-fill 932 -33 -98 932 -33 -68 minecraft:calcite
-fill 932 -33 26 932 -33 37 minecraft:calcite
-fill 932 -33 67 932 -33 98 minecraft:calcite
-fill 933 -33 -98 933 -33 -69 minecraft:calcite
-fill 933 -33 68 933 -33 98 minecraft:calcite
-fill 934 -33 -98 934 -33 -70 minecraft:calcite
-fill 934 -33 -37 934 -33 -35 minecraft:calcite
-fill 934 -33 69 934 -33 98 minecraft:calcite
-fill 935 -33 -98 935 -33 -71 minecraft:calcite
-fill 935 -33 -38 935 -33 -34 minecraft:calcite
-fill 935 -33 70 935 -33 98 minecraft:calcite
-fill 936 -33 -98 937 -33 -72 minecraft:calcite
-fill 936 -33 71 937 -33 98 minecraft:calcite
-fill 936 -33 -39 938 -33 -33 minecraft:calcite
-fill 938 -33 -7 938 -33 -5 minecraft:calcite
-fill 938 -33 -98 939 -33 -73 minecraft:calcite
-fill 939 -33 -38 939 -33 -34 minecraft:calcite
-fill 940 -33 -37 940 -33 -35 minecraft:calcite
-fill 938 -33 72 940 -33 98 minecraft:calcite
-fill 939 -33 -8 941 -33 -4 minecraft:calcite
-fill 942 -33 -7 942 -33 -5 minecraft:calcite
-fill 940 -33 -98 943 -33 -74 minecraft:calcite
-fill 941 -33 73 947 -33 98 minecraft:calcite
-fill 948 -33 72 949 -33 98 minecraft:calcite
-fill 950 -33 72 950 -33 97 minecraft:calcite
-fill 951 -33 72 951 -33 96 minecraft:calcite
-fill 952 -33 72 952 -33 95 minecraft:calcite
-fill 953 -33 72 954 -33 94 minecraft:calcite
-fill 955 -33 72 956 -33 93 minecraft:calcite
-fill 957 -33 72 957 -33 92 minecraft:calcite
-fill 958 -33 72 960 -33 91 minecraft:calcite
-fill 961 -33 72 962 -33 90 minecraft:calcite
-fill 963 -33 72 965 -33 89 minecraft:calcite
-fill 966 -33 72 968 -33 88 minecraft:calcite
-fill 969 -33 72 977 -33 87 minecraft:calcite
-fill 978 -33 72 978 -33 88 minecraft:calcite
-fill 979 -33 72 979 -33 89 minecraft:calcite
-fill 980 -33 72 980 -33 90 minecraft:calcite
-fill 981 -33 72 981 -33 93 minecraft:calcite
-fill 982 -33 72 982 -33 96 minecraft:calcite
-fill 944 -33 -98 984 -33 -75 minecraft:calcite
-fill 985 -33 -97 986 -33 -75 minecraft:calcite
-fill 987 -33 -96 989 -33 -74 minecraft:calcite
-fill 995 -33 65 995 -33 67 minecraft:calcite
-fill 996 -33 64 998 -33 68 minecraft:calcite
-fill 990 -33 -95 999 -33 -74 minecraft:calcite
-fill 999 -33 65 999 -33 67 minecraft:calcite
-fill 1000 -33 -96 1001 -33 -74 minecraft:calcite
-fill 1002 -33 -97 1002 -33 -74 minecraft:calcite
-fill 1003 -33 -98 1013 -33 -74 minecraft:calcite
-fill 1014 -33 -98 1014 -33 -78 minecraft:calcite
-fill 1015 -33 -98 1015 -33 -82 minecraft:calcite
-fill 1016 -33 -98 1016 -33 -83 minecraft:calcite
-fill 1017 -33 -98 1017 -33 -84 minecraft:calcite
-fill 1018 -33 -98 1019 -33 -85 minecraft:calcite
-fill 1020 -33 -98 1035 -33 -86 minecraft:calcite
-fill 1036 -33 -98 1038 -33 -85 minecraft:calcite
-fill 1039 -33 -98 1041 -33 -84 minecraft:calcite
-fill 1042 -33 -98 1042 -33 -83 minecraft:calcite
-fill 1043 -33 -98 1044 -33 -82 minecraft:calcite
-fill 1045 -33 -98 1045 -33 -81 minecraft:calcite
-fill 983 -33 72 1045 -33 98 minecraft:calcite
-fill 1046 -33 -98 1046 -33 -79 minecraft:calcite
-fill 1047 -33 -98 1047 -33 -78 minecraft:calcite
-fill 1048 -33 -98 1048 -33 -75 minecraft:calcite
-fill 1049 -33 -98 1056 -33 -73 minecraft:calcite
-fill 1058 -33 23 1058 -33 25 minecraft:calcite
-fill 1057 -33 -98 1059 -33 -72 minecraft:calcite
-fill 1046 -33 71 1059 -33 98 minecraft:calcite
-fill 1060 -33 -95 1060 -33 -72 minecraft:calcite
-fill 1060 -33 -46 1060 -33 -44 minecraft:calcite
-fill 1061 -33 -94 1061 -33 -71 minecraft:calcite
-fill 1059 -33 22 1061 -33 26 minecraft:calcite
-fill 1060 -33 70 1061 -33 98 minecraft:calcite
-fill 1062 -33 -93 1062 -33 -71 minecraft:calcite
-fill 1062 -33 23 1062 -33 25 minecraft:calcite
-fill 1063 -33 -92 1063 -33 -70 minecraft:calcite
-fill 1061 -33 -47 1063 -33 -43 minecraft:calcite
-fill 1062 -33 69 1063 -33 98 minecraft:calcite
-fill 1064 -33 -91 1064 -33 -70 minecraft:calcite
-fill 1064 -33 -46 1064 -33 -44 minecraft:calcite
-fill 1064 -33 68 1064 -33 98 minecraft:calcite
-fill 1065 -33 -90 1065 -33 -69 minecraft:calcite
-fill 1065 -33 67 1065 -33 98 minecraft:calcite
-fill 1066 -33 -90 1066 -33 -68 minecraft:calcite
-fill 1066 -33 66 1066 -33 98 minecraft:calcite
-fill 1067 -33 -89 1067 -33 -67 minecraft:calcite
-fill 1067 -33 65 1067 -33 98 minecraft:calcite
-fill 1068 -33 -88 1068 -33 -65 minecraft:calcite
-fill 1068 -33 63 1068 -33 98 minecraft:calcite
-fill 1069 -33 -88 1069 -33 -64 minecraft:calcite
-fill 1069 -33 58 1069 -33 98 minecraft:calcite
-fill 1070 -33 -87 1070 -33 -60 minecraft:calcite
-fill 1070 -33 46 1070 -33 98 minecraft:calcite
-fill 1071 -33 -87 1071 -33 -54 minecraft:calcite
-fill 1071 -33 35 1071 -33 98 minecraft:calcite
-fill 1072 -33 -86 1072 -33 -55 minecraft:calcite
-fill 1072 -33 -31 1072 -33 -17 minecraft:calcite
-fill 1072 -33 22 1072 -33 98 minecraft:calcite
-fill 1073 -33 -85 1073 -33 -56 minecraft:calcite
-fill 1073 -33 -32 1073 -33 98 minecraft:calcite
-fill 1074 -33 -84 1074 -33 -56 minecraft:calcite
-fill 1074 -33 -33 1074 -33 98 minecraft:calcite
-fill 1075 -33 -83 1075 -33 -57 minecraft:calcite
-fill 1075 -33 -34 1075 -33 98 minecraft:calcite
-fill 1076 -33 -82 1076 -33 -58 minecraft:calcite
-fill 1076 -33 -35 1076 -33 98 minecraft:calcite
-fill 1077 -33 -81 1077 -33 -59 minecraft:calcite
-fill 1077 -33 -36 1077 -33 98 minecraft:calcite
-fill 1078 -33 -80 1078 -33 -60 minecraft:calcite
-fill 1078 -33 -37 1078 -33 98 minecraft:calcite
-fill 1079 -33 -78 1079 -33 -62 minecraft:calcite
-fill 1079 -33 -39 1079 -33 98 minecraft:calcite
-fill 1080 -33 -75 1080 -33 -64 minecraft:calcite
-fill 1080 -33 -40 1080 -33 98 minecraft:calcite
-fill 1081 -33 -69 1081 -33 -68 minecraft:calcite
-fill 1081 -33 -42 1081 -33 98 minecraft:calcite
-fill 1082 -33 -45 1082 -33 98 minecraft:calcite
-fill 1083 -33 -49 1083 -33 98 minecraft:calcite
-fill 1084 -33 -53 1084 -33 98 minecraft:calcite
-fill 1085 -33 -57 1085 -33 98 minecraft:calcite
-fill 1086 -33 -60 1086 -33 98 minecraft:calcite
-fill 1087 -33 -62 1087 -33 98 minecraft:calcite
-fill 1088 -33 -64 1088 -33 98 minecraft:calcite
-fill 1089 -33 -98 1089 -33 -97 minecraft:calcite
-fill 1089 -33 -66 1089 -33 98 minecraft:calcite
-fill 1090 -33 -98 1090 -33 -95 minecraft:calcite
-fill 1090 -33 -68 1090 -33 98 minecraft:calcite
-fill 1091 -33 -98 1091 -33 -92 minecraft:calcite
-fill 1091 -33 -71 1091 -33 98 minecraft:calcite
-fill 1092 -33 -98 1092 -33 -88 minecraft:calcite
-fill 1092 -33 -74 1092 -33 98 minecraft:calcite
-fill 1093 -33 -98 1093 -33 98 minecraft:calcite
-fill 1094 -33 -98 1094 -33 96 minecraft:calcite
-fill 1095 -33 -98 1095 -33 95 minecraft:calcite
-fill 1096 -33 -98 1096 -33 94 minecraft:calcite
-fill 904 -33 -64 904 -33 -52 minecraft:grass_block
-fill 904 -33 30 904 -33 43 minecraft:grass_block
-fill 905 -33 30 905 -33 42 minecraft:grass_block
-fill 905 -33 -63 906 -33 -52 minecraft:grass_block
-fill 906 -33 30 906 -33 41 minecraft:grass_block
-fill 907 -33 -62 907 -33 -52 minecraft:grass_block
-fill 907 -33 29 907 -33 40 minecraft:grass_block
-fill 908 -33 29 908 -33 39 minecraft:grass_block
-fill 908 -33 -61 909 -33 -52 minecraft:grass_block
-fill 909 -33 29 909 -33 38 minecraft:grass_block
-fill 910 -33 -60 910 -33 -52 minecraft:grass_block
-fill 910 -33 29 910 -33 37 minecraft:grass_block
-fill 911 -33 -59 911 -33 -52 minecraft:grass_block
-fill 912 -33 -59 912 -33 -51 minecraft:grass_block
-fill 911 -33 28 912 -33 36 minecraft:grass_block
-fill 913 -33 -58 913 -33 -51 minecraft:grass_block
-fill 913 -33 28 913 -33 35 minecraft:grass_block
-fill 914 -33 -57 914 -33 -51 minecraft:grass_block
-fill 915 -33 -57 915 -33 -50 minecraft:grass_block
-fill 914 -33 27 915 -33 34 minecraft:grass_block
-fill 916 -33 -56 916 -33 -49 minecraft:grass_block
-fill 916 -33 27 916 -33 33 minecraft:grass_block
-fill 917 -33 -55 917 -33 -49 minecraft:grass_block
-fill 917 -33 26 917 -33 33 minecraft:grass_block
-fill 918 -33 -55 918 -33 -48 minecraft:grass_block
-fill 919 -33 -54 919 -33 -47 minecraft:grass_block
-fill 918 -33 26 919 -33 32 minecraft:grass_block
-fill 920 -33 -53 920 -33 -46 minecraft:grass_block
-fill 921 -33 -52 921 -33 -45 minecraft:grass_block
-fill 920 -33 25 921 -33 31 minecraft:grass_block
-fill 922 -33 -51 922 -33 -44 minecraft:grass_block
-fill 923 -33 -51 923 -33 -43 minecraft:grass_block
-fill 922 -33 24 923 -33 30 minecraft:grass_block
-fill 924 -33 -50 924 -33 -41 minecraft:grass_block
-fill 924 -33 23 924 -33 30 minecraft:grass_block
-fill 925 -33 -48 925 -33 -40 minecraft:grass_block
-fill 925 -33 23 925 -33 29 minecraft:grass_block
-fill 926 -33 -47 926 -33 -38 minecraft:grass_block
-fill 926 -33 22 926 -33 29 minecraft:grass_block
-fill 927 -33 -46 927 -33 -36 minecraft:grass_block
-fill 927 -33 21 927 -33 28 minecraft:grass_block
-fill 928 -33 -45 928 -33 -33 minecraft:grass_block
-fill 928 -33 21 928 -33 27 minecraft:grass_block
-fill 929 -33 -43 929 -33 -30 minecraft:grass_block
-fill 929 -33 20 929 -33 27 minecraft:grass_block
-fill 930 -33 -63 930 -33 -63 minecraft:grass_block
-fill 930 -33 -46 930 -33 -28 minecraft:grass_block
-fill 930 -33 19 930 -33 26 minecraft:grass_block
-fill 930 -33 58 930 -33 61 minecraft:grass_block
-fill 931 -33 -65 931 -33 -65 minecraft:grass_block
-fill 931 -33 -30 931 -33 -25 minecraft:grass_block
-fill 931 -33 17 931 -33 26 minecraft:grass_block
-fill 931 -33 49 931 -33 51 minecraft:grass_block
-fill 931 -33 64 931 -33 64 minecraft:grass_block
-fill 932 -33 -67 932 -33 -67 minecraft:grass_block
-fill 932 -33 16 932 -33 25 minecraft:grass_block
-fill 932 -33 38 932 -33 42 minecraft:grass_block
-fill 932 -33 66 932 -33 66 minecraft:grass_block
-fill 933 -33 14 933 -33 26 minecraft:grass_block
-fill 936 -33 -71 936 -33 -71 minecraft:grass_block
-fill 936 -33 70 936 -33 70 minecraft:grass_block
-fill 938 -33 71 938 -33 71 minecraft:grass_block
-fill 940 -33 -73 940 -33 -73 minecraft:grass_block
-fill 941 -33 72 947 -33 72 minecraft:grass_block
-fill 944 -33 -74 948 -33 -74 minecraft:grass_block
-fill 950 -33 98 950 -33 98 minecraft:grass_block
-fill 951 -33 97 951 -33 98 minecraft:grass_block
-fill 952 -33 96 952 -33 98 minecraft:grass_block
-fill 953 -33 95 954 -33 98 minecraft:grass_block
-fill 955 -33 94 956 -33 98 minecraft:grass_block
-fill 957 -33 93 957 -33 98 minecraft:grass_block
-fill 958 -33 92 960 -33 98 minecraft:grass_block
-fill 961 -33 91 962 -33 98 minecraft:grass_block
-fill 963 -33 90 965 -33 98 minecraft:grass_block
-fill 966 -33 89 968 -33 98 minecraft:grass_block
-fill 973 -33 60 977 -33 64 minecraft:grass_block
-fill 969 -33 88 977 -33 98 minecraft:grass_block
-fill 978 -33 89 978 -33 98 minecraft:grass_block
-fill 979 -33 90 979 -33 98 minecraft:grass_block
-fill 980 -33 91 980 -33 98 minecraft:grass_block
-fill 981 -33 94 981 -33 98 minecraft:grass_block
-fill 982 -33 97 982 -33 98 minecraft:grass_block
-fill 985 -33 -98 986 -33 -98 minecraft:grass_block
-fill 979 -33 -74 986 -33 -74 minecraft:grass_block
-fill 987 -33 -98 989 -33 -97 minecraft:grass_block
-fill 990 -33 -98 999 -33 -96 minecraft:grass_block
-fill 1000 -33 -98 1001 -33 -97 minecraft:grass_block
-fill 1002 -33 -98 1002 -33 -98 minecraft:grass_block
-fill 1014 -33 -77 1014 -33 -74 minecraft:grass_block
-fill 1015 -33 -81 1015 -33 -74 minecraft:grass_block
-fill 1016 -33 -82 1016 -33 -74 minecraft:grass_block
-fill 1017 -33 -83 1017 -33 -74 minecraft:grass_block
-fill 1018 -33 -84 1019 -33 -74 minecraft:grass_block
-fill 1020 -33 -85 1020 -33 -75 minecraft:grass_block
-fill 1021 -33 -85 1021 -33 -77 minecraft:grass_block
-fill 1022 -33 -85 1023 -33 -78 minecraft:grass_block
-fill 1024 -33 -85 1025 -33 -79 minecraft:grass_block
-fill 1026 -33 -85 1032 -33 -80 minecraft:grass_block
-fill 1033 -33 -85 1035 -33 -79 minecraft:grass_block
-fill 1036 -33 -84 1037 -33 -78 minecraft:grass_block
-fill 1038 -33 -84 1038 -33 -77 minecraft:grass_block
-fill 1039 -33 -83 1039 -33 -76 minecraft:grass_block
-fill 1040 -33 -83 1040 -33 -75 minecraft:grass_block
-fill 1041 -33 -83 1041 -33 -73 minecraft:grass_block
-fill 1042 -33 -82 1042 -33 -73 minecraft:grass_block
-fill 1043 -33 -81 1044 -33 -73 minecraft:grass_block
-fill 1045 -33 -80 1045 -33 -73 minecraft:grass_block
-fill 1039 -33 71 1045 -33 71 minecraft:grass_block
-fill 1046 -33 -78 1046 -33 -73 minecraft:grass_block
-fill 1047 -33 -77 1047 -33 -73 minecraft:grass_block
-fill 1048 -33 -74 1048 -33 -73 minecraft:grass_block
-fill 1052 -33 -72 1056 -33 -72 minecraft:grass_block
-fill 1058 -33 70 1059 -33 70 minecraft:grass_block
-fill 1060 -33 -98 1060 -33 -96 minecraft:grass_block
-fill 1060 -33 -71 1060 -33 -71 minecraft:grass_block
-fill 1061 -33 -98 1061 -33 -95 minecraft:grass_block
-fill 1062 -33 -98 1062 -33 -94 minecraft:grass_block
-fill 1063 -33 -98 1063 -33 -93 minecraft:grass_block
-fill 1063 -33 68 1063 -33 68 minecraft:grass_block
-fill 1064 -33 -98 1064 -33 -92 minecraft:grass_block
-fill 1064 -33 -69 1064 -33 -69 minecraft:grass_block
-fill 1065 -33 -98 1066 -33 -91 minecraft:grass_block
-fill 1067 -33 -98 1067 -33 -90 minecraft:grass_block
-fill 1067 -33 -66 1067 -33 -66 minecraft:grass_block
-fill 1067 -33 64 1067 -33 64 minecraft:grass_block
-fill 1068 -33 62 1068 -33 62 minecraft:grass_block
-fill 1068 -33 -98 1069 -33 -89 minecraft:grass_block
-fill 1069 -33 -63 1069 -33 -63 minecraft:grass_block
-fill 1069 -33 54 1069 -33 57 minecraft:grass_block
-fill 1070 -33 -59 1070 -33 -55 minecraft:grass_block
-fill 1070 -33 43 1070 -33 45 minecraft:grass_block
-fill 1070 -33 -98 1071 -33 -88 minecraft:grass_block
-fill 1071 -33 -53 1071 -33 -38 minecraft:grass_block
-fill 1071 -33 31 1071 -33 34 minecraft:grass_block
-fill 1072 -33 -98 1072 -33 -87 minecraft:grass_block
-fill 1072 -33 -54 1072 -33 -32 minecraft:grass_block
-fill 1072 -33 -16 1072 -33 -5 minecraft:grass_block
-fill 1072 -33 15 1072 -33 21 minecraft:grass_block
-fill 1073 -33 -98 1073 -33 -86 minecraft:grass_block
-fill 1073 -33 -55 1073 -33 -33 minecraft:grass_block
-fill 1074 -33 -98 1074 -33 -85 minecraft:grass_block
-fill 1074 -33 -55 1074 -33 -34 minecraft:grass_block
-fill 1075 -33 -98 1075 -33 -84 minecraft:grass_block
-fill 1075 -33 -56 1075 -33 -35 minecraft:grass_block
-fill 1076 -33 -98 1076 -33 -83 minecraft:grass_block
-fill 1076 -33 -57 1076 -33 -36 minecraft:grass_block
-fill 1077 -33 -98 1077 -33 -82 minecraft:grass_block
-fill 1077 -33 -58 1077 -33 -37 minecraft:grass_block
-fill 1078 -33 -98 1078 -33 -81 minecraft:grass_block
-fill 1078 -33 -59 1078 -33 -38 minecraft:grass_block
-fill 1079 -33 -98 1079 -33 -79 minecraft:grass_block
-fill 1079 -33 -61 1079 -33 -40 minecraft:grass_block
-fill 1080 -33 -98 1080 -33 -76 minecraft:grass_block
-fill 1080 -33 -63 1080 -33 -41 minecraft:grass_block
-fill 1081 -33 -98 1081 -33 -70 minecraft:grass_block
-fill 1081 -33 -67 1081 -33 -43 minecraft:grass_block
-fill 1082 -33 -98 1082 -33 -46 minecraft:grass_block
-fill 1083 -33 -98 1083 -33 -50 minecraft:grass_block
-fill 1084 -33 -98 1084 -33 -54 minecraft:grass_block
-fill 1085 -33 -98 1085 -33 -58 minecraft:grass_block
-fill 1086 -33 -98 1086 -33 -61 minecraft:grass_block
-fill 1087 -33 -98 1087 -33 -63 minecraft:grass_block
-fill 1088 -33 -98 1088 -33 -65 minecraft:grass_block
-fill 1089 -33 -96 1089 -33 -67 minecraft:grass_block
-fill 1090 -33 -94 1090 -33 -69 minecraft:grass_block
-fill 1091 -33 -91 1091 -33 -72 minecraft:grass_block
-fill 1092 -33 -87 1092 -33 -75 minecraft:grass_block
-fill 1094 -33 97 1094 -33 98 minecraft:grass_block
-fill 1095 -33 96 1095 -33 98 minecraft:grass_block
-fill 1096 -33 95 1096 -33 98 minecraft:grass_block
-fill 904 -32 -98 904 -31 -65 minecraft:calcite
-fill 904 -32 44 904 -31 98 minecraft:calcite
-fill 905 -32 43 905 -31 98 minecraft:calcite
-fill 905 -32 -98 906 -31 -64 minecraft:calcite
-fill 906 -32 42 906 -31 98 minecraft:calcite
-fill 907 -32 -98 907 -31 -63 minecraft:calcite
-fill 907 -32 41 907 -31 98 minecraft:calcite
-fill 908 -32 40 908 -31 98 minecraft:calcite
-fill 908 -32 -98 909 -31 -62 minecraft:calcite
-fill 909 -32 39 909 -31 98 minecraft:calcite
-fill 910 -32 -98 910 -31 -61 minecraft:calcite
-fill 910 -32 38 910 -31 98 minecraft:calcite
-fill 911 -32 -98 912 -31 -60 minecraft:calcite
-fill 911 -32 37 912 -31 98 minecraft:calcite
-fill 913 -32 -98 913 -31 -59 minecraft:calcite
-fill 913 -32 36 913 -31 98 minecraft:calcite
-fill 914 -32 -98 915 -31 -58 minecraft:calcite
-fill 914 -32 35 915 -31 98 minecraft:calcite
-fill 916 -32 -98 916 -31 -57 minecraft:calcite
-fill 916 -32 34 917 -31 98 minecraft:calcite
-fill 917 -32 -98 918 -31 -56 minecraft:calcite
-fill 919 -32 -98 919 -31 -55 minecraft:calcite
-fill 918 -32 33 919 -31 98 minecraft:calcite
-fill 920 -32 -98 920 -31 -54 minecraft:calcite
-fill 921 -32 -98 921 -31 -53 minecraft:calcite
-fill 920 -32 32 921 -31 98 minecraft:calcite
-fill 922 -32 -98 923 -31 -52 minecraft:calcite
-fill 924 -32 -98 924 -31 -51 minecraft:calcite
-fill 922 -32 31 924 -31 98 minecraft:calcite
-fill 925 -32 -98 925 -31 -49 minecraft:calcite
-fill 926 -32 -98 926 -31 -48 minecraft:calcite
-fill 925 -32 30 926 -31 98 minecraft:calcite
-fill 927 -32 -98 927 -31 -47 minecraft:calcite
-fill 927 -32 29 927 -31 98 minecraft:calcite
-fill 928 -32 -98 928 -31 -46 minecraft:calcite
-fill 929 -32 -98 929 -31 -44 minecraft:calcite
-fill 928 -32 28 929 -31 98 minecraft:calcite
-fill 930 -32 -98 930 -31 -64 minecraft:calcite
-fill 930 -32 27 930 -31 57 minecraft:calcite
-fill 930 -32 62 930 -31 98 minecraft:calcite
-fill 931 -32 -98 931 -31 -66 minecraft:calcite
-fill 931 -32 27 931 -31 48 minecraft:calcite
-fill 931 -32 65 931 -31 98 minecraft:calcite
-fill 932 -32 -98 932 -31 -68 minecraft:calcite
-fill 932 -32 26 932 -31 37 minecraft:calcite
-fill 932 -32 67 932 -31 98 minecraft:calcite
-fill 933 -32 -98 933 -31 -69 minecraft:calcite
-fill 933 -32 68 933 -31 98 minecraft:calcite
-fill 934 -32 -98 934 -31 -70 minecraft:calcite
-fill 934 -32 -37 934 -31 -35 minecraft:calcite
-fill 934 -32 69 934 -31 98 minecraft:calcite
-fill 935 -32 -98 935 -31 -71 minecraft:calcite
-fill 935 -32 -38 935 -31 -34 minecraft:calcite
-fill 935 -32 70 935 -31 98 minecraft:calcite
-fill 936 -32 -98 937 -31 -72 minecraft:calcite
-fill 936 -32 71 937 -31 98 minecraft:calcite
-fill 936 -32 -39 938 -31 -33 minecraft:calcite
-fill 938 -32 -7 938 -31 -5 minecraft:calcite
-fill 938 -32 -98 939 -31 -73 minecraft:calcite
-fill 939 -32 -38 939 -31 -34 minecraft:calcite
-fill 940 -32 -37 940 -31 -35 minecraft:calcite
-fill 938 -32 72 940 -31 98 minecraft:calcite
-fill 939 -32 -8 941 -31 -4 minecraft:calcite
-fill 942 -32 -7 942 -31 -5 minecraft:calcite
-fill 940 -32 -98 943 -31 -74 minecraft:calcite
-fill 941 -32 73 947 -31 98 minecraft:calcite
-fill 948 -32 72 949 -31 98 minecraft:calcite
-fill 950 -32 72 950 -31 97 minecraft:calcite
-fill 951 -32 72 951 -31 96 minecraft:calcite
-fill 952 -32 72 952 -31 95 minecraft:calcite
-fill 953 -32 72 954 -31 94 minecraft:calcite
-fill 955 -32 72 956 -31 93 minecraft:calcite
-fill 957 -32 72 957 -31 92 minecraft:calcite
-fill 958 -32 72 960 -31 91 minecraft:calcite
-fill 961 -32 72 962 -31 90 minecraft:calcite
-fill 963 -32 72 965 -31 89 minecraft:calcite
-fill 966 -32 72 968 -31 88 minecraft:calcite
-fill 969 -32 72 977 -31 87 minecraft:calcite
-fill 978 -32 72 978 -31 88 minecraft:calcite
-fill 979 -32 72 979 -31 89 minecraft:calcite
-fill 980 -32 72 980 -31 90 minecraft:calcite
-fill 981 -32 72 981 -31 93 minecraft:calcite
-fill 982 -32 72 982 -31 96 minecraft:calcite
-fill 944 -32 -98 984 -31 -75 minecraft:calcite
-fill 985 -32 -97 986 -31 -75 minecraft:calcite
-fill 987 -32 -96 989 -31 -74 minecraft:calcite
-fill 995 -32 65 995 -31 67 minecraft:calcite
-fill 996 -32 64 998 -31 68 minecraft:calcite
-fill 990 -32 -95 999 -31 -74 minecraft:calcite
-fill 999 -32 65 999 -31 67 minecraft:calcite
-fill 1000 -32 -96 1001 -31 -74 minecraft:calcite
-fill 1002 -32 -97 1002 -31 -74 minecraft:calcite
-fill 1003 -32 -98 1013 -31 -74 minecraft:calcite
-fill 1014 -32 -98 1014 -31 -78 minecraft:calcite
-fill 1015 -32 -98 1015 -31 -82 minecraft:calcite
-fill 1016 -32 -98 1016 -31 -83 minecraft:calcite
-fill 1017 -32 -98 1017 -31 -84 minecraft:calcite
-fill 1018 -32 -98 1019 -31 -85 minecraft:calcite
-fill 1020 -32 -98 1035 -31 -86 minecraft:calcite
-fill 1036 -32 -98 1038 -31 -85 minecraft:calcite
-fill 1039 -32 -98 1041 -31 -84 minecraft:calcite
-fill 1042 -32 -98 1042 -31 -83 minecraft:calcite
-fill 1043 -32 -98 1044 -31 -82 minecraft:calcite
-fill 1045 -32 -98 1045 -31 -81 minecraft:calcite
-fill 983 -32 72 1045 -31 98 minecraft:calcite
-fill 1046 -32 -98 1046 -31 -79 minecraft:calcite
-fill 1047 -32 -98 1047 -31 -78 minecraft:calcite
-fill 1048 -32 -98 1048 -31 -75 minecraft:calcite
-fill 1049 -32 -98 1056 -31 -73 minecraft:calcite
-fill 1058 -32 23 1058 -31 25 minecraft:calcite
-fill 1057 -32 -98 1059 -31 -72 minecraft:calcite
-fill 1046 -32 71 1059 -31 98 minecraft:calcite
-fill 1060 -32 -95 1060 -31 -72 minecraft:calcite
-fill 1060 -32 -46 1060 -31 -44 minecraft:calcite
-fill 1061 -32 -94 1061 -31 -71 minecraft:calcite
-fill 1059 -32 22 1061 -31 26 minecraft:calcite
-fill 1060 -32 70 1061 -31 98 minecraft:calcite
-fill 1062 -32 -93 1062 -31 -71 minecraft:calcite
-fill 1062 -32 23 1062 -31 25 minecraft:calcite
-fill 1063 -32 -92 1063 -31 -70 minecraft:calcite
-fill 1061 -32 -47 1063 -31 -43 minecraft:calcite
-fill 1062 -32 69 1063 -31 98 minecraft:calcite
-fill 1064 -32 -91 1064 -31 -70 minecraft:calcite
-fill 1064 -32 -46 1064 -31 -44 minecraft:calcite
-fill 1064 -32 68 1064 -31 98 minecraft:calcite
-fill 1065 -32 -90 1065 -31 -69 minecraft:calcite
-fill 1065 -32 67 1065 -31 98 minecraft:calcite
-fill 1066 -32 -90 1066 -31 -68 minecraft:calcite
-fill 1066 -32 66 1066 -31 98 minecraft:calcite
-fill 1067 -32 -89 1067 -31 -67 minecraft:calcite
-fill 1067 -32 65 1067 -31 98 minecraft:calcite
-fill 1068 -32 -88 1068 -31 -65 minecraft:calcite
-fill 1068 -32 63 1068 -31 98 minecraft:calcite
-fill 1069 -32 -88 1069 -31 -64 minecraft:calcite
-fill 1069 -32 58 1069 -31 98 minecraft:calcite
-fill 1070 -32 -87 1070 -31 -60 minecraft:calcite
-fill 1070 -32 46 1070 -31 98 minecraft:calcite
-fill 1071 -32 -87 1071 -31 -54 minecraft:calcite
-fill 1071 -32 35 1071 -31 98 minecraft:calcite
-fill 1072 -32 -86 1072 -31 -55 minecraft:calcite
-fill 1072 -32 -31 1072 -31 -17 minecraft:calcite
-fill 1072 -32 22 1072 -31 98 minecraft:calcite
-fill 1073 -32 -85 1073 -31 -56 minecraft:calcite
-fill 1073 -32 -32 1073 -31 98 minecraft:calcite
-fill 1074 -32 -84 1074 -31 -56 minecraft:calcite
-fill 1074 -32 -33 1074 -31 98 minecraft:calcite
-fill 1075 -32 -83 1075 -31 -57 minecraft:calcite
-fill 1075 -32 -34 1075 -31 98 minecraft:calcite
-fill 1076 -32 -82 1076 -31 -58 minecraft:calcite
-fill 1076 -32 -35 1076 -31 98 minecraft:calcite
-fill 1077 -32 -81 1077 -31 -59 minecraft:calcite
-fill 1077 -32 -36 1077 -31 98 minecraft:calcite
-fill 1078 -32 -80 1078 -31 -60 minecraft:calcite
-fill 1078 -32 -37 1078 -31 98 minecraft:calcite
-fill 1079 -32 -78 1079 -31 -62 minecraft:calcite
-fill 1079 -32 -39 1079 -31 98 minecraft:calcite
-fill 1080 -32 -75 1080 -31 -64 minecraft:calcite
-fill 1080 -32 -40 1080 -31 98 minecraft:calcite
-fill 1081 -32 -69 1081 -31 -68 minecraft:calcite
-fill 1081 -32 -42 1081 -31 98 minecraft:calcite
-fill 1082 -32 -45 1082 -31 98 minecraft:calcite
-fill 1083 -32 -49 1083 -31 98 minecraft:calcite
-fill 1084 -32 -53 1084 -31 98 minecraft:calcite
-fill 1085 -32 -57 1085 -31 98 minecraft:calcite
-fill 1086 -32 -60 1086 -31 98 minecraft:calcite
-fill 1087 -32 -62 1087 -31 98 minecraft:calcite
-fill 1088 -32 -64 1088 -31 98 minecraft:calcite
-fill 1089 -32 -98 1089 -31 -97 minecraft:calcite
-fill 1089 -32 -66 1089 -31 98 minecraft:calcite
-fill 1090 -32 -98 1090 -31 -95 minecraft:calcite
-fill 1090 -32 -68 1090 -31 98 minecraft:calcite
-fill 1091 -32 -98 1091 -31 -92 minecraft:calcite
-fill 1091 -32 -71 1091 -31 98 minecraft:calcite
-fill 1092 -32 -98 1092 -31 -88 minecraft:calcite
-fill 1092 -32 -74 1092 -31 98 minecraft:calcite
-fill 1093 -32 -98 1093 -31 98 minecraft:calcite
-fill 1094 -32 -98 1094 -31 96 minecraft:calcite
-fill 1095 -32 -98 1095 -31 95 minecraft:calcite
-fill 1096 -32 -98 1096 -31 94 minecraft:calcite
-fill 904 -30 -98 904 -30 -83 minecraft:stone
-fill 904 -30 65 904 -30 98 minecraft:stone
-fill 905 -30 -98 905 -30 -81 minecraft:stone
-fill 905 -30 64 905 -30 98 minecraft:stone
-fill 906 -30 -98 906 -30 -79 minecraft:stone
-fill 906 -30 63 906 -30 98 minecraft:stone
-fill 907 -30 -98 907 -30 -77 minecraft:stone
-fill 907 -30 62 907 -30 98 minecraft:stone
-fill 908 -30 -98 908 -30 -75 minecraft:stone
-fill 908 -30 60 908 -30 98 minecraft:stone
-fill 909 -30 -98 909 -30 -74 minecraft:stone
-fill 909 -30 57 909 -30 98 minecraft:stone
-fill 910 -30 -98 910 -30 -72 minecraft:stone
-fill 910 -30 54 910 -30 98 minecraft:stone
-fill 911 -30 -98 911 -30 -71 minecraft:stone
-fill 911 -30 51 911 -30 98 minecraft:stone
-fill 912 -30 -98 912 -30 -69 minecraft:stone
-fill 912 -30 49 912 -30 98 minecraft:stone
-fill 913 -30 -98 913 -30 -68 minecraft:stone
-fill 913 -30 47 913 -30 98 minecraft:stone
-fill 914 -30 -98 914 -30 -67 minecraft:stone
-fill 914 -30 46 914 -30 98 minecraft:stone
-fill 915 -30 -98 915 -30 -66 minecraft:stone
-fill 915 -30 44 915 -30 98 minecraft:stone
-fill 916 -30 -98 916 -30 -65 minecraft:stone
-fill 916 -30 43 916 -30 98 minecraft:stone
-fill 917 -30 -98 917 -30 -64 minecraft:stone
-fill 917 -30 42 917 -30 98 minecraft:stone
-fill 918 -30 -98 918 -30 -63 minecraft:stone
-fill 919 -30 -98 919 -30 -62 minecraft:stone
-fill 918 -30 41 919 -30 98 minecraft:stone
-fill 920 -30 40 920 -30 98 minecraft:stone
-fill 920 -30 -98 921 -30 -61 minecraft:stone
-fill 922 -30 -98 922 -30 -60 minecraft:stone
-fill 921 -30 39 922 -30 98 minecraft:stone
-fill 923 -30 -98 923 -30 -59 minecraft:stone
-fill 924 -30 -98 924 -30 -58 minecraft:stone
-fill 923 -30 38 924 -30 98 minecraft:stone
-fill 925 -30 -98 925 -30 -57 minecraft:stone
-fill 926 -30 -98 926 -30 -56 minecraft:stone
-fill 925 -30 37 926 -30 98 minecraft:stone
-fill 927 -30 -98 927 -30 -55 minecraft:stone
-fill 928 -30 -98 928 -30 -54 minecraft:stone
-fill 927 -30 36 928 -30 98 minecraft:stone
-fill 929 -30 -98 929 -30 -61 minecraft:stone
-fill 929 -30 35 929 -30 98 minecraft:stone
-fill 930 -30 -98 930 -30 -65 minecraft:stone
-fill 930 -30 35 930 -30 54 minecraft:stone
-fill 930 -30 63 930 -30 98 minecraft:stone
-fill 931 -30 -98 931 -30 -67 minecraft:stone
-fill 931 -30 35 931 -30 44 minecraft:stone
-fill 931 -30 66 931 -30 98 minecraft:stone
-fill 932 -30 -98 932 -30 -68 minecraft:stone
-fill 932 -30 68 932 -30 98 minecraft:stone
-fill 933 -30 -97 933 -30 -69 minecraft:stone
-fill 933 -30 69 933 -30 98 minecraft:stone
-fill 934 -30 -97 934 -30 -71 minecraft:stone
-fill 934 -30 -37 934 -30 -35 minecraft:stone
-fill 934 -30 70 934 -30 98 minecraft:stone
-fill 935 -30 -96 935 -30 -71 minecraft:stone
-fill 935 -30 -38 935 -30 -34 minecraft:stone
-fill 936 -30 -95 936 -30 -72 minecraft:stone
-fill 935 -30 71 936 -30 98 minecraft:stone
-fill 937 -30 -95 937 -30 -73 minecraft:stone
-fill 938 -30 -94 938 -30 -73 minecraft:stone
-fill 936 -30 -39 938 -30 -33 minecraft:stone
-fill 937 -30 72 938 -30 98 minecraft:stone
-fill 939 -30 -38 939 -30 -34 minecraft:stone
-fill 939 -30 73 939 -30 98 minecraft:stone
-fill 939 -30 -93 940 -30 -74 minecraft:stone
-fill 940 -30 -37 940 -30 -35 minecraft:stone
-fill 940 -30 73 940 -30 97 minecraft:stone
-fill 941 -30 -92 941 -30 -74 minecraft:stone
-fill 939 -30 -7 941 -30 -5 minecraft:stone
-fill 941 -30 73 941 -30 96 minecraft:stone
-fill 942 -30 -92 942 -30 -75 minecraft:stone
-fill 942 -30 73 942 -30 95 minecraft:stone
-fill 943 -30 -91 943 -30 -75 minecraft:stone
-fill 943 -30 73 943 -30 94 minecraft:stone
-fill 944 -30 -90 944 -30 -75 minecraft:stone
-fill 944 -30 73 944 -30 93 minecraft:stone
-fill 945 -30 -89 945 -30 -75 minecraft:stone
-fill 945 -30 73 945 -30 92 minecraft:stone
-fill 946 -30 -88 946 -30 -75 minecraft:stone
-fill 946 -30 73 946 -30 91 minecraft:stone
-fill 947 -30 -86 947 -30 -75 minecraft:stone
-fill 947 -30 73 947 -30 90 minecraft:stone
-fill 948 -30 -84 948 -30 -75 minecraft:stone
-fill 949 -30 -80 949 -30 -75 minecraft:stone
-fill 948 -30 73 949 -30 89 minecraft:stone
+fill 3170 -59 -18 3170 -48 -18 minecraft:quartz_pillar
+fill 3170 -59 18 3170 -48 18 minecraft:quartz_pillar
+fill 3175 -59 -18 3175 -48 -18 minecraft:quartz_pillar
+fill 3175 -59 18 3175 -48 18 minecraft:quartz_pillar
+fill 3180 -59 -18 3180 -48 -18 minecraft:quartz_pillar
+fill 3180 -59 18 3180 -48 18 minecraft:quartz_pillar
+fill 3150 -59 -18 3150 -48 -18 minecraft:quartz_pillar
+fill 3180 -59 -18 3180 -48 -18 minecraft:quartz_pillar
+fill 3150 -59 -12 3150 -48 -12 minecraft:quartz_pillar
+fill 3180 -59 -12 3180 -48 -12 minecraft:quartz_pillar
+fill 3150 -59 -6 3150 -48 -6 minecraft:quartz_pillar
+fill 3180 -59 -6 3180 -48 -6 minecraft:quartz_pillar
+fill 3150 -59 0 3150 -48 0 minecraft:quartz_pillar
+fill 3180 -59 0 3180 -48 0 minecraft:quartz_pillar
+fill 3150 -59 6 3150 -48 6 minecraft:quartz_pillar
+fill 3180 -59 6 3180 -48 6 minecraft:quartz_pillar
+fill 3150 -59 12 3150 -48 12 minecraft:quartz_pillar
+fill 3180 -59 12 3180 -48 12 minecraft:quartz_pillar
+fill 3150 -59 18 3150 -48 18 minecraft:quartz_pillar
+fill 3180 -59 18 3180 -48 18 minecraft:quartz_pillar
+fill 3150 -47 -18 3180 -47 18 minecraft:lime_concrete
+fill 3151 -47 -17 3179 -47 -17 minecraft:verdant_froglight
+fill 3151 -47 -15 3179 -47 -15 minecraft:verdant_froglight
+fill 3151 -47 -13 3179 -47 -13 minecraft:verdant_froglight
+fill 3151 -47 -11 3179 -47 -11 minecraft:verdant_froglight
+fill 3151 -47 -9 3179 -47 -9 minecraft:verdant_froglight
+fill 3151 -47 -7 3179 -47 -7 minecraft:verdant_froglight
+fill 3151 -47 -5 3179 -47 -5 minecraft:verdant_froglight
+fill 3151 -47 -3 3179 -47 -3 minecraft:verdant_froglight
+fill 3151 -47 -1 3179 -47 -1 minecraft:verdant_froglight
+fill 3151 -47 1 3179 -47 1 minecraft:verdant_froglight
+fill 3151 -47 3 3179 -47 3 minecraft:verdant_froglight
+fill 3151 -47 5 3179 -47 5 minecraft:verdant_froglight
+fill 3151 -47 7 3179 -47 7 minecraft:verdant_froglight
+fill 3151 -47 9 3179 -47 9 minecraft:verdant_froglight
+fill 3151 -47 11 3179 -47 11 minecraft:verdant_froglight
+fill 3151 -47 13 3179 -47 13 minecraft:verdant_froglight
+fill 3151 -47 15 3179 -47 15 minecraft:verdant_froglight
+fill 3151 -47 17 3179 -47 17 minecraft:verdant_froglight
+setblock 3151 -54 -15 minecraft:lantern
+setblock 3179 -54 -15 minecraft:lantern
+setblock 3151 -54 -9 minecraft:lantern
+setblock 3179 -54 -9 minecraft:lantern
+setblock 3151 -54 -3 minecraft:lantern
+setblock 3179 -54 -3 minecraft:lantern
+setblock 3151 -54 3 minecraft:lantern
+setblock 3179 -54 3 minecraft:lantern
+setblock 3151 -54 9 minecraft:lantern
+setblock 3179 -54 9 minecraft:lantern
+setblock 3151 -54 15 minecraft:lantern
+setblock 3179 -54 15 minecraft:lantern
+fill 3158 -60 -12 3172 -60 12 minecraft:moss_block
+fill 3158 -60 -12 3172 -60 -12 minecraft:quartz_block
+fill 3158 -60 12 3172 -60 12 minecraft:quartz_block
+fill 3158 -60 -12 3158 -60 12 minecraft:quartz_block
+fill 3172 -60 -12 3172 -60 12 minecraft:quartz_block
+fill 3158 -60 0 3172 -60 0 minecraft:quartz_block
+setblock 3167 -60 -5 minecraft:lime_concrete
+setblock 3168 -60 -5 minecraft:lime_concrete
+setblock 3169 -60 -5 minecraft:lime_concrete
+setblock 3165 -60 -4 minecraft:lime_concrete
+setblock 3166 -60 -4 minecraft:lime_concrete
+setblock 3167 -60 -4 minecraft:green_concrete
+setblock 3168 -60 -4 minecraft:green_concrete
+setblock 3169 -60 -4 minecraft:lime_concrete
+setblock 3163 -60 -3 minecraft:lime_concrete
+setblock 3164 -60 -3 minecraft:lime_concrete
+setblock 3165 -60 -3 minecraft:green_concrete
+setblock 3166 -60 -3 minecraft:green_concrete
+setblock 3167 -60 -3 minecraft:green_concrete
+setblock 3168 -60 -3 minecraft:lime_concrete
+setblock 3169 -60 -3 minecraft:lime_concrete
+setblock 3162 -60 -2 minecraft:lime_concrete
+setblock 3163 -60 -2 minecraft:green_concrete
+setblock 3164 -60 -2 minecraft:green_concrete
+setblock 3165 -60 -2 minecraft:green_concrete
+setblock 3166 -60 -2 minecraft:green_concrete
+setblock 3167 -60 -2 minecraft:green_concrete
+setblock 3168 -60 -2 minecraft:lime_concrete
+setblock 3161 -60 -1 minecraft:lime_concrete
+setblock 3162 -60 -1 minecraft:green_concrete
+setblock 3163 -60 -1 minecraft:green_concrete
+setblock 3164 -60 -1 minecraft:green_concrete
+setblock 3165 -60 -1 minecraft:lime_concrete
+setblock 3166 -60 -1 minecraft:green_concrete
+setblock 3167 -60 -1 minecraft:green_concrete
+setblock 3168 -60 -1 minecraft:lime_concrete
+setblock 3161 -60 0 minecraft:lime_concrete
+setblock 3162 -60 0 minecraft:green_concrete
+setblock 3163 -60 0 minecraft:green_concrete
+setblock 3164 -60 0 minecraft:lime_concrete
+setblock 3165 -60 0 minecraft:green_concrete
+setblock 3166 -60 0 minecraft:green_concrete
+setblock 3167 -60 0 minecraft:lime_concrete
+setblock 3161 -60 1 minecraft:lime_concrete
+setblock 3162 -60 1 minecraft:green_concrete
+setblock 3163 -60 1 minecraft:lime_concrete
+setblock 3164 -60 1 minecraft:green_concrete
+setblock 3165 -60 1 minecraft:green_concrete
+setblock 3166 -60 1 minecraft:lime_concrete
+setblock 3167 -60 1 minecraft:lime_concrete
+setblock 3161 -60 2 minecraft:lime_concrete
+setblock 3162 -60 2 minecraft:lime_concrete
+setblock 3163 -60 2 minecraft:green_concrete
+setblock 3164 -60 2 minecraft:green_concrete
+setblock 3165 -60 2 minecraft:lime_concrete
+setblock 3166 -60 2 minecraft:lime_concrete
+setblock 3161 -60 3 minecraft:lime_concrete
+setblock 3163 -60 3 minecraft:lime_concrete
+setblock 3164 -60 3 minecraft:lime_concrete
+setblock 3160 -60 4 minecraft:lime_concrete
+fill 3154 -59 -14 3154 -59 14 minecraft:oak_planks
+fill 3155 -59 -14 3155 -59 14 minecraft:oak_stairs[facing=west]
+fill 3176 -59 -14 3176 -59 14 minecraft:oak_planks
+fill 3175 -59 -14 3175 -59 14 minecraft:oak_stairs[facing=east]
+fill 3152 -59 -14 3153 -59 14 minecraft:oak_planks
+fill 3152 -58 -14 3152 -58 14 minecraft:oak_planks
+fill 3153 -58 -14 3153 -58 14 minecraft:oak_stairs[facing=west]
+fill 3177 -59 -14 3178 -59 14 minecraft:oak_planks
+fill 3178 -58 -14 3178 -58 14 minecraft:oak_planks
+fill 3177 -58 -14 3177 -58 14 minecraft:oak_stairs[facing=east]
+fill 3151 -59 -14 3151 -58 14 minecraft:oak_planks
+fill 3151 -57 -14 3151 -57 14 minecraft:oak_stairs[facing=west]
+fill 3179 -59 -14 3179 -58 14 minecraft:oak_planks
+fill 3179 -57 -14 3179 -57 14 minecraft:oak_stairs[facing=east]
+fill 3162 -60 13 3168 -60 16 minecraft:quartz_block
+fill 3162 -59 16 3168 -59 16 minecraft:lime_concrete
+fill 3164 -60 -17 3166 -60 -17 minecraft:orange_stained_glass
+summon minecraft:text_display 3165.5 -57.5 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+summon minecraft:text_display 3165.5 -52 16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"4번 체육관 · 풀 타입","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+setblock 3152 -55 -16 minecraft:light[level=15]
+setblock 3152 -55 -12 minecraft:light[level=15]
+setblock 3152 -55 -8 minecraft:light[level=15]
+setblock 3152 -55 -4 minecraft:light[level=15]
+setblock 3152 -55 0 minecraft:light[level=15]
+setblock 3152 -55 4 minecraft:light[level=15]
+setblock 3152 -55 8 minecraft:light[level=15]
+setblock 3152 -55 12 minecraft:light[level=15]
+setblock 3152 -55 16 minecraft:light[level=15]
+setblock 3156 -55 -16 minecraft:light[level=15]
+setblock 3156 -55 -12 minecraft:light[level=15]
+setblock 3156 -55 -8 minecraft:light[level=15]
+setblock 3156 -55 -4 minecraft:light[level=15]
+setblock 3156 -55 0 minecraft:light[level=15]
+setblock 3156 -55 4 minecraft:light[level=15]
+setblock 3156 -55 8 minecraft:light[level=15]
+setblock 3156 -55 12 minecraft:light[level=15]
+setblock 3156 -55 16 minecraft:light[level=15]
+setblock 3160 -55 -16 minecraft:light[level=15]
+setblock 3160 -55 -12 minecraft:light[level=15]
+setblock 3160 -55 -8 minecraft:light[level=15]
+setblock 3160 -55 -4 minecraft:light[level=15]
+setblock 3160 -55 0 minecraft:light[level=15]
+setblock 3160 -55 4 minecraft:light[level=15]
+setblock 3160 -55 8 minecraft:light[level=15]
+setblock 3160 -55 12 minecraft:light[level=15]
+setblock 3160 -55 16 minecraft:light[level=15]
+setblock 3164 -55 -16 minecraft:light[level=15]
+setblock 3164 -55 -12 minecraft:light[level=15]
+setblock 3164 -55 -8 minecraft:light[level=15]
+setblock 3164 -55 -4 minecraft:light[level=15]
+setblock 3164 -55 0 minecraft:light[level=15]
+setblock 3164 -55 4 minecraft:light[level=15]
+setblock 3164 -55 8 minecraft:light[level=15]
+setblock 3164 -55 12 minecraft:light[level=15]
+setblock 3164 -55 16 minecraft:light[level=15]
+setblock 3168 -55 -16 minecraft:light[level=15]
+setblock 3168 -55 -12 minecraft:light[level=15]
+setblock 3168 -55 -8 minecraft:light[level=15]
+setblock 3168 -55 -4 minecraft:light[level=15]
+setblock 3168 -55 0 minecraft:light[level=15]
+setblock 3168 -55 4 minecraft:light[level=15]
+setblock 3168 -55 8 minecraft:light[level=15]
+setblock 3168 -55 12 minecraft:light[level=15]
+setblock 3168 -55 16 minecraft:light[level=15]
+setblock 3172 -55 -16 minecraft:light[level=15]
+setblock 3172 -55 -12 minecraft:light[level=15]
+setblock 3172 -55 -8 minecraft:light[level=15]
+setblock 3172 -55 -4 minecraft:light[level=15]
+setblock 3172 -55 0 minecraft:light[level=15]
+setblock 3172 -55 4 minecraft:light[level=15]
+setblock 3172 -55 8 minecraft:light[level=15]
+setblock 3172 -55 12 minecraft:light[level=15]
+setblock 3172 -55 16 minecraft:light[level=15]
+setblock 3176 -55 -16 minecraft:light[level=15]
+setblock 3176 -55 -12 minecraft:light[level=15]
+setblock 3176 -55 -8 minecraft:light[level=15]
+setblock 3176 -55 -4 minecraft:light[level=15]
+setblock 3176 -55 0 minecraft:light[level=15]
+setblock 3176 -55 4 minecraft:light[level=15]
+setblock 3176 -55 8 minecraft:light[level=15]
+setblock 3176 -55 12 minecraft:light[level=15]
+setblock 3176 -55 16 minecraft:light[level=15]
+setblock 3152 -50 -16 minecraft:light[level=15]
+setblock 3152 -50 -10 minecraft:light[level=15]
+setblock 3152 -50 -4 minecraft:light[level=15]
+setblock 3152 -50 2 minecraft:light[level=15]
+setblock 3152 -50 8 minecraft:light[level=15]
+setblock 3152 -50 14 minecraft:light[level=15]
+setblock 3158 -50 -16 minecraft:light[level=15]
+setblock 3158 -50 -10 minecraft:light[level=15]
+setblock 3158 -50 -4 minecraft:light[level=15]
+setblock 3158 -50 2 minecraft:light[level=15]
+setblock 3158 -50 8 minecraft:light[level=15]
+setblock 3158 -50 14 minecraft:light[level=15]
+setblock 3164 -50 -16 minecraft:light[level=15]
+setblock 3164 -50 -10 minecraft:light[level=15]
+setblock 3164 -50 -4 minecraft:light[level=15]
+setblock 3164 -50 2 minecraft:light[level=15]
+setblock 3164 -50 8 minecraft:light[level=15]
+setblock 3164 -50 14 minecraft:light[level=15]
+setblock 3170 -50 -16 minecraft:light[level=15]
+setblock 3170 -50 -10 minecraft:light[level=15]
+setblock 3170 -50 -4 minecraft:light[level=15]
+setblock 3170 -50 2 minecraft:light[level=15]
+setblock 3170 -50 8 minecraft:light[level=15]
+setblock 3170 -50 14 minecraft:light[level=15]
+setblock 3176 -50 -16 minecraft:light[level=15]
+setblock 3176 -50 -10 minecraft:light[level=15]
+setblock 3176 -50 -4 minecraft:light[level=15]
+setblock 3176 -50 2 minecraft:light[level=15]
+setblock 3176 -50 8 minecraft:light[level=15]
+setblock 3176 -50 14 minecraft:light[level=15]
+# ── 5번 경기장 (독) ──
+fill 3200 -61 -18 3230 -61 18 minecraft:bedrock
+fill 3200 -60 -18 3230 -60 18 minecraft:purpur_block
+fill 3201 -60 -17 3229 -60 17 minecraft:polished_andesite
+fill 3200 -59 -18 3230 -58 -18 minecraft:polished_blackstone_bricks
+fill 3200 -59 18 3230 -58 18 minecraft:polished_blackstone_bricks
+fill 3200 -59 -18 3200 -58 18 minecraft:polished_blackstone_bricks
+fill 3230 -59 -18 3230 -58 18 minecraft:polished_blackstone_bricks
+fill 3200 -57 -18 3230 -48 -18 minecraft:purpur_block
+fill 3200 -57 18 3230 -48 18 minecraft:purpur_block
+fill 3200 -57 -18 3200 -48 18 minecraft:purpur_block
+fill 3230 -57 -18 3230 -48 18 minecraft:purpur_block
+fill 3200 -59 -18 3200 -48 -18 minecraft:quartz_pillar
+fill 3200 -59 18 3200 -48 18 minecraft:quartz_pillar
+fill 3205 -59 -18 3205 -48 -18 minecraft:quartz_pillar
+fill 3205 -59 18 3205 -48 18 minecraft:quartz_pillar
+fill 3210 -59 -18 3210 -48 -18 minecraft:quartz_pillar
+fill 3210 -59 18 3210 -48 18 minecraft:quartz_pillar
+fill 3215 -59 -18 3215 -48 -18 minecraft:quartz_pillar
+fill 3215 -59 18 3215 -48 18 minecraft:quartz_pillar
+fill 3220 -59 -18 3220 -48 -18 minecraft:quartz_pillar
+fill 3220 -59 18 3220 -48 18 minecraft:quartz_pillar
+fill 3225 -59 -18 3225 -48 -18 minecraft:quartz_pillar
+fill 3225 -59 18 3225 -48 18 minecraft:quartz_pillar
+fill 3230 -59 -18 3230 -48 -18 minecraft:quartz_pillar
+fill 3230 -59 18 3230 -48 18 minecraft:quartz_pillar
+fill 3200 -59 -18 3200 -48 -18 minecraft:quartz_pillar
+fill 3230 -59 -18 3230 -48 -18 minecraft:quartz_pillar
+fill 3200 -59 -12 3200 -48 -12 minecraft:quartz_pillar
+fill 3230 -59 -12 3230 -48 -12 minecraft:quartz_pillar
+fill 3200 -59 -6 3200 -48 -6 minecraft:quartz_pillar
+fill 3230 -59 -6 3230 -48 -6 minecraft:quartz_pillar
+fill 3200 -59 0 3200 -48 0 minecraft:quartz_pillar
+fill 3230 -59 0 3230 -48 0 minecraft:quartz_pillar
+fill 3200 -59 6 3200 -48 6 minecraft:quartz_pillar
+fill 3230 -59 6 3230 -48 6 minecraft:quartz_pillar
+fill 3200 -59 12 3200 -48 12 minecraft:quartz_pillar
+fill 3230 -59 12 3230 -48 12 minecraft:quartz_pillar
+fill 3200 -59 18 3200 -48 18 minecraft:quartz_pillar
+fill 3230 -59 18 3230 -48 18 minecraft:quartz_pillar
+fill 3200 -47 -18 3230 -47 18 minecraft:purple_concrete
+fill 3201 -47 -17 3229 -47 -17 minecraft:pearlescent_froglight
+fill 3201 -47 -15 3229 -47 -15 minecraft:pearlescent_froglight
+fill 3201 -47 -13 3229 -47 -13 minecraft:pearlescent_froglight
+fill 3201 -47 -11 3229 -47 -11 minecraft:pearlescent_froglight
+fill 3201 -47 -9 3229 -47 -9 minecraft:pearlescent_froglight
+fill 3201 -47 -7 3229 -47 -7 minecraft:pearlescent_froglight
+fill 3201 -47 -5 3229 -47 -5 minecraft:pearlescent_froglight
+fill 3201 -47 -3 3229 -47 -3 minecraft:pearlescent_froglight
+fill 3201 -47 -1 3229 -47 -1 minecraft:pearlescent_froglight
+fill 3201 -47 1 3229 -47 1 minecraft:pearlescent_froglight
+fill 3201 -47 3 3229 -47 3 minecraft:pearlescent_froglight
+fill 3201 -47 5 3229 -47 5 minecraft:pearlescent_froglight
+fill 3201 -47 7 3229 -47 7 minecraft:pearlescent_froglight
+fill 3201 -47 9 3229 -47 9 minecraft:pearlescent_froglight
+fill 3201 -47 11 3229 -47 11 minecraft:pearlescent_froglight
+fill 3201 -47 13 3229 -47 13 minecraft:pearlescent_froglight
+fill 3201 -47 15 3229 -47 15 minecraft:pearlescent_froglight
+fill 3201 -47 17 3229 -47 17 minecraft:pearlescent_froglight
+setblock 3201 -54 -15 minecraft:lantern
+setblock 3229 -54 -15 minecraft:lantern
+setblock 3201 -54 -9 minecraft:lantern
+setblock 3229 -54 -9 minecraft:lantern
+setblock 3201 -54 -3 minecraft:lantern
+setblock 3229 -54 -3 minecraft:lantern
+setblock 3201 -54 3 minecraft:lantern
+setblock 3229 -54 3 minecraft:lantern
+setblock 3201 -54 9 minecraft:lantern
+setblock 3229 -54 9 minecraft:lantern
+setblock 3201 -54 15 minecraft:lantern
+setblock 3229 -54 15 minecraft:lantern
+fill 3208 -60 -12 3222 -60 12 minecraft:purple_terracotta
+fill 3208 -60 -12 3222 -60 -12 minecraft:quartz_block
+fill 3208 -60 12 3222 -60 12 minecraft:quartz_block
+fill 3208 -60 -12 3208 -60 12 minecraft:quartz_block
+fill 3222 -60 -12 3222 -60 12 minecraft:quartz_block
+fill 3208 -60 0 3222 -60 0 minecraft:quartz_block
+setblock 3213 -60 -5 minecraft:magenta_concrete
+setblock 3214 -60 -5 minecraft:magenta_concrete
+setblock 3215 -60 -5 minecraft:magenta_concrete
+setblock 3216 -60 -5 minecraft:magenta_concrete
+setblock 3217 -60 -5 minecraft:magenta_concrete
+setblock 3212 -60 -4 minecraft:magenta_concrete
+setblock 3213 -60 -4 minecraft:magenta_concrete
+setblock 3214 -60 -4 minecraft:magenta_concrete
+setblock 3215 -60 -4 minecraft:magenta_concrete
+setblock 3216 -60 -4 minecraft:magenta_concrete
+setblock 3217 -60 -4 minecraft:magenta_concrete
+setblock 3218 -60 -4 minecraft:magenta_concrete
+setblock 3211 -60 -3 minecraft:magenta_concrete
+setblock 3212 -60 -3 minecraft:magenta_concrete
+setblock 3213 -60 -3 minecraft:purple_concrete
+setblock 3214 -60 -3 minecraft:magenta_concrete
+setblock 3215 -60 -3 minecraft:magenta_concrete
+setblock 3216 -60 -3 minecraft:magenta_concrete
+setblock 3217 -60 -3 minecraft:purple_concrete
+setblock 3218 -60 -3 minecraft:magenta_concrete
+setblock 3219 -60 -3 minecraft:magenta_concrete
+setblock 3211 -60 -2 minecraft:magenta_concrete
+setblock 3212 -60 -2 minecraft:purple_concrete
+setblock 3213 -60 -2 minecraft:purple_concrete
+setblock 3214 -60 -2 minecraft:purple_concrete
+setblock 3215 -60 -2 minecraft:magenta_concrete
+setblock 3216 -60 -2 minecraft:purple_concrete
+setblock 3217 -60 -2 minecraft:purple_concrete
+setblock 3218 -60 -2 minecraft:purple_concrete
+setblock 3219 -60 -2 minecraft:magenta_concrete
+setblock 3211 -60 -1 minecraft:magenta_concrete
+setblock 3212 -60 -1 minecraft:magenta_concrete
+setblock 3213 -60 -1 minecraft:purple_concrete
+setblock 3214 -60 -1 minecraft:magenta_concrete
+setblock 3215 -60 -1 minecraft:magenta_concrete
+setblock 3216 -60 -1 minecraft:magenta_concrete
+setblock 3217 -60 -1 minecraft:purple_concrete
+setblock 3218 -60 -1 minecraft:magenta_concrete
+setblock 3219 -60 -1 minecraft:magenta_concrete
+setblock 3212 -60 0 minecraft:magenta_concrete
+setblock 3213 -60 0 minecraft:magenta_concrete
+setblock 3214 -60 0 minecraft:magenta_concrete
+setblock 3215 -60 0 minecraft:magenta_concrete
+setblock 3216 -60 0 minecraft:magenta_concrete
+setblock 3217 -60 0 minecraft:magenta_concrete
+setblock 3218 -60 0 minecraft:magenta_concrete
+setblock 3213 -60 1 minecraft:magenta_concrete
+setblock 3215 -60 1 minecraft:magenta_concrete
+setblock 3217 -60 1 minecraft:magenta_concrete
+setblock 3211 -60 3 minecraft:purple_concrete
+setblock 3219 -60 3 minecraft:purple_concrete
+setblock 3210 -60 4 minecraft:purple_concrete
+setblock 3211 -60 4 minecraft:purple_concrete
+setblock 3212 -60 4 minecraft:purple_concrete
+setblock 3218 -60 4 minecraft:purple_concrete
+setblock 3219 -60 4 minecraft:purple_concrete
+setblock 3220 -60 4 minecraft:purple_concrete
+setblock 3211 -60 5 minecraft:purple_concrete
+setblock 3219 -60 5 minecraft:purple_concrete
+fill 3204 -59 -14 3204 -59 14 minecraft:crimson_planks
+fill 3205 -59 -14 3205 -59 14 minecraft:crimson_stairs[facing=west]
+fill 3226 -59 -14 3226 -59 14 minecraft:crimson_planks
+fill 3225 -59 -14 3225 -59 14 minecraft:crimson_stairs[facing=east]
+fill 3202 -59 -14 3203 -59 14 minecraft:crimson_planks
+fill 3202 -58 -14 3202 -58 14 minecraft:crimson_planks
+fill 3203 -58 -14 3203 -58 14 minecraft:crimson_stairs[facing=west]
+fill 3227 -59 -14 3228 -59 14 minecraft:crimson_planks
+fill 3228 -58 -14 3228 -58 14 minecraft:crimson_planks
+fill 3227 -58 -14 3227 -58 14 minecraft:crimson_stairs[facing=east]
+fill 3201 -59 -14 3201 -58 14 minecraft:crimson_planks
+fill 3201 -57 -14 3201 -57 14 minecraft:crimson_stairs[facing=west]
+fill 3229 -59 -14 3229 -58 14 minecraft:crimson_planks
+fill 3229 -57 -14 3229 -57 14 minecraft:crimson_stairs[facing=east]
+fill 3212 -60 13 3218 -60 16 minecraft:quartz_block
+fill 3212 -59 16 3218 -59 16 minecraft:magenta_concrete
+fill 3214 -60 -17 3216 -60 -17 minecraft:orange_stained_glass
+summon minecraft:text_display 3215.5 -57.5 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+summon minecraft:text_display 3215.5 -52 16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"5번 체육관 · 독 타입","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+setblock 3202 -55 -16 minecraft:light[level=15]
+setblock 3202 -55 -12 minecraft:light[level=15]
+setblock 3202 -55 -8 minecraft:light[level=15]
+setblock 3202 -55 -4 minecraft:light[level=15]
+setblock 3202 -55 0 minecraft:light[level=15]
+setblock 3202 -55 4 minecraft:light[level=15]
+setblock 3202 -55 8 minecraft:light[level=15]
+setblock 3202 -55 12 minecraft:light[level=15]
+setblock 3202 -55 16 minecraft:light[level=15]
+setblock 3206 -55 -16 minecraft:light[level=15]
+setblock 3206 -55 -12 minecraft:light[level=15]
+setblock 3206 -55 -8 minecraft:light[level=15]
+setblock 3206 -55 -4 minecraft:light[level=15]
+setblock 3206 -55 0 minecraft:light[level=15]
+setblock 3206 -55 4 minecraft:light[level=15]
+setblock 3206 -55 8 minecraft:light[level=15]
+setblock 3206 -55 12 minecraft:light[level=15]
+setblock 3206 -55 16 minecraft:light[level=15]
+setblock 3210 -55 -16 minecraft:light[level=15]
+setblock 3210 -55 -12 minecraft:light[level=15]
+setblock 3210 -55 -8 minecraft:light[level=15]
+setblock 3210 -55 -4 minecraft:light[level=15]
+setblock 3210 -55 0 minecraft:light[level=15]
+setblock 3210 -55 4 minecraft:light[level=15]
+setblock 3210 -55 8 minecraft:light[level=15]
+setblock 3210 -55 12 minecraft:light[level=15]
+setblock 3210 -55 16 minecraft:light[level=15]
+setblock 3214 -55 -16 minecraft:light[level=15]
+setblock 3214 -55 -12 minecraft:light[level=15]
+setblock 3214 -55 -8 minecraft:light[level=15]
+setblock 3214 -55 -4 minecraft:light[level=15]
+setblock 3214 -55 0 minecraft:light[level=15]
+setblock 3214 -55 4 minecraft:light[level=15]
+setblock 3214 -55 8 minecraft:light[level=15]
+setblock 3214 -55 12 minecraft:light[level=15]
+setblock 3214 -55 16 minecraft:light[level=15]
+setblock 3218 -55 -16 minecraft:light[level=15]
+setblock 3218 -55 -12 minecraft:light[level=15]
+setblock 3218 -55 -8 minecraft:light[level=15]
+setblock 3218 -55 -4 minecraft:light[level=15]
+setblock 3218 -55 0 minecraft:light[level=15]
+setblock 3218 -55 4 minecraft:light[level=15]
+setblock 3218 -55 8 minecraft:light[level=15]
+setblock 3218 -55 12 minecraft:light[level=15]
+setblock 3218 -55 16 minecraft:light[level=15]
+setblock 3222 -55 -16 minecraft:light[level=15]
+setblock 3222 -55 -12 minecraft:light[level=15]
+setblock 3222 -55 -8 minecraft:light[level=15]
+setblock 3222 -55 -4 minecraft:light[level=15]
+setblock 3222 -55 0 minecraft:light[level=15]
+setblock 3222 -55 4 minecraft:light[level=15]
+setblock 3222 -55 8 minecraft:light[level=15]
+setblock 3222 -55 12 minecraft:light[level=15]
+setblock 3222 -55 16 minecraft:light[level=15]
+setblock 3226 -55 -16 minecraft:light[level=15]
+setblock 3226 -55 -12 minecraft:light[level=15]
+setblock 3226 -55 -8 minecraft:light[level=15]
+setblock 3226 -55 -4 minecraft:light[level=15]
+setblock 3226 -55 0 minecraft:light[level=15]
+setblock 3226 -55 4 minecraft:light[level=15]
+setblock 3226 -55 8 minecraft:light[level=15]
+setblock 3226 -55 12 minecraft:light[level=15]
+setblock 3226 -55 16 minecraft:light[level=15]
+setblock 3202 -50 -16 minecraft:light[level=15]
+setblock 3202 -50 -10 minecraft:light[level=15]
+setblock 3202 -50 -4 minecraft:light[level=15]
+setblock 3202 -50 2 minecraft:light[level=15]
+setblock 3202 -50 8 minecraft:light[level=15]
+setblock 3202 -50 14 minecraft:light[level=15]
+setblock 3208 -50 -16 minecraft:light[level=15]
+setblock 3208 -50 -10 minecraft:light[level=15]
+setblock 3208 -50 -4 minecraft:light[level=15]
+setblock 3208 -50 2 minecraft:light[level=15]
+setblock 3208 -50 8 minecraft:light[level=15]
+setblock 3208 -50 14 minecraft:light[level=15]
+setblock 3214 -50 -16 minecraft:light[level=15]
+setblock 3214 -50 -10 minecraft:light[level=15]
+setblock 3214 -50 -4 minecraft:light[level=15]
+setblock 3214 -50 2 minecraft:light[level=15]
+setblock 3214 -50 8 minecraft:light[level=15]
+setblock 3214 -50 14 minecraft:light[level=15]
+setblock 3220 -50 -16 minecraft:light[level=15]
+setblock 3220 -50 -10 minecraft:light[level=15]
+setblock 3220 -50 -4 minecraft:light[level=15]
+setblock 3220 -50 2 minecraft:light[level=15]
+setblock 3220 -50 8 minecraft:light[level=15]
+setblock 3220 -50 14 minecraft:light[level=15]
+setblock 3226 -50 -16 minecraft:light[level=15]
+setblock 3226 -50 -10 minecraft:light[level=15]
+setblock 3226 -50 -4 minecraft:light[level=15]
+setblock 3226 -50 2 minecraft:light[level=15]
+setblock 3226 -50 8 minecraft:light[level=15]
+setblock 3226 -50 14 minecraft:light[level=15]
+# ── 6번 경기장 (에스퍼) ──
+fill 3250 -61 -18 3280 -61 18 minecraft:bedrock
+fill 3250 -60 -18 3280 -60 18 minecraft:magenta_terracotta
+fill 3251 -60 -17 3279 -60 17 minecraft:polished_andesite
+fill 3250 -59 -18 3280 -58 -18 minecraft:purpur_pillar
+fill 3250 -59 18 3280 -58 18 minecraft:purpur_pillar
+fill 3250 -59 -18 3250 -58 18 minecraft:purpur_pillar
+fill 3280 -59 -18 3280 -58 18 minecraft:purpur_pillar
+fill 3250 -57 -18 3280 -48 -18 minecraft:magenta_terracotta
+fill 3250 -57 18 3280 -48 18 minecraft:magenta_terracotta
+fill 3250 -57 -18 3250 -48 18 minecraft:magenta_terracotta
+fill 3280 -57 -18 3280 -48 18 minecraft:magenta_terracotta
+fill 3250 -59 -18 3250 -48 -18 minecraft:quartz_pillar
+fill 3250 -59 18 3250 -48 18 minecraft:quartz_pillar
+fill 3255 -59 -18 3255 -48 -18 minecraft:quartz_pillar
+fill 3255 -59 18 3255 -48 18 minecraft:quartz_pillar
+fill 3260 -59 -18 3260 -48 -18 minecraft:quartz_pillar
+fill 3260 -59 18 3260 -48 18 minecraft:quartz_pillar
+fill 3265 -59 -18 3265 -48 -18 minecraft:quartz_pillar
+fill 3265 -59 18 3265 -48 18 minecraft:quartz_pillar
+fill 3270 -59 -18 3270 -48 -18 minecraft:quartz_pillar
+fill 3270 -59 18 3270 -48 18 minecraft:quartz_pillar
+fill 3275 -59 -18 3275 -48 -18 minecraft:quartz_pillar
+fill 3275 -59 18 3275 -48 18 minecraft:quartz_pillar
+fill 3280 -59 -18 3280 -48 -18 minecraft:quartz_pillar
+fill 3280 -59 18 3280 -48 18 minecraft:quartz_pillar
+fill 3250 -59 -18 3250 -48 -18 minecraft:quartz_pillar
+fill 3280 -59 -18 3280 -48 -18 minecraft:quartz_pillar
+fill 3250 -59 -12 3250 -48 -12 minecraft:quartz_pillar
+fill 3280 -59 -12 3280 -48 -12 minecraft:quartz_pillar
+fill 3250 -59 -6 3250 -48 -6 minecraft:quartz_pillar
+fill 3280 -59 -6 3280 -48 -6 minecraft:quartz_pillar
+fill 3250 -59 0 3250 -48 0 minecraft:quartz_pillar
+fill 3280 -59 0 3280 -48 0 minecraft:quartz_pillar
+fill 3250 -59 6 3250 -48 6 minecraft:quartz_pillar
+fill 3280 -59 6 3280 -48 6 minecraft:quartz_pillar
+fill 3250 -59 12 3250 -48 12 minecraft:quartz_pillar
+fill 3280 -59 12 3280 -48 12 minecraft:quartz_pillar
+fill 3250 -59 18 3250 -48 18 minecraft:quartz_pillar
+fill 3280 -59 18 3280 -48 18 minecraft:quartz_pillar
+fill 3250 -47 -18 3280 -47 18 minecraft:pink_concrete
+fill 3251 -47 -17 3279 -47 -17 minecraft:pearlescent_froglight
+fill 3251 -47 -15 3279 -47 -15 minecraft:pearlescent_froglight
+fill 3251 -47 -13 3279 -47 -13 minecraft:pearlescent_froglight
+fill 3251 -47 -11 3279 -47 -11 minecraft:pearlescent_froglight
+fill 3251 -47 -9 3279 -47 -9 minecraft:pearlescent_froglight
+fill 3251 -47 -7 3279 -47 -7 minecraft:pearlescent_froglight
+fill 3251 -47 -5 3279 -47 -5 minecraft:pearlescent_froglight
+fill 3251 -47 -3 3279 -47 -3 minecraft:pearlescent_froglight
+fill 3251 -47 -1 3279 -47 -1 minecraft:pearlescent_froglight
+fill 3251 -47 1 3279 -47 1 minecraft:pearlescent_froglight
+fill 3251 -47 3 3279 -47 3 minecraft:pearlescent_froglight
+fill 3251 -47 5 3279 -47 5 minecraft:pearlescent_froglight
+fill 3251 -47 7 3279 -47 7 minecraft:pearlescent_froglight
+fill 3251 -47 9 3279 -47 9 minecraft:pearlescent_froglight
+fill 3251 -47 11 3279 -47 11 minecraft:pearlescent_froglight
+fill 3251 -47 13 3279 -47 13 minecraft:pearlescent_froglight
+fill 3251 -47 15 3279 -47 15 minecraft:pearlescent_froglight
+fill 3251 -47 17 3279 -47 17 minecraft:pearlescent_froglight
+setblock 3251 -54 -15 minecraft:lantern
+setblock 3279 -54 -15 minecraft:lantern
+setblock 3251 -54 -9 minecraft:lantern
+setblock 3279 -54 -9 minecraft:lantern
+setblock 3251 -54 -3 minecraft:lantern
+setblock 3279 -54 -3 minecraft:lantern
+setblock 3251 -54 3 minecraft:lantern
+setblock 3279 -54 3 minecraft:lantern
+setblock 3251 -54 9 minecraft:lantern
+setblock 3279 -54 9 minecraft:lantern
+setblock 3251 -54 15 minecraft:lantern
+setblock 3279 -54 15 minecraft:lantern
+fill 3258 -60 -12 3272 -60 12 minecraft:pink_terracotta
+fill 3258 -60 -12 3272 -60 -12 minecraft:quartz_block
+fill 3258 -60 12 3272 -60 12 minecraft:quartz_block
+fill 3258 -60 -12 3258 -60 12 minecraft:quartz_block
+fill 3272 -60 -12 3272 -60 12 minecraft:quartz_block
+fill 3258 -60 0 3272 -60 0 minecraft:quartz_block
+setblock 3263 -60 -4 minecraft:magenta_concrete
+setblock 3264 -60 -4 minecraft:magenta_concrete
+setblock 3265 -60 -4 minecraft:magenta_concrete
+setblock 3266 -60 -4 minecraft:magenta_concrete
+setblock 3267 -60 -4 minecraft:magenta_concrete
+setblock 3261 -60 -3 minecraft:magenta_concrete
+setblock 3262 -60 -3 minecraft:magenta_concrete
+setblock 3268 -60 -3 minecraft:magenta_concrete
+setblock 3269 -60 -3 minecraft:magenta_concrete
+setblock 3260 -60 -2 minecraft:magenta_concrete
+setblock 3264 -60 -2 minecraft:magenta_concrete
+setblock 3265 -60 -2 minecraft:magenta_concrete
+setblock 3266 -60 -2 minecraft:magenta_concrete
+setblock 3270 -60 -2 minecraft:magenta_concrete
+setblock 3260 -60 -1 minecraft:magenta_concrete
+setblock 3263 -60 -1 minecraft:magenta_concrete
+setblock 3264 -60 -1 minecraft:white_concrete
+setblock 3265 -60 -1 minecraft:white_concrete
+setblock 3266 -60 -1 minecraft:white_concrete
+setblock 3267 -60 -1 minecraft:magenta_concrete
+setblock 3270 -60 -1 minecraft:magenta_concrete
+setblock 3260 -60 0 minecraft:magenta_concrete
+setblock 3263 -60 0 minecraft:magenta_concrete
+setblock 3264 -60 0 minecraft:white_concrete
+setblock 3265 -60 0 minecraft:magenta_concrete
+setblock 3266 -60 0 minecraft:white_concrete
+setblock 3267 -60 0 minecraft:magenta_concrete
+setblock 3270 -60 0 minecraft:magenta_concrete
+setblock 3260 -60 1 minecraft:magenta_concrete
+setblock 3263 -60 1 minecraft:magenta_concrete
+setblock 3264 -60 1 minecraft:white_concrete
+setblock 3265 -60 1 minecraft:white_concrete
+setblock 3266 -60 1 minecraft:white_concrete
+setblock 3267 -60 1 minecraft:magenta_concrete
+setblock 3270 -60 1 minecraft:magenta_concrete
+setblock 3260 -60 2 minecraft:magenta_concrete
+setblock 3264 -60 2 minecraft:magenta_concrete
+setblock 3265 -60 2 minecraft:magenta_concrete
+setblock 3266 -60 2 minecraft:magenta_concrete
+setblock 3270 -60 2 minecraft:magenta_concrete
+setblock 3261 -60 3 minecraft:magenta_concrete
+setblock 3262 -60 3 minecraft:magenta_concrete
+setblock 3268 -60 3 minecraft:magenta_concrete
+setblock 3269 -60 3 minecraft:magenta_concrete
+setblock 3263 -60 4 minecraft:magenta_concrete
+setblock 3264 -60 4 minecraft:magenta_concrete
+setblock 3265 -60 4 minecraft:magenta_concrete
+setblock 3266 -60 4 minecraft:magenta_concrete
+setblock 3267 -60 4 minecraft:magenta_concrete
+fill 3254 -59 -14 3254 -59 14 minecraft:cherry_planks
+fill 3255 -59 -14 3255 -59 14 minecraft:cherry_stairs[facing=west]
+fill 3276 -59 -14 3276 -59 14 minecraft:cherry_planks
+fill 3275 -59 -14 3275 -59 14 minecraft:cherry_stairs[facing=east]
+fill 3252 -59 -14 3253 -59 14 minecraft:cherry_planks
+fill 3252 -58 -14 3252 -58 14 minecraft:cherry_planks
+fill 3253 -58 -14 3253 -58 14 minecraft:cherry_stairs[facing=west]
+fill 3277 -59 -14 3278 -59 14 minecraft:cherry_planks
+fill 3278 -58 -14 3278 -58 14 minecraft:cherry_planks
+fill 3277 -58 -14 3277 -58 14 minecraft:cherry_stairs[facing=east]
+fill 3251 -59 -14 3251 -58 14 minecraft:cherry_planks
+fill 3251 -57 -14 3251 -57 14 minecraft:cherry_stairs[facing=west]
+fill 3279 -59 -14 3279 -58 14 minecraft:cherry_planks
+fill 3279 -57 -14 3279 -57 14 minecraft:cherry_stairs[facing=east]
+fill 3262 -60 13 3268 -60 16 minecraft:quartz_block
+fill 3262 -59 16 3268 -59 16 minecraft:magenta_concrete
+fill 3264 -60 -17 3266 -60 -17 minecraft:orange_stained_glass
+summon minecraft:text_display 3265.5 -57.5 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+summon minecraft:text_display 3265.5 -52 16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"6번 체육관 · 에스퍼 타입","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+setblock 3252 -55 -16 minecraft:light[level=15]
+setblock 3252 -55 -12 minecraft:light[level=15]
+setblock 3252 -55 -8 minecraft:light[level=15]
+setblock 3252 -55 -4 minecraft:light[level=15]
+setblock 3252 -55 0 minecraft:light[level=15]
+setblock 3252 -55 4 minecraft:light[level=15]
+setblock 3252 -55 8 minecraft:light[level=15]
+setblock 3252 -55 12 minecraft:light[level=15]
+setblock 3252 -55 16 minecraft:light[level=15]
+setblock 3256 -55 -16 minecraft:light[level=15]
+setblock 3256 -55 -12 minecraft:light[level=15]
+setblock 3256 -55 -8 minecraft:light[level=15]
+setblock 3256 -55 -4 minecraft:light[level=15]
+setblock 3256 -55 0 minecraft:light[level=15]
+setblock 3256 -55 4 minecraft:light[level=15]
+setblock 3256 -55 8 minecraft:light[level=15]
+setblock 3256 -55 12 minecraft:light[level=15]
+setblock 3256 -55 16 minecraft:light[level=15]
+setblock 3260 -55 -16 minecraft:light[level=15]
+setblock 3260 -55 -12 minecraft:light[level=15]
+setblock 3260 -55 -8 minecraft:light[level=15]
+setblock 3260 -55 -4 minecraft:light[level=15]
+setblock 3260 -55 0 minecraft:light[level=15]
+setblock 3260 -55 4 minecraft:light[level=15]
+setblock 3260 -55 8 minecraft:light[level=15]
+setblock 3260 -55 12 minecraft:light[level=15]
+setblock 3260 -55 16 minecraft:light[level=15]
+setblock 3264 -55 -16 minecraft:light[level=15]
+setblock 3264 -55 -12 minecraft:light[level=15]
+setblock 3264 -55 -8 minecraft:light[level=15]
+setblock 3264 -55 -4 minecraft:light[level=15]
+setblock 3264 -55 0 minecraft:light[level=15]
+setblock 3264 -55 4 minecraft:light[level=15]
+setblock 3264 -55 8 minecraft:light[level=15]
+setblock 3264 -55 12 minecraft:light[level=15]
+setblock 3264 -55 16 minecraft:light[level=15]
+setblock 3268 -55 -16 minecraft:light[level=15]
+setblock 3268 -55 -12 minecraft:light[level=15]
+setblock 3268 -55 -8 minecraft:light[level=15]
+setblock 3268 -55 -4 minecraft:light[level=15]
+setblock 3268 -55 0 minecraft:light[level=15]
+setblock 3268 -55 4 minecraft:light[level=15]
+setblock 3268 -55 8 minecraft:light[level=15]
+setblock 3268 -55 12 minecraft:light[level=15]
+setblock 3268 -55 16 minecraft:light[level=15]
+setblock 3272 -55 -16 minecraft:light[level=15]
+setblock 3272 -55 -12 minecraft:light[level=15]
+setblock 3272 -55 -8 minecraft:light[level=15]
+setblock 3272 -55 -4 minecraft:light[level=15]
+setblock 3272 -55 0 minecraft:light[level=15]
+setblock 3272 -55 4 minecraft:light[level=15]
+setblock 3272 -55 8 minecraft:light[level=15]
+setblock 3272 -55 12 minecraft:light[level=15]
+setblock 3272 -55 16 minecraft:light[level=15]
+setblock 3276 -55 -16 minecraft:light[level=15]
+setblock 3276 -55 -12 minecraft:light[level=15]
+setblock 3276 -55 -8 minecraft:light[level=15]
+setblock 3276 -55 -4 minecraft:light[level=15]
+setblock 3276 -55 0 minecraft:light[level=15]
+setblock 3276 -55 4 minecraft:light[level=15]
+setblock 3276 -55 8 minecraft:light[level=15]
+setblock 3276 -55 12 minecraft:light[level=15]
+setblock 3276 -55 16 minecraft:light[level=15]
+setblock 3252 -50 -16 minecraft:light[level=15]
+setblock 3252 -50 -10 minecraft:light[level=15]
+setblock 3252 -50 -4 minecraft:light[level=15]
+setblock 3252 -50 2 minecraft:light[level=15]
+setblock 3252 -50 8 minecraft:light[level=15]
+setblock 3252 -50 14 minecraft:light[level=15]
+setblock 3258 -50 -16 minecraft:light[level=15]
+setblock 3258 -50 -10 minecraft:light[level=15]
+setblock 3258 -50 -4 minecraft:light[level=15]
+setblock 3258 -50 2 minecraft:light[level=15]
+setblock 3258 -50 8 minecraft:light[level=15]
+setblock 3258 -50 14 minecraft:light[level=15]
+setblock 3264 -50 -16 minecraft:light[level=15]
+setblock 3264 -50 -10 minecraft:light[level=15]
+setblock 3264 -50 -4 minecraft:light[level=15]
+setblock 3264 -50 2 minecraft:light[level=15]
+setblock 3264 -50 8 minecraft:light[level=15]
+setblock 3264 -50 14 minecraft:light[level=15]
+setblock 3270 -50 -16 minecraft:light[level=15]
+setblock 3270 -50 -10 minecraft:light[level=15]
+setblock 3270 -50 -4 minecraft:light[level=15]
+setblock 3270 -50 2 minecraft:light[level=15]
+setblock 3270 -50 8 minecraft:light[level=15]
+setblock 3270 -50 14 minecraft:light[level=15]
+setblock 3276 -50 -16 minecraft:light[level=15]
+setblock 3276 -50 -10 minecraft:light[level=15]
+setblock 3276 -50 -4 minecraft:light[level=15]
+setblock 3276 -50 2 minecraft:light[level=15]
+setblock 3276 -50 8 minecraft:light[level=15]
+setblock 3276 -50 14 minecraft:light[level=15]
+# ── 7번 경기장 (불꽃) ──
+fill 3300 -61 -18 3330 -61 18 minecraft:bedrock
+fill 3300 -60 -18 3330 -60 18 minecraft:nether_bricks
+fill 3301 -60 -17 3329 -60 17 minecraft:polished_andesite
+fill 3300 -59 -18 3330 -58 -18 minecraft:magma_block
+fill 3300 -59 18 3330 -58 18 minecraft:magma_block
+fill 3300 -59 -18 3300 -58 18 minecraft:magma_block
+fill 3330 -59 -18 3330 -58 18 minecraft:magma_block
+fill 3300 -57 -18 3330 -48 -18 minecraft:nether_bricks
+fill 3300 -57 18 3330 -48 18 minecraft:nether_bricks
+fill 3300 -57 -18 3300 -48 18 minecraft:nether_bricks
+fill 3330 -57 -18 3330 -48 18 minecraft:nether_bricks
+fill 3300 -59 -18 3300 -48 -18 minecraft:quartz_pillar
+fill 3300 -59 18 3300 -48 18 minecraft:quartz_pillar
+fill 3305 -59 -18 3305 -48 -18 minecraft:quartz_pillar
+fill 3305 -59 18 3305 -48 18 minecraft:quartz_pillar
+fill 3310 -59 -18 3310 -48 -18 minecraft:quartz_pillar
+fill 3310 -59 18 3310 -48 18 minecraft:quartz_pillar
+fill 3315 -59 -18 3315 -48 -18 minecraft:quartz_pillar
+fill 3315 -59 18 3315 -48 18 minecraft:quartz_pillar
+fill 3320 -59 -18 3320 -48 -18 minecraft:quartz_pillar
+fill 3320 -59 18 3320 -48 18 minecraft:quartz_pillar
+fill 3325 -59 -18 3325 -48 -18 minecraft:quartz_pillar
+fill 3325 -59 18 3325 -48 18 minecraft:quartz_pillar
+fill 3330 -59 -18 3330 -48 -18 minecraft:quartz_pillar
+fill 3330 -59 18 3330 -48 18 minecraft:quartz_pillar
+fill 3300 -59 -18 3300 -48 -18 minecraft:quartz_pillar
+fill 3330 -59 -18 3330 -48 -18 minecraft:quartz_pillar
+fill 3300 -59 -12 3300 -48 -12 minecraft:quartz_pillar
+fill 3330 -59 -12 3330 -48 -12 minecraft:quartz_pillar
+fill 3300 -59 -6 3300 -48 -6 minecraft:quartz_pillar
+fill 3330 -59 -6 3330 -48 -6 minecraft:quartz_pillar
+fill 3300 -59 0 3300 -48 0 minecraft:quartz_pillar
+fill 3330 -59 0 3330 -48 0 minecraft:quartz_pillar
+fill 3300 -59 6 3300 -48 6 minecraft:quartz_pillar
+fill 3330 -59 6 3330 -48 6 minecraft:quartz_pillar
+fill 3300 -59 12 3300 -48 12 minecraft:quartz_pillar
+fill 3330 -59 12 3330 -48 12 minecraft:quartz_pillar
+fill 3300 -59 18 3300 -48 18 minecraft:quartz_pillar
+fill 3330 -59 18 3330 -48 18 minecraft:quartz_pillar
+fill 3300 -47 -18 3330 -47 18 minecraft:red_concrete
+fill 3301 -47 -17 3329 -47 -17 minecraft:shroomlight
+fill 3301 -47 -15 3329 -47 -15 minecraft:shroomlight
+fill 3301 -47 -13 3329 -47 -13 minecraft:shroomlight
+fill 3301 -47 -11 3329 -47 -11 minecraft:shroomlight
+fill 3301 -47 -9 3329 -47 -9 minecraft:shroomlight
+fill 3301 -47 -7 3329 -47 -7 minecraft:shroomlight
+fill 3301 -47 -5 3329 -47 -5 minecraft:shroomlight
+fill 3301 -47 -3 3329 -47 -3 minecraft:shroomlight
+fill 3301 -47 -1 3329 -47 -1 minecraft:shroomlight
+fill 3301 -47 1 3329 -47 1 minecraft:shroomlight
+fill 3301 -47 3 3329 -47 3 minecraft:shroomlight
+fill 3301 -47 5 3329 -47 5 minecraft:shroomlight
+fill 3301 -47 7 3329 -47 7 minecraft:shroomlight
+fill 3301 -47 9 3329 -47 9 minecraft:shroomlight
+fill 3301 -47 11 3329 -47 11 minecraft:shroomlight
+fill 3301 -47 13 3329 -47 13 minecraft:shroomlight
+fill 3301 -47 15 3329 -47 15 minecraft:shroomlight
+fill 3301 -47 17 3329 -47 17 minecraft:shroomlight
+setblock 3301 -54 -15 minecraft:lantern
+setblock 3329 -54 -15 minecraft:lantern
+setblock 3301 -54 -9 minecraft:lantern
+setblock 3329 -54 -9 minecraft:lantern
+setblock 3301 -54 -3 minecraft:lantern
+setblock 3329 -54 -3 minecraft:lantern
+setblock 3301 -54 3 minecraft:lantern
+setblock 3329 -54 3 minecraft:lantern
+setblock 3301 -54 9 minecraft:lantern
+setblock 3329 -54 9 minecraft:lantern
+setblock 3301 -54 15 minecraft:lantern
+setblock 3329 -54 15 minecraft:lantern
+fill 3308 -60 -12 3322 -60 12 minecraft:red_nether_bricks
+fill 3308 -60 -12 3322 -60 -12 minecraft:quartz_block
+fill 3308 -60 12 3322 -60 12 minecraft:quartz_block
+fill 3308 -60 -12 3308 -60 12 minecraft:quartz_block
+fill 3322 -60 -12 3322 -60 12 minecraft:quartz_block
+fill 3308 -60 0 3322 -60 0 minecraft:quartz_block
+setblock 3315 -60 -5 minecraft:orange_concrete
+setblock 3314 -60 -4 minecraft:orange_concrete
+setblock 3315 -60 -4 minecraft:orange_concrete
+setblock 3314 -60 -3 minecraft:orange_concrete
+setblock 3315 -60 -3 minecraft:orange_concrete
+setblock 3316 -60 -3 minecraft:orange_concrete
+setblock 3319 -60 -3 minecraft:orange_concrete
+setblock 3313 -60 -2 minecraft:orange_concrete
+setblock 3314 -60 -2 minecraft:orange_concrete
+setblock 3315 -60 -2 minecraft:orange_concrete
+setblock 3316 -60 -2 minecraft:orange_concrete
+setblock 3318 -60 -2 minecraft:orange_concrete
+setblock 3319 -60 -2 minecraft:orange_concrete
+setblock 3312 -60 -1 minecraft:orange_concrete
+setblock 3313 -60 -1 minecraft:orange_concrete
+setblock 3314 -60 -1 minecraft:yellow_concrete
+setblock 3315 -60 -1 minecraft:orange_concrete
+setblock 3316 -60 -1 minecraft:orange_concrete
+setblock 3317 -60 -1 minecraft:orange_concrete
+setblock 3318 -60 -1 minecraft:orange_concrete
+setblock 3311 -60 0 minecraft:orange_concrete
+setblock 3312 -60 0 minecraft:orange_concrete
+setblock 3313 -60 0 minecraft:yellow_concrete
+setblock 3314 -60 0 minecraft:yellow_concrete
+setblock 3315 -60 0 minecraft:orange_concrete
+setblock 3316 -60 0 minecraft:orange_concrete
+setblock 3317 -60 0 minecraft:orange_concrete
+setblock 3311 -60 1 minecraft:orange_concrete
+setblock 3312 -60 1 minecraft:yellow_concrete
+setblock 3313 -60 1 minecraft:yellow_concrete
+setblock 3314 -60 1 minecraft:yellow_concrete
+setblock 3315 -60 1 minecraft:orange_concrete
+setblock 3316 -60 1 minecraft:orange_concrete
+setblock 3317 -60 1 minecraft:yellow_concrete
+setblock 3318 -60 1 minecraft:orange_concrete
+setblock 3319 -60 1 minecraft:orange_concrete
+setblock 3311 -60 2 minecraft:orange_concrete
+setblock 3312 -60 2 minecraft:yellow_concrete
+setblock 3313 -60 2 minecraft:yellow_concrete
+setblock 3314 -60 2 minecraft:yellow_concrete
+setblock 3315 -60 2 minecraft:yellow_concrete
+setblock 3316 -60 2 minecraft:yellow_concrete
+setblock 3317 -60 2 minecraft:yellow_concrete
+setblock 3318 -60 2 minecraft:yellow_concrete
+setblock 3319 -60 2 minecraft:orange_concrete
+setblock 3311 -60 3 minecraft:orange_concrete
+setblock 3312 -60 3 minecraft:orange_concrete
+setblock 3313 -60 3 minecraft:yellow_concrete
+setblock 3314 -60 3 minecraft:yellow_concrete
+setblock 3315 -60 3 minecraft:yellow_concrete
+setblock 3316 -60 3 minecraft:yellow_concrete
+setblock 3317 -60 3 minecraft:yellow_concrete
+setblock 3318 -60 3 minecraft:orange_concrete
+setblock 3319 -60 3 minecraft:orange_concrete
+setblock 3312 -60 4 minecraft:orange_concrete
+setblock 3313 -60 4 minecraft:orange_concrete
+setblock 3314 -60 4 minecraft:yellow_concrete
+setblock 3315 -60 4 minecraft:yellow_concrete
+setblock 3316 -60 4 minecraft:yellow_concrete
+setblock 3317 -60 4 minecraft:orange_concrete
+setblock 3318 -60 4 minecraft:orange_concrete
+setblock 3313 -60 5 minecraft:orange_concrete
+setblock 3314 -60 5 minecraft:orange_concrete
+setblock 3315 -60 5 minecraft:orange_concrete
+setblock 3316 -60 5 minecraft:orange_concrete
+setblock 3317 -60 5 minecraft:orange_concrete
+fill 3304 -59 -14 3304 -59 14 minecraft:mangrove_planks
+fill 3305 -59 -14 3305 -59 14 minecraft:mangrove_stairs[facing=west]
+fill 3326 -59 -14 3326 -59 14 minecraft:mangrove_planks
+fill 3325 -59 -14 3325 -59 14 minecraft:mangrove_stairs[facing=east]
+fill 3302 -59 -14 3303 -59 14 minecraft:mangrove_planks
+fill 3302 -58 -14 3302 -58 14 minecraft:mangrove_planks
+fill 3303 -58 -14 3303 -58 14 minecraft:mangrove_stairs[facing=west]
+fill 3327 -59 -14 3328 -59 14 minecraft:mangrove_planks
+fill 3328 -58 -14 3328 -58 14 minecraft:mangrove_planks
+fill 3327 -58 -14 3327 -58 14 minecraft:mangrove_stairs[facing=east]
+fill 3301 -59 -14 3301 -58 14 minecraft:mangrove_planks
+fill 3301 -57 -14 3301 -57 14 minecraft:mangrove_stairs[facing=west]
+fill 3329 -59 -14 3329 -58 14 minecraft:mangrove_planks
+fill 3329 -57 -14 3329 -57 14 minecraft:mangrove_stairs[facing=east]
+fill 3312 -60 13 3318 -60 16 minecraft:quartz_block
+fill 3312 -59 16 3318 -59 16 minecraft:orange_concrete
+fill 3314 -60 -17 3316 -60 -17 minecraft:orange_stained_glass
+summon minecraft:text_display 3315.5 -57.5 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+summon minecraft:text_display 3315.5 -52 16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"7번 체육관 · 불꽃 타입","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+setblock 3302 -55 -16 minecraft:light[level=15]
+setblock 3302 -55 -12 minecraft:light[level=15]
+setblock 3302 -55 -8 minecraft:light[level=15]
+setblock 3302 -55 -4 minecraft:light[level=15]
+setblock 3302 -55 0 minecraft:light[level=15]
+setblock 3302 -55 4 minecraft:light[level=15]
+setblock 3302 -55 8 minecraft:light[level=15]
+setblock 3302 -55 12 minecraft:light[level=15]
+setblock 3302 -55 16 minecraft:light[level=15]
+setblock 3306 -55 -16 minecraft:light[level=15]
+setblock 3306 -55 -12 minecraft:light[level=15]
+setblock 3306 -55 -8 minecraft:light[level=15]
+setblock 3306 -55 -4 minecraft:light[level=15]
+setblock 3306 -55 0 minecraft:light[level=15]
+setblock 3306 -55 4 minecraft:light[level=15]
+setblock 3306 -55 8 minecraft:light[level=15]
+setblock 3306 -55 12 minecraft:light[level=15]
+setblock 3306 -55 16 minecraft:light[level=15]
+setblock 3310 -55 -16 minecraft:light[level=15]
+setblock 3310 -55 -12 minecraft:light[level=15]
+setblock 3310 -55 -8 minecraft:light[level=15]
+setblock 3310 -55 -4 minecraft:light[level=15]
+setblock 3310 -55 0 minecraft:light[level=15]
+setblock 3310 -55 4 minecraft:light[level=15]
+setblock 3310 -55 8 minecraft:light[level=15]
+setblock 3310 -55 12 minecraft:light[level=15]
+setblock 3310 -55 16 minecraft:light[level=15]
+setblock 3314 -55 -16 minecraft:light[level=15]
+setblock 3314 -55 -12 minecraft:light[level=15]
+setblock 3314 -55 -8 minecraft:light[level=15]
+setblock 3314 -55 -4 minecraft:light[level=15]
+setblock 3314 -55 0 minecraft:light[level=15]
+setblock 3314 -55 4 minecraft:light[level=15]
+setblock 3314 -55 8 minecraft:light[level=15]
+setblock 3314 -55 12 minecraft:light[level=15]
+setblock 3314 -55 16 minecraft:light[level=15]
+setblock 3318 -55 -16 minecraft:light[level=15]
+setblock 3318 -55 -12 minecraft:light[level=15]
+setblock 3318 -55 -8 minecraft:light[level=15]
+setblock 3318 -55 -4 minecraft:light[level=15]
+setblock 3318 -55 0 minecraft:light[level=15]
+setblock 3318 -55 4 minecraft:light[level=15]
+setblock 3318 -55 8 minecraft:light[level=15]
+setblock 3318 -55 12 minecraft:light[level=15]
+setblock 3318 -55 16 minecraft:light[level=15]
+setblock 3322 -55 -16 minecraft:light[level=15]
+setblock 3322 -55 -12 minecraft:light[level=15]
+setblock 3322 -55 -8 minecraft:light[level=15]
+setblock 3322 -55 -4 minecraft:light[level=15]
+setblock 3322 -55 0 minecraft:light[level=15]
+setblock 3322 -55 4 minecraft:light[level=15]
+setblock 3322 -55 8 minecraft:light[level=15]
+setblock 3322 -55 12 minecraft:light[level=15]
+setblock 3322 -55 16 minecraft:light[level=15]
+setblock 3326 -55 -16 minecraft:light[level=15]
+setblock 3326 -55 -12 minecraft:light[level=15]
+setblock 3326 -55 -8 minecraft:light[level=15]
+setblock 3326 -55 -4 minecraft:light[level=15]
+setblock 3326 -55 0 minecraft:light[level=15]
+setblock 3326 -55 4 minecraft:light[level=15]
+setblock 3326 -55 8 minecraft:light[level=15]
+setblock 3326 -55 12 minecraft:light[level=15]
+setblock 3326 -55 16 minecraft:light[level=15]
+setblock 3302 -50 -16 minecraft:light[level=15]
+setblock 3302 -50 -10 minecraft:light[level=15]
+setblock 3302 -50 -4 minecraft:light[level=15]
+setblock 3302 -50 2 minecraft:light[level=15]
+setblock 3302 -50 8 minecraft:light[level=15]
+setblock 3302 -50 14 minecraft:light[level=15]
+setblock 3308 -50 -16 minecraft:light[level=15]
+setblock 3308 -50 -10 minecraft:light[level=15]
+setblock 3308 -50 -4 minecraft:light[level=15]
+setblock 3308 -50 2 minecraft:light[level=15]
+setblock 3308 -50 8 minecraft:light[level=15]
+setblock 3308 -50 14 minecraft:light[level=15]
+setblock 3314 -50 -16 minecraft:light[level=15]
+setblock 3314 -50 -10 minecraft:light[level=15]
+setblock 3314 -50 -4 minecraft:light[level=15]
+setblock 3314 -50 2 minecraft:light[level=15]
+setblock 3314 -50 8 minecraft:light[level=15]
+setblock 3314 -50 14 minecraft:light[level=15]
+setblock 3320 -50 -16 minecraft:light[level=15]
+setblock 3320 -50 -10 minecraft:light[level=15]
+setblock 3320 -50 -4 minecraft:light[level=15]
+setblock 3320 -50 2 minecraft:light[level=15]
+setblock 3320 -50 8 minecraft:light[level=15]
+setblock 3320 -50 14 minecraft:light[level=15]
+setblock 3326 -50 -16 minecraft:light[level=15]
+setblock 3326 -50 -10 minecraft:light[level=15]
+setblock 3326 -50 -4 minecraft:light[level=15]
+setblock 3326 -50 2 minecraft:light[level=15]
+setblock 3326 -50 8 minecraft:light[level=15]
+setblock 3326 -50 14 minecraft:light[level=15]
+# ── 8번 경기장 (땅) ──
+fill 3350 -61 -18 3380 -61 18 minecraft:bedrock
+fill 3350 -60 -18 3380 -60 18 minecraft:terracotta
+fill 3351 -60 -17 3379 -60 17 minecraft:polished_andesite
+fill 3350 -59 -18 3380 -58 -18 minecraft:packed_mud
+fill 3350 -59 18 3380 -58 18 minecraft:packed_mud
+fill 3350 -59 -18 3350 -58 18 minecraft:packed_mud
+fill 3380 -59 -18 3380 -58 18 minecraft:packed_mud
+fill 3350 -57 -18 3380 -48 -18 minecraft:terracotta
+fill 3350 -57 18 3380 -48 18 minecraft:terracotta
+fill 3350 -57 -18 3350 -48 18 minecraft:terracotta
+fill 3380 -57 -18 3380 -48 18 minecraft:terracotta
+fill 3350 -59 -18 3350 -48 -18 minecraft:quartz_pillar
+fill 3350 -59 18 3350 -48 18 minecraft:quartz_pillar
+fill 3355 -59 -18 3355 -48 -18 minecraft:quartz_pillar
+fill 3355 -59 18 3355 -48 18 minecraft:quartz_pillar
+fill 3360 -59 -18 3360 -48 -18 minecraft:quartz_pillar
+fill 3360 -59 18 3360 -48 18 minecraft:quartz_pillar
+fill 3365 -59 -18 3365 -48 -18 minecraft:quartz_pillar
+fill 3365 -59 18 3365 -48 18 minecraft:quartz_pillar
+fill 3370 -59 -18 3370 -48 -18 minecraft:quartz_pillar
+fill 3370 -59 18 3370 -48 18 minecraft:quartz_pillar
+fill 3375 -59 -18 3375 -48 -18 minecraft:quartz_pillar
+fill 3375 -59 18 3375 -48 18 minecraft:quartz_pillar
+fill 3380 -59 -18 3380 -48 -18 minecraft:quartz_pillar
+fill 3380 -59 18 3380 -48 18 minecraft:quartz_pillar
+fill 3350 -59 -18 3350 -48 -18 minecraft:quartz_pillar
+fill 3380 -59 -18 3380 -48 -18 minecraft:quartz_pillar
+fill 3350 -59 -12 3350 -48 -12 minecraft:quartz_pillar
+fill 3380 -59 -12 3380 -48 -12 minecraft:quartz_pillar
+fill 3350 -59 -6 3350 -48 -6 minecraft:quartz_pillar
+fill 3380 -59 -6 3380 -48 -6 minecraft:quartz_pillar
+fill 3350 -59 0 3350 -48 0 minecraft:quartz_pillar
+fill 3380 -59 0 3380 -48 0 minecraft:quartz_pillar
+fill 3350 -59 6 3350 -48 6 minecraft:quartz_pillar
+fill 3380 -59 6 3380 -48 6 minecraft:quartz_pillar
+fill 3350 -59 12 3350 -48 12 minecraft:quartz_pillar
+fill 3380 -59 12 3380 -48 12 minecraft:quartz_pillar
+fill 3350 -59 18 3350 -48 18 minecraft:quartz_pillar
+fill 3380 -59 18 3380 -48 18 minecraft:quartz_pillar
+fill 3350 -47 -18 3380 -47 18 minecraft:brown_terracotta
+fill 3351 -47 -17 3379 -47 -17 minecraft:ochre_froglight
+fill 3351 -47 -15 3379 -47 -15 minecraft:ochre_froglight
+fill 3351 -47 -13 3379 -47 -13 minecraft:ochre_froglight
+fill 3351 -47 -11 3379 -47 -11 minecraft:ochre_froglight
+fill 3351 -47 -9 3379 -47 -9 minecraft:ochre_froglight
+fill 3351 -47 -7 3379 -47 -7 minecraft:ochre_froglight
+fill 3351 -47 -5 3379 -47 -5 minecraft:ochre_froglight
+fill 3351 -47 -3 3379 -47 -3 minecraft:ochre_froglight
+fill 3351 -47 -1 3379 -47 -1 minecraft:ochre_froglight
+fill 3351 -47 1 3379 -47 1 minecraft:ochre_froglight
+fill 3351 -47 3 3379 -47 3 minecraft:ochre_froglight
+fill 3351 -47 5 3379 -47 5 minecraft:ochre_froglight
+fill 3351 -47 7 3379 -47 7 minecraft:ochre_froglight
+fill 3351 -47 9 3379 -47 9 minecraft:ochre_froglight
+fill 3351 -47 11 3379 -47 11 minecraft:ochre_froglight
+fill 3351 -47 13 3379 -47 13 minecraft:ochre_froglight
+fill 3351 -47 15 3379 -47 15 minecraft:ochre_froglight
+fill 3351 -47 17 3379 -47 17 minecraft:ochre_froglight
+setblock 3351 -54 -15 minecraft:lantern
+setblock 3379 -54 -15 minecraft:lantern
+setblock 3351 -54 -9 minecraft:lantern
+setblock 3379 -54 -9 minecraft:lantern
+setblock 3351 -54 -3 minecraft:lantern
+setblock 3379 -54 -3 minecraft:lantern
+setblock 3351 -54 3 minecraft:lantern
+setblock 3379 -54 3 minecraft:lantern
+setblock 3351 -54 9 minecraft:lantern
+setblock 3379 -54 9 minecraft:lantern
+setblock 3351 -54 15 minecraft:lantern
+setblock 3379 -54 15 minecraft:lantern
+fill 3358 -60 -12 3372 -60 12 minecraft:coarse_dirt
+fill 3358 -60 -12 3372 -60 -12 minecraft:quartz_block
+fill 3358 -60 12 3372 -60 12 minecraft:quartz_block
+fill 3358 -60 -12 3358 -60 12 minecraft:quartz_block
+fill 3372 -60 -12 3372 -60 12 minecraft:quartz_block
+fill 3358 -60 0 3372 -60 0 minecraft:quartz_block
+setblock 3365 -60 -4 minecraft:brown_concrete
+setblock 3364 -60 -3 minecraft:brown_concrete
+setblock 3365 -60 -3 minecraft:brown_concrete
+setblock 3366 -60 -3 minecraft:brown_concrete
+setblock 3363 -60 -2 minecraft:brown_concrete
+setblock 3364 -60 -2 minecraft:brown_concrete
+setblock 3365 -60 -2 minecraft:orange_terracotta
+setblock 3366 -60 -2 minecraft:brown_concrete
+setblock 3367 -60 -2 minecraft:brown_concrete
+setblock 3362 -60 -1 minecraft:brown_concrete
+setblock 3363 -60 -1 minecraft:brown_concrete
+setblock 3364 -60 -1 minecraft:orange_terracotta
+setblock 3365 -60 -1 minecraft:orange_terracotta
+setblock 3366 -60 -1 minecraft:orange_terracotta
+setblock 3367 -60 -1 minecraft:brown_concrete
+setblock 3368 -60 -1 minecraft:brown_concrete
+setblock 3361 -60 0 minecraft:brown_concrete
+setblock 3362 -60 0 minecraft:brown_concrete
+setblock 3363 -60 0 minecraft:orange_terracotta
+setblock 3364 -60 0 minecraft:brown_concrete
+setblock 3365 -60 0 minecraft:orange_terracotta
+setblock 3366 -60 0 minecraft:orange_terracotta
+setblock 3367 -60 0 minecraft:orange_terracotta
+setblock 3368 -60 0 minecraft:brown_concrete
+setblock 3369 -60 0 minecraft:brown_concrete
+setblock 3360 -60 1 minecraft:brown_concrete
+setblock 3361 -60 1 minecraft:brown_concrete
+setblock 3362 -60 1 minecraft:orange_terracotta
+setblock 3363 -60 1 minecraft:brown_concrete
+setblock 3364 -60 1 minecraft:brown_concrete
+setblock 3365 -60 1 minecraft:brown_concrete
+setblock 3366 -60 1 minecraft:orange_terracotta
+setblock 3367 -60 1 minecraft:orange_terracotta
+setblock 3368 -60 1 minecraft:orange_terracotta
+setblock 3369 -60 1 minecraft:brown_concrete
+setblock 3370 -60 1 minecraft:brown_concrete
+setblock 3360 -60 2 minecraft:brown_concrete
+setblock 3361 -60 2 minecraft:orange_terracotta
+setblock 3362 -60 2 minecraft:orange_terracotta
+setblock 3363 -60 2 minecraft:orange_terracotta
+setblock 3364 -60 2 minecraft:orange_terracotta
+setblock 3365 -60 2 minecraft:orange_terracotta
+setblock 3366 -60 2 minecraft:brown_concrete
+setblock 3367 -60 2 minecraft:orange_terracotta
+setblock 3368 -60 2 minecraft:orange_terracotta
+setblock 3369 -60 2 minecraft:orange_terracotta
+setblock 3370 -60 2 minecraft:brown_concrete
+setblock 3360 -60 3 minecraft:brown_concrete
+setblock 3361 -60 3 minecraft:brown_concrete
+setblock 3362 -60 3 minecraft:brown_concrete
+setblock 3363 -60 3 minecraft:brown_concrete
+setblock 3364 -60 3 minecraft:brown_concrete
+setblock 3365 -60 3 minecraft:brown_concrete
+setblock 3366 -60 3 minecraft:brown_concrete
+setblock 3367 -60 3 minecraft:brown_concrete
+setblock 3368 -60 3 minecraft:brown_concrete
+setblock 3369 -60 3 minecraft:brown_concrete
+setblock 3370 -60 3 minecraft:brown_concrete
+setblock 3360 -60 4 minecraft:orange_terracotta
+setblock 3362 -60 4 minecraft:orange_terracotta
+setblock 3364 -60 4 minecraft:orange_terracotta
+setblock 3366 -60 4 minecraft:orange_terracotta
+setblock 3368 -60 4 minecraft:orange_terracotta
+setblock 3370 -60 4 minecraft:orange_terracotta
+setblock 3361 -60 5 minecraft:orange_terracotta
+setblock 3363 -60 5 minecraft:orange_terracotta
+setblock 3365 -60 5 minecraft:orange_terracotta
+setblock 3367 -60 5 minecraft:orange_terracotta
+setblock 3369 -60 5 minecraft:orange_terracotta
+fill 3354 -59 -14 3354 -59 14 minecraft:mud_bricks
+fill 3355 -59 -14 3355 -59 14 minecraft:mud_brick_stairs[facing=west]
+fill 3376 -59 -14 3376 -59 14 minecraft:mud_bricks
+fill 3375 -59 -14 3375 -59 14 minecraft:mud_brick_stairs[facing=east]
+fill 3352 -59 -14 3353 -59 14 minecraft:mud_bricks
+fill 3352 -58 -14 3352 -58 14 minecraft:mud_bricks
+fill 3353 -58 -14 3353 -58 14 minecraft:mud_brick_stairs[facing=west]
+fill 3377 -59 -14 3378 -59 14 minecraft:mud_bricks
+fill 3378 -58 -14 3378 -58 14 minecraft:mud_bricks
+fill 3377 -58 -14 3377 -58 14 minecraft:mud_brick_stairs[facing=east]
+fill 3351 -59 -14 3351 -58 14 minecraft:mud_bricks
+fill 3351 -57 -14 3351 -57 14 minecraft:mud_brick_stairs[facing=west]
+fill 3379 -59 -14 3379 -58 14 minecraft:mud_bricks
+fill 3379 -57 -14 3379 -57 14 minecraft:mud_brick_stairs[facing=east]
+fill 3362 -60 13 3368 -60 16 minecraft:quartz_block
+fill 3362 -59 16 3368 -59 16 minecraft:brown_concrete
+fill 3364 -60 -17 3366 -60 -17 minecraft:orange_stained_glass
+summon minecraft:text_display 3365.5 -57.5 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+summon minecraft:text_display 3365.5 -52 16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"8번 체육관 · 땅 타입","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+setblock 3352 -55 -16 minecraft:light[level=15]
+setblock 3352 -55 -12 minecraft:light[level=15]
+setblock 3352 -55 -8 minecraft:light[level=15]
+setblock 3352 -55 -4 minecraft:light[level=15]
+setblock 3352 -55 0 minecraft:light[level=15]
+setblock 3352 -55 4 minecraft:light[level=15]
+setblock 3352 -55 8 minecraft:light[level=15]
+setblock 3352 -55 12 minecraft:light[level=15]
+setblock 3352 -55 16 minecraft:light[level=15]
+setblock 3356 -55 -16 minecraft:light[level=15]
+setblock 3356 -55 -12 minecraft:light[level=15]
+setblock 3356 -55 -8 minecraft:light[level=15]
+setblock 3356 -55 -4 minecraft:light[level=15]
+setblock 3356 -55 0 minecraft:light[level=15]
+setblock 3356 -55 4 minecraft:light[level=15]
+setblock 3356 -55 8 minecraft:light[level=15]
+setblock 3356 -55 12 minecraft:light[level=15]
+setblock 3356 -55 16 minecraft:light[level=15]
+setblock 3360 -55 -16 minecraft:light[level=15]
+setblock 3360 -55 -12 minecraft:light[level=15]
+setblock 3360 -55 -8 minecraft:light[level=15]
+setblock 3360 -55 -4 minecraft:light[level=15]
+setblock 3360 -55 0 minecraft:light[level=15]
+setblock 3360 -55 4 minecraft:light[level=15]
+setblock 3360 -55 8 minecraft:light[level=15]
+setblock 3360 -55 12 minecraft:light[level=15]
+setblock 3360 -55 16 minecraft:light[level=15]
+setblock 3364 -55 -16 minecraft:light[level=15]
+setblock 3364 -55 -12 minecraft:light[level=15]
+setblock 3364 -55 -8 minecraft:light[level=15]
+setblock 3364 -55 -4 minecraft:light[level=15]
+setblock 3364 -55 0 minecraft:light[level=15]
+setblock 3364 -55 4 minecraft:light[level=15]
+setblock 3364 -55 8 minecraft:light[level=15]
+setblock 3364 -55 12 minecraft:light[level=15]
+setblock 3364 -55 16 minecraft:light[level=15]
+setblock 3368 -55 -16 minecraft:light[level=15]
+setblock 3368 -55 -12 minecraft:light[level=15]
+setblock 3368 -55 -8 minecraft:light[level=15]
+setblock 3368 -55 -4 minecraft:light[level=15]
+setblock 3368 -55 0 minecraft:light[level=15]
+setblock 3368 -55 4 minecraft:light[level=15]
+setblock 3368 -55 8 minecraft:light[level=15]
+setblock 3368 -55 12 minecraft:light[level=15]
+setblock 3368 -55 16 minecraft:light[level=15]
+setblock 3372 -55 -16 minecraft:light[level=15]
+setblock 3372 -55 -12 minecraft:light[level=15]
+setblock 3372 -55 -8 minecraft:light[level=15]
+setblock 3372 -55 -4 minecraft:light[level=15]
+setblock 3372 -55 0 minecraft:light[level=15]
+setblock 3372 -55 4 minecraft:light[level=15]
+setblock 3372 -55 8 minecraft:light[level=15]
+setblock 3372 -55 12 minecraft:light[level=15]
+setblock 3372 -55 16 minecraft:light[level=15]
+setblock 3376 -55 -16 minecraft:light[level=15]
+setblock 3376 -55 -12 minecraft:light[level=15]
+setblock 3376 -55 -8 minecraft:light[level=15]
+setblock 3376 -55 -4 minecraft:light[level=15]
+setblock 3376 -55 0 minecraft:light[level=15]
+setblock 3376 -55 4 minecraft:light[level=15]
+setblock 3376 -55 8 minecraft:light[level=15]
+setblock 3376 -55 12 minecraft:light[level=15]
+setblock 3376 -55 16 minecraft:light[level=15]
+setblock 3352 -50 -16 minecraft:light[level=15]
+setblock 3352 -50 -10 minecraft:light[level=15]
+setblock 3352 -50 -4 minecraft:light[level=15]
+setblock 3352 -50 2 minecraft:light[level=15]
+setblock 3352 -50 8 minecraft:light[level=15]
+setblock 3352 -50 14 minecraft:light[level=15]
+setblock 3358 -50 -16 minecraft:light[level=15]
+setblock 3358 -50 -10 minecraft:light[level=15]
+setblock 3358 -50 -4 minecraft:light[level=15]
+setblock 3358 -50 2 minecraft:light[level=15]
+setblock 3358 -50 8 minecraft:light[level=15]
+setblock 3358 -50 14 minecraft:light[level=15]
+setblock 3364 -50 -16 minecraft:light[level=15]
+setblock 3364 -50 -10 minecraft:light[level=15]
+setblock 3364 -50 -4 minecraft:light[level=15]
+setblock 3364 -50 2 minecraft:light[level=15]
+setblock 3364 -50 8 minecraft:light[level=15]
+setblock 3364 -50 14 minecraft:light[level=15]
+setblock 3370 -50 -16 minecraft:light[level=15]
+setblock 3370 -50 -10 minecraft:light[level=15]
+setblock 3370 -50 -4 minecraft:light[level=15]
+setblock 3370 -50 2 minecraft:light[level=15]
+setblock 3370 -50 8 minecraft:light[level=15]
+setblock 3370 -50 14 minecraft:light[level=15]
+setblock 3376 -50 -16 minecraft:light[level=15]
+setblock 3376 -50 -10 minecraft:light[level=15]
+setblock 3376 -50 -4 minecraft:light[level=15]
+setblock 3376 -50 2 minecraft:light[level=15]
+setblock 3376 -50 8 minecraft:light[level=15]
+setblock 3376 -50 14 minecraft:light[level=15]
+# ── 사천왕 본부 ──
+fill 3500 -61 -46 3540 -61 12 minecraft:bedrock
+fill 3500 -60 -46 3540 -60 12 minecraft:polished_andesite
+fill 3500 -59 -46 3540 -51 -46 minecraft:quartz_bricks
+fill 3500 -59 12 3540 -51 12 minecraft:quartz_bricks
+fill 3500 -59 -46 3500 -51 12 minecraft:quartz_bricks
+fill 3540 -59 -46 3540 -51 12 minecraft:quartz_bricks
+fill 3500 -59 -46 3500 -51 -46 minecraft:quartz_pillar
+fill 3540 -59 -46 3540 -51 -46 minecraft:quartz_pillar
+fill 3500 -59 -41 3500 -51 -41 minecraft:quartz_pillar
+fill 3540 -59 -41 3540 -51 -41 minecraft:quartz_pillar
+fill 3500 -59 -36 3500 -51 -36 minecraft:quartz_pillar
+fill 3540 -59 -36 3540 -51 -36 minecraft:quartz_pillar
+fill 3500 -59 -31 3500 -51 -31 minecraft:quartz_pillar
+fill 3540 -59 -31 3540 -51 -31 minecraft:quartz_pillar
+fill 3500 -59 -26 3500 -51 -26 minecraft:quartz_pillar
+fill 3540 -59 -26 3540 -51 -26 minecraft:quartz_pillar
+fill 3500 -59 -21 3500 -51 -21 minecraft:quartz_pillar
+fill 3540 -59 -21 3540 -51 -21 minecraft:quartz_pillar
+fill 3500 -59 -16 3500 -51 -16 minecraft:quartz_pillar
+fill 3540 -59 -16 3540 -51 -16 minecraft:quartz_pillar
+fill 3500 -59 -11 3500 -51 -11 minecraft:quartz_pillar
+fill 3540 -59 -11 3540 -51 -11 minecraft:quartz_pillar
+fill 3500 -59 -6 3500 -51 -6 minecraft:quartz_pillar
+fill 3540 -59 -6 3540 -51 -6 minecraft:quartz_pillar
+fill 3500 -59 -1 3500 -51 -1 minecraft:quartz_pillar
+fill 3540 -59 -1 3540 -51 -1 minecraft:quartz_pillar
+fill 3500 -59 4 3500 -51 4 minecraft:quartz_pillar
+fill 3540 -59 4 3540 -51 4 minecraft:quartz_pillar
+fill 3500 -59 9 3500 -51 9 minecraft:quartz_pillar
+fill 3540 -59 9 3540 -51 9 minecraft:quartz_pillar
+fill 3501 -60 -45 3539 -60 -35 minecraft:iron_block
+fill 3501 -51 -45 3539 -51 -35 minecraft:quartz_block
+fill 3501 -59 -34 3539 -51 -34 minecraft:quartz_bricks
+setblock 3503 -51 -43 minecraft:sea_lantern
+setblock 3503 -51 -37 minecraft:sea_lantern
+setblock 3506 -51 -43 minecraft:sea_lantern
+setblock 3506 -51 -37 minecraft:sea_lantern
+setblock 3509 -51 -43 minecraft:sea_lantern
+setblock 3509 -51 -37 minecraft:sea_lantern
+setblock 3512 -51 -43 minecraft:sea_lantern
+setblock 3512 -51 -37 minecraft:sea_lantern
+setblock 3515 -51 -43 minecraft:sea_lantern
+setblock 3515 -51 -37 minecraft:sea_lantern
+setblock 3518 -51 -43 minecraft:sea_lantern
+setblock 3518 -51 -37 minecraft:sea_lantern
+setblock 3521 -51 -43 minecraft:sea_lantern
+setblock 3521 -51 -37 minecraft:sea_lantern
+setblock 3524 -51 -43 minecraft:sea_lantern
+setblock 3524 -51 -37 minecraft:sea_lantern
+setblock 3527 -51 -43 minecraft:sea_lantern
+setblock 3527 -51 -37 minecraft:sea_lantern
+setblock 3530 -51 -43 minecraft:sea_lantern
+setblock 3530 -51 -37 minecraft:sea_lantern
+setblock 3533 -51 -43 minecraft:sea_lantern
+setblock 3533 -51 -37 minecraft:sea_lantern
+setblock 3536 -51 -43 minecraft:sea_lantern
+setblock 3536 -51 -37 minecraft:sea_lantern
+summon minecraft:text_display 3533.5 -55.8 -39.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.2f,1.2f,1.2f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"사천왕 1번째 방","color":"light_purple","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n역대 최강 챔피언","color":"gray","bold":false}]}'}
+fill 3501 -60 -34 3539 -60 -24 minecraft:purpur_block
+fill 3501 -51 -34 3539 -51 -24 minecraft:quartz_block
+fill 3501 -59 -23 3539 -51 -23 minecraft:quartz_bricks
+setblock 3503 -51 -32 minecraft:sea_lantern
+setblock 3503 -51 -26 minecraft:sea_lantern
+setblock 3506 -51 -32 minecraft:sea_lantern
+setblock 3506 -51 -26 minecraft:sea_lantern
+setblock 3509 -51 -32 minecraft:sea_lantern
+setblock 3509 -51 -26 minecraft:sea_lantern
+setblock 3512 -51 -32 minecraft:sea_lantern
+setblock 3512 -51 -26 minecraft:sea_lantern
+setblock 3515 -51 -32 minecraft:sea_lantern
+setblock 3515 -51 -26 minecraft:sea_lantern
+setblock 3518 -51 -32 minecraft:sea_lantern
+setblock 3518 -51 -26 minecraft:sea_lantern
+setblock 3521 -51 -32 minecraft:sea_lantern
+setblock 3521 -51 -26 minecraft:sea_lantern
+setblock 3524 -51 -32 minecraft:sea_lantern
+setblock 3524 -51 -26 minecraft:sea_lantern
+setblock 3527 -51 -32 minecraft:sea_lantern
+setblock 3527 -51 -26 minecraft:sea_lantern
+setblock 3530 -51 -32 minecraft:sea_lantern
+setblock 3530 -51 -26 minecraft:sea_lantern
+setblock 3533 -51 -32 minecraft:sea_lantern
+setblock 3533 -51 -26 minecraft:sea_lantern
+setblock 3536 -51 -32 minecraft:sea_lantern
+setblock 3536 -51 -26 minecraft:sea_lantern
+summon minecraft:text_display 3533.5 -55.8 -28.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.2f,1.2f,1.2f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"사천왕 2번째 방","color":"light_purple","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n역대 최강 챔피언","color":"gray","bold":false}]}'}
+fill 3501 -60 -23 3539 -60 -13 minecraft:blackstone
+fill 3501 -51 -23 3539 -51 -13 minecraft:quartz_block
+fill 3501 -59 -12 3539 -51 -12 minecraft:quartz_bricks
+setblock 3503 -51 -21 minecraft:sea_lantern
+setblock 3503 -51 -15 minecraft:sea_lantern
+setblock 3506 -51 -21 minecraft:sea_lantern
+setblock 3506 -51 -15 minecraft:sea_lantern
+setblock 3509 -51 -21 minecraft:sea_lantern
+setblock 3509 -51 -15 minecraft:sea_lantern
+setblock 3512 -51 -21 minecraft:sea_lantern
+setblock 3512 -51 -15 minecraft:sea_lantern
+setblock 3515 -51 -21 minecraft:sea_lantern
+setblock 3515 -51 -15 minecraft:sea_lantern
+setblock 3518 -51 -21 minecraft:sea_lantern
+setblock 3518 -51 -15 minecraft:sea_lantern
+setblock 3521 -51 -21 minecraft:sea_lantern
+setblock 3521 -51 -15 minecraft:sea_lantern
+setblock 3524 -51 -21 minecraft:sea_lantern
+setblock 3524 -51 -15 minecraft:sea_lantern
+setblock 3527 -51 -21 minecraft:sea_lantern
+setblock 3527 -51 -15 minecraft:sea_lantern
+setblock 3530 -51 -21 minecraft:sea_lantern
+setblock 3530 -51 -15 minecraft:sea_lantern
+setblock 3533 -51 -21 minecraft:sea_lantern
+setblock 3533 -51 -15 minecraft:sea_lantern
+setblock 3536 -51 -21 minecraft:sea_lantern
+setblock 3536 -51 -15 minecraft:sea_lantern
+summon minecraft:text_display 3533.5 -55.8 -17.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.2f,1.2f,1.2f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"사천왕 3번째 방","color":"light_purple","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n역대 최강 챔피언","color":"gray","bold":false}]}'}
+fill 3501 -60 -12 3539 -60 -2 minecraft:light_blue_concrete
+fill 3501 -51 -12 3539 -51 -2 minecraft:quartz_block
+fill 3501 -59 -1 3539 -51 -1 minecraft:quartz_bricks
+setblock 3503 -51 -10 minecraft:sea_lantern
+setblock 3503 -51 -4 minecraft:sea_lantern
+setblock 3506 -51 -10 minecraft:sea_lantern
+setblock 3506 -51 -4 minecraft:sea_lantern
+setblock 3509 -51 -10 minecraft:sea_lantern
+setblock 3509 -51 -4 minecraft:sea_lantern
+setblock 3512 -51 -10 minecraft:sea_lantern
+setblock 3512 -51 -4 minecraft:sea_lantern
+setblock 3515 -51 -10 minecraft:sea_lantern
+setblock 3515 -51 -4 minecraft:sea_lantern
+setblock 3518 -51 -10 minecraft:sea_lantern
+setblock 3518 -51 -4 minecraft:sea_lantern
+setblock 3521 -51 -10 minecraft:sea_lantern
+setblock 3521 -51 -4 minecraft:sea_lantern
+setblock 3524 -51 -10 minecraft:sea_lantern
+setblock 3524 -51 -4 minecraft:sea_lantern
+setblock 3527 -51 -10 minecraft:sea_lantern
+setblock 3527 -51 -4 minecraft:sea_lantern
+setblock 3530 -51 -10 minecraft:sea_lantern
+setblock 3530 -51 -4 minecraft:sea_lantern
+setblock 3533 -51 -10 minecraft:sea_lantern
+setblock 3533 -51 -4 minecraft:sea_lantern
+setblock 3536 -51 -10 minecraft:sea_lantern
+setblock 3536 -51 -4 minecraft:sea_lantern
+summon minecraft:text_display 3533.5 -55.8 -6.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.2f,1.2f,1.2f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"사천왕 4번째 방","color":"light_purple","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n역대 최강 챔피언","color":"gray","bold":false}]}'}
+fill 3501 -60 -1 3539 -60 9 minecraft:gold_block
+fill 3501 -51 -1 3539 -51 9 minecraft:quartz_block
+setblock 3503 -51 1 minecraft:sea_lantern
+setblock 3503 -51 7 minecraft:sea_lantern
+setblock 3506 -51 1 minecraft:sea_lantern
+setblock 3506 -51 7 minecraft:sea_lantern
+setblock 3509 -51 1 minecraft:sea_lantern
+setblock 3509 -51 7 minecraft:sea_lantern
+setblock 3512 -51 1 minecraft:sea_lantern
+setblock 3512 -51 7 minecraft:sea_lantern
+setblock 3515 -51 1 minecraft:sea_lantern
+setblock 3515 -51 7 minecraft:sea_lantern
+setblock 3518 -51 1 minecraft:sea_lantern
+setblock 3518 -51 7 minecraft:sea_lantern
+setblock 3521 -51 1 minecraft:sea_lantern
+setblock 3521 -51 7 minecraft:sea_lantern
+setblock 3524 -51 1 minecraft:sea_lantern
+setblock 3524 -51 7 minecraft:sea_lantern
+setblock 3527 -51 1 minecraft:sea_lantern
+setblock 3527 -51 7 minecraft:sea_lantern
+setblock 3530 -51 1 minecraft:sea_lantern
+setblock 3530 -51 7 minecraft:sea_lantern
+setblock 3533 -51 1 minecraft:sea_lantern
+setblock 3533 -51 7 minecraft:sea_lantern
+setblock 3536 -51 1 minecraft:sea_lantern
+setblock 3536 -51 7 minecraft:sea_lantern
+fill 3536 -59 1 3538 -57 7 minecraft:gold_block
+summon minecraft:text_display 3533.5 -56 4.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[2.0f,2.0f,2.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"명예의 전당","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n사천왕을 모두 이긴 트레이너","color":"gray","bold":false}]}'}
+fill 3502 -60 3 3502 -60 5 minecraft:orange_stained_glass
+summon minecraft:text_display 3502.5 -57.5 4.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+fill 3500 -50 -46 3540 -50 12 minecraft:purple_terracotta
+setblock 3502 -56 -44 minecraft:light[level=15]
+setblock 3502 -56 -40 minecraft:light[level=15]
+setblock 3502 -56 -36 minecraft:light[level=15]
+setblock 3502 -56 -32 minecraft:light[level=15]
+setblock 3502 -56 -28 minecraft:light[level=15]
+setblock 3502 -56 -24 minecraft:light[level=15]
+setblock 3502 -56 -20 minecraft:light[level=15]
+setblock 3502 -56 -16 minecraft:light[level=15]
+setblock 3502 -56 -12 minecraft:light[level=15]
+setblock 3502 -56 -8 minecraft:light[level=15]
+setblock 3502 -56 -4 minecraft:light[level=15]
+setblock 3502 -56 0 minecraft:light[level=15]
+setblock 3502 -56 4 minecraft:light[level=15]
+setblock 3502 -56 8 minecraft:light[level=15]
+setblock 3506 -56 -44 minecraft:light[level=15]
+setblock 3506 -56 -40 minecraft:light[level=15]
+setblock 3506 -56 -36 minecraft:light[level=15]
+setblock 3506 -56 -32 minecraft:light[level=15]
+setblock 3506 -56 -28 minecraft:light[level=15]
+setblock 3506 -56 -24 minecraft:light[level=15]
+setblock 3506 -56 -20 minecraft:light[level=15]
+setblock 3506 -56 -16 minecraft:light[level=15]
+setblock 3506 -56 -12 minecraft:light[level=15]
+setblock 3506 -56 -8 minecraft:light[level=15]
+setblock 3506 -56 -4 minecraft:light[level=15]
+setblock 3506 -56 0 minecraft:light[level=15]
+setblock 3506 -56 4 minecraft:light[level=15]
+setblock 3506 -56 8 minecraft:light[level=15]
+setblock 3510 -56 -44 minecraft:light[level=15]
+setblock 3510 -56 -40 minecraft:light[level=15]
+setblock 3510 -56 -36 minecraft:light[level=15]
+setblock 3510 -56 -32 minecraft:light[level=15]
+setblock 3510 -56 -28 minecraft:light[level=15]
+setblock 3510 -56 -24 minecraft:light[level=15]
+setblock 3510 -56 -20 minecraft:light[level=15]
+setblock 3510 -56 -16 minecraft:light[level=15]
+setblock 3510 -56 -12 minecraft:light[level=15]
+setblock 3510 -56 -8 minecraft:light[level=15]
+setblock 3510 -56 -4 minecraft:light[level=15]
+setblock 3510 -56 0 minecraft:light[level=15]
+setblock 3510 -56 4 minecraft:light[level=15]
+setblock 3510 -56 8 minecraft:light[level=15]
+setblock 3514 -56 -44 minecraft:light[level=15]
+setblock 3514 -56 -40 minecraft:light[level=15]
+setblock 3514 -56 -36 minecraft:light[level=15]
+setblock 3514 -56 -32 minecraft:light[level=15]
+setblock 3514 -56 -28 minecraft:light[level=15]
+setblock 3514 -56 -24 minecraft:light[level=15]
+setblock 3514 -56 -20 minecraft:light[level=15]
+setblock 3514 -56 -16 minecraft:light[level=15]
+setblock 3514 -56 -12 minecraft:light[level=15]
+setblock 3514 -56 -8 minecraft:light[level=15]
+setblock 3514 -56 -4 minecraft:light[level=15]
+setblock 3514 -56 0 minecraft:light[level=15]
+setblock 3514 -56 4 minecraft:light[level=15]
+setblock 3514 -56 8 minecraft:light[level=15]
+setblock 3518 -56 -44 minecraft:light[level=15]
+setblock 3518 -56 -40 minecraft:light[level=15]
+setblock 3518 -56 -36 minecraft:light[level=15]
+setblock 3518 -56 -32 minecraft:light[level=15]
+setblock 3518 -56 -28 minecraft:light[level=15]
+setblock 3518 -56 -24 minecraft:light[level=15]
+setblock 3518 -56 -20 minecraft:light[level=15]
+setblock 3518 -56 -16 minecraft:light[level=15]
+setblock 3518 -56 -12 minecraft:light[level=15]
+setblock 3518 -56 -8 minecraft:light[level=15]
+setblock 3518 -56 -4 minecraft:light[level=15]
+setblock 3518 -56 0 minecraft:light[level=15]
+setblock 3518 -56 4 minecraft:light[level=15]
+setblock 3518 -56 8 minecraft:light[level=15]
+setblock 3522 -56 -44 minecraft:light[level=15]
+setblock 3522 -56 -40 minecraft:light[level=15]
+setblock 3522 -56 -36 minecraft:light[level=15]
+setblock 3522 -56 -32 minecraft:light[level=15]
+setblock 3522 -56 -28 minecraft:light[level=15]
+setblock 3522 -56 -24 minecraft:light[level=15]
+setblock 3522 -56 -20 minecraft:light[level=15]
+setblock 3522 -56 -16 minecraft:light[level=15]
+setblock 3522 -56 -12 minecraft:light[level=15]
+setblock 3522 -56 -8 minecraft:light[level=15]
+setblock 3522 -56 -4 minecraft:light[level=15]
+setblock 3522 -56 0 minecraft:light[level=15]
+setblock 3522 -56 4 minecraft:light[level=15]
+setblock 3522 -56 8 minecraft:light[level=15]
+setblock 3526 -56 -44 minecraft:light[level=15]
+setblock 3526 -56 -40 minecraft:light[level=15]
+setblock 3526 -56 -36 minecraft:light[level=15]
+setblock 3526 -56 -32 minecraft:light[level=15]
+setblock 3526 -56 -28 minecraft:light[level=15]
+setblock 3526 -56 -24 minecraft:light[level=15]
+setblock 3526 -56 -20 minecraft:light[level=15]
+setblock 3526 -56 -16 minecraft:light[level=15]
+setblock 3526 -56 -12 minecraft:light[level=15]
+setblock 3526 -56 -8 minecraft:light[level=15]
+setblock 3526 -56 -4 minecraft:light[level=15]
+setblock 3526 -56 0 minecraft:light[level=15]
+setblock 3526 -56 4 minecraft:light[level=15]
+setblock 3526 -56 8 minecraft:light[level=15]
+setblock 3530 -56 -44 minecraft:light[level=15]
+setblock 3530 -56 -40 minecraft:light[level=15]
+setblock 3530 -56 -36 minecraft:light[level=15]
+setblock 3530 -56 -32 minecraft:light[level=15]
+setblock 3530 -56 -28 minecraft:light[level=15]
+setblock 3530 -56 -24 minecraft:light[level=15]
+setblock 3530 -56 -20 minecraft:light[level=15]
+setblock 3530 -56 -16 minecraft:light[level=15]
+setblock 3530 -56 -12 minecraft:light[level=15]
+setblock 3530 -56 -8 minecraft:light[level=15]
+setblock 3530 -56 -4 minecraft:light[level=15]
+setblock 3530 -56 0 minecraft:light[level=15]
+setblock 3530 -56 4 minecraft:light[level=15]
+setblock 3530 -56 8 minecraft:light[level=15]
+setblock 3534 -56 -44 minecraft:light[level=15]
+setblock 3534 -56 -40 minecraft:light[level=15]
+setblock 3534 -56 -36 minecraft:light[level=15]
+setblock 3534 -56 -32 minecraft:light[level=15]
+setblock 3534 -56 -28 minecraft:light[level=15]
+setblock 3534 -56 -24 minecraft:light[level=15]
+setblock 3534 -56 -20 minecraft:light[level=15]
+setblock 3534 -56 -16 minecraft:light[level=15]
+setblock 3534 -56 -12 minecraft:light[level=15]
+setblock 3534 -56 -8 minecraft:light[level=15]
+setblock 3534 -56 -4 minecraft:light[level=15]
+setblock 3534 -56 0 minecraft:light[level=15]
+setblock 3534 -56 4 minecraft:light[level=15]
+setblock 3534 -56 8 minecraft:light[level=15]
+setblock 3538 -56 -44 minecraft:light[level=15]
+setblock 3538 -56 -40 minecraft:light[level=15]
+setblock 3538 -56 -36 minecraft:light[level=15]
+setblock 3538 -56 -32 minecraft:light[level=15]
+setblock 3538 -56 -28 minecraft:light[level=15]
+setblock 3538 -56 -24 minecraft:light[level=15]
+setblock 3538 -56 -20 minecraft:light[level=15]
+setblock 3538 -56 -16 minecraft:light[level=15]
+setblock 3538 -56 -12 minecraft:light[level=15]
+setblock 3538 -56 -8 minecraft:light[level=15]
+setblock 3538 -56 -4 minecraft:light[level=15]
+setblock 3538 -56 0 minecraft:light[level=15]
+setblock 3538 -56 4 minecraft:light[level=15]
+setblock 3538 -56 8 minecraft:light[level=15]

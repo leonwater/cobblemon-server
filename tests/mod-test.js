@@ -11,10 +11,10 @@ const join = name => new Promise((res, rej) => {
 const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).catch(e => 'error: ' + e.message)
 
 ;(async () => {
-  const rc = await Rcon.connect({ host: 'localhost', port: 25577, password: 'test', timeout: 15000 })
+  const rc = await Rcon.connect({ host: 'localhost', port: 25577, password: 'test', timeout: 60000 })
   const cmd = async c => { const r = await rc.send(c); console.log('>', c, '→', r.slice(0, 200)); return r }
   // 농장·마을 짓기가 끝날 때까지 (짓는 동안엔 서버가 바빠 응답이 늦음)
-  for (let i = 0; i < 240 && !/build: 14.*farm: 3|farm: 3.*build: 14/.test(await cmd('data get storage poke:state')); i++) await sleep(500)
+  for (let i = 0; i < 240 && !/build: 15.*farm: 3|farm: 3.*build: 15/.test(await cmd('data get storage poke:state')); i++) await sleep(500)
 
   const A = await join('A'), B = await join('B'); await sleep(1000)
   const popups = []
@@ -103,7 +103,8 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   assert.equal(await bal('A'), 650); assert.equal(await bal('B'), 100, '송금')
   await cmd('execute as A run pay B 99999')
   assert.equal(await bal('A'), 650, '잔액보다 큰 송금은 안 됨')
-  assert.match(await cmd('execute as A run pay B -5'), /Invalid|must not be less|least/i, '음수 송금 불가')
+  await cmd('execute as A run pay B -5')
+  assert.equal(await bal('A'), 650, '음수 송금 불가'); assert.equal(await bal('B'), 100)
 
   // ── 5. 메인 메뉴 (G키) 서버 동작 ──
   const menus = []
@@ -113,12 +114,12 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   act('open'); await sleep(800)
   assert.equal(menus.length, 1, '메뉴 열기 패킷'); assert.ok(menus[0].toString('utf8').includes('관리자'), '공지 전달')
   act('warp:hall'); await sleep(800)
-  assert.equal(await dimOf('A'), 'poke:town', '메뉴 워프: 회의장')
+  assert.equal(await dimOf('A'), 'poke:wild', '15. 메뉴 워프: 광장 (야생)')
   act('warp:gym'); await sleep(800)
   assert.match(await cmd('data get entity A Pos[0]'), /2000\.5d$/, '메뉴 워프: 체육관 로비')
   act('warp:farm'); await sleep(800)
   assert.equal(await dimOf('A'), 'poke:farm', '메뉴 워프: 농장')
-  act('warp:street'); await sleep(500)
+  act('warp:gym'); await sleep(800)
   await cmd('tag A remove poke.tutorial_done')
   act('warp:farm'); await sleep(800)
   assert.equal(await dimOf('A'), 'poke:town', '튜토리얼 전에는 워프 막힘')
@@ -183,17 +184,17 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
 
   // 새 2. 텔레포트: 일반 사용자는 상대가 [예]를 눌러야 이동, 10초 지나면 취소
   const msgs = []; B.on('message', m => msgs.push(m.toString()))
-  await cmd('execute in poke:town run tp A 0.5 -59 -53.5'); await cmd('execute in poke:town run tp B 10.5 -59 -53.5'); await sleep(500)
-  A.chat('/텔포 B'); await sleep(800)
+  await cmd('execute in poke:town run tp A 2000.5 -56 -11.5'); await cmd('execute in poke:town run tp B 2006.5 -56 -11.5'); await sleep(500)
+  A.chat('/가기 B'); await sleep(800)
   assert.ok(msgs.some(m => m.includes('A님이 당신에게 오려고 해요') && m.includes('[예]') && m.includes('[아니요]')), '2. 상대에게 예/아니요가 뜸')
-  assert.match(await cmd('data get entity A Pos[0]'), /: 0\.5d/, '2. 동의 전엔 이동 안 함')
-  B.chat('/텔포 예'); await sleep(800)
-  assert.match(await cmd('data get entity A Pos[0]'), /10\.5d/, '2. [예]를 누르면 상대에게 이동')
-  await cmd('execute in poke:town run tp A 0.5 -59 -53.5'); await sleep(300)
-  A.chat('/텔포 B 여기로'); await sleep(11500)
+  assert.match(await cmd('data get entity A Pos[0]'), /: 2000\.5d/, '2. 동의 전엔 이동 안 함')
+  B.chat('/수락'); await sleep(800)
+  assert.match(await cmd('data get entity A Pos[0]'), /2006\.5d/, '2. [예]를 누르면 상대에게 이동')
+  await cmd('execute in poke:town run tp A 2000.5 -56 -11.5'); await sleep(300)
+  A.chat('/부르기 B'); await sleep(11500)
   assert.ok(msgs.some(m => m.includes('10초 동안 대답이 없어 취소')), '2. 10초가 지나면 자동 취소')
-  B.chat('/텔포 예'); await sleep(800)
-  assert.match(await cmd('data get entity B Pos[0]'), /10\.5d/, '2. 취소된 요청은 수락해도 이동 안 함')
+  B.chat('/수락'); await sleep(800)
+  assert.match(await cmd('data get entity B Pos[0]'), /2006\.5d/, '2. 취소된 요청은 수락해도 이동 안 함')
   console.log('> 새 2. 텔레포트 동의·10초 취소')
   // 7. /초기화는 OP만: 일반 사용자에겐 명령어가 없음 → 돈이 그대로
   const aMsgs = []; A.on('message', m => aMsgs.push(m.toString()))
@@ -201,6 +202,17 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   assert.equal(await bal('A'), balA, '7. 일반 사용자는 /초기화 불가')
   assert.ok(aMsgs.some(m => /Unknown|unknown|알 수 없/.test(m)), '7. 알 수 없는 명령어 안내')
   console.log('> 7. 초기화는 OP만')
+
+  // 15. 광장 마을: 모드가 자리·지형을 정하고 지음, 둘레 72칸은 수정 금지
+  for (let i = 0; i < 120 && !/built: 1/.test(await cmd('data get storage poke:state plaza')); i++) await sleep(1000)
+  const pz = (await cmd('data get storage poke:state plaza')).match(/x: (-?\d+), y: (-?\d+), z: (-?\d+)/)
+  assert.ok(pz, '15. 광장 자리 저장'); const [px, py, pzz] = pz.slice(1).map(Number)
+  await cmd(`execute in poke:wild run forceload add ${px} ${pzz}`); await sleep(1500)
+  assert.ok((await cmd(`execute in poke:wild if block ${px} ${py + 1} ${pzz} minecraft:quartz_pillar`)).includes('passed'), '15. 광장 분수 기둥')
+  await cmd(`execute in poke:wild run tp A ${px + 5}.5 ${py + 1} ${pzz + 20}.5 0 90`); await sleep(1500)
+  await within(A.dig(A.blockAt(new Vec3(px + 5, py, pzz + 21))), 3000)
+  assert.ok(!(await cmd(`execute in poke:wild if block ${px + 5} ${py} ${pzz + 21} minecraft:air`)).includes('passed'), '15. 광장 둘레 블록은 못 부숨')
+  console.log('> 15. 광장 마을·보호')
 
   console.log('ALL PASS'); A.quit(); B.quit(); await rc.end(); process.exit(0)
 })().catch(e => { console.error('FAIL', e.message); process.exit(1) })

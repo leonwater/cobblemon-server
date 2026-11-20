@@ -32,7 +32,9 @@ final class CobblemonHooks {
         CobblemonEvents.ENTITY_SPAWN.subscribe(Priority.NORMAL, e -> {
             if (!(e.getEntity() instanceof com.cobblemon.mod.common.entity.pokemon.PokemonEntity pe)) return Unit.INSTANCE;
             var level = e.getSpawnablePosition().getWorld();
-            if (!level.dimension().location().toString().equals("poke:wild")) { e.cancel(); return Unit.INSTANCE; }
+            if (!level.dimension().location().toString().equals("poke:wild") || Plaza.protects(level, e.getSpawnablePosition().getPosition())) {
+                e.cancel(); return Unit.INSTANCE;                         // 15. 광장 둘레(마을)엔 포켓몬이 안 나옴
+            }
             var mon = pe.getPokemon();
             boolean near = nearFirstSpawn(level.getServer(), e.getSpawnablePosition().getPosition());
             // 전설·환상·울트라비스트·패러독스(Complete Cobblemon Collection의 야생 출현)는 첫 스폰 근처에선 아예 안 나옴 (15레벨로 깎이면 너무 쉬움)
@@ -54,8 +56,8 @@ final class CobblemonHooks {
             return Unit.INSTANCE;
         });
         installStarters();
-        PokeServer.LOG.info("배틀 제한 등록: 야생·플레이어 배틀은 야생·광장에서만");
-        // 9. 야생·플레이어 배틀은 야생과 스폰 광장(회의장 섬)에서만. NPC(체육관 관장 등) 배틀은 어디서나.
+        PokeServer.LOG.info("배틀 제한 등록: 야생·플레이어 배틀은 야생(광장 포함)에서만");
+        // 9. 야생·플레이어 배틀은 야생(광장 마을 포함)에서만. NPC(체육관 관장 등) 배틀은 어디서나.
         CobblemonEvents.BATTLE_STARTED_PRE.subscribe(Priority.NORMAL, e -> {
             var b = e.getBattle();
             boolean outside = b.getPlayers().stream().anyMatch(p -> !battleArea(p));
@@ -83,10 +85,9 @@ final class CobblemonHooks {
         });
     }
 
-    /** 야생 또는 광장(poke:town 회의장 섬, tools/build_world.py HALL_PLAY). */
+    /** 야생 (광장 마을도 야생 안에 있음). */
     static boolean battleArea(net.minecraft.server.level.ServerPlayer p) {
-        String dim = p.level().dimension().location().toString();
-        return dim.equals("poke:wild") || dim.equals("poke:town") && p.getX() >= -66 && p.getX() < 67 && p.getZ() >= -122 && p.getZ() < 35;
+        return p.level().dimension().location().toString().equals("poke:wild");
     }
 
     static final int SAFE_LEVEL = 15, SAFE_RADIUS = 200;
@@ -219,6 +220,14 @@ final class CobblemonHooks {
             return d.getPokemon().getSpecies();
         }
         return null;
+    }
+
+    /** 도감: 잡은(OWNED) 종 수. */
+    static int caught(net.minecraft.server.level.ServerPlayer p) {
+        int n = 0;
+        for (var r : com.cobblemon.mod.common.Cobblemon.INSTANCE.getPlayerDataManager().getPokedexData(p).getSpeciesRecords().values())
+            if (r.getKnowledge() == com.cobblemon.mod.common.api.pokedex.PokedexEntryProgress.OWNED) n++;
+        return n;
     }
 
     static boolean nearFirstSpawn(MinecraftServer server, net.minecraft.core.BlockPos pos) {

@@ -59,6 +59,7 @@ public final class Farms {
 
     /** 이 위치를 왜 편집할 수 없는지: 체력바 위 알림 문구. */
     public static Component denyReason(Level level, BlockPos pos) {
+        if (Plaza.protects(level, pos)) return Component.literal("광장 둘레는 수정할 수 없어요").withStyle(ChatFormatting.RED);
         if (!isFarm(level)) return Component.literal("블록은 야생에서만 캘 수 있어요").withStyle(ChatFormatting.RED);
         Plot p = plotAt(pos);
         if (p == null) return Component.literal("공용 길은 편집할 수 없습니다").withStyle(ChatFormatting.RED);
@@ -76,8 +77,8 @@ public final class Farms {
     /** 이 위치를 편집해도 되는가: 야생은 누구나, 농장은 자기 땅만, 나머지는 불가. 관리자는 크리에이티브일 때만 예외. */
     public static boolean canEdit(Player player, Level level, BlockPos pos) {
         // 클라이언트는 땅 주인 목록이 없으므로 판단은 서버에 맡김 (서버가 막으면 블록이 되돌아감)
-        if (level.isClientSide() || level.dimension().location().toString().equals("poke:wild")
-                || player.isCreative() && player.hasPermissions(2)) return true;
+        if (level.isClientSide() || player.isCreative() && player.hasPermissions(2)) return true;
+        if (level.dimension().location().toString().equals("poke:wild")) return !Plaza.protects(level, pos);   // 15. 광장 둘레만 막음
         if (!isFarm(level)) return false;
         Plot p = plotAt(pos);
         if (p == null) return false;

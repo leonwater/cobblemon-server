@@ -3,6 +3,8 @@
 execute if score @s poke.gym matches 1.. run return 0
 execute if entity @s[tag=poke.e4clear] run return run function poke:gym/deny/9 {msg:"이미 사천왕을 모두 이겼어요. 다시 도전할 수 없어요."}
 execute unless entity @s[tag=poke.badge8] run return run function poke:gym/deny/9 {msg:"배지 8개를 모두 모아야 사천왕에 도전할 수 있어요."}
+execute store result score #now poke.gymcd run time query gametime
+execute if score @s poke.gymcd > #now poke.gymcd run return run function poke:gym/deny/9 {msg:"관장에게 진 뒤 5분 동안은 다시 도전할 수 없어요."}
 execute if entity @a[scores={poke.gym=9}] run return run function poke:gym/deny/9 {msg:"다른 도전자가 사천왕에 도전 중이에요. 잠시 후 다시 와 주세요."}
 scoreboard players set @s poke.gym 9
 scoreboard players set @s poke.e4 0

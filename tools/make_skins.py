@@ -468,6 +468,11 @@ def trainer_red_ps():
 
 LEADERS = (leader_brock_ps, leader_misty_ps, leader_lt_surge_ps, leader_erika_ps, leader_koga_ps, leader_sabrina_ps,
            leader_blaine_ps, leader_giovanni_ps, champion_cynthia_ps, trainer_red_ps)
+# RCT 트레이너 ID (진행도·레벨 제한이 이 ID를 씀 → 바꾸지 않고, 같은 경로의 스킨만 우리 모드가 덮어씀)
+RCT_ID = {'leader_brock_ps': 'leader_brock_019e', 'leader_misty_ps': 'leader_misty_019f', 'leader_lt_surge_ps': 'leader_lt_surge_01a0',
+          'leader_erika_ps': 'leader_erika_01a1', 'leader_koga_ps': 'leader_koga_01a2', 'leader_sabrina_ps': 'leader_sabrina_01a4',
+          'leader_blaine_ps': 'leader_blaine_01a3', 'leader_giovanni_ps': 'leader_giovanni_015e',
+          'champion_cynthia_ps': 'champion_cynthia_03a5', 'trainer_red_ps': 'trainer_red_0003'}
 
 if __name__ == '__main__' and sys.argv[1:2] == ['--preview']:
     # 적용하지 않고 미리보기 폴더에만: python3 tools/make_skins.py --preview <폴더>
@@ -496,3 +501,10 @@ elif __name__ == '__main__':
     for make in (champion_leon_ps, champion_steven_ps):
         make().save(rct / f'{make.__name__}.png')
         print('skin', make.__name__)
+    # 3. 관장·챔피언 원작풍 스킨: RCT 모드의 같은 경로 그림이 우리 모드 것보다 우선이라, 항상 켜지는 내장 리소스팩으로 덮어씀
+    pack = OUT.parent.parent / 'resourcepacks/leaders/assets/rctmod/textures/trainers/single'
+    pack.mkdir(parents=True, exist_ok=True)
+    for make in LEADERS:
+        (rct / f'{RCT_ID[make.__name__]}.png').unlink(missing_ok=True)
+        make().save(pack / f'{RCT_ID[make.__name__]}.png')
+        print('skin', RCT_ID[make.__name__])

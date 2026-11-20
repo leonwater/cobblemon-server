@@ -30,6 +30,9 @@ public class PokeServer implements ModInitializer {
         PayloadTypeRegistry.playC2S().register(Net.ClaimConfirm.TYPE, Net.ClaimConfirm.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.ShopOpen.TYPE, Net.ShopOpen.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.Balance.TYPE, Net.Balance.CODEC);
+        PayloadTypeRegistry.playS2C().register(Net.Names.TYPE, Net.Names.CODEC);
+        PayloadTypeRegistry.playS2C().register(Net.Hud.TYPE, Net.Hud.CODEC);
+        net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents.JOIN.register((h, s, server) -> Nicknames.join());
         PayloadTypeRegistry.playC2S().register(Net.ShopTrade.TYPE, Net.ShopTrade.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.MenuOpen.TYPE, Net.MenuOpen.CODEC);
         PayloadTypeRegistry.playC2S().register(Net.MenuAction.TYPE, Net.MenuAction.CODEC);
@@ -46,10 +49,11 @@ public class PokeServer implements ModInitializer {
         ServerPlayNetworking.registerGlobalReceiver(Net.ShopTrade.TYPE, (t, ctx) -> ctx.player().server.execute(
                 () -> Shop.trade(ctx.player(), t.sell(), t.category(), t.item(), t.qty())));
 
-        ServerLifecycleEvents.SERVER_STARTED.register(server -> { Farms.load(); Shop.load(); Menu.load(); Gym.load(); });
+        ServerLifecycleEvents.SERVER_STARTED.register(server -> { Farms.load(); Shop.load(); Menu.load(); Gym.load(); Plaza.start(server); });
         ServerTickEvents.END_SERVER_TICK.register(server -> {
+            Plaza.tick(server);
             if (server.getTickCount() % 100 == 0) Farms.refreshLabels(server);
-            if (server.getTickCount() % 20 == 0) Teleport.tick(server);
+            if (server.getTickCount() % 20 == 0) { Teleport.tick(server); Nicknames.tick(server); }
             if (server.getTickCount() % 200 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.reapply(server);
             if (server.getTickCount() % 20 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.starterLocks(server);
             if (server.getTickCount() % CobblemonHooks.LEGEND_TICKS == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.spawnLegend(server);
@@ -70,19 +74,34 @@ public class PokeServer implements ModInitializer {
         CommandRegistrationCallback.EVENT.register((dispatcher, registries, env) -> {
             dispatcher.register(admin());
             Teleport.register(dispatcher);
+            // 4·5. 명령어는 한국어·영어 둘 다 (같은 일)
             for (String name : new String[]{"money", "돈"}) dispatcher.register(Commands.literal(name).executes(PokeServer::balance));
+            for (String name : new String[]{"spawn", "광장"}) dispatcher.register(Commands.literal(name).executes(c -> {
+                Menu.run(c.getSource().getPlayerOrException(), "function poke:home"); return 1; }));
+            for (String name : new String[]{"menu", "메뉴"}) dispatcher.register(Commands.literal(name).executes(c -> {
+                Menu.action(c.getSource().getPlayerOrException(), "open"); return 1; }));
+            for (String name : new String[]{"commands", "명령어"}) dispatcher.register(Commands.literal(name).executes(c -> {
+                for (String line : HELP) c.getSource().sendSystemMessage(Component.literal(line).withStyle(line.startsWith("──") ? ChatFormatting.GOLD : ChatFormatting.WHITE));
+                return 1; }));
             // 전체 초기화 (자기 자신만, OP만): /초기화 → 안내, /초기화 확인 → 실행
-            dispatcher.register(Commands.literal("초기화").requires(s -> s.hasPermission(2)).executes(c -> {
+            for (String[] n : new String[][]{{"초기화", "확인"}, {"reset", "confirm"}}) dispatcher.register(Commands.literal(n[0]).requires(s -> s.hasPermission(2)).executes(c -> {
                 c.getSource().sendSuccess(() -> Component.literal("가진 아이템·돈·농장 땅·포켓몬·배지가 모두 사라지고 튜토리얼부터 다시 시작합니다. "
-                        + "정말 하려면  /초기화 확인  을 입력하세요.").withStyle(ChatFormatting.RED), false);
+                        + "정말 하려면  /" + n[0] + " " + n[1] + "  을 입력하세요.").withStyle(ChatFormatting.RED), false);
                 return 0;
-            }).then(Commands.literal("확인").executes(c -> { Menu.wipe(c.getSource().getPlayerOrException()); return 1; })));
+            }).then(Commands.literal(n[1]).executes(c -> { Menu.wipe(c.getSource().getPlayerOrException()); return 1; })));
+            // /송금 닉네임 금액 (닉네임은 한글도 되게 한 덩어리로 받아 마지막 칸을 금액으로)
             for (String name : new String[]{"pay", "송금"}) dispatcher.register(Commands.literal(name)
-                    .then(Commands.argument("player", EntityArgument.player())
-                            .then(Commands.argument("amount", LongArgumentType.longArg(1)).executes(PokeServer::pay))));
+                    .then(Commands.argument("args", com.mojang.brigadier.arguments.StringArgumentType.greedyString()).suggests(Nicknames::suggest).executes(PokeServer::pay)));
         });
         LOG.info("pokeserver loaded");
     }
+
+    /** /명령어 (/commands) 와 G 메뉴 "명령어" 버튼이 보여 주는 목록. */
+    static final String[] HELP = {"── 명령어 (한국어 / English) ──", "G 키: 메인 메뉴  ·  /메뉴 /menu",
+            "/돈 /money: 잔액", "/송금 /pay 닉네임 금액: 돈 보내기",
+            "/가기 /tpa 닉네임: 그 사람에게 이동 (상대 동의)", "/부르기 /tpahere 닉네임: 내 쪽으로 부르기 (상대 동의)",
+            "/수락 /accept · /거절 /deny: 텔레포트 요청에 대답", "/광장 /spawn: 광장으로", "/명령어 /commands: 이 목록",
+            "R 키: 포켓몬 꺼내기 · M 키: 상태창 · ↑↓: 파티 선택"};
 
     static int balance(CommandContext<CommandSourceStack> c) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
         ServerPlayer p = c.getSource().getPlayerOrException();
@@ -93,13 +112,17 @@ public class PokeServer implements ModInitializer {
 
     static int pay(CommandContext<CommandSourceStack> c) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
         ServerPlayer from = c.getSource().getPlayerOrException();
-        ServerPlayer to = EntityArgument.getPlayer(c, "player");
-        long amount = LongArgumentType.getLong(c, "amount");
+        String args = com.mojang.brigadier.arguments.StringArgumentType.getString(c, "args").trim();
+        int sp = args.lastIndexOf(' ');
+        long amount;
+        try { amount = sp < 0 ? -1 : Long.parseLong(args.substring(sp + 1).replace(",", "")); } catch (NumberFormatException e) { amount = -1; }
+        ServerPlayer to = sp < 0 ? null : Nicknames.find(from.server, args.substring(0, sp));
+        if (to == null || amount < 1) { from.sendSystemMessage(Component.literal("사용법: /송금 닉네임 금액 (접속 중인 사람에게만)").withStyle(ChatFormatting.RED)); return 0; }
         if (from == to) { from.sendSystemMessage(Component.literal("자기 자신에게는 보낼 수 없습니다.").withStyle(ChatFormatting.RED)); return 0; }
         if (!Money.take(from, amount)) { from.sendSystemMessage(Component.literal("잔액이 부족합니다.").withStyle(ChatFormatting.RED)); return 0; }
         Money.add(from.server, to.getUUID(), amount);
-        from.sendSystemMessage(Component.literal(to.getGameProfile().getName() + "님에게 " + Money.fmt(amount) + " 보냄").withStyle(ChatFormatting.GREEN));
-        to.sendSystemMessage(Component.literal(from.getGameProfile().getName() + "님에게서 " + Money.fmt(amount) + " 받음").withStyle(ChatFormatting.GREEN));
+        from.sendSystemMessage(Component.literal(Nicknames.nick(to) + "님에게 " + Money.fmt(amount) + " 보냄").withStyle(ChatFormatting.GREEN));
+        to.sendSystemMessage(Component.literal(Nicknames.nick(from) + "님에게서 " + Money.fmt(amount) + " 받음").withStyle(ChatFormatting.GREEN));
         return 1;
     }
 
