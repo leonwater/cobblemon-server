@@ -9,7 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import org.lwjgl.glfw.GLFW;
 
-/** 3. 오박사의 튜토리얼: 쪽마다 실제 게임 화면(textures/gui/tutorial/*.png, 640×360) + 설명. 마지막 쪽 "준비 완료!" → 회의장 + 스타팅 포켓몬. */
+/** 3. 오박사의 튜토리얼: 쪽마다 실제 게임 화면(textures/gui/tutorial/*.png, 640×360) + 설명. 마지막 쪽 닉네임 + "준비 완료!" → 스타팅 포켓몬, 뒤의 철문 → 광장. */
 public class TutorialScreen extends Screen {
     record Page(String img, String title, String text) {}
 
@@ -19,12 +19,15 @@ public class TutorialScreen extends Screen {
             new Page("battle", "배틀", "야생 포켓몬을 보고 §eR 키§r로 배틀. §e↑↓ 키§r로 포켓몬을 고르게."),
             new Page("summary", "상태창 (M 키)", "§eM 키§r로 능력치·기술·성격 확인. 진화도 여기서."),
             new Page("dex", "포켓몬 도감", "§e도감§r을 들고 §e우클릭§r하면 열린다네. 포켓몬을 보며 §e우클릭을 꾹§r 누르면 스캔!"),
-            new Page("menu", "메인 메뉴 (G 키)", "§eG 키§r로 파티·PC·도감. 광장·상점가·야생·농장·체육관으로 §e순간이동§r!"),
+            new Page("menu", "메인 메뉴 (G 키)", "§eG 키§r로 파티·PC·도감. 광장·야생·농장·체육관으로 §e순간이동§r!"),
             new Page("shop", "상점", "§e점원 우클릭§r으로 사고팔기. §e배지§r를 모으면 상품이 늘어난다네."),
             new Page("center", "포켓몬센터", "§e회복 장치§r로 포켓몬 회복. §ePC§r도 여기 있다네."),
             new Page("gym", "체육관", "§e안내원§r에게 도전! 이기면 §e배지·상금§r과 §e레벨 제한 +10§r."),
             new Page("plaza", "서버 규칙", "몬스터·배고픔 없음. §e죽어도 아이템 유지§r. 배틀은 §e야생·광장§r에서."),
-            new Page("starter", "스타팅 포켓몬", "§e준비 완료!§r를 누르면 §e도감·몬스터볼·돈·땅 문서§r를 받고 §e스타팅 포켓몬§r을 고른다네."));
+            new Page("starter", "스타팅 포켓몬", "마지막에 §e준비 완료!§r를 누르면 §e도감·몬스터볼·돈·땅 문서§r를 받고 §e스타팅 포켓몬§r을 고른다네."),
+            new Page("nick", "닉네임 정하기", "모두에게 보일 §e닉네임§r을 적게. 고른 뒤 §e뒤의 철문§r으로 나가면 광장이라네."));
+    static final java.util.regex.Pattern NICK = java.util.regex.Pattern.compile("[가-힣A-Za-z0-9_]{2,12}");
+    private String nick = "";
     static final ResourceLocation FACE = ResourceLocation.fromNamespaceAndPath("pokeserver", "textures/npcs/tutorial_guide.png");
 
     private final Theme.Anim anim = new Theme.Anim();
@@ -32,7 +35,11 @@ public class TutorialScreen extends Screen {
 
     public TutorialScreen() {
         super(Component.literal("오박사의 튜토리얼"));
+        var mc = net.minecraft.client.Minecraft.getInstance();
+        if (mc.player != null && NICK.matcher(mc.player.getGameProfile().getName()).matches()) nick = mc.player.getGameProfile().getName();
     }
+
+    private boolean nickPage() { return PAGES.get(page).img().equals("nick"); }
 
     // ── 배치: 가상 화면 480×270(전체 화면 GUI 크기 4 기준)에 그리고 실제 화면에 맞게 키움 → GUI 크기가 작아도 창이 크게 보임 ──
     static final int LINE = 15, MAX_LINES = 3;                // 설명 줄 간격(글자 9 + 6), 최대 3줄
@@ -79,7 +86,8 @@ public class TutorialScreen extends Screen {
         // 실제 게임 화면
         int iw = imgW(), ih = imgH(), ix = (vw() - iw) / 2, iy = py + 28;
         g.fill(ix - 1, iy - 1, ix + iw + 1, iy + ih + 1, Theme.BORDER);
-        g.blit(ResourceLocation.fromNamespaceAndPath("pokeserver", "textures/gui/tutorial/" + p.img() + ".png"),
+        if (nickPage()) nickBox(g, ix, iy, iw, ih);
+        else g.blit(ResourceLocation.fromNamespaceAndPath("pokeserver", "textures/gui/tutorial/" + p.img() + ".png"),
                 ix, iy, iw, ih, 0, 0, 640, 360, 640, 360);
         // 설명 (최대 3줄, 줄 간격 넓게)
         var ls = lines();
@@ -94,6 +102,26 @@ public class TutorialScreen extends Screen {
         g.pose().popPose();
     }
 
+    /** 8. 닉네임 입력 칸 (사진 자리): 한글·영어·숫자·_ 2~12글자. */
+    private void nickBox(GuiGraphics g, int x, int y, int w, int h) {
+        g.fill(x, y, x + w, y + h, 0xF0181B22);
+        int bw = Math.min(w - 40, 200), bx = x + (w - bw) / 2, by = y + h / 2 - 12;
+        String head = "닉네임";
+        text(g, head, x + (w - w(head)) / 2, by - 18, Theme.GOLD);
+        boolean ok = NICK.matcher(nick).matches();
+        Theme.panel(g, bx, by, bx + bw, by + 22, 0xF0101319, ok ? Theme.ACCENT : 0xFFC8323C);
+        String shown = nick + ((System.currentTimeMillis() / 500) % 2 == 0 ? "_" : "");
+        text(g, shown, bx + (bw - w(nick)) / 2, by + 7, Theme.TEXT);
+        String hint = nick.isEmpty() ? "키보드로 적어 주세요" : ok ? "준비 완료!를 누르세요" : "한글·영어·숫자·_  2~12글자";
+        text(g, hint, x + (w - w(hint)) / 2, by + 30, ok ? Theme.SUBTEXT : 0xFFFF8080);
+    }
+
+    @Override
+    public boolean charTyped(char c, int mods) {
+        if (nickPage() && nick.length() < 12 && (Character.isLetterOrDigit(c) || c == '_')) { nick += c; return true; }
+        return super.charTyped(c, mods);
+    }
+
     private void button(GuiGraphics g, int i, String label, int mx, int my, boolean gold) {
         int x = btnX(i), y = btnY(), bw = btnW();
         boolean hov = mx >= x && mx < x + bw && my >= y && my < y + 20;
@@ -106,8 +134,9 @@ public class TutorialScreen extends Screen {
 
     private void go(int d) {
         if (d > 0 && page == PAGES.size() - 1) {
+            if (!NICK.matcher(nick).matches()) return;                 // 닉네임을 바르게 적어야 끝남
             onClose();
-            ClientPlayNetworking.send(new Net.MenuAction("tutorial_done"));
+            ClientPlayNetworking.send(new Net.MenuAction("tutorial_done:" + nick));
             return;
         }
         page = Math.max(0, Math.min(PAGES.size() - 1, page + d));
@@ -125,6 +154,8 @@ public class TutorialScreen extends Screen {
 
     @Override
     public boolean keyPressed(int key, int scan, int mods) {
+        if (nickPage() && key == GLFW.GLFW_KEY_BACKSPACE) { if (!nick.isEmpty()) nick = nick.substring(0, nick.length() - 1); return true; }
+        if (nickPage() && key == GLFW.GLFW_KEY_SPACE) return true;            // 닉네임 칸에선 띄어쓰기로 넘기지 않음
         if (key == GLFW.GLFW_KEY_RIGHT || key == GLFW.GLFW_KEY_ENTER || key == GLFW.GLFW_KEY_SPACE) { go(1); return true; }
         if (key == GLFW.GLFW_KEY_LEFT) { go(-1); return true; }
         return super.keyPressed(key, scan, mods);

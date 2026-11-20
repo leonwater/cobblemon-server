@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # 검증용 스크린샷: 모드 서버(Cobblemon 포함) + 실제 클라이언트를 띄워 장면별로 찍음
 # 사용: tools/shots.sh <단계 파일> <저장 폴더>
+#   KEEP=1 이면 끝난 뒤에도 켜 둔 채 $W/queue/*.txt 를 받아 이어서 실행 (결과 로그는 같은 이름 .out)
 #   단계 파일 한 줄씩:  rcon <명령>  |  wait <밀리초>  |  until <명령> ~ <정규식> ~ <최대 ms> (조건이 맞을 때까지 대기)  |  shot <이름>  |  xdo <xdotool 인자>
 set -uo pipefail
 R=$(cd "$(dirname "$0")/.." && pwd); STEPS=$1; OUT=$2; W=${SHOTS_WORK:-/tmp/pokeserver-shots}
@@ -57,10 +58,10 @@ DISPLAY=:99 python3 $R/tools/prod_client.py $W/client localhost:25565 > $W/clien
 CL=$!
 timeout 300 bash -c "until grep -q 'Dev joined the game' $S/run.log; do sleep 2; done" || { echo "FAIL client join"; tail -5 $W/client.log; kill $CL $XV; exit 1; }
 sleep 8
-node -e '
-const {Rcon}=require("'$R'/tests/node_modules/rcon-client");const {execSync}=require("child_process");const fs=require("fs");
+cat > $W/steps.js <<'JS'
+const {Rcon}=require(process.env.R+"/tests/node_modules/rcon-client");const {execSync}=require("child_process");const fs=require("fs");
 (async()=>{const r=await Rcon.connect({host:"localhost",port:25575,password:"test",timeout:20000});
-for (const line of fs.readFileSync(process.argv[1],"utf8").split("\n")) {
+for (const line of fs.readFileSync(process.argv[2],"utf8").split("\n")) {
   const [k,...rest]=line.trim().split(" "); const a=rest.join(" ");
   if (k==="rcon") console.log(">",a,"→",(await r.send(a)).slice(0,160));
   else if (k==="until") { const [cmd,re,ms]=a.split(" ~ "); const t0=Date.now(); let o="";
@@ -69,11 +70,23 @@ for (const line of fs.readFileSync(process.argv[1],"utf8").split("\n")) {
   else if (k==="wait") await new Promise(s=>setTimeout(s,+a));
   else if (k==="xdo") { execSync(`DISPLAY=:99 xdotool ${a}`); console.log("xdo",a) }
   else if (k==="xdo2") { execSync(`DISPLAY=:100 xdotool ${a}`); console.log("xdo2",a) }
-  else if (k==="shot2") { execSync(`import -display :100 -window root ${process.argv[2]}/${a}.png`); console.log("shot2",a) }
-  else if (k==="player2") { execSync(`(Xvfb :100 -screen 0 1280x720x24 >/dev/null 2>&1 &); sleep 2; (DISPLAY=:100 python3 '$R'/tools/prod_client.py '$W'/client localhost:25565 ${a} > '$W'/client2.log 2>&1 &)`); console.log("player2",a) }
-  else if (k==="shot") { execSync(`import -display :99 -window root ${process.argv[2]}/${a}.png`); console.log("shot",a) }
+  else if (k==="shot2") { execSync(`import -display :100 -window root ${process.argv[3]}/${a}.png`); console.log("shot2",a) }
+  else if (k==="player2") { execSync(`(Xvfb :100 -screen 0 1280x720x24 >/dev/null 2>&1 &); sleep 2; (DISPLAY=:100 python3 ${process.env.R}/tools/prod_client.py ${process.env.W}/client localhost:25565 ${a} > ${process.env.W}/client2.log 2>&1 &)`); console.log("player2",a) }
+  else if (k==="shot") { execSync(`import -display :99 -window root ${process.argv[3]}/${a}.png`); console.log("shot",a) }
 }
-await r.send("stop"); r.end()})().catch(e=>{console.error("FAIL",e.message);process.exit(1)})' "$STEPS" "$OUT"
+r.end()})().catch(e=>{console.error("FAIL",e.message);process.exit(1)})
+JS
+run_steps() { R=$R W=$W node $W/steps.js "$1" "$OUT"; }
+run_steps "$STEPS"
+# KEEP=1: 서버·게임을 켠 채로 $W/queue/*.txt 단계 파일을 기다려 이어서 실행 (다시 찍을 때 껐다 켜지 않게). $W/queue/stop 을 만들면 종료
+if [ "${KEEP:-}" = 1 ]; then
+  mkdir -p $W/queue; echo "대기 중: $W/queue/*.txt (끝내려면 touch $W/queue/stop)"
+  while [ ! -f $W/queue/stop ]; do
+    for f in $W/queue/*.txt; do [ -f "$f" ] || continue; mv "$f" "$f.run"; run_steps "$f.run" > "$f.out" 2>&1; mv "$f.run" "$f.done"; done; sleep 2
+  done
+  rm -rf $W/queue
+fi
+rc stop > /dev/null
 kill $CL $XV 2>/dev/null; pkill -f -- "--username [^D]" ; pkill -f "Xvfb :100"; sleep 3; kill -9 $CL 2>/dev/null; true
 # 서버가 stop 후 30초 안에 안 꺼지면 HANG 기록 후 강제 종료
 for i in $(seq 30); do pgrep -f fabric-server-launch.jar >/dev/null || exit 0; sleep 1; done

@@ -1,7 +1,8 @@
 execute as @a[tag=!poke.joined] run function poke:join/first
 execute as @a unless score @s poke.id matches 1.. run function poke:join/assign_id
 execute as @a[scores={poke.left=1..}] run function poke:join/rejoin
-execute as @a[tag=poke.tutorial_done] at @s if dimension poke:hub run function poke:join/migrate
+# 10. 연구소 마당(튜토리얼을 막 끝내고 철문으로 나가는 중) 밖에 있을 때만 옮김
+execute as @a[tag=poke.tutorial_done] at @s if dimension poke:hub unless entity @s[x=-16,y=40,z=-16,dx=32,dy=60,dz=32] run function poke:join/migrate
 execute as @a[scores={poke.died=1..}] run function poke:gym/release
 execute as @a[scores={home=1..}] run function poke:home
 scoreboard players enable @a home
@@ -16,7 +17,7 @@ function poke:bounds
 # 체육관·사천왕 나가기 발판, 관장 소환
 function poke:league/pads
 execute unless data storage poke:state {leaders:1} if entity @a run function poke:league/spawn_tick
-# 농장의 "회의장으로" 발판
+# 농장의 "광장으로" 발판
 execute in poke:farm as @a[x=-1,y=-59,z=-8,dx=2,dy=1,dz=2] run function poke:home
 # 8. 농장·야생의 마지막 위치를 1초마다 기억
 scoreboard players add #t poke.timer 1

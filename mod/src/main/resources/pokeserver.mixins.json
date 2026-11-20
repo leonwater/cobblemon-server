@@ -1,0 +1,7 @@
+{
+  "required": true,
+  "package": "com.pokeserver.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": ["PlayerNameMixin", "TabNameMixin"],
+  "injectors": { "defaultRequire": 1 }
+}

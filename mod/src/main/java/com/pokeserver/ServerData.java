@@ -16,6 +16,7 @@ public class ServerData extends SavedData {
     public final Map<UUID, Long> money = new HashMap<>();
     public final Map<String, String> npcSkins = new HashMap<>();   // NPC 태그 → 플레이어 이름 또는 URL
     public final Map<UUID, Integer> deedsBought = new HashMap<>();  // 플레이어별로 산 땅 문서 수 (살수록 비싸짐)
+    public final Map<UUID, String> nicks = new HashMap<>();         // 8. 튜토리얼에서 정한 닉네임
 
     public static ServerData get(MinecraftServer server) {
         return server.overworld().getDataStorage().computeIfAbsent(
@@ -35,6 +36,8 @@ public class ServerData extends SavedData {
         for (String k : skins.getAllKeys()) d.npcSkins.put(k, skins.getString(k));
         CompoundTag deeds = tag.getCompound("deedsBought");
         for (String k : deeds.getAllKeys()) d.deedsBought.put(UUID.fromString(k), deeds.getInt(k));
+        CompoundTag nicks = tag.getCompound("nicks");
+        for (String k : nicks.getAllKeys()) d.nicks.put(UUID.fromString(k), nicks.getString(k));
         return d;
     }
 
@@ -57,6 +60,9 @@ public class ServerData extends SavedData {
         CompoundTag deeds = new CompoundTag();
         deedsBought.forEach((id, n) -> deeds.putInt(id.toString(), n));
         tag.put("deedsBought", deeds);
+        CompoundTag nicks = new CompoundTag();
+        this.nicks.forEach((id, n) -> nicks.putString(id.toString(), n));
+        tag.put("nicks", nicks);
         return tag;
     }
 }

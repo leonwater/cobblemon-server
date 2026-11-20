@@ -21,7 +21,6 @@ public class MenuScreen extends Screen {
             new Tile("도감", "cobblemon:pokedex_red", "client:dex"),
             new Tile("체육관", "minecraft:red_banner", "warp:gym"),
             new Tile("광장", "minecraft:beacon", "warp:hall"),
-            new Tile("상점가", "minecraft:emerald", "warp:street"),
             new Tile("야생", "minecraft:grass_block", "warp:wild"),
             new Tile("농장", "minecraft:wheat", "warp:farm"));
     /** 자주 안 쓰는 것: 아래 줄 작은 버튼 (닫기는 오른쪽 끝). */
@@ -70,7 +69,11 @@ public class MenuScreen extends Screen {
     private int tileW() { return (gw() - 8 - GAP * (COLS - 1)) / COLS; }
     private int tileH() { return Math.min(tileW(), (noticeY() - 6 - gy() - 8 - GAP) / 2); }   // 참고 사진처럼 거의 정사각형
     private int gh() { return tileH() * 2 + GAP + 8; }
-    private int tileX(int i) { return gx() + 4 + (i % COLS) * (tileW() + GAP) + (gw() - 8 - COLS * tileW() - GAP * (COLS - 1)) / 2; }
+    /** 줄마다 가운데 정렬 (상점가가 빠져 둘째 줄은 3칸). 칸 크기는 4칸 기준 그대로. */
+    private int tileX(int i) {
+        int n = Math.min(COLS, TILES.size() - i / COLS * COLS);
+        return gx() + 4 + (i % COLS) * (tileW() + GAP) + (gw() - 8 - n * tileW() - GAP * (n - 1)) / 2;
+    }
     private int tileY(int i) { return gy() + 4 + (i / COLS) * (tileH() + GAP); }
     private int btnW(int i) { return w(SMALL.get(i).label()) + 26; }
     private int btnX(int i) {                                  // 왼쪽부터 차례로, 마지막(닫기)만 오른쪽 끝
@@ -194,8 +197,7 @@ public class MenuScreen extends Screen {
 
     private void help() {
         onClose();
-        for (String line : new String[]{"── 기본 명령어 ──", "G 키: 메인 메뉴", "/money (/돈): 잔액", "/pay 닉네임 금액 (/송금): 돈 보내기",
-                "/텔포 닉네임: 텔레포트 요청 (상대 동의)", "/trigger home: 회의장으로", "R 키: 포켓몬 꺼내기 · M 키: 상태창 · ↑↓: 파티 선택"}) toast(line);
+        if (minecraft != null && minecraft.player != null) minecraft.player.connection.sendCommand("명령어");   // 목록은 서버(PokeServer.HELP) 한 곳에서
     }
 
     private void toast(String s) {

@@ -18,3 +18,4 @@ tag @s remove poke.badge7
 tag @s remove poke.badge8
 xp set @s 0 levels
 xp set @s 0 points
+scoreboard players reset @s poke.gymcd

@@ -3,13 +3,26 @@
   "id": "pokeserver",
   "version": "${version}",
   "name": "pokeserver",
-  "description": "pokeserver 전용: 농장 땅, 상점, 메인 메뉴",
+  "description": "pokeserver 전용: 농장 땅, 상점, 메인 메뉴, 닉네임",
   "environment": "*",
   "entrypoints": {
-    "main": ["com.pokeserver.PokeServer"],
-    "client": ["com.pokeserver.client.PokeServerClient"]
+    "main": [
+      "com.pokeserver.PokeServer"
+    ],
+    "client": [
+      "com.pokeserver.client.PokeServerClient"
+    ]
   },
   "accessWidener": "pokeserver.accesswidener",
-  "suggests": { "cobblemon": "*" },
-  "depends": { "fabricloader": ">=0.16", "minecraft": "1.21.1", "fabric-api": "*" }
+  "suggests": {
+    "cobblemon": "*"
+  },
+  "depends": {
+    "fabricloader": ">=0.16",
+    "minecraft": "1.21.1",
+    "fabric-api": "*"
+  },
+  "mixins": [
+    "pokeserver.mixins.json"
+  ]
 }

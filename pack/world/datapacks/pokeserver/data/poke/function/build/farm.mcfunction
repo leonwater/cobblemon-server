@@ -157,7 +157,7 @@ fill 105 -60 143 105 -60 174 minecraft:polished_andesite
 fill 75 -60 144 104 -60 173 minecraft:grass_block replace minecraft:dirt_path
 summon minecraft:text_display 90.0 -57.5 159.0 {Tags:["poke.farmdeco","poke.plot25"],billboard:"center",shadow:1b,background:0,transformation:{scale:[2.0f,2.0f,2.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"농장 25","color":"yellow","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n빈 땅 · 땅 문서로 등록","color":"gray","bold":false}]}'}
 fill -1 -60 -8 1 -60 -6 minecraft:light_blue_stained_glass
-summon minecraft:text_display 0.5 -57 -6.5 {Tags:["poke.farmdeco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.5f,1.5f,1.5f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 회의장으로","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+summon minecraft:text_display 0.5 -57 -6.5 {Tags:["poke.farmdeco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.5f,1.5f,1.5f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 광장으로","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 fill -73 -59 -12 6 319 -12 minecraft:barrier
 fill -73 -59 177 6 319 177 minecraft:barrier
 fill 7 -59 -12 86 319 -12 minecraft:barrier

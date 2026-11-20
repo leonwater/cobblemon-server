@@ -17,7 +17,7 @@ def town_paths():
     return tuple(f'build/terrain/{k}.mcfunction' for k in ks) + ('mod/build_town.mcfunction',)
 
 
-def simulate(boxes, paths=None, ground=G, hub=False):
+def simulate(boxes, paths=None, ground=G, hub=False, lines=None):
     """hub=True: 튜토리얼 방 차원(poke:hub) 줄만, 아니면 마을 줄만."""
     """boxes 안의 칸만 기록 (세상 전체를 다 들고 있지 않게). 땅(G 이하)은 지형이 채워 둔 것으로 봄."""
     world = {}
@@ -28,8 +28,9 @@ def simulate(boxes, paths=None, ground=G, hub=False):
     def get(x, y, z):
         return world.get((x, y, z), 'ground' if y <= ground and abs(x) < 2800 else 'air')
 
-    for path in paths or town_paths():
-        for line in (W.FN / path).read_text(encoding='utf-8').splitlines():
+    sources = [lines] if lines is not None else [(W.FN / path).read_text(encoding='utf-8').splitlines() for path in paths or town_paths()]
+    for path, src in zip(paths or town_paths() if lines is None else ['plaza'], sources):
+        for line in src:
             p = line.split()
             in_hub = p[:4] == ['execute', 'in', 'poke:hub', 'run']
             if in_hub:
@@ -89,18 +90,6 @@ def check(name, box, floor, top, openings, get, roof_scan=14):
 def buildings():
     """(이름, 칸, 바닥 y, 벽 꼭대기 y, 일부러 비운 곳 [(x1,x2,y1,y2,z1,z2)])"""
     out = []
-    x1, x2, z1, z2 = W.HALL
-    out.append(('회의장', W.HALL, G, G + 9, [(-1, 1, G + 1, G + 4, z1, z1)]))
-    x1, x2, z1, z2 = W.CENTER
-    out.append(('포켓몬센터', W.CENTER, G, G + 10, [(x1, x1, G + 1, G + 4, -1, 1)]))
-    x1, x2, z1, z2 = W.MART
-    out.append(('프렌들리 숍', W.MART, G, G + 9, [(x2, x2, G + 1, G + 4, -1, 1)]))
-    for k, (x1, x2, z1, z2, door) in enumerate(W.CITY_SHOPS):
-        fx, zm = (x2 if door == 'e' else x1), (z1 + z2) // 2
-        out.append((f'상가{k + 1}', (x1, x2, z1, z2), G, G + 7, [(fx, fx, G + 1, G + 3, zm - 1, zm + 1)]))
-    for k, (x1, x2, z1, z2) in enumerate(W.PAGODAS):
-        xm = (x1 + x2) // 2
-        out.append((f'동양풍 건물{k + 1}', (x1, x2, z1, z2), G + 1, G + 6, [(xm - 1, xm + 1, G + 2, G + 4, z2, z2)]))
     x1, x2, z1, z2 = W.LOBBY
     xm = (x1 + x2) // 2
     out.append(('체육관 선택 건물', W.LOBBY, W.LOBBY_Y, W.LOBBY_Y + 10, [(xm - 3, xm + 3, W.LOBBY_Y + 1, W.LOBBY_Y + 5, z1, z1)]))
@@ -120,7 +109,16 @@ if __name__ == '__main__':
     x1, x2, z1, z2 = W.LAB
     hub = simulate([(x1 - 1, x2 + 1, z1 - 1, z2 + 1)], ('build/tutorial.mcfunction', 'mod/build_town.mcfunction'), ground=62, hub=True)
     holes += check('오박사 연구소', W.LAB, 64, 72, [], hub)
+    # 광장(야생) 포켓몬센터·숍: tools/plaza.py 명령(광장 기준 좌표, 땅 y=0)
+    import plaza as P
+    pl, _ = P.plaza()
+    c1, c2, cz1, cz2 = P.CENTER_P
+    m1, m2, mz1, mz2 = P.MART_P
+    pg = simulate([(c1 - 1, c2 + 1, cz1 - 1, cz2 + 1), (m1 - 1, m2 + 1, mz1 - 1, mz2 + 1)], ground=0, lines=pl)
+    holes += check('광장 포켓몬센터', P.CENTER_P, 0, 10, [(c1, c1, 1, 4, -1, 1)], pg)
+    mzm = (mz1 + mz2) // 2
+    holes += check('광장 프렌들리 숍', P.MART_P, 0, 9, [(m2, m2, 1, 4, mzm - 1, mzm + 1)], pg)
     for h in holes[:80]:
         print('빈칸', h)
-    print(f'검사한 건물 {len(bs) + 1}채, 빈칸 {len(holes)}개')
+    print(f'검사한 건물 {len(bs) + 3}채, 빈칸 {len(holes)}개')
     sys.exit(1 if holes else 0)

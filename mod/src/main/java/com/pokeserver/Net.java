@@ -39,6 +39,22 @@ public final class Net {
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
 
+    /** 서버 → 클라이언트: 보이는 이름 목록 ("uuid\t[별명] 닉네임" 줄들). */
+    public record Names(String data) implements CustomPacketPayload {
+        public static final Type<Names> TYPE = id("names");
+        public static final StreamCodec<RegistryFriendlyByteBuf, Names> CODEC =
+                StreamCodec.composite(ByteBufCodecs.stringUtf8(1 << 16), Names::data, Names::new);
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
+
+    /** 서버 → 클라이언트: 오른쪽 정보창 (잔액, 배지 수, 잡은 종 수). 1초마다. */
+    public record Hud(long balance, int badges, int dex) implements CustomPacketPayload {
+        public static final Type<Hud> TYPE = id("hud");
+        public static final StreamCodec<RegistryFriendlyByteBuf, Hud> CODEC = StreamCodec.composite(
+                ByteBufCodecs.VAR_LONG, Hud::balance, ByteBufCodecs.VAR_INT, Hud::badges, ByteBufCodecs.VAR_INT, Hud::dex, Hud::new);
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
+
     /** 서버 → 클라이언트: 잔액 갱신. */
     public record Balance(long balance) implements CustomPacketPayload {
         public static final Type<Balance> TYPE = id("balance");
@@ -65,7 +81,7 @@ public final class Net {
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
 
-    /** 클라이언트 → 서버: 메인 메뉴 동작 (open, pc, trash, tutorial, tutorial_done, starter, warp:hall|street|gym|farm|wild). */
+    /** 클라이언트 → 서버: 메인 메뉴 동작 (open, pc, trash, tutorial, tutorial_done, starter, warp:hall|gym|farm|wild). */
     public record MenuAction(String action) implements CustomPacketPayload {
         public static final Type<MenuAction> TYPE = id("menu_action");
         public static final StreamCodec<RegistryFriendlyByteBuf, MenuAction> CODEC =

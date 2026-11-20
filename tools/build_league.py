@@ -100,6 +100,13 @@ ELITE = [
 ]
 
 
+def COOLDOWN(n):
+    """12. 관장·사천왕에게 지면 5분(6000틱) 뒤에 다시 도전 (gym/lose가 poke.gymcd에 다시 도전 가능 시각을 적음)."""
+    return ['execute store result score #now poke.gymcd run time query gametime',
+            f'execute if score @s poke.gymcd > #now poke.gymcd run return run function poke:gym/deny/{n} '
+            '{msg:"관장에게 진 뒤 5분 동안은 다시 도전할 수 없어요."}']
+
+
 def validate():
     """팀 검사: 기술을 그 포켓몬이 배울 수 있는지 (Cobblemon 종 데이터, COBBLEMON_SPECIES 폴더가 있을 때만)."""
     import os
@@ -239,6 +246,7 @@ def functions():
             f'execute unless entity @s[tag=poke.tutorial_done] run return run function poke:gym/deny/{n} {{msg:"튜토리얼을 먼저 끝내 주세요."}}',
             f'execute if entity @s[tag=poke.badge{n}] run return run function poke:gym/deny/{n} {{msg:"이미 이긴 체육관이에요. 다시 도전할 수 없어요."}}',
             *need,
+            *COOLDOWN(n),
             f'execute if entity @a[scores={{poke.gym={n}}}] run return run function poke:gym/deny/{n} {{msg:"다른 도전자가 관장과 싸우는 중이에요. 잠시 후 다시 와 주세요."}}',
             f'scoreboard players set @s poke.gym {n}', tp(g['inside']),
             f'title @s title {{"text":"{n}번 체육관","color":"gold"}}',
@@ -261,6 +269,7 @@ def functions():
         'execute if score @s poke.gym matches 1.. run return 0',
         'execute if entity @s[tag=poke.e4clear] run return run function poke:gym/deny/9 {msg:"이미 사천왕을 모두 이겼어요. 다시 도전할 수 없어요."}',
         'execute unless entity @s[tag=poke.badge8] run return run function poke:gym/deny/9 {msg:"배지 8개를 모두 모아야 사천왕에 도전할 수 있어요."}',
+        *COOLDOWN(9),
         'execute if entity @a[scores={poke.gym=9}] run return run function poke:gym/deny/9 {msg:"다른 도전자가 사천왕에 도전 중이에요. 잠시 후 다시 와 주세요."}',
         'scoreboard players set @s poke.gym 9', 'scoreboard players set @s poke.e4 0', tp(e['inside'][0]),
         'title @s title {"text":"사천왕","color":"gold"}',
@@ -304,8 +313,10 @@ def functions():
     fn('gym/win.mcfunction', ['# 모드가 호출: 체육관 안에서 NPC 배틀을 이겼을 때', *win])
     fn('gym/lose.mcfunction', ['# 모드가 호출: 체육관 안에서 NPC 배틀을 지거나 도망쳤을 때',
                                'execute unless score @s poke.gym matches 1.. run return 0',
-                               'execute if score @s poke.gym matches 9 run tellraw @s {"text":"사천왕 도전 실패... 다음엔 처음(첫 번째 사천왕)부터 다시 도전해요.","color":"red"}',
-                               'execute if score @s poke.gym matches 1..8 run tellraw @s {"text":"관장에게 졌어요. 포켓몬을 회복하고 다시 도전하세요!","color":"red"}',
+                               'execute if score @s poke.gym matches 9 run tellraw @s {"text":"사천왕 도전 실패... 5분 뒤에 처음(첫 번째 사천왕)부터 다시 도전해요.","color":"red"}',
+                               'execute if score @s poke.gym matches 1..8 run tellraw @s {"text":"관장에게 졌어요. 포켓몬을 회복하고 5분 뒤에 다시 도전하세요!","color":"red"}',
+                               'execute store result score @s poke.gymcd run time query gametime',
+                               'scoreboard players add @s poke.gymcd 6000',
                                'function poke:gym/leave'])
     fn('mod/spawn_leaders.mcfunction', [
         '# 관장·사천왕 소환 (RCT 소환 명령은 플레이어가 실행해야 해서, 접속한 플레이어로 실행됨)',
