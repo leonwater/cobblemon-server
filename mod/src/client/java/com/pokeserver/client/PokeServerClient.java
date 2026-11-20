@@ -20,7 +20,7 @@ public class PokeServerClient implements ClientModInitializer {
                 (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new GymScreen(p.json()))));
         ClientPlayNetworking.registerGlobalReceiver(Net.Balance.TYPE, (p, ctx) -> ShopScreen.balance = p.balance());
         ClientPlayNetworking.registerGlobalReceiver(Net.Names.TYPE, (p, ctx) -> com.pokeserver.Nicknames.read(p.data()));
-        ClientPlayNetworking.registerGlobalReceiver(Net.Hud.TYPE, (p, ctx) -> { InfoHud.balance = p.balance(); InfoHud.badges = p.badges(); InfoHud.dex = p.dex(); });
+        ClientPlayNetworking.registerGlobalReceiver(Net.Hud.TYPE, (p, ctx) -> { InfoHud.balance = p.balance(); InfoHud.badges = p.badges(); InfoHud.place = p.place(); });
         net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback.EVENT.register(InfoHud::render);
         // 3. 관장·챔피언 원작풍 스킨 (RCT 기본 스킨보다 위에 오도록 항상 켜진 내장 리소스팩)
         net.fabricmc.fabric.api.resource.ResourceManagerHelper.registerBuiltinResourcePack(
@@ -29,7 +29,7 @@ public class PokeServerClient implements ClientModInitializer {
                 net.minecraft.network.chat.Component.literal("포켓서버 관장 스킨"),
                 net.fabricmc.fabric.api.resource.ResourcePackActivationType.ALWAYS_ENABLED);
         ClientPlayNetworking.registerGlobalReceiver(Net.MenuOpen.TYPE,
-                (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new MenuScreen(p.balance(), p.notice(), p.tutorialDone()))));
+                (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new MenuScreen(p))));
         ClientPlayNetworking.registerGlobalReceiver(Net.TutorialOpen.TYPE,
                 (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new TutorialScreen())));
         // 5. G 키: 메인 메뉴 (설정 → 조작에서 바꿀 수 있음)

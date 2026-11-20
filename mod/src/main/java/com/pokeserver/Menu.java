@@ -37,7 +37,11 @@ final class Menu {
             a = "tutorial_done";
         }
         switch (a) {
-            case "open" -> ServerPlayNetworking.send(p, new Net.MenuOpen(Money.get(p), notice, p.getTags().contains("poke.tutorial_done")));
+            case "open" -> {
+                var st = new java.util.ArrayList<>(net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon") ? CobblemonHooks.dex(p) : java.util.List.of(0, 0, 0));
+                st.add(Nicknames.badges(p));
+                ServerPlayNetworking.send(p, new Net.MenuOpen(Money.get(p), notice, p.getTags().contains("poke.tutorial_done"), st));
+            }
             // 휴지통: 넣은 아이템은 창을 닫으면 사라짐 (돌려주지 않음)
             case "trash" -> p.openMenu(new SimpleMenuProvider((id, inv, pl) -> ChestMenu.threeRows(id, inv, new SimpleContainer(27)),
                     Component.literal("휴지통 (닫으면 사라짐)")));

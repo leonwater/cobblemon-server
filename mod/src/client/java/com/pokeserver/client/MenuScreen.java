@@ -1,6 +1,7 @@
 package com.pokeserver.client;
 
 import com.pokeserver.Net;
+import com.pokeserver.Nicknames;
 import com.pokeserver.Shop;
 import java.util.List;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
@@ -10,174 +11,200 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
-/** 5. 메인 메뉴 (G키). 처음 방향(평평한 어두운 반투명 칸, 1픽셀 테두리), 참고 사진처럼 같은 크기 칸.
- *  위: 제목 + 레벨 제한·잔액, 가운데: 주요 메뉴 4×2 (파티·PC·도감 + 워프 5곳), 아래: 공지 + 작은 버튼(튜토리얼·휴지통·명령어 / 닫기). */
+/** 5. 메인 메뉴 (G키), 참고 사진 구성: 왼쪽 분류 탭(포켓몬·간편 메뉴·워프) + 아래 작은 버튼(기본 명령어·휴지통),
+ *  오른쪽 위 분류별 칸, 그 아래 내 정보 카드(닉네임·잡은/마주친 포켓몬·잔액·배지), 맨 아래 공지사항. 어두운 반투명 색. */
 public class MenuScreen extends Screen {
     record Tile(String label, String icon, String action) {}
+    record Cat(String label, String icon, List<Tile> tiles) {}
 
-    static final List<Tile> TILES = List.of(
-            new Tile("내 파티", "cobblemon:poke_ball", "client:party"),
-            new Tile("PC", "cobblemon:pc", "pc"),
-            new Tile("도감", "cobblemon:pokedex_red", "client:dex"),
-            new Tile("체육관", "minecraft:red_banner", "warp:gym"),
-            new Tile("광장", "minecraft:beacon", "warp:hall"),
-            new Tile("야생", "minecraft:grass_block", "warp:wild"),
-            new Tile("농장", "minecraft:wheat", "warp:farm"));
-    /** 자주 안 쓰는 것: 아래 줄 작은 버튼 (닫기는 오른쪽 끝). */
-    static final List<Tile> SMALL = List.of(
-            new Tile("튜토리얼", "minecraft:book", "tutorial"),
-            new Tile("휴지통", "minecraft:cauldron", "trash"),
-            new Tile("명령어", "minecraft:paper", "help"),
-            new Tile("닫기", "minecraft:barrier", "close"));
-    static final int COLS = 4, GAP = 3;
+    static final List<Cat> CATS = List.of(
+            new Cat("포켓몬", "cobblemon:poke_ball", List.of(
+                    new Tile("내 파티", "cobblemon:poke_ball", "client:party"),
+                    new Tile("PC", "cobblemon:pc", "pc"),
+                    new Tile("도감", "cobblemon:pokedex_red", "client:dex"))),
+            new Cat("간편 메뉴", "minecraft:book", List.of(
+                    new Tile("튜토리얼", "minecraft:book", "tutorial"),
+                    new Tile("기본 명령어", "minecraft:paper", "help"),
+                    new Tile("휴지통", "minecraft:cauldron", "trash"))),
+            new Cat("워프", "minecraft:ender_pearl", List.of(
+                    new Tile("광장", "minecraft:beacon", "warp:hall"),
+                    new Tile("야생", "minecraft:grass_block", "warp:wild"),
+                    new Tile("농장", "minecraft:wheat", "warp:farm"),
+                    new Tile("체육관", "minecraft:red_banner", "warp:gym"))));
+    /** 왼쪽 아래 작은 버튼 (참고 사진). */
+    static final List<Tile> SMALL = List.of(new Tile("명령어", "minecraft:paper", "help"), new Tile("휴지통", "minecraft:cauldron", "trash"));
+    static int cat;                       // 마지막으로 고른 분류 (다시 열어도 유지)
 
     private final long balance;
     private final String notice;
     private final boolean tutorialDone;   // 튜토리얼을 끝내기 전엔 워프 칸 잠금 (서버도 따로 막음)
+    private final int caught, seen, total, badges;
     private final Theme.Anim anim = new Theme.Anim();
     private String pressed = "";
     private long pressedAt;
+    private float k = 1;
 
-    public MenuScreen(long balance, String notice, boolean tutorialDone) {
+    public MenuScreen(Net.MenuOpen p) {
         super(Component.literal("메인 메뉴"));
-        this.balance = balance;
-        this.notice = notice;
-        this.tutorialDone = tutorialDone;
+        balance = p.balance(); notice = p.notice(); tutorialDone = p.tutorialDone();
+        caught = p.caught(); seen = p.seen(); total = p.total(); badges = p.badges();
     }
 
-    /** RCT 레벨 제한 (RCT가 클라이언트에 보내 주는 값). RCT가 없으면 -1. */
-    static int levelCap(net.minecraft.world.entity.player.Player p) {
-        try {
-            Object st = Class.forName("com.gitlab.srcmc.rctmod.api.data.sync.PlayerState")
-                    .getMethod("get", net.minecraft.world.entity.player.Player.class).invoke(null, p);
-            return (int) st.getClass().getMethod("getLevelCap").invoke(st);
-        } catch (ReflectiveOperationException | RuntimeException ex) {
-            return -1;
-        }
+    /** GUI가 640×360보다 작으면(전체 화면 자동 크기) 전체를 줄여 그림 → 어느 크기에서나 같은 배치. */
+    @Override
+    protected void init() {
+        k = Math.min(1f, Math.min(width / 640f, height / 360f));
+        width = Math.round(width / k);
+        height = Math.round(height / k);
     }
 
-    // ── 배치: 화면 크기에서 계산 (전체 화면 480×270 GUI px, 작은 창 426×240에서도 겹치지 않음) ──
-    private int pw() { return Math.max(300, Math.min(width - 16, 380)); }
-    private int ph() { return Math.max(200, Math.min(height - 16, 250)); }
-    private int px() { return (width - pw()) / 2; }
-    private int py() { return (height - ph()) / 2; }
-    private int gx() { return px() + 10; }                      // 격자 틀 안쪽 시작
-    private int gy() { return py() + 30; }
-    private int gw() { return pw() - 20; }
-    private int btnY() { return py() + ph() - 26; }
-    private int noticeY() { return btnY() - 23; }
-    private int tileW() { return (gw() - 8 - GAP * (COLS - 1)) / COLS; }
-    private int tileH() { return Math.min(tileW(), (noticeY() - 6 - gy() - 8 - GAP) / 2); }   // 참고 사진처럼 거의 정사각형
-    private int gh() { return tileH() * 2 + GAP + 8; }
-    /** 줄마다 가운데 정렬 (상점가가 빠져 둘째 줄은 3칸). 칸 크기는 4칸 기준 그대로. */
-    private int tileX(int i) {
-        int n = Math.min(COLS, TILES.size() - i / COLS * COLS);
-        return gx() + 4 + (i % COLS) * (tileW() + GAP) + (gw() - 8 - n * tileW() - GAP * (n - 1)) / 2;
-    }
-    private int tileY(int i) { return gy() + 4 + (i / COLS) * (tileH() + GAP); }
-    private int btnW(int i) { return w(SMALL.get(i).label()) + 26; }
-    private int btnX(int i) {                                  // 왼쪽부터 차례로, 마지막(닫기)만 오른쪽 끝
-        if (i == SMALL.size() - 1) return gx() + gw() - btnW(i);
-        int x = gx();
-        for (int k = 0; k < i; k++) x += btnW(k) + 4;
-        return x;
-    }
+    // ── 배치 (가상 화면 기준) ──
+    private int side() { return Math.max(170, width * 30 / 100); }          // 왼쪽 분류 칸 폭
+    private int catY(int i) { return 52 + i * 38; }
+    private int cx() { return side() + 22; }                                 // 오른쪽 내용 시작
+    private int cw() { return Math.min(width - cx() - 22, 460); }
+    static final int TILE = 64, GAP = 8;
+    private int perRow() { return Math.max(1, (cw() + GAP) / (TILE + GAP)); }
+    private List<Tile> tiles() { return CATS.get(cat).tiles(); }
+    private int tileX(int i) { return cx() + (i % perRow()) * (TILE + GAP); }
+    private int tileY(int i) { return 26 + (i / perRow()) * (TILE + GAP); }
+    private int cardY() { return 26 + 2 * (TILE + GAP) + 4; }                // 칸은 두 줄 자리를 비워 둠 (분류를 바꿔도 카드가 안 움직이게)
+    private int noticeY() { return cardY() + 84; }
+    private int smallX(int i) { return 18 + i * 54; }
+    private int smallY() { return height - 64; }
 
     private void text(GuiGraphics g, String s, int x, int y, int color) { g.drawString(font, Theme.t(s), x, y, color, false); }
     private void center(GuiGraphics g, String s, int cx, int y, int color) { text(g, s, cx - font.width(Theme.t(s)) / 2, y, color); }
     private int w(String s) { return font.width(Theme.t(s)); }
 
     @Override
-    public void renderBackground(GuiGraphics g, int mx, int my, float pt) {
-        anim.frame();
-        // 자주 여는 화면이라 여는 애니메이션은 없음
-        g.fillGradient(0, 0, width, height, 0x90000000, 0x60000000);
-        int px = px(), py = py(), pw = pw(), ph = ph();
-        Theme.panel(g, px, py, px + pw, py + ph, Theme.PANEL);
-        // 제목 줄: 가운데 제목, 왼쪽 레벨 제한, 오른쪽 잔액
-        g.fillGradient(px + 1, py + 1, px + pw - 1, py + 22, 0xFF2A3140, 0xFF181C24);
-        g.hLine(px + 1, px + pw - 2, py + 22, Theme.BORDER);
-        center(g, "메인 메뉴", width / 2, py + 8, Theme.TEXT);
-        int cap = minecraft != null && minecraft.player != null ? levelCap(minecraft.player) : -1;
-        g.renderItem(Shop.stack("cobblemon:poke_ball"), px + 5, py + 3);   // 포켓몬 레벨 제한
-        text(g, "포켓몬 레벨 제한 " + (cap > 0 ? "Lv" + cap : "-"), px + 23, py + 8, Theme.ACCENT);
-        int titleEnd = width / 2 + w("메인 메뉴") / 2 + 10;
-        String money = Theme.money(font, balance, "원", px + pw - 8 - 20 - titleEnd);
-        text(g, money, px + pw - 8 - w(money), py + 8, Theme.GOLD);
-        g.renderItem(Shop.stack("minecraft:gold_nugget"), px + pw - 26 - w(money), py + 3);
-        // 격자 틀 (참고 사진처럼 한 단계 어두운 판 위에 칸)
-        Theme.panel(g, gx(), gy(), gx() + gw(), gy() + gh(), 0xC00A0C10, 0xFF2A303C);
-        for (int i = 0; i < TILES.size(); i++) tile(g, i, mx, my);
-        // 공지 (잘리면 마우스를 올려 전체 보기)
-        int ny = noticeY();
-        Theme.panel(g, gx(), ny, gx() + gw(), ny + 18, 0xC0181B22, 0xFF2A303C);
-        text(g, "공지", gx() + 6, ny + 5, Theme.ACCENT);
-        String shown = Theme.fit(font, notice, gw() - w("공지") - 18);
-        text(g, shown, gx() + 12 + w("공지"), ny + 5, Theme.GOLD);
-        if (!shown.equals(notice) && mx >= gx() && mx < gx() + gw() && my >= ny && my < ny + 18) {
-            g.renderComponentTooltip(font, Theme.wrap(font, notice, 220, 99).stream()
-                    .map(l -> (Component) Theme.t(l)).toList(), mx, my);
-        }
-        for (int i = 0; i < SMALL.size(); i++) button(g, i, mx, my);
-    }
-
-    private void tile(GuiGraphics g, int i, int mx, int my) {
-        int x = tileX(i), y = tileY(i), tw = tileW(), th = tileH();
-        boolean hov = mx >= x && mx < x + tw && my >= y && my < y + th;
-        float h = anim.to(i, hov);
-        float sc = TILES.get(i).action().equals(pressed) ? Theme.press(pressedAt) : 1f;
+    public void render(GuiGraphics g, int mx, int my, float pt) {
         g.pose().pushPose();
-        g.pose().translate(x + tw / 2f, y + th / 2f, 0);   // 누르면 0.97배 (배치는 그대로)
-        g.pose().scale(sc, sc, 1);
-        g.pose().translate(-tw / 2f, -th / 2f, 0);
-        Theme.panel(g, 0, 0, tw, th, Theme.mix(0xE01C2029, 0xF0363D4C, h), Theme.mix(0xFF2E3442, Theme.ACCENT, h));
-        // 아이콘 · 이름을 세로 가운데로. 튜토리얼 전엔 워프 칸을 흐리게 (누르면 안내만)
-        boolean locked = !tutorialDone && TILES.get(i).action().startsWith("warp:");
-        int block = 24 + 4 + 9, top = Math.max(3, (th - block) / 2);
-        g.pose().pushPose();
-        g.pose().translate(tw / 2f - 12, top, 0);
-        g.pose().scale(1.5f, 1.5f, 1);
-        g.renderItem(Shop.stack(TILES.get(i).icon()), 0, 0);
+        g.pose().scale(k, k, 1);
+        super.render(g, Math.round(mx / k), Math.round(my / k), pt);
         g.pose().popPose();
-        center(g, Theme.fit(font, TILES.get(i).label(), tw - 6), tw / 2, top + 28, locked ? Theme.SUBTEXT : Theme.TEXT);
-        if (locked) g.fill(1, 1, tw - 1, th - 1, 0x90101319);
-        g.pose().popPose();
-    }
-
-    /** 작은 버튼: 아이콘 + 이름, 높이 18 (주요 칸보다 눈에 덜 띄게 흐린 글씨). */
-    private void button(GuiGraphics g, int i, int mx, int my) {
-        int x = btnX(i), y = btnY(), bw = btnW(i);
-        boolean hov = mx >= x && mx < x + bw && my >= y && my < y + 18;
-        float h = anim.to("b" + i, hov);
-        Theme.panel(g, x, y, x + bw, y + 18, Theme.mix(0xC0181B22, 0xF0343A47, h), Theme.mix(0xFF2A303C, Theme.ACCENT, h));
-        g.renderItem(Shop.stack(SMALL.get(i).icon()), x + 3, y + 1);
-        text(g, SMALL.get(i).label(), x + 21, y + 5, Theme.mix(Theme.SUBTEXT, Theme.TEXT, h));
     }
 
     @Override
-    public boolean mouseClicked(double mx, double my, int button) {
-        for (int i = 0; i < TILES.size(); i++) {
+    public void renderBackground(GuiGraphics g, int mx, int my, float pt) {
+        anim.frame();
+        // 자주 여는 화면이라 여는 애니메이션은 없음
+        g.fillGradient(0, 0, width, height, 0x90000000, 0x70000000);
+        g.fill(0, 0, side(), height, 0xB0080A0E);                            // 왼쪽 판
+        g.fill(18, 22, 21, 36, Theme.ACCENT);
+        g.pose().pushPose();
+        g.pose().translate(26, 23, 0);
+        g.pose().scale(1.3f, 1.3f, 1);
+        text(g, "메인 메뉴", 0, 0, Theme.TEXT);
+        g.pose().popPose();
+        for (int i = 0; i < CATS.size(); i++) catButton(g, i, mx, my);
+        for (int i = 0; i < SMALL.size(); i++) small(g, i, mx, my);
+        for (int i = 0; i < tiles().size(); i++) tile(g, i, mx, my);
+        card(g);
+        // 공지사항 (잘리면 마우스를 올려 전체 보기)
+        int ny = noticeY(), x = cx(), cw = cw();
+        Theme.panel(g, x, ny, x + cw, ny + 24, 0xD0181B22, 0xFF2A303C);
+        text(g, "공지사항", x + 10, ny + 8, Theme.TEXT);
+        String shown = Theme.fit(font, notice, cw - w("공지사항") - 30);
+        text(g, shown, x + 22 + w("공지사항"), ny + 8, Theme.GOLD);
+        if (!shown.equals(notice) && mx >= x && mx < x + cw && my >= ny && my < ny + 24) {
+            g.renderComponentTooltip(font, Theme.wrap(font, notice, 220, 99).stream().map(l -> (Component) Theme.t(l)).toList(), mx, my);
+        }
+    }
+
+    private void catButton(GuiGraphics g, int i, int mx, int my) {
+        int x1 = 16, x2 = side() - 16, y = catY(i);
+        boolean hov = mx >= x1 && mx < x2 && my >= y && my < y + 30, sel = i == cat;
+        float h = anim.to("c" + i, hov || sel);
+        Theme.panel(g, x1, y, x2, y + 30, sel ? 0xF02E4A7A : Theme.mix(0xC0181B22, 0xE0262C38, h), sel ? Theme.ACCENT : Theme.mix(0xFF2A303C, Theme.BORDER, h));
+        g.renderItem(Shop.stack(CATS.get(i).icon()), x1 + 8, y + 7);
+        g.fill(x1 + 30, y + 6, x1 + 31, y + 24, sel ? 0x80FFFFFF : 0x604A5366);
+        text(g, CATS.get(i).label(), x1 + 40, y + 11, sel ? Theme.TEXT : Theme.mix(Theme.SUBTEXT, Theme.TEXT, h));
+    }
+
+    /** 왼쪽 아래 작은 버튼: 위에 이름, 아래 아이콘 (참고 사진). */
+    private void small(GuiGraphics g, int i, int mx, int my) {
+        int x = smallX(i), y = smallY();
+        boolean hov = mx >= x && mx < x + 46 && my >= y && my < y + 46;
+        float h = anim.to("s" + i, hov);
+        Theme.panel(g, x, y, x + 46, y + 46, Theme.mix(0xC0181B22, 0xF0343A47, h), Theme.mix(0xFF2A303C, Theme.ACCENT, h));
+        center(g, SMALL.get(i).label(), x + 23, y + 7, Theme.mix(Theme.SUBTEXT, Theme.TEXT, h));
+        g.renderItem(Shop.stack(SMALL.get(i).icon()), x + 15, y + 22);
+    }
+
+    private void tile(GuiGraphics g, int i, int mx, int my) {
+        Tile t = tiles().get(i);
+        int x = tileX(i), y = tileY(i);
+        boolean hov = mx >= x && mx < x + TILE && my >= y && my < y + TILE;
+        float h = anim.to(cat * 10 + i, hov);
+        float sc = t.action().equals(pressed) ? Theme.press(pressedAt) : 1f;
+        g.pose().pushPose();
+        g.pose().translate(x + TILE / 2f, y + TILE / 2f, 0);   // 누르면 0.97배 (배치는 그대로)
+        g.pose().scale(sc, sc, 1);
+        g.pose().translate(-TILE / 2f, -TILE / 2f, 0);
+        Theme.panel(g, 0, 0, TILE, TILE, Theme.mix(0xE01C2029, 0xF0363D4C, h), Theme.mix(0xFF3A4152, Theme.ACCENT, h));
+        boolean locked = !tutorialDone && t.action().startsWith("warp:");
+        g.pose().pushPose();
+        g.pose().translate(TILE / 2f - 12, 8, 0);
+        g.pose().scale(1.5f, 1.5f, 1);
+        g.renderItem(Shop.stack(t.icon()), 0, 0);
+        g.pose().popPose();
+        g.hLine(8, TILE - 9, 40, 0x604A5366);
+        center(g, Theme.fit(font, t.label(), TILE - 6), TILE / 2, 47, locked ? Theme.SUBTEXT : Theme.TEXT);
+        if (locked) g.fill(1, 1, TILE - 1, TILE - 1, 0x90101319);
+        g.pose().popPose();
+    }
+
+    /** 내 정보: 얼굴·[별명] 닉네임, 잡은/마주친 포켓몬 막대 | 잔액·배지. */
+    private void card(GuiGraphics g) {
+        int x = cx(), y = cardY(), cw = cw(), split = x + cw * 62 / 100;
+        Theme.panel(g, x, y, x + cw, y + 76, 0xD0181B22, 0xFF2A303C);
+        if (minecraft != null && minecraft.player != null) {
+            var skin = minecraft.getSkinManager().getInsecureSkin(minecraft.player.getGameProfile()).texture();
+            g.blit(skin, x + 10, y + 8, 12, 12, 8, 8, 8, 8, 64, 64);
+            g.blit(skin, x + 10, y + 8, 12, 12, 40, 8, 8, 8, 64, 64);
+            Component name = Nicknames.SHOWN.getOrDefault(minecraft.player.getUUID(), Component.literal(minecraft.player.getGameProfile().getName()));
+            g.drawString(font, name, x + 27, y + 10, Theme.TEXT, false);
+        }
+        bar(g, x + 10, y + 30, split - x - 22, "잡은 포켓몬", caught);
+        bar(g, x + 10, y + 52, split - x - 22, "마주친 포켓몬", seen);
+        g.fill(split, y + 10, split + 1, y + 66, 0x604A5366);
+        int rx = split + 12;
+        text(g, "잔액", rx, y + 14, Theme.SUBTEXT);
+        text(g, Theme.money(font, balance, "원", x + cw - rx - 10), rx, y + 26, Theme.GOLD);
+        text(g, "배지", rx, y + 44, Theme.SUBTEXT);
+        text(g, badges + " / 8", rx, y + 56, Theme.TEXT);
+    }
+
+    private void bar(GuiGraphics g, int x, int y, int w, String label, int n) {
+        String v = total > 0 ? n + " / " + total + " · " + String.format("%.1f%%", 100.0 * n / total) : "-";
+        text(g, label, x, y, Theme.SUBTEXT);
+        text(g, v, x + w - w(v), y, Theme.TEXT);
+        g.fill(x, y + 11, x + w, y + 14, 0xFF2A303C);
+        if (total > 0) g.fill(x, y + 11, x + Math.max(n > 0 ? 1 : 0, w * n / total), y + 14, Theme.ACCENT);
+    }
+
+    @Override
+    public boolean mouseClicked(double rmx, double rmy, int button) {
+        double mx = rmx / k, my = rmy / k;
+        for (int i = 0; i < CATS.size(); i++) {
+            if (mx >= 16 && mx < side() - 16 && my >= catY(i) && my < catY(i) + 30) { cat = i; return true; }
+        }
+        for (int i = 0; i < SMALL.size(); i++) {
+            if (mx >= smallX(i) && mx < smallX(i) + 46 && my >= smallY() && my < smallY() + 46) { act(SMALL.get(i).action()); return true; }
+        }
+        for (int i = 0; i < tiles().size(); i++) {
             int x = tileX(i), y = tileY(i);
-            if (mx >= x && mx < x + tileW() && my >= y && my < y + tileH()) {
-                if (!tutorialDone && TILES.get(i).action().startsWith("warp:")) { toast("튜토리얼을 끝낸 뒤에 이동할 수 있어요."); return true; }
-                pressed = TILES.get(i).action();
+            if (mx >= x && mx < x + TILE && my >= y && my < y + TILE) {
+                Tile t = tiles().get(i);
+                if (!tutorialDone && t.action().startsWith("warp:")) { toast("튜토리얼을 끝낸 뒤에 이동할 수 있어요."); return true; }
+                pressed = t.action();
                 pressedAt = System.currentTimeMillis();
                 act(pressed);
                 return true;
             }
         }
-        if (my >= btnY() && my < btnY() + 18) {
-            for (int i = 0; i < SMALL.size(); i++) {
-                if (mx < btnX(i) || mx >= btnX(i) + btnW(i)) continue;
-                switch (SMALL.get(i).action()) {
-                    case "help" -> help();
-                    case "close" -> onClose();
-                    default -> act(SMALL.get(i).action());
-                }
-                return true;
-            }
-        }
-        return super.mouseClicked(mx, my, button);
+        return super.mouseClicked(rmx, rmy, button);
     }
 
     private void act(String a) {
@@ -189,15 +216,13 @@ public class MenuScreen extends Screen {
             }
         } else if (a.equals("client:dex")) {
             if (cobble) CobblemonClientHooks.openDex();
+        } else if (a.equals("help")) {
+            onClose();
+            if (minecraft != null && minecraft.player != null) minecraft.player.connection.sendCommand("명령어");   // 목록은 서버(PokeServer.HELP) 한 곳에서
         } else {
             onClose();
             ClientPlayNetworking.send(new Net.MenuAction(a));
         }
-    }
-
-    private void help() {
-        onClose();
-        if (minecraft != null && minecraft.player != null) minecraft.player.connection.sendCommand("명령어");   // 목록은 서버(PokeServer.HELP) 한 곳에서
     }
 
     private void toast(String s) {
