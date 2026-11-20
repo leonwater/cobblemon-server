@@ -67,7 +67,7 @@ public class PokeServer implements ModInitializer {
                 return net.minecraft.world.InteractionResult.PASS;
             if (hit == null && hand == net.minecraft.world.InteractionHand.MAIN_HAND) {   // 우클릭 한 번에 한 번만
                 if (tags.contains("poke.merchant")) Shop.open((ServerPlayer) player);
-                else if (tags.contains("poke.tutor")) ServerPlayNetworking.send((ServerPlayer) player, new Net.TutorialOpen());
+                else if (tags.contains("poke.tutor")) ServerPlayNetworking.send((ServerPlayer) player, Net.TutorialOpen.of((ServerPlayer) player));
                 else Gym.open((ServerPlayer) player);
             }
             return net.minecraft.world.InteractionResult.SUCCESS;   // 땅 보호 알림이 뜨지 않게 우리 NPC는 여기서 끝냄
@@ -167,7 +167,7 @@ public class PokeServer implements ModInitializer {
                                 })))))
                 .then(Commands.literal("tutorial").then(Commands.argument("targets", EntityArgument.players()).executes(c -> {
                     var targets = EntityArgument.getPlayers(c, "targets");
-                    targets.forEach(p -> ServerPlayNetworking.send(p, new Net.TutorialOpen()));
+                    targets.forEach(p -> ServerPlayNetworking.send(p, Net.TutorialOpen.of(p)));
                     return targets.size();
                 })))
                 .then(Commands.literal("legend").executes(c -> {   // 6. 전설 출현을 지금 한 번 (관리자·테스트용)

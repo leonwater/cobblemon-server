@@ -136,6 +136,12 @@ public final class CobblemonHooks {
 
     /** 튜토리얼 전에는 고르기를 잠가 "스타팅 포켓몬을 선택하세요" 안내가 뜨지 않게, 끝낸 뒤엔 풂. */
     static void starterLocks(MinecraftServer server) {
+        STARTER_AT.entrySet().removeIf(e -> {
+            if (server.getTickCount() < e.getValue()) return false;
+            var p = server.getPlayerList().getPlayer(e.getKey());
+            if (p != null) offerStarter(p);
+            return true;
+        });
         for (var p : server.getPlayerList().getPlayers()) {
             var data = com.cobblemon.mod.common.Cobblemon.INSTANCE.getPlayerDataManager().getGenericData(p);
             boolean lock = !p.getTags().contains("poke.tutorial_done");
@@ -163,6 +169,9 @@ public final class CobblemonHooks {
     }
 
     /** 튜토리얼을 끝냈고 아직 안 골랐으면 스타팅 포켓몬 선택 창을 엶. */
+    /** 튜토리얼을 끝낸 사람: 이 틱이 지나면 스타팅 고르기 창을 띄움 (starterLocks가 1초마다 확인). */
+    static final java.util.Map<UUID, Integer> STARTER_AT = new java.util.HashMap<>();
+
     static void offerStarter(net.minecraft.server.level.ServerPlayer p) {
         var data = com.cobblemon.mod.common.Cobblemon.INSTANCE.getPlayerDataManager().getGenericData(p);
         if (data.getStarterSelected()) return;

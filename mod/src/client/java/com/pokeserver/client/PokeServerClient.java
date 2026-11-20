@@ -33,7 +33,7 @@ public class PokeServerClient implements ClientModInitializer {
         ClientPlayNetworking.registerGlobalReceiver(Net.TitlesOpen.TYPE,
                 (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new TitleScreen(p.data()))));
         ClientPlayNetworking.registerGlobalReceiver(Net.TutorialOpen.TYPE,
-                (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new TutorialScreen())));
+                (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new TutorialScreen(p.nick()))));
         // 5. G 키: 메인 메뉴 (설정 → 조작에서 바꿀 수 있음)
         KeyMapping menu = KeyBindingHelper.registerKeyBinding(new KeyMapping("메인 메뉴", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_G, "pokeserver"));
         ClientTickEvents.END_CLIENT_TICK.register(mc -> {
