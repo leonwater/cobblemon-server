@@ -28,10 +28,11 @@ final class Menu {
     static void action(ServerPlayer p, String a) {
         if (a.startsWith("tutorial_done:")) {                     // 8. 튜토리얼 마지막 쪽에서 정한 닉네임
             if (!p.level().dimension().location().toString().equals("poke:hub")) return;
-            String why = Nicknames.set(p, a.substring("tutorial_done:".length()));
+            // 3. 닉네임은 첫 튜토리얼에서만: 이미 있으면 새로 적은 것은 무시
+            String why = ServerData.get(p.server).nicks.containsKey(p.getUUID()) ? null : Nicknames.set(p, a.substring("tutorial_done:".length()));
             if (why != null) {
                 p.sendSystemMessage(Component.literal(why + " 다시 정해 주세요.").withStyle(ChatFormatting.RED));
-                ServerPlayNetworking.send(p, new Net.TutorialOpen());
+                ServerPlayNetworking.send(p, Net.TutorialOpen.of(p));
                 return;
             }
             a = "tutorial_done";
@@ -55,8 +56,10 @@ final class Menu {
             // 튜토리얼 설명 창의 "준비 완료!" (튜토리얼 방에서만) → 보상 + 스타팅 포켓몬 고르기. 광장엔 뒤의 철문으로 나가서 감
             case "tutorial_done" -> {
                 if (!p.level().dimension().location().toString().equals("poke:hub")) return;
-                run(p, "function poke:tutorial/finish");
-                if (FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.offerStarter(p);
+                if (!ServerData.get(p.server).nicks.containsKey(p.getUUID())) { ServerPlayNetworking.send(p, Net.TutorialOpen.of(p)); return; }
+                run(p, "function poke:tutorial/finish");   // 2. 기본 물품 → 바로 광장으로
+                // 광장으로 옮긴 뒤 2초쯤 있다가 스타팅 고르기 창 (먼저 열면 차원 이동 화면에 닫힘)
+                if (FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.STARTER_AT.put(p.getUUID(), p.server.getTickCount() + 40);
             }
             case "starter" -> { if (FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.offerStarter(p); }
             case "warp:hall", "warp:gym", "warp:farm", "warp:wild" -> {

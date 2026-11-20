@@ -108,7 +108,7 @@ metafile = true
 
 [[files]]
 file = "mods/pokeserver-0.1.0.jar"
-hash = "1bc57927e066332a7cd1d2bbd3e2274aa1ccbfe7c5d24d8088d24a1ebbcae5d4"
+hash = "455f6c0017e9ed33ca6de4f26051727802c8fc9e1e42684bff3b38d7301ff2d3"
 
 [[files]]
 file = "mods/rctapi.pw.toml"
@@ -621,7 +621,7 @@ hash = "8d2bbb74e6e49ac28f983156390d801a2e6311ff9ecc053d8495000b6521bb1e"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/tutorial/finish.mcfunction"
-hash = "4bf9f494aab8209c92d9d9249cb72e421619087896680c78c769229600e4c876"
+hash = "82d97edb29062b1d6ecd1aa52b2007f1429aa92ff03e3d2262f63943560413d3"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/tutorial/leave.mcfunction"

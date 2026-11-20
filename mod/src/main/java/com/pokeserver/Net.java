@@ -119,9 +119,14 @@ public final class Net {
     }
 
     /** 서버 → 클라이언트: 튜토리얼 설명 창 열기 (오박사 우클릭). */
-    public record TutorialOpen() implements CustomPacketPayload {
+    /** nick: 이미 정한 닉네임 (없으면 ""). 있으면 튜토리얼 마지막 쪽에서 바꿀 수 없음. */
+    public record TutorialOpen(String nick) implements CustomPacketPayload {
         public static final Type<TutorialOpen> TYPE = id("tutorial_open");
-        public static final StreamCodec<RegistryFriendlyByteBuf, TutorialOpen> CODEC = StreamCodec.unit(new TutorialOpen());
+        public static final StreamCodec<RegistryFriendlyByteBuf, TutorialOpen> CODEC =
+                StreamCodec.composite(ByteBufCodecs.stringUtf8(64), TutorialOpen::nick, TutorialOpen::new);
+        public static TutorialOpen of(net.minecraft.server.level.ServerPlayer p) {
+            return new TutorialOpen(ServerData.get(p.server).nicks.getOrDefault(p.getUUID(), ""));
+        }
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
 }

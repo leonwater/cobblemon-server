@@ -4,6 +4,6 @@ tag @s add poke.tutorial_done
 execute unless entity @s[tag=poke.kit_given] run function poke:kit
 execute unless entity @s[tag=poke.kit_given] run title @s subtitle {"text":"기본 물품을 받았습니다","color":"gray"}
 tag @s add poke.kit_given
-# 10. 바로 옮기지 않음: 뒤의 철문으로 나가면 광장 (tutorial/leave, bounds가 감지)
-title @s title {"text":"튜토리얼 완료!","color":"gold"}
-tellraw @s {"text":"뒤의 철문으로 나가면 광장으로 이동해요.","color":"yellow"}
+# 2. 끝나면 바로 광장으로 (스타팅 포켓몬 고르기 창은 도착하고 2초 뒤 모드가 띄움)
+tellraw @s {"text":"튜토리얼 완료! 광장으로 이동합니다.","color":"yellow"}
+function poke:tutorial/leave
