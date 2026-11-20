@@ -108,7 +108,7 @@ metafile = true
 
 [[files]]
 file = "mods/pokeserver-0.1.0.jar"
-hash = "ca6fb7942cc93800d26703ba0aca22448674c52f2c96811df6f6713751976a80"
+hash = "84a66d3fb27508a58be9853bd2ab590c2332784bc1cad9889e10d606ad4fa245"
 
 [[files]]
 file = "mods/rctapi.pw.toml"
@@ -557,7 +557,7 @@ hash = "7b3b2064bc781819c7e691f1fa4ac43554f6a76e9df94df1da2b5c0fe1aef5ab"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/plaza.mcfunction"
-hash = "b56f94a3d9632f3adfdaf293194c4d77e7b675719e02a282cdd5a20a06426cc3"
+hash = "ae0bc751b3c4b28646ae4cfed47061f612663c3dde081aab03259e69e8b0da3f"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/pregen.mcfunction"
