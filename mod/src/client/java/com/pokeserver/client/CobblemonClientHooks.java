@@ -11,6 +11,10 @@ final class CobblemonClientHooks {
     private CobblemonClientHooks() {}
 
     /** @return 파티가 비어 있으면 false */
+    static boolean inBattle() {
+        return com.cobblemon.mod.common.client.CobblemonClient.INSTANCE.getBattle() != null;
+    }
+
     static boolean openParty() {
         var party = CobblemonClient.INSTANCE.getStorage().getParty().getSlots().stream().filter(Objects::nonNull).toList();
         if (party.isEmpty()) return false;

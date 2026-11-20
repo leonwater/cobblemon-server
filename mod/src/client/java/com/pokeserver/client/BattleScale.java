@@ -18,6 +18,11 @@ public final class BattleScale {
         return s > TARGET ? (float) (TARGET / s) : 1f;
     }
 
+    /** 배틀 중 (배틀 화면을 닫아 둔 동안도): 미니맵·오른쪽 정보창을 숨김 (배틀 체력 판·기록과 겹쳐서). */
+    public static boolean inBattle() {
+        return net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon") && CobblemonClientHooks.inBattle();
+    }
+
     public static boolean isBattle(Object screen) {
         return screen != null && screen.getClass().getName().equals("com.cobblemon.mod.common.client.gui.battle.BattleGUI");
     }
