@@ -38,7 +38,8 @@ def base():
     L = ['# 광장: 위를 비우고 땅을 잔디로 (지형은 모드가 이미 고름)',
          'kill @e[type=minecraft:text_display,tag=poke.plaza,distance=..100]',
          'kill @e[type=minecraft:item_display,tag=poke.plaza,distance=..100]',
-         'kill @e[type=minecraft:text_display,tag=poke.deco,distance=..100]']
+         'kill @e[type=minecraft:text_display,tag=poke.deco,distance=..100]',
+         'kill @e[type=minecraft:item_frame,tag=poke.deco,distance=..100]']
     for z in range(-R, R + 1):
         half = int(math.sqrt(R * R - z * z))
         L += [W.fill(-half, 1, z, half, 40, z, 'minecraft:air'), W.fill(-half, 0, z, half, 0, z, 'minecraft:grass_block'),
@@ -417,8 +418,8 @@ def plaza():
         occupy(MART_P[0] - 2, MART_P[1] + 5, MART_P[2] - 2, MART_P[3] + 2)
         L += W.center() + W.mart()
         npcs = [('poke:nurse', CENTER_P[1] - 3, 1, 0, 'poke.nurse', 90),
-                ('poke:merchant', MART_P[0] + 5, 1, (MART_P[2] + MART_P[3]) // 2 - 3, 'poke.merchant', -90),
-                ('poke:merchant', MART_P[0] + 5, 1, (MART_P[2] + MART_P[3]) // 2 + 3, 'poke.merchant', -90)]
+                ('poke:merchant', MART_P[0] + 5, 1, (MART_P[2] + MART_P[3]) // 2 - 3, 'poke.merchant_poke', -90),   # 코블몬 물품 (W.mart 진열 위치와 같음)
+                ('poke:merchant', MART_P[0] + 5, 1, (MART_P[2] + MART_P[3]) // 2 + 3, 'poke.merchant_mc', -90)]     # 마인크래프트 물품
         fronts = []
         makers = {'house': lambda x, z, d: house(x, z, d), 'house2': lambda x, z, d: house(x, z, d, 'mossy_stone_brick', 'mossy_cobblestone', 'birch_planks', 'stripped_dark_oak_log'),
                   'diner': lambda x, z, d: diner(x, z, d), 'diner2': lambda x, z, d: diner(x, z, d, 'lime'),

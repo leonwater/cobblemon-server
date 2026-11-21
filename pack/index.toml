@@ -35,7 +35,7 @@ hash = "a344cbc4e4e69b4c507e5e616dd95d9414263eb1958c79d4d9c12629c63ef8fe"
 
 [[files]]
 file = "config/pokeserver/shop.json"
-hash = "67c9a9887d23d096110c45cc8a3950f70f396a5f7ddc137db882e29c36143f7c"
+hash = "82e7e55bf6c9c5380bbb2c90344bc2f77f745665b2657f849f22e85137a8732a"
 
 [[files]]
 file = "config/rctmod-server.toml"
@@ -112,7 +112,7 @@ metafile = true
 
 [[files]]
 file = "mods/pokeserver-0.1.0.jar"
-hash = "1540654fa561bd26a2a6dae0e511bed7ebd70c05b68a2d51f31d599f13f87a24"
+hash = "e7b588bace48808063385b304330cd84d9bc435e571c77246a040c50fa6ad43e"
 
 [[files]]
 file = "mods/rctapi.pw.toml"
@@ -253,15 +253,15 @@ hash = "31add4db9ed4c9586b72f4c5f8a61665d49ca0e2baf1e126cf576257be914a9d"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/plaza/0.mcfunction"
-hash = "897ae64e3101e4e3a161c045b5448114bc128788d5f2217256ce3aac660e4542"
+hash = "d9cda090ca69831715719e30b850ebbd03700084f9ee7b508e38ed2ce845eb62"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/plaza/1.mcfunction"
-hash = "58fdef5bcf3b75c8463e1a812f0272d6261e65775675575cb6be876b15f5811d"
+hash = "ba9cc99a3d8f8ff380a7bd3a9e5d6d71bb2a772ea89f94ba8330049e40924314"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/plaza/2.mcfunction"
-hash = "b57940e25a9a59ff5b279c06beed838c9f957a36f8e488e592cb4c7025facbd8"
+hash = "a9b3103bb4058ba9e87b8585fd872e5b075da0e5f232eded6b42caf299536624"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/plaza/finish.mcfunction"
@@ -577,7 +577,7 @@ hash = "c6e02fa2ced4d6454bf34fd8c195377fdd858fb21a28d224a1c893604f27b0f8"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/plaza.mcfunction"
-hash = "ae0bc751b3c4b28646ae4cfed47061f612663c3dde081aab03259e69e8b0da3f"
+hash = "84e092ae86b92f484d28b7c5c54ba0f12de7f1b0784357d022ddff811c0c2c63"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/pregen.mcfunction"

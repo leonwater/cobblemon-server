@@ -10,8 +10,8 @@ setblock ~33 ~1 ~-9 cobblemon:pc[facing=north,part=bottom]
 setblock ~33 ~2 ~-9 cobblemon:pc[facing=north,part=top]
 summon minecraft:text_display ~32.5 ~3.6 ~-8.2 {Tags:["poke.plaza"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.9f,0.9f,0.9f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"PC 박스","color":"aqua","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 function poke:mod/spawn_npc {id:"poke:nurse", x:"~35", y:"~1", z:"~0", tag:"poke.nurse", yaw:90}
-function poke:mod/spawn_npc {id:"poke:merchant", x:"~-35", y:"~1", z:"~4", tag:"poke.merchant", yaw:-90}
-function poke:mod/spawn_npc {id:"poke:merchant", x:"~-35", y:"~1", z:"~10", tag:"poke.merchant", yaw:-90}
+function poke:mod/spawn_npc {id:"poke:merchant", x:"~-35", y:"~1", z:"~4", tag:"poke.merchant_poke", yaw:-90}
+function poke:mod/spawn_npc {id:"poke:merchant", x:"~-35", y:"~1", z:"~10", tag:"poke.merchant_mc", yaw:-90}
 function poke:mod/spawn_npc {id:"poke:tip_iv", x:"~-29", y:"~2", z:"~-39", tag:"poke.tip_iv", yaw:0}
 function poke:mod/spawn_npc {id:"poke:tip_ev", x:"~-25", y:"~2", z:"~-39", tag:"poke.tip_ev", yaw:0}
 function poke:mod/spawn_npc {id:"poke:tip_nature", x:"~-6", y:"~2", z:"~-51", tag:"poke.tip_nature", yaw:0}

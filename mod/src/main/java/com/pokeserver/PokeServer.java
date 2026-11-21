@@ -73,10 +73,11 @@ public class PokeServer implements ModInitializer {
         // 상인(poke.merchant) → 상점, 체육관 안내원(poke.gymguide) → 도전 목록, 오박사(poke.tutor) → 튜토리얼 설명 창 (Cobblemon NPC 스크립트 대신 직접 처리)
         net.fabricmc.fabric.api.event.player.UseEntityCallback.EVENT.register((player, level, hand, entity, hit) -> {
             var tags = entity.getTags();
-            if (level.isClientSide() || !(tags.contains("poke.merchant") || tags.contains("poke.gymguide") || tags.contains("poke.tutor")))
+            boolean merchant = tags.contains("poke.merchant_poke") || tags.contains("poke.merchant_mc");
+            if (level.isClientSide() || !(merchant || tags.contains("poke.gymguide") || tags.contains("poke.tutor")))
                 return net.minecraft.world.InteractionResult.PASS;
             if (hit == null && hand == net.minecraft.world.InteractionHand.MAIN_HAND) {   // 우클릭 한 번에 한 번만
-                if (tags.contains("poke.merchant")) Shop.open((ServerPlayer) player);
+                if (merchant) Shop.open((ServerPlayer) player, tags.contains("poke.merchant_poke") ? "poke" : "mc");
                 else if (tags.contains("poke.tutor")) ServerPlayNetworking.send((ServerPlayer) player, Net.TutorialOpen.of((ServerPlayer) player));
                 else Gym.open((ServerPlayer) player);
             }

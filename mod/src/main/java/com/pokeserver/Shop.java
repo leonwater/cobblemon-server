@@ -16,7 +16,7 @@ import net.minecraft.world.item.Items;
 /** 4. 상점: 목록은 config/pokeserver/shop.json (서버가 열 때 클라이언트로 그대로 보냄). */
 public final class Shop {
     public record Entry(String item, long buy, long sell, int badges) {}   // badges: 구매에 필요한 배지 수 (판매는 제한 없음)
-    public record Category(String name, String icon, List<Entry> items) {}
+    public record Category(String name, String icon, String shop, List<Entry> items) {}   // shop: poke(코블몬 상인) / mc(마인크래프트 상인)
     public record Data(List<Category> categories) {}
 
     static final Gson GSON = new Gson();
@@ -56,8 +56,19 @@ public final class Shop {
         return n;
     }
 
-    static void open(ServerPlayer p) {
+    static final java.util.Map<java.util.UUID, String> opened = new java.util.HashMap<>();   // 이 사람이 연 상점 (null = 전체, 관리자 명령)
+
+    static void open(ServerPlayer p) { open(p, null); }
+
+    static void open(ServerPlayer p, String shop) {
+        opened.put(p.getUUID(), shop);
         net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(p, new Net.ShopOpen(jsonFor(p), Money.get(p), badges(p)));
+    }
+
+    /** 이 사람이 지금 보는 분류 (클라이언트가 보내는 분류 번호도 이 목록 기준). */
+    static List<Category> cats(ServerPlayer p) {
+        String s = opened.get(p.getUUID());
+        return s == null ? data.categories() : data.categories().stream().filter(c -> s.equals(c.shop())).toList();
     }
 
     /** 3. 땅 문서는 한 사람이 살수록 비싸짐: 기본 가격 × (산 개수 + 1). 다른 사람과는 따로 셈. */
@@ -67,7 +78,7 @@ public final class Shop {
 
     /** 이 플레이어가 보는 목록 (땅 문서 가격만 사람마다 다름). */
     static String jsonFor(ServerPlayer p) {
-        return GSON.toJson(new Data(data.categories().stream().map(c -> new Category(c.name(), c.icon(), c.items().stream()
+        return GSON.toJson(new Data(cats(p).stream().map(c -> new Category(c.name(), c.icon(), c.shop(), c.items().stream()
                 .map(e -> isDeedEntry(e) ? new Entry(e.item(), deedPrice(p, e.buy(), 0), e.sell(), e.badges()) : e).toList())).toList()));
     }
 
@@ -82,8 +93,9 @@ public final class Shop {
 
     /** 클라이언트 요청 검증 후 거래. 수량은 1~64. */
     static void trade(ServerPlayer p, boolean sell, int cat, int idx, int qty) {
-        if (cat < 0 || cat >= data.categories().size()) return;
-        List<Entry> items = data.categories().get(cat).items();
+        var cs = cats(p);
+        if (cat < 0 || cat >= cs.size()) return;
+        List<Entry> items = cs.get(cat).items();
         if (idx < 0 || idx >= items.size() || qty < 1 || qty > 64) return;
         Entry e = items.get(idx);
         ItemStack proto = stack(e.item());
@@ -104,7 +116,7 @@ public final class Shop {
                     ServerData d = ServerData.get(p.server);
                     d.deedsBought.merge(p.getUUID(), qty, Integer::sum);
                     d.setDirty();
-                    open(p);   // 다음 문서 가격을 바로 보여 줌
+                    open(p, opened.get(p.getUUID()));   // 다음 문서 가격을 바로 보여 줌
                     return;
                 }
             }

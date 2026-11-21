@@ -19,16 +19,16 @@ public class MenuScreen extends Screen {
 
     static final List<Cat> CATS = List.of(
             new Cat("포켓몬", "cobblemon:poke_ball", List.of(
-                    new Tile("내 파티", "cobblemon:poke_ball", "client:party"),
+                    new Tile("파티", "cobblemon:poke_ball", "client:party"),
                     new Tile("PC", "cobblemon:pc", "pc"),
                     new Tile("도감", "cobblemon:pokedex_red", "client:dex"))),
-            new Cat("간편 메뉴", "minecraft:book", List.of(
+            new Cat("메뉴", "minecraft:book", List.of(
                     new Tile("튜토리얼", "minecraft:book", "tutorial"),
                     new Tile("칭호", "minecraft:name_tag", "titles"),
-                    new Tile("기본 명령어", "minecraft:oak_sign", "help"),
+                    new Tile("명령어", "minecraft:oak_sign", "help"),
                     new Tile("휴지통", "minecraft:lava_bucket", "trash"))),
             new Cat("워프", "minecraft:ender_pearl", List.of(
-                    new Tile("야생·광장", "minecraft:grass_block", "warp:hall"),   // 광장 마을은 야생 첫 스폰 자리에 있어 하나로
+                    new Tile("야생", "minecraft:grass_block", "warp:hall"),   // 광장 마을은 야생 첫 스폰 자리에 있어 하나로
                     new Tile("농장", "minecraft:wheat", "warp:farm"),
                     new Tile("체육관", "minecraft:red_banner", "warp:gym"))));
     /** 왼쪽 아래 작은 버튼 (참고 사진). */

@@ -134,12 +134,15 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   assert.ok(A.currentWindow, '휴지통 창 열림'); A.closeWindow(A.currentWindow)
   act('nonsense'); act('warp:../../etc'); await sleep(500)
   assert.equal(await dimOf('A'), 'poke:town', '알 수 없는 동작은 무시')
-  // 6. 상점 점원(태그 poke.merchant) 우클릭 → 상점 열림
-  await cmd('execute at A run summon minecraft:villager ~1 ~ ~ {NoAI:1b,Tags:["poke.merchant"]}'); await sleep(350)
+  // 6. 상인 우클릭 → 그 상인의 상점만 열림 (포켓몬 상인 = shop:poke 분류만)
+  await cmd('execute at A run summon minecraft:villager ~1 ~ ~ {NoAI:1b,Tags:["poke.merchant_poke"]}'); await sleep(350)
   const before = opened.length
   await A.activateEntity(Object.values(A.entities).find(e => e.name === 'villager'))
   await sleep(350)
-  assert.equal(opened.length, before + 1, '6. 점원 우클릭 → 상점 화면')
+  assert.equal(opened.length, before + 1, '6. 상인 우클릭 → 상점 화면')
+  const pokeTxt = opened[opened.length - 1].toString('utf8')
+  assert.ok(pokeTxt.includes('"shop":"poke"') && !pokeTxt.includes('"shop":"mc"'), '포켓몬 상인은 포켓몬 물품만')
+  await cmd('kill @e[type=minecraft:villager]'); await cmd('pokeserver shop A'); await sleep(350)   // 아래 거래 시험은 전체 목록 기준
   // 7. 튜토리얼 다시 보기: 설명 창만 열고 자리는 그대로
   let tut = 0; A._client.on('custom_payload', p => { if (p.channel === 'pokeserver:tutorial_open') tut++ })
   const posBefore = await cmd('data get entity A Pos')
@@ -221,9 +224,9 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
 
   // 15. 광장 마을: 모드가 자리·지형을 정하고 지음, 둘레 72칸은 수정 금지
   await rc.send('tick sprint 4800')
-  for (let i = 0; i < 120 && !/built: 3/.test(await cmd('data get storage poke:state plaza')); i++) await sleep(450)
+  for (let i = 0; i < 120 && !/built: 4/.test(await cmd('data get storage poke:state plaza')); i++) await sleep(450)
   await rc.send('tick sprint stop')
-  assert.match(await cmd('data get storage poke:state plaza'), /built: 3/, '광장 짓기 끝')
+  assert.match(await cmd('data get storage poke:state plaza'), /built: 4/, '광장 짓기 끝')
   const pz = (await cmd('data get storage poke:state plaza')).match(/x: (-?\d+), y: (-?\d+), z: (-?\d+)/)
   assert.ok(pz, '15. 광장 자리 저장'); const [px, py, pzz] = pz.slice(1).map(Number)
   await cmd(`execute in poke:wild run forceload add ${px} ${pzz}`); await sleep(700)
