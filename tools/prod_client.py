@@ -67,6 +67,7 @@ def main(work, server, user='Dev'):
     (game / 'config').mkdir(exist_ok=True)
     iris = (ROOT / 'pack/config/iris.properties').read_text()
     (game / 'config/iris.properties').write_text(iris if os.environ.get('SHADERS') == '1' else iris.replace('enableShaders=true', 'enableShaders=false'))
+    (game / 'config/xaerohud.txt').write_text((ROOT / 'pack/config/xaerohud.txt').read_text())   # 미니맵 위치 (배포본은 packwiz가 받음)
     for j in ([] if os.environ.get('PROD_GAME') else (game / 'mods').glob('pokeserver-*.jar')):
         j.unlink()
     for j in ([] if os.environ.get('PROD_GAME') else (ROOT / 'pack/mods').glob('pokeserver-*.jar')):

@@ -153,6 +153,9 @@ def write(path, obj):
     p.write_text(json.dumps(obj, ensure_ascii=False, indent=1), encoding='utf-8')
 
 
+LANG = {}   # 관장 대사 번역 키 → 한국어 (main 끝에서 모드 언어 파일로)
+
+
 def trainer(tid, name, title, team, kind, required, max_defeats):
     write(f'rctmod/trainers/{tid}.json', {
         'name': name, 'identity': f'{title} {name}', 'ai': {'type': 'rct', 'data': {'maxSelectMargin': 0.15}},
@@ -163,16 +166,23 @@ def trainer(tid, name, title, team, kind, required, max_defeats):
         'type': kind, 'series': [SERIES], 'requiredDefeats': required, 'optional': False,
         'maxTrainerDefeats': max_defeats, 'maxTrainerWins': -1, 'battleCooldownTicks': 100,
         'spawnWeightFactor': 0.0, 'biomeTagBlacklist': [], 'biomeTagWhitelist': [], 'forceBattleOnSight': False,
-        'dialog': {
-            'on_battle_start': [text(f'{title} {name}: 좋아, 실력을 보여줘!')],
-            'on_battle_won': [text(f'{title} {name}: 아직 멀었어. 다시 도전해!')],
-            'on_battle_lost': [text(f'{title} {name}: 훌륭해! 네가 이겼어.')],
-            'missing_required_trainer': [text('앞 체육관의 배지를 먼저 모아 와!')],
-            'missing_required_trainer_leader': [text('앞 체육관의 배지를 먼저 모아 와!')],
-            'missing_required_trainer_e4': [text('사천왕은 순서대로 이겨야 해!')],
-            'over_level_cap': [text('네 포켓몬 레벨이 너무 높아! 레벨 제한을 지켜 줘.')],
-            'missing_pokemon': [text('싸울 수 있는 포켓몬이 없잖아!')],
-        }})
+        })
+    # RCT 0.19는 대사를 dialogs/trainers/<ID>.json에서 읽음 (mobs 파일의 dialog는 무시돼 영어 기본 대사가 나왔음)
+    lines = {
+        'on_battle_start': f'좋아, 실력을 보여줘!', 'on_battle_won': '아직 멀었어. 다시 도전해!', 'trainer_won': '아직 멀었어. 다시 도전해!',
+        'on_battle_lost': '훌륭해! 네가 이겼어.', 'trainer_lost': '훌륭해! 네가 이겼어.',
+        'on_cooldown': '조금 쉬었다가 다시 와 줘.', 'over_level_cap': '네 포켓몬 레벨이 너무 높아! 레벨 제한을 지켜 줘.',
+        'low_level_cap': '네 포켓몬은 아직 이 배틀을 할 준비가 안 됐어. 레벨을 더 올려 와!',
+        'missing_pokemon': '싸울 수 있는 포켓몬이 없잖아!', 'missing_required_trainer': '앞 체육관의 배지를 먼저 모아 와!',
+        'missing_required_trainer_leader': '앞 체육관의 배지를 먼저 모아 와!', 'missing_required_trainer_e4': '사천왕은 순서대로 이겨야 해!',
+        'missing_required_trainer_champ': '사천왕은 순서대로 이겨야 해!', 'missing_required_series': '아직 도전할 수 없어.',
+        'wrong_series': '아직 도전할 수 없어.', 'player_busy': '지금은 다른 배틀 중이구나.', 'trainer_busy': '지금은 다른 도전자와 싸우는 중이야.',
+        'unknown_reason': '지금은 배틀할 수 없어.'}
+    # 말풍선은 번역 키만 씀(ChatUtils.reply → addMessage(getTranslatable())): 키가 없으면 배틀이 끝날 때 서버가 꺼짐.
+    # 그래서 키 + 같은 문장(채팅용 대체 문장)을 넣고, 키의 한국어는 모드 언어 파일(LANG)에 둠
+    keys = {k: f'pokeserver.dialog.{tid}.{k}' for k in lines}
+    LANG.update({keys[k]: v for k, v in lines.items()})
+    write(f'rctmod/dialogs/trainers/single/{tid}.json', {k: [{'translatable': keys[k], 'literal': v}] for k, v in lines.items()})   # 몹 파일과 같은 하위 폴더
 
 
 def main():
@@ -191,6 +201,10 @@ def main():
         # 사천왕: 8번째 관장을 이겨야 도전. 다시 도전할 수 있어야 해서(한 번에 4연승 규칙) 횟수 제한 없음
         trainer(tid, name, '사천왕', team, 'e4', [[GYMS[-1][0]]], -1)
         info.append((f'사천왕 {i} · {typ} · {name}', team))
+    # 모든 언어가 en_us로 되돌아가므로 en_us 한 파일에 한국어를 둠
+    lang = ROOT / 'mod/src/main/resources/assets/pokeserver/lang/en_us.json'
+    lang.parent.mkdir(parents=True, exist_ok=True)
+    lang.write_text(json.dumps(LANG, ensure_ascii=False, indent=1, sort_keys=True), encoding='utf-8')
     for title, team in info:
         print(f'\n■ {title}  (팀 최고 레벨 {max(m["level"] for m in team)})')
         for m in team:

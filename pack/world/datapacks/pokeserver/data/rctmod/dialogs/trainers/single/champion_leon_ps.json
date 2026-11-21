@@ -1,0 +1,110 @@
+{
+ "on_battle_start": [
+  {
+   "translatable": "pokeserver.dialog.champion_leon_ps.on_battle_start",
+   "literal": "좋아, 실력을 보여줘!"
+  }
+ ],
+ "on_battle_won": [
+  {
+   "translatable": "pokeserver.dialog.champion_leon_ps.on_battle_won",
+   "literal": "아직 멀었어. 다시 도전해!"
+  }
+ ],
+ "trainer_won": [
+  {
+   "translatable": "pokeserver.dialog.champion_leon_ps.trainer_won",
+   "literal": "아직 멀었어. 다시 도전해!"
+  }
+ ],
+ "on_battle_lost": [
+  {
+   "translatable": "pokeserver.dialog.champion_leon_ps.on_battle_lost",
+   "literal": "훌륭해! 네가 이겼어."
+  }
+ ],
+ "trainer_lost": [
+  {
+   "translatable": "pokeserver.dialog.champion_leon_ps.trainer_lost",
+   "literal": "훌륭해! 네가 이겼어."
+  }
+ ],
+ "on_cooldown": [
+  {
+   "translatable": "pokeserver.dialog.champion_leon_ps.on_cooldown",
+   "literal": "조금 쉬었다가 다시 와 줘."
+  }
+ ],
+ "over_level_cap": [
+  {
+   "translatable": "pokeserver.dialog.champion_leon_ps.over_level_cap",
+   "literal": "네 포켓몬 레벨이 너무 높아! 레벨 제한을 지켜 줘."
+  }
+ ],
+ "low_level_cap": [
+  {
+   "translatable": "pokeserver.dialog.champion_leon_ps.low_level_cap",
+   "literal": "네 포켓몬은 아직 이 배틀을 할 준비가 안 됐어. 레벨을 더 올려 와!"
+  }
+ ],
+ "missing_pokemon": [
+  {
+   "translatable": "pokeserver.dialog.champion_leon_ps.missing_pokemon",
+   "literal": "싸울 수 있는 포켓몬이 없잖아!"
+  }
+ ],
+ "missing_required_trainer": [
+  {
+   "translatable": "pokeserver.dialog.champion_leon_ps.missing_required_trainer",
+   "literal": "앞 체육관의 배지를 먼저 모아 와!"
+  }
+ ],
+ "missing_required_trainer_leader": [
+  {
+   "translatable": "pokeserver.dialog.champion_leon_ps.missing_required_trainer_leader",
+   "literal": "앞 체육관의 배지를 먼저 모아 와!"
+  }
+ ],
+ "missing_required_trainer_e4": [
+  {
+   "translatable": "pokeserver.dialog.champion_leon_ps.missing_required_trainer_e4",
+   "literal": "사천왕은 순서대로 이겨야 해!"
+  }
+ ],
+ "missing_required_trainer_champ": [
+  {
+   "translatable": "pokeserver.dialog.champion_leon_ps.missing_required_trainer_champ",
+   "literal": "사천왕은 순서대로 이겨야 해!"
+  }
+ ],
+ "missing_required_series": [
+  {
+   "translatable": "pokeserver.dialog.champion_leon_ps.missing_required_series",
+   "literal": "아직 도전할 수 없어."
+  }
+ ],
+ "wrong_series": [
+  {
+   "translatable": "pokeserver.dialog.champion_leon_ps.wrong_series",
+   "literal": "아직 도전할 수 없어."
+  }
+ ],
+ "player_busy": [
+  {
+   "translatable": "pokeserver.dialog.champion_leon_ps.player_busy",
+   "literal": "지금은 다른 배틀 중이구나."
+  }
+ ],
+ "trainer_busy": [
+  {
+   "translatable": "pokeserver.dialog.champion_leon_ps.trainer_busy",
+   "literal": "지금은 다른 도전자와 싸우는 중이야."
+  }
+ ],
+ "unknown_reason": [
+  {
+   "translatable": "pokeserver.dialog.champion_leon_ps.unknown_reason",
+   "literal": "지금은 배틀할 수 없어."
+  }
+ ]
+}
