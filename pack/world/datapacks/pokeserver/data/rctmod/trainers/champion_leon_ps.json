@@ -18,64 +18,75 @@
  ],
  "team": [
   {
-   "species": "aegislash",
-   "level": 95,
+   "species": "coalossal",
+   "level": 87,
    "moveset": [
-    "shadowball",
-    "kingsshield",
-    "sacredsword",
-    "flashcannon"
-   ]
-  },
-  {
-   "species": "seismitoad",
-   "level": 96,
-   "moveset": [
-    "hydropump",
-    "earthquake",
-    "sludgewave",
-    "drainpunch"
-   ]
-  },
-  {
-   "species": "mrrime",
-   "level": 97,
-   "moveset": [
-    "freezedry",
-    "psychic",
-    "focusblast",
+    "flamethrower",
+    "stoneedge",
+    "stealthrock",
     "rapidspin"
-   ]
+   ],
+   "heldItem": "cobblemon:heavy_duty_boots"
+  },
+  {
+   "species": "centiskorch",
+   "level": 87,
+   "moveset": [
+    "firelash",
+    "leechlife",
+    "powerwhip",
+    "coil"
+   ],
+   "heldItem": "cobblemon:sitrus_berry"
+  },
+  {
+   "species": "torkoal",
+   "level": 87,
+   "moveset": [
+    "lavaplume",
+    "earthpower",
+    "solarbeam",
+    "stealthrock"
+   ],
+   "heldItem": "cobblemon:heat_rock",
+   "ability": "drought"
+  },
+  {
+   "species": "cinderace",
+   "level": 88,
+   "moveset": [
+    "pyroball",
+    "highjumpkick",
+    "uturn",
+    "suckerpunch"
+   ],
+   "heldItem": "mega_showdown:firium_z"
+  },
+  {
+   "species": "delphox",
+   "level": 88,
+   "moveset": [
+    "mysticalfire",
+    "psychic",
+    "shadowball",
+    "nastyplot"
+   ],
+   "heldItem": "mega_showdown:delphoxite"
   },
   {
    "species": "charizard",
-   "level": 98,
+   "level": 90,
    "moveset": [
-    "flamethrower",
+    "flareblitz",
     "airslash",
     "dragonpulse",
     "solarbeam"
-   ]
-  },
-  {
-   "species": "haxorus",
-   "level": 99,
-   "moveset": [
-    "dragonclaw",
-    "dragondance",
-    "earthquake",
-    "poisonjab"
-   ]
-  },
-  {
-   "species": "dragapult",
-   "level": 100,
-   "moveset": [
-    "dragondarts",
-    "shadowball",
-    "uturn",
-    "thunderbolt"
-   ]
+   ],
+   "heldItem": "cobblemon:life_orb",
+   "gimmicks": {
+    "dynamax": true,
+    "gmax": true
+   }
   }
  ]
 }

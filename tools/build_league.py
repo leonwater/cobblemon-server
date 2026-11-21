@@ -11,93 +11,103 @@ DATA = ROOT / 'pack/world/datapacks/pokeserver/data'
 SERIES = 'pokeserver'
 
 
-def mon(species, level, moves):
-    return {'species': species, 'level': level, 'moveset': moves}
+def mon(species, level, moves, item, gmax=False, ability=None):
+    """item: 지닌 도구 (메가스톤·Z크리스탈이면 그 기믹을 씀). gmax: 거다이맥스."""
+    m = {'species': species, 'level': level, 'moveset': moves, 'heldItem': item if ':' in item else 'cobblemon:' + item}
+    if gmax:
+        m['gimmicks'] = {'dynamax': True, 'gmax': True}
+    if ability:
+        m['ability'] = ability
+    return m
 
 
-# (RCT ID, 이름, 타입, 배지 이름, 배지 색, 팀). 레벨 제한 = 다음 관장의 최고 레벨 → 20, 30, …, 90, 사천왕 100
+MS = 'mega_showdown:'
+# v2 (관장팀 v2 문서, v1은 tools/league_v1.json): 관장 에이스 = 레벨 제한 - 5 (RCT relativeLevelCap 5 → 제한 20, 30, …, 90),
+# 메가진화는 4번째 관장부터, Z기술은 7번째부터, 사천왕은 거다이맥스도. 4번째부터 약점 견제 1마리, 7번째부터 3마리. 모든 포켓몬이 도구를 지님.
+# (RCT ID, 이름, 타입, 배지 이름, 배지 색, 팀)
 GYMS = [
     ('leader_brock_019e', '웅', '바위', '회색배지', (150, 150, 155), [
-        mon('geodude', 18, ['tackle', 'defensecurl', 'rockthrow', 'rollout']),
-        mon('rhyhorn', 18, ['hornattack', 'stomp', 'rockblast', 'tailwhip']),
-        mon('onix', 20, ['rocktomb', 'bind', 'dragonbreath', 'harden'])]),
+        mon('geodude', 13, ['tackle', 'defensecurl', 'rockthrow', 'rollout'], 'hard_stone'),
+        mon('rhyhorn', 13, ['hornattack', 'stomp', 'rockblast', 'tailwhip'], 'eviolite'),
+        mon('onix', 15, ['rocktomb', 'bind', 'dragonbreath', 'harden'], 'sitrus_berry')]),
     ('leader_misty_019f', '이슬', '물', '블루배지', (60, 120, 230), [
-        mon('staryu', 27, ['waterpulse', 'rapidspin', 'swift', 'recover']),
-        mon('psyduck', 28, ['waterpulse', 'confusion', 'scratch', 'disable']),
-        mon('horsea', 28, ['bubblebeam', 'smokescreen', 'dragonbreath', 'twister']),
-        mon('starmie', 30, ['bubblebeam', 'psybeam', 'swift', 'recover'])]),
+        mon('staryu', 22, ['waterpulse', 'rapidspin', 'swift', 'recover'], 'eviolite'),
+        mon('psyduck', 23, ['waterpulse', 'confusion', 'scratch', 'disable'], 'sitrus_berry'),
+        mon('horsea', 23, ['bubblebeam', 'smokescreen', 'dragonbreath', 'twister'], 'mystic_water'),
+        mon('starmie', 25, ['bubblebeam', 'psybeam', 'swift', 'recover'], 'life_orb')]),
     ('leader_lt_surge_01a0', '마티스', '전기', '오렌지배지', (240, 150, 40), [
-        mon('electrode', 37, ['spark', 'screech', 'swift', 'selfdestruct']),
-        mon('magneton', 38, ['spark', 'thunderwave', 'flashcannon', 'triattack']),
-        mon('electabuzz', 38, ['thunderpunch', 'quickattack', 'lowkick', 'lightscreen']),
-        mon('pikachu', 38, ['thunderbolt', 'quickattack', 'irontail', 'doubleteam']),
-        mon('raichu', 40, ['thunderbolt', 'quickattack', 'irontail', 'thunderwave'])]),
+        mon('electrode', 32, ['spark', 'screech', 'swift', 'selfdestruct'], 'focus_sash'),
+        mon('magneton', 33, ['spark', 'thunderwave', 'flashcannon', 'triattack'], 'eviolite'),
+        mon('electabuzz', 33, ['thunderpunch', 'quickattack', 'lowkick', 'lightscreen'], 'eviolite'),
+        mon('pikachu', 33, ['thunderbolt', 'quickattack', 'irontail', 'doubleteam'], 'light_ball'),
+        mon('raichu', 35, ['thunderbolt', 'quickattack', 'irontail', 'thunderwave'], 'magnet')]),
     ('leader_erika_01a1', '민화', '풀', '무지개배지', (120, 200, 90), [
-        mon('tangela', 47, ['gigadrain', 'ancientpower', 'sleeppowder', 'slam']),
-        mon('victreebel', 48, ['leafblade', 'sludgebomb', 'sleeppowder', 'wrap']),
-        mon('exeggutor', 48, ['seedbomb', 'psychic', 'hypnosis', 'eggbomb']),
-        mon('bellossom', 48, ['petalblizzard', 'moonblast', 'quiverdance', 'gigadrain']),
-        mon('vileplume', 50, ['petaldance', 'sludgebomb', 'sleeppowder', 'moonblast'])]),
+        mon('tangela', 42, ['gigadrain', 'ancientpower', 'sleeppowder', 'slam'], 'eviolite'),
+        mon('vileplume', 43, ['petaldance', 'sludgebomb', 'sleeppowder', 'moonblast'], 'black_sludge'),
+        mon('ludicolo', 43, ['gigadrain', 'surf', 'icebeam', 'raindance'], 'damp_rock'),
+        mon('bellossom', 43, ['petalblizzard', 'moonblast', 'quiverdance', 'gigadrain'], 'leftovers'),
+        mon('victreebel', 45, ['leafblade', 'sludgebomb', 'sleeppowder', 'suckerpunch'], MS + 'victreebelite')]),
     ('leader_koga_01a2', '독수', '독', '핑크배지', (240, 120, 180), [
-        mon('muk', 57, ['gunkshot', 'poisonjab', 'minimize', 'toxic']),
-        mon('venomoth', 57, ['bugbuzz', 'sludgebomb', 'sleeppowder', 'psychic']),
-        mon('tentacruel', 58, ['sludgebomb', 'surf', 'toxicspikes', 'hex']),
-        mon('weezing', 58, ['sludgebomb', 'toxic', 'willowisp', 'explosion']),
-        mon('crobat', 60, ['crosspoison', 'airslash', 'confuseray', 'uturn'])]),
+        mon('muk', 52, ['gunkshot', 'poisonjab', 'minimize', 'toxic'], 'black_sludge'),
+        mon('venomoth', 53, ['bugbuzz', 'sludgebomb', 'sleeppowder', 'psychic'], 'wise_glasses'),
+        mon('weezing', 53, ['sludgebomb', 'toxic', 'willowisp', 'explosion'], 'rocky_helmet', ability='levitate'),
+        mon('crobat', 54, ['crosspoison', 'airslash', 'confuseray', 'uturn'], 'poison_barb'),
+        mon('beedrill', 55, ['poisonjab', 'xscissor', 'drillrun', 'uturn'], MS + 'beedrillite')]),
     ('leader_sabrina_01a4', '초련', '에스퍼', '골드배지', (240, 200, 60), [
-        mon('mrmime', 67, ['psychic', 'dazzlinggleam', 'reflect', 'lightscreen']),
-        mon('hypno', 67, ['psychic', 'hypnosis', 'dreameater', 'nastyplot']),
-        mon('slowking', 68, ['psychic', 'surf', 'icebeam', 'slackoff']),
-        mon('jynx', 68, ['psychic', 'icebeam', 'lovelykiss', 'nastyplot']),
-        mon('alakazam', 70, ['psychic', 'shadowball', 'focusblast', 'calmmind'])]),
+        mon('hypno', 62, ['psychic', 'hypnosis', 'dreameater', 'nastyplot'], 'twisted_spoon'),
+        mon('jynx', 62, ['psychic', 'icebeam', 'lovelykiss', 'nastyplot'], 'never_melt_ice'),
+        mon('slowking', 63, ['psychic', 'surf', 'icebeam', 'slackoff'], 'leftovers'),
+        mon('mrmime', 63, ['psychic', 'dazzlinggleam', 'reflect', 'lightscreen'], 'light_clay'),
+        mon('alakazam', 65, ['psychic', 'shadowball', 'focusblast', 'calmmind'], MS + 'alakazite')]),
     ('leader_blaine_01a3', '강연', '불꽃', '크림슨배지', (210, 50, 50), [
-        mon('rapidash', 77, ['flareblitz', 'bounce', 'agility', 'poisonjab']),
-        mon('ninetales', 77, ['flamethrower', 'solarbeam', 'nastyplot', 'extrasensory']),
-        mon('magmortar', 78, ['fireblast', 'thunderbolt', 'focusblast', 'confuseray']),
-        mon('flareon', 78, ['flareblitz', 'superpower', 'quickattack', 'willowisp']),
-        mon('charizard', 78, ['flamethrower', 'airslash', 'dragonpulse', 'solarbeam']),
-        mon('arcanine', 80, ['flareblitz', 'extremespeed', 'crunch', 'wildcharge'])]),
+        mon('rapidash', 72, ['flareblitz', 'bounce', 'agility', 'poisonjab'], 'charcoal_stick'),
+        mon('arcanine', 73, ['flareblitz', 'extremespeed', 'crunch', 'wildcharge'], MS + 'firium_z'),
+        mon('camerupt', 73, ['earthpower', 'lavaplume', 'rockslide', 'yawn'], 'soft_sand'),
+        mon('volcarona', 73, ['fierydance', 'bugbuzz', 'gigadrain', 'quiverdance'], 'lum_berry'),
+        mon('charizard', 73, ['flamethrower', 'airslash', 'dragonpulse', 'solarbeam'], 'life_orb'),
+        mon('houndoom', 75, ['flamethrower', 'darkpulse', 'sludgebomb', 'nastyplot'], MS + 'houndoominite')]),
     ('leader_giovanni_015e', '비주기', '땅', '그린배지', (70, 170, 80), [
-        mon('dugtrio', 87, ['earthquake', 'stoneedge', 'suckerpunch', 'slash']),
-        mon('nidoqueen', 87, ['earthpower', 'sludgewave', 'icebeam', 'superpower']),
-        mon('nidoking', 88, ['earthpower', 'sludgewave', 'thunderbolt', 'icebeam']),
-        mon('golem', 88, ['earthquake', 'stoneedge', 'explosion', 'heavyslam']),
-        mon('marowak', 88, ['bonemerang', 'swordsdance', 'stoneedge', 'firepunch']),
-        mon('rhyperior', 90, ['earthquake', 'stoneedge', 'megahorn', 'icepunch'])]),
+        mon('dugtrio', 82, ['earthquake', 'stoneedge', 'suckerpunch', 'slash'], 'focus_sash'),
+        mon('nidoking', 83, ['earthpower', 'sludgewave', 'thunderbolt', 'icebeam'], 'life_orb'),
+        mon('rhyperior', 83, ['earthquake', 'stoneedge', 'megahorn', 'icepunch'], MS + 'groundium_z'),
+        mon('swampert', 83, ['earthquake', 'waterfall', 'icepunch', 'stealthrock'], 'leftovers'),
+        mon('steelix', 83, ['earthquake', 'ironhead', 'stoneedge', 'dragontail'], 'rocky_helmet'),
+        mon('excadrill', 85, ['earthquake', 'ironhead', 'rockslide', 'swordsdance'], MS + 'excadrite')]),
 ]
 
-# 사천왕 = 역대 지방 챔피언 중 가장 강한 4명 (약한 순서로 도전). 원작 팀 그대로, 종족값이 높을수록 높은 레벨.
-# 단델·성호는 RCT에 없어 새 ID + 우리 스킨
+# 사천왕 = 역대 챔피언 4명, 타입 하나씩 (약한 순서로 도전). 마지막(레드) 에이스 95, 나머지 90 → 레벨 제한 95·100.
+# 단델·성호는 RCT에 없어 새 ID + 우리 스킨. (RCT ID, 이름, 칭호, 팀)
 ELITE = [
-    ('champion_steven_ps', '성호', '호연 챔피언', [
-        mon('skarmory', 96, ['bravebird', 'ironhead', 'spikes', 'roost']),
-        mon('armaldo', 97, ['xscissor', 'stoneedge', 'aquatail', 'crushclaw']),
-        mon('cradily', 97, ['gigadrain', 'rockslide', 'ancientpower', 'stealthrock']),
-        mon('claydol', 98, ['earthpower', 'psychic', 'icebeam', 'reflect']),
-        mon('aggron', 99, ['heavyslam', 'stoneedge', 'earthquake', 'ironhead']),
-        mon('metagross', 100, ['meteormash', 'zenheadbutt', 'earthquake', 'bulletpunch'])]),
-    ('champion_leon_ps', '단델', '가라르 챔피언', [
-        mon('aegislash', 95, ['shadowball', 'kingsshield', 'sacredsword', 'flashcannon']),
-        mon('seismitoad', 96, ['hydropump', 'earthquake', 'sludgewave', 'drainpunch']),
-        mon('mrrime', 97, ['freezedry', 'psychic', 'focusblast', 'rapidspin']),
-        mon('charizard', 98, ['flamethrower', 'airslash', 'dragonpulse', 'solarbeam']),
-        mon('haxorus', 99, ['dragonclaw', 'dragondance', 'earthquake', 'poisonjab']),
-        mon('dragapult', 100, ['dragondarts', 'shadowball', 'uturn', 'thunderbolt'])]),
-    ('champion_cynthia_03a5', '난천', '신오 챔피언', [
-        mon('spiritomb', 95, ['darkpulse', 'shadowball', 'psychic', 'suckerpunch']),
-        mon('roserade', 96, ['gigadrain', 'sludgebomb', 'shadowball', 'extrasensory']),
-        mon('lucario', 97, ['aurasphere', 'flashcannon', 'dragonpulse', 'nastyplot']),
-        mon('milotic', 98, ['surf', 'icebeam', 'mirrorcoat', 'recover']),
-        mon('togekiss', 99, ['airslash', 'aurasphere', 'dazzlinggleam', 'thunderwave']),
-        mon('garchomp', 100, ['earthquake', 'dragonclaw', 'stoneedge', 'swordsdance'])]),
+    ('champion_steven_ps', '성호', '강철 · 호연 챔피언', [
+        mon('skarmory', 87, ['bravebird', 'ironhead', 'spikes', 'roost'], 'rocky_helmet'),
+        mon('scizor', 87, ['bulletpunch', 'xscissor', 'uturn', 'swordsdance'], 'life_orb'),
+        mon('magnezone', 87, ['thunderbolt', 'flashcannon', 'voltswitch', 'thunderwave'], 'magnet'),
+        mon('aggron', 88, ['heavyslam', 'stoneedge', 'earthquake', 'ironhead'], MS + 'steelium_z'),
+        mon('copperajah', 88, ['heavyslam', 'superpower', 'playrough', 'stealthrock'], 'leftovers', gmax=True),
+        mon('metagross', 90, ['meteormash', 'zenheadbutt', 'earthquake', 'bulletpunch'], MS + 'metagrossite')]),
+    ('champion_leon_ps', '단델', '불꽃 · 가라르 챔피언', [
+        mon('coalossal', 87, ['flamethrower', 'stoneedge', 'stealthrock', 'rapidspin'], 'heavy_duty_boots'),
+        mon('centiskorch', 87, ['firelash', 'leechlife', 'powerwhip', 'coil'], 'sitrus_berry'),
+        mon('torkoal', 87, ['lavaplume', 'earthpower', 'solarbeam', 'stealthrock'], 'heat_rock', ability='drought'),
+        mon('cinderace', 88, ['pyroball', 'highjumpkick', 'uturn', 'suckerpunch'], MS + 'firium_z'),
+        mon('delphox', 88, ['mysticalfire', 'psychic', 'shadowball', 'nastyplot'], MS + 'delphoxite'),
+        mon('charizard', 90, ['flareblitz', 'airslash', 'dragonpulse', 'solarbeam'], 'life_orb', gmax=True)]),
+    ('champion_cynthia_03a5', '난천', '드래곤 · 신오 챔피언', [
+        mon('flygon', 87, ['earthquake', 'dragonclaw', 'uturn', 'firepunch'], 'choice_scarf'),
+        mon('kingdra', 87, ['hydropump', 'dracometeor', 'icebeam', 'raindance'], 'damp_rock'),
+        mon('goodra', 87, ['dracometeor', 'sludgebomb', 'thunderbolt', 'fireblast'], 'assault_vest'),
+        mon('dragonite', 88, ['outrage', 'extremespeed', 'earthquake', 'dragondance'], MS + 'dragonium_z'),
+        mon('duraludon', 88, ['dracometeor', 'flashcannon', 'thunderbolt', 'bodypress'], 'expert_belt', gmax=True),
+        mon('garchomp', 90, ['earthquake', 'dragonclaw', 'stoneedge', 'swordsdance'], MS + 'garchompite')]),
     ('trainer_red_0003', '레드', '관동 전설의 챔피언', [
-        mon('pikachu', 96, ['volttackle', 'irontail', 'quickattack', 'thunderbolt']),
-        mon('espeon', 97, ['psychic', 'shadowball', 'dazzlinggleam', 'morningsun']),
-        mon('venusaur', 97, ['solarbeam', 'sludgebomb', 'earthquake', 'sleeppowder']),
-        mon('blastoise', 98, ['hydropump', 'icebeam', 'flashcannon', 'aurasphere']),
-        mon('charizard', 99, ['flareblitz', 'airslash', 'dragonpulse', 'solarbeam']),
-        mon('snorlax', 100, ['bodyslam', 'crunch', 'rest', 'sleeptalk'])]),
+        mon('pikachu', 92, ['volttackle', 'irontail', 'quickattack', 'thunderbolt'], MS + 'pikanium_z'),
+        mon('espeon', 92, ['psychic', 'shadowball', 'dazzlinggleam', 'morningsun'], 'twisted_spoon'),
+        mon('snorlax', 93, ['bodyslam', 'crunch', 'rest', 'sleeptalk'], 'leftovers'),
+        mon('blastoise', 93, ['hydropump', 'icebeam', 'flashcannon', 'aurasphere'], 'assault_vest'),
+        mon('venusaur', 93, ['solarbeam', 'sludgebomb', 'earthquake', 'sleeppowder'], 'black_sludge', gmax=True),
+        mon('charizard', 95, ['flareblitz', 'airslash', 'dragonpulse', 'solarbeam'], MS + 'charizardite_y')]),
 ]
+CAP = 5   # RCT relativeLevelCap: 레벨 제한 = 다음 상대 에이스 + 5
 
 
 def COOLDOWN(n):
@@ -126,14 +136,11 @@ def validate():
                 continue
             bad += [f"{m['species']}: {mv}" for mv in m['moveset'] if mv not in learn[m['species']]]
     assert not bad, '배울 수 없는 기술: ' + ', '.join(bad)
-    caps = [max(m['level'] for m in g[5]) for g in GYMS]
+    caps = [max(m['level'] for m in g[5]) + CAP for g in GYMS]
     assert caps == [20, 30, 40, 50, 60, 70, 80, 90], caps
-    assert all(max(m['level'] for m in e[3]) == 100 for e in ELITE)
-    for e in ELITE:   # 사천왕: 종족값이 높을수록 레벨이 높음 (같으면 같은 레벨)
-        for m1 in e[3]:
-            for m2 in e[3]:
-                assert (bst[m1['species']] > bst[m2['species']]) <= (m1['level'] > m2['level']), (e[1], m1['species'], m2['species'])
-                assert (bst[m1['species']] == bst[m2['species']]) <= (m1['level'] == m2['level']), (e[1], m1['species'], m2['species'])
+    assert [max(m['level'] for m in e[3]) for e in ELITE] == [90, 90, 90, 95]
+    for team in [g[5] for g in GYMS] + [e[3] for e in ELITE]:   # 에이스(마지막)가 가장 높고, 모두 도구를 지님
+        assert team[-1]['level'] == max(m['level'] for m in team) and all(m['heldItem'] for m in team)
 
 
 def text(s):
@@ -262,7 +269,7 @@ def functions():
             f'tag @s add poke.badge{n}', badge_item(n, badge, color),
             f'title @s title {{"text":"{badge} 획득!","color":"gold"}}',
             f'tellraw @a [{{"text":"[리그] ","color":"gold"}},{{"selector":"@s"}},{{"text":"님이 {n}번째 체육관을 클리어하였습니다! (관장 {name} · {badge})","color":"yellow"}}]',
-            prize(max(m['level'] for m in GYMS[n - 1][5]) * 100), 'function poke:gym/leave'])
+            prize((max(m['level'] for m in GYMS[n - 1][5]) + CAP) * 100), 'function poke:gym/leave'])
         px, pz, w, d = g['exit']
         pads.append(f'execute in poke:town as @a[x={px},y={Y},z={pz},dx={w - 1},dy=1,dz={d - 1}] run function poke:gym/leave')
         win.append(f'execute if score @s poke.gym matches {n} run return run function poke:gym/award/{n}')
@@ -310,8 +317,8 @@ def functions():
     # 체육관 안내원 화면(모드)이 읽는 목록
     rgb = lambda c: c[0] << 16 | c[1] << 8 | c[2]
     league = [dict(n=n, title=f'{n}번 체육관', leader=f'관장 {name}', type=f'{typ} 타입', badge=badge, color=rgb(color),
-                   level=max(m['level'] for m in team)) for n, (_, name, typ, badge, color, team) in enumerate(GYMS, 1)]
-    league.append(dict(n=9, title='사천왕 (챔피언 4명 연속)', leader='·'.join(e[1] for e in ELITE), type='역대 최강 챔피언',
+                   level=max(m['level'] for m in team) + CAP) for n, (_, name, typ, badge, color, team) in enumerate(GYMS, 1)]
+    league.append(dict(n=9, title='사천왕 (챔피언 4명 연속)', leader='·'.join(e[1] for e in ELITE), type='강철·불꽃·드래곤·관동 챔피언',
                        badge='명예의 전당', color=0x8A4FD0, level=100))
     (ROOT / 'pack/config/pokeserver/league.json').write_text(json.dumps(league, ensure_ascii=False, indent=1), encoding='utf-8')
     fn('gym/leave.mcfunction', ['# 경기장·사천왕에서 나가기 (나가기 발판, 승리, 패배, 재접속): 체육관 로비로',

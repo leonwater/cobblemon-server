@@ -23,7 +23,7 @@ hash = "f352cf02dc158e905c4ae7ca5496f7b2d4f695f4aa3eb040437b6c87d7eda48c"
 
 [[files]]
 file = "config/pokeserver/league.json"
-hash = "585fcc0ba444267786527460a86157ccf1ce80366d4fa81956a162e59ba94a51"
+hash = "704554a66ac972bd725744bb87e9912957f85cb86ae8e557aad0f6a637464205"
 
 [[files]]
 file = "config/pokeserver/menu.json"
@@ -39,7 +39,7 @@ hash = "49850634c9460e44a72c413f679e6093a02c4763770ae200efd5ffc0f6567ce9"
 
 [[files]]
 file = "config/rctmod-server.toml"
-hash = "775fa709b3737bcb2e93ec88e1d9f5f5255bd10937ad055ca7940dc3871ba03a"
+hash = "48d89829af77664e8e007391be354ffb5c0080560373c444a114da241b58eab2"
 
 [[files]]
 file = "mods/accessories.pw.toml"
@@ -389,7 +389,7 @@ hash = "b619a479d6551963a1504f281cf2f9c4177d42be79cd5bee029eea5db6e69cc9"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/e4/win.mcfunction"
-hash = "0ed83d439fecd39091a9cd33add56fe0150a7f079ecba21f106e1432ff4f9cc6"
+hash = "5e888ffe8ae6ea4bc1a911b181df361a92e0f3045fbffca3d331aa695426e597"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/gym/award/1.mcfunction"
@@ -505,7 +505,7 @@ hash = "582eaa63c659db57aed3371ec0bb9589e2b1a897e1db3df90fd41c571a806ac6"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/gym/try/9.mcfunction"
-hash = "b229a0316e484d942df6cf7cf57b82a32ccb2a007f9634baa19d3bca41f67c6f"
+hash = "70e3463675c3fcb67e763a45065d045452d17461b6c0d1e10c5ea54abcf3cce8"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/gym/win.mcfunction"
@@ -801,51 +801,51 @@ hash = "991e194a447849b64fed8061dfbd4f66f01488c2de08717964fb6125b9aa6853"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/trainers/champion_cynthia_03a5.json"
-hash = "91b534ffd55b2d04d9fc73a82cf8a5cf3bbb45b13410bdf064ed229ce16c6a04"
+hash = "779e0e637bc859a397c061a70b0b4f1500671378b39878132e6fb8aba35c0576"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/trainers/champion_leon_ps.json"
-hash = "10be45a4311b82f4d2b9fcadeba9d46987d608d514ad344f29f13eb4e0b622af"
+hash = "002a7f0fc6b0ce52bf53ba8e78bd8157fd4a10c7e6096ffbd9852a6ba8bf870a"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/trainers/champion_steven_ps.json"
-hash = "1b1185d2e380fca575c444ba24d33c0418811e39faef52c91069fb4868a0b9da"
+hash = "c2abaf3f83b0cc8449b9b7ca85574f6d03b1a12fec625c4e48452180ffded59e"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/trainers/leader_blaine_01a3.json"
-hash = "a0534625b7bbc4d46443aac91fe0846808ab2b57e9ca62265381d9e173caa9e3"
+hash = "70a6f7acfa240bf8f52c9ff743518ea914b6fba7eba96848c023538f6b9c5d63"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/trainers/leader_brock_019e.json"
-hash = "813bdd55543955f8ab17d3edc0e0f5eafd77934e54a6f34a4da8f13d4db237b7"
+hash = "b60ba8b4138cf27ba774e8b33fda3f27e970f8a397744b5f66c0ea294ed0cb3f"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/trainers/leader_erika_01a1.json"
-hash = "aad950e2d181bc61c3f72c0fad961f7cef25d075cf4e05426ee1120508461385"
+hash = "3580a186c9301c086cc34f15e76ffef2471f0a5dcb47c77f3802bc309f616efa"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/trainers/leader_giovanni_015e.json"
-hash = "73dd76ad12062804706b4c575fb946bab4eef7674689881b4fef7652dabfdc6f"
+hash = "0d6a96814a10cc2cbecb9ec5b9079ec5bef7e6caea2c789e40dce372340bb12c"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/trainers/leader_koga_01a2.json"
-hash = "d15c31b722b8b309894f0c1962bbd5eaa5a8aac3d382d216d82781dc892d567e"
+hash = "acf16ce2140e19f6c9927c7201ecc76a577e406ced4450ec4d0d951f9e6d65ed"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/trainers/leader_lt_surge_01a0.json"
-hash = "6102bf8f40d40078d5510d523e0c3a78db824efa75962c62f0c9d440db0b31bc"
+hash = "f2adcfea0b927a0143cb17040d7f51f2fb4d61b8b239d9f7dc993a072615aa01"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/trainers/leader_misty_019f.json"
-hash = "c9a5d7b2473d52986b601298f0a25f6439e279fddeb23302c033f705dd9da5d8"
+hash = "48f08f08bd9ee21ecd964968d349900814a25a194845621ee8d0244761c8814f"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/trainers/leader_sabrina_01a4.json"
-hash = "89741a3f194aa97a0b31684df183fa251fbb8dcf92131993a0bba04e2c061ea3"
+hash = "2c22bbd2fd0fe287ed3f7f10767d24c1c6c17af74e07805329e36fe66918d37b"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/trainers/trainer_red_0003.json"
-hash = "4151c55c4eb8884cd8a17519facbb828a3e6ef375ba8dba06add447cd086e30c"
+hash = "9381d1368ce8e400b350076d8c981c6d228992979e5decba0fc0cbe3f82043dc"
 
 [[files]]
 file = "world/datapacks/pokeserver/pack.mcmeta"

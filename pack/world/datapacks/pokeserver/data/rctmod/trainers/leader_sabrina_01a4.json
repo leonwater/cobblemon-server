@@ -18,54 +18,59 @@
  ],
  "team": [
   {
-   "species": "mrmime",
-   "level": 67,
-   "moveset": [
-    "psychic",
-    "dazzlinggleam",
-    "reflect",
-    "lightscreen"
-   ]
-  },
-  {
    "species": "hypno",
-   "level": 67,
+   "level": 62,
    "moveset": [
     "psychic",
     "hypnosis",
     "dreameater",
     "nastyplot"
-   ]
-  },
-  {
-   "species": "slowking",
-   "level": 68,
-   "moveset": [
-    "psychic",
-    "surf",
-    "icebeam",
-    "slackoff"
-   ]
+   ],
+   "heldItem": "cobblemon:twisted_spoon"
   },
   {
    "species": "jynx",
-   "level": 68,
+   "level": 62,
    "moveset": [
     "psychic",
     "icebeam",
     "lovelykiss",
     "nastyplot"
-   ]
+   ],
+   "heldItem": "cobblemon:never_melt_ice"
+  },
+  {
+   "species": "slowking",
+   "level": 63,
+   "moveset": [
+    "psychic",
+    "surf",
+    "icebeam",
+    "slackoff"
+   ],
+   "heldItem": "cobblemon:leftovers"
+  },
+  {
+   "species": "mrmime",
+   "level": 63,
+   "moveset": [
+    "psychic",
+    "dazzlinggleam",
+    "reflect",
+    "lightscreen"
+   ],
+   "heldItem": "cobblemon:light_clay"
   },
   {
    "species": "alakazam",
-   "level": 70,
+   "level": 65,
    "moveset": [
     "psychic",
     "shadowball",
     "focusblast",
     "calmmind"
-   ]
+   ],
+   "heldItem": "mega_showdown:alakazite"
   }
  ]
 }

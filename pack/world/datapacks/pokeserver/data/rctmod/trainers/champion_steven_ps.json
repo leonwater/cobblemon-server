@@ -19,63 +19,73 @@
  "team": [
   {
    "species": "skarmory",
-   "level": 96,
+   "level": 87,
    "moveset": [
     "bravebird",
     "ironhead",
     "spikes",
     "roost"
-   ]
+   ],
+   "heldItem": "cobblemon:rocky_helmet"
   },
   {
-   "species": "armaldo",
-   "level": 97,
+   "species": "scizor",
+   "level": 87,
    "moveset": [
+    "bulletpunch",
     "xscissor",
-    "stoneedge",
-    "aquatail",
-    "crushclaw"
-   ]
+    "uturn",
+    "swordsdance"
+   ],
+   "heldItem": "cobblemon:life_orb"
   },
   {
-   "species": "cradily",
-   "level": 97,
+   "species": "magnezone",
+   "level": 87,
    "moveset": [
-    "gigadrain",
-    "rockslide",
-    "ancientpower",
-    "stealthrock"
-   ]
-  },
-  {
-   "species": "claydol",
-   "level": 98,
-   "moveset": [
-    "earthpower",
-    "psychic",
-    "icebeam",
-    "reflect"
-   ]
+    "thunderbolt",
+    "flashcannon",
+    "voltswitch",
+    "thunderwave"
+   ],
+   "heldItem": "cobblemon:magnet"
   },
   {
    "species": "aggron",
-   "level": 99,
+   "level": 88,
    "moveset": [
     "heavyslam",
     "stoneedge",
     "earthquake",
     "ironhead"
-   ]
+   ],
+   "heldItem": "mega_showdown:steelium_z"
+  },
+  {
+   "species": "copperajah",
+   "level": 88,
+   "moveset": [
+    "heavyslam",
+    "superpower",
+    "playrough",
+    "stealthrock"
+   ],
+   "heldItem": "cobblemon:leftovers",
+   "gimmicks": {
+    "dynamax": true,
+    "gmax": true
+   }
   },
   {
    "species": "metagross",
-   "level": 100,
+   "level": 90,
    "moveset": [
     "meteormash",
     "zenheadbutt",
     "earthquake",
     "bulletpunch"
-   ]
+   ],
+   "heldItem": "mega_showdown:metagrossite"
   }
  ]
 }

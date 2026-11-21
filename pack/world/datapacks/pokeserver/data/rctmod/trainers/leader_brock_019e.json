@@ -19,33 +19,36 @@
  "team": [
   {
    "species": "geodude",
-   "level": 18,
+   "level": 13,
    "moveset": [
     "tackle",
     "defensecurl",
     "rockthrow",
     "rollout"
-   ]
+   ],
+   "heldItem": "cobblemon:hard_stone"
   },
   {
    "species": "rhyhorn",
-   "level": 18,
+   "level": 13,
    "moveset": [
     "hornattack",
     "stomp",
     "rockblast",
     "tailwhip"
-   ]
+   ],
+   "heldItem": "cobblemon:eviolite"
   },
   {
    "species": "onix",
-   "level": 20,
+   "level": 15,
    "moveset": [
     "rocktomb",
     "bind",
     "dragonbreath",
     "harden"
-   ]
+   ],
+   "heldItem": "cobblemon:sitrus_berry"
   }
  ]
 }

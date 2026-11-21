@@ -19,43 +19,47 @@
  "team": [
   {
    "species": "staryu",
-   "level": 27,
+   "level": 22,
    "moveset": [
     "waterpulse",
     "rapidspin",
     "swift",
     "recover"
-   ]
+   ],
+   "heldItem": "cobblemon:eviolite"
   },
   {
    "species": "psyduck",
-   "level": 28,
+   "level": 23,
    "moveset": [
     "waterpulse",
     "confusion",
     "scratch",
     "disable"
-   ]
+   ],
+   "heldItem": "cobblemon:sitrus_berry"
   },
   {
    "species": "horsea",
-   "level": 28,
+   "level": 23,
    "moveset": [
     "bubblebeam",
     "smokescreen",
     "dragonbreath",
     "twister"
-   ]
+   ],
+   "heldItem": "cobblemon:mystic_water"
   },
   {
    "species": "starmie",
-   "level": 30,
+   "level": 25,
    "moveset": [
     "bubblebeam",
     "psybeam",
     "swift",
     "recover"
-   ]
+   ],
+   "heldItem": "cobblemon:life_orb"
   }
  ]
 }
