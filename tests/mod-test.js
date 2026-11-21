@@ -239,6 +239,14 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   assert.ok(!(await cmd('execute in poke:farm if entity @e[type=minecraft:tnt]')).includes('passed'), 'TNT는 실제로 터짐')
   await cmd('execute in poke:farm run setblock 12 -58 25 minecraft:air')
   console.log('> 폭발 방지')
+  // 광장 안의 불은 저절로 꺼지고, 야생 불은 그대로
+  await cmd(`execute in poke:wild run forceload add ${px + 200} ${pzz}`); await sleep(1000)
+  await cmd(`execute in poke:wild run setblock ${px + 5} ${py + 1} ${pzz + 21} minecraft:fire`)
+  await cmd(`execute in poke:wild run setblock ${px + 200} 150 ${pzz} minecraft:stone`)
+  await cmd(`execute in poke:wild run setblock ${px + 200} 151 ${pzz} minecraft:fire`); await sleep(3500)
+  assert.ok((await cmd(`execute in poke:wild if block ${px + 5} ${py + 1} ${pzz + 21} minecraft:air`)).includes('passed'), '광장 불은 꺼짐')
+  assert.ok((await cmd(`execute in poke:wild if block ${px + 200} 151 ${pzz} minecraft:fire`)).includes('passed'), '야생 불은 그대로')
+  console.log('> 광장 불 자동으로 꺼짐')
 
   console.log('ALL PASS'); A.quit(); B.quit(); await rc.end(); process.exit(0)
 })().catch(e => { console.error('FAIL', e.message); process.exit(1) })
