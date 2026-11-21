@@ -69,7 +69,19 @@ public final class CobblemonHooks {
                 e.cancel();
             }
             // 체육관·사천왕: 포켓몬을 내보내기 전에 도전자를 필드 끝 자리로 (관장 바로 앞에서 말을 걸어도 포켓몬이 필드 가운데에 나옴)
-            if (b.isPvN()) for (var p : b.getPlayers()) Menu.run(p, "function poke:gym/place");
+            // RCT는 포켓몬을 먼저 내보낸 뒤 배틀을 시작해서, 이미 나온 플레이어 포켓몬도 도전자 앞 4칸으로 옮김 (뒤에 교체로 나오는 건 새 자리 기준)
+            if (b.isPvN()) for (var p : b.getPlayers()) {
+                if (!inGym(p)) continue;
+                Menu.run(p, "function poke:gym/place");
+                var f = p.getForward();
+                for (var a : b.getActors()) {
+                    if (!a.getPlayerUUIDs().iterator().hasNext() || !a.getPlayerUUIDs().iterator().next().equals(p.getUUID())) continue;
+                    for (var bp : a.getPokemonList()) {
+                        var en = bp.getEffectedPokemon().getEntity();
+                        if (en != null) en.teleportTo(p.getX() + f.x * 4, p.getY(), p.getZ() + f.z * 4);
+                    }
+                }
+            }
             return Unit.INSTANCE;
         });
         // 체육관·사천왕: NPC 배틀이 끝나면 승패를 데이터팩에 알림 (체육관 안이 아니면 함수가 아무것도 안 함)
@@ -313,14 +325,18 @@ public final class CobblemonHooks {
     public static boolean dynamaxAnywhere(net.minecraft.server.level.ServerPlayer p) {
         var battle = com.cobblemon.mod.common.battles.BattleRegistry.INSTANCE.getBattleByParticipatingPlayer(p);
         if (battle == null) return false;
-        if (battle.isPvP()) return true;
+        return battle.isPvP() || inGym(p);
+    }
+
+    /** 체육관·사천왕 경기장 안 (poke.gym 1~9). */
+    static boolean inGym(net.minecraft.server.level.ServerPlayer p) {
         var sb = p.server.getScoreboard();
         var obj = sb.getObjective("poke.gym");
         var score = obj == null ? null : sb.getPlayerScoreInfo(p, obj);
         return score != null && score.value() > 0;
     }
 
-    /** 배틀 중 특수 기믹 잠금 (배틀 밖은 제한 없음): 메가 = 배지 3, Z기술 = 배지 6, 다이맥스·거다이맥스 = 배지 8, 테라스탈 = 사천왕 클리어.
+    /** 배틀 중 특수 기믹 잠금 (배틀 밖은 제한 없음): 메가 = 배지 4, 다이맥스·거다이맥스 = 배지 6, 테라스탈 = 배지 8, Z기술은 제한 없음.
      *  @param gimmick ShowdownMoveset.Gimmick 이름 */
     public static boolean gimmickLocked(net.minecraft.server.level.ServerPlayer p, String gimmick) {
         if (com.cobblemon.mod.common.battles.BattleRegistry.INSTANCE.getBattleByParticipatingPlayer(p) == null) return false;
