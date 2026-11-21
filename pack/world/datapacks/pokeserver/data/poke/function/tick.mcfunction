@@ -22,9 +22,8 @@ execute unless data storage poke:state {leaders:1} if entity @a run function pok
 execute in poke:farm as @a[x=-1,y=-59,z=-8,dx=2,dy=1,dz=2] run function poke:home
 # 8. 농장·야생의 마지막 위치를 1초마다 기억
 scoreboard players add #t poke.timer 1
+# 4. 포켓몬 외 몬스터·동물 제거는 1초마다 (모든 엔티티를 훑어서 매 틱은 비쌈). track이 타이머를 0으로 돌리므로 먼저
+execute if score #t poke.timer matches 20.. run function poke:mobs
 execute if score #t poke.timer matches 20.. run function poke:warp/track
-# 4. 포켓몬 외 몬스터·동물 제거 (스포너·알 등으로 생긴 것까지), 배고픔 없음
-execute as @e[type=#poke:blocked_mobs] at @s run tp @s ~ -300 ~
-# 허공 아래에서 즉시 제거: 떨어진 아이템도 허공에서 사라짐
-kill @e[type=#poke:blocked_mobs]
+# 배고픔 없음
 execute as @a unless predicate poke:has_saturation run effect give @s minecraft:saturation infinite 0 true

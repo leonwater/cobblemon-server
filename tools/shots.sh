@@ -40,8 +40,9 @@ printf 'online-mode=false\nenable-rcon=true\nrcon.password=test\nrcon.port=25575
 timeout 240 bash -c "until grep -qE 'Done \(|Exception in thread' $S/run.log; do sleep 1; done" || { echo "FAIL server boot"; exit 1; }
 if [ ! -d $CACHE ]; then   # 처음 보는 조합: 짓기·사전 생성이 끝나길 기다렸다가 월드 저장 (클라이언트 접속 전이라 플레이어 기록 없음)
   N=$(grep -o '{build:[0-9]*}' $S/world/datapacks/pokeserver/data/poke/function/load.mcfunction | grep -o '[0-9]*')
+  rc 'tick sprint 24000' > /dev/null   # 짓기·지형 다듬기 동안 게임 시간을 빨리
   for i in $(seq 200); do rc 'data get storage poke:state' | grep -q "build: $N[,}]" && grep -q 'Chunky\] Task finished' $S/run.log && break; sleep 3; done
-  rc save-off > /dev/null; rc 'save-all flush' > /dev/null; sleep 2
+  rc 'tick sprint stop' > /dev/null; rc save-off > /dev/null; rc 'save-all flush' > /dev/null; sleep 2
   rm -rf $W/cache && mkdir -p $W/cache && cp -r $S/world $CACHE && rm -f $CACHE/session.lock
   rc save-on > /dev/null; echo "지어 둔 월드 저장 ($KEY)"
 fi
