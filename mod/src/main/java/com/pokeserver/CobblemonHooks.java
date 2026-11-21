@@ -77,7 +77,8 @@ public final class CobblemonHooks {
                 for (var a : b.getActors()) {
                     if (!a.getPlayerUUIDs().iterator().hasNext() || !a.getPlayerUUIDs().iterator().next().equals(p.getUUID())) continue;
                     for (var bp : a.getPokemonList()) {
-                        var en = bp.getEffectedPokemon().getEntity();
+                        var en = bp.getEffectedPokemon().getEntity();   // RCT는 배틀용 복제본을 넘길 수 있어, 나와 있는 엔티티는 원본 쪽에
+                        if (en == null) en = bp.getOriginalPokemon().getEntity();
                         if (en != null) en.teleportTo(p.getX() + f.x * 4, p.getY(), p.getZ() + f.z * 4);
                     }
                 }
