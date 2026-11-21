@@ -18,48 +18,133 @@
  ],
  "team": [
   {
-   "species": "kirlia",
-   "level": 22,
+   "species": "gallade",
+   "level": 53,
    "moveset": [
-    "psybeam",
-    "magicalleaf",
-    "calmmind",
-    "disarmingvoice"
+    "swordsdance",
+    "sacredsword",
+    "psychocut",
+    "leafblade"
    ],
-   "heldItem": "cobblemon:eviolite"
-  },
-  {
-   "species": "wobbuffet",
-   "level": 23,
-   "moveset": [
-    "counter",
-    "mirrorcoat",
-    "safeguard",
-    "destinybond"
-   ],
-   "heldItem": "cobblemon:sitrus_berry"
+   "heldItem": "cobblemon:lum_berry",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "atk": 252,
+    "spd": 4,
+    "spe": 252
+   },
+   "nature": "jolly",
+   "ability": "sharpness"
   },
   {
    "species": "mrmime",
-   "level": 23,
+   "level": 53,
    "moveset": [
-    "psybeam",
-    "reflect",
-    "lightscreen",
-    "dazzlinggleam"
+    "nastyplot",
+    "dazzlinggleam",
+    "focusblast",
+    "psyshock"
    ],
-   "heldItem": "cobblemon:light_clay"
+   "heldItem": "cobblemon:life_orb",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "spa": 252,
+    "spd": 4,
+    "spe": 252
+   },
+   "nature": "timid"
   },
   {
-   "species": "kadabra",
-   "level": 25,
+   "species": "jynx",
+   "level": 53,
    "moveset": [
-    "psybeam",
-    "shadowball",
-    "calmmind",
-    "recover"
+    "lovelykiss",
+    "nastyplot",
+    "icebeam",
+    "psyshock"
    ],
-   "heldItem": "cobblemon:eviolite"
+   "heldItem": "cobblemon:life_orb",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "def": 4,
+    "spa": 252,
+    "spe": 252
+   },
+   "nature": "timid",
+   "ability": "dryskin"
+  },
+  {
+   "species": "espeon",
+   "level": 54,
+   "moveset": [
+    "calmmind",
+    "psychic",
+    "shadowball",
+    "morningsun"
+   ],
+   "heldItem": "mega_showdown:psychium_z",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "def": 4,
+    "spa": 252,
+    "spe": 252
+   },
+   "nature": "timid",
+   "ability": "magicbounce"
+  },
+  {
+   "species": "alakazam",
+   "level": 55,
+   "moveset": [
+    "nastyplot",
+    "psychic",
+    "focusblast",
+    "shadowball"
+   ],
+   "heldItem": "mega_showdown:alakazite",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "def": 4,
+    "spa": 252,
+    "spe": 252
+   },
+   "nature": "timid",
+   "ability": "magicguard"
   }
  ]
 }

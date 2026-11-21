@@ -21,56 +21,129 @@
    "species": "quagsire",
    "level": 83,
    "moveset": [
-    "scald",
-    "earthquake",
+    "stealthrock",
     "recover",
-    "toxic"
+    "toxic",
+    "counter"
    ],
-   "heldItem": "cobblemon:leftovers"
+   "heldItem": "cobblemon:heavy_duty_boots",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 252,
+    "def": 252,
+    "spd": 4
+   },
+   "nature": "bold",
+   "ability": "unaware"
   },
   {
    "species": "lanturn",
    "level": 83,
    "moveset": [
     "scald",
-    "thunderbolt",
-    "icebeam",
-    "voltswitch"
+    "voltswitch",
+    "rest",
+    "sleeptalk"
    ],
-   "heldItem": "cobblemon:sitrus_berry"
+   "heldItem": "cobblemon:heavy_duty_boots",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 216,
+    "spd": 252,
+    "spe": 40
+   },
+   "nature": "calm",
+   "ability": "waterabsorb"
   },
   {
    "species": "floatzel",
    "level": 83,
    "moveset": [
-    "liquidation",
+    "wavecrash",
+    "flipturn",
     "aquajet",
-    "icefang",
-    "bulkup"
+    "icespinner"
    ],
-   "heldItem": "cobblemon:life_orb"
+   "heldItem": "cobblemon:choice_band",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "atk": 252,
+    "def": 4,
+    "spe": 252
+   },
+   "nature": "jolly",
+   "ability": "waterveil"
   },
   {
    "species": "milotic",
    "level": 84,
    "moveset": [
-    "hydropump",
-    "icebeam",
+    "scald",
     "recover",
-    "haze"
+    "toxic",
+    "refresh"
    ],
-   "heldItem": "mega_showdown:waterium_z"
+   "heldItem": "mega_showdown:waterium_z",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 252,
+    "def": 108,
+    "spd": 148
+   },
+   "nature": "calm"
   },
   {
    "species": "lapras",
    "level": 84,
    "moveset": [
+    "freezedry",
     "hydropump",
-    "icebeam",
-    "thunderbolt",
-    "freezedry"
+    "alluringvoice",
+    "icebeam"
    ],
-   "heldItem": "cobblemon:leftovers",
+   "heldItem": "cobblemon:heavy_duty_boots",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "def": 196,
+    "spa": 252,
+    "spe": 60
+   },
+   "nature": "modest",
    "gimmicks": {
     "dynamax": true,
     "gmax": false
@@ -80,12 +153,27 @@
    "species": "starmie",
    "level": 85,
    "moveset": [
-    "waterfall",
-    "psychocut",
-    "rapidspin",
+    "hydropump",
+    "icebeam",
+    "thunderbolt",
     "recover"
    ],
-   "heldItem": "mega_showdown:starminite"
+   "heldItem": "mega_showdown:starminite",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "spa": 252,
+    "spd": 4,
+    "spe": 252
+   },
+   "nature": "timid",
+   "ability": "analytic"
   }
  ]
 }

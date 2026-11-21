@@ -133,10 +133,47 @@
           "sell": 50
         },
         {
+          "item": "cobblemon:antidote",
+          "buy": 100,
+          "sell": 25
+        },
+        {
+          "item": "cobblemon:awakening",
+          "buy": 100,
+          "sell": 25
+        },
+        {
+          "item": "cobblemon:ice_heal",
+          "buy": 100,
+          "sell": 25
+        },
+        {
+          "item": "cobblemon:paralyze_heal",
+          "buy": 300,
+          "sell": 75
+        },
+        {
+          "item": "cobblemon:burn_heal",
+          "buy": 300,
+          "sell": 75
+        },
+        {
           "item": "cobblemon:super_potion",
           "buy": 700,
           "sell": 175,
           "badges": 1
+        },
+        {
+          "item": "cobblemon:revive",
+          "buy": 2000,
+          "sell": 500,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:full_heal",
+          "buy": 400,
+          "sell": 100,
+          "badges": 2
         },
         {
           "item": "cobblemon:hyper_potion",
@@ -145,9 +182,27 @@
           "badges": 3
         },
         {
+          "item": "cobblemon:ether",
+          "buy": 1200,
+          "sell": 300,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:elixir",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 4
+        },
+        {
           "item": "cobblemon:max_potion",
           "buy": 2500,
-          "sell": 600,
+          "sell": 625,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:max_ether",
+          "buy": 2000,
+          "sell": 500,
           "badges": 5
         },
         {
@@ -157,50 +212,32 @@
           "badges": 6
         },
         {
-          "item": "cobblemon:revive",
-          "buy": 2000,
-          "sell": 500,
-          "badges": 2
-        },
-        {
           "item": "cobblemon:max_revive",
           "buy": 4000,
           "sell": 1000,
           "badges": 7
         },
         {
-          "item": "cobblemon:full_heal",
-          "buy": 600,
-          "sell": 150,
-          "badges": 2
-        },
-        {
-          "item": "cobblemon:antidote",
-          "buy": 100,
-          "sell": 25
-        },
-        {
-          "item": "cobblemon:ether",
-          "buy": 1200,
-          "sell": 300,
-          "badges": 3
+          "item": "cobblemon:max_elixir",
+          "buy": 4500,
+          "sell": 1125,
+          "badges": 7
         }
       ]
     },
     {
-      "name": "성장 아이템",
-      "icon": "cobblemon:rare_candy",
+      "name": "성장·진화",
+      "icon": "cobblemon:exp_candy_m",
       "items": [
-        {
-          "item": "cobblemon:rare_candy",
-          "buy": 4800,
-          "sell": 1200,
-          "badges": 6
-        },
         {
           "item": "cobblemon:exp_candy_xs",
           "buy": 300,
           "sell": 75
+        },
+        {
+          "item": "cobblemon:everstone",
+          "buy": 1000,
+          "sell": 250
         },
         {
           "item": "cobblemon:exp_candy_s",
@@ -212,7 +249,79 @@
           "item": "cobblemon:exp_share",
           "buy": 8000,
           "sell": 2000,
+          "badges": 1
+        },
+        {
+          "item": "cobblemon:fire_stone",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 1
+        },
+        {
+          "item": "cobblemon:water_stone",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 1
+        },
+        {
+          "item": "cobblemon:thunder_stone",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 1
+        },
+        {
+          "item": "cobblemon:leaf_stone",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 1
+        },
+        {
+          "item": "cobblemon:exp_candy_m",
+          "buy": 1500,
+          "sell": 375,
           "badges": 2
+        },
+        {
+          "item": "cobblemon:moon_stone",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:sun_stone",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:shiny_stone",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:dusk_stone",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:dawn_stone",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:ice_stone",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:exp_candy_l",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 4
         },
         {
           "item": "cobblemon:lucky_egg",
@@ -221,51 +330,561 @@
           "badges": 4
         },
         {
+          "item": "cobblemon:link_cable",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:metal_coat",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:kings_rock",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:dragon_scale",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:upgrade",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:dubious_disc",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:protector",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:electirizer",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:magmarizer",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:reaper_cloth",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:prism_scale",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:razor_claw",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:razor_fang",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:deep_sea_tooth",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:deep_sea_scale",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:sachet",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:whipped_dream",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:exp_candy_xl",
+          "buy": 6000,
+          "sell": 1500,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:rare_candy",
+          "buy": 4800,
+          "sell": 1200,
+          "badges": 6
+        },
+        {
           "item": "cobblemon:pp_up",
           "buy": 9800,
           "sell": 2450,
           "badges": 3
+        },
+        {
+          "item": "cobblemon:pp_max",
+          "buy": 20000,
+          "sell": 5000,
+          "badges": 7
+        }
+      ]
+    },
+    {
+      "name": "지닌 도구",
+      "icon": "cobblemon:leftovers",
+      "items": [
+        {
+          "item": "cobblemon:charcoal_stick",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:mystic_water",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:magnet",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:miracle_seed",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:never_melt_ice",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:black_belt",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:poison_barb",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:soft_sand",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:sharp_beak",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:twisted_spoon",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:silver_powder",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:hard_stone",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:spell_tag",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:dragon_fang",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:black_glasses",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:silk_scarf",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:fairy_feather",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:quick_claw",
+          "buy": 4000,
+          "sell": 1000,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:scope_lens",
+          "buy": 4000,
+          "sell": 1000,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:shell_bell",
+          "buy": 4000,
+          "sell": 1000,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:white_herb",
+          "buy": 4000,
+          "sell": 1000,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:mental_herb",
+          "buy": 4000,
+          "sell": 1000,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:power_herb",
+          "buy": 4000,
+          "sell": 1000,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:wide_lens",
+          "buy": 4000,
+          "sell": 1000,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:zoom_lens",
+          "buy": 4000,
+          "sell": 1000,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:heat_rock",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:damp_rock",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:icy_rock",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:smooth_rock",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:light_clay",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:focus_band",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:muscle_band",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:wise_glasses",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:expert_belt",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:toxic_orb",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:flame_orb",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:binding_band",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:grip_claw",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:eject_button",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:red_card",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:throat_spray",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:blunder_policy",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:room_service",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:terrain_extender",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:loaded_dice",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:leftovers",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:black_sludge",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:rocky_helmet",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:focus_sash",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:eviolite",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:assault_vest",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:heavy_duty_boots",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:weakness_policy",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:covert_cloak",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:clear_amulet",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:safety_goggles",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:protective_pads",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:utility_umbrella",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:punching_glove",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:air_balloon",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 5
+        },
+        {
+          "item": "cobblemon:choice_band",
+          "buy": 25000,
+          "sell": 6250,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:choice_specs",
+          "buy": 25000,
+          "sell": 6250,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:choice_scarf",
+          "buy": 25000,
+          "sell": 6250,
+          "badges": 6
+        },
+        {
+          "item": "cobblemon:life_orb",
+          "buy": 25000,
+          "sell": 6250,
+          "badges": 6
         }
       ]
     },
     {
       "name": "성격·노력치",
-      "icon": "cobblemon:hp_up",
+      "icon": "cobblemon:modest_mint",
       "items": [
         {
           "item": "cobblemon:hp_up",
-          "buy": 9800,
-          "sell": 2450,
+          "buy": 10000,
+          "sell": 2500,
           "badges": 3
         },
         {
           "item": "cobblemon:protein",
-          "buy": 9800,
-          "sell": 2450,
+          "buy": 10000,
+          "sell": 2500,
           "badges": 3
         },
         {
           "item": "cobblemon:iron",
-          "buy": 9800,
-          "sell": 2450,
+          "buy": 10000,
+          "sell": 2500,
           "badges": 3
         },
         {
           "item": "cobblemon:calcium",
-          "buy": 9800,
-          "sell": 2450,
+          "buy": 10000,
+          "sell": 2500,
           "badges": 3
         },
         {
           "item": "cobblemon:zinc",
-          "buy": 9800,
-          "sell": 2450,
+          "buy": 10000,
+          "sell": 2500,
           "badges": 3
         },
         {
           "item": "cobblemon:carbos",
-          "buy": 9800,
-          "sell": 2450,
+          "buy": 10000,
+          "sell": 2500,
           "badges": 3
         },
         {
@@ -435,12 +1054,936 @@
           "buy": 20000,
           "sell": 5000,
           "badges": 6
+        },
+        {
+          "item": "cobblemon:health_candy",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 7
+        },
+        {
+          "item": "cobblemon:mighty_candy",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 7
+        },
+        {
+          "item": "cobblemon:tough_candy",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 7
+        },
+        {
+          "item": "cobblemon:smart_candy",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 7
+        },
+        {
+          "item": "cobblemon:courage_candy",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 7
+        },
+        {
+          "item": "cobblemon:quick_candy",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 7
+        },
+        {
+          "item": "cobblemon:sickly_candy",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 7
+        },
+        {
+          "item": "cobblemon:weak_candy",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 7
+        },
+        {
+          "item": "cobblemon:brittle_candy",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 7
+        },
+        {
+          "item": "cobblemon:numb_candy",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 7
+        },
+        {
+          "item": "cobblemon:coward_candy",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 7
+        },
+        {
+          "item": "cobblemon:slow_candy",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 7
+        },
+        {
+          "item": "cobblemon:ability_patch",
+          "buy": 50000,
+          "sell": 12500,
+          "badges": 8
         }
       ]
     },
     {
-      "name": "농장",
-      "icon": "minecraft:wheat_seeds",
+      "name": "특수 기믹",
+      "icon": "mega_showdown:mega_bracelet",
+      "items": [
+        {
+          "item": "mega_showdown:aloraichium_z",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:buginium_z",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:darkinium_z",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:decidium_z",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:dragonium_z",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:eevium_z",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:electrium_z",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:fairium_z",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:fightinium_z",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:firium_z",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:flyinium_z",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:ghostium_z",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:grassium_z",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:groundium_z",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:icium_z",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:incinium_z",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:kommonium_z",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:lunalium_z",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:lycanium_z",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:marshadium_z",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:mewnium_z",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:mimikium_z",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:normalium_z",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:pikanium_z",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:pikashunium_z",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:poisonium_z",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:primarium_z",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:psychium_z",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:rockium_z",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:snorlium_z",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:solganium_z",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:steelium_z",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:tapunium_z",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:ultranecrozium_z",
+          "buy": 15000,
+          "sell": 3750,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:waterium_z",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 2
+        },
+        {
+          "item": "mega_showdown:abomasite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:absolite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:aerodactylite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:aggronite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:alakazite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:altarianite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:ampharosite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:audinite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:banettite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:barbaracite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:baxcalibrite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:beedrillite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:blastoisinite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:blazikenite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:cameruptite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:chandelurite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:chesnaughtite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:chimechite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:clefablite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:crabominite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:darkranite",
+          "buy": 50000,
+          "sell": 12500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:delphoxite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:diancite",
+          "buy": 50000,
+          "sell": 12500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:dragalgite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:dragoninite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:drampanite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:eelektrossite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:emboarite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:excadrite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:falinksite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:feraligite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:floettite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:froslassite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:galladite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:garchompite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:gardevoirite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:gengarite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:glalitite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:glimmoranite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:golisopite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:golurkite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:greninjite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:gyaradosite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:hawluchanite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:heatranite",
+          "buy": 50000,
+          "sell": 12500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:heracronite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:houndoominite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:kangaskhanite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:latiasite",
+          "buy": 50000,
+          "sell": 12500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:latiosite",
+          "buy": 50000,
+          "sell": 12500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:lopunnite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:lucarionite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:magearnite",
+          "buy": 50000,
+          "sell": 12500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:malamarite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:manectite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:mawilite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:medichamite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:meganiumite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:meowsticite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:metagrossite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:pidgeotite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:pinsirite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:pyroarite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:sablenite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:salamencite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:sceptilite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:scizorite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:scolipite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:scovillainite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:scraftinite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:sharpedonite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:skarmorite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:slowbronite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:staraptite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:starminite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:steelixite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:swampertite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:tatsugirinite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:tera_pouch_white",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:tyranitarite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:venusaurite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:victreebelite",
+          "buy": 30000,
+          "sell": 7500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:zeraorite",
+          "buy": 50000,
+          "sell": 12500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:zygardite",
+          "buy": 50000,
+          "sell": 12500,
+          "badges": 4
+        },
+        {
+          "item": "mega_showdown:dynamax_candy",
+          "buy": 3000,
+          "sell": 750,
+          "badges": 6
+        },
+        {
+          "item": "mega_showdown:max_mushroom",
+          "buy": 10000,
+          "sell": 2500,
+          "badges": 6
+        },
+        {
+          "item": "mega_showdown:bug_tera_shard",
+          "buy": 500,
+          "sell": 125,
+          "badges": 8
+        },
+        {
+          "item": "mega_showdown:dark_tera_shard",
+          "buy": 500,
+          "sell": 125,
+          "badges": 8
+        },
+        {
+          "item": "mega_showdown:dragon_tera_shard",
+          "buy": 500,
+          "sell": 125,
+          "badges": 8
+        },
+        {
+          "item": "mega_showdown:electric_tera_shard",
+          "buy": 500,
+          "sell": 125,
+          "badges": 8
+        },
+        {
+          "item": "mega_showdown:fairy_tera_shard",
+          "buy": 500,
+          "sell": 125,
+          "badges": 8
+        },
+        {
+          "item": "mega_showdown:fighting_tera_shard",
+          "buy": 500,
+          "sell": 125,
+          "badges": 8
+        },
+        {
+          "item": "mega_showdown:fire_tera_shard",
+          "buy": 500,
+          "sell": 125,
+          "badges": 8
+        },
+        {
+          "item": "mega_showdown:flying_tera_shard",
+          "buy": 500,
+          "sell": 125,
+          "badges": 8
+        },
+        {
+          "item": "mega_showdown:ghost_tera_shard",
+          "buy": 500,
+          "sell": 125,
+          "badges": 8
+        },
+        {
+          "item": "mega_showdown:grass_tera_shard",
+          "buy": 500,
+          "sell": 125,
+          "badges": 8
+        },
+        {
+          "item": "mega_showdown:ground_tera_shard",
+          "buy": 500,
+          "sell": 125,
+          "badges": 8
+        },
+        {
+          "item": "mega_showdown:ice_tera_shard",
+          "buy": 500,
+          "sell": 125,
+          "badges": 8
+        },
+        {
+          "item": "mega_showdown:normal_tera_shard",
+          "buy": 500,
+          "sell": 125,
+          "badges": 8
+        },
+        {
+          "item": "mega_showdown:poison_tera_shard",
+          "buy": 500,
+          "sell": 125,
+          "badges": 8
+        },
+        {
+          "item": "mega_showdown:psychic_tera_shard",
+          "buy": 500,
+          "sell": 125,
+          "badges": 8
+        },
+        {
+          "item": "mega_showdown:rock_tera_shard",
+          "buy": 500,
+          "sell": 125,
+          "badges": 8
+        },
+        {
+          "item": "mega_showdown:steel_tera_shard",
+          "buy": 500,
+          "sell": 125,
+          "badges": 8
+        },
+        {
+          "item": "mega_showdown:stellar_tera_shard",
+          "buy": 500,
+          "sell": 125,
+          "badges": 8
+        },
+        {
+          "item": "mega_showdown:water_tera_shard",
+          "buy": 500,
+          "sell": 125,
+          "badges": 8
+        }
+      ]
+    },
+    {
+      "name": "농장·작물",
+      "icon": "minecraft:wheat",
       "items": [
         {
           "item": "pokeserver:farm_deed",
@@ -450,168 +1993,313 @@
         {
           "item": "minecraft:wheat_seeds",
           "buy": 10,
-          "sell": 1
+          "sell": 2
         },
         {
           "item": "minecraft:carrot",
           "buy": 20,
-          "sell": 3
+          "sell": 5
         },
         {
           "item": "minecraft:potato",
           "buy": 20,
-          "sell": 3
+          "sell": 5
         },
         {
           "item": "minecraft:beetroot_seeds",
           "buy": 10,
-          "sell": 1
+          "sell": 2
         },
         {
           "item": "minecraft:pumpkin_seeds",
           "buy": 30,
-          "sell": 5
+          "sell": 7
         },
         {
           "item": "minecraft:melon_seeds",
           "buy": 30,
-          "sell": 5
+          "sell": 7
         },
         {
           "item": "minecraft:sugar_cane",
           "buy": 30,
-          "sell": 4
+          "sell": 7
         },
         {
           "item": "minecraft:bone_meal",
           "buy": 15,
-          "sell": 2
+          "sell": 3
         },
         {
-          "item": "minecraft:iron_hoe",
-          "buy": 200,
-          "sell": 0
-        }
-      ]
-    },
-    {
-      "name": "작물",
-      "icon": "minecraft:wheat",
-      "items": [
-        {
           "item": "minecraft:wheat",
-          "buy": 15,
+          "buy": 20,
           "sell": 5
         },
         {
           "item": "minecraft:pumpkin",
           "buy": 60,
-          "sell": 20
+          "sell": 15
         },
         {
           "item": "minecraft:melon_slice",
           "buy": 10,
-          "sell": 3
+          "sell": 2
         },
         {
           "item": "minecraft:beetroot",
-          "buy": 15,
+          "buy": 20,
           "sell": 5
         },
         {
           "item": "minecraft:apple",
           "buy": 30,
-          "sell": 8
+          "sell": 7
         },
         {
           "item": "minecraft:cocoa_beans",
           "buy": 20,
-          "sell": 6
+          "sell": 5
         },
         {
           "item": "minecraft:sweet_berries",
           "buy": 15,
-          "sell": 4
+          "sell": 3
+        },
+        {
+          "item": "cobblemon:red_apricorn",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "cobblemon:yellow_apricorn",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "cobblemon:green_apricorn",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "cobblemon:blue_apricorn",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "cobblemon:pink_apricorn",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "cobblemon:black_apricorn",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "cobblemon:white_apricorn",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "cobblemon:oran_berry",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "cobblemon:pecha_berry",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "cobblemon:cheri_berry",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "cobblemon:chesto_berry",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "cobblemon:rawst_berry",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "cobblemon:aspear_berry",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "cobblemon:persim_berry",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "cobblemon:leppa_berry",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "cobblemon:sitrus_berry",
+          "buy": 0,
+          "sell": 30
+        },
+        {
+          "item": "cobblemon:lum_berry",
+          "buy": 0,
+          "sell": 30
+        },
+        {
+          "item": "minecraft:egg",
+          "buy": 0,
+          "sell": 2
+        },
+        {
+          "item": "minecraft:honeycomb",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "minecraft:honey_bottle",
+          "buy": 0,
+          "sell": 15
+        },
+        {
+          "item": "minecraft:beef",
+          "buy": 0,
+          "sell": 6
+        },
+        {
+          "item": "minecraft:porkchop",
+          "buy": 0,
+          "sell": 6
+        },
+        {
+          "item": "minecraft:chicken",
+          "buy": 0,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:mutton",
+          "buy": 0,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:cod",
+          "buy": 0,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:salmon",
+          "buy": 0,
+          "sell": 8
+        },
+        {
+          "item": "minecraft:tropical_fish",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "minecraft:pufferfish",
+          "buy": 0,
+          "sell": 10
         }
       ]
     },
     {
-      "name": "광물",
-      "icon": "minecraft:diamond",
+      "name": "광물·블록",
+      "icon": "minecraft:bricks",
       "items": [
         {
           "item": "minecraft:coal",
           "buy": 30,
-          "sell": 10
+          "sell": 7
         },
         {
           "item": "minecraft:copper_ingot",
           "buy": 25,
-          "sell": 8
+          "sell": 6
         },
         {
           "item": "minecraft:iron_ingot",
           "buy": 120,
-          "sell": 40,
-          "badges": 1
+          "sell": 30
         },
         {
           "item": "minecraft:gold_ingot",
           "buy": 240,
-          "sell": 80,
-          "badges": 2
+          "sell": 60
         },
         {
           "item": "minecraft:redstone",
           "buy": 30,
-          "sell": 10,
-          "badges": 1
+          "sell": 7
         },
         {
           "item": "minecraft:lapis_lazuli",
           "buy": 45,
-          "sell": 15,
-          "badges": 1
+          "sell": 11
         },
         {
           "item": "minecraft:quartz",
           "buy": 45,
-          "sell": 15,
-          "badges": 1
+          "sell": 11
         },
         {
           "item": "minecraft:emerald",
           "buy": 400,
-          "sell": 100,
-          "badges": 4
+          "sell": 100
         },
         {
           "item": "minecraft:diamond",
           "buy": 1200,
-          "sell": 400,
-          "badges": 5
+          "sell": 300
         },
         {
           "item": "minecraft:netherite_ingot",
           "buy": 20000,
-          "sell": 6000,
-          "badges": 8
-        }
-      ]
-    },
-    {
-      "name": "건축 블록",
-      "icon": "minecraft:bricks",
-      "items": [
+          "sell": 5000
+        },
         {
           "item": "minecraft:oak_log",
           "buy": 20,
-          "sell": 4
+          "sell": 5
         },
         {
           "item": "minecraft:spruce_log",
           "buy": 20,
-          "sell": 4
+          "sell": 5
+        },
+        {
+          "item": "minecraft:birch_log",
+          "buy": 20,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:jungle_log",
+          "buy": 20,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:acacia_log",
+          "buy": 20,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:dark_oak_log",
+          "buy": 20,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:mangrove_log",
+          "buy": 20,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:cherry_log",
+          "buy": 20,
+          "sell": 5
         },
         {
           "item": "minecraft:stone",
@@ -621,6 +2309,46 @@
         {
           "item": "minecraft:cobblestone",
           "buy": 3,
+          "sell": 0
+        },
+        {
+          "item": "minecraft:smooth_stone",
+          "buy": 8,
+          "sell": 2
+        },
+        {
+          "item": "minecraft:stone_bricks",
+          "buy": 8,
+          "sell": 2
+        },
+        {
+          "item": "minecraft:deepslate",
+          "buy": 5,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:sand",
+          "buy": 3,
+          "sell": 0
+        },
+        {
+          "item": "minecraft:gravel",
+          "buy": 3,
+          "sell": 0
+        },
+        {
+          "item": "minecraft:dirt",
+          "buy": 2,
+          "sell": 0
+        },
+        {
+          "item": "minecraft:grass_block",
+          "buy": 5,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:clay_ball",
+          "buy": 5,
           "sell": 1
         },
         {
@@ -631,7 +2359,7 @@
         {
           "item": "minecraft:bricks",
           "buy": 20,
-          "sell": 4
+          "sell": 5
         },
         {
           "item": "minecraft:white_concrete",
@@ -639,60 +2367,295 @@
           "sell": 3
         },
         {
-          "item": "minecraft:smooth_stone",
-          "buy": 8,
+          "item": "minecraft:terracotta",
+          "buy": 12,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:white_wool",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:quartz_block",
+          "buy": 200,
+          "sell": 50
+        },
+        {
+          "item": "minecraft:raw_iron",
+          "buy": 0,
+          "sell": 30
+        },
+        {
+          "item": "minecraft:raw_gold",
+          "buy": 0,
+          "sell": 60
+        },
+        {
+          "item": "minecraft:raw_copper",
+          "buy": 0,
+          "sell": 6
+        },
+        {
+          "item": "minecraft:amethyst_shard",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "minecraft:obsidian",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "minecraft:flint",
+          "buy": 0,
           "sell": 2
         },
         {
-          "item": "minecraft:torch",
-          "buy": 5,
-          "sell": 0
+          "item": "cobblemon:normal_gem",
+          "buy": 0,
+          "sell": 20
         },
         {
-          "item": "minecraft:lantern",
-          "buy": 40,
-          "sell": 0
+          "item": "cobblemon:fire_gem",
+          "buy": 0,
+          "sell": 20
         },
         {
-          "item": "minecraft:chest",
-          "buy": 40,
-          "sell": 0
+          "item": "cobblemon:water_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:electric_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:grass_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:ice_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:fighting_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:poison_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:ground_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:flying_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:psychic_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:bug_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:rock_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:ghost_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:dragon_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:dark_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:steel_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:fairy_gem",
+          "buy": 0,
+          "sell": 20
         }
       ]
     },
     {
-      "name": "도구",
+      "name": "도구·기타",
       "icon": "minecraft:iron_pickaxe",
       "items": [
         {
           "item": "minecraft:iron_pickaxe",
           "buy": 400,
-          "sell": 0
+          "sell": 100
         },
         {
           "item": "minecraft:iron_axe",
           "buy": 400,
-          "sell": 0
+          "sell": 100
         },
         {
           "item": "minecraft:iron_shovel",
           "buy": 150,
-          "sell": 0
+          "sell": 37
+        },
+        {
+          "item": "minecraft:iron_hoe",
+          "buy": 300,
+          "sell": 75
         },
         {
           "item": "minecraft:shears",
-          "buy": 200,
-          "sell": 0
+          "buy": 300,
+          "sell": 75
         },
         {
           "item": "minecraft:fishing_rod",
           "buy": 150,
-          "sell": 0
+          "sell": 37
         },
         {
           "item": "minecraft:bucket",
+          "buy": 400,
+          "sell": 100
+        },
+        {
+          "item": "minecraft:torch",
+          "buy": 10,
+          "sell": 2
+        },
+        {
+          "item": "minecraft:lantern",
           "buy": 150,
-          "sell": 0
+          "sell": 37
+        },
+        {
+          "item": "minecraft:chest",
+          "buy": 50,
+          "sell": 12
+        },
+        {
+          "item": "minecraft:crafting_table",
+          "buy": 25,
+          "sell": 6
+        },
+        {
+          "item": "minecraft:furnace",
+          "buy": 30,
+          "sell": 7
+        },
+        {
+          "item": "minecraft:oak_door",
+          "buy": 30,
+          "sell": 7
+        },
+        {
+          "item": "minecraft:ladder",
+          "buy": 10,
+          "sell": 2
+        },
+        {
+          "item": "minecraft:rotten_flesh",
+          "buy": 0,
+          "sell": 2
+        },
+        {
+          "item": "minecraft:bone",
+          "buy": 0,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:string",
+          "buy": 0,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:spider_eye",
+          "buy": 0,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:gunpowder",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "minecraft:ender_pearl",
+          "buy": 0,
+          "sell": 30
+        },
+        {
+          "item": "minecraft:slime_ball",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "minecraft:leather",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "minecraft:feather",
+          "buy": 0,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:ink_sac",
+          "buy": 0,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:blaze_rod",
+          "buy": 0,
+          "sell": 30
+        },
+        {
+          "item": "minecraft:ghast_tear",
+          "buy": 0,
+          "sell": 50
+        },
+        {
+          "item": "minecraft:phantom_membrane",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "minecraft:prismarine_shard",
+          "buy": 0,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:rabbit_hide",
+          "buy": 0,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:arrow",
+          "buy": 0,
+          "sell": 1
         }
       ]
     }

@@ -38,8 +38,8 @@ NPCS = [  # (NPC 종류, 차원, x, y, z, 태그, yaw). 광장 NPC는 tools/plaz
 
 
 # 체육관 순서 (tools/build_league.py GYMS와 같은 순서: 같은 레벨 기준 약한 관장부터)
-GYM_TYPES = ['바위', '에스퍼', '불꽃', '독', '전기', '땅', '풀', '물']
-BADGE_BLOCK = ['gray', 'yellow', 'red', 'pink', 'orange', 'green', 'lime', 'blue']
+GYM_TYPES = ['바위', '전기', '불꽃', '독', '에스퍼', '땅', '풀', '물']
+BADGE_BLOCK = ['gray', 'orange', 'red', 'pink', 'yellow', 'green', 'lime', 'blue']
 E4_THEME = ['light_blue_concrete', 'iron_block', 'blackstone', 'purpur_block']   # 레드·성호·난천·단델
 # 체육관 타입별 경기장 팔레트: 이름, 필드, 벽, 벽 아래 띠, 천장 색, 천장 조명, 관중석, 상징(주색, 보조색)
 TYPES = [

@@ -21,74 +21,161 @@
    "species": "skarmory",
    "level": 87,
    "moveset": [
-    "bravebird",
-    "ironhead",
     "spikes",
-    "roost"
+    "roost",
+    "bodypress",
+    "irondefense"
    ],
    "heldItem": "cobblemon:rocky_helmet",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 252,
+    "def": 160,
+    "spe": 96
+   },
+   "nature": "bold",
    "gimmicks": {
-    "tera": "steel"
-   }
+    "tera": "dragon"
+   },
+   "ability": "sturdy"
   },
   {
    "species": "claydol",
    "level": 87,
    "moveset": [
-    "earthpower",
+    "stealthrock",
+    "toxic",
     "psychic",
-    "rapidspin",
-    "stealthrock"
+    "teleport"
    ],
-   "heldItem": "cobblemon:light_clay"
+   "heldItem": "cobblemon:colbur_berry",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 252,
+    "def": 240,
+    "spe": 16
+   },
+   "nature": "bold"
   },
   {
    "species": "cradily",
    "level": 87,
    "moveset": [
-    "gigadrain",
-    "stoneedge",
+    "stealthrock",
     "recover",
-    "toxic"
+    "toxic",
+    "rockslide"
    ],
-   "heldItem": "cobblemon:leftovers"
+   "heldItem": "cobblemon:leftovers",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 252,
+    "def": 4,
+    "spd": 252
+   },
+   "nature": "careful",
+   "ability": "stormdrain"
   },
   {
    "species": "armaldo",
    "level": 88,
    "moveset": [
-    "xscissor",
+    "rapidspin",
     "stoneedge",
-    "earthquake",
-    "swordsdance"
+    "knockoff",
+    "earthquake"
    ],
-   "heldItem": "cobblemon:life_orb"
+   "heldItem": "cobblemon:leftovers",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 252,
+    "atk": 92,
+    "spe": 164
+   },
+   "nature": "adamant"
   },
   {
    "species": "aggron",
    "level": 88,
    "moveset": [
+    "headsmash",
     "heavyslam",
-    "stoneedge",
-    "earthquake",
-    "ironhead"
+    "aquatail",
+    "earthquake"
    ],
-   "heldItem": "cobblemon:sitrus_berry",
+   "heldItem": "cobblemon:choice_band",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "atk": 252,
+    "def": 4,
+    "spe": 252
+   },
+   "nature": "adamant",
    "gimmicks": {
     "dynamax": true,
     "gmax": false
-   }
+   },
+   "ability": "rockhead"
   },
   {
    "species": "metagross",
    "level": 90,
    "moveset": [
-    "meteormash",
-    "zenheadbutt",
+    "heavyslam",
     "earthquake",
+    "knockoff",
     "bulletpunch"
    ],
-   "heldItem": "mega_showdown:metagrossite"
+   "heldItem": "mega_showdown:metagrossite",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "atk": 252,
+    "spd": 4,
+    "spe": 252
+   },
+   "nature": "adamant"
   }
  ]
 }

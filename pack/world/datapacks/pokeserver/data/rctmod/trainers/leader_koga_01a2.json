@@ -22,56 +22,129 @@
    "level": 43,
    "moveset": [
     "sludgebomb",
-    "toxic",
-    "willowisp",
-    "explosion"
+    "flamethrower",
+    "taunt",
+    "painsplit"
    ],
    "heldItem": "cobblemon:rocky_helmet",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 252,
+    "def": 212,
+    "spe": 44
+   },
+   "nature": "bold",
    "ability": "levitate"
   },
   {
    "species": "venomoth",
    "level": 43,
    "moveset": [
+    "quiverdance",
     "bugbuzz",
     "sludgebomb",
-    "sleeppowder",
-    "psychic"
+    "morningsun"
    ],
-   "heldItem": "cobblemon:wise_glasses"
+   "heldItem": "cobblemon:heavy_duty_boots",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "spa": 252,
+    "spd": 4,
+    "spe": 252
+   },
+   "nature": "timid",
+   "ability": "tintedlens"
   },
   {
    "species": "toxicroak",
    "level": 44,
    "moveset": [
-    "poisonjab",
-    "drainpunch",
-    "suckerpunch",
-    "swordsdance"
+    "swordsdance",
+    "closecombat",
+    "gunkshot",
+    "suckerpunch"
    ],
-   "heldItem": "cobblemon:black_sludge"
+   "heldItem": "cobblemon:life_orb",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "atk": 252,
+    "spd": 4,
+    "spe": 252
+   },
+   "nature": "adamant",
+   "ability": "dryskin"
   },
   {
    "species": "muk",
    "level": 44,
    "moveset": [
-    "gunkshot",
-    "poisonjab",
-    "minimize",
-    "toxic"
+    "toxic",
+    "protect",
+    "knockoff",
+    "drainpunch"
    ],
-   "heldItem": "cobblemon:black_sludge"
+   "heldItem": "cobblemon:leftovers",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 248,
+    "def": 252,
+    "spd": 8
+   },
+   "nature": "impish",
+   "ability": "stickyhold"
   },
   {
    "species": "crobat",
    "level": 45,
    "moveset": [
-    "crosspoison",
-    "airslash",
-    "confuseray",
-    "uturn"
+    "nastyplot",
+    "sludgebomb",
+    "heatwave",
+    "gigadrain"
    ],
-   "heldItem": "mega_showdown:poisonium_z"
+   "heldItem": "mega_showdown:poisonium_z",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "spa": 252,
+    "spd": 4,
+    "spe": 252
+   },
+   "nature": "timid"
   }
  ]
 }

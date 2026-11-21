@@ -21,12 +21,27 @@
    "species": "spiritomb",
    "level": 87,
    "moveset": [
-    "shadowball",
+    "trickroom",
+    "nastyplot",
     "darkpulse",
-    "willowisp",
-    "suckerpunch"
+    "psyshock"
    ],
-   "heldItem": "cobblemon:leftovers"
+   "heldItem": "cobblemon:leftovers",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 252,
+    "spa": 252,
+    "spd": 4
+   },
+   "nature": "quiet",
+   "ability": "infiltrator"
   },
   {
    "species": "roserade",
@@ -34,57 +49,131 @@
    "moveset": [
     "gigadrain",
     "sludgebomb",
-    "shadowball",
+    "spikes",
     "sleeppowder"
    ],
-   "heldItem": "cobblemon:black_sludge"
+   "heldItem": "cobblemon:black_sludge",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 248,
+    "def": 8,
+    "spe": 252
+   },
+   "nature": "timid"
   },
   {
    "species": "milotic",
    "level": 87,
    "moveset": [
-    "surf",
-    "icebeam",
     "recover",
-    "mirrorcoat"
+    "scald",
+    "flipturn",
+    "alluringvoice"
    ],
-   "heldItem": "cobblemon:leftovers"
+   "heldItem": "cobblemon:heavy_duty_boots",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 252,
+    "def": 248,
+    "spe": 8
+   },
+   "nature": "bold",
+   "ability": "marvelscale"
   },
   {
    "species": "togekiss",
    "level": 88,
    "moveset": [
+    "nastyplot",
     "airslash",
-    "dazzlinggleam",
-    "aurasphere",
-    "nastyplot"
+    "roost",
+    "healbell"
    ],
-   "heldItem": "cobblemon:sitrus_berry",
+   "heldItem": "cobblemon:heavy_duty_boots",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 252,
+    "def": 120,
+    "spe": 136
+   },
+   "nature": "timid",
    "gimmicks": {
     "tera": "fairy"
-   }
+   },
+   "ability": "serenegrace"
   },
   {
    "species": "lucario",
    "level": 88,
    "moveset": [
-    "aurasphere",
+    "nastyplot",
+    "focusblast",
     "flashcannon",
-    "darkpulse",
-    "nastyplot"
+    "vacuumwave"
    ],
-   "heldItem": "mega_showdown:fightinium_z"
+   "heldItem": "mega_showdown:fightinium_z",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "spa": 252,
+    "spd": 4,
+    "spe": 252
+   },
+   "nature": "timid",
+   "ability": "innerfocus"
   },
   {
    "species": "garchomp",
    "level": 90,
    "moveset": [
     "earthquake",
-    "dragonclaw",
-    "stoneedge",
-    "swordsdance"
+    "dragontail",
+    "stealthrock",
+    "spikes"
    ],
-   "heldItem": "mega_showdown:garchompite"
+   "heldItem": "mega_showdown:garchompite",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 252,
+    "def": 216,
+    "spe": 40
+   },
+   "nature": "impish",
+   "ability": "roughskin"
   }
  ]
 }

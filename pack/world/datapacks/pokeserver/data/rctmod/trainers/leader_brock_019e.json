@@ -21,34 +21,80 @@
    "species": "geodude",
    "level": 13,
    "moveset": [
-    "tackle",
-    "defensecurl",
-    "rockthrow",
-    "rollout"
+    "stealthrock",
+    "rockblast",
+    "earthquake",
+    "suckerpunch"
    ],
-   "heldItem": "cobblemon:hard_stone"
+   "heldItem": "cobblemon:berry_juice",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 36,
+    "atk": 196,
+    "def": 116,
+    "spd": 36,
+    "spe": 116
+   },
+   "nature": "adamant",
+   "ability": "sturdy"
   },
   {
    "species": "rhyhorn",
    "level": 13,
    "moveset": [
-    "hornattack",
-    "stomp",
-    "rockblast",
-    "tailwhip"
+    "swordsdance",
+    "rockpolish",
+    "earthquake",
+    "stoneedge"
    ],
-   "heldItem": "cobblemon:eviolite"
+   "heldItem": "cobblemon:life_orb",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "atk": 236,
+    "spd": 116,
+    "spe": 156
+   },
+   "nature": "adamant"
   },
   {
    "species": "onix",
    "level": 15,
    "moveset": [
-    "rocktomb",
-    "bind",
-    "dragonbreath",
-    "harden"
+    "earthquake",
+    "rockblast",
+    "stealthrock",
+    "explosion"
    ],
-   "heldItem": "cobblemon:sitrus_berry"
+   "heldItem": "cobblemon:berry_juice",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 76,
+    "atk": 236,
+    "spe": 196
+   },
+   "nature": "jolly",
+   "ability": "sturdy"
   }
  ]
 }
