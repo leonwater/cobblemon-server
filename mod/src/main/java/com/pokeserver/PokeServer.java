@@ -126,7 +126,7 @@ public class PokeServer implements ModInitializer {
     /** /명령어 (/commands) 와 G 메뉴 "명령어" 버튼이 보여 주는 목록. */
     static final String[] HELP = {"── 명령어 (한국어 / English) ──", "G 키: 메인 메뉴  ·  /메뉴 /menu",
             "/돈 /money: 잔액", "/송금 /pay 닉네임 금액: 돈 보내기",
-            "/가기 /tpa 닉네임: 그 사람에게 이동 (상대 동의)", "/부르기 /tpahere 닉네임: 내 쪽으로 부르기 (상대 동의)",
+            "/가기 /tp 닉네임: 그 사람에게 이동 (상대 동의)", "/부르기 /tpa 닉네임: 내 쪽으로 부르기 (상대 동의)",
             "/수락 /accept · /거절 /deny: 텔레포트 요청에 대답", "/광장 /spawn: 광장으로", "/명령어 /commands: 이 목록",
             "R 키: 포켓몬 꺼내기 · M 키: 상태창 · ↑↓: 파티 선택"};
 

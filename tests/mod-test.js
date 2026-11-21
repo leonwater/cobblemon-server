@@ -201,13 +201,13 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   // 새 2. 텔레포트: 일반 사용자는 상대가 [예]를 눌러야 이동, 10초 지나면 취소
   const msgs = []; B.on('message', m => msgs.push(m.toString()))
   await cmd('execute in poke:town run tp A 2000.5 -56 -11.5'); await cmd('execute in poke:town run tp B 2006.5 -56 -11.5'); await sleep(500)
-  A.chat('/가기 B'); await sleep(350)
+  A.chat('/tp B'); await sleep(350)   // 일반 사용자 /tp = /가기
   assert.ok(msgs.some(m => m.includes('A님이 당신에게 오려고 해요') && m.includes('[예]') && m.includes('[아니요]')), '2. 상대에게 예/아니요가 뜸')
   assert.match(await cmd('data get entity A Pos[0]'), /: 2000\.5d/, '2. 동의 전엔 이동 안 함')
   B.chat('/수락'); await sleep(350)
   assert.match(await cmd('data get entity A Pos[0]'), /2006\.5d/, '2. [예]를 누르면 상대에게 이동')
   await cmd('execute in poke:town run tp A 2000.5 -56 -11.5'); await sleep(300)
-  A.chat('/부르기 B'); await sleep(300); await ff(220)   // 10초(200틱) 시간 초과
+  A.chat('/tpa B'); await sleep(300); await ff(220)   // /tpa = /부르기   // 10초(200틱) 시간 초과
   assert.ok(msgs.some(m => m.includes('10초 동안 대답이 없어 취소')), '2. 10초가 지나면 자동 취소')
   B.chat('/수락'); await sleep(350)
   assert.match(await cmd('data get entity B Pos[0]'), /2006\.5d/, '2. 취소된 요청은 수락해도 이동 안 함')

@@ -15,7 +15,7 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 
-/** 텔레포트: /가기 /tpa <플레이어> (그 사람에게 감), /부르기 /tpahere <플레이어> (데려옴), /수락 /accept · /거절 /deny.
+/** 텔레포트: /가기 /tp <플레이어> (그 사람에게 감), /부르기 /tpa <플레이어> (데려옴), /수락 /accept · /거절 /deny.
  *  OP는 바로 이동. 일반 사용자는 상대가 채팅의 [예]를 눌러야 이동, 10초 안에 안 고르면 취소. */
 final class Teleport {
     private Teleport() {}
@@ -26,9 +26,10 @@ final class Teleport {
     static final Map<UUID, Req> PENDING = new HashMap<>();
 
     static void register(CommandDispatcher<CommandSourceStack> d) {
-        for (String name : new String[]{"가기", "tpa"}) d.register(Commands.literal(name)
+        // 가기 = /tp (일반 사용자 /tp는 TpAliasMixin이 가기로 바꿈), 부르기 = /tpa
+        for (String name : new String[]{"가기"}) d.register(Commands.literal(name)
                 .then(Commands.argument("player", com.mojang.brigadier.arguments.StringArgumentType.greedyString()).suggests(Nicknames::suggest).executes(c -> request(c, false))));
-        for (String name : new String[]{"부르기", "tpahere"}) d.register(Commands.literal(name)
+        for (String name : new String[]{"부르기", "tpa"}) d.register(Commands.literal(name)
                 .then(Commands.argument("player", com.mojang.brigadier.arguments.StringArgumentType.greedyString()).suggests(Nicknames::suggest).executes(c -> request(c, true))));
         for (String name : new String[]{"수락", "accept"}) d.register(Commands.literal(name).executes(c -> answer(c, true)));
         for (String name : new String[]{"거절", "deny"}) d.register(Commands.literal(name).executes(c -> answer(c, false)));
