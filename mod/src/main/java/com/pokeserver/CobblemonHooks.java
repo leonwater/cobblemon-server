@@ -317,6 +317,20 @@ public final class CobblemonHooks {
         return score != null && score.value() > 0;
     }
 
+    /** 배틀 중 특수 기믹 잠금 (배틀 밖은 제한 없음): 메가 = 배지 3, Z기술 = 배지 6, 다이맥스·거다이맥스 = 배지 8, 테라스탈 = 사천왕 클리어.
+     *  @param gimmick ShowdownMoveset.Gimmick 이름 */
+    public static boolean gimmickLocked(net.minecraft.server.level.ServerPlayer p, String gimmick) {
+        if (com.cobblemon.mod.common.battles.BattleRegistry.INSTANCE.getBattleByParticipatingPlayer(p) == null) return false;
+        int badges = Nicknames.badges(p);
+        return switch (gimmick) {
+            case "MEGA_EVOLUTION" -> badges < 3;
+            case "Z_POWER" -> badges < 6;
+            case "DYNAMAX" -> badges < 8;
+            case "TERASTALLIZATION" -> !p.getTags().contains("poke.e4clear");
+            default -> false;
+        };
+    }
+
     static final int WILD_PER_PLAYER = 30, WILD_MIN = 30;
     static int wildCount, wildCap = WILD_MIN;
 

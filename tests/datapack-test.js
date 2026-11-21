@@ -19,19 +19,22 @@ const join = name => new Promise((res, rej) => {
   const at = async (p, d, x, z, msg) => {
     assert.equal(await dim(p), d, msg); assert.equal(await pos(p, 0), x, msg); assert.equal(await pos(p, 2), z, msg)
   }
-  const waitFor = async (c, re, n = 30) => { for (let i = 0; i < n && !re.test(await cmd(c)); i++) await sleep(500) }
+  const ff = async t => { await rc.send(`tick sprint ${t}`); for (let i = 0; i < 100 && /sprint/i.test(await rc.send('tick query')); i++) await sleep(100) }
+  const waitFor = async (c, re, n = 30) => { for (let i = 0; i < n && !re.test(await cmd(c)); i++) await sleep(300) }
   const warp = async (p, key) => cmd(`execute as ${p} run function poke:warp/${key === 'farm' ? 'go' : 'fixed'} {key:"${key}"}`)
 
   // 건물이 지어질 때까지 (load 후 60틱)
-  await waitFor('data get storage poke:state', /build: 16.*farm: 3|farm: 3.*build: 16/, 240)  // 지형은 여러 틱에 나눠 지음
+  await rc.send('tick sprint 12000')   // 짓는 동안 게임 시간을 빨리
+  await waitFor('data get storage poke:state', /build: 16.*farm: 3|farm: 3.*build: 16/, 240)
+  await rc.send('tick sprint stop')  // 지형은 여러 틱에 나눠 지음
   assert.match(await cmd('data get storage poke:state'), /build: 16/, '짓기 끝에 저장한 건물 번호가 load와 같아야 함 (다르면 켤 때마다 다시 지음)')
   await ok('execute in poke:hub if block 0 64 3 minecraft:smooth_quartz', '튜토리얼 방 바닥')
   for (const fl of ['-40 -80 140 30', '960 -32 1040 32', '1960 -36 2040 36', '3000 -18 3380 18', '3500 -46 3540 12'])
     await cmd(`execute in poke:town run forceload add ${fl}`)
-  await sleep(3000)
+  await waitFor('execute in poke:town if block 0 -59 -6 minecraft:air', /passed/, 20)   // 청크를 다 불러올 때까지
   await ok('execute in poke:town if block 0 -59 -6 minecraft:air', '15. 예전 회의장 섬은 지워짐')
   await ok('execute in poke:town if block 1012 -54 -9 minecraft:air', '15. 예전 상점가 섬은 지워짐')
-  await cmd('execute in poke:town run forceload add 1944 0 1944 0'); await sleep(1500)
+  await cmd('execute in poke:town run forceload add 1944 0 1944 0'); await sleep(700)
   await ok('execute in poke:town if block 1944 0 0 minecraft:barrier', '체육관 섬 둘레 벽')
   await ok('execute in poke:town if block 1987 -54 18 minecraft:white_concrete', '14. 체육관 흰 벽')
   await ok('execute in poke:town if block 2000 -46 0 minecraft:smooth_sandstone', '14. 체육관 황토색 지붕')
@@ -40,13 +43,13 @@ const join = name => new Promise((res, rej) => {
   await ok('execute in poke:town if block 3000 -58 -18 minecraft:quartz_pillar', '1번 경기장')
   await ok('execute in poke:town if block 3350 -58 18 minecraft:quartz_pillar', '8번 경기장')
   await ok('execute in poke:town if block 3500 -58 -46 minecraft:quartz_pillar', '사천왕 본부')
-  await cmd('execute in poke:farm run forceload add 96 40 112 60'); await sleep(1500)  // 짓고 나면 농장 청크는 풀려 있음
+  await cmd('execute in poke:farm run forceload add 96 40 112 60'); await sleep(700)  // 짓고 나면 농장 청크는 풀려 있음
   await ok('execute in poke:farm if block 108 0 50 minecraft:barrier', '농장 둘레 벽')
 
-  let A = await join('A'), B = await join('B'); await sleep(1500)
+  let A = await join('A'), B = await join('B'); await sleep(700)
   await at('A', 'poke:hub', 0, 3, '튜토리얼 방에서 시작')
   assert.match(await cmd('data get entity A playerGameType'), /: 2$/, '튜토리얼 방은 모험 모드')
-  await cmd('execute as A run trigger home'); await sleep(500)
+  await cmd('execute as A run trigger home'); await sleep(300)
   await at('A', 'poke:hub', 0, 3, '튜토리얼을 끝내기 전엔 /trigger home 으로 못 나감')
 
   // 4·7. 규칙
@@ -55,46 +58,46 @@ const join = name => new Promise((res, rej) => {
   await ok('execute as A if predicate poke:has_saturation', '배고픔 없음')
   await cmd('execute in minecraft:overworld run summon minecraft:zombie 0 -59 0')
   await cmd('execute in minecraft:overworld run summon minecraft:villager 2 -59 0 {NoAI:1b}')
-  await sleep(1000)
+  await ff(25)   // 몹 제거는 1초(20틱)마다
   assert.match(await cmd('execute in minecraft:overworld if entity @e[type=zombie]'), /failed/, '좀비 제거')
   await ok('execute in minecraft:overworld if entity @e[type=villager]', '주민은 유지')
 
   // 튜토리얼 → 회의장, 보상은 처음 한 번만
   await ok('execute in poke:hub unless block 0 65 7 minecraft:iron_door', '연구소 철문 없음 (튜토리얼 끝나면 바로 광장)')
-  await cmd('execute as A run function poke:tutorial/finish'); await sleep(500)
+  await cmd('execute as A run function poke:tutorial/finish'); await sleep(300)
   assert.match(await cmd('clear A minecraft:leather_boots 0'), /Found 1 /, '첫 완료: 러닝 슈즈')
   await at('A', 'poke:town', 2000, -12, '2. 완료하면 바로 광장으로 (모드 없으면 체육관 로비)')
   assert.match(await cmd('data get entity A playerGameType'), /: 2$/, '마을은 모험 모드')
-  await cmd('execute as A run function poke:admin/reset_me'); await sleep(500)
+  await cmd('execute as A run function poke:admin/reset_me'); await sleep(300)
   await at('A', 'poke:hub', 0, 3, 'reset_me → 튜토리얼 방')
   await cmd('execute as A run function poke:tutorial/finish')
   assert.match(await cmd('clear A minecraft:leather_boots 0'), /Found 1 /, '두 번째 완료: 보상 없음')
-  await cmd('item replace entity A armor.feet from entity A container.0'); await sleep(500)
+  await cmd('item replace entity A armor.feet from entity A container.0'); await sleep(300)
   assert.match(await cmd('attribute A minecraft:generic.movement_speed get'), /0\.13/, '러닝 슈즈 +30%')
 
   // 예전 마을(허공)에 남아 있던 플레이어 → 회의장으로 옮김
-  await cmd('execute in poke:hub run tp A 0.5 65 200.5'); await sleep(500)
+  await cmd('execute in poke:hub run tp A 0.5 65 200.5'); await sleep(300)
   await at('A', 'poke:town', 2000, -12, '허공 공간의 기존 플레이어 → 회의장')
   // 8. 워프: 광장·체육관은 고정, 농장은 마지막 위치 (모드가 없으니 광장 = 체육관 로비)
   await warp('A', 'gym'); await sleep(300)
   await at('A', 'poke:town', 2000, -12, '체육관 로비')
-  await warp('A', 'farm'); await sleep(500)
+  await warp('A', 'farm'); await sleep(300)
   await at('A', 'poke:farm', 0, -3, '농장 처음: 입구')
   assert.match(await cmd('data get entity A playerGameType'), /: 0$/, '농장은 서바이벌')
-  await cmd('execute in poke:farm run tp A 20.5 -59 50.5'); await sleep(2500)
-  await cmd('execute as A run trigger home'); await sleep(500)
+  await cmd('execute in poke:farm run tp A 20.5 -59 50.5'); await sleep(300); await ff(25)   // 마지막 위치는 1초(20틱)마다 저장
+  await cmd('execute as A run trigger home'); await sleep(300)
   await at('A', 'poke:town', 2000, -12, '/trigger home → 회의장')
-  await warp('A', 'farm'); await sleep(500)
+  await warp('A', 'farm'); await sleep(300)
   await at('A', 'poke:farm', 20, 50, '농장: 마지막 위치로')
-  await cmd('execute in poke:farm run tp A 0.5 -59 -6.5'); await sleep(500)
+  await cmd('execute in poke:farm run tp A 0.5 -59 -6.5'); await sleep(300)
   await at('A', 'poke:town', 2000, -12, '농장 "회의장으로" 발판')
-  await warp('A', 'farm'); await sleep(500)
+  await warp('A', 'farm'); await sleep(300)
   await at('A', 'poke:farm', 20, 50, '발판으로 나와도 마지막 위치 유지')
 
   await cmd('execute as B run function poke:tutorial/finish')   // 야생 첫 스폰(광장)은 모드 테스트에서 확인
 
   // ── 리그: 배지 체육관 8 + 사천왕 (승패는 모드가 gym/win·gym/lose 를 호출 → 여기선 직접 호출) ──
-  await cmd('execute as A run trigger home'); await cmd('execute as B run trigger home'); await sleep(500)
+  await cmd('execute as A run trigger home'); await cmd('execute as B run trigger home'); await sleep(300)
   const g = async p => cmd(`scoreboard players get ${p} poke.gym`)
   await cmd('execute as B run function poke:gym/try/2')
   assert.doesNotMatch(await g('B'), /has /, '5. 배지1 없으면 2번 체육관 입장 불가')
@@ -121,7 +124,7 @@ const join = name => new Promise((res, rej) => {
   await cmd('scoreboard players reset B poke.gymcd')                     // 이후 테스트를 위해 대기시간 해제
   // 경기장 나가기 발판 (틱에서 감지)
   await cmd('execute as B run function poke:gym/try/1')
-  await cmd('execute in poke:town run tp B 3015.5 -59 -16.5'); await sleep(500)
+  await cmd('execute in poke:town run tp B 3015.5 -59 -16.5'); await sleep(300)
   assert.doesNotMatch(await g('B'), /has /, '나가기 발판 → 잠금 해제')
   await at('B', 'poke:town', 2000, -12, '나가기 발판 → 체육관 로비')
   // G 메뉴로 농장·야생에 가도 잠금 해제 (안 풀면 다른 사람이 체육관에 못 들어감)
@@ -131,11 +134,11 @@ const join = name => new Promise((res, rej) => {
   // 로그아웃하면 잠금 해제
   await cmd('execute as A run function poke:gym/try/2')
   assert.match(await g('A'), /has 2 /, '배지1 → 2번 체육관 입장')
-  A.quit(); await sleep(1500)
+  A.quit(); await sleep(700)
   await cmd('tag B add poke.badge1'); await cmd('execute as B run function poke:gym/try/2')
   assert.match(await g('B'), /has 2 /, 'A 로그아웃 → 2번 체육관 잠금 해제')
   await cmd('execute as B run function poke:gym/leave')
-  A = await join('A'); await sleep(1500)
+  A = await join('A'); await sleep(700)
   assert.doesNotMatch(await g('A'), /has /, 'A 재접속 시 체육관 상태 초기화')
 
   // 사천왕: 배지 8개 필요, 네 명 연속 승리, 지면 처음부터, 클리어 후 재도전 불가
@@ -157,20 +160,20 @@ const join = name => new Promise((res, rej) => {
   for (let k = 0; k < 4; k++) { await cmd('execute as A run function poke:gym/win'); await sleep(200) }
   assert.match(await cmd('tag A list'), /poke\.e4clear/, '네 명 연속 승리 → 사천왕 클리어')
   await at('A', 'poke:town', 3516, 4, '명예의 전당')
-  await cmd('execute in poke:town run tp A 3502.5 -59 4.5'); await sleep(500)
+  await cmd('execute in poke:town run tp A 3502.5 -59 4.5'); await sleep(300)
   await at('A', 'poke:town', 2000, -12, '명예의 전당 나가기 발판 → 로비')
   await cmd('execute as A run function poke:gym/try/9')
   assert.doesNotMatch(await g('A'), /has /, '7. 사천왕도 클리어 후 재도전 불가')
   // 15. 섬·농장·튜토리얼 방 밖으로 나가거나 떨어지면 되돌림
-  await cmd('execute in poke:town run tp A 500.5 -59 0.5'); await sleep(500)
+  await cmd('execute in poke:town run tp A 500.5 -59 0.5'); await sleep(300)
   await at('A', 'poke:town', 2000, -12, '15. 섬 밖 → 회의장')
-  await cmd('execute in poke:town run tp A 1000.5 -75 0.5'); await sleep(500)
+  await cmd('execute in poke:town run tp A 1000.5 -75 0.5'); await sleep(300)
   await at('A', 'poke:town', 2000, -12, '15. 바닥 아래로 떨어짐 → 회의장')
-  await cmd('execute in poke:farm run tp A 300.5 -59 0.5'); await sleep(500)
+  await cmd('execute in poke:farm run tp A 300.5 -59 0.5'); await sleep(300)
   await at('A', 'poke:farm', 0, -3, '15. 농장 밖 → 농장 입구')
-  await cmd('tag A remove poke.tutorial_done'); await cmd('execute in poke:hub run tp A 0.5 30 0.5'); await sleep(500)
+  await cmd('tag A remove poke.tutorial_done'); await cmd('execute in poke:hub run tp A 0.5 30 0.5'); await sleep(300)
   await at('A', 'poke:hub', 0, 3, '튜토리얼 중 방 밖으로 떨어짐 → 튜토리얼 방'); await cmd('tag A add poke.tutorial_done')
-  await cmd('kill B'); await sleep(1500)
+  await cmd('kill B'); await sleep(700)
   assert.doesNotMatch(await g('B'), /has /, '사망 시 잠금 해제')
 
   console.log('ALL PASS'); A.quit(); B.quit(); await rc.end(); process.exit(0)

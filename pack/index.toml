@@ -108,7 +108,7 @@ metafile = true
 
 [[files]]
 file = "mods/pokeserver-0.1.0.jar"
-hash = "b50402c91304c2686b1da62ddf5bab39e8a7506d2130a5b11dbc37656411da45"
+hash = "108313b6f0b97b20adebacb55511ffa5087ffcbd96c18bb1ea39f0eb1a62606c"
 
 [[files]]
 file = "mods/rctapi.pw.toml"
@@ -548,6 +548,10 @@ file = "world/datapacks/pokeserver/data/poke/function/load.mcfunction"
 hash = "755c053f4dcd1c8a7ab958906892009d274b95e2bdaaa320a8dd5c5205138cfb"
 
 [[files]]
+file = "world/datapacks/pokeserver/data/poke/function/mobs.mcfunction"
+hash = "871712874a4ec7e3b119aa0d4fdabe44c4240811922204ea12f66cf8f5d470b8"
+
+[[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/build_town.mcfunction"
 hash = "9c4a7ed23d70137110ac390decdc85e0b2b542eb5d1762796e54fdeaaf7bce2a"
 
@@ -617,7 +621,7 @@ hash = "b91d268fe51451d723799623f35d2c968aa94091c29eab03afafbada224df240"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/tick.mcfunction"
-hash = "605df1e8599798361961e24c153127a33d83aa0f00a67a0f95984a8e9a7e6725"
+hash = "3dfe137bca1f1c30e8f3c1a20467400218b4687d6bc38569211c586ca0ca3bff"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/tutorial/finish.mcfunction"

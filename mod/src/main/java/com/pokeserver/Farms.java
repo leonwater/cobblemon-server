@@ -136,7 +136,7 @@ public final class Farms {
     static void refreshLabels(MinecraftServer server) {
         ServerLevel farm = null;
         for (ServerLevel l : server.getAllLevels()) if (isFarm(l)) farm = l;
-        if (farm == null) return;
+        if (farm == null || farm.players().isEmpty()) return;   // 아무도 없으면 안 봄 (들어오면 5초 안에 맞춰짐)
         ServerData data = ServerData.get(server);
         AABB all = new AABB(-30_000, -64, -30_000, 30_000, 320, 30_000);
         for (Display.TextDisplay d : farm.getEntities(EntityType.TEXT_DISPLAY, all, e -> true)) {
