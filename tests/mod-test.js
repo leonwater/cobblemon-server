@@ -231,6 +231,14 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   await cmd(`execute in poke:wild run tp A ${px + 120}.5 200 ${pzz}.5`); await sleep(1500)
   assert.ok((await cmd('execute if entity @a[name=A,gamemode=survival]')).includes('passed'), '5. 광장 밖은 생존 모드')
   console.log('> 15. 광장 마을·보호')
+  // 서버 전체 폭발 방지: TNT가 터져도 옆 블록이 그대로
+  await cmd('execute in poke:farm run forceload add 12 25'); await sleep(1000)
+  await cmd('execute in poke:farm run setblock 12 -58 25 minecraft:stone')
+  await cmd('execute in poke:farm run summon minecraft:tnt 12 -57 25 {fuse:1s}'); await sleep(1500)
+  assert.ok((await cmd('execute in poke:farm if block 12 -58 25 minecraft:stone')).includes('passed'), '폭발이 블록을 부수지 않음')
+  assert.ok(!(await cmd('execute in poke:farm if entity @e[type=minecraft:tnt]')).includes('passed'), 'TNT는 실제로 터짐')
+  await cmd('execute in poke:farm run setblock 12 -58 25 minecraft:air')
+  console.log('> 폭발 방지')
 
   console.log('ALL PASS'); A.quit(); B.quit(); await rc.end(); process.exit(0)
 })().catch(e => { console.error('FAIL', e.message); process.exit(1) })
