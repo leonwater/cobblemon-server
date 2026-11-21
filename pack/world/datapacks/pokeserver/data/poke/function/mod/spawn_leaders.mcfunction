@@ -25,16 +25,16 @@ execute in poke:town positioned 3315.5 -59 14.5 run tp @e[type=rctmod:trainer,ta
 execute in poke:town positioned 3365.5 -59 14.5 run rctmod trainer summon_persistent leader_misty_019f ~ ~ ~
 execute in poke:town positioned 3365.5 -59 14.5 run data merge entity @e[type=rctmod:trainer,distance=..1,limit=1,sort=nearest] {NoAI:1b,Invulnerable:1b,Tags:["poke.leader"]}
 execute in poke:town positioned 3365.5 -59 14.5 run tp @e[type=rctmod:trainer,tag=poke.leader,distance=..1,limit=1,sort=nearest] ~ ~ ~ 180 0
-execute in poke:town positioned 3533.5 -59 -39.5 run rctmod trainer summon_persistent trainer_red_0003 ~ ~ ~
+execute in poke:town positioned 3533.5 -59 -39.5 run rctmod trainer summon_persistent champion_steven_ps ~ ~ ~
 execute in poke:town positioned 3533.5 -59 -39.5 run data merge entity @e[type=rctmod:trainer,distance=..1,limit=1,sort=nearest] {NoAI:1b,Invulnerable:1b,Tags:["poke.leader"]}
 execute in poke:town positioned 3533.5 -59 -39.5 run tp @e[type=rctmod:trainer,tag=poke.leader,distance=..1,limit=1,sort=nearest] ~ ~ ~ 90 0
-execute in poke:town positioned 3533.5 -59 -28.5 run rctmod trainer summon_persistent champion_steven_ps ~ ~ ~
+execute in poke:town positioned 3533.5 -59 -28.5 run rctmod trainer summon_persistent champion_cynthia_03a5 ~ ~ ~
 execute in poke:town positioned 3533.5 -59 -28.5 run data merge entity @e[type=rctmod:trainer,distance=..1,limit=1,sort=nearest] {NoAI:1b,Invulnerable:1b,Tags:["poke.leader"]}
 execute in poke:town positioned 3533.5 -59 -28.5 run tp @e[type=rctmod:trainer,tag=poke.leader,distance=..1,limit=1,sort=nearest] ~ ~ ~ 90 0
-execute in poke:town positioned 3533.5 -59 -17.5 run rctmod trainer summon_persistent champion_cynthia_03a5 ~ ~ ~
+execute in poke:town positioned 3533.5 -59 -17.5 run rctmod trainer summon_persistent champion_leon_ps ~ ~ ~
 execute in poke:town positioned 3533.5 -59 -17.5 run data merge entity @e[type=rctmod:trainer,distance=..1,limit=1,sort=nearest] {NoAI:1b,Invulnerable:1b,Tags:["poke.leader"]}
 execute in poke:town positioned 3533.5 -59 -17.5 run tp @e[type=rctmod:trainer,tag=poke.leader,distance=..1,limit=1,sort=nearest] ~ ~ ~ 90 0
-execute in poke:town positioned 3533.5 -59 -6.5 run rctmod trainer summon_persistent champion_leon_ps ~ ~ ~
+execute in poke:town positioned 3533.5 -59 -6.5 run rctmod trainer summon_persistent trainer_red_0003 ~ ~ ~
 execute in poke:town positioned 3533.5 -59 -6.5 run data merge entity @e[type=rctmod:trainer,distance=..1,limit=1,sort=nearest] {NoAI:1b,Invulnerable:1b,Tags:["poke.leader"]}
 execute in poke:town positioned 3533.5 -59 -6.5 run tp @e[type=rctmod:trainer,tag=poke.leader,distance=..1,limit=1,sort=nearest] ~ ~ ~ 90 0
 data modify storage poke:state leaders set value 1

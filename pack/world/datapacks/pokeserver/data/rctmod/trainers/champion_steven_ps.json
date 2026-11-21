@@ -75,7 +75,8 @@
    ],
    "heldItem": "cobblemon:sitrus_berry",
    "gimmicks": {
-    "dynamax": true
+    "dynamax": true,
+    "gmax": false
    }
   },
   {

@@ -19,7 +19,7 @@
  "team": [
   {
    "species": "aegislash",
-   "level": 92,
+   "level": 87,
    "moveset": [
     "shadowball",
     "flashcannon",
@@ -33,7 +33,7 @@
   },
   {
    "species": "rhyperior",
-   "level": 92,
+   "level": 87,
    "moveset": [
     "earthquake",
     "stoneedge",
@@ -44,7 +44,7 @@
   },
   {
    "species": "cinderace",
-   "level": 92,
+   "level": 87,
    "moveset": [
     "pyroball",
     "highjumpkick",
@@ -55,7 +55,7 @@
   },
   {
    "species": "haxorus",
-   "level": 93,
+   "level": 88,
    "moveset": [
     "outrage",
     "earthquake",
@@ -66,28 +66,29 @@
   },
   {
    "species": "dragapult",
-   "level": 93,
+   "level": 88,
    "moveset": [
     "dragondarts",
     "phantomforce",
     "uturn",
     "fireblast"
    ],
-   "heldItem": "cobblemon:expert_belt",
-   "gimmicks": {
-    "dynamax": true
-   }
+   "heldItem": "cobblemon:expert_belt"
   },
   {
    "species": "charizard",
-   "level": 95,
+   "level": 90,
    "moveset": [
     "flareblitz",
-    "dragonclaw",
-    "earthquake",
-    "dragondance"
+    "airslash",
+    "dragonpulse",
+    "solarbeam"
    ],
-   "heldItem": "mega_showdown:charizardite_x"
+   "heldItem": "cobblemon:life_orb",
+   "gimmicks": {
+    "dynamax": true,
+    "gmax": true
+   }
   }
  ]
 }

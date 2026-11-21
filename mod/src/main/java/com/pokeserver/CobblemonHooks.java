@@ -68,6 +68,8 @@ public final class CobblemonHooks {
                 e.setReason(Component.literal("배틀은 야생·광장에서만 할 수 있어요.").withStyle(ChatFormatting.RED));
                 e.cancel();
             }
+            // 체육관·사천왕: 포켓몬을 내보내기 전에 도전자를 필드 끝 자리로 (관장 바로 앞에서 말을 걸어도 포켓몬이 필드 가운데에 나옴)
+            if (b.isPvN()) for (var p : b.getPlayers()) Menu.run(p, "function poke:gym/place");
             return Unit.INSTANCE;
         });
         // 체육관·사천왕: NPC 배틀이 끝나면 승패를 데이터팩에 알림 (체육관 안이 아니면 함수가 아무것도 안 함)

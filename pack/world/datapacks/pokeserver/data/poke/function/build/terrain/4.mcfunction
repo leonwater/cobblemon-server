@@ -1277,104 +1277,166 @@ setblock 3001 -54 9 minecraft:lantern
 setblock 3029 -54 9 minecraft:lantern
 setblock 3001 -54 15 minecraft:lantern
 setblock 3029 -54 15 minecraft:lantern
-fill 3008 -60 -12 3022 -60 12 minecraft:smooth_sandstone
-fill 3008 -60 -12 3022 -60 -12 minecraft:quartz_block
-fill 3008 -60 12 3022 -60 12 minecraft:quartz_block
-fill 3008 -60 -12 3008 -60 12 minecraft:quartz_block
-fill 3022 -60 -12 3022 -60 12 minecraft:quartz_block
-fill 3008 -60 0 3022 -60 0 minecraft:quartz_block
-setblock 3013 -60 -5 minecraft:stone
-setblock 3014 -60 -5 minecraft:stone
-setblock 3015 -60 -5 minecraft:stone
-setblock 3016 -60 -5 minecraft:stone
-setblock 3017 -60 -5 minecraft:stone
-setblock 3012 -60 -4 minecraft:stone
-setblock 3013 -60 -4 minecraft:stone
-setblock 3014 -60 -4 minecraft:cobblestone
-setblock 3015 -60 -4 minecraft:cobblestone
-setblock 3016 -60 -4 minecraft:cobblestone
-setblock 3017 -60 -4 minecraft:stone
-setblock 3018 -60 -4 minecraft:stone
-setblock 3011 -60 -3 minecraft:stone
-setblock 3012 -60 -3 minecraft:stone
-setblock 3013 -60 -3 minecraft:cobblestone
-setblock 3014 -60 -3 minecraft:cobblestone
-setblock 3015 -60 -3 minecraft:cobblestone
-setblock 3016 -60 -3 minecraft:cobblestone
-setblock 3017 -60 -3 minecraft:stone
-setblock 3018 -60 -3 minecraft:cobblestone
-setblock 3019 -60 -3 minecraft:stone
-setblock 3010 -60 -2 minecraft:stone
-setblock 3011 -60 -2 minecraft:stone
-setblock 3012 -60 -2 minecraft:cobblestone
-setblock 3013 -60 -2 minecraft:cobblestone
-setblock 3014 -60 -2 minecraft:cobblestone
-setblock 3015 -60 -2 minecraft:cobblestone
-setblock 3016 -60 -2 minecraft:cobblestone
-setblock 3017 -60 -2 minecraft:stone
-setblock 3018 -60 -2 minecraft:stone
-setblock 3019 -60 -2 minecraft:stone
-setblock 3020 -60 -2 minecraft:stone
-setblock 3010 -60 -1 minecraft:stone
-setblock 3011 -60 -1 minecraft:cobblestone
-setblock 3012 -60 -1 minecraft:cobblestone
-setblock 3013 -60 -1 minecraft:cobblestone
-setblock 3014 -60 -1 minecraft:stone
-setblock 3015 -60 -1 minecraft:cobblestone
-setblock 3016 -60 -1 minecraft:cobblestone
-setblock 3017 -60 -1 minecraft:cobblestone
-setblock 3018 -60 -1 minecraft:cobblestone
-setblock 3019 -60 -1 minecraft:cobblestone
-setblock 3020 -60 -1 minecraft:stone
-setblock 3010 -60 0 minecraft:stone
-setblock 3011 -60 0 minecraft:cobblestone
-setblock 3012 -60 0 minecraft:cobblestone
-setblock 3013 -60 0 minecraft:stone
-setblock 3014 -60 0 minecraft:stone
-setblock 3015 -60 0 minecraft:stone
-setblock 3016 -60 0 minecraft:cobblestone
-setblock 3017 -60 0 minecraft:cobblestone
-setblock 3018 -60 0 minecraft:cobblestone
-setblock 3019 -60 0 minecraft:cobblestone
-setblock 3020 -60 0 minecraft:stone
-setblock 3010 -60 1 minecraft:stone
-setblock 3011 -60 1 minecraft:cobblestone
-setblock 3012 -60 1 minecraft:cobblestone
-setblock 3013 -60 1 minecraft:cobblestone
-setblock 3014 -60 1 minecraft:stone
-setblock 3015 -60 1 minecraft:cobblestone
-setblock 3016 -60 1 minecraft:cobblestone
-setblock 3017 -60 1 minecraft:cobblestone
-setblock 3018 -60 1 minecraft:stone
-setblock 3019 -60 1 minecraft:cobblestone
-setblock 3020 -60 1 minecraft:stone
-setblock 3010 -60 2 minecraft:stone
-setblock 3011 -60 2 minecraft:stone
-setblock 3012 -60 2 minecraft:cobblestone
-setblock 3013 -60 2 minecraft:cobblestone
-setblock 3014 -60 2 minecraft:cobblestone
-setblock 3015 -60 2 minecraft:cobblestone
-setblock 3016 -60 2 minecraft:cobblestone
-setblock 3017 -60 2 minecraft:cobblestone
-setblock 3018 -60 2 minecraft:stone
-setblock 3019 -60 2 minecraft:stone
-setblock 3020 -60 2 minecraft:stone
-setblock 3011 -60 3 minecraft:stone
-setblock 3012 -60 3 minecraft:stone
-setblock 3013 -60 3 minecraft:cobblestone
-setblock 3014 -60 3 minecraft:cobblestone
-setblock 3015 -60 3 minecraft:cobblestone
-setblock 3016 -60 3 minecraft:cobblestone
-setblock 3017 -60 3 minecraft:cobblestone
-setblock 3018 -60 3 minecraft:stone
-setblock 3019 -60 3 minecraft:stone
-setblock 3012 -60 4 minecraft:stone
-setblock 3013 -60 4 minecraft:stone
-setblock 3014 -60 4 minecraft:stone
-setblock 3015 -60 4 minecraft:stone
-setblock 3016 -60 4 minecraft:stone
-setblock 3017 -60 4 minecraft:stone
-setblock 3018 -60 4 minecraft:stone
+fill 3007 -60 -12 3023 -60 12 minecraft:smooth_sandstone
+fill 3007 -60 -12 3023 -60 -12 minecraft:quartz_block
+fill 3007 -60 12 3023 -60 12 minecraft:quartz_block
+fill 3007 -60 -12 3007 -60 12 minecraft:quartz_block
+fill 3023 -60 -12 3023 -60 12 minecraft:quartz_block
+fill 3007 -60 -6 3023 -60 -6 minecraft:quartz_block
+fill 3007 -60 6 3023 -60 6 minecraft:quartz_block
+setblock 3007 -60 -12 minecraft:polished_andesite
+setblock 3008 -60 -12 minecraft:polished_andesite
+setblock 3007 -60 -11 minecraft:polished_andesite
+setblock 3008 -60 -11 minecraft:quartz_block
+setblock 3023 -60 -12 minecraft:polished_andesite
+setblock 3022 -60 -12 minecraft:polished_andesite
+setblock 3023 -60 -11 minecraft:polished_andesite
+setblock 3022 -60 -11 minecraft:quartz_block
+setblock 3007 -60 12 minecraft:polished_andesite
+setblock 3008 -60 12 minecraft:polished_andesite
+setblock 3007 -60 11 minecraft:polished_andesite
+setblock 3008 -60 11 minecraft:quartz_block
+setblock 3023 -60 12 minecraft:polished_andesite
+setblock 3022 -60 12 minecraft:polished_andesite
+setblock 3023 -60 11 minecraft:polished_andesite
+setblock 3022 -60 11 minecraft:quartz_block
+setblock 3010 -60 -10 minecraft:stone
+setblock 3010 -60 10 minecraft:stone
+setblock 3014 -60 -10 minecraft:stone
+setblock 3014 -60 10 minecraft:stone
+setblock 3016 -60 -10 minecraft:stone
+setblock 3016 -60 10 minecraft:stone
+setblock 3020 -60 -10 minecraft:stone
+setblock 3020 -60 10 minecraft:stone
+setblock 3009 -60 -9 minecraft:cobblestone
+setblock 3021 -60 -9 minecraft:cobblestone
+setblock 3009 -60 -3 minecraft:cobblestone
+setblock 3021 -60 -3 minecraft:cobblestone
+setblock 3009 -60 3 minecraft:cobblestone
+setblock 3021 -60 3 minecraft:cobblestone
+setblock 3009 -60 9 minecraft:cobblestone
+setblock 3021 -60 9 minecraft:cobblestone
+setblock 3009 -60 -1 minecraft:black_concrete
+setblock 3009 -60 0 minecraft:black_concrete
+setblock 3009 -60 1 minecraft:black_concrete
+setblock 3010 -60 -3 minecraft:black_concrete
+setblock 3010 -60 -2 minecraft:black_concrete
+setblock 3010 -60 -1 minecraft:white_concrete
+setblock 3010 -60 0 minecraft:white_concrete
+setblock 3010 -60 1 minecraft:white_concrete
+setblock 3010 -60 2 minecraft:black_concrete
+setblock 3010 -60 3 minecraft:black_concrete
+setblock 3011 -60 -4 minecraft:black_concrete
+setblock 3011 -60 -3 minecraft:white_concrete
+setblock 3011 -60 -2 minecraft:white_concrete
+setblock 3011 -60 -1 minecraft:white_concrete
+setblock 3011 -60 0 minecraft:white_concrete
+setblock 3011 -60 1 minecraft:white_concrete
+setblock 3011 -60 2 minecraft:white_concrete
+setblock 3011 -60 3 minecraft:white_concrete
+setblock 3011 -60 4 minecraft:black_concrete
+setblock 3012 -60 -5 minecraft:black_concrete
+setblock 3012 -60 -4 minecraft:white_concrete
+setblock 3012 -60 -3 minecraft:white_concrete
+setblock 3012 -60 -2 minecraft:white_concrete
+setblock 3012 -60 -1 minecraft:white_concrete
+setblock 3012 -60 0 minecraft:white_concrete
+setblock 3012 -60 1 minecraft:white_concrete
+setblock 3012 -60 2 minecraft:white_concrete
+setblock 3012 -60 3 minecraft:white_concrete
+setblock 3012 -60 4 minecraft:white_concrete
+setblock 3012 -60 5 minecraft:black_concrete
+setblock 3013 -60 -5 minecraft:black_concrete
+setblock 3013 -60 -4 minecraft:white_concrete
+setblock 3013 -60 -3 minecraft:white_concrete
+setblock 3013 -60 -2 minecraft:white_concrete
+setblock 3013 -60 -1 minecraft:black_concrete
+setblock 3013 -60 0 minecraft:black_concrete
+setblock 3013 -60 1 minecraft:black_concrete
+setblock 3013 -60 2 minecraft:white_concrete
+setblock 3013 -60 3 minecraft:white_concrete
+setblock 3013 -60 4 minecraft:white_concrete
+setblock 3013 -60 5 minecraft:black_concrete
+setblock 3014 -60 -6 minecraft:black_concrete
+setblock 3014 -60 -5 minecraft:white_concrete
+setblock 3014 -60 -4 minecraft:white_concrete
+setblock 3014 -60 -3 minecraft:white_concrete
+setblock 3014 -60 -2 minecraft:black_concrete
+setblock 3014 -60 -1 minecraft:white_concrete
+setblock 3014 -60 0 minecraft:white_concrete
+setblock 3014 -60 1 minecraft:white_concrete
+setblock 3014 -60 2 minecraft:black_concrete
+setblock 3014 -60 3 minecraft:white_concrete
+setblock 3014 -60 4 minecraft:white_concrete
+setblock 3014 -60 5 minecraft:white_concrete
+setblock 3014 -60 6 minecraft:black_concrete
+setblock 3015 -60 -6 minecraft:black_concrete
+setblock 3015 -60 -5 minecraft:black_concrete
+setblock 3015 -60 -4 minecraft:black_concrete
+setblock 3015 -60 -3 minecraft:black_concrete
+setblock 3015 -60 -2 minecraft:black_concrete
+setblock 3015 -60 -1 minecraft:white_concrete
+setblock 3015 -60 0 minecraft:white_concrete
+setblock 3015 -60 1 minecraft:white_concrete
+setblock 3015 -60 2 minecraft:black_concrete
+setblock 3015 -60 3 minecraft:black_concrete
+setblock 3015 -60 4 minecraft:black_concrete
+setblock 3015 -60 5 minecraft:black_concrete
+setblock 3015 -60 6 minecraft:black_concrete
+setblock 3016 -60 -6 minecraft:black_concrete
+setblock 3016 -60 -5 minecraft:red_concrete
+setblock 3016 -60 -4 minecraft:red_concrete
+setblock 3016 -60 -3 minecraft:red_concrete
+setblock 3016 -60 -2 minecraft:black_concrete
+setblock 3016 -60 -1 minecraft:white_concrete
+setblock 3016 -60 0 minecraft:white_concrete
+setblock 3016 -60 1 minecraft:white_concrete
+setblock 3016 -60 2 minecraft:black_concrete
+setblock 3016 -60 3 minecraft:red_concrete
+setblock 3016 -60 4 minecraft:red_concrete
+setblock 3016 -60 5 minecraft:red_concrete
+setblock 3016 -60 6 minecraft:black_concrete
+setblock 3017 -60 -5 minecraft:black_concrete
+setblock 3017 -60 -4 minecraft:red_concrete
+setblock 3017 -60 -3 minecraft:red_concrete
+setblock 3017 -60 -2 minecraft:red_concrete
+setblock 3017 -60 -1 minecraft:black_concrete
+setblock 3017 -60 0 minecraft:black_concrete
+setblock 3017 -60 1 minecraft:black_concrete
+setblock 3017 -60 2 minecraft:red_concrete
+setblock 3017 -60 3 minecraft:red_concrete
+setblock 3017 -60 4 minecraft:red_concrete
+setblock 3017 -60 5 minecraft:black_concrete
+setblock 3018 -60 -5 minecraft:black_concrete
+setblock 3018 -60 -4 minecraft:red_concrete
+setblock 3018 -60 -3 minecraft:red_concrete
+setblock 3018 -60 -2 minecraft:red_concrete
+setblock 3018 -60 -1 minecraft:red_concrete
+setblock 3018 -60 0 minecraft:red_concrete
+setblock 3018 -60 1 minecraft:red_concrete
+setblock 3018 -60 2 minecraft:red_concrete
+setblock 3018 -60 3 minecraft:red_concrete
+setblock 3018 -60 4 minecraft:red_concrete
+setblock 3018 -60 5 minecraft:black_concrete
+setblock 3019 -60 -4 minecraft:black_concrete
+setblock 3019 -60 -3 minecraft:red_concrete
+setblock 3019 -60 -2 minecraft:red_concrete
+setblock 3019 -60 -1 minecraft:red_concrete
+setblock 3019 -60 0 minecraft:red_concrete
+setblock 3019 -60 1 minecraft:red_concrete
+setblock 3019 -60 2 minecraft:red_concrete
+setblock 3019 -60 3 minecraft:red_concrete
+setblock 3019 -60 4 minecraft:black_concrete
+setblock 3020 -60 -3 minecraft:black_concrete
+setblock 3020 -60 -2 minecraft:black_concrete
+setblock 3020 -60 -1 minecraft:red_concrete
+setblock 3020 -60 0 minecraft:red_concrete
+setblock 3020 -60 1 minecraft:red_concrete
+setblock 3020 -60 2 minecraft:black_concrete
+setblock 3020 -60 3 minecraft:black_concrete
+setblock 3021 -60 -1 minecraft:black_concrete
+setblock 3021 -60 0 minecraft:black_concrete
+setblock 3021 -60 1 minecraft:black_concrete
 fill 3004 -59 -14 3004 -59 14 minecraft:sandstone
 fill 3005 -59 -14 3005 -59 14 minecraft:sandstone_stairs[facing=west]
 fill 3026 -59 -14 3026 -59 14 minecraft:sandstone
@@ -1558,61 +1620,166 @@ setblock 3051 -54 9 minecraft:lantern
 setblock 3079 -54 9 minecraft:lantern
 setblock 3051 -54 15 minecraft:lantern
 setblock 3079 -54 15 minecraft:lantern
-fill 3058 -60 -12 3072 -60 12 minecraft:pink_terracotta
-fill 3058 -60 -12 3072 -60 -12 minecraft:quartz_block
-fill 3058 -60 12 3072 -60 12 minecraft:quartz_block
-fill 3058 -60 -12 3058 -60 12 minecraft:quartz_block
-fill 3072 -60 -12 3072 -60 12 minecraft:quartz_block
-fill 3058 -60 0 3072 -60 0 minecraft:quartz_block
-setblock 3063 -60 -4 minecraft:magenta_concrete
-setblock 3064 -60 -4 minecraft:magenta_concrete
-setblock 3065 -60 -4 minecraft:magenta_concrete
-setblock 3066 -60 -4 minecraft:magenta_concrete
-setblock 3067 -60 -4 minecraft:magenta_concrete
-setblock 3061 -60 -3 minecraft:magenta_concrete
-setblock 3062 -60 -3 minecraft:magenta_concrete
-setblock 3068 -60 -3 minecraft:magenta_concrete
-setblock 3069 -60 -3 minecraft:magenta_concrete
-setblock 3060 -60 -2 minecraft:magenta_concrete
-setblock 3064 -60 -2 minecraft:magenta_concrete
-setblock 3065 -60 -2 minecraft:magenta_concrete
-setblock 3066 -60 -2 minecraft:magenta_concrete
-setblock 3070 -60 -2 minecraft:magenta_concrete
-setblock 3060 -60 -1 minecraft:magenta_concrete
-setblock 3063 -60 -1 minecraft:magenta_concrete
+fill 3057 -60 -12 3073 -60 12 minecraft:pink_terracotta
+fill 3057 -60 -12 3073 -60 -12 minecraft:quartz_block
+fill 3057 -60 12 3073 -60 12 minecraft:quartz_block
+fill 3057 -60 -12 3057 -60 12 minecraft:quartz_block
+fill 3073 -60 -12 3073 -60 12 minecraft:quartz_block
+fill 3057 -60 -6 3073 -60 -6 minecraft:quartz_block
+fill 3057 -60 6 3073 -60 6 minecraft:quartz_block
+setblock 3057 -60 -12 minecraft:polished_andesite
+setblock 3058 -60 -12 minecraft:polished_andesite
+setblock 3057 -60 -11 minecraft:polished_andesite
+setblock 3058 -60 -11 minecraft:quartz_block
+setblock 3073 -60 -12 minecraft:polished_andesite
+setblock 3072 -60 -12 minecraft:polished_andesite
+setblock 3073 -60 -11 minecraft:polished_andesite
+setblock 3072 -60 -11 minecraft:quartz_block
+setblock 3057 -60 12 minecraft:polished_andesite
+setblock 3058 -60 12 minecraft:polished_andesite
+setblock 3057 -60 11 minecraft:polished_andesite
+setblock 3058 -60 11 minecraft:quartz_block
+setblock 3073 -60 12 minecraft:polished_andesite
+setblock 3072 -60 12 minecraft:polished_andesite
+setblock 3073 -60 11 minecraft:polished_andesite
+setblock 3072 -60 11 minecraft:quartz_block
+setblock 3060 -60 -10 minecraft:magenta_concrete
+setblock 3060 -60 10 minecraft:magenta_concrete
+setblock 3064 -60 -10 minecraft:magenta_concrete
+setblock 3064 -60 10 minecraft:magenta_concrete
+setblock 3066 -60 -10 minecraft:magenta_concrete
+setblock 3066 -60 10 minecraft:magenta_concrete
+setblock 3070 -60 -10 minecraft:magenta_concrete
+setblock 3070 -60 10 minecraft:magenta_concrete
+setblock 3059 -60 -9 minecraft:white_concrete
+setblock 3071 -60 -9 minecraft:white_concrete
+setblock 3059 -60 -3 minecraft:white_concrete
+setblock 3071 -60 -3 minecraft:white_concrete
+setblock 3059 -60 3 minecraft:white_concrete
+setblock 3071 -60 3 minecraft:white_concrete
+setblock 3059 -60 9 minecraft:white_concrete
+setblock 3071 -60 9 minecraft:white_concrete
+setblock 3059 -60 -1 minecraft:black_concrete
+setblock 3059 -60 0 minecraft:black_concrete
+setblock 3059 -60 1 minecraft:black_concrete
+setblock 3060 -60 -3 minecraft:black_concrete
+setblock 3060 -60 -2 minecraft:black_concrete
+setblock 3060 -60 -1 minecraft:white_concrete
+setblock 3060 -60 0 minecraft:white_concrete
+setblock 3060 -60 1 minecraft:white_concrete
+setblock 3060 -60 2 minecraft:black_concrete
+setblock 3060 -60 3 minecraft:black_concrete
+setblock 3061 -60 -4 minecraft:black_concrete
+setblock 3061 -60 -3 minecraft:white_concrete
+setblock 3061 -60 -2 minecraft:white_concrete
+setblock 3061 -60 -1 minecraft:white_concrete
+setblock 3061 -60 0 minecraft:white_concrete
+setblock 3061 -60 1 minecraft:white_concrete
+setblock 3061 -60 2 minecraft:white_concrete
+setblock 3061 -60 3 minecraft:white_concrete
+setblock 3061 -60 4 minecraft:black_concrete
+setblock 3062 -60 -5 minecraft:black_concrete
+setblock 3062 -60 -4 minecraft:white_concrete
+setblock 3062 -60 -3 minecraft:white_concrete
+setblock 3062 -60 -2 minecraft:white_concrete
+setblock 3062 -60 -1 minecraft:white_concrete
+setblock 3062 -60 0 minecraft:white_concrete
+setblock 3062 -60 1 minecraft:white_concrete
+setblock 3062 -60 2 minecraft:white_concrete
+setblock 3062 -60 3 minecraft:white_concrete
+setblock 3062 -60 4 minecraft:white_concrete
+setblock 3062 -60 5 minecraft:black_concrete
+setblock 3063 -60 -5 minecraft:black_concrete
+setblock 3063 -60 -4 minecraft:white_concrete
+setblock 3063 -60 -3 minecraft:white_concrete
+setblock 3063 -60 -2 minecraft:white_concrete
+setblock 3063 -60 -1 minecraft:black_concrete
+setblock 3063 -60 0 minecraft:black_concrete
+setblock 3063 -60 1 minecraft:black_concrete
+setblock 3063 -60 2 minecraft:white_concrete
+setblock 3063 -60 3 minecraft:white_concrete
+setblock 3063 -60 4 minecraft:white_concrete
+setblock 3063 -60 5 minecraft:black_concrete
+setblock 3064 -60 -6 minecraft:black_concrete
+setblock 3064 -60 -5 minecraft:white_concrete
+setblock 3064 -60 -4 minecraft:white_concrete
+setblock 3064 -60 -3 minecraft:white_concrete
+setblock 3064 -60 -2 minecraft:black_concrete
 setblock 3064 -60 -1 minecraft:white_concrete
-setblock 3065 -60 -1 minecraft:white_concrete
-setblock 3066 -60 -1 minecraft:white_concrete
-setblock 3067 -60 -1 minecraft:magenta_concrete
-setblock 3070 -60 -1 minecraft:magenta_concrete
-setblock 3060 -60 0 minecraft:magenta_concrete
-setblock 3063 -60 0 minecraft:magenta_concrete
 setblock 3064 -60 0 minecraft:white_concrete
-setblock 3065 -60 0 minecraft:magenta_concrete
-setblock 3066 -60 0 minecraft:white_concrete
-setblock 3067 -60 0 minecraft:magenta_concrete
-setblock 3070 -60 0 minecraft:magenta_concrete
-setblock 3060 -60 1 minecraft:magenta_concrete
-setblock 3063 -60 1 minecraft:magenta_concrete
 setblock 3064 -60 1 minecraft:white_concrete
+setblock 3064 -60 2 minecraft:black_concrete
+setblock 3064 -60 3 minecraft:white_concrete
+setblock 3064 -60 4 minecraft:white_concrete
+setblock 3064 -60 5 minecraft:white_concrete
+setblock 3064 -60 6 minecraft:black_concrete
+setblock 3065 -60 -6 minecraft:black_concrete
+setblock 3065 -60 -5 minecraft:black_concrete
+setblock 3065 -60 -4 minecraft:black_concrete
+setblock 3065 -60 -3 minecraft:black_concrete
+setblock 3065 -60 -2 minecraft:black_concrete
+setblock 3065 -60 -1 minecraft:white_concrete
+setblock 3065 -60 0 minecraft:white_concrete
 setblock 3065 -60 1 minecraft:white_concrete
+setblock 3065 -60 2 minecraft:black_concrete
+setblock 3065 -60 3 minecraft:black_concrete
+setblock 3065 -60 4 minecraft:black_concrete
+setblock 3065 -60 5 minecraft:black_concrete
+setblock 3065 -60 6 minecraft:black_concrete
+setblock 3066 -60 -6 minecraft:black_concrete
+setblock 3066 -60 -5 minecraft:red_concrete
+setblock 3066 -60 -4 minecraft:red_concrete
+setblock 3066 -60 -3 minecraft:red_concrete
+setblock 3066 -60 -2 minecraft:black_concrete
+setblock 3066 -60 -1 minecraft:white_concrete
+setblock 3066 -60 0 minecraft:white_concrete
 setblock 3066 -60 1 minecraft:white_concrete
-setblock 3067 -60 1 minecraft:magenta_concrete
-setblock 3070 -60 1 minecraft:magenta_concrete
-setblock 3060 -60 2 minecraft:magenta_concrete
-setblock 3064 -60 2 minecraft:magenta_concrete
-setblock 3065 -60 2 minecraft:magenta_concrete
-setblock 3066 -60 2 minecraft:magenta_concrete
-setblock 3070 -60 2 minecraft:magenta_concrete
-setblock 3061 -60 3 minecraft:magenta_concrete
-setblock 3062 -60 3 minecraft:magenta_concrete
-setblock 3068 -60 3 minecraft:magenta_concrete
-setblock 3069 -60 3 minecraft:magenta_concrete
-setblock 3063 -60 4 minecraft:magenta_concrete
-setblock 3064 -60 4 minecraft:magenta_concrete
-setblock 3065 -60 4 minecraft:magenta_concrete
-setblock 3066 -60 4 minecraft:magenta_concrete
-setblock 3067 -60 4 minecraft:magenta_concrete
+setblock 3066 -60 2 minecraft:black_concrete
+setblock 3066 -60 3 minecraft:red_concrete
+setblock 3066 -60 4 minecraft:red_concrete
+setblock 3066 -60 5 minecraft:red_concrete
+setblock 3066 -60 6 minecraft:black_concrete
+setblock 3067 -60 -5 minecraft:black_concrete
+setblock 3067 -60 -4 minecraft:red_concrete
+setblock 3067 -60 -3 minecraft:red_concrete
+setblock 3067 -60 -2 minecraft:red_concrete
+setblock 3067 -60 -1 minecraft:black_concrete
+setblock 3067 -60 0 minecraft:black_concrete
+setblock 3067 -60 1 minecraft:black_concrete
+setblock 3067 -60 2 minecraft:red_concrete
+setblock 3067 -60 3 minecraft:red_concrete
+setblock 3067 -60 4 minecraft:red_concrete
+setblock 3067 -60 5 minecraft:black_concrete
+setblock 3068 -60 -5 minecraft:black_concrete
+setblock 3068 -60 -4 minecraft:red_concrete
+setblock 3068 -60 -3 minecraft:red_concrete
+setblock 3068 -60 -2 minecraft:red_concrete
+setblock 3068 -60 -1 minecraft:red_concrete
+setblock 3068 -60 0 minecraft:red_concrete
+setblock 3068 -60 1 minecraft:red_concrete
+setblock 3068 -60 2 minecraft:red_concrete
+setblock 3068 -60 3 minecraft:red_concrete
+setblock 3068 -60 4 minecraft:red_concrete
+setblock 3068 -60 5 minecraft:black_concrete
+setblock 3069 -60 -4 minecraft:black_concrete
+setblock 3069 -60 -3 minecraft:red_concrete
+setblock 3069 -60 -2 minecraft:red_concrete
+setblock 3069 -60 -1 minecraft:red_concrete
+setblock 3069 -60 0 minecraft:red_concrete
+setblock 3069 -60 1 minecraft:red_concrete
+setblock 3069 -60 2 minecraft:red_concrete
+setblock 3069 -60 3 minecraft:red_concrete
+setblock 3069 -60 4 minecraft:black_concrete
+setblock 3070 -60 -3 minecraft:black_concrete
+setblock 3070 -60 -2 minecraft:black_concrete
+setblock 3070 -60 -1 minecraft:red_concrete
+setblock 3070 -60 0 minecraft:red_concrete
+setblock 3070 -60 1 minecraft:red_concrete
+setblock 3070 -60 2 minecraft:black_concrete
+setblock 3070 -60 3 minecraft:black_concrete
+setblock 3071 -60 -1 minecraft:black_concrete
+setblock 3071 -60 0 minecraft:black_concrete
+setblock 3071 -60 1 minecraft:black_concrete
 fill 3054 -59 -14 3054 -59 14 minecraft:cherry_planks
 fill 3055 -59 -14 3055 -59 14 minecraft:cherry_stairs[facing=west]
 fill 3076 -59 -14 3076 -59 14 minecraft:cherry_planks
@@ -1796,206 +1963,39 @@ setblock 3101 -54 9 minecraft:lantern
 setblock 3129 -54 9 minecraft:lantern
 setblock 3101 -54 15 minecraft:lantern
 setblock 3129 -54 15 minecraft:lantern
-fill 3108 -60 -12 3122 -60 12 minecraft:red_nether_bricks
-fill 3108 -60 -12 3122 -60 -12 minecraft:quartz_block
-fill 3108 -60 12 3122 -60 12 minecraft:quartz_block
-fill 3108 -60 -12 3108 -60 12 minecraft:quartz_block
-fill 3122 -60 -12 3122 -60 12 minecraft:quartz_block
-fill 3108 -60 0 3122 -60 0 minecraft:quartz_block
-setblock 3115 -60 -5 minecraft:orange_concrete
-setblock 3114 -60 -4 minecraft:orange_concrete
-setblock 3115 -60 -4 minecraft:orange_concrete
-setblock 3114 -60 -3 minecraft:orange_concrete
-setblock 3115 -60 -3 minecraft:orange_concrete
-setblock 3116 -60 -3 minecraft:orange_concrete
-setblock 3119 -60 -3 minecraft:orange_concrete
-setblock 3113 -60 -2 minecraft:orange_concrete
-setblock 3114 -60 -2 minecraft:orange_concrete
-setblock 3115 -60 -2 minecraft:orange_concrete
-setblock 3116 -60 -2 minecraft:orange_concrete
-setblock 3118 -60 -2 minecraft:orange_concrete
-setblock 3119 -60 -2 minecraft:orange_concrete
-setblock 3112 -60 -1 minecraft:orange_concrete
-setblock 3113 -60 -1 minecraft:orange_concrete
-setblock 3114 -60 -1 minecraft:yellow_concrete
-setblock 3115 -60 -1 minecraft:orange_concrete
-setblock 3116 -60 -1 minecraft:orange_concrete
-setblock 3117 -60 -1 minecraft:orange_concrete
-setblock 3118 -60 -1 minecraft:orange_concrete
-setblock 3111 -60 0 minecraft:orange_concrete
-setblock 3112 -60 0 minecraft:orange_concrete
-setblock 3113 -60 0 minecraft:yellow_concrete
-setblock 3114 -60 0 minecraft:yellow_concrete
-setblock 3115 -60 0 minecraft:orange_concrete
-setblock 3116 -60 0 minecraft:orange_concrete
-setblock 3117 -60 0 minecraft:orange_concrete
-setblock 3111 -60 1 minecraft:orange_concrete
-setblock 3112 -60 1 minecraft:yellow_concrete
-setblock 3113 -60 1 minecraft:yellow_concrete
-setblock 3114 -60 1 minecraft:yellow_concrete
-setblock 3115 -60 1 minecraft:orange_concrete
-setblock 3116 -60 1 minecraft:orange_concrete
-setblock 3117 -60 1 minecraft:yellow_concrete
-setblock 3118 -60 1 minecraft:orange_concrete
-setblock 3119 -60 1 minecraft:orange_concrete
-setblock 3111 -60 2 minecraft:orange_concrete
-setblock 3112 -60 2 minecraft:yellow_concrete
-setblock 3113 -60 2 minecraft:yellow_concrete
-setblock 3114 -60 2 minecraft:yellow_concrete
-setblock 3115 -60 2 minecraft:yellow_concrete
-setblock 3116 -60 2 minecraft:yellow_concrete
-setblock 3117 -60 2 minecraft:yellow_concrete
-setblock 3118 -60 2 minecraft:yellow_concrete
-setblock 3119 -60 2 minecraft:orange_concrete
-setblock 3111 -60 3 minecraft:orange_concrete
-setblock 3112 -60 3 minecraft:orange_concrete
-setblock 3113 -60 3 minecraft:yellow_concrete
-setblock 3114 -60 3 minecraft:yellow_concrete
-setblock 3115 -60 3 minecraft:yellow_concrete
-setblock 3116 -60 3 minecraft:yellow_concrete
-setblock 3117 -60 3 minecraft:yellow_concrete
-setblock 3118 -60 3 minecraft:orange_concrete
-setblock 3119 -60 3 minecraft:orange_concrete
-setblock 3112 -60 4 minecraft:orange_concrete
-setblock 3113 -60 4 minecraft:orange_concrete
-setblock 3114 -60 4 minecraft:yellow_concrete
-setblock 3115 -60 4 minecraft:yellow_concrete
-setblock 3116 -60 4 minecraft:yellow_concrete
-setblock 3117 -60 4 minecraft:orange_concrete
-setblock 3118 -60 4 minecraft:orange_concrete
-setblock 3113 -60 5 minecraft:orange_concrete
-setblock 3114 -60 5 minecraft:orange_concrete
-setblock 3115 -60 5 minecraft:orange_concrete
-setblock 3116 -60 5 minecraft:orange_concrete
-setblock 3117 -60 5 minecraft:orange_concrete
-fill 3104 -59 -14 3104 -59 14 minecraft:mangrove_planks
-fill 3105 -59 -14 3105 -59 14 minecraft:mangrove_stairs[facing=west]
-fill 3126 -59 -14 3126 -59 14 minecraft:mangrove_planks
-fill 3125 -59 -14 3125 -59 14 minecraft:mangrove_stairs[facing=east]
-fill 3102 -59 -14 3103 -59 14 minecraft:mangrove_planks
-fill 3102 -58 -14 3102 -58 14 minecraft:mangrove_planks
-fill 3103 -58 -14 3103 -58 14 minecraft:mangrove_stairs[facing=west]
-fill 3127 -59 -14 3128 -59 14 minecraft:mangrove_planks
-fill 3128 -58 -14 3128 -58 14 minecraft:mangrove_planks
-fill 3127 -58 -14 3127 -58 14 minecraft:mangrove_stairs[facing=east]
-fill 3101 -59 -14 3101 -58 14 minecraft:mangrove_planks
-fill 3101 -57 -14 3101 -57 14 minecraft:mangrove_stairs[facing=west]
-fill 3129 -59 -14 3129 -58 14 minecraft:mangrove_planks
-fill 3129 -57 -14 3129 -57 14 minecraft:mangrove_stairs[facing=east]
-fill 3112 -60 13 3118 -60 16 minecraft:quartz_block
-fill 3112 -59 16 3118 -59 16 minecraft:orange_concrete
-fill 3114 -60 -17 3116 -60 -17 minecraft:orange_stained_glass
-summon minecraft:text_display 3115.5 -57.5 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
-summon minecraft:text_display 3115.5 -52 16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"3번 체육관 · 불꽃 타입","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
-setblock 3102 -55 -16 minecraft:light[level=15]
-setblock 3102 -55 -12 minecraft:light[level=15]
-setblock 3102 -55 -8 minecraft:light[level=15]
-setblock 3102 -55 -4 minecraft:light[level=15]
-setblock 3102 -55 0 minecraft:light[level=15]
-setblock 3102 -55 4 minecraft:light[level=15]
-setblock 3102 -55 8 minecraft:light[level=15]
-setblock 3102 -55 12 minecraft:light[level=15]
-setblock 3102 -55 16 minecraft:light[level=15]
-setblock 3106 -55 -16 minecraft:light[level=15]
-setblock 3106 -55 -12 minecraft:light[level=15]
-setblock 3106 -55 -8 minecraft:light[level=15]
-setblock 3106 -55 -4 minecraft:light[level=15]
-setblock 3106 -55 0 minecraft:light[level=15]
-setblock 3106 -55 4 minecraft:light[level=15]
-setblock 3106 -55 8 minecraft:light[level=15]
-setblock 3106 -55 12 minecraft:light[level=15]
-setblock 3106 -55 16 minecraft:light[level=15]
-setblock 3110 -55 -16 minecraft:light[level=15]
-setblock 3110 -55 -12 minecraft:light[level=15]
-setblock 3110 -55 -8 minecraft:light[level=15]
-setblock 3110 -55 -4 minecraft:light[level=15]
-setblock 3110 -55 0 minecraft:light[level=15]
-setblock 3110 -55 4 minecraft:light[level=15]
-setblock 3110 -55 8 minecraft:light[level=15]
-setblock 3110 -55 12 minecraft:light[level=15]
-setblock 3110 -55 16 minecraft:light[level=15]
-setblock 3114 -55 -16 minecraft:light[level=15]
-setblock 3114 -55 -12 minecraft:light[level=15]
-setblock 3114 -55 -8 minecraft:light[level=15]
-setblock 3114 -55 -4 minecraft:light[level=15]
-setblock 3114 -55 0 minecraft:light[level=15]
-setblock 3114 -55 4 minecraft:light[level=15]
-setblock 3114 -55 8 minecraft:light[level=15]
-setblock 3114 -55 12 minecraft:light[level=15]
-setblock 3114 -55 16 minecraft:light[level=15]
-setblock 3118 -55 -16 minecraft:light[level=15]
-setblock 3118 -55 -12 minecraft:light[level=15]
-setblock 3118 -55 -8 minecraft:light[level=15]
-setblock 3118 -55 -4 minecraft:light[level=15]
-setblock 3118 -55 0 minecraft:light[level=15]
-setblock 3118 -55 4 minecraft:light[level=15]
-setblock 3118 -55 8 minecraft:light[level=15]
-setblock 3118 -55 12 minecraft:light[level=15]
-setblock 3118 -55 16 minecraft:light[level=15]
-setblock 3122 -55 -16 minecraft:light[level=15]
-setblock 3122 -55 -12 minecraft:light[level=15]
-setblock 3122 -55 -8 minecraft:light[level=15]
-setblock 3122 -55 -4 minecraft:light[level=15]
-setblock 3122 -55 0 minecraft:light[level=15]
-setblock 3122 -55 4 minecraft:light[level=15]
-setblock 3122 -55 8 minecraft:light[level=15]
-setblock 3122 -55 12 minecraft:light[level=15]
-setblock 3122 -55 16 minecraft:light[level=15]
-setblock 3126 -55 -16 minecraft:light[level=15]
-setblock 3126 -55 -12 minecraft:light[level=15]
-setblock 3126 -55 -8 minecraft:light[level=15]
-setblock 3126 -55 -4 minecraft:light[level=15]
-setblock 3126 -55 0 minecraft:light[level=15]
-setblock 3126 -55 4 minecraft:light[level=15]
-setblock 3126 -55 8 minecraft:light[level=15]
-setblock 3126 -55 12 minecraft:light[level=15]
-setblock 3126 -55 16 minecraft:light[level=15]
-setblock 3102 -50 -16 minecraft:light[level=15]
-setblock 3102 -50 -10 minecraft:light[level=15]
-setblock 3102 -50 -4 minecraft:light[level=15]
-setblock 3102 -50 2 minecraft:light[level=15]
-setblock 3102 -50 8 minecraft:light[level=15]
-setblock 3102 -50 14 minecraft:light[level=15]
-setblock 3108 -50 -16 minecraft:light[level=15]
-setblock 3108 -50 -10 minecraft:light[level=15]
-setblock 3108 -50 -4 minecraft:light[level=15]
-setblock 3108 -50 2 minecraft:light[level=15]
-setblock 3108 -50 8 minecraft:light[level=15]
-setblock 3108 -50 14 minecraft:light[level=15]
-setblock 3114 -50 -16 minecraft:light[level=15]
-setblock 3114 -50 -10 minecraft:light[level=15]
-setblock 3114 -50 -4 minecraft:light[level=15]
-setblock 3114 -50 2 minecraft:light[level=15]
-setblock 3114 -50 8 minecraft:light[level=15]
-setblock 3114 -50 14 minecraft:light[level=15]
-setblock 3120 -50 -16 minecraft:light[level=15]
-setblock 3120 -50 -10 minecraft:light[level=15]
-setblock 3120 -50 -4 minecraft:light[level=15]
-setblock 3120 -50 2 minecraft:light[level=15]
-setblock 3120 -50 8 minecraft:light[level=15]
-setblock 3120 -50 14 minecraft:light[level=15]
-setblock 3126 -50 -16 minecraft:light[level=15]
-setblock 3126 -50 -10 minecraft:light[level=15]
-setblock 3126 -50 -4 minecraft:light[level=15]
-setblock 3126 -50 2 minecraft:light[level=15]
-setblock 3126 -50 8 minecraft:light[level=15]
-setblock 3126 -50 14 minecraft:light[level=15]
-# ── 4번 경기장 (독) ──
-fill 3150 -61 -18 3180 -61 18 minecraft:bedrock
-fill 3150 -60 -18 3180 -60 18 minecraft:purpur_block
-fill 3151 -60 -17 3179 -60 17 minecraft:polished_andesite
-fill 3150 -59 -18 3180 -58 -18 minecraft:polished_blackstone_bricks
-fill 3150 -59 18 3180 -58 18 minecraft:polished_blackstone_bricks
-fill 3150 -59 -18 3150 -58 18 minecraft:polished_blackstone_bricks
-fill 3180 -59 -18 3180 -58 18 minecraft:polished_blackstone_bricks
-fill 3150 -57 -18 3180 -48 -18 minecraft:purpur_block
-fill 3150 -57 18 3180 -48 18 minecraft:purpur_block
-fill 3150 -57 -18 3150 -48 18 minecraft:purpur_block
-fill 3180 -57 -18 3180 -48 18 minecraft:purpur_block
-fill 3150 -59 -18 3150 -48 -18 minecraft:quartz_pillar
-fill 3150 -59 18 3150 -48 18 minecraft:quartz_pillar
-fill 3155 -59 -18 3155 -48 -18 minecraft:quartz_pillar
-fill 3155 -59 18 3155 -48 18 minecraft:quartz_pillar
-fill 3160 -59 -18 3160 -48 -18 minecraft:quartz_pillar
-fill 3160 -59 18 3160 -48 18 minecraft:quartz_pillar
-fill 3165 -59 -18 3165 -48 -18 minecraft:quartz_pillar
+fill 3107 -60 -12 3123 -60 12 minecraft:red_nether_bricks
+fill 3107 -60 -12 3123 -60 -12 minecraft:quartz_block
+fill 3107 -60 12 3123 -60 12 minecraft:quartz_block
+fill 3107 -60 -12 3107 -60 12 minecraft:quartz_block
+fill 3123 -60 -12 3123 -60 12 minecraft:quartz_block
+fill 3107 -60 -6 3123 -60 -6 minecraft:quartz_block
+fill 3107 -60 6 3123 -60 6 minecraft:quartz_block
+setblock 3107 -60 -12 minecraft:polished_andesite
+setblock 3108 -60 -12 minecraft:polished_andesite
+setblock 3107 -60 -11 minecraft:polished_andesite
+setblock 3108 -60 -11 minecraft:quartz_block
+setblock 3123 -60 -12 minecraft:polished_andesite
+setblock 3122 -60 -12 minecraft:polished_andesite
+setblock 3123 -60 -11 minecraft:polished_andesite
+setblock 3122 -60 -11 minecraft:quartz_block
+setblock 3107 -60 12 minecraft:polished_andesite
+setblock 3108 -60 12 minecraft:polished_andesite
+setblock 3107 -60 11 minecraft:polished_andesite
+setblock 3108 -60 11 minecraft:quartz_block
+setblock 3123 -60 12 minecraft:polished_andesite
+setblock 3122 -60 12 minecraft:polished_andesite
+setblock 3123 -60 11 minecraft:polished_andesite
+setblock 3122 -60 11 minecraft:quartz_block
+setblock 3110 -60 -10 minecraft:orange_concrete
+setblock 3110 -60 10 minecraft:orange_concrete
+setblock 3114 -60 -10 minecraft:orange_concrete
+setblock 3114 -60 10 minecraft:orange_concrete
+setblock 3116 -60 -10 minecraft:orange_concrete
+setblock 3116 -60 10 minecraft:orange_concrete
+setblock 3120 -60 -10 minecraft:orange_concrete
+setblock 3120 -60 10 minecraft:orange_concrete
+setblock 3109 -60 -9 minecraft:yellow_concrete
+setblock 3121 -60 -9 minecraft:yellow_concrete
+setblock 3109 -60 -3 minecraft:yellow_concrete
+setblock 3121 -60 -3 minecraft:yellow_concrete
+setblock 3109 -60 3 minecraft:yellow_concrete

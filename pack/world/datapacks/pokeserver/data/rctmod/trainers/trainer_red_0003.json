@@ -19,7 +19,7 @@
  "team": [
   {
    "species": "lapras",
-   "level": 87,
+   "level": 92,
    "moveset": [
     "hydropump",
     "icebeam",
@@ -29,19 +29,8 @@
    "heldItem": "cobblemon:leftovers"
   },
   {
-   "species": "venusaur",
-   "level": 87,
-   "moveset": [
-    "gigadrain",
-    "sludgebomb",
-    "earthquake",
-    "sleeppowder"
-   ],
-   "heldItem": "cobblemon:black_sludge"
-  },
-  {
    "species": "blastoise",
-   "level": 87,
+   "level": 92,
    "moveset": [
     "hydropump",
     "icebeam",
@@ -51,8 +40,23 @@
    "heldItem": "cobblemon:assault_vest"
   },
   {
+   "species": "venusaur",
+   "level": 93,
+   "moveset": [
+    "gigadrain",
+    "sludgebomb",
+    "earthquake",
+    "sleeppowder"
+   ],
+   "heldItem": "cobblemon:black_sludge",
+   "gimmicks": {
+    "dynamax": true,
+    "gmax": true
+   }
+  },
+  {
    "species": "pikachu",
-   "level": 88,
+   "level": 93,
    "moveset": [
     "volttackle",
     "irontail",
@@ -63,7 +67,7 @@
   },
   {
    "species": "snorlax",
-   "level": 88,
+   "level": 93,
    "moveset": [
     "bodyslam",
     "crunch",
@@ -77,7 +81,7 @@
   },
   {
    "species": "charizard",
-   "level": 90,
+   "level": 95,
    "moveset": [
     "fireblast",
     "airslash",

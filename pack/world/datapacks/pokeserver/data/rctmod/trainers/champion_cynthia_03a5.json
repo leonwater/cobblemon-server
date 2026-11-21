@@ -61,7 +61,7 @@
    ],
    "heldItem": "cobblemon:sitrus_berry",
    "gimmicks": {
-    "dynamax": true
+    "tera": "fairy"
    }
   },
   {
@@ -84,10 +84,7 @@
     "stoneedge",
     "swordsdance"
    ],
-   "heldItem": "cobblemon:life_orb",
-   "gimmicks": {
-    "tera": "dragon"
-   }
+   "heldItem": "mega_showdown:garchompite"
   }
  ]
 }
