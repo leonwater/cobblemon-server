@@ -21,57 +21,131 @@
    "species": "ponyta",
    "level": 33,
    "moveset": [
+    "flareblitz",
+    "wildcharge",
     "flamecharge",
-    "stomp",
-    "agility",
-    "lowkick"
+    "highhorsepower"
    ],
-   "heldItem": "cobblemon:charcoal_stick"
+   "heldItem": "cobblemon:berry_juice",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 36,
+    "atk": 236,
+    "spe": 196
+   },
+   "nature": "jolly",
+   "ability": "flamebody"
   },
   {
    "species": "torkoal",
    "level": 33,
    "moveset": [
     "lavaplume",
-    "bodyslam",
-    "irondefense",
-    "yawn"
+    "rapidspin",
+    "stealthrock",
+    "willowisp"
    ],
    "heldItem": "cobblemon:heat_rock",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 248,
+    "def": 252,
+    "spd": 8
+   },
+   "nature": "bold",
    "ability": "drought"
   },
   {
    "species": "camerupt",
    "level": 34,
    "moveset": [
-    "earthpower",
+    "stealthrock",
     "lavaplume",
-    "rockslide",
-    "yawn"
+    "earthpower",
+    "roar"
    ],
-   "heldItem": "cobblemon:soft_sand"
+   "heldItem": "cobblemon:leftovers",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 252,
+    "def": 4,
+    "spd": 252
+   },
+   "nature": "calm",
+   "ability": "solidrock"
   },
   {
    "species": "magmar",
    "level": 34,
    "moveset": [
-    "firepunch",
+    "flamethrower",
     "thunderpunch",
-    "confuseray",
-    "smokescreen"
+    "focusblast",
+    "psychic"
    ],
-   "heldItem": "cobblemon:eviolite"
+   "heldItem": "cobblemon:life_orb",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "spa": 252,
+    "spd": 4,
+    "spe": 252
+   },
+   "nature": "timid",
+   "ability": "flamebody"
   },
   {
    "species": "arcanine",
    "level": 35,
    "moveset": [
     "flareblitz",
+    "wildcharge",
     "extremespeed",
-    "crunch",
-    "wildcharge"
+    "morningsun"
    ],
-   "heldItem": "mega_showdown:firium_z"
+   "heldItem": "mega_showdown:firium_z",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "atk": 252,
+    "def": 4,
+    "spe": 252
+   },
+   "nature": "jolly",
+   "ability": "flashfire"
   }
  ]
 }

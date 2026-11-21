@@ -4,7 +4,7 @@ kill @e[type=rctmod:trainer,tag=poke.leader]
 execute in poke:town positioned 3015.5 -59 14.5 run rctmod trainer summon_persistent leader_brock_019e ~ ~ ~
 execute in poke:town positioned 3015.5 -59 14.5 run data merge entity @e[type=rctmod:trainer,distance=..1,limit=1,sort=nearest] {NoAI:1b,Invulnerable:1b,Tags:["poke.leader"]}
 execute in poke:town positioned 3015.5 -59 14.5 run tp @e[type=rctmod:trainer,tag=poke.leader,distance=..1,limit=1,sort=nearest] ~ ~ ~ 180 0
-execute in poke:town positioned 3065.5 -59 14.5 run rctmod trainer summon_persistent leader_sabrina_01a4 ~ ~ ~
+execute in poke:town positioned 3065.5 -59 14.5 run rctmod trainer summon_persistent leader_lt_surge_01a0 ~ ~ ~
 execute in poke:town positioned 3065.5 -59 14.5 run data merge entity @e[type=rctmod:trainer,distance=..1,limit=1,sort=nearest] {NoAI:1b,Invulnerable:1b,Tags:["poke.leader"]}
 execute in poke:town positioned 3065.5 -59 14.5 run tp @e[type=rctmod:trainer,tag=poke.leader,distance=..1,limit=1,sort=nearest] ~ ~ ~ 180 0
 execute in poke:town positioned 3115.5 -59 14.5 run rctmod trainer summon_persistent leader_blaine_01a3 ~ ~ ~
@@ -13,7 +13,7 @@ execute in poke:town positioned 3115.5 -59 14.5 run tp @e[type=rctmod:trainer,ta
 execute in poke:town positioned 3165.5 -59 14.5 run rctmod trainer summon_persistent leader_koga_01a2 ~ ~ ~
 execute in poke:town positioned 3165.5 -59 14.5 run data merge entity @e[type=rctmod:trainer,distance=..1,limit=1,sort=nearest] {NoAI:1b,Invulnerable:1b,Tags:["poke.leader"]}
 execute in poke:town positioned 3165.5 -59 14.5 run tp @e[type=rctmod:trainer,tag=poke.leader,distance=..1,limit=1,sort=nearest] ~ ~ ~ 180 0
-execute in poke:town positioned 3215.5 -59 14.5 run rctmod trainer summon_persistent leader_lt_surge_01a0 ~ ~ ~
+execute in poke:town positioned 3215.5 -59 14.5 run rctmod trainer summon_persistent leader_sabrina_01a4 ~ ~ ~
 execute in poke:town positioned 3215.5 -59 14.5 run data merge entity @e[type=rctmod:trainer,distance=..1,limit=1,sort=nearest] {NoAI:1b,Invulnerable:1b,Tags:["poke.leader"]}
 execute in poke:town positioned 3215.5 -59 14.5 run tp @e[type=rctmod:trainer,tag=poke.leader,distance=..1,limit=1,sort=nearest] ~ ~ ~ 180 0
 execute in poke:town positioned 3265.5 -59 14.5 run rctmod trainer summon_persistent leader_giovanni_015e ~ ~ ~

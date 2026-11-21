@@ -10,5 +10,5 @@ execute if entity @a[scores={poke.gym=5}] run return run function poke:gym/deny/
 scoreboard players set @s poke.gym 5
 execute in poke:town run tp @s 3215.5 -59 -13.5 0 0
 title @s title {"text":"5번 체육관","color":"gold"}
-title @s subtitle {"text":"전기 타입 · 관장 마티스","color":"white"}
+title @s subtitle {"text":"에스퍼 타입 · 관장 초련","color":"white"}
 tellraw @s {"text":"관장을 우클릭하면 배틀이 시작돼요. 나가려면 주황 발판을 밟으세요.","color":"gray"}

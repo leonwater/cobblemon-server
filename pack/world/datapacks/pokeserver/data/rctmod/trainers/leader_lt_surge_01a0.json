@@ -18,59 +18,107 @@
  ],
  "team": [
   {
-   "species": "electrode",
-   "level": 53,
+   "species": "voltorb",
+   "level": 22,
    "moveset": [
-    "thunderbolt",
+    "reflect",
+    "lightscreen",
     "voltswitch",
-    "screech",
-    "explosion"
+    "taunt"
    ],
-   "heldItem": "cobblemon:focus_sash"
+   "heldItem": "cobblemon:light_clay",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 196,
+    "def": 36,
+    "spd": 76,
+    "spe": 196
+   },
+   "nature": "timid",
+   "ability": "aftermath"
   },
   {
-   "species": "magnezone",
-   "level": 53,
+   "species": "magnemite",
+   "level": 23,
    "moveset": [
     "thunderbolt",
     "flashcannon",
-    "voltswitch",
-    "thunderwave"
+    "thunderwave",
+    "voltswitch"
    ],
-   "heldItem": "cobblemon:magnet"
+   "heldItem": "cobblemon:choice_scarf",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "def": 36,
+    "spa": 236,
+    "spe": 236
+   },
+   "nature": "modest"
   },
   {
-   "species": "manectric",
-   "level": 53,
+   "species": "pikachu",
+   "level": 23,
    "moveset": [
+    "substitute",
     "thunderbolt",
-    "flamethrower",
-    "voltswitch",
-    "thunderwave"
+    "grassknot",
+    "encore"
    ],
-   "heldItem": "cobblemon:sitrus_berry"
-  },
-  {
-   "species": "electivire",
-   "level": 54,
-   "moveset": [
-    "thunderpunch",
-    "icepunch",
-    "crosschop",
-    "earthquake"
-   ],
-   "heldItem": "mega_showdown:electrium_z"
+   "heldItem": "cobblemon:light_ball",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "def": 4,
+    "spa": 252,
+    "spe": 252
+   },
+   "nature": "timid"
   },
   {
    "species": "raichu",
-   "level": 55,
+   "level": 25,
    "moveset": [
-    "thunder",
-    "focusblast",
+    "nastyplot",
+    "thunderbolt",
     "grassknot",
-    "nastyplot"
+    "focusblast"
    ],
-   "heldItem": "mega_showdown:raichunite_y"
+   "heldItem": "cobblemon:life_orb",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "def": 4,
+    "spa": 252,
+    "spe": 252
+   },
+   "nature": "timid",
+   "ability": "lightningrod"
   }
  ]
 }

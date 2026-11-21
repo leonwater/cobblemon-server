@@ -21,12 +21,27 @@
    "species": "aegislash",
    "level": 87,
    "moveset": [
-    "shadowball",
-    "flashcannon",
-    "sacredsword",
-    "kingsshield"
+    "substitute",
+    "toxic",
+    "kingsshield",
+    "shadowball"
    ],
    "heldItem": "cobblemon:leftovers",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 252,
+    "spa": 56,
+    "spd": 156,
+    "spe": 44
+   },
+   "nature": "modest",
    "gimmicks": {
     "tera": "ghost"
    }
@@ -35,60 +50,136 @@
    "species": "rhyperior",
    "level": 87,
    "moveset": [
+    "stealthrock",
     "earthquake",
     "stoneedge",
-    "megahorn",
-    "icepunch"
+    "swordsdance"
    ],
-   "heldItem": "cobblemon:weakness_policy"
+   "heldItem": "cobblemon:leftovers",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 252,
+    "atk": 16,
+    "spd": 184,
+    "spe": 56
+   },
+   "nature": "adamant",
+   "ability": "solidrock"
   },
   {
    "species": "cinderace",
    "level": 87,
    "moveset": [
     "pyroball",
-    "highjumpkick",
     "uturn",
+    "courtchange",
     "suckerpunch"
    ],
-   "heldItem": "cobblemon:life_orb"
+   "heldItem": "cobblemon:heavy_duty_boots",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "atk": 252,
+    "spd": 4,
+    "spe": 252
+   },
+   "nature": "jolly",
+   "ability": "libero"
   },
   {
    "species": "haxorus",
    "level": 88,
    "moveset": [
+    "swordsdance",
     "outrage",
     "earthquake",
-    "poisonjab",
-    "dragondance"
+    "poisonjab"
    ],
-   "heldItem": "mega_showdown:dragonium_z"
+   "heldItem": "mega_showdown:dragonium_z",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "atk": 252,
+    "spd": 4,
+    "spe": 252
+   },
+   "nature": "jolly",
+   "ability": "moldbreaker"
   },
   {
    "species": "dragapult",
    "level": 88,
    "moveset": [
     "dragondarts",
-    "phantomforce",
-    "uturn",
-    "fireblast"
+    "hex",
+    "willowisp",
+    "uturn"
    ],
-   "heldItem": "cobblemon:expert_belt"
+   "heldItem": "cobblemon:heavy_duty_boots",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "atk": 4,
+    "spa": 252,
+    "spe": 252
+   },
+   "nature": "naive",
+   "ability": "infiltrator"
   },
   {
    "species": "charizard",
    "level": 90,
    "moveset": [
-    "flareblitz",
-    "airslash",
-    "dragonpulse",
-    "solarbeam"
+    "weatherball",
+    "overheat",
+    "focusblast",
+    "roost"
    ],
-   "heldItem": "cobblemon:life_orb",
+   "heldItem": "cobblemon:choice_specs",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "spa": 252,
+    "spd": 4,
+    "spe": 252
+   },
+   "nature": "timid",
    "gimmicks": {
     "dynamax": true,
     "gmax": true
-   }
+   },
+   "ability": "solarpower"
   }
  ]
 }

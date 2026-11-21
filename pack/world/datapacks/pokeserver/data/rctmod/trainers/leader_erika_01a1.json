@@ -21,23 +21,52 @@
    "species": "jumpluff",
    "level": 73,
    "moveset": [
-    "acrobatics",
+    "swordsdance",
+    "strengthsap",
     "sleeppowder",
-    "leechseed",
-    "uturn"
+    "acrobatics"
    ],
-   "heldItem": "cobblemon:sitrus_berry"
+   "heldItem": "cobblemon:flying_gem",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "atk": 252,
+    "def": 4,
+    "spe": 252
+   },
+   "nature": "jolly",
+   "ability": "infiltrator"
   },
   {
    "species": "shiftry",
    "level": 73,
    "moveset": [
-    "leafblade",
-    "suckerpunch",
+    "growth",
+    "solarblade",
     "knockoff",
-    "swordsdance"
+    "heatwave"
    ],
-   "heldItem": "cobblemon:life_orb"
+   "heldItem": "cobblemon:life_orb",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "atk": 252,
+    "spa": 4,
+    "spe": 252
+   },
+   "nature": "hasty"
   },
   {
    "species": "roserade",
@@ -45,47 +74,104 @@
    "moveset": [
     "gigadrain",
     "sludgebomb",
-    "sleeppowder",
-    "shadowball"
+    "spikes",
+    "sleeppowder"
    ],
-   "heldItem": "cobblemon:black_sludge"
+   "heldItem": "cobblemon:black_sludge",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 248,
+    "def": 8,
+    "spe": 252
+   },
+   "nature": "timid"
   },
   {
    "species": "tangrowth",
    "level": 74,
    "moveset": [
-    "powerwhip",
+    "gigadrain",
     "knockoff",
-    "earthquake",
+    "focusblast",
     "sleeppowder"
    ],
-   "heldItem": "cobblemon:leftovers",
+   "heldItem": "cobblemon:rocky_helmet",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 252,
+    "def": 252,
+    "spd": 4
+   },
+   "nature": "relaxed",
    "gimmicks": {
     "dynamax": true,
     "gmax": false
-   }
+   },
+   "ability": "regenerator"
   },
   {
    "species": "bellossom",
    "level": 74,
    "moveset": [
-    "petalblizzard",
-    "moonblast",
+    "strengthsap",
     "quiverdance",
-    "gigadrain"
+    "gigadrain",
+    "moonblast"
    ],
-   "heldItem": "mega_showdown:grassium_z"
+   "heldItem": "mega_showdown:grassium_z",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 248,
+    "def": 8,
+    "spe": 252
+   },
+   "nature": "timid"
   },
   {
    "species": "victreebel",
    "level": 75,
    "moveset": [
-    "leafblade",
-    "sludgebomb",
-    "sleeppowder",
-    "suckerpunch"
+    "strengthsap",
+    "powerwhip",
+    "poisonjab",
+    "knockoff"
    ],
-   "heldItem": "mega_showdown:victreebelite"
+   "heldItem": "mega_showdown:victreebelite",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "atk": 252,
+    "def": 4,
+    "spe": 252
+   },
+   "nature": "adamant"
   }
  ]
 }

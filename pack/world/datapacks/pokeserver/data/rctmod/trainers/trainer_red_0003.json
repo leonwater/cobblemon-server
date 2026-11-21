@@ -21,38 +21,81 @@
    "species": "lapras",
    "level": 92,
    "moveset": [
+    "freezedry",
     "hydropump",
-    "icebeam",
-    "thunderbolt",
-    "freezedry"
+    "alluringvoice",
+    "icebeam"
    ],
-   "heldItem": "cobblemon:leftovers"
+   "heldItem": "cobblemon:heavy_duty_boots",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "def": 196,
+    "spa": 252,
+    "spe": 60
+   },
+   "nature": "modest"
   },
   {
    "species": "blastoise",
    "level": 92,
    "moveset": [
-    "hydropump",
+    "shellsmash",
+    "surf",
     "icebeam",
-    "flashcannon",
     "aurasphere"
    ],
-   "heldItem": "cobblemon:assault_vest"
+   "heldItem": "cobblemon:white_herb",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "spa": 252,
+    "spd": 4,
+    "spe": 252
+   },
+   "nature": "modest"
   },
   {
    "species": "venusaur",
    "level": 93,
    "moveset": [
+    "growth",
     "gigadrain",
-    "sludgebomb",
-    "earthquake",
-    "sleeppowder"
+    "weatherball",
+    "earthpower"
    ],
-   "heldItem": "cobblemon:black_sludge",
+   "heldItem": "cobblemon:life_orb",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "spa": 252,
+    "spd": 4,
+    "spe": 252
+   },
+   "nature": "modest",
    "gimmicks": {
     "dynamax": true,
     "gmax": true
-   }
+   },
+   "ability": "chlorophyll"
   },
   {
    "species": "pikachu",
@@ -60,35 +103,80 @@
    "moveset": [
     "volttackle",
     "irontail",
-    "quickattack",
-    "thunderbolt"
+    "knockoff",
+    "quickattack"
    ],
-   "heldItem": "mega_showdown:pikanium_z"
+   "heldItem": "mega_showdown:pikanium_z",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "atk": 252,
+    "spd": 4,
+    "spe": 252
+   },
+   "nature": "jolly",
+   "ability": "lightningrod"
   },
   {
    "species": "snorlax",
    "level": 93,
    "moveset": [
+    "curse",
     "bodyslam",
     "crunch",
-    "rest",
-    "sleeptalk"
+    "rest"
    ],
    "heldItem": "cobblemon:leftovers",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 12,
+    "def": 244,
+    "spd": 252
+   },
+   "nature": "careful",
    "gimmicks": {
-    "tera": "normal"
-   }
+    "tera": "fairy"
+   },
+   "ability": "thickfat"
   },
   {
    "species": "charizard",
    "level": 95,
    "moveset": [
-    "fireblast",
-    "airslash",
-    "dragonpulse",
-    "solarbeam"
+    "weatherball",
+    "solarbeam",
+    "focusblast",
+    "flamethrower"
    ],
-   "heldItem": "mega_showdown:charizardite_y"
+   "heldItem": "mega_showdown:charizardite_y",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "def": 4,
+    "spa": 252,
+    "spe": 252
+   },
+   "nature": "timid",
+   "ability": "solarpower"
   }
  ]
 }

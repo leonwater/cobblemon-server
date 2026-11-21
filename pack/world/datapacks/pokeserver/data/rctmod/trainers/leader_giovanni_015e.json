@@ -22,55 +22,130 @@
    "level": 63,
    "moveset": [
     "earthquake",
-    "stoneedge",
-    "suckerpunch",
-    "slash"
+    "screech",
+    "substitute",
+    "memento"
    ],
-   "heldItem": "cobblemon:focus_sash"
+   "heldItem": "cobblemon:focus_sash",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "atk": 252,
+    "def": 4,
+    "spe": 252
+   },
+   "nature": "adamant",
+   "ability": "arenatrap"
   },
   {
    "species": "nidoqueen",
    "level": 63,
    "moveset": [
+    "stealthrock",
     "earthpower",
     "sludgewave",
-    "icebeam",
-    "stealthrock"
+    "fireblast"
    ],
-   "heldItem": "cobblemon:leftovers"
+   "heldItem": "cobblemon:life_orb",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 120,
+    "spa": 252,
+    "spe": 136
+   },
+   "nature": "modest",
+   "ability": "sheerforce"
   },
   {
    "species": "steelix",
    "level": 64,
    "moveset": [
+    "stealthrock",
     "earthquake",
-    "ironhead",
-    "stoneedge",
-    "dragontail"
+    "heavyslam",
+    "toxic"
    ],
-   "heldItem": "mega_showdown:steelixite"
+   "heldItem": "mega_showdown:steelixite",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 252,
+    "def": 4,
+    "spd": 252
+   },
+   "nature": "careful",
+   "ability": "sturdy"
   },
   {
    "species": "nidoking",
    "level": 64,
    "moveset": [
-    "earthpower",
     "sludgewave",
-    "thunderbolt",
-    "icebeam"
+    "earthpower",
+    "icebeam",
+    "flamethrower"
    ],
-   "heldItem": "cobblemon:life_orb"
+   "heldItem": "cobblemon:life_orb",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "spa": 252,
+    "spd": 4,
+    "spe": 252
+   },
+   "nature": "modest",
+   "ability": "sheerforce"
   },
   {
    "species": "rhyperior",
    "level": 65,
    "moveset": [
+    "stealthrock",
     "earthquake",
     "stoneedge",
-    "megahorn",
     "icepunch"
    ],
-   "heldItem": "mega_showdown:groundium_z"
+   "heldItem": "mega_showdown:groundium_z",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 252,
+    "atk": 16,
+    "spd": 240
+   },
+   "nature": "adamant",
+   "ability": "solidrock"
   }
  ]
 }
