@@ -42,7 +42,12 @@ def table(team):
         ab = f" (특성 {ko.get('cobblemon.ability.' + m['ability'], m['ability'])})" if m.get('ability') else ''
         out.append(f"| {sp(m['species'])}{star}{ab} | {m['level']} | {it(m['heldItem'])} | {', '.join(mv(x) for x in m['moveset'])} | {special(m)} |")
     return out
-VERIFIED = ['- 아직 확인 전.']   # 기믹 기록(-Dpokeserver.gimmicklog=true)으로 확인한 결과
+VERIFIED = [   # 2026-11-21 실제 배틀 기록(-Dpokeserver.gimmicklog=true)
+    '- **선봉**: 웅 뿔카노, 강연 폭타, 독수 질뻐기·도나리, 민화 로즈레이드, 레드 잠만보 등 — 에이스가 선봉인 적 없음.',
+    '- **Z기술**: 민화 벨로젬이 나오자마자 Z (물타입 상대, 풀 Z = 2배). 윈디는 물타입 상대(반감)라 Z를 안 씀 = 의도대로.',
+    '- **메가·다이맥스·테라**: 마티스 라이츄(이전 팀)·레드 리자몽 메가, 민화 덩쿠림보 다이맥스, 레드 이상해꽃 거다이맥스, 레드 잠만보 테라스탈(노말).',
+    '- **보상**: 2번째 관장 클리어 → Z링, 4번째 → 메가링 지급 확인. 보상 함수로 경험사탕 5개·기술머신(10만볼트, `cobblemon:tm_move`) 지급 확인.',
+    '- **배틀 자리**: 시작하면 도전자가 필드 끝으로, 내 포켓몬은 1초마다 도전자 앞 필드로 옮겨짐 (4칸 실측 확인 후 큰 포켓몬이 가려 7칸으로 조정).']   # 기믹 기록(-Dpokeserver.gimmicklog=true)으로 확인한 결과
 GIM = {'M': '메가', 'Z': 'Z', 'D': '다이맥스', 'T': '테라스탈'}
 gims = lambda team: '·'.join(GIM[k] for k in 'ZMDT' if k in L.gimmicks(team)) or '없음'
 st = L.strength()
