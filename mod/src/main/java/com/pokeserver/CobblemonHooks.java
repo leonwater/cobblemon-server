@@ -68,21 +68,8 @@ public final class CobblemonHooks {
                 e.setReason(Component.literal("배틀은 야생·광장에서만 할 수 있어요.").withStyle(ChatFormatting.RED));
                 e.cancel();
             }
-            // 체육관·사천왕: 포켓몬을 내보내기 전에 도전자를 필드 끝 자리로 (관장 바로 앞에서 말을 걸어도 포켓몬이 필드 가운데에 나옴)
-            // RCT는 포켓몬을 먼저 내보낸 뒤 배틀을 시작해서, 이미 나온 플레이어 포켓몬도 도전자 앞 4칸으로 옮김 (뒤에 교체로 나오는 건 새 자리 기준)
-            if (b.isPvN()) for (var p : b.getPlayers()) {
-                if (!inGym(p)) continue;
-                Menu.run(p, "function poke:gym/place");
-                var f = p.getForward();
-                for (var a : b.getActors()) {
-                    if (!a.getPlayerUUIDs().iterator().hasNext() || !a.getPlayerUUIDs().iterator().next().equals(p.getUUID())) continue;
-                    for (var bp : a.getPokemonList()) {
-                        var en = bp.getEffectedPokemon().getEntity();   // RCT는 배틀용 복제본을 넘길 수 있어, 나와 있는 엔티티는 원본 쪽에
-                        if (en == null) en = bp.getOriginalPokemon().getEntity();
-                        if (en != null) en.teleportTo(p.getX() + f.x * 4, p.getY(), p.getZ() + f.z * 4);
-                    }
-                }
-            }
+            // 체육관·사천왕: 도전자를 필드 끝 자리로 (포켓몬 위치는 holdGymPokemon이 1초마다 맞춤)
+            if (b.isPvN()) for (var p : b.getPlayers()) if (inGym(p)) Menu.run(p, "function poke:gym/place");
             return Unit.INSTANCE;
         });
         // 체육관·사천왕: NPC 배틀이 끝나면 승패를 데이터팩에 알림 (체육관 안이 아니면 함수가 아무것도 안 함)
@@ -355,6 +342,28 @@ public final class CobblemonHooks {
     static int wildCount, wildCap = WILD_MIN;
 
     /** 1초마다: 야생에 있는 주인 없는 포켓몬 수와 상한을 다시 셈 (스폰 때마다 세면 느려서). */
+    /** 1초마다: 체육관·사천왕 배틀 중 내 포켓몬을 도전자 앞 4칸(필드 쪽)으로. 처음 나올 때와 교체로 나올 때 모두
+     *  관장 앞에 나오는 경우가 있어(실측) 멀리 있으면 옮김. */
+    static void holdGymPokemon(MinecraftServer server) {
+        for (var p : server.getPlayerList().getPlayers()) {
+            if (!inGym(p)) continue;
+            var battle = com.cobblemon.mod.common.battles.BattleRegistry.INSTANCE.getBattleByParticipatingPlayer(p);
+            if (battle == null || !battle.isPvN()) continue;
+            var f = p.getForward();
+            double x = p.getX() + f.x * 4, z = p.getZ() + f.z * 4;
+            for (var a : battle.getActors()) {
+                if (!a.getPlayerUUIDs().iterator().hasNext() || !a.getPlayerUUIDs().iterator().next().equals(p.getUUID())) continue;
+                for (var act : a.getActivePokemon()) {
+                    var bp = act.getBattlePokemon();
+                    if (bp == null) continue;
+                    var en = bp.getEffectedPokemon().getEntity();   // RCT는 배틀용 복제본을 넘길 수 있어, 나와 있는 엔티티는 원본 쪽에
+                    if (en == null) en = bp.getOriginalPokemon().getEntity();
+                    if (en != null && en.distanceToSqr(x, p.getY(), z) > 9) en.teleportTo(x, p.getY(), z);
+                }
+            }
+        }
+    }
+
     static void countWild(MinecraftServer server) {
         var level = Plaza.wild(server);
         if (level == null) return;
