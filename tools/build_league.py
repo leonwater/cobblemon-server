@@ -39,7 +39,7 @@ GYMS = [
     ('leader_brock_019e', '웅', '바위', '회색배지', (150, 150, 155), [
         mon('geodude', 13, ['stealthrock', 'rockblast', 'earthquake', 'suckerpunch'], 'berry_juice', ability='sturdy', nature='adamant', evs={'hp': 36, 'atk': 196, 'def': 116, 'spd': 36, 'spe': 116}),   # gen7lc/Stealth Rock
         mon('rhyhorn', 13, ['swordsdance', 'rockpolish', 'earthquake', 'stoneedge'], 'life_orb', nature='adamant', evs={'atk': 236, 'spd': 116, 'spe': 156}),   # gen9lc/Setup Sweeper
-        mon('onix', 15, ['earthquake', 'rockblast', 'stealthrock', 'explosion'], 'berry_juice', ability='sturdy', nature='jolly', evs={'hp': 76, 'atk': 236, 'spe': 196})]),   # gen8lc/SturdyJuice
+        mon('onix', 15, ['earthquake', 'rockblast', 'stealthrock', 'explosion'], 'rocky_helmet', ability='sturdy', nature='jolly', evs={'hp': 76, 'atk': 236, 'spe': 196})]),   # gen8lc/SturdyJuice
     ('leader_lt_surge_01a0', '마티스', '전기', '오렌지배지', (240, 150, 40), [
         mon('voltorb', 22, ['reflect', 'lightscreen', 'voltswitch', 'taunt'], 'light_clay', ability='aftermath', nature='timid', evs={'hp': 196, 'def': 36, 'spd': 76, 'spe': 196}),   # gen7lc/Dual Screens
         mon('magnemite', 23, ['thunderbolt', 'flashcannon', 'thunderwave', 'voltswitch'], 'choice_scarf', nature='modest', evs={'def': 36, 'spa': 236, 'spe': 236}),   # gen9lc/Trapper
@@ -60,12 +60,12 @@ GYMS = [
     ('leader_sabrina_01a4', '초련', '에스퍼', '골드배지', (240, 200, 60), [
         mon('gallade', 53, ['swordsdance', 'sacredsword', 'psychocut', 'leafblade'], 'lum_berry', ability='sharpness', nature='jolly', evs={'atk': 252, 'spd': 4, 'spe': 252}),   # gen9ru/Setup Sweeper
         mon('mrmime', 53, ['nastyplot', 'dazzlinggleam', 'focusblast', 'psyshock'], 'life_orb', nature='timid', evs={'spa': 252, 'spd': 4, 'spe': 252}),   # gen7pu/Nasty Plot
-        mon('jynx', 53, ['lovelykiss', 'nastyplot', 'icebeam', 'psyshock'], 'life_orb', ability='dryskin', nature='timid', evs={'def': 4, 'spa': 252, 'spe': 252}),   # gen7pu/Z-Lovely Kiss
+        mon('jynx', 53, ['lovelykiss', 'nastyplot', 'icebeam', 'psyshock'], 'focus_sash', ability='dryskin', nature='timid', evs={'def': 4, 'spa': 252, 'spe': 252}),   # gen7pu/Z-Lovely Kiss
         mon('espeon', 54, ['calmmind', 'psychic', 'shadowball', 'morningsun'], MS + 'psychium_z', ability='magicbounce', nature='timid', evs={'def': 4, 'spa': 252, 'spe': 252}),   # gen7ru/Calm Mind
         mon('alakazam', 55, ['nastyplot', 'psychic', 'focusblast', 'shadowball'], MS + 'alakazite', ability='magicguard', nature='timid', evs={'def': 4, 'spa': 252, 'spe': 252})]),   # gen9nationaldexuu/Nasty Plot
     ('leader_giovanni_015e', '비주기', '땅', '그린배지', (70, 170, 80), [
         mon('dugtrio', 63, ['earthquake', 'screech', 'substitute', 'memento'], 'focus_sash', ability='arenatrap', nature='adamant', evs={'atk': 252, 'def': 4, 'spe': 252}),   # gen7ubers/Utility Trapper
-        mon('nidoqueen', 63, ['stealthrock', 'earthpower', 'sludgewave', 'fireblast'], 'life_orb', ability='sheerforce', nature='modest', evs={'hp': 120, 'spa': 252, 'spe': 136}),   # gen8uu/Offensive Stealth Rock
+        mon('nidoqueen', 63, ['stealthrock', 'earthpower', 'sludgewave', 'fireblast'], 'leftovers', ability='sheerforce', nature='modest', evs={'hp': 120, 'spa': 252, 'spe': 136}),   # gen8uu/Offensive Stealth Rock
         mon('steelix', 64, ['stealthrock', 'earthquake', 'heavyslam', 'toxic'], MS + 'steelixite', ability='sturdy', nature='careful', evs={'hp': 252, 'def': 4, 'spd': 252}),   # gen8ru/Defensive
         mon('nidoking', 64, ['sludgewave', 'earthpower', 'icebeam', 'flamethrower'], 'life_orb', ability='sheerforce', nature='modest', evs={'spa': 252, 'spd': 4, 'spe': 252}),   # gen8ou/Wallbreaker
         mon('rhyperior', 65, ['stealthrock', 'earthquake', 'stoneedge', 'icepunch'], MS + 'groundium_z', ability='solidrock', nature='adamant', evs={'hp': 252, 'atk': 16, 'spd': 240})]),   # gen7uu/Tank
@@ -77,11 +77,11 @@ GYMS = [
         mon('bellossom', 74, ['strengthsap', 'quiverdance', 'gigadrain', 'moonblast'], MS + 'grassium_z', nature='timid', evs={'hp': 248, 'def': 8, 'spe': 252}),   # gen7pu/Bulky Quiver Dance
         mon('victreebel', 75, ['strengthsap', 'powerwhip', 'poisonjab', 'knockoff'], MS + 'victreebelite', nature='adamant', evs={'atk': 252, 'def': 4, 'spe': 252})]),   # gen9zu/All-Out Attacker
     ('leader_misty_019f', '이슬', '물', '블루배지', (60, 120, 230), [
-        mon('quagsire', 83, ['stealthrock', 'recover', 'toxic', 'counter'], 'heavy_duty_boots', ability='unaware', nature='bold', evs={'hp': 252, 'def': 252, 'spd': 4}),   # gen9ou/Defensive
+        mon('quagsire', 83, ['stealthrock', 'recover', 'toxic', 'counter'], 'rocky_helmet', ability='unaware', nature='bold', evs={'hp': 252, 'def': 252, 'spd': 4}),   # gen9ou/Defensive
         mon('lanturn', 83, ['scald', 'voltswitch', 'rest', 'sleeptalk'], 'heavy_duty_boots', ability='waterabsorb', nature='calm', evs={'hp': 216, 'spd': 252, 'spe': 40}),   # gen9pu/RestTalk
-        mon('floatzel', 83, ['wavecrash', 'flipturn', 'aquajet', 'icespinner'], 'choice_band', ability='waterveil', nature='jolly', evs={'atk': 252, 'def': 4, 'spe': 252}),   # gen9pu/Choice Band
-        mon('milotic', 84, ['scald', 'recover', 'toxic', 'refresh'], MS + 'waterium_z', nature='calm', evs={'hp': 252, 'def': 108, 'spd': 148}),   # gen7ru/Defensive
-        mon('lapras', 84, ['freezedry', 'hydropump', 'alluringvoice', 'icebeam'], 'heavy_duty_boots', dmax=True, nature='modest', evs={'def': 196, 'spa': 252, 'spe': 60}),   # gen9zu/Special Tank
+        mon('floatzel', 83, ['wavecrash', 'flipturn', 'aquajet', 'icespinner'], MS + 'waterium_z', ability='waterveil', nature='jolly', evs={'atk': 252, 'def': 4, 'spe': 252}),   # gen9pu/Choice Band
+        mon('milotic', 84, ['scald', 'recover', 'toxic', 'refresh'], 'leftovers', nature='calm', evs={'hp': 252, 'def': 108, 'spd': 148}),   # gen7ru/Defensive
+        mon('lapras', 84, ['freezedry', 'hydropump', 'alluringvoice', 'icebeam'], 'assault_vest', dmax=True, gmax=True, nature='modest', evs={'def': 196, 'spa': 252, 'spe': 60}),   # gen9zu/Special Tank
         mon('starmie', 85, ['hydropump', 'icebeam', 'thunderbolt', 'recover'], MS + 'starminite', ability='analytic', nature='timid', evs={'spa': 252, 'spd': 4, 'spe': 252})]),   # gen8uu/Offensive
 ]
 
@@ -94,23 +94,23 @@ ELITE = [
         mon('skarmory', 87, ['spikes', 'roost', 'bodypress', 'irondefense'], 'rocky_helmet', tera='dragon', ability='sturdy', nature='bold', evs={'hp': 252, 'def': 160, 'spe': 96}),   # gen9ou/Defensive
         mon('claydol', 87, ['stealthrock', 'toxic', 'psychic', 'teleport'], 'colbur_berry', nature='bold', evs={'hp': 252, 'def': 240, 'spe': 16}),   # gen8pu/Defensive
         mon('cradily', 87, ['stealthrock', 'recover', 'toxic', 'rockslide'], 'leftovers', ability='stormdrain', nature='careful', evs={'hp': 252, 'def': 4, 'spd': 252}),   # gen7pu/Specially Defensive
-        mon('armaldo', 88, ['rapidspin', 'stoneedge', 'knockoff', 'earthquake'], 'leftovers', nature='adamant', evs={'hp': 252, 'atk': 92, 'spe': 164}),   # gen7pu/Offensive Spinner
+        mon('armaldo', 88, ['rapidspin', 'stoneedge', 'knockoff', 'earthquake'], 'heavy_duty_boots', nature='adamant', evs={'hp': 252, 'atk': 92, 'spe': 164}),   # gen7pu/Offensive Spinner
         mon('aggron', 88, ['headsmash', 'heavyslam', 'aquatail', 'earthquake'], 'choice_band', dmax=True, ability='rockhead', nature='adamant', evs={'atk': 252, 'def': 4, 'spe': 252}),   # gen8pu/Choice Band
         mon('metagross', 90, ['heavyslam', 'earthquake', 'knockoff', 'bulletpunch'], MS + 'metagrossite', nature='adamant', evs={'atk': 252, 'spd': 4, 'spe': 252})]),   # gen9uu/Choice Band
     ('champion_cynthia_03a5', '난천', '신오 챔피언', [
         mon('spiritomb', 87, ['trickroom', 'nastyplot', 'darkpulse', 'psyshock'], 'leftovers', ability='infiltrator', nature='quiet', evs={'hp': 252, 'spa': 252, 'spd': 4}),   # gen9pu/Trick Room Sweeper
         mon('roserade', 87, ['gigadrain', 'sludgebomb', 'spikes', 'sleeppowder'], 'black_sludge', nature='timid', evs={'hp': 248, 'def': 8, 'spe': 252}),   # gen8uu/Spikes
-        mon('milotic', 87, ['recover', 'scald', 'flipturn', 'alluringvoice'], 'heavy_duty_boots', ability='marvelscale', nature='bold', evs={'hp': 252, 'def': 248, 'spe': 8}),   # gen9pu/Physically Defensive
+        mon('milotic', 87, ['recover', 'scald', 'flipturn', 'alluringvoice'], 'rocky_helmet', ability='marvelscale', nature='bold', evs={'hp': 252, 'def': 248, 'spe': 8}),   # gen9pu/Physically Defensive
         mon('togekiss', 88, ['nastyplot', 'airslash', 'roost', 'healbell'], 'heavy_duty_boots', tera='fairy', ability='serenegrace', nature='timid', evs={'hp': 252, 'def': 120, 'spe': 136}),   # gen8ou/Stallbreaker
         mon('lucario', 88, ['nastyplot', 'focusblast', 'flashcannon', 'vacuumwave'], MS + 'fightinium_z', ability='innerfocus', nature='timid', evs={'spa': 252, 'spd': 4, 'spe': 252}),   # gen7uu/Nasty Plot
         mon('garchomp', 90, ['earthquake', 'dragontail', 'stealthrock', 'spikes'], MS + 'garchompite', ability='roughskin', nature='impish', evs={'hp': 252, 'def': 216, 'spe': 40})]),   # gen9ou/TankChomp
     ('champion_leon_ps', '단델', '가라르 챔피언', [
         mon('aegislash', 87, ['substitute', 'toxic', 'kingsshield', 'shadowball'], 'leftovers', tera='ghost', nature='modest', evs={'hp': 252, 'spa': 56, 'spd': 156, 'spe': 44}),   # gen9nationaldexuu/SubToxic
-        mon('rhyperior', 87, ['stealthrock', 'earthquake', 'stoneedge', 'swordsdance'], 'leftovers', ability='solidrock', nature='adamant', evs={'hp': 252, 'atk': 16, 'spd': 184, 'spe': 56}),   # gen9uu/Offensive
+        mon('rhyperior', 87, ['stealthrock', 'earthquake', 'stoneedge', 'swordsdance'], 'weakness_policy', ability='solidrock', nature='adamant', evs={'hp': 252, 'atk': 16, 'spd': 184, 'spe': 56}),   # gen9uu/Offensive
         mon('cinderace', 87, ['pyroball', 'uturn', 'courtchange', 'suckerpunch'], 'heavy_duty_boots', ability='libero', nature='jolly', evs={'atk': 252, 'spd': 4, 'spe': 252}),   # gen9ou/Offensive Pivot
         mon('haxorus', 88, ['swordsdance', 'outrage', 'earthquake', 'poisonjab'], MS + 'dragonium_z', ability='moldbreaker', nature='jolly', evs={'atk': 252, 'spd': 4, 'spe': 252}),   # gen7uu/Swords Dance
-        mon('dragapult', 88, ['dragondarts', 'hex', 'willowisp', 'uturn'], 'heavy_duty_boots', ability='infiltrator', nature='naive', evs={'atk': 4, 'spa': 252, 'spe': 252}),   # gen9ou/Boots Pivot
-        mon('charizard', 90, ['weatherball', 'overheat', 'focusblast', 'roost'], 'choice_specs', dmax=True, gmax=True, ability='solarpower', nature='timid', evs={'spa': 252, 'spd': 4, 'spe': 252})]),   # gen8ou/Sun Wallbreaker
+        mon('dragapult', 88, ['dragondarts', 'hex', 'willowisp', 'uturn'], 'expert_belt', ability='infiltrator', nature='naive', evs={'atk': 4, 'spa': 252, 'spe': 252}),   # gen9ou/Boots Pivot
+        mon('charizard', 90, ['weatherball', 'overheat', 'focusblast', 'roost'], 'life_orb', dmax=True, gmax=True, ability='solarpower', nature='timid', evs={'spa': 252, 'spd': 4, 'spe': 252})]),   # gen8ou/Sun Wallbreaker
     ('trainer_red_0003', '레드', '관동 전설의 챔피언', [
         mon('lapras', 92, ['freezedry', 'hydropump', 'alluringvoice', 'icebeam'], 'heavy_duty_boots', nature='modest', evs={'def': 196, 'spa': 252, 'spe': 60}),   # gen9zu/Special Tank
         mon('blastoise', 92, ['shellsmash', 'surf', 'icebeam', 'aurasphere'], 'white_herb', nature='modest', evs={'spa': 252, 'spd': 4, 'spe': 252}),   # gen9uu/Shell Smash
@@ -149,6 +149,10 @@ def strength():
         return {tid: sum(map(bst, final)) / len(final) for tid, (_, final, _) in ORIGINAL.items()}
 
 
+# 거다이맥스 모습이 있는 종 (Cobblemon 1.8.4·Mega Showdown 1.3.3 종 데이터의 gmax 폼)
+GMAX = {'alcremie', 'appletun', 'blastoise', 'butterfree', 'centiskorch', 'charizard', 'cinderace', 'coalossal', 'copperajah', 'corviknight',
+        'drednaw', 'duraludon', 'eevee', 'flapple', 'garbodor', 'gengar', 'grimmsnarl', 'hatterene', 'inteleon', 'kingler', 'lapras', 'machamp',
+        'melmetal', 'meowth', 'orbeetle', 'pikachu', 'rillaboom', 'sandaconda', 'snorlax', 'toxtricity', 'urshifu', 'venusaur'}
 CAP = 5   # RCT relativeLevelCap: 레벨 제한 = 다음 상대 에이스 + 5
 
 
@@ -184,6 +188,11 @@ def validate():
     for team in [g[5] for g in GYMS] + [e[3] for e in ELITE]:   # 에이스(마지막)가 가장 높고, 모두 도구를 지님
         assert team[-1]['level'] == max(m['level'] for m in team) and all(m['heldItem'] for m in team)
         assert not any(m['heldItem'].endswith('eviolite') for m in team), '진화의 휘석은 쓰지 않음'
+        items = [m['heldItem'] for m in team]
+        assert len(items) == len(set(items)), f'한 팀에 같은 도구 두 번: {sorted(i for i in items if items.count(i) > 1)}'
+        for m in team:   # Cobblemon·Mega Showdown 종 데이터에 거다이맥스 모습이 있는 포켓몬은 다이맥스할 때 거다이맥스로
+            if m.get('gimmicks', {}).get('dynamax'):
+                assert m['gimmicks'].get('gmax') == (m['species'] in GMAX), f"{m['species']}: 거다이맥스 설정 확인"
     check_gimmicks()
     for tid, *_, team in [(g[0], g[5]) for g in GYMS] + [(e[0], e[3]) for e in ELITE]:   # 원작 대표 포켓몬이 절반 이상
         src, final, extra = ORIGINAL[tid]

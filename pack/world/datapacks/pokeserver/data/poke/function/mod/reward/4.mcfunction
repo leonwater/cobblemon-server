@@ -1,5 +1,4 @@
 # 자동 생성: tools/build_league.py
-# 자동 생성: tools/build_league.py. 관장 보상 물품
 give @s mega_showdown:mega_bracelet 1
 tellraw @s {"text":"메가링을 받았어요! 손에 들거나 장신구 칸에 끼면 배틀에서 메가진화를 쓸 수 있어요.","color":"aqua"}
 give @s cobblemon:exp_candy_m 5

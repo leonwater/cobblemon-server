@@ -26,7 +26,7 @@
     "toxic",
     "counter"
    ],
-   "heldItem": "cobblemon:heavy_duty_boots",
+   "heldItem": "cobblemon:rocky_helmet",
    "ivs": {
     "hp": 31,
     "atk": 31,
@@ -78,7 +78,7 @@
     "aquajet",
     "icespinner"
    ],
-   "heldItem": "cobblemon:choice_band",
+   "heldItem": "mega_showdown:waterium_z",
    "ivs": {
     "hp": 31,
     "atk": 31,
@@ -104,7 +104,7 @@
     "toxic",
     "refresh"
    ],
-   "heldItem": "mega_showdown:waterium_z",
+   "heldItem": "cobblemon:leftovers",
    "ivs": {
     "hp": 31,
     "atk": 31,
@@ -129,7 +129,7 @@
     "alluringvoice",
     "icebeam"
    ],
-   "heldItem": "cobblemon:heavy_duty_boots",
+   "heldItem": "cobblemon:assault_vest",
    "ivs": {
     "hp": 31,
     "atk": 31,
@@ -146,7 +146,7 @@
    "nature": "modest",
    "gimmicks": {
     "dynamax": true,
-    "gmax": false
+    "gmax": true
    }
   },
   {

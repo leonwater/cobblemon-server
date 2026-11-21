@@ -31,8 +31,8 @@ public final class Farms {
     public record Plot(int id, int x1, int z1, int x2, int z2) {
         boolean contains(BlockPos p) { return p.getX() >= x1 && p.getX() <= x2 && p.getZ() >= z1 && p.getZ() <= z2 && p.getY() >= MIN_Y && p.getY() <= MAX_Y; }
     }
-    /** 농장 높이 제한: 땅(y -60) 아래 3칸(물길·밭 파기) ~ 위 20칸. 밖은 누구의 땅도 아니라 못 고침. */
-    static final int MIN_Y = -63, MAX_Y = -40;
+    /** 농장 높이 제한: 땅(y -60) 아래 5칸 ~ 위 10칸 (월드 바닥은 -64라 아래는 사실상 끝까지). 밖은 누구의 땅도 아니라 못 고침. */
+    static final int MIN_Y = -65, MAX_Y = -50;
 
     static String dimension = "poke:farm";
     static final List<Plot> PLOTS = new ArrayList<>();

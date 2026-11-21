@@ -55,7 +55,7 @@
     "stoneedge",
     "swordsdance"
    ],
-   "heldItem": "cobblemon:leftovers",
+   "heldItem": "cobblemon:weakness_policy",
    "ivs": {
     "hp": 31,
     "atk": 31,
@@ -134,7 +134,7 @@
     "willowisp",
     "uturn"
    ],
-   "heldItem": "cobblemon:heavy_duty_boots",
+   "heldItem": "cobblemon:expert_belt",
    "ivs": {
     "hp": 31,
     "atk": 31,
@@ -160,7 +160,7 @@
     "focusblast",
     "roost"
    ],
-   "heldItem": "cobblemon:choice_specs",
+   "heldItem": "cobblemon:life_orb",
    "ivs": {
     "hp": 31,
     "atk": 31,
