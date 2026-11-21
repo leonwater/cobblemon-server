@@ -23,7 +23,8 @@ abstract class GimmickLogMixin {
                 var side = java.util.regex.Pattern.compile("\"id\":\"(p\\d)\"").matcher(line);
                 StringBuilder can = new StringBuilder();
                 for (String k : new String[]{"canMegaEvo", "canZMove", "canDynamax", "canTerastallize", "canUltraBurst"}) if (line.contains("\"" + k + "\"")) can.append(k).append(' ');
-                if (can.length() > 0) PokeServer.LOG.info("[기믹 가능] {} {}", side.find() ? side.group(1) : "?", can);
+                var mon = java.util.regex.Pattern.compile("\"details\":\"([^\",]+)").matcher(line);   // 나와 있는(첫째) 포켓몬
+                if (can.length() > 0) PokeServer.LOG.info("[기믹 가능] {} {} {}", side.find() ? side.group(1) : "?", mon.find() ? mon.group(1) : "?", can);
                 continue;
             }
             if (line.contains("|-mega|") || line.contains("|-zpower|") || line.contains("|-burst|") || line.contains("|-terastallize|")
