@@ -3,6 +3,7 @@
 kill @e[type=minecraft:text_display,tag=poke.plaza,distance=..100]
 kill @e[type=minecraft:item_display,tag=poke.plaza,distance=..100]
 kill @e[type=minecraft:text_display,tag=poke.deco,distance=..100]
+kill @e[type=minecraft:item_frame,tag=poke.deco,distance=..100]
 fill ~0 ~1 ~-72 ~0 ~40 ~-72 minecraft:air
 fill ~0 ~0 ~-72 ~0 ~0 ~-72 minecraft:grass_block
 fill ~0 ~-3 ~-72 ~0 ~-1 ~-72 minecraft:dirt
@@ -1998,4 +1999,3 @@ setblock ~-26 ~0 ~2 minecraft:light_blue_concrete
 setblock ~-26 ~0 ~6 minecraft:light_blue_concrete
 setblock ~-26 ~0 ~7 minecraft:light_gray_concrete
 setblock ~-26 ~0 ~8 minecraft:light_gray_concrete
-setblock ~-26 ~0 ~9 minecraft:light_gray_concrete

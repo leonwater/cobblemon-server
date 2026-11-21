@@ -43,7 +43,7 @@ LEGEND_MEGA = {'mewtwonite_x', 'mewtwonite_y', 'latiasite', 'latiosite', 'dianci
 def categories():
     megas, zs, shards = ms_items()
     return [
-        ('몬스터볼', C + 'poke_ball', [
+        ('볼', C + 'poke_ball', [   # ── 코블몬 상인 ──
             e(C + 'poke_ball', 200), e(C + 'premier_ball', 300), e(C + 'heal_ball', 300),
             e(C + 'great_ball', 600, 1), e(C + 'nest_ball', 1000, 1), e(C + 'net_ball', 1000, 1),
             e(C + 'dive_ball', 1000, 2), e(C + 'repeat_ball', 1000, 2), e(C + 'ultra_ball', 800, 3), e(C + 'dusk_ball', 1000, 3),
@@ -55,17 +55,20 @@ def categories():
             e(C + 'revive', 2000, 2), e(C + 'full_heal', 400, 2), e(C + 'hyper_potion', 1500, 3), e(C + 'ether', 1200, 3),
             e(C + 'elixir', 3000, 4), e(C + 'max_potion', 2500, 5), e(C + 'max_ether', 2000, 5), e(C + 'full_restore', 3000, 6),
             e(C + 'max_revive', 4000, 7), e(C + 'max_elixir', 4500, 7)]),
-        ('성장·진화', C + 'exp_candy_m', [
-            e(C + 'exp_candy_xs', 300), e(C + 'everstone', 1000), e(C + 'exp_candy_s', 800, 1), e(C + 'exp_share', 8000, 1),
+        ('성장', C + 'exp_candy_m', [
+            e(C + 'exp_candy_xs', 300), e(C + 'exp_candy_s', 800), e(C + 'everstone', 1000), e(C + 'exp_candy_m', 1500, 1), e(C + 'exp_share', 8000, 1),
             *[e(C + s, 3000, 1) for s in ('fire_stone', 'water_stone', 'thunder_stone', 'leaf_stone')],
-            e(C + 'exp_candy_m', 1500, 2), e(C + 'moon_stone', 3000, 2),
+            e(C + 'moon_stone', 3000, 2), e(C + 'blank_tm', 1000, 2), e(C + 'tm_machine', 5000, 2),
             *[e(C + s, 3000, 3) for s in ('sun_stone', 'shiny_stone', 'dusk_stone', 'dawn_stone', 'ice_stone')],
-            e(C + 'exp_candy_l', 3000, 4), e(C + 'lucky_egg', 10000, 4),
+            e(C + 'exp_candy_l', 3000, 3), e(C + 'lucky_egg', 10000, 4),
             *[e(C + s, 5000, 4) for s in ('link_cable', 'metal_coat', 'kings_rock', 'dragon_scale', 'upgrade', 'dubious_disc', 'protector',
                                           'electirizer', 'magmarizer', 'reaper_cloth', 'prism_scale', 'razor_claw', 'razor_fang',
                                           'deep_sea_tooth', 'deep_sea_scale', 'sachet', 'whipped_dream')],
-            e(C + 'exp_candy_xl', 6000, 6), e(C + 'rare_candy', 4800, 6), e(C + 'pp_up', 9800, 3), e(C + 'pp_max', 20000, 7)]),
-        ('지닌 도구', C + 'leftovers', [
+            e(C + 'exp_candy_xl', 6000, 5), e(C + 'rare_candy', 4800, 6), e(C + 'pp_up', 9800, 3), e(C + 'pp_max', 20000, 7)]),
+        ('도구', C + 'leftovers', [
+            # 배지 1: 배틀용 열매 (지니면 알아서 먹음)
+            *[e(C + b + '_berry', 200, 1) for b in ('oran', 'cheri', 'chesto', 'pecha', 'rawst', 'aspear', 'persim')],
+            e(C + 'sitrus_berry', 500, 2), e(C + 'lum_berry', 800, 3), e(C + 'leppa_berry', 500, 3),
             # 배지 2: 타입 강화 도구 (원작 상점 판매), 3~4: 날씨 바위·허브 등 보조, 5: 실전 기본, 6: 구애 시리즈·생명의구슬
             *[e(C + i, 3000, 2) for i in ('charcoal_stick', 'mystic_water', 'magnet', 'miracle_seed', 'never_melt_ice', 'black_belt',
                                           'poison_barb', 'soft_sand', 'sharp_beak', 'twisted_spoon', 'silver_powder', 'hard_stone',
@@ -79,8 +82,12 @@ def categories():
                                            'heavy_duty_boots', 'weakness_policy', 'covert_cloak', 'clear_amulet', 'safety_goggles',
                                            'protective_pads', 'utility_umbrella', 'punching_glove', 'air_balloon')],
             *[e(C + i, 25000, 6) for i in ('choice_band', 'choice_specs', 'choice_scarf', 'life_orb')]]),
-        ('성격·노력치', C + 'modest_mint', [
+        ('능력치', C + 'modest_mint', [
+            # 노력치: 날개(+1) 배지 2, 비타민(+10)·내리는 열매(-10) 배지 3, 경단(+10)·리셋 경단 배지 4
+            *[e(C + f + '_feather', 300, 2) for f in ('health', 'muscle', 'resist', 'genius', 'clever', 'swift')],
             *[e(C + v, 10000, 3) for v in ('hp_up', 'protein', 'iron', 'calcium', 'zinc', 'carbos')],
+            *[e(C + b + '_berry', 1000, 3) for b in ('pomeg', 'kelpsy', 'qualot', 'hondew', 'grepa', 'tamato')],
+            *[e(C + f + '_mochi', 5000, 4) for f in ('health', 'muscle', 'resist', 'genius', 'clever', 'swift')], e(C + 'fresh_start_mochi', 8000, 4),
             *[e(C + p, 3000, 4) for p in ('power_weight', 'power_bracer', 'power_belt', 'power_lens', 'power_band', 'power_anklet')],
             e(C + 'ability_capsule', 10000, 5),
             *[e(C + n + '_mint', 20000, 6) for n in ('lonely', 'adamant', 'naughty', 'brave', 'bold', 'impish', 'lax', 'relaxed', 'modest',
@@ -90,23 +97,21 @@ def categories():
             *[e(C + c + '_candy', 5000, 7) for c in ('health', 'mighty', 'tough', 'smart', 'courage', 'quick')],
             *[e(C + c + '_candy', 1000, 7) for c in ('sickly', 'weak', 'brittle', 'numb', 'coward', 'slow')],
             e(C + 'ability_patch', 50000, 8)]),
-        ('특수 기믹', MS + 'mega_bracelet', [
+        ('기믹', MS + 'mega_bracelet', [
             *[e(MS + z, 10000 if z in TYPE_Z else 15000, 2) for z in zs],
             *[e(MS + m, 50000 if m in LEGEND_MEGA else 30000, 4) for m in megas],
             e(MS + 'dynamax_candy', 3000, 6), e(MS + 'max_mushroom', 10000, 6),
             *[e(MS + s, 500, 8) for s in shards]]),
-        ('농장·작물', M + 'wheat', [
+        ('농장', M + 'wheat', [   # ── 마인크래프트 상인 ──
             e('pokeserver:farm_deed', 50000, sell=0), e(M + 'wheat_seeds', 10), e(M + 'carrot', 20), e(M + 'potato', 20),
             e(M + 'beetroot_seeds', 10), e(M + 'pumpkin_seeds', 30), e(M + 'melon_seeds', 30), e(M + 'sugar_cane', 30), e(M + 'bone_meal', 15),
             e(M + 'wheat', 20), e(M + 'pumpkin', 60), e(M + 'melon_slice', 10), e(M + 'beetroot', 20), e(M + 'apple', 30),
             e(M + 'cocoa_beans', 20), e(M + 'sweet_berries', 15),
             *[sell_only(C + c + '_apricorn', 10) for c in ('red', 'yellow', 'green', 'blue', 'pink', 'black', 'white')],
-            *[sell_only(C + b + '_berry', 10) for b in ('oran', 'pecha', 'cheri', 'chesto', 'rawst', 'aspear', 'persim', 'leppa')],
-            sell_only(C + 'sitrus_berry', 30), sell_only(C + 'lum_berry', 30),
             sell_only(M + 'egg', 2), sell_only(M + 'honeycomb', 10), sell_only(M + 'honey_bottle', 15),
             sell_only(M + 'beef', 6), sell_only(M + 'porkchop', 6), sell_only(M + 'chicken', 5), sell_only(M + 'mutton', 5),
             sell_only(M + 'cod', 5), sell_only(M + 'salmon', 8), sell_only(M + 'tropical_fish', 10), sell_only(M + 'pufferfish', 10)]),
-        ('광물·블록', M + 'bricks', [
+        ('블록', M + 'bricks', [
             e(M + 'coal', 30), e(M + 'copper_ingot', 25), e(M + 'iron_ingot', 120), e(M + 'gold_ingot', 240), e(M + 'redstone', 30),
             e(M + 'lapis_lazuli', 45), e(M + 'quartz', 45), e(M + 'emerald', 400), e(M + 'diamond', 1200), e(M + 'netherite_ingot', 20000),
             *[e(M + w + '_log', 20) for w in ('oak', 'spruce', 'birch', 'jungle', 'acacia', 'dark_oak', 'mangrove', 'cherry')],
@@ -116,7 +121,7 @@ def categories():
             sell_only(M + 'raw_iron', 30), sell_only(M + 'raw_gold', 60), sell_only(M + 'raw_copper', 6), sell_only(M + 'amethyst_shard', 10),
             sell_only(M + 'obsidian', 20), sell_only(M + 'flint', 2),
             *[sell_only(C + t + '_gem', 20) for t in TYPES]]),
-        ('도구·기타', M + 'iron_pickaxe', [
+        ('잡화', M + 'iron_pickaxe', [
             e(M + 'iron_pickaxe', 400), e(M + 'iron_axe', 400), e(M + 'iron_shovel', 150), e(M + 'iron_hoe', 300), e(M + 'shears', 300),
             e(M + 'fishing_rod', 150), e(M + 'bucket', 400), e(M + 'torch', 10), e(M + 'lantern', 150), e(M + 'chest', 50),
             e(M + 'crafting_table', 25), e(M + 'furnace', 30), e(M + 'oak_door', 30), e(M + 'ladder', 10),
@@ -168,6 +173,8 @@ def check(cats):
 if __name__ == '__main__':
     cats = categories()
     check(cats)
-    out = {'categories': [{'name': n, 'icon': i, 'items': xs} for n, i, xs in cats]}
+    POKE = {'볼', '회복', '성장', '도구', '능력치', '기믹'}   # 코블몬 상인, 나머지는 마인크래프트 상인
+    assert all(len(n.split()) == 1 for n, _, _ in cats), '분류 이름은 한 단어'
+    out = {'categories': [{'name': n, 'icon': i, 'shop': 'poke' if n in POKE else 'mc', 'items': xs} for n, i, xs in cats]}
     (ROOT / 'pack/config/pokeserver/shop.json').write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding='utf-8')
     print({n: len(xs) for n, _, xs in cats})

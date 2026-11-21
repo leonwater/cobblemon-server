@@ -1,4 +1,5 @@
 # 자동 생성: tools/plaza.py (광장 기준 상대 좌표)
+setblock ~-26 ~0 ~9 minecraft:light_gray_concrete
 setblock ~-26 ~0 ~10 minecraft:light_blue_concrete
 setblock ~-26 ~0 ~14 minecraft:light_blue_concrete
 setblock ~-26 ~0 ~15 minecraft:light_gray_concrete
@@ -177,6 +178,18 @@ setblock ~-39 ~6 ~12 minecraft:black_concrete
 fill ~-34 ~1 ~3 ~-34 ~1 ~5 minecraft:light_blue_concrete
 fill ~-34 ~1 ~9 ~-34 ~1 ~11 minecraft:light_blue_concrete
 fill ~-32 ~1 ~6 ~-20 ~1 ~8 minecraft:light_blue_carpet
+fill ~-39 ~2 ~3 ~-39 ~3 ~5 minecraft:white_concrete
+fill ~-39 ~4 ~3 ~-39 ~4 ~5 minecraft:red_concrete
+summon minecraft:item_frame ~-38 ~3 ~3 {Facing:5b,Fixed:1b,Invulnerable:1b,Tags:["poke.deco"],Item:{id:"cobblemon:poke_ball",count:1}}
+summon minecraft:item_frame ~-38 ~3 ~4 {Facing:5b,Fixed:1b,Invulnerable:1b,Tags:["poke.deco"],Item:{id:"cobblemon:potion",count:1}}
+summon minecraft:item_frame ~-38 ~3 ~5 {Facing:5b,Fixed:1b,Invulnerable:1b,Tags:["poke.deco"],Item:{id:"cobblemon:rare_candy",count:1}}
+summon minecraft:text_display ~-34.5 ~4.0 ~4.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.8f,0.8f,0.8f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포켓몬 상점","color":"red","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+fill ~-39 ~2 ~9 ~-39 ~3 ~11 minecraft:oak_planks
+fill ~-39 ~4 ~9 ~-39 ~4 ~11 minecraft:grass_block
+summon minecraft:item_frame ~-38 ~3 ~9 {Facing:5b,Fixed:1b,Invulnerable:1b,Tags:["poke.deco"],Item:{id:"minecraft:iron_pickaxe",count:1}}
+summon minecraft:item_frame ~-38 ~3 ~10 {Facing:5b,Fixed:1b,Invulnerable:1b,Tags:["poke.deco"],Item:{id:"minecraft:wheat",count:1}}
+summon minecraft:item_frame ~-38 ~3 ~11 {Facing:5b,Fixed:1b,Invulnerable:1b,Tags:["poke.deco"],Item:{id:"minecraft:bricks",count:1}}
+summon minecraft:text_display ~-34.5 ~4.0 ~10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.8f,0.8f,0.8f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"생활 상점","color":"green","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 setblock ~-37 ~4 ~-1 minecraft:light[level=15]
 setblock ~-37 ~4 ~3 minecraft:light[level=15]
 setblock ~-37 ~4 ~7 minecraft:light[level=15]
@@ -1986,16 +1999,3 @@ setblock ~-58 ~-1 ~1 minecraft:water
 setblock ~-58 ~0 ~2 minecraft:water
 setblock ~-58 ~-1 ~2 minecraft:water
 setblock ~-58 ~0 ~3 minecraft:water
-setblock ~-58 ~-1 ~3 minecraft:water
-setblock ~-58 ~0 ~4 minecraft:water
-setblock ~-58 ~-1 ~4 minecraft:water
-setblock ~-58 ~1 ~4 minecraft:lily_pad
-setblock ~-58 ~0 ~5 minecraft:water
-setblock ~-58 ~-1 ~5 minecraft:water
-setblock ~-58 ~0 ~6 minecraft:water
-setblock ~-58 ~-1 ~6 minecraft:clay
-setblock ~-57 ~0 ~-3 minecraft:water
-setblock ~-57 ~-1 ~-3 minecraft:clay
-setblock ~-57 ~0 ~-2 minecraft:water
-setblock ~-57 ~-1 ~-2 minecraft:water
-setblock ~-57 ~0 ~-1 minecraft:water

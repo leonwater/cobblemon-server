@@ -1,8 +1,9 @@
 {
   "categories": [
     {
-      "name": "몬스터볼",
+      "name": "볼",
       "icon": "cobblemon:poke_ball",
+      "shop": "poke",
       "items": [
         {
           "item": "cobblemon:poke_ball",
@@ -126,6 +127,7 @@
     {
       "name": "회복",
       "icon": "cobblemon:potion",
+      "shop": "poke",
       "items": [
         {
           "item": "cobblemon:potion",
@@ -226,8 +228,9 @@
       ]
     },
     {
-      "name": "성장·진화",
+      "name": "성장",
       "icon": "cobblemon:exp_candy_m",
+      "shop": "poke",
       "items": [
         {
           "item": "cobblemon:exp_candy_xs",
@@ -235,14 +238,19 @@
           "sell": 75
         },
         {
+          "item": "cobblemon:exp_candy_s",
+          "buy": 800,
+          "sell": 200
+        },
+        {
           "item": "cobblemon:everstone",
           "buy": 1000,
           "sell": 250
         },
         {
-          "item": "cobblemon:exp_candy_s",
-          "buy": 800,
-          "sell": 200,
+          "item": "cobblemon:exp_candy_m",
+          "buy": 1500,
+          "sell": 375,
           "badges": 1
         },
         {
@@ -276,15 +284,21 @@
           "badges": 1
         },
         {
-          "item": "cobblemon:exp_candy_m",
-          "buy": 1500,
-          "sell": 375,
-          "badges": 2
-        },
-        {
           "item": "cobblemon:moon_stone",
           "buy": 3000,
           "sell": 750,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:blank_tm",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:tm_machine",
+          "buy": 5000,
+          "sell": 1250,
           "badges": 2
         },
         {
@@ -321,7 +335,7 @@
           "item": "cobblemon:exp_candy_l",
           "buy": 3000,
           "sell": 750,
-          "badges": 4
+          "badges": 3
         },
         {
           "item": "cobblemon:lucky_egg",
@@ -435,7 +449,7 @@
           "item": "cobblemon:exp_candy_xl",
           "buy": 6000,
           "sell": 1500,
-          "badges": 6
+          "badges": 5
         },
         {
           "item": "cobblemon:rare_candy",
@@ -458,9 +472,70 @@
       ]
     },
     {
-      "name": "지닌 도구",
+      "name": "도구",
       "icon": "cobblemon:leftovers",
+      "shop": "poke",
       "items": [
+        {
+          "item": "cobblemon:oran_berry",
+          "buy": 200,
+          "sell": 50,
+          "badges": 1
+        },
+        {
+          "item": "cobblemon:cheri_berry",
+          "buy": 200,
+          "sell": 50,
+          "badges": 1
+        },
+        {
+          "item": "cobblemon:chesto_berry",
+          "buy": 200,
+          "sell": 50,
+          "badges": 1
+        },
+        {
+          "item": "cobblemon:pecha_berry",
+          "buy": 200,
+          "sell": 50,
+          "badges": 1
+        },
+        {
+          "item": "cobblemon:rawst_berry",
+          "buy": 200,
+          "sell": 50,
+          "badges": 1
+        },
+        {
+          "item": "cobblemon:aspear_berry",
+          "buy": 200,
+          "sell": 50,
+          "badges": 1
+        },
+        {
+          "item": "cobblemon:persim_berry",
+          "buy": 200,
+          "sell": 50,
+          "badges": 1
+        },
+        {
+          "item": "cobblemon:sitrus_berry",
+          "buy": 500,
+          "sell": 125,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:lum_berry",
+          "buy": 800,
+          "sell": 200,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:leppa_berry",
+          "buy": 500,
+          "sell": 125,
+          "badges": 3
+        },
         {
           "item": "cobblemon:charcoal_stick",
           "buy": 3000,
@@ -848,9 +923,46 @@
       ]
     },
     {
-      "name": "성격·노력치",
+      "name": "능력치",
       "icon": "cobblemon:modest_mint",
+      "shop": "poke",
       "items": [
+        {
+          "item": "cobblemon:health_feather",
+          "buy": 300,
+          "sell": 75,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:muscle_feather",
+          "buy": 300,
+          "sell": 75,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:resist_feather",
+          "buy": 300,
+          "sell": 75,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:genius_feather",
+          "buy": 300,
+          "sell": 75,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:clever_feather",
+          "buy": 300,
+          "sell": 75,
+          "badges": 2
+        },
+        {
+          "item": "cobblemon:swift_feather",
+          "buy": 300,
+          "sell": 75,
+          "badges": 2
+        },
         {
           "item": "cobblemon:hp_up",
           "buy": 10000,
@@ -886,6 +998,84 @@
           "buy": 10000,
           "sell": 2500,
           "badges": 3
+        },
+        {
+          "item": "cobblemon:pomeg_berry",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:kelpsy_berry",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:qualot_berry",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:hondew_berry",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:grepa_berry",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:tamato_berry",
+          "buy": 1000,
+          "sell": 250,
+          "badges": 3
+        },
+        {
+          "item": "cobblemon:health_mochi",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:muscle_mochi",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:resist_mochi",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:genius_mochi",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:clever_mochi",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:swift_mochi",
+          "buy": 5000,
+          "sell": 1250,
+          "badges": 4
+        },
+        {
+          "item": "cobblemon:fresh_start_mochi",
+          "buy": 8000,
+          "sell": 2000,
+          "badges": 4
         },
         {
           "item": "cobblemon:power_weight",
@@ -1136,8 +1326,9 @@
       ]
     },
     {
-      "name": "특수 기믹",
+      "name": "기믹",
       "icon": "mega_showdown:mega_bracelet",
+      "shop": "poke",
       "items": [
         {
           "item": "mega_showdown:aloraichium_z",
@@ -1982,8 +2173,9 @@
       ]
     },
     {
-      "name": "농장·작물",
+      "name": "농장",
       "icon": "minecraft:wheat",
+      "shop": "mc",
       "items": [
         {
           "item": "pokeserver:farm_deed",
@@ -2101,56 +2293,6 @@
           "sell": 10
         },
         {
-          "item": "cobblemon:oran_berry",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:pecha_berry",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:cheri_berry",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:chesto_berry",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:rawst_berry",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:aspear_berry",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:persim_berry",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:leppa_berry",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:sitrus_berry",
-          "buy": 0,
-          "sell": 30
-        },
-        {
-          "item": "cobblemon:lum_berry",
-          "buy": 0,
-          "sell": 30
-        },
-        {
           "item": "minecraft:egg",
           "buy": 0,
           "sell": 2
@@ -2208,8 +2350,9 @@
       ]
     },
     {
-      "name": "광물·블록",
+      "name": "블록",
       "icon": "minecraft:bricks",
+      "shop": "mc",
       "items": [
         {
           "item": "minecraft:coal",
@@ -2504,8 +2647,9 @@
       ]
     },
     {
-      "name": "도구·기타",
+      "name": "잡화",
       "icon": "minecraft:iron_pickaxe",
+      "shop": "mc",
       "items": [
         {
           "item": "minecraft:iron_pickaxe",

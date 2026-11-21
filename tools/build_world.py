@@ -394,6 +394,14 @@ def mart():
     for a, b in ((zm - 4, zm - 2), (zm + 2, zm + 4)):
         L.append(fill(x1 + 6, G + 1, a, x1 + 6, G + 1, b, 'minecraft:light_blue_concrete'))
     L.append(fill(x1 + 8, G + 1, zm - 1, x2 - 2, G + 1, zm + 1, 'minecraft:light_blue_carpet'))
+    # 상인 둘 (숍 안쪽 x1+5, zm∓3): 뒤 벽에 진열판(3x3) + 대표 물품 액자 3개 + 머리 위 이름표
+    for dz, (top_row, board, items, name, color) in ((-3, ('red_concrete', 'white_concrete', ('cobblemon:poke_ball', 'cobblemon:potion', 'cobblemon:rare_candy'), '포켓몬 상점', 'red')),
+                                                       (3, ('grass_block', 'oak_planks', ('minecraft:iron_pickaxe', 'minecraft:wheat', 'minecraft:bricks'), '생활 상점', 'green'))):
+        z = zm + dz
+        L += [fill(x1 + 1, G + 2, z - 1, x1 + 1, G + 3, z + 1, 'minecraft:' + board), fill(x1 + 1, G + 4, z - 1, x1 + 1, G + 4, z + 1, 'minecraft:' + top_row)]
+        L += [f'summon minecraft:item_frame {x1 + 2} {G + 3} {z + k} {{Facing:5b,Fixed:1b,Invulnerable:1b,Tags:["poke.deco"],Item:{{id:"{it}",count:1}}}}'
+              for k, it in zip((-1, 0, 1), items)]
+        L.append(label(x1 + 5.5, G + 4.0, z + .5, name, color, 0.8))
     L += glow(x1 + 1, x2 - 1, z1 + 1, z2 - 1, G + 4)
     L += [label(x2 + 3.6, G + 5.4, zm + .5, '프렌들리 숍', 'white', 1.2, bg=0xC0104090),
           label(x2 + 3.6, top + 9.6, zm + .5, 'POKé MART', 'white', 1.6, bg=0x80104090)]

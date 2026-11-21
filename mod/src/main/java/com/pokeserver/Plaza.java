@@ -18,7 +18,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 public final class Plaza {
     private Plaza() {}
 
-    public static final int PROTECT = 72, BLEND = 28, BUILD_VERSION = 3;   // 2: 팁 NPC 높이 수정, 3: 건물 위 이름표 삭제
+    public static final int PROTECT = 72, BLEND = 28, BUILD_VERSION = 4;   // 2: 팁 NPC 높이 수정, 3: 건물 위 이름표 삭제, 4: 상인 둘로(코블몬·마인크래프트) + 액자 진열
     static final String DIM = "poke:wild";
     /** 꽃 숲 칸 가운데 (칸 = 256x256), 앞부터 확인. */
     static final int[][] CELLS = {{1920, 2176}, {2176, 1920}, {1664, 2432}, {2432, 1664}, {1408, 2688}, {2688, 1408},
