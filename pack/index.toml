@@ -43,7 +43,7 @@ hash = "48d89829af77664e8e007391be354ffb5c0080560373c444a114da241b58eab2"
 
 [[files]]
 file = "config/xaerohud.txt"
-hash = "8d13c5f398016036aa4fdefb366ef3926d89f96ca104155bc9f6e5a7ec682ecd"
+hash = "648a684fa50383b3c4f14872dd06347b365e78a014191bbe40479dcc518f3b7d"
 
 [[files]]
 file = "mods/accessories.pw.toml"
@@ -112,7 +112,7 @@ metafile = true
 
 [[files]]
 file = "mods/pokeserver-0.1.0.jar"
-hash = "96519ae0d07e2c29a448b2938f084fdf1a410bd7dab3003f2c9bf00f4b0b39fd"
+hash = "bb8aa314f0f7836d18c166d9c4c165b262cec1cb7e31859025aaf228f9d02ac3"
 
 [[files]]
 file = "mods/rctapi.pw.toml"

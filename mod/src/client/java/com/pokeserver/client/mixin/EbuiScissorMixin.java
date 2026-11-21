@@ -7,12 +7,12 @@ import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-/** Extended Battle UI는 배틀 기록 칸을 RenderSystem.enableScissor로 직접 잘라 그림:
+/** Extended Battle UI는 판·배틀 기록 칸을 RenderSystem.enableScissor로 직접 잘라 그림 (UIUtils, BattleLogWidget 각각):
  *  (x·배율, (창높이 - y - h)·배율, w·배율, h·배율). 창높이는 배틀 중 WindowMixin이 1/f배로 늘려 보여 줌.
  *  BattleInfoMixin이 판을 f배로 줄여 그리므로 네 값 모두 f배 하면 실제 그려진 칸과 맞음
  *  (안 하면 "○○의 나이트헤드" 앞부분처럼 글자가 잘리거나 아예 안 보임). */
 @Pseudo
-@Mixin(targets = "com.cobblemonextendedbattleui.UIUtils", remap = false)
+@Mixin(targets = {"com.cobblemonextendedbattleui.UIUtils", "com.cobblemonextendedbattleui.BattleLogWidget"}, remap = false)   // 배틀 기록 위젯은 같은 식의 enableScissor를 따로 가짐
 abstract class EbuiScissorMixin {
     @Redirect(method = "enableScissor", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderSystem;enableScissor(IIII)V"))
     private void pokeserver$scaled(int x, int y, int w, int h) {
