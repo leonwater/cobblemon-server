@@ -18,52 +18,66 @@
  ],
  "team": [
   {
-   "species": "tangela",
-   "level": 42,
+   "species": "jumpluff",
+   "level": 73,
    "moveset": [
-    "gigadrain",
-    "ancientpower",
+    "acrobatics",
     "sleeppowder",
-    "slam"
+    "leechseed",
+    "uturn"
    ],
-   "heldItem": "cobblemon:eviolite"
+   "heldItem": "cobblemon:sitrus_berry"
   },
   {
-   "species": "vileplume",
-   "level": 43,
+   "species": "shiftry",
+   "level": 73,
    "moveset": [
-    "petaldance",
+    "leafblade",
+    "suckerpunch",
+    "knockoff",
+    "swordsdance"
+   ],
+   "heldItem": "cobblemon:life_orb"
+  },
+  {
+   "species": "roserade",
+   "level": 73,
+   "moveset": [
+    "gigadrain",
     "sludgebomb",
     "sleeppowder",
-    "moonblast"
+    "shadowball"
    ],
    "heldItem": "cobblemon:black_sludge"
   },
   {
-   "species": "ludicolo",
-   "level": 43,
+   "species": "tangrowth",
+   "level": 74,
    "moveset": [
-    "gigadrain",
-    "surf",
-    "icebeam",
-    "raindance"
+    "powerwhip",
+    "knockoff",
+    "earthquake",
+    "sleeppowder"
    ],
-   "heldItem": "cobblemon:damp_rock"
+   "heldItem": "cobblemon:leftovers",
+   "gimmicks": {
+    "dynamax": true
+   }
   },
   {
    "species": "bellossom",
-   "level": 43,
+   "level": 74,
    "moveset": [
     "petalblizzard",
     "moonblast",
     "quiverdance",
     "gigadrain"
    ],
-   "heldItem": "cobblemon:leftovers"
+   "heldItem": "mega_showdown:grassium_z"
   },
   {
    "species": "victreebel",
-   "level": 45,
+   "level": 75,
    "moveset": [
     "leafblade",
     "sludgebomb",

@@ -18,59 +18,48 @@
  ],
  "team": [
   {
-   "species": "hypno",
-   "level": 62,
+   "species": "kirlia",
+   "level": 22,
    "moveset": [
-    "psychic",
-    "hypnosis",
-    "dreameater",
-    "nastyplot"
+    "psybeam",
+    "magicalleaf",
+    "calmmind",
+    "disarmingvoice"
    ],
-   "heldItem": "cobblemon:twisted_spoon"
+   "heldItem": "cobblemon:eviolite"
   },
   {
-   "species": "jynx",
-   "level": 62,
+   "species": "wobbuffet",
+   "level": 23,
    "moveset": [
-    "psychic",
-    "icebeam",
-    "lovelykiss",
-    "nastyplot"
+    "counter",
+    "mirrorcoat",
+    "safeguard",
+    "destinybond"
    ],
-   "heldItem": "cobblemon:never_melt_ice"
-  },
-  {
-   "species": "slowking",
-   "level": 63,
-   "moveset": [
-    "psychic",
-    "surf",
-    "icebeam",
-    "slackoff"
-   ],
-   "heldItem": "cobblemon:leftovers"
+   "heldItem": "cobblemon:sitrus_berry"
   },
   {
    "species": "mrmime",
-   "level": 63,
+   "level": 23,
    "moveset": [
-    "psychic",
-    "dazzlinggleam",
+    "psybeam",
     "reflect",
-    "lightscreen"
+    "lightscreen",
+    "dazzlinggleam"
    ],
    "heldItem": "cobblemon:light_clay"
   },
   {
-   "species": "alakazam",
-   "level": 65,
+   "species": "kadabra",
+   "level": 25,
    "moveset": [
-    "psychic",
+    "psybeam",
     "shadowball",
-    "focusblast",
-    "calmmind"
+    "calmmind",
+    "recover"
    ],
-   "heldItem": "mega_showdown:alakazite"
+   "heldItem": "cobblemon:eviolite"
   }
  ]
 }

@@ -18,30 +18,31 @@
  ],
  "team": [
   {
-   "species": "rapidash",
-   "level": 72,
+   "species": "ponyta",
+   "level": 33,
    "moveset": [
-    "flareblitz",
-    "bounce",
+    "flamecharge",
+    "stomp",
     "agility",
-    "poisonjab"
+    "lowkick"
    ],
    "heldItem": "cobblemon:charcoal_stick"
   },
   {
-   "species": "arcanine",
-   "level": 73,
+   "species": "torkoal",
+   "level": 33,
    "moveset": [
-    "flareblitz",
-    "extremespeed",
-    "crunch",
-    "wildcharge"
+    "lavaplume",
+    "bodyslam",
+    "irondefense",
+    "yawn"
    ],
-   "heldItem": "mega_showdown:firium_z"
+   "heldItem": "cobblemon:heat_rock",
+   "ability": "drought"
   },
   {
    "species": "camerupt",
-   "level": 73,
+   "level": 34,
    "moveset": [
     "earthpower",
     "lavaplume",
@@ -51,37 +52,26 @@
    "heldItem": "cobblemon:soft_sand"
   },
   {
-   "species": "volcarona",
-   "level": 73,
+   "species": "magmar",
+   "level": 34,
    "moveset": [
-    "fierydance",
-    "bugbuzz",
-    "gigadrain",
-    "quiverdance"
+    "firepunch",
+    "thunderpunch",
+    "confuseray",
+    "smokescreen"
    ],
-   "heldItem": "cobblemon:lum_berry"
+   "heldItem": "cobblemon:eviolite"
   },
   {
-   "species": "charizard",
-   "level": 73,
+   "species": "arcanine",
+   "level": 35,
    "moveset": [
-    "flamethrower",
-    "airslash",
-    "dragonpulse",
-    "solarbeam"
+    "flareblitz",
+    "extremespeed",
+    "crunch",
+    "wildcharge"
    ],
-   "heldItem": "cobblemon:life_orb"
-  },
-  {
-   "species": "houndoom",
-   "level": 75,
-   "moveset": [
-    "flamethrower",
-    "darkpulse",
-    "sludgebomb",
-    "nastyplot"
-   ],
-   "heldItem": "mega_showdown:houndoominite"
+   "heldItem": "mega_showdown:firium_z"
   }
  ]
 }

@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /** 시험용: 서버를 -Dpokeserver.gimmicklog=true 로 켜면 배틀 엔진(쇼다운) 메시지 중 특수 기믹 줄을 서버 로그에 [기믹]으로 남김
- *  (관장·플레이어가 메가·Z·다이맥스·테라스탈을 실제로 썼는지 근거로 확인). 평소엔 꺼짐. */
+ *  (관장·플레이어가 메가·Z·다이맥스·테라스탈을 실제로 썼는지, 관장 선봉이 누구인지 근거로 확인). 평소엔 꺼짐. */
 @Pseudo
 @Mixin(targets = "com.cobblemon.mod.common.battles.ShowdownInterpreter", remap = false)
 abstract class GimmickLogMixin {
@@ -28,7 +28,8 @@ abstract class GimmickLogMixin {
                 continue;
             }
             if (line.contains("|-mega|") || line.contains("|-zpower|") || line.contains("|-burst|") || line.contains("|-terastallize|")
-                    || line.contains("Dynamax") || line.contains("Gmax") || line.contains("|-primal|") || line.startsWith("|win|"))
+                    || line.contains("Dynamax") || line.contains("Gmax") || line.contains("|-primal|") || line.startsWith("|win|")
+                    || line.startsWith("|switch|p2") || line.startsWith("|drag|p2"))   // 관장 쪽 교체: 첫 줄 = 선봉
                 PokeServer.LOG.info("[기믹] {}", line);
         }
     }

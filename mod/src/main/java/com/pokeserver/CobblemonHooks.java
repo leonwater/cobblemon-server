@@ -77,6 +77,7 @@ public final class CobblemonHooks {
                 for (var p : e.getBattle().getPlayers()) server = p.server;
                 if (server != null) for (var a : e.getWinners()) for (UUID id : a.getPlayerUUIDs()) Titles.add(server, id, "pvp", 1);
             }
+            if (e.getBattle().isPvW()) wildZCrystal(e);
             if (e.getBattle().isPvN()) {
                 MinecraftServer server = null;
                 for (var p : e.getBattle().getPlayers()) server = p.server;
@@ -323,10 +324,10 @@ public final class CobblemonHooks {
         if (com.cobblemon.mod.common.battles.BattleRegistry.INSTANCE.getBattleByParticipatingPlayer(p) == null) return false;
         int badges = Nicknames.badges(p);
         return switch (gimmick) {
-            case "MEGA_EVOLUTION" -> badges < 3;
-            case "Z_POWER" -> badges < 6;
-            case "DYNAMAX" -> badges < 8;
-            case "TERASTALLIZATION" -> !p.getTags().contains("poke.e4clear");
+            // 관장이 그 기믹을 처음 쓰기 바로 전 관장을 이기면 도구와 함께 풀림. Z기술은 제한 없음(Z링만 있으면 됨, 2번째 관장 보상)
+            case "MEGA_EVOLUTION" -> badges < 4;
+            case "DYNAMAX" -> badges < 6;
+            case "TERASTALLIZATION" -> badges < 8;
             default -> false;
         };
     }
@@ -348,6 +349,37 @@ public final class CobblemonHooks {
         if (!spawn.contains("x")) return false;
         double dx = pos.getX() - spawn.getDouble("x"), dz = pos.getZ() - spawn.getDouble("z");
         return dx * dx + dz * dz <= SAFE_RADIUS * SAFE_RADIUS;
+    }
+
+    /** Z크리스탈은 야생에서: 야생 포켓몬을 배틀로 이기면 그 포켓몬 첫 번째 타입의 Z크리스탈을 Z_DROP 확률로 받음. */
+    static final double Z_DROP = Double.parseDouble(System.getProperty("pokeserver.zdrop", "0.05"));   // 시험 때 -Dpokeserver.zdrop=1
+    static final java.util.Map<String, String> Z_CRYSTAL = java.util.Map.ofEntries(
+            java.util.Map.entry("normal", "normalium_z"), java.util.Map.entry("fire", "firium_z"), java.util.Map.entry("water", "waterium_z"),
+            java.util.Map.entry("electric", "electrium_z"), java.util.Map.entry("grass", "grassium_z"), java.util.Map.entry("ice", "icium_z"),
+            java.util.Map.entry("fighting", "fightinium_z"), java.util.Map.entry("poison", "poisonium_z"), java.util.Map.entry("ground", "groundium_z"),
+            java.util.Map.entry("flying", "flyinium_z"), java.util.Map.entry("psychic", "psychium_z"), java.util.Map.entry("bug", "buginium_z"),
+            java.util.Map.entry("rock", "rockium_z"), java.util.Map.entry("ghost", "ghostium_z"), java.util.Map.entry("dragon", "dragonium_z"),
+            java.util.Map.entry("dark", "darkinium_z"), java.util.Map.entry("steel", "steelium_z"), java.util.Map.entry("fairy", "fairium_z"));
+
+    private static void wildZCrystal(com.cobblemon.mod.common.api.events.battles.BattleVictoryEvent e) {
+        var players = new java.util.ArrayList<UUID>();
+        for (var a : e.getWinners()) for (UUID id : a.getPlayerUUIDs()) players.add(id);
+        if (players.isEmpty()) return;
+        MinecraftServer server = null;
+        for (var p : e.getBattle().getPlayers()) server = p.server;
+        if (server == null) return;
+        for (var a : e.getLosers()) for (var bp : a.getPokemonList()) {
+            if (java.util.concurrent.ThreadLocalRandom.current().nextDouble() >= Z_DROP) continue;
+            String id = Z_CRYSTAL.get(bp.getOriginalPokemon().getPrimaryType().getName().toLowerCase(java.util.Locale.ROOT));
+            var item = id == null ? null : net.minecraft.core.registries.BuiltInRegistries.ITEM.getOptional(
+                    net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("mega_showdown", id)).orElse(null);
+            var p = server.getPlayerList().getPlayer(players.get(0));
+            if (item == null || p == null) continue;
+            var stack = new net.minecraft.world.item.ItemStack(item);
+            p.sendSystemMessage(Component.literal("야생 포켓몬이 ").withStyle(ChatFormatting.GOLD)
+                    .append(stack.getHoverName()).append(Component.literal("을(를) 떨어뜨렸어요!").withStyle(ChatFormatting.GOLD)));
+            if (!p.getInventory().add(stack)) p.drop(stack, false);
+        }
     }
 
     private static void gymResult(MinecraftServer server, UUID id, String result) {

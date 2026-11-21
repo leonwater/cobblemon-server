@@ -18,75 +18,76 @@
  ],
  "team": [
   {
-   "species": "coalossal",
-   "level": 87,
+   "species": "aegislash",
+   "level": 92,
    "moveset": [
-    "flamethrower",
+    "shadowball",
+    "flashcannon",
+    "sacredsword",
+    "kingsshield"
+   ],
+   "heldItem": "cobblemon:leftovers",
+   "gimmicks": {
+    "tera": "ghost"
+   }
+  },
+  {
+   "species": "rhyperior",
+   "level": 92,
+   "moveset": [
+    "earthquake",
     "stoneedge",
-    "stealthrock",
-    "rapidspin"
+    "megahorn",
+    "icepunch"
    ],
-   "heldItem": "cobblemon:heavy_duty_boots"
-  },
-  {
-   "species": "centiskorch",
-   "level": 87,
-   "moveset": [
-    "firelash",
-    "leechlife",
-    "powerwhip",
-    "coil"
-   ],
-   "heldItem": "cobblemon:sitrus_berry"
-  },
-  {
-   "species": "torkoal",
-   "level": 87,
-   "moveset": [
-    "lavaplume",
-    "earthpower",
-    "solarbeam",
-    "stealthrock"
-   ],
-   "heldItem": "cobblemon:heat_rock",
-   "ability": "drought"
+   "heldItem": "cobblemon:weakness_policy"
   },
   {
    "species": "cinderace",
-   "level": 88,
+   "level": 92,
    "moveset": [
     "pyroball",
     "highjumpkick",
     "uturn",
     "suckerpunch"
    ],
-   "heldItem": "mega_showdown:firium_z"
+   "heldItem": "cobblemon:life_orb"
   },
   {
-   "species": "delphox",
-   "level": 88,
+   "species": "haxorus",
+   "level": 93,
    "moveset": [
-    "mysticalfire",
-    "psychic",
-    "shadowball",
-    "nastyplot"
+    "outrage",
+    "earthquake",
+    "poisonjab",
+    "dragondance"
    ],
-   "heldItem": "mega_showdown:delphoxite"
+   "heldItem": "mega_showdown:dragonium_z"
+  },
+  {
+   "species": "dragapult",
+   "level": 93,
+   "moveset": [
+    "dragondarts",
+    "phantomforce",
+    "uturn",
+    "fireblast"
+   ],
+   "heldItem": "cobblemon:expert_belt",
+   "gimmicks": {
+    "dynamax": true
+   }
   },
   {
    "species": "charizard",
-   "level": 90,
+   "level": 95,
    "moveset": [
     "flareblitz",
-    "airslash",
-    "dragonpulse",
-    "solarbeam"
+    "dragonclaw",
+    "earthquake",
+    "dragondance"
    ],
-   "heldItem": "cobblemon:life_orb",
-   "gimmicks": {
-    "dynamax": true,
-    "gmax": true
-   }
+   "heldItem": "mega_showdown:charizardite_x"
   }
  ]
 }

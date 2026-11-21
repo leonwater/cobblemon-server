@@ -18,48 +18,73 @@
  ],
  "team": [
   {
-   "species": "staryu",
-   "level": 22,
+   "species": "quagsire",
+   "level": 83,
    "moveset": [
-    "waterpulse",
-    "rapidspin",
-    "swift",
-    "recover"
+    "scald",
+    "earthquake",
+    "recover",
+    "toxic"
    ],
-   "heldItem": "cobblemon:eviolite"
+   "heldItem": "cobblemon:leftovers"
   },
   {
-   "species": "psyduck",
-   "level": 23,
+   "species": "lanturn",
+   "level": 83,
    "moveset": [
-    "waterpulse",
-    "confusion",
-    "scratch",
-    "disable"
+    "scald",
+    "thunderbolt",
+    "icebeam",
+    "voltswitch"
    ],
    "heldItem": "cobblemon:sitrus_berry"
   },
   {
-   "species": "horsea",
-   "level": 23,
+   "species": "floatzel",
+   "level": 83,
    "moveset": [
-    "bubblebeam",
-    "smokescreen",
-    "dragonbreath",
-    "twister"
+    "liquidation",
+    "aquajet",
+    "icefang",
+    "bulkup"
    ],
-   "heldItem": "cobblemon:mystic_water"
+   "heldItem": "cobblemon:life_orb"
+  },
+  {
+   "species": "milotic",
+   "level": 84,
+   "moveset": [
+    "hydropump",
+    "icebeam",
+    "recover",
+    "haze"
+   ],
+   "heldItem": "mega_showdown:waterium_z"
+  },
+  {
+   "species": "lapras",
+   "level": 84,
+   "moveset": [
+    "hydropump",
+    "icebeam",
+    "thunderbolt",
+    "freezedry"
+   ],
+   "heldItem": "cobblemon:leftovers",
+   "gimmicks": {
+    "dynamax": true
+   }
   },
   {
    "species": "starmie",
-   "level": 25,
+   "level": 85,
    "moveset": [
-    "bubblebeam",
-    "psybeam",
-    "swift",
+    "waterfall",
+    "psychocut",
+    "rapidspin",
     "recover"
    ],
-   "heldItem": "cobblemon:life_orb"
+   "heldItem": "mega_showdown:starminite"
   }
  ]
 }

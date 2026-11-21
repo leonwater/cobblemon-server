@@ -37,8 +37,10 @@ NPCS = [  # (NPC 종류, 차원, x, y, z, 태그, yaw). 광장 NPC는 tools/plaz
 ]
 
 
-BADGE_BLOCK = ['gray', 'blue', 'orange', 'lime', 'pink', 'yellow', 'red', 'green']
-E4_THEME = ['iron_block', 'purpur_block', 'blackstone', 'light_blue_concrete']
+# 체육관 순서 (tools/build_league.py GYMS와 같은 순서: 같은 레벨 기준 약한 관장부터)
+GYM_TYPES = ['바위', '에스퍼', '불꽃', '독', '전기', '땅', '풀', '물']
+BADGE_BLOCK = ['gray', 'yellow', 'red', 'pink', 'orange', 'green', 'lime', 'blue']
+E4_THEME = ['light_blue_concrete', 'iron_block', 'blackstone', 'purpur_block']   # 레드·성호·난천·단델
 # 체육관 타입별 경기장 팔레트: 이름, 필드, 벽, 벽 아래 띠, 천장 색, 천장 조명, 관중석, 상징(주색, 보조색)
 TYPES = [
     ('바위', 'smooth_sandstone', 'stone_bricks', 'chiseled_stone_bricks', 'brown_concrete', 'glowstone', 'sandstone', ('stone', 'cobblestone')),
@@ -510,7 +512,7 @@ def arena(n):
     g = gym_geom(n)
     x1, x2, z1, z2 = g['box']
     xm, top = (x1 + x2) // 2, G + 12
-    name, field, wall, base, ceil, light, seat, (c1, c2) = TYPES[n - 1]
+    name, field, wall, base, ceil, light, seat, (c1, c2) = next(t for t in TYPES if t[0] == GYM_TYPES[n - 1])
     m = lambda b: 'minecraft:' + b
     L = [f'# ── {n}번 경기장 ({name}) ──', fill(x1, G - 1, z1, x2, G - 1, z2, m('bedrock')),
          fill(x1, G, z1, x2, G, z2, m(wall)), fill(x1 + 1, G, z1 + 1, x2 - 1, G, z2 - 1, m('polished_andesite'))]
