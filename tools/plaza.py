@@ -203,12 +203,13 @@ def diner(x1, z1, door, accent='green'):
         for x in range(xa - 1, xa + 3):
             L.append(W.sb(x, 5, fz + out, f'minecraft:{accent if x % 2 else "white"}_wool'))
         L += [W.fill(xa, 6, fz, xa + 1, 7, fz, 'minecraft:glass_pane')]
-    # 문 (가운데 두 짝) + 빨간 계단
+    # 문 (가운데 두 짝) + 빨간 계단. 경첩은 바깥쪽 (남향이면 left/right가 뒤집힘 → 손잡이가 가운데로)
+    hl, hr = ('right', 'left') if out > 0 else ('left', 'right')
     L += [W.fill(xm - 1, 1, fz, xm, 4, fz, 'minecraft:air'),
-          W.sb(xm - 1, 2, fz, f'minecraft:spruce_door[facing={"south" if out > 0 else "north"},half=lower,hinge=left]'),
-          W.sb(xm - 1, 3, fz, f'minecraft:spruce_door[facing={"south" if out > 0 else "north"},half=upper,hinge=left]'),
-          W.sb(xm, 2, fz, f'minecraft:spruce_door[facing={"south" if out > 0 else "north"},half=lower,hinge=right]'),
-          W.sb(xm, 3, fz, f'minecraft:spruce_door[facing={"south" if out > 0 else "north"},half=upper,hinge=right]'),
+          W.sb(xm - 1, 2, fz, f'minecraft:spruce_door[facing={"south" if out > 0 else "north"},half=lower,hinge={hl}]'),
+          W.sb(xm - 1, 3, fz, f'minecraft:spruce_door[facing={"south" if out > 0 else "north"},half=upper,hinge={hl}]'),
+          W.sb(xm, 2, fz, f'minecraft:spruce_door[facing={"south" if out > 0 else "north"},half=lower,hinge={hr}]'),
+          W.sb(xm, 3, fz, f'minecraft:spruce_door[facing={"south" if out > 0 else "north"},half=upper,hinge={hr}]'),
           W.fill(xm - 1, 1, fz, xm, 1, fz, 'minecraft:spruce_planks'), W.fill(xm + 1, 1, fz, xm + 1, 4, fz, 'minecraft:spruce_planks'),
           W.fill(xm - 1, 1, fz + out, xm, 1, fz + out, f'minecraft:red_nether_brick_stairs[facing={"north" if out > 0 else "south"}]'),
           W.fill(xm - 2, 1, fz + out * 2, xm + 1, 1, fz + out * 2, 'minecraft:moss_carpet')]
@@ -298,7 +299,6 @@ def gymlet(x1, z1, door):
     # 노란 차양 + 흰 구름 장식, 유리문
     L += [W.fill(xm - 3, 4, fz + out, xm + 3, 4, fz + out * 2, 'minecraft:yellow_concrete'),
           W.fill(xm - 2, 5, fz + out, xm + 2, 5, fz + out, 'minecraft:white_concrete'),
-          W.sb(xm - 1, 6, fz + out, 'minecraft:white_concrete'), W.sb(xm + 1, 6, fz + out, 'minecraft:white_concrete'),
           W.sb(xm - 3, 1, fz + out * 2, 'minecraft:red_concrete'), W.sb(xm + 3, 1, fz + out * 2, 'minecraft:red_concrete'),
           W.fill(xm - 3, 2, fz + out * 2, xm - 3, 3, fz + out * 2, 'minecraft:white_concrete'), W.fill(xm + 3, 2, fz + out * 2, xm + 3, 3, fz + out * 2, 'minecraft:white_concrete'),
           W.fill(xm - 1, 1, fz, xm + 1, 3, fz, 'minecraft:air'), W.fill(xm - 2, 1, fz, xm - 2, 3, fz, 'minecraft:light_blue_stained_glass'),

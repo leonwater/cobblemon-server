@@ -22,6 +22,7 @@ public class PokeServerClient implements ClientModInitializer {
         ClientPlayNetworking.registerGlobalReceiver(Net.Names.TYPE, (p, ctx) -> com.pokeserver.Nicknames.read(p.data()));
         ClientPlayNetworking.registerGlobalReceiver(Net.Hud.TYPE, (p, ctx) -> { InfoHud.balance = p.balance(); InfoHud.badges = p.badges(); InfoHud.place = p.place(); });
         net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback.EVENT.register(InfoHud::render);
+        net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents.JOIN.register((h, s, mc) -> { InfoHud.joinedAt = System.currentTimeMillis(); InfoHud.keepW = 0; });
         // 3. 관장·챔피언 원작풍 스킨 (RCT 기본 스킨보다 위에 오도록 항상 켜진 내장 리소스팩)
         net.fabricmc.fabric.api.resource.ResourceManagerHelper.registerBuiltinResourcePack(
                 net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("pokeserver", "leaders"),

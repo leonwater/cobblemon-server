@@ -13,7 +13,7 @@ if [ ! -f $W/fabric-server-launch.jar ]; then
 fi
 f=$R/pack/mods/fabric-api.pw.toml; name=$(grep '^filename' $f | cut -d'"' -f2)
 [ -f "$W/mods/$name" ] || curl -sfL -o "$W/mods/$name" "$(grep '^url' $f | cut -d'"' -f2)"
-cp $R/mod/build/libs/pokeserver-*.jar $W/mods/
+rm -f $W/mods/pokeserver-*.jar; cp $R/mod/build/libs/pokeserver-*.jar $W/mods/
 cp $R/pack/config/pokeserver/*.json $W/config/pokeserver/
 # 배지 해금 시험용: 실제 상점의 해금 물품은 Cobblemon 것이라(이 서버엔 없음) 바닐라 철 블록(배지 1개)을 마지막 분류 끝에 덧붙임
 python3 -c "import json,sys;p=sys.argv[1];d=json.load(open(p));d['categories'][-1]['items'].append({'item':'minecraft:iron_block','buy':1200,'sell':300,'badges':1});json.dump(d,open(p,'w'),ensure_ascii=False)" $W/config/pokeserver/shop.json

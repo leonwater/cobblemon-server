@@ -293,10 +293,10 @@ setblock ~-22 ~5 ~-31 minecraft:white_wool
 setblock ~-21 ~5 ~-31 minecraft:green_wool
 fill ~-23 ~6 ~-32 ~-22 ~7 ~-32 minecraft:glass_pane
 fill ~-28 ~1 ~-32 ~-27 ~4 ~-32 minecraft:air
-setblock ~-28 ~2 ~-32 minecraft:spruce_door[facing=south,half=lower,hinge=left]
-setblock ~-28 ~3 ~-32 minecraft:spruce_door[facing=south,half=upper,hinge=left]
-setblock ~-27 ~2 ~-32 minecraft:spruce_door[facing=south,half=lower,hinge=right]
-setblock ~-27 ~3 ~-32 minecraft:spruce_door[facing=south,half=upper,hinge=right]
+setblock ~-28 ~2 ~-32 minecraft:spruce_door[facing=south,half=lower,hinge=right]
+setblock ~-28 ~3 ~-32 minecraft:spruce_door[facing=south,half=upper,hinge=right]
+setblock ~-27 ~2 ~-32 minecraft:spruce_door[facing=south,half=lower,hinge=left]
+setblock ~-27 ~3 ~-32 minecraft:spruce_door[facing=south,half=upper,hinge=left]
 fill ~-28 ~1 ~-32 ~-27 ~1 ~-32 minecraft:spruce_planks
 fill ~-26 ~1 ~-32 ~-26 ~4 ~-32 minecraft:spruce_planks
 fill ~-28 ~1 ~-31 ~-27 ~1 ~-31 minecraft:red_nether_brick_stairs[facing=north]
@@ -1042,8 +1042,6 @@ fill ~35 ~8 ~25 ~35 ~8 ~30 minecraft:sandstone
 fill ~37 ~8 ~25 ~37 ~8 ~30 minecraft:sandstone
 fill ~30 ~4 ~22 ~36 ~4 ~21 minecraft:yellow_concrete
 fill ~31 ~5 ~22 ~35 ~5 ~22 minecraft:white_concrete
-setblock ~32 ~6 ~22 minecraft:white_concrete
-setblock ~34 ~6 ~22 minecraft:white_concrete
 setblock ~30 ~1 ~21 minecraft:red_concrete
 setblock ~36 ~1 ~21 minecraft:red_concrete
 fill ~30 ~2 ~21 ~30 ~3 ~21 minecraft:white_concrete
@@ -1999,3 +1997,5 @@ setblock ~-58 ~-1 ~1 minecraft:water
 setblock ~-58 ~0 ~2 minecraft:water
 setblock ~-58 ~-1 ~2 minecraft:water
 setblock ~-58 ~0 ~3 minecraft:water
+setblock ~-58 ~-1 ~3 minecraft:water
+setblock ~-58 ~0 ~4 minecraft:water

@@ -6,7 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 
-/** 7. 오른쪽 가운데 간략 정보 (참고 사진처럼): 닉네임, 그 아래 두 묶음 "이름 ∥ 값" — 위치·소지금·배지 / 시간·바이옴·좌표.
+/** 7. 오른쪽 가운데 간략 정보 (참고 사진처럼): 닉네임(크게), 그 아래 두 묶음 "이름 ∥ 값" — 위치·소지금·배지 / 시간(접속 후 플레이 시간)·바이옴·좌표.
  *  줄 간격은 모두 같게, 묶음 왼쪽에 세로 줄. */
 public final class InfoHud {
     private InfoHud() {}
@@ -14,6 +14,8 @@ public final class InfoHud {
     static long balance = -1;
     static int badges;
     static String place = "";
+    static long joinedAt = System.currentTimeMillis();   // 접속한 때 (접속할 때마다 다시 셈)
+    static int keepW;                                     // 지금까지 가장 넓었던 폭: 숫자가 바뀌어도 창이 좁아졌다 넓어졌다 하지 않게
 
     static void render(GuiGraphics g, DeltaTracker dt) {
         Minecraft mc = Minecraft.getInstance();
@@ -22,26 +24,32 @@ public final class InfoHud {
         var font = mc.font;
         var p = mc.player;
         Component name = Nicknames.SHOWN.getOrDefault(p.getUUID(), Component.literal(p.getGameProfile().getName()));
-        long day = mc.level.getDayTime() % 24000;
+        long min = (System.currentTimeMillis() - joinedAt) / 60000;   // 접속 후 플레이 시간 (시:분)
         var pos = p.blockPosition();
         var biome = mc.level.getBiome(pos).unwrapKey().map(k -> Component.translatable("biome." + k.location().getNamespace() + "." + k.location().getPath()))
                 .orElse(Component.literal("-"));
         String[][][] groups = {
                 {{"위치", place.isEmpty() ? "-" : place}, {"소지금", balance < 0 ? "-" : Theme.money(font, balance, "원", 90)}, {"배지", badges + " / 8"}},
-                {{"시간", String.format("%02d:%02d", (day / 1000 + 6) % 24, day % 1000 * 60 / 1000)}, {"바이옴", biome.getString()},
+                {{"시간", String.format("%02d:%02d", min / 60, min % 60)}, {"바이옴", biome.getString()},
                         {"좌표", pos.getX() + " " + pos.getY() + " " + pos.getZ()}}};
         float s = Math.min(1f, 2f / (float) mc.getWindow().getGuiScale());   // 참고 사진 크기: 전체 화면에서 GUI 2배 크기로
         int lw = 0, vw = 0;
         for (String[][] gr : groups) for (String[] r : gr) { lw = Math.max(lw, font.width(Theme.t(r[0]))); vw = Math.max(vw, font.width(Theme.t(r[1]))); }
         int row = font.lineHeight + 6, gap = 8, sep = font.width(Theme.t(" ∥ "));
-        int w = Math.max(lw + sep + vw, font.width(name)) + 18, h = font.lineHeight + 10 + 6 * row + gap + 6;
+        float ns = 1.3f;   // 닉네임은 크게
+        int w = Math.max(lw + sep + vw, Math.round(font.width(name) * ns)) + 18, h = Math.round(font.lineHeight * ns) + 10 + 6 * row + gap + 6;
+        w = keepW = Math.max(w, keepW);
         int sw = (int) (g.guiWidth() / s), sh = (int) (g.guiHeight() / s);
         int x = sw - w - 6, y = (sh - h) / 2;
         g.pose().pushPose();
         g.pose().scale(s, s, 1);
         g.fill(x, y, x + w, y + h, 0x70101319);
-        g.drawString(font, name, x + (w - font.width(name)) / 2, y + 5, Theme.TEXT, true);
-        int ry = y + font.lineHeight + 12;
+        g.pose().pushPose();
+        g.pose().translate(x + (w - font.width(name) * ns) / 2, y + 5, 0);
+        g.pose().scale(ns, ns, 1);
+        g.drawString(font, name, 0, 0, Theme.TEXT, true);
+        g.pose().popPose();
+        int ry = y + Math.round(font.lineHeight * ns) + 12;
         for (String[][] gr : groups) {
             g.fill(x + 6, ry - 2, x + 7, ry + gr.length * row - 4, 0xFFD0D4DC);            // 묶음 왼쪽 세로 줄
             for (String[] r : gr) {

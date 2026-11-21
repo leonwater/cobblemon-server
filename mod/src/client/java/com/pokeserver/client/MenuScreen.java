@@ -82,7 +82,8 @@ public class MenuScreen extends Screen {
     private int tileX(int i) { return cx() + (i % perRow()) * (TILE + GAP); }
     private int tileY(int i) { return 26 + (i / perRow()) * (TILE + GAP); }
     private int cardY() { return 26 + TILE + 14; }                           // 분류마다 칸은 한 줄 (가장 많은 워프 4칸)
-    private int noticeY() { return cardY() + 84; }
+    private int noticeY() { return height - 40; }                         // 공지사항은 맨 아래 (왼쪽 아래 작은 버튼과 나란히)
+    static final int CARD_H = 122;
     private int smallX(int i) { return 18 + i * 66; }
     private int smallY() { return height - 64; }
 
@@ -171,25 +172,43 @@ public class MenuScreen extends Screen {
     /** 내 정보: 얼굴·[칭호] 닉네임, 잡은/마주친 포켓몬 막대 | 잔액·배지. */
     private void card(GuiGraphics g) {
         int x = cx(), y = cardY(), cw = cw(), split = x + cw * 62 / 100;
-        Theme.panel(g, x, y, x + cw, y + 76, 0xD0181B22, 0xFF2A303C);
+        Theme.panel(g, x, y, x + cw, y + CARD_H, 0xD0181B22, 0xFF2A303C);
         if (minecraft != null && minecraft.player != null) {
             var skin = minecraft.getSkinManager().getInsecureSkin(minecraft.player.getGameProfile()).texture();
-            g.blit(skin, x + 10, y + 8, 12, 12, 8, 8, 8, 8, 64, 64);
-            g.blit(skin, x + 10, y + 8, 12, 12, 40, 8, 8, 8, 64, 64);
+            g.blit(skin, x + 10, y + 8, 14, 14, 8, 8, 8, 8, 64, 64);
+            g.blit(skin, x + 10, y + 8, 14, 14, 40, 8, 8, 8, 64, 64);
             Component name = Nicknames.SHOWN.getOrDefault(minecraft.player.getUUID(), Component.literal(minecraft.player.getGameProfile().getName()));
-            g.drawString(font, name, x + 27, y + 10, Theme.TEXT, false);
+            g.pose().pushPose();
+            g.pose().translate(x + 30, y + 10, 0);
+            g.pose().scale(1.4f, 1.4f, 1);   // 닉네임은 크게
+            g.drawString(font, name, 0, 0, Theme.TEXT, false);
+            g.pose().popPose();
         }
         bar(g, x + 10, y + 30, split - x - 22, "잡은 포켓몬", caught);
-        bar(g, x + 10, y + 52, split - x - 22, "마주친 포켓몬", seen);
-        g.fill(split, y + 10, split + 1, y + 66, 0x604A5366);
+        badgeCase(g, x + 10, y + 50, split - x - 22);
+        bar(g, x + 10, y + 96, split - x - 22, "마주친 포켓몬", seen);   // 배지 칸(y+61~87) 아래로 띄움
+        g.fill(split, y + 10, split + 1, y + CARD_H - 10, 0x604A5366);
         int rx = split + 12;
         text(g, "잔액", rx, y + 14, Theme.SUBTEXT);
         text(g, Theme.money(font, balance, "원", x + cw - rx - 10), rx, y + 26, Theme.GOLD);
-        int half = (x + cw - rx) / 2;
-        text(g, "배지", rx, y + 44, Theme.SUBTEXT);
-        text(g, badges + " / 8", rx, y + 56, Theme.TEXT);
-        text(g, "레벨 제한", rx + half, y + 44, Theme.SUBTEXT);
-        text(g, cap > 0 ? "Lv. " + cap : "-", rx + half, y + 56, Theme.TEXT);
+        text(g, "레벨 제한", rx, y + 50, Theme.SUBTEXT);
+        text(g, cap > 0 ? "Lv. " + cap : "-", rx, y + 62, Theme.TEXT);
+    }
+
+    /** 배지 칸 8개: 얻은 배지는 배지 그림, 못 얻은 배지는 모양만(어두운 실루엣). 배지는 순서대로만 얻으므로 개수로 판단. */
+    private void badgeCase(GuiGraphics g, int x, int y, int w) {
+        text(g, "배지", x, y, Theme.SUBTEXT);
+        text(g, badges + " / 8", x + w - w(badges + " / 8"), y, Theme.TEXT);
+        int slot = Math.min(26, (w + 4) / 8 - 4), step = (w - slot) / 7;
+        for (int i = 0; i < 8; i++) {
+            int sx = x + i * step, sy = y + 11;
+            Theme.panel(g, sx, sy, sx + slot, sy + slot, 0xC0101319, i < badges ? 0xFF6A5A2A : 0xFF2A303C);
+            var tex = net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("pokeserver", "textures/item/badge_" + (i + 1) + ".png");
+            if (i >= badges) g.setColor(0.1f, 0.11f, 0.14f, 1f);   // 못 얻은 배지: 색 없이 모양만 (거의 검은 실루엣)
+            int ix = sx + (slot - 16) / 2, iy = sy + (slot - 16) / 2;
+            g.blit(tex, ix, iy, 0, 0, 16, 16, 16, 16);
+            g.setColor(1f, 1f, 1f, 1f);
+        }
     }
 
     private void bar(GuiGraphics g, int x, int y, int w, String label, int n) {

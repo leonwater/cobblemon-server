@@ -111,8 +111,8 @@ hash = "50123c09c4693cf847ac3420fcef7cdb94ba57096b9dbb9f13deabedc8d9f62e"
 metafile = true
 
 [[files]]
-file = "mods/pokeserver-0.1.0.jar"
-hash = "0714a527c9449cc46d2695e073b04f261ab8e62cbc8db9b5007201ba70011908"
+file = "mods/pokeserver-0.2.0.jar"
+hash = "67c1e26194aa9e559e16f904870b8bfc439b85d6a48fcef95d6141077bfbbadb"
 
 [[files]]
 file = "mods/rctapi.pw.toml"
@@ -157,47 +157,47 @@ hash = "5717e710cee2e276fd4c57bd6377a7807cb99dff24af42a65d2fe6eda20aadab"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/dialogues/tip_cap.json"
-hash = "0007362187f1e59c3f65e38f2228dbea19ba7cee866e5c29aa5605a108bc15bf"
+hash = "ddbc84d1b4e9e0c9d33209de5ae009fb421d34de946150c29ca4c1e4435113a5"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/dialogues/tip_catch.json"
-hash = "4303768e4ce7b61ec835b181fa205cec3121dd15aa1d67ddc451a51452ce059e"
+hash = "f2a59a3474766413164820ea6b33a065fa2284cd3adaeaaec6f694d6bf4d691c"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/dialogues/tip_ev.json"
-hash = "a589d054574ccf5a3bc63fd939adcee5aaa78807136c17514fd161e268ae2c55"
+hash = "51fefd1a1e9e92fae89935fb969d1fef0491bfc9d55e7b420ab00b8cab2187b1"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/dialogues/tip_evolve.json"
-hash = "e47c6fd6cff51d1be664b79869f09eded4d139eaaf49e740cfab8fff599c3182"
+hash = "c24e9c6e272f855bdb42203a7e87bec65e6ae1bcb7a1905b0c2f99623aa18b37"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/dialogues/tip_items.json"
-hash = "a70c4c1f5c96e66adc03a8b5dee5179e54614c0f7fce5004430c294b46f13647"
+hash = "cc40a7f5ad5c3fb128cee9a4e571fa8b0e2b2112e89b071f48eaf5c49e021a92"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/dialogues/tip_iv.json"
-hash = "973ba76ac29be2c5f569291ea6eabfb69781374510ef8b6723cf5cabdb6bc456"
+hash = "0e5e955896ae1bc2bc1c77b5fbb42c23796a82c1356774d106b07bbd8372a3cb"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/dialogues/tip_mint.json"
-hash = "b4c242e88e16c0a33b21f8484919151966505169857f9e9f4d0c2d13f139273c"
+hash = "ccf4328d59fad2b8cd99ddf91421ca1b7ee273b922ef07e4b6e00ad241e56d22"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/dialogues/tip_moves.json"
-hash = "cb9ef5f0bc773a98ea769cc1647ea151a597e9be5ce73c0098fdfd8e3753c3fa"
+hash = "5ad62976efe8921aeefd67d9f7db40ef665444badca6e105fff46b4873bbd14a"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/dialogues/tip_nature.json"
-hash = "b30a3b63c4ec8f87d83010079a6d9eff6bf765c906d271e7c97eb027f0cd7b42"
+hash = "0e3b53a32c99c79cac4ea602dfe0cc13cae16e22edca32ee7bbd9cd3509063c2"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/dialogues/tip_stab.json"
-hash = "55f0f2ca91f566e095852e00a52df6500b29cd5dc8f5bc467472994db5adcdc2"
+hash = "e42f65e3812b3b19ed221ca749fe4920810e00a8775ab00e57447fd07760e3a6"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/dialogues/tip_types.json"
-hash = "220d0830e709e67492b92cbf25bd368f9a9e3aaef0acac2be80a1052aa91659c"
+hash = "87e707841c674fd3add1e829535d6b715e215f8584960152463b9a2f4e5e3b50"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/dimension/farm.json"
@@ -257,11 +257,11 @@ hash = "a099a3af87b913a0dabeff9eeebfdc5103b0020b39bf3f8b9284a4ee4bd834d6"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/plaza/1.mcfunction"
-hash = "ba9cc99a3d8f8ff380a7bd3a9e5d6d71bb2a772ea89f94ba8330049e40924314"
+hash = "201b94c898bec0537374d1d823fa523f9e9c46cefa949622e71beb341dd1471f"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/plaza/2.mcfunction"
-hash = "a9b3103bb4058ba9e87b8585fd872e5b075da0e5f232eded6b42caf299536624"
+hash = "6acede6c5aa2a7a121a50719584ae32c733cd5198e17caa198cc9387e0de740d"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/plaza/finish.mcfunction"
@@ -825,51 +825,51 @@ hash = "ad095895da4d5f6d1db2d32be0e5b14f49549de79c9616e8bb4e229b926effa0"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/dialogs/trainers/single/champion_cynthia_03a5.json"
-hash = "62a4595a8def1d798c0e85800e7168606ff72a49cf062dec4f1f860d52929ed6"
+hash = "1e879e71d3d7653ec619141b47b040e5f08aaec116218a1af0ba3ecc0b605a85"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/dialogs/trainers/single/champion_leon_ps.json"
-hash = "b43e85329959a8bdd06be33116c0682d4c89ca30f381a740301c98c070700767"
+hash = "4cf5245f6ee26d543b5d9cc7777345d33332d7d4c847f3365312d8e2057e6cde"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/dialogs/trainers/single/champion_steven_ps.json"
-hash = "f371154f78b4714e8030a95cd2ed3e127d63305e16a864cc6b9d2070db817622"
+hash = "fc3782a363ae767b80864068e1bbccc6cad3d2cf1f485462bce0d260d88da96d"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/dialogs/trainers/single/leader_blaine_01a3.json"
-hash = "944a84a9061255c0f265ec986481b1cf95e5e8434accc97eceaaae5a97abca32"
+hash = "b41cc4f41b9209ac40f7f1b3e37326efdf9791197d044c3884180f8119775c82"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/dialogs/trainers/single/leader_brock_019e.json"
-hash = "5a6ad8e1e4ffb14e37a27ef67fae16218b714c12f0bf4260536a16d4f34cec63"
+hash = "3fea95346d9e471248355c5dde7dcc818f5e05f61308252292bd9b5f0b10304e"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/dialogs/trainers/single/leader_erika_01a1.json"
-hash = "4491366a28e52977333724eee5a71d9cfedced2032d080e33a09a79df23250bd"
+hash = "ce08faa6fe49f2e3ef372337395523a0c2387ace0bd379bd69a99abc7052ade7"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/dialogs/trainers/single/leader_giovanni_015e.json"
-hash = "8c360b4f133b5f8a906f4150fb720151fc8dea9ee1f1f51073b408d0436a549e"
+hash = "98eaeabbafcc3419b5c777a0802637363fbbfeadb5cd231a90b62805a077955c"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/dialogs/trainers/single/leader_koga_01a2.json"
-hash = "d5cf15e01fc7783eee757ebe36103e585e937ccbcb5e6dc803ec243023c6c46e"
+hash = "dafbb8d52b5c5ba29a16a67985e26937114d422d22cfaebbe55961db5769279a"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/dialogs/trainers/single/leader_lt_surge_01a0.json"
-hash = "443910ffc27663683afcbf97f24ca66ac2b7d5c916dd55733ab6b610e1fd2ede"
+hash = "e5f245d8df92dcefec3f4554654277cb176f356982b85b2912d66773960bdebf"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/dialogs/trainers/single/leader_misty_019f.json"
-hash = "c1d60e747e525a05514cbb01c3faf1db7552065089be5fdabb9ac1c22478a8e1"
+hash = "e862c4b871af2bdba1fc112dc7def7a12a1e12c4546b9d2ddd698d00f9106f80"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/dialogs/trainers/single/leader_sabrina_01a4.json"
-hash = "252325914ca60c656991a807c84dc1f763033183ad94c99a02035c9275a43ce6"
+hash = "73d1902bb535f38c4e15320e3020acce8dffe6a2aac33a63287b051b631a7384"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/dialogs/trainers/single/trainer_red_0003.json"
-hash = "dc7ef4c06121c57912f539e33008534646e43776908df492495db9e461758e67"
+hash = "5c8866d7c2b631d1bf64ea015d045c9cd7c08192eea8d5b25f773c33d116c3fa"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/mobs/trainers/single/champion_cynthia_03a5.json"

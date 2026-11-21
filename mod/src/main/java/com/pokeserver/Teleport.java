@@ -31,8 +31,21 @@ final class Teleport {
                 .then(Commands.argument("player", com.mojang.brigadier.arguments.StringArgumentType.greedyString()).suggests(Nicknames::suggest).executes(c -> request(c, false))));
         for (String name : new String[]{"부르기", "tpa"}) d.register(Commands.literal(name)
                 .then(Commands.argument("player", com.mojang.brigadier.arguments.StringArgumentType.greedyString()).suggests(Nicknames::suggest).executes(c -> request(c, true))));
+        // 운영자 전용 강제 이동 (상대 동의 없이 바로): /강제가기 /ftp, /강제부르기 /ftpa
+        for (String name : new String[]{"강제가기", "ftp"}) d.register(Commands.literal(name).requires(s -> s.hasPermission(2))
+                .then(Commands.argument("player", com.mojang.brigadier.arguments.StringArgumentType.greedyString()).suggests(Nicknames::suggest).executes(c -> force(c, false))));
+        for (String name : new String[]{"강제부르기", "ftpa"}) d.register(Commands.literal(name).requires(s -> s.hasPermission(2))
+                .then(Commands.argument("player", com.mojang.brigadier.arguments.StringArgumentType.greedyString()).suggests(Nicknames::suggest).executes(c -> force(c, true))));
         for (String name : new String[]{"수락", "accept"}) d.register(Commands.literal(name).executes(c -> answer(c, true)));
         for (String name : new String[]{"거절", "deny"}) d.register(Commands.literal(name).executes(c -> answer(c, false)));
+    }
+
+    static int force(CommandContext<CommandSourceStack> c, boolean here) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        ServerPlayer me = c.getSource().getPlayerOrException(), other = Nicknames.find(me.server, com.mojang.brigadier.arguments.StringArgumentType.getString(c, "player"));
+        if (other == null) return fail(me, "접속 중인 사람의 닉네임을 적어 주세요.");
+        if (me == other) return fail(me, "자기 자신에게는 쓸 수 없어요.");
+        move(here ? other : me, here ? me : other);
+        return 1;
     }
 
     static int request(CommandContext<CommandSourceStack> c, boolean here) throws com.mojang.brigadier.exceptions.CommandSyntaxException {

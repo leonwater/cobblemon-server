@@ -257,6 +257,23 @@ def write(path, obj):
 LANG = {}   # 관장 대사 번역 키 → 한국어 (main 끝에서 모드 언어 파일로)
 
 
+# 관장·사천왕마다 말투에 맞춘 대사: (배틀 시작, 도전자가 이겼을 때, 도전자가 졌을 때)
+LINES = {
+    'leader_brock_019e': ('바위처럼 단단한 내 포켓몬을 넘을 수 있겠어?', '훌륭해! 네 의지가 바위보다 단단했구나.', '아직 단단함이 부족해. 다시 와!'),
+    'leader_lt_surge_01a0': ('짜릿하게 가 보자고! 전기 맛 좀 볼래?', '크으, 감전된 건 나였군! 배지는 네 거다.', '하하! 아직 찌릿함이 모자라!'),
+    'leader_blaine_01a3': ('불꽃처럼 뜨거운 배틀을 보여 주지!', '내 불꽃이 꺼지다니… 대단하군!', '다 타 버렸군! 화상 치료제는 챙겨 왔나?'),
+    'leader_koga_01a2': ('독은 조용히 스며드는 법… 각오는 됐나?', '독에도 굴하지 않다니, 훌륭하군.', '독이 온몸에 퍼졌군. 다시 오너라.'),
+    'leader_sabrina_01a4': ('네가 어떻게 싸울지… 이미 보여.', '…이 결과는 보이지 않았어. 인정할게.', '예상대로야. 다시 와.'),
+    'leader_giovanni_015e': ('땅을 뒤흔드는 힘을 보여 주마.', '흠… 네 힘을 인정하지. 배지를 가져가라.', '아직 내 상대가 아니다.'),
+    'leader_erika_01a1': ('어머, 도전자시네요. 꽃처럼 우아하게 싸워 볼까요?', '어머나… 제가 졌네요. 정말 멋진 배틀이었어요.', '후훗, 조금 더 꽃을 피워서 오세요.'),
+    'leader_misty_019f': ('물 타입의 진짜 실력, 보여 줄게!', '으으, 졌다! 너 정말 강하구나.', '흥! 물살에 다 쓸려 갔네!'),
+    'champion_steven_ps': ('강철처럼 단단한 힘을 보여 주지.', '훌륭해. 너와 포켓몬의 유대가 빛나는군.', '아직이야. 더 단단해져서 와.'),
+    'champion_cynthia_03a5': ('챔피언으로서 전력을 다할게.', '…대단해. 너와 포켓몬의 힘은 진짜야.', '좋은 승부였어. 다시 기다릴게.'),
+    'champion_leon_ps': ('자, 챔피언 타임이다!', '하하, 최고의 배틀이었어! 넌 진짜 챔피언이야!', '아직 챔피언 타임은 끝나지 않았어!'),
+    'trainer_red_0003': ('……', '……! (조용히 고개를 끄덕인다)', '……'),
+}
+
+
 def trainer(tid, name, title, team, kind, required, max_defeats):
     write(f'rctmod/trainers/{tid}.json', {
         'name': name, 'identity': f'{title} {name}', 'ai': {'type': 'rct', 'data': {'maxSelectMargin': 0.15}},
@@ -270,10 +287,10 @@ def trainer(tid, name, title, team, kind, required, max_defeats):
         })
     # RCT 0.19는 대사를 dialogs/trainers/<ID>.json에서 읽음 (mobs 파일의 dialog는 무시돼 영어 기본 대사가 나왔음)
     lines = {
-        'on_battle_start': f'좋아, 실력을 보여줘!', 'on_battle_won': '아직 멀었어. 다시 도전해!', 'trainer_won': '아직 멀었어. 다시 도전해!',
-        'on_battle_lost': '훌륭해! 네가 이겼어.', 'trainer_lost': '훌륭해! 네가 이겼어.',
-        'on_cooldown': '조금 쉬었다가 다시 와 줘.', 'over_level_cap': '네 포켓몬 레벨이 너무 높아! 레벨 제한을 지켜 줘.',
-        'low_level_cap': '네 포켓몬은 아직 이 배틀을 할 준비가 안 됐어. 레벨을 더 올려 와!',
+        'on_battle_start': LINES[tid][0], 'on_battle_won': LINES[tid][2], 'trainer_won': LINES[tid][2],
+        'on_battle_lost': LINES[tid][1], 'trainer_lost': LINES[tid][1],
+        'on_cooldown': '조금 쉬었다가 다시 와 줘.', 'over_level_cap': '레벨이 너무 높은 포켓몬이 있네. 레벨 제한에 맞춰서 와 줘!',
+        'low_level_cap': '아직 나와 싸울 때가 아니야. 앞 체육관부터 이기고 와!',
         'missing_pokemon': '싸울 수 있는 포켓몬이 없잖아!', 'missing_required_trainer': '앞 체육관의 배지를 먼저 모아 와!',
         'missing_required_trainer_leader': '앞 체육관의 배지를 먼저 모아 와!', 'missing_required_trainer_e4': '사천왕은 순서대로 이겨야 해!',
         'missing_required_trainer_champ': '사천왕은 순서대로 이겨야 해!', 'missing_required_series': '아직 도전할 수 없어.',

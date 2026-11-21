@@ -2,31 +2,31 @@
  "on_battle_start": [
   {
    "translatable": "pokeserver.dialog.leader_koga_01a2.on_battle_start",
-   "literal": "좋아, 실력을 보여줘!"
+   "literal": "독은 조용히 스며드는 법… 각오는 됐나?"
   }
  ],
  "on_battle_won": [
   {
    "translatable": "pokeserver.dialog.leader_koga_01a2.on_battle_won",
-   "literal": "아직 멀었어. 다시 도전해!"
+   "literal": "독이 온몸에 퍼졌군. 다시 오너라."
   }
  ],
  "trainer_won": [
   {
    "translatable": "pokeserver.dialog.leader_koga_01a2.trainer_won",
-   "literal": "아직 멀었어. 다시 도전해!"
+   "literal": "독이 온몸에 퍼졌군. 다시 오너라."
   }
  ],
  "on_battle_lost": [
   {
    "translatable": "pokeserver.dialog.leader_koga_01a2.on_battle_lost",
-   "literal": "훌륭해! 네가 이겼어."
+   "literal": "독에도 굴하지 않다니, 훌륭하군."
   }
  ],
  "trainer_lost": [
   {
    "translatable": "pokeserver.dialog.leader_koga_01a2.trainer_lost",
-   "literal": "훌륭해! 네가 이겼어."
+   "literal": "독에도 굴하지 않다니, 훌륭하군."
   }
  ],
  "on_cooldown": [
@@ -38,13 +38,13 @@
  "over_level_cap": [
   {
    "translatable": "pokeserver.dialog.leader_koga_01a2.over_level_cap",
-   "literal": "네 포켓몬 레벨이 너무 높아! 레벨 제한을 지켜 줘."
+   "literal": "레벨이 너무 높은 포켓몬이 있네. 레벨 제한에 맞춰서 와 줘!"
   }
  ],
  "low_level_cap": [
   {
    "translatable": "pokeserver.dialog.leader_koga_01a2.low_level_cap",
-   "literal": "네 포켓몬은 아직 이 배틀을 할 준비가 안 됐어. 레벨을 더 올려 와!"
+   "literal": "아직 나와 싸울 때가 아니야. 앞 체육관부터 이기고 와!"
   }
  ],
  "missing_pokemon": [

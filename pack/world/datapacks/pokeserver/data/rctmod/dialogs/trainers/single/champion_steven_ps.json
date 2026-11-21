@@ -2,31 +2,31 @@
  "on_battle_start": [
   {
    "translatable": "pokeserver.dialog.champion_steven_ps.on_battle_start",
-   "literal": "좋아, 실력을 보여줘!"
+   "literal": "강철처럼 단단한 힘을 보여 주지."
   }
  ],
  "on_battle_won": [
   {
    "translatable": "pokeserver.dialog.champion_steven_ps.on_battle_won",
-   "literal": "아직 멀었어. 다시 도전해!"
+   "literal": "아직이야. 더 단단해져서 와."
   }
  ],
  "trainer_won": [
   {
    "translatable": "pokeserver.dialog.champion_steven_ps.trainer_won",
-   "literal": "아직 멀었어. 다시 도전해!"
+   "literal": "아직이야. 더 단단해져서 와."
   }
  ],
  "on_battle_lost": [
   {
    "translatable": "pokeserver.dialog.champion_steven_ps.on_battle_lost",
-   "literal": "훌륭해! 네가 이겼어."
+   "literal": "훌륭해. 너와 포켓몬의 유대가 빛나는군."
   }
  ],
  "trainer_lost": [
   {
    "translatable": "pokeserver.dialog.champion_steven_ps.trainer_lost",
-   "literal": "훌륭해! 네가 이겼어."
+   "literal": "훌륭해. 너와 포켓몬의 유대가 빛나는군."
   }
  ],
  "on_cooldown": [
@@ -38,13 +38,13 @@
  "over_level_cap": [
   {
    "translatable": "pokeserver.dialog.champion_steven_ps.over_level_cap",
-   "literal": "네 포켓몬 레벨이 너무 높아! 레벨 제한을 지켜 줘."
+   "literal": "레벨이 너무 높은 포켓몬이 있네. 레벨 제한에 맞춰서 와 줘!"
   }
  ],
  "low_level_cap": [
   {
    "translatable": "pokeserver.dialog.champion_steven_ps.low_level_cap",
-   "literal": "네 포켓몬은 아직 이 배틀을 할 준비가 안 됐어. 레벨을 더 올려 와!"
+   "literal": "아직 나와 싸울 때가 아니야. 앞 체육관부터 이기고 와!"
   }
  ],
  "missing_pokemon": [

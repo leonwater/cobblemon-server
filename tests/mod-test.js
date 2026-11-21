@@ -225,9 +225,9 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
 
   // 15. 광장 마을: 모드가 자리·지형을 정하고 지음, 둘레 72칸은 수정 금지
   await rc.send('tick sprint 4800')
-  for (let i = 0; i < 120 && !/built: 5/.test(await cmd('data get storage poke:state plaza')); i++) await sleep(450)
+  for (let i = 0; i < 120 && !/built: 6/.test(await cmd('data get storage poke:state plaza')); i++) await sleep(450)
   await rc.send('tick sprint stop')
-  assert.match(await cmd('data get storage poke:state plaza'), /built: 5/, '광장 짓기 끝')
+  assert.match(await cmd('data get storage poke:state plaza'), /built: 6/, '광장 짓기 끝')
   const pz = (await cmd('data get storage poke:state plaza')).match(/x: (-?\d+), y: (-?\d+), z: (-?\d+)/)
   assert.ok(pz, '15. 광장 자리 저장'); const [px, py, pzz] = pz.slice(1).map(Number)
   await cmd(`execute in poke:wild run forceload add ${px} ${pzz}`); await sleep(700)
