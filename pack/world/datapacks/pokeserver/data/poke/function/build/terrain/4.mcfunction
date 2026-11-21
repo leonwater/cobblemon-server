@@ -526,6 +526,7 @@ fill 1988 -59 -19 2012 -58 -18 minecraft:polished_andesite
 fill 1988 -58 -19 2012 -58 -19 minecraft:polished_andesite_stairs[facing=south]
 fill 1988 -59 -17 2012 -57 -16 minecraft:polished_andesite
 fill 1988 -57 -17 2012 -57 -17 minecraft:polished_andesite_stairs[facing=south]
+fill 1987 -59 -15 2013 -57 -15 minecraft:polished_andesite
 fill 1985 -56 -14 2015 -56 -14 minecraft:stone_bricks
 fill 1985 -56 18 2015 -56 18 minecraft:stone_bricks
 fill 1985 -56 -14 1985 -56 18 minecraft:stone_bricks
@@ -1998,4 +1999,3 @@ setblock 3109 -60 -9 minecraft:yellow_concrete
 setblock 3121 -60 -9 minecraft:yellow_concrete
 setblock 3109 -60 -3 minecraft:yellow_concrete
 setblock 3121 -60 -3 minecraft:yellow_concrete
-setblock 3109 -60 3 minecraft:yellow_concrete

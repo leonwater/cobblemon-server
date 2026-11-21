@@ -45,8 +45,7 @@ final class Gym {
         for (var e : info) {
             JsonObject g = e.getAsJsonObject().deepCopy();
             String st = status(p, g.get("n").getAsInt());
-            if (st == null) continue;
-            g.addProperty("status", st);
+            g.addProperty("status", st == null ? "locked" : st);   // 배지 케이스 화면은 잠긴 칸도 모양으로 보여 줌 (고르기는 pick에서 다시 검사)
             g.addProperty("busy", busyBy(p, g.get("n").getAsInt()));
             out.add(g);
         }

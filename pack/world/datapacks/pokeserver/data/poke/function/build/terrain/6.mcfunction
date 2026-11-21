@@ -1,4 +1,5 @@
 # 자동 생성: tools/build_world.py (지형 → 마을 건물 순서)
+setblock 3524 -51 -43 minecraft:sea_lantern
 setblock 3524 -51 -37 minecraft:sea_lantern
 setblock 3527 -51 -43 minecraft:sea_lantern
 setblock 3527 -51 -37 minecraft:sea_lantern

@@ -430,6 +430,7 @@ def lobby():
         zb = z1 - 7 + 2 * k
         L += [fill(x1 + 3, G + 1, zb, x2 - 3, G + 1 + k, zb + 1, 'minecraft:polished_andesite'),
               fill(x1 + 3, G + 1 + k, zb, x2 - 3, G + 1 + k, zb, 'minecraft:polished_andesite_stairs[facing=south]')]
+    L.append(fill(xm - 13, G + 1, z1 - 1, xm + 13, B, z1 - 1, 'minecraft:polished_andesite'))   # 계단 맨 윗단(z1-2)과 건물 바닥(z1) 사이 한 줄 (정면 벽 밑·문 앞)
     L += walls(x1, x2, z1, z2, B + 1, B + 1, 'minecraft:stone_bricks')
     L += walls(x1, x2, z1, z2, B + 2, top - 1, 'minecraft:white_concrete')
     L += walls(x1, x2, z1, z2, top, top, 'minecraft:light_gray_concrete')

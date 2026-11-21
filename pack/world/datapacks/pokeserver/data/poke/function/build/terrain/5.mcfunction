@@ -1,4 +1,5 @@
 # 자동 생성: tools/build_world.py (지형 → 마을 건물 순서)
+setblock 3109 -60 3 minecraft:yellow_concrete
 setblock 3121 -60 3 minecraft:yellow_concrete
 setblock 3109 -60 9 minecraft:yellow_concrete
 setblock 3121 -60 9 minecraft:yellow_concrete
@@ -1998,4 +1999,3 @@ setblock 3518 -51 -43 minecraft:sea_lantern
 setblock 3518 -51 -37 minecraft:sea_lantern
 setblock 3521 -51 -43 minecraft:sea_lantern
 setblock 3521 -51 -37 minecraft:sea_lantern
-setblock 3524 -51 -43 minecraft:sea_lantern

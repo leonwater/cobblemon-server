@@ -17,8 +17,8 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   const ff = async t => { await rc.send(`tick sprint ${t}`); for (let i = 0; i < 100 && /sprint/i.test(await rc.send('tick query')); i++) await sleep(100) }
   // 농장·마을 짓기가 끝날 때까지 (짓는 동안엔 서버가 바빠 응답이 늦음): 그동안 게임 시간을 빨리
   await rc.send('tick sprint 12000')
-  for (let i = 0; i < 240 && !/build: 19.*farm: 3|farm: 3.*build: 19/.test(await cmd('data get storage poke:state')); i++) await sleep(500)
-  assert.match(await cmd('data get storage poke:state'), /build: 19/, '건물 번호가 load와 같아야 함 (기다리다 시간만 버리지 않게 바로 실패)')
+  for (let i = 0; i < 240 && !/build: 20.*farm: 3|farm: 3.*build: 20/.test(await cmd('data get storage poke:state')); i++) await sleep(500)
+  assert.match(await cmd('data get storage poke:state'), /build: 20/, '건물 번호가 load와 같아야 함 (기다리다 시간만 버리지 않게 바로 실패)')
   await rc.send('tick sprint stop')
 
   const A = await join('A'), B = await join('B'); await sleep(450)
@@ -152,16 +152,18 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   assert.equal(await cmd('data get entity A Pos'), posBefore, '7. 튜토리얼 다시 보기 → 오박사에게 이동하지 않음')
 
 
-  // 3·4. 체육관 안내원(태그 poke.gymguide) → 도전 목록: 클리어한 곳과 도전 가능한 곳만, 고르면 경기장으로
+  // 3·4. 체육관 안내원(태그 poke.gymguide) → 배지 케이스: 9칸 모두(잠긴 곳은 locked), 열린 곳만 고를 수 있고 고르면 경기장으로
   const gyms = []
   A._client.on('custom_payload', p => { if (p.channel === 'pokeserver:gym_open') gyms.push(p.data.toString('utf8')) })
   await cmd('execute as A run function poke:tutorial/finish')   // 바로 위에서 튜토리얼을 다시 시작했으므로
   await cmd('execute as A run function poke:warp/fixed {key:"gym"}'); await sleep(500)
   await cmd('execute at A run summon minecraft:villager ~ ~ ~2 {NoAI:1b,Tags:["poke.gymguide"]}'); await sleep(350)
   const guide = () => Object.values(A.entities).find(e => e.name === 'villager' && e.position.z > A.entity.position.z + 1)
-  const listOf = j => JSON.parse(j.slice(j.indexOf('['))).map(g => [g.n, g.status])
+  const listOf = j => JSON.parse(j.slice(j.indexOf('['))).map(g => [g.n, g.status]).filter(([, st]) => st !== 'locked')
+  const countOf = j => JSON.parse(j.slice(j.indexOf('['))).length
   await A.activateEntity(guide()); await sleep(350)
-  assert.deepEqual(listOf(gyms[0]), [[1, 'open']], '배지 0개: 1번 체육관만 보임')
+  assert.deepEqual(listOf(gyms[0]), [[1, 'open']], '배지 0개: 1번 체육관만 열림')
+  assert.equal(countOf(gyms[0]), 9, '배지 케이스: 잠긴 칸(2~8번·사천왕)도 locked로 옴')
   await cmd('tag A add poke.badge1'); await A.activateEntity(guide()); await sleep(350)
   assert.deepEqual(listOf(gyms[1]), [[1, 'cleared'], [2, 'open']], '클리어한 1번(금색) + 도전 가능한 2번만')
   const pick = n => A._client.write('custom_payload', { channel: 'pokeserver:gym_pick', data: Buffer.from([n]) })

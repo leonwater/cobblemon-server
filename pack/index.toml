@@ -111,8 +111,8 @@ hash = "50123c09c4693cf847ac3420fcef7cdb94ba57096b9dbb9f13deabedc8d9f62e"
 metafile = true
 
 [[files]]
-file = "mods/pokeserver-0.2.0.jar"
-hash = "67c1e26194aa9e559e16f904870b8bfc439b85d6a48fcef95d6141077bfbbadb"
+file = "mods/pokeserver-0.3.0.jar"
+hash = "e67e6a3e71e838ccb0a88e57796982e3e54ea77e8843af9dac2a5072091bd57a"
 
 [[files]]
 file = "mods/rctapi.pw.toml"
@@ -249,7 +249,7 @@ hash = "518d55a1c83476f020a3302eab5e3adc8e40a9625e14d0c739973871515820ef"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/finish.mcfunction"
-hash = "9083390222c0708ef4829e2a13c07c9a8d54b81b726f18f2c445ca69ffb0bd50"
+hash = "0bc9467e7a0977ca7dc07c0c619352257afc6a33e91ee57a0b6e192518ed4c6b"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/plaza/0.mcfunction"
@@ -349,15 +349,15 @@ hash = "0354fe013b9d08a27f8720f4232a32deba340c6e21d70e3e2302256574bdfb9b"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/terrain/4.mcfunction"
-hash = "bae74cb69701a0ba2c6d52e9a9be6e887ec178aba15728c8306923dfdf5478db"
+hash = "3d4d3b9db397bd29023bad825d98603e79d2419c58fcf49368747ecb16c5b5f3"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/terrain/5.mcfunction"
-hash = "a69b5f58778c65653053b0615d0b435505ff3c99068249fdc14959f702b82deb"
+hash = "21acf20cb4d88de57290cc48a8fe49f05f09b968fd4b0f77114540a20f45e174"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/terrain/6.mcfunction"
-hash = "fa158b0129d075bf28344f10a69c131171903b73eb1cdc41c8cbeabbe536d837"
+hash = "e836197f72c2c59752fa35bb90e62826d3249df4e81def0200bc955c744a14df"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/terrain/run_0.mcfunction"
@@ -565,7 +565,7 @@ hash = "00eaf422f3aab81529b4b331f7c9d785ec5b468b7df85f18da141eb09474a7e5"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/load.mcfunction"
-hash = "266886d0d08aaa101d17539655e9cb89d8cd02ed4354cfd5798511cbb7758b39"
+hash = "1bb4daccffb1d1d58d439ee8388be6f9ea50272eb9b281c267c479b8d7c815c2"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mobs.mcfunction"

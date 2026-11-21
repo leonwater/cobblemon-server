@@ -118,6 +118,8 @@ if __name__ == '__main__':
     holes += check('광장 포켓몬센터', P.CENTER_P, 0, 10, [(c1, c1, 1, 4, -1, 1)], pg)
     mzm = (mz1 + mz2) // 2
     holes += check('광장 프렌들리 숍', P.MART_P, 0, 9, [(m2, m2, 1, 4, mzm - 1, mzm + 1)], pg)
+    x1, x2, z1, _ = W.LOBBY                                    # 체육관 문 앞 바닥 (계단과 건물 사이 한 줄)
+    holes += [('체육관 문 앞', '바닥', x, W.LOBBY_Y, z1 - 1) for x in range(x1 + 3, x2 - 2) if empty(get(x, W.LOBBY_Y, z1 - 1))]
     for h in holes[:80]:
         print('빈칸', h)
     print(f'검사한 건물 {len(bs) + 3}채, 빈칸 {len(holes)}개')
