@@ -15,47 +15,5 @@
  "spawnWeightFactor": 0.0,
  "biomeTagBlacklist": [],
  "biomeTagWhitelist": [],
- "forceBattleOnSight": false,
- "dialog": {
-  "on_battle_start": [
-   {
-    "literal": "관장 비주기: 좋아, 실력을 보여줘!"
-   }
-  ],
-  "on_battle_won": [
-   {
-    "literal": "관장 비주기: 아직 멀었어. 다시 도전해!"
-   }
-  ],
-  "on_battle_lost": [
-   {
-    "literal": "관장 비주기: 훌륭해! 네가 이겼어."
-   }
-  ],
-  "missing_required_trainer": [
-   {
-    "literal": "앞 체육관의 배지를 먼저 모아 와!"
-   }
-  ],
-  "missing_required_trainer_leader": [
-   {
-    "literal": "앞 체육관의 배지를 먼저 모아 와!"
-   }
-  ],
-  "missing_required_trainer_e4": [
-   {
-    "literal": "사천왕은 순서대로 이겨야 해!"
-   }
-  ],
-  "over_level_cap": [
-   {
-    "literal": "네 포켓몬 레벨이 너무 높아! 레벨 제한을 지켜 줘."
-   }
-  ],
-  "missing_pokemon": [
-   {
-    "literal": "싸울 수 있는 포켓몬이 없잖아!"
-   }
-  ]
- }
+ "forceBattleOnSight": false
 }
