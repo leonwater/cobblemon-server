@@ -342,7 +342,7 @@ public final class CobblemonHooks {
     static int wildCount, wildCap = WILD_MIN;
 
     /** 1초마다: 야생에 있는 주인 없는 포켓몬 수와 상한을 다시 셈 (스폰 때마다 세면 느려서). */
-    /** 1초마다: 체육관·사천왕 배틀 중 내 포켓몬을 도전자 앞 4칸(필드 쪽)으로. 처음 나올 때와 교체로 나올 때 모두
+    /** 1초마다: 체육관·사천왕 배틀 중 내 포켓몬을 도전자 앞 7칸(필드 가운데 쪽)으로. 처음 나올 때와 교체로 나올 때 모두
      *  관장 앞에 나오는 경우가 있어(실측) 멀리 있으면 옮김. */
     static void holdGymPokemon(MinecraftServer server) {
         for (var p : server.getPlayerList().getPlayers()) {
@@ -350,7 +350,7 @@ public final class CobblemonHooks {
             var battle = com.cobblemon.mod.common.battles.BattleRegistry.INSTANCE.getBattleByParticipatingPlayer(p);
             if (battle == null || !battle.isPvN()) continue;
             var f = p.getForward();
-            double x = p.getX() + f.x * 4, z = p.getZ() + f.z * 4;
+            double x = p.getX() + f.x * 7, z = p.getZ() + f.z * 7;   // 7칸: 필드 가운데 몬스터볼 쪽 (4칸이면 큰 포켓몬이 화면을 가림)
             for (var a : battle.getActors()) {
                 if (!a.getPlayerUUIDs().iterator().hasNext() || !a.getPlayerUUIDs().iterator().next().equals(p.getUUID())) continue;
                 for (var act : a.getActivePokemon()) {
