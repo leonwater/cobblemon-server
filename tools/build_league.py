@@ -1,4 +1,4 @@
-"""포켓서버 리그(배지 체육관 8 + 사천왕 4) 데이터 생성기 — Radical Cobblemon Trainers(RCT) 형식.
+"""잡켓몬 리그(배지 체육관 8 + 사천왕 4) 데이터 생성기 — Radical Cobblemon Trainers(RCT) 형식.
 
 RCT에 이미 있는 관장·사천왕 ID를 덮어써서, RCT의 원작 캐릭터 스킨은 그대로 쓰고 팀·레벨·순서만 우리 것으로 바꿈.
 사용: python3 tools/build_league.py   (채팅용 체육관 정보도 출력)
@@ -289,7 +289,7 @@ def trainer(tid, name, title, team, kind, required, max_defeats):
 def main():
     validate()
     write(f'rctmod/series/{SERIES}.json', {
-        'title': text('포켓서버 리그'), 'description': text('배지 8개를 모은 뒤 사천왕을 한 번에 모두 이겨라'),
+        'title': text('잡켓몬 리그'), 'description': text('배지 8개를 모은 뒤 사천왕을 한 번에 모두 이겨라'),
         'difficulty': 3, 'requiredSeries': [], 'initialLevelCap': 20})
     info = []
     prev = None
@@ -347,7 +347,7 @@ def tp(pos):
 def badge_item(n, name, color):
     hexc = '#%02X%02X%02X' % color
     return (f"give @s minecraft:gold_nugget[minecraft:custom_name='{{\"text\":\"{name}\",\"color\":\"{hexc}\",\"italic\":false}}',"
-            f"minecraft:lore=['{{\"text\":\"포켓서버 리그 {n}번 체육관 배지\",\"color\":\"gray\",\"italic\":false}}'],"
+            f"minecraft:lore=['{{\"text\":\"잡켓몬 리그 {n}번 체육관 배지\",\"color\":\"gray\",\"italic\":false}}'],"
             f"minecraft:custom_model_data={1000 + n},minecraft:custom_data={{pokeserver:\"badge{n}\"}}] 1")
 
 
@@ -485,7 +485,7 @@ def functions():
         '# 관장·사천왕 소환 (RCT 소환 명령은 플레이어가 실행해야 해서, 접속한 플레이어로 실행됨)',
         'kill @e[type=rctmod:trainer,tag=poke.leader]', *spawn,
         'data modify storage poke:state leaders set value 1', f'execute in poke:town run forceload remove {ARENA_CHUNKS}',
-        'say [pokeserver] 체육관 관장·사천왕을 배치했습니다.'])
+        'say [잡켓몬] 체육관 관장·사천왕을 배치했습니다.'])
 
 
 def spawn_lines(tid, x, z, yaw):

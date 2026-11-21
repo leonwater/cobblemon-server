@@ -1,4 +1,6 @@
-execute as @a[tag=!poke.joined] run function poke:join/first
+# 새 월드를 짓는 중(ready 0)이면 처음 들어온 사람은 관전 모드로 기다림 (튜토리얼 방이 없는 허공에 떨어져 죽던 문제)
+execute if data storage poke:state {ready:0} as @a[tag=!poke.joined] run function poke:join/wait
+execute unless data storage poke:state {ready:0} as @a[tag=!poke.joined] run function poke:join/first
 execute as @a unless score @s poke.id matches 1.. run function poke:join/assign_id
 execute as @a[scores={poke.left=1..}] run function poke:join/rejoin
 # 튜토리얼을 끝낸 사람이 튜토리얼 차원에 남아 있으면(접속이 끊겼다 다시 들어오는 등) 광장으로

@@ -783,7 +783,8 @@ if __name__ == '__main__':
         nxt = f'poke:build/terrain/run_{k + 1}' if k + 1 < len(parts) else 'poke:build/finish'
         out[f'build/terrain/run_{k}.mcfunction'] = [f'execute in poke:town run function poke:build/terrain/{k}', f'schedule function {nxt} 2t']
     # 짓는 도중 서버가 꺼지면 남은 예약이 저장됨 → 새로 짓기 전에 지워 두 번 짓지 않게
-    out['build/start.mcfunction'][1:1] = ['schedule clear poke:build/run', 'schedule clear poke:build/finish'] + [
+    # ready 0 = 짓는 중: 처음 들어온 사람은 튜토리얼 방이 다 지어질 때까지 관전 모드로 기다림 (join/wait). 키가 없으면(예전 월드) 다 지은 것
+    out['build/start.mcfunction'][1:1] = ['data modify storage poke:state ready set value 0', 'schedule clear poke:build/run', 'schedule clear poke:build/finish'] + [
         f'schedule clear poke:build/terrain/run_{k}' for k in range(len(parts))]
     out['build/run.mcfunction'] = ['# 자동 생성: tools/build_world.py. 지형을 여러 틱에 나눠 지은 뒤 build/finish',
                                    'function poke:build/terrain/run_0']
@@ -793,9 +794,9 @@ if __name__ == '__main__':
         '# 자동 생성: tools/build_world.py',
         'execute in poke:hub run function poke:build/tutorial',
         'execute in poke:town run function poke:mod/build_town', 'execute in poke:hub run function poke:mod/spawn_npcs',
-        'execute in poke:town run forceload remove all', f'data modify storage poke:state build set value {BUILD}',
+        'execute in poke:town run forceload remove all', f'data modify storage poke:state build set value {BUILD}', 'data modify storage poke:state ready set value 1',
         '# 관장·사천왕은 플레이어가 접속하면 소환 (RCT 명령이 플레이어를 요구)', 'data modify storage poke:state leaders set value 0',
-        'say [pokeserver] 튜토리얼 방·체육관과 지형을 지었습니다.']
+        'say [잡켓몬] 튜토리얼 방·체육관과 지형을 지었습니다.']
     # 15. 광장 마을 (야생): 모드가 자리·지형을 정한 뒤 그 자리에서 build/plaza/start 실행 → 마커 기준 상대 좌표로 2,000줄씩
     pdir = FN / 'build/plaza'
     pdir.mkdir(parents=True, exist_ok=True)
@@ -818,7 +819,7 @@ if __name__ == '__main__':
         'execute in poke:wild at @e[type=minecraft:marker,tag=poke.plaza,limit=1] run function poke:mod/plaza',
         # 청크를 한 번에 풀면 조명 계산이 몰려 한 틱이 길어짐 → 16칸 줄씩 1초 간격으로 풂
         *[f'schedule function poke:build/plaza/unload_{k} {20 * (i + 1)}t' for i, k in enumerate([0, 1, 2, 3, 4, 6, 7, 8, 9, 5])],   # 마커가 있는 줄(5)은 마지막
-        'say [pokeserver] 광장 마을을 지었습니다.']
+        'say [잡켓몬] 광장 마을을 지었습니다.']
     for k in range(10):
         x = -80 + 16 * k
         out[f'build/plaza/unload_{k}.mcfunction'] = [

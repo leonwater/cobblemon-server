@@ -1,4 +1,5 @@
 # 자동 생성: tools/build_world.py
+data modify storage poke:state ready set value 0
 schedule clear poke:build/run
 schedule clear poke:build/finish
 schedule clear poke:build/terrain/run_0

@@ -18,7 +18,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 public final class Plaza {
     private Plaza() {}
 
-    public static final int PROTECT = 72, BLEND = 28, BUILD_VERSION = 4;   // 2: 팁 NPC 높이 수정, 3: 건물 위 이름표 삭제, 4: 상인 둘로(코블몬·마인크래프트) + 액자 진열
+    public static final int PROTECT = 72, BLEND = 28, BUILD_VERSION = 5;   // 2: 팁 NPC 높이 수정, 3: 건물 위 이름표 삭제, 4: 상인 둘로(코블몬·마인크래프트) + 액자 진열, 5: 분수 위 서버 이름 잡켓몬 서버
     static final String DIM = "poke:wild";
     /** 꽃 숲 칸 가운데 (칸 = 256x256), 앞부터 확인. */
     static final int[][] CELLS = {{1920, 2176}, {2176, 1920}, {1664, 2432}, {2432, 1664}, {1408, 2688}, {2688, 1408},
@@ -129,13 +129,15 @@ public final class Plaza {
         }
         if (job == 0 && col == 0) cmd(s, "chunky pause");   // 이미 시작된 미리 만들기(서버를 다시 켜면 자동으로 이어짐)는 잠시 멈춤
         int ccx = cx0 + job % side, ccz = cz0 + job / side;
-        level.getChunk(ccx, ccz);   // 없으면 만들어 불러옴
+        // 청크는 다른 스레드에서 만들게 하고(강제 로드), 다 불러온 뒤에 다듬음. 예전엔 여기서 만들 때까지 서버가 멈춰 기다려
+        // 초기화 직후처럼 바쁠 때 60초를 넘겨 감시 장치가 서버를 껐음 (크래시 보고서 Watchdog, Plaza.tick)
+        if (!level.hasChunk(ccx, ccz)) { level.setChunkForced(ccx, ccz, true); return; }
         long end = System.nanoTime() + 15_000_000L;
         while (col < 256 && System.nanoTime() < end) {
             column(level, ccx * 16 + (col & 15), ccz * 16 + (col >> 4));
             col++;
         }
-        if (col == 256) { col = 0; job++; }
+        if (col == 256) { col = 0; job++; level.setChunkForced(ccx, ccz, false); }
     }
 
     static void column(ServerLevel level, int x, int z) {

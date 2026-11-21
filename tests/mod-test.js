@@ -137,7 +137,8 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   // 6. 상인 우클릭 → 그 상인의 상점만 열림 (포켓몬 상인 = shop:poke 분류만)
   await cmd('execute at A run summon minecraft:villager ~1 ~ ~ {NoAI:1b,Tags:["poke.merchant_poke"]}'); await sleep(350)
   const before = opened.length
-  await A.activateEntity(Object.values(A.entities).find(e => e.name === 'villager'))
+  let vil; for (let i = 0; i < 20 && !(vil = Object.values(A.entities).find(e => e.name === 'villager')); i++) await sleep(150)   // 봇이 주민을 볼 때까지
+  await A.activateEntity(vil)
   await sleep(350)
   assert.equal(opened.length, before + 1, '6. 상인 우클릭 → 상점 화면')
   const pokeTxt = opened[opened.length - 1].toString('utf8')
@@ -224,9 +225,9 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
 
   // 15. 광장 마을: 모드가 자리·지형을 정하고 지음, 둘레 72칸은 수정 금지
   await rc.send('tick sprint 4800')
-  for (let i = 0; i < 120 && !/built: 4/.test(await cmd('data get storage poke:state plaza')); i++) await sleep(450)
+  for (let i = 0; i < 120 && !/built: 5/.test(await cmd('data get storage poke:state plaza')); i++) await sleep(450)
   await rc.send('tick sprint stop')
-  assert.match(await cmd('data get storage poke:state plaza'), /built: 4/, '광장 짓기 끝')
+  assert.match(await cmd('data get storage poke:state plaza'), /built: 5/, '광장 짓기 끝')
   const pz = (await cmd('data get storage poke:state plaza')).match(/x: (-?\d+), y: (-?\d+), z: (-?\d+)/)
   assert.ok(pz, '15. 광장 자리 저장'); const [px, py, pzz] = pz.slice(1).map(Number)
   await cmd(`execute in poke:wild run forceload add ${px} ${pzz}`); await sleep(700)

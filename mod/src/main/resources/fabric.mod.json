@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "pokeserver",
   "version": "${version}",
-  "name": "pokeserver",
+  "name": "잡켓몬 서버",
   "description": "pokeserver 전용: 농장 땅, 상점, 메인 메뉴, 닉네임",
   "environment": "*",
   "entrypoints": {

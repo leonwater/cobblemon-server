@@ -10,4 +10,4 @@ schedule function poke:build/plaza/unload_7 140t
 schedule function poke:build/plaza/unload_8 160t
 schedule function poke:build/plaza/unload_9 180t
 schedule function poke:build/plaza/unload_5 200t
-say [pokeserver] 광장 마을을 지었습니다.
+say [잡켓몬] 광장 마을을 지었습니다.

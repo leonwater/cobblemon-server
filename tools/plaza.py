@@ -105,7 +105,7 @@ def fountain():
                     b = 'black_concrete' if dy == 0 else ('red_concrete' if dy > 0 else 'white_concrete')
                     L.append(W.sb(dx, 6 + dy, dz, 'minecraft:' + b))
     L += [W.sb(0, 6, 3, 'minecraft:white_concrete'), W.sb(0, 6, -3, 'minecraft:white_concrete')]
-    L.append(W.label(0.5, 10.2, 0.5, '포켓서버', 'gold', 2.4, tag='poke.plaza'))
+    L.append(W.label(0.5, 10.2, 0.5, '잡켓몬 서버', 'gold', 2.4, tag='poke.plaza'))
     occupy(-6, 6, -6, 6)
     return L
 

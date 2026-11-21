@@ -26,7 +26,7 @@ public class PokeServerClient implements ClientModInitializer {
         net.fabricmc.fabric.api.resource.ResourceManagerHelper.registerBuiltinResourcePack(
                 net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("pokeserver", "leaders"),
                 net.fabricmc.loader.api.FabricLoader.getInstance().getModContainer("pokeserver").orElseThrow(),
-                net.minecraft.network.chat.Component.literal("포켓서버 관장 스킨"),
+                net.minecraft.network.chat.Component.literal("잡켓몬 서버 관장 스킨"),
                 net.fabricmc.fabric.api.resource.ResourcePackActivationType.ALWAYS_ENABLED);
         ClientPlayNetworking.registerGlobalReceiver(Net.MenuOpen.TYPE,
                 (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new MenuScreen(p))));

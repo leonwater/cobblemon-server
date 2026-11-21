@@ -1075,7 +1075,7 @@ setblock ~2 ~6 ~1 minecraft:black_concrete
 setblock ~2 ~7 ~0 minecraft:red_concrete
 setblock ~0 ~6 ~3 minecraft:white_concrete
 setblock ~0 ~6 ~-3 minecraft:white_concrete
-summon minecraft:text_display ~0.5 ~10.2 ~0.5 {Tags:["poke.plaza"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[2.4f,2.4f,2.4f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포켓서버","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+summon minecraft:text_display ~0.5 ~10.2 ~0.5 {Tags:["poke.plaza"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[2.4f,2.4f,2.4f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"잡켓몬 서버","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 # ── 포켓몬센터 ──
 fill ~14 ~0 ~-13 ~40 ~0 ~13 minecraft:smooth_stone
 fill ~16 ~0 ~-11 ~38 ~0 ~11 minecraft:smooth_quartz
