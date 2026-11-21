@@ -36,7 +36,7 @@ if [ -d $CACHE ]; then rm -rf $S/world && cp -r $CACHE $S/world && echo "지어 
 rc() { node -e 'require("'$R'/tests/node_modules/rcon-client").Rcon.connect({host:"localhost",port:25575,password:"test"}).then(async r=>{console.log(await r.send(process.argv[1]));r.end()})' "$1"; }
 echo eula=true > $S/eula.txt
 printf 'online-mode=false\nenable-rcon=true\nrcon.password=test\nrcon.port=25575\nspawn-protection=0\n' > $S/server.properties
-(cd $S && java -Xmx4G -jar fabric-server-launch.jar nogui > run.log 2>&1 &)
+(cd $S && java -Xmx4G ${SERVER_JAVA_OPTS:-} -jar fabric-server-launch.jar nogui > run.log 2>&1 &)
 timeout 240 bash -c "until grep -qE 'Done \(|Exception in thread' $S/run.log; do sleep 1; done" || { echo "FAIL server boot"; exit 1; }
 if [ ! -d $CACHE ]; then   # 처음 보는 조합: 짓기·사전 생성이 끝나길 기다렸다가 월드 저장 (클라이언트 접속 전이라 플레이어 기록 없음)
   N=$(grep -o '{build:[0-9]*}' $S/world/datapacks/pokeserver/data/poke/function/load.mcfunction | grep -o '[0-9]*')
