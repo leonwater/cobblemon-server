@@ -26,29 +26,43 @@
     "spikes",
     "roost"
    ],
-   "heldItem": "cobblemon:rocky_helmet"
+   "heldItem": "cobblemon:rocky_helmet",
+   "gimmicks": {
+    "tera": "steel"
+   }
   },
   {
-   "species": "scizor",
+   "species": "claydol",
    "level": 87,
    "moveset": [
-    "bulletpunch",
+    "earthpower",
+    "psychic",
+    "rapidspin",
+    "stealthrock"
+   ],
+   "heldItem": "cobblemon:light_clay"
+  },
+  {
+   "species": "cradily",
+   "level": 87,
+   "moveset": [
+    "gigadrain",
+    "stoneedge",
+    "recover",
+    "toxic"
+   ],
+   "heldItem": "cobblemon:leftovers"
+  },
+  {
+   "species": "armaldo",
+   "level": 88,
+   "moveset": [
     "xscissor",
-    "uturn",
+    "stoneedge",
+    "earthquake",
     "swordsdance"
    ],
    "heldItem": "cobblemon:life_orb"
-  },
-  {
-   "species": "magnezone",
-   "level": 87,
-   "moveset": [
-    "thunderbolt",
-    "flashcannon",
-    "voltswitch",
-    "thunderwave"
-   ],
-   "heldItem": "cobblemon:magnet"
   },
   {
    "species": "aggron",
@@ -59,21 +73,9 @@
     "earthquake",
     "ironhead"
    ],
-   "heldItem": "mega_showdown:steelium_z"
-  },
-  {
-   "species": "copperajah",
-   "level": 88,
-   "moveset": [
-    "heavyslam",
-    "superpower",
-    "playrough",
-    "stealthrock"
-   ],
-   "heldItem": "cobblemon:leftovers",
+   "heldItem": "cobblemon:sitrus_berry",
    "gimmicks": {
-    "dynamax": true,
-    "gmax": true
+    "dynamax": true
    }
   },
   {

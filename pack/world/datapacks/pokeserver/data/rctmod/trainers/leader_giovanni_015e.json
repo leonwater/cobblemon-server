@@ -19,7 +19,7 @@
  "team": [
   {
    "species": "dugtrio",
-   "level": 82,
+   "level": 63,
    "moveset": [
     "earthquake",
     "stoneedge",
@@ -29,8 +29,30 @@
    "heldItem": "cobblemon:focus_sash"
   },
   {
+   "species": "nidoqueen",
+   "level": 63,
+   "moveset": [
+    "earthpower",
+    "sludgewave",
+    "icebeam",
+    "stealthrock"
+   ],
+   "heldItem": "cobblemon:leftovers"
+  },
+  {
+   "species": "steelix",
+   "level": 64,
+   "moveset": [
+    "earthquake",
+    "ironhead",
+    "stoneedge",
+    "dragontail"
+   ],
+   "heldItem": "mega_showdown:steelixite"
+  },
+  {
    "species": "nidoking",
-   "level": 83,
+   "level": 64,
    "moveset": [
     "earthpower",
     "sludgewave",
@@ -41,7 +63,7 @@
   },
   {
    "species": "rhyperior",
-   "level": 83,
+   "level": 65,
    "moveset": [
     "earthquake",
     "stoneedge",
@@ -49,39 +71,6 @@
     "icepunch"
    ],
    "heldItem": "mega_showdown:groundium_z"
-  },
-  {
-   "species": "swampert",
-   "level": 83,
-   "moveset": [
-    "earthquake",
-    "waterfall",
-    "icepunch",
-    "stealthrock"
-   ],
-   "heldItem": "cobblemon:leftovers"
-  },
-  {
-   "species": "steelix",
-   "level": 83,
-   "moveset": [
-    "earthquake",
-    "ironhead",
-    "stoneedge",
-    "dragontail"
-   ],
-   "heldItem": "cobblemon:rocky_helmet"
-  },
-  {
-   "species": "excadrill",
-   "level": 85,
-   "moveset": [
-    "earthquake",
-    "ironhead",
-    "rockslide",
-    "swordsdance"
-   ],
-   "heldItem": "mega_showdown:excadrite"
   }
  ]
 }

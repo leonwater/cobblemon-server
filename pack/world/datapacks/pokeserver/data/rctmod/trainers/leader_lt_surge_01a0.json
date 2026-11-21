@@ -19,58 +19,58 @@
  "team": [
   {
    "species": "electrode",
-   "level": 32,
+   "level": 53,
    "moveset": [
-    "spark",
+    "thunderbolt",
+    "voltswitch",
     "screech",
-    "swift",
-    "selfdestruct"
+    "explosion"
    ],
    "heldItem": "cobblemon:focus_sash"
   },
   {
-   "species": "magneton",
-   "level": 33,
+   "species": "magnezone",
+   "level": 53,
    "moveset": [
-    "spark",
-    "thunderwave",
+    "thunderbolt",
     "flashcannon",
-    "triattack"
-   ],
-   "heldItem": "cobblemon:eviolite"
-  },
-  {
-   "species": "electabuzz",
-   "level": 33,
-   "moveset": [
-    "thunderpunch",
-    "quickattack",
-    "lowkick",
-    "lightscreen"
-   ],
-   "heldItem": "cobblemon:eviolite"
-  },
-  {
-   "species": "pikachu",
-   "level": 33,
-   "moveset": [
-    "thunderbolt",
-    "quickattack",
-    "irontail",
-    "doubleteam"
-   ],
-   "heldItem": "cobblemon:light_ball"
-  },
-  {
-   "species": "raichu",
-   "level": 35,
-   "moveset": [
-    "thunderbolt",
-    "quickattack",
-    "irontail",
+    "voltswitch",
     "thunderwave"
    ],
    "heldItem": "cobblemon:magnet"
+  },
+  {
+   "species": "manectric",
+   "level": 53,
+   "moveset": [
+    "thunderbolt",
+    "flamethrower",
+    "voltswitch",
+    "thunderwave"
+   ],
+   "heldItem": "cobblemon:sitrus_berry"
+  },
+  {
+   "species": "electivire",
+   "level": 54,
+   "moveset": [
+    "thunderpunch",
+    "icepunch",
+    "crosschop",
+    "earthquake"
+   ],
+   "heldItem": "mega_showdown:electrium_z"
+  },
+  {
+   "species": "raichu",
+   "level": 55,
+   "moveset": [
+    "thunder",
+    "focusblast",
+    "grassknot",
+    "nastyplot"
+   ],
+   "heldItem": "mega_showdown:raichunite_y"
   }
  ]
 }

@@ -17,8 +17,8 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   const ff = async t => { await rc.send(`tick sprint ${t}`); for (let i = 0; i < 100 && /sprint/i.test(await rc.send('tick query')); i++) await sleep(100) }
   // 농장·마을 짓기가 끝날 때까지 (짓는 동안엔 서버가 바빠 응답이 늦음): 그동안 게임 시간을 빨리
   await rc.send('tick sprint 12000')
-  for (let i = 0; i < 240 && !/build: 16.*farm: 3|farm: 3.*build: 16/.test(await cmd('data get storage poke:state')); i++) await sleep(500)
-  assert.match(await cmd('data get storage poke:state'), /build: 16/, '건물 번호가 load와 같아야 함 (기다리다 시간만 버리지 않게 바로 실패)')
+  for (let i = 0; i < 240 && !/build: 17.*farm: 3|farm: 3.*build: 17/.test(await cmd('data get storage poke:state')); i++) await sleep(500)
+  assert.match(await cmd('data get storage poke:state'), /build: 17/, '건물 번호가 load와 같아야 함 (기다리다 시간만 버리지 않게 바로 실패)')
   await rc.send('tick sprint stop')
 
   const A = await join('A'), B = await join('B'); await sleep(450)

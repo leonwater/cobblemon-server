@@ -18,63 +18,62 @@
  ],
  "team": [
   {
-   "species": "flygon",
+   "species": "spiritomb",
    "level": 87,
    "moveset": [
-    "earthquake",
-    "dragonclaw",
-    "uturn",
-    "firepunch"
+    "shadowball",
+    "darkpulse",
+    "willowisp",
+    "suckerpunch"
    ],
-   "heldItem": "cobblemon:choice_scarf"
+   "heldItem": "cobblemon:leftovers"
   },
   {
-   "species": "kingdra",
+   "species": "roserade",
    "level": 87,
    "moveset": [
-    "hydropump",
-    "dracometeor",
-    "icebeam",
-    "raindance"
-   ],
-   "heldItem": "cobblemon:damp_rock"
-  },
-  {
-   "species": "goodra",
-   "level": 87,
-   "moveset": [
-    "dracometeor",
+    "gigadrain",
     "sludgebomb",
-    "thunderbolt",
-    "fireblast"
+    "shadowball",
+    "sleeppowder"
    ],
-   "heldItem": "cobblemon:assault_vest"
+   "heldItem": "cobblemon:black_sludge"
   },
   {
-   "species": "dragonite",
-   "level": 88,
+   "species": "milotic",
+   "level": 87,
    "moveset": [
-    "outrage",
-    "extremespeed",
-    "earthquake",
-    "dragondance"
+    "surf",
+    "icebeam",
+    "recover",
+    "mirrorcoat"
    ],
-   "heldItem": "mega_showdown:dragonium_z"
+   "heldItem": "cobblemon:leftovers"
   },
   {
-   "species": "duraludon",
+   "species": "togekiss",
    "level": 88,
    "moveset": [
-    "dracometeor",
-    "flashcannon",
-    "thunderbolt",
-    "bodypress"
+    "airslash",
+    "dazzlinggleam",
+    "aurasphere",
+    "nastyplot"
    ],
-   "heldItem": "cobblemon:expert_belt",
+   "heldItem": "cobblemon:sitrus_berry",
    "gimmicks": {
-    "dynamax": true,
-    "gmax": true
+    "dynamax": true
    }
+  },
+  {
+   "species": "lucario",
+   "level": 88,
+   "moveset": [
+    "aurasphere",
+    "flashcannon",
+    "darkpulse",
+    "nastyplot"
+   ],
+   "heldItem": "mega_showdown:fightinium_z"
   },
   {
    "species": "garchomp",
@@ -85,7 +84,10 @@
     "stoneedge",
     "swordsdance"
    ],
-   "heldItem": "mega_showdown:garchompite"
+   "heldItem": "cobblemon:life_orb",
+   "gimmicks": {
+    "tera": "dragon"
+   }
   }
  ]
 }

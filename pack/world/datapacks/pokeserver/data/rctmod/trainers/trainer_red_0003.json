@@ -18,41 +18,30 @@
  ],
  "team": [
   {
-   "species": "pikachu",
-   "level": 92,
+   "species": "lapras",
+   "level": 87,
    "moveset": [
-    "volttackle",
-    "irontail",
-    "quickattack",
-    "thunderbolt"
-   ],
-   "heldItem": "mega_showdown:pikanium_z"
-  },
-  {
-   "species": "espeon",
-   "level": 92,
-   "moveset": [
-    "psychic",
-    "shadowball",
-    "dazzlinggleam",
-    "morningsun"
-   ],
-   "heldItem": "cobblemon:twisted_spoon"
-  },
-  {
-   "species": "snorlax",
-   "level": 93,
-   "moveset": [
-    "bodyslam",
-    "crunch",
-    "rest",
-    "sleeptalk"
+    "hydropump",
+    "icebeam",
+    "thunderbolt",
+    "freezedry"
    ],
    "heldItem": "cobblemon:leftovers"
   },
   {
+   "species": "venusaur",
+   "level": 87,
+   "moveset": [
+    "gigadrain",
+    "sludgebomb",
+    "earthquake",
+    "sleeppowder"
+   ],
+   "heldItem": "cobblemon:black_sludge"
+  },
+  {
    "species": "blastoise",
-   "level": 93,
+   "level": 87,
    "moveset": [
     "hydropump",
     "icebeam",
@@ -62,25 +51,35 @@
    "heldItem": "cobblemon:assault_vest"
   },
   {
-   "species": "venusaur",
-   "level": 93,
+   "species": "pikachu",
+   "level": 88,
    "moveset": [
-    "solarbeam",
-    "sludgebomb",
-    "earthquake",
-    "sleeppowder"
+    "volttackle",
+    "irontail",
+    "quickattack",
+    "thunderbolt"
    ],
-   "heldItem": "cobblemon:black_sludge",
+   "heldItem": "mega_showdown:pikanium_z"
+  },
+  {
+   "species": "snorlax",
+   "level": 88,
+   "moveset": [
+    "bodyslam",
+    "crunch",
+    "rest",
+    "sleeptalk"
+   ],
+   "heldItem": "cobblemon:leftovers",
    "gimmicks": {
-    "dynamax": true,
-    "gmax": true
+    "tera": "normal"
    }
   },
   {
    "species": "charizard",
-   "level": 95,
+   "level": 90,
    "moveset": [
-    "flareblitz",
+    "fireblast",
     "airslash",
     "dragonpulse",
     "solarbeam"

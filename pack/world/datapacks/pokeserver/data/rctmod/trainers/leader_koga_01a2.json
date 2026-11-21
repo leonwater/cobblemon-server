@@ -18,30 +18,8 @@
  ],
  "team": [
   {
-   "species": "muk",
-   "level": 52,
-   "moveset": [
-    "gunkshot",
-    "poisonjab",
-    "minimize",
-    "toxic"
-   ],
-   "heldItem": "cobblemon:black_sludge"
-  },
-  {
-   "species": "venomoth",
-   "level": 53,
-   "moveset": [
-    "bugbuzz",
-    "sludgebomb",
-    "sleeppowder",
-    "psychic"
-   ],
-   "heldItem": "cobblemon:wise_glasses"
-  },
-  {
    "species": "weezing",
-   "level": 53,
+   "level": 43,
    "moveset": [
     "sludgebomb",
     "toxic",
@@ -52,26 +30,48 @@
    "ability": "levitate"
   },
   {
+   "species": "venomoth",
+   "level": 43,
+   "moveset": [
+    "bugbuzz",
+    "sludgebomb",
+    "sleeppowder",
+    "psychic"
+   ],
+   "heldItem": "cobblemon:wise_glasses"
+  },
+  {
+   "species": "toxicroak",
+   "level": 44,
+   "moveset": [
+    "poisonjab",
+    "drainpunch",
+    "suckerpunch",
+    "swordsdance"
+   ],
+   "heldItem": "cobblemon:black_sludge"
+  },
+  {
+   "species": "muk",
+   "level": 44,
+   "moveset": [
+    "gunkshot",
+    "poisonjab",
+    "minimize",
+    "toxic"
+   ],
+   "heldItem": "cobblemon:black_sludge"
+  },
+  {
    "species": "crobat",
-   "level": 54,
+   "level": 45,
    "moveset": [
     "crosspoison",
     "airslash",
     "confuseray",
     "uturn"
    ],
-   "heldItem": "cobblemon:poison_barb"
-  },
-  {
-   "species": "beedrill",
-   "level": 55,
-   "moveset": [
-    "poisonjab",
-    "xscissor",
-    "drillrun",
-    "uturn"
-   ],
-   "heldItem": "mega_showdown:beedrillite"
+   "heldItem": "mega_showdown:poisonium_z"
   }
  ]
 }
