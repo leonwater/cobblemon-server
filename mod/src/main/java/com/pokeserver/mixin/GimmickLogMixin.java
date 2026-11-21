@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 abstract class GimmickLogMixin {
     private static final boolean ON = Boolean.getBoolean("pokeserver.gimmicklog");
 
-    @Inject(method = "interpretMessage", at = @At("HEAD"))
+    @Inject(method = "interpretMessage", at = @At("HEAD"), require = 0)   // 시험용이라 Cobblemon이 바뀌어 못 붙어도 서버는 켜지게
     private void pokeserver$log(UUID battle, String message, CallbackInfo ci) {
         if (!ON) return;
         for (String line : message.split("\n")) {

@@ -182,6 +182,8 @@ NPC는 Cobblemon NPC 하나로 통일합니다 (대화·회복·배틀 파티를
 | 바꿀 것 | 방법 |
 |---|---|
 | 관장 이름·포켓몬·기술·레벨·대사 | `tools/build_league.py` 수정 → 실행 → `reload`. `COBBLEMON_SPECIES=<Cobblemon 종 데이터 폴더>`를 주면 기술을 배울 수 있는지·레벨 규칙도 검사 |
+| 관장 팀 문서 (`docs/관장팀.md`) | `python3 tools/teamdoc.py` (팀을 바꾸면 다시 실행) |
+| 문서 사이트 (아티팩트 2개) | `python3 tools/docsite.py <출력.html> play` / `... dev`, 사진은 `docs/ui` → 출력 옆 `ui/` |
 | 관장 다시 배치 | `/data modify storage poke:state leaders set value 0` (다음 틱에 다시 소환) |
 
 ## 관리자 명령

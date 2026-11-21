@@ -4,3 +4,4 @@ tests/package-lock.json
 tests/.modwork/
 tools/__pycache__/
 tests/.cache/
+tools/.jarcache/
