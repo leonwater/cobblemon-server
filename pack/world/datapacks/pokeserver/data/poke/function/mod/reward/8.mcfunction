@@ -1,5 +1,4 @@
 # 자동 생성: tools/build_league.py
-# 자동 생성: tools/build_league.py. 관장 보상 물품
 give @s mega_showdown:tera_orb 1
 tellraw @s {"text":"테라스탈 오브를 받았어요! 손에 들거나 장신구 칸에 끼면 배틀에서 테라스탈을 쓸 수 있어요.","color":"aqua"}
 give @s cobblemon:exp_candy_xl 5

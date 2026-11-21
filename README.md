@@ -242,4 +242,4 @@ tests/run.sh
 tests/mod-test.sh
 ```
 
-- **농장 높이 제한**: 땅 y -63 ~ -40 (`Farms.MIN_Y/MAX_Y`). **오른쪽 위 알림 끔**: `ToastMixin` (채팅은 그대로).
+- **농장 높이 제한**: 땅 y -65 ~ -50 (`Farms.MIN_Y/MAX_Y`). **오른쪽 위 알림 끔**: `ToastMixin` (채팅은 그대로).

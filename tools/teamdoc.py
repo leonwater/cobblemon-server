@@ -30,7 +30,7 @@ def it(i):
     ns, n = i.split(':'); return ko.get(f'item.{ns}.{n}', n)
 def special(m):
     i, g = m['heldItem'], m.get('gimmicks', {})
-    if g.get('dynamax'): return '다이맥스'
+    if g.get('dynamax'): return '거다이맥스' if g.get('gmax') else '다이맥스'
     if g.get('tera'): return f"테라스탈 ({ko.get('cobblemon.type.' + g['tera'], g['tera'])})"
     if i.endswith('ium_z'): return 'Z기술'
     if i.startswith('mega_showdown:'): return '메가진화'
@@ -49,7 +49,7 @@ VERIFIED = [   # 2026-11-21 실제 배틀 기록(-Dpokeserver.gimmicklog=true)
     '- **보상**: 2번째 관장 클리어 → Z링, 4번째 → 메가링 지급 확인. 보상 함수로 경험사탕 5개·기술머신(10만볼트, `cobblemon:tm_move`) 지급 확인.',
     '- **배틀 자리**: 시작하면 도전자가 필드 끝으로, 내 포켓몬은 1초마다 도전자 앞 필드로 옮겨짐 (4칸 실측 확인 후 큰 포켓몬이 가려 7칸으로 조정).']   # 기믹 기록(-Dpokeserver.gimmicklog=true)으로 확인한 결과
 GIM = {'M': '메가', 'Z': 'Z', 'D': '다이맥스', 'T': '테라스탈'}
-gims = lambda team: '·'.join(GIM[k] for k in 'ZMDT' if k in L.gimmicks(team)) or '없음'
+gims = lambda team: '·'.join(('거다이맥스' if k == 'D' and any(m.get('gimmicks', {}).get('gmax') for m in team) else GIM[k]) for k in 'ZMDT' if k in L.gimmicks(team)) or '없음'
 st = L.strength()
 rank = ['| 순서 | 이름 | 원작 팀 (출처) | 종족값 평균 | 쓰는 기믹 |', '| --- | --- | --- | --- | --- |']
 for n, (tid, name, *_, team) in enumerate([(g[0], g[1], g[5]) for g in L.GYMS] + [(e[0], e[1], e[3]) for e in L.ELITE], 1):
@@ -65,7 +65,7 @@ L_ = ['# 관장·사천왕', '',
       '- **레벨 제한** = 다음 상대 에이스(★) 레벨 + 5 (RCT `relativeLevelCap = 5`). 관장 에이스 15·25·…·85 → 제한 20·30·…·90.',
       '- **사천왕**: 성호 → 난천 → 단델 → 레드. 1~3번째 에이스 90, 레드 95 (제한 95 → 100). 4명을 한 번에 이겨야 클리어.',
       '- **선봉**: 에이스(★)를 뺀 나머지 중 배틀마다 무작위.',
-      '- **관장이 쓰는 특수 기믹**: Z기술 3번째부터, 메가진화 5번째부터, 다이맥스 7번째부터. 사천왕 1~3번째는 4가지 중 3가지(서로 다른 조합), 레드는 4가지 모두. 한 포켓몬은 기믹 하나만, 리그 전체에서 같은 포켓몬이 같은 기믹을 두 번 쓰지 않음 (리자몽: 단델 거다이맥스, 레드 메가진화).',
+      '- **관장이 쓰는 특수 기믹**: Z기술 3번째부터, 메가진화 5번째부터, 다이맥스 7번째부터. 사천왕 1~3번째는 4가지 중 3가지(서로 다른 조합), 레드는 4가지 모두. 팀 안에서 같은 도구는 한 번만. 다이맥스는 거다이맥스가 되는 포켓몬이 있으면 그 포켓몬이 (표에 거다이맥스·다이맥스 따로 표시). 한 포켓몬은 기믹 하나만, 리그 전체에서 같은 포켓몬이 같은 기믹을 두 번 쓰지 않음 (리자몽: 단델 거다이맥스, 레드 메가진화).',
       '- **Z기술**: Z 버전이 있는 공격 기술이 상대에게 1배 이상이면 거의 매번 씀 (반감·무효면 안 씀, `TrainerZMoveMixin`). 메가·다이맥스·테라스탈은 나와서 첫 행동 때 씀.',
       '- **배틀 자리**: 배틀이 시작되면 도전자가 필드 끝 자리로 옮겨져 관장과 마주 봄 → 포켓몬이 가운데 몬스터볼 필드에서 싸움.',
       '- **플레이어**: 2번째 관장을 이기면 Z링, 4번째 메가링, 6번째 다이맥스밴드, 8번째 테라스탈 오브를 받음. 메가진화는 배지 4개, 다이맥스는 6개, 테라스탈은 8개부터 배틀에서 쓸 수 있음. Z기술은 제한 없음 (Z링만 있으면 됨).',
