@@ -11,11 +11,11 @@ DATA = ROOT / 'pack/world/datapacks/pokeserver/data'
 SERIES = 'pokeserver'
 
 
-def mon(species, level, moves, item, dmax=False, tera=None, ability=None):
-    """item: 지닌 도구 (메가스톤·Z크리스탈이면 그 기믹을 씀). dmax: 다이맥스, tera: 테라스탈 타입. 한 포켓몬은 기믹 하나만."""
+def mon(species, level, moves, item, dmax=False, tera=None, ability=None, gmax=False):
+    """item: 지닌 도구 (메가스톤·Z크리스탈이면 그 기믹을 씀). dmax: 다이맥스(gmax면 거다이맥스 모습), tera: 테라스탈 타입. 한 포켓몬은 기믹 하나만."""
     m = {'species': species, 'level': level, 'moveset': moves, 'heldItem': item if ':' in item else 'cobblemon:' + item}
     if dmax:
-        m['gimmicks'] = {'dynamax': True}
+        m['gimmicks'] = {'dynamax': True, 'gmax': gmax}
     if tera:
         m['gimmicks'] = {'tera': tera}
     if ability:
@@ -79,17 +79,11 @@ GYMS = [
         mon('starmie', 85, ['waterfall', 'psychocut', 'rapidspin', 'recover'], MS + 'starminite')]),
 ]
 
-# 사천왕 = 역대 챔피언 4명 (같은 레벨 기준 약한 순서로 도전). 마지막 에이스 95, 나머지 90 → 레벨 제한 95·100.
-# 1~3번째는 기믹 3가지(조합이 서로 다름: 다이맥스·Z·메가를 하나씩 뺌), 마지막은 4가지. 단델·성호는 RCT에 없어 새 ID + 우리 스킨.
+# 사천왕 = 역대 챔피언 4명. 레드는 최종 보스로 맨 뒤 고정, 앞 3명은 같은 레벨 기준 약한 순서. 마지막 에이스 95, 나머지 90 → 레벨 제한 95·100.
+# 1~3번째는 기믹 3가지(조합이 서로 다름: 다이맥스·Z·메가를 하나씩 뺌), 레드는 4가지. 단델·성호는 RCT에 없어 새 ID + 우리 스킨.
+# 리그 전체에서 (포켓몬, 기믹)이 겹치지 않음: 리자몽은 단델이 다이맥스, 레드가 메가진화.
 # (RCT ID, 이름, 칭호, 팀)
 ELITE = [
-    ('trainer_red_0003', '레드', '관동 전설의 챔피언', [          # 메가·Z·테라 (하트골드 은빛산 팀)
-        mon('lapras', 87, ['hydropump', 'icebeam', 'thunderbolt', 'freezedry'], 'leftovers'),
-        mon('venusaur', 87, ['gigadrain', 'sludgebomb', 'earthquake', 'sleeppowder'], 'black_sludge'),
-        mon('blastoise', 87, ['hydropump', 'icebeam', 'flashcannon', 'aurasphere'], 'assault_vest'),
-        mon('pikachu', 88, ['volttackle', 'irontail', 'quickattack', 'thunderbolt'], MS + 'pikanium_z'),
-        mon('snorlax', 88, ['bodyslam', 'crunch', 'rest', 'sleeptalk'], 'leftovers', tera='normal'),
-        mon('charizard', 90, ['fireblast', 'airslash', 'dragonpulse', 'solarbeam'], MS + 'charizardite_y')]),
     ('champion_steven_ps', '성호', '호연 챔피언', [               # 메가·다이맥스·테라 (에메랄드 팀)
         mon('skarmory', 87, ['bravebird', 'ironhead', 'spikes', 'roost'], 'rocky_helmet', tera='steel'),
         mon('claydol', 87, ['earthpower', 'psychic', 'rapidspin', 'stealthrock'], 'light_clay'),
@@ -97,20 +91,27 @@ ELITE = [
         mon('armaldo', 88, ['xscissor', 'stoneedge', 'earthquake', 'swordsdance'], 'life_orb'),
         mon('aggron', 88, ['heavyslam', 'stoneedge', 'earthquake', 'ironhead'], 'sitrus_berry', dmax=True),
         mon('metagross', 90, ['meteormash', 'zenheadbutt', 'earthquake', 'bulletpunch'], MS + 'metagrossite')]),
-    ('champion_cynthia_03a5', '난천', '신오 챔피언', [             # Z·다이맥스·테라 (플래티넘 팀)
+    ('champion_cynthia_03a5', '난천', '신오 챔피언', [             # 메가·Z·테라 (플래티넘 팀)
         mon('spiritomb', 87, ['shadowball', 'darkpulse', 'willowisp', 'suckerpunch'], 'leftovers'),
         mon('roserade', 87, ['gigadrain', 'sludgebomb', 'shadowball', 'sleeppowder'], 'black_sludge'),
         mon('milotic', 87, ['surf', 'icebeam', 'recover', 'mirrorcoat'], 'leftovers'),
-        mon('togekiss', 88, ['airslash', 'dazzlinggleam', 'aurasphere', 'nastyplot'], 'sitrus_berry', dmax=True),
+        mon('togekiss', 88, ['airslash', 'dazzlinggleam', 'aurasphere', 'nastyplot'], 'sitrus_berry', tera='fairy'),
         mon('lucario', 88, ['aurasphere', 'flashcannon', 'darkpulse', 'nastyplot'], MS + 'fightinium_z'),
-        mon('garchomp', 90, ['earthquake', 'dragonclaw', 'stoneedge', 'swordsdance'], 'life_orb', tera='dragon')]),
-    ('champion_leon_ps', '단델', '가라르 챔피언', [                # 메가·Z·다이맥스·테라 (소드실드 팀)
-        mon('aegislash', 92, ['shadowball', 'flashcannon', 'sacredsword', 'kingsshield'], 'leftovers', tera='ghost'),
-        mon('rhyperior', 92, ['earthquake', 'stoneedge', 'megahorn', 'icepunch'], 'weakness_policy'),
-        mon('cinderace', 92, ['pyroball', 'highjumpkick', 'uturn', 'suckerpunch'], 'life_orb'),
-        mon('haxorus', 93, ['outrage', 'earthquake', 'poisonjab', 'dragondance'], MS + 'dragonium_z'),
-        mon('dragapult', 93, ['dragondarts', 'phantomforce', 'uturn', 'fireblast'], 'expert_belt', dmax=True),
-        mon('charizard', 95, ['flareblitz', 'dragonclaw', 'earthquake', 'dragondance'], MS + 'charizardite_x')]),
+        mon('garchomp', 90, ['earthquake', 'dragonclaw', 'stoneedge', 'swordsdance'], MS + 'garchompite')]),
+    ('champion_leon_ps', '단델', '가라르 챔피언', [                # Z·다이맥스·테라 (소드실드 팀, 리자몽 = 거다이맥스)
+        mon('aegislash', 87, ['shadowball', 'flashcannon', 'sacredsword', 'kingsshield'], 'leftovers', tera='ghost'),
+        mon('rhyperior', 87, ['earthquake', 'stoneedge', 'megahorn', 'icepunch'], 'weakness_policy'),
+        mon('cinderace', 87, ['pyroball', 'highjumpkick', 'uturn', 'suckerpunch'], 'life_orb'),
+        mon('haxorus', 88, ['outrage', 'earthquake', 'poisonjab', 'dragondance'], MS + 'dragonium_z'),
+        mon('dragapult', 88, ['dragondarts', 'phantomforce', 'uturn', 'fireblast'], 'expert_belt'),
+        mon('charizard', 90, ['flareblitz', 'airslash', 'dragonpulse', 'solarbeam'], 'life_orb', dmax=True, gmax=True)]),
+    ('trainer_red_0003', '레드', '관동 전설의 챔피언', [          # 최종 보스: 메가·Z·다이맥스·테라 (하트골드 은빛산 팀)
+        mon('lapras', 92, ['hydropump', 'icebeam', 'thunderbolt', 'freezedry'], 'leftovers'),
+        mon('blastoise', 92, ['hydropump', 'icebeam', 'flashcannon', 'aurasphere'], 'assault_vest'),
+        mon('venusaur', 93, ['gigadrain', 'sludgebomb', 'earthquake', 'sleeppowder'], 'black_sludge', dmax=True, gmax=True),
+        mon('pikachu', 93, ['volttackle', 'irontail', 'quickattack', 'thunderbolt'], MS + 'pikanium_z'),
+        mon('snorlax', 93, ['bodyslam', 'crunch', 'rest', 'sleeptalk'], 'leftovers', tera='normal'),
+        mon('charizard', 95, ['fireblast', 'airslash', 'dragonpulse', 'solarbeam'], MS + 'charizardite_y')]),
 ]
 # 원작 팀: 순서(같은 레벨 기준 강함)와 대표 포켓몬의 근거. (출처, 강함 계산용 최종 팀, 그 밖에 원작에 나온 포켓몬·진화 전후)
 # 파이어레드·하트골드·에메랄드·플래티넘 = pret 디스어셈블리의 트레이너 데이터, 단델 = Bulbapedia 소드실드 공략
@@ -182,19 +183,22 @@ def validate():
         assert sum(m['species'] in set(final) | extra for m in team) * 2 >= len(team), f'{tid}: 원작 대표 포켓몬이 절반 미만'
     st = strength()   # 순서 = 같은 레벨 기준 약한 순서
     if st:
-        for group in ([g[0] for g in GYMS], [e[0] for e in ELITE]):
+        for group in ([g[0] for g in GYMS], [e[0] for e in ELITE[:3]]):   # 레드는 최종 보스로 맨 뒤 고정
             assert [st[t] for t in group] == sorted(st[t] for t in group), f'강함 순서가 아님: {[(t, round(st[t], 1)) for t in group]}'
 
 
+def gimmick_of(m):
+    """포켓몬 하나가 쓰는 기믹 (M 메가, Z, D 다이맥스, T 테라) 또는 None. 둘 이상이면 오류."""
+    g = [k for k, on in (('Z', m['heldItem'].endswith('ium_z')),
+                         ('M', m['heldItem'].startswith(MS) and not m['heldItem'].endswith('ium_z')),
+                         ('D', m.get('gimmicks', {}).get('dynamax')), ('T', 'tera' in m.get('gimmicks', {}))) if on]
+    assert len(g) <= 1, f"{m['species']}: 기믹 여러 개 {g}"
+    return g[0] if g else None
+
+
 def gimmicks(team):
-    """팀이 쓰는 기믹 (M 메가, Z, D 다이맥스, T 테라). 한 포켓몬에 둘 이상이면 오류."""
-    out = []
-    for m in team:
-        g = [k for k, on in (('Z', m['heldItem'].endswith('ium_z')),
-                             ('M', m['heldItem'].startswith(MS) and not m['heldItem'].endswith('ium_z')),
-                             ('D', m.get('gimmicks', {}).get('dynamax')), ('T', 'tera' in m.get('gimmicks', {}))) if on]
-        assert len(g) <= 1, f"{m['species']}: 기믹 여러 개 {g}"
-        out += g
+    """팀이 쓰는 기믹 집합. 같은 기믹을 두 번 쓰면 오류."""
+    out = [g for m in team for g in [gimmick_of(m)] if g]
     assert len(out) == len(set(out)), f'같은 기믹 두 번: {out}'
     return set(out)
 
@@ -204,6 +208,9 @@ def check_gimmicks():
     for n, g in enumerate(GYMS, 1):
         want = {k for k, start in (('Z', 3), ('M', 5), ('D', 7)) if n >= start}
         assert gimmicks(g[5]) == want, (n, gimmicks(g[5]), want)
+    assert ELITE[-1][0] == 'trainer_red_0003', '레드는 맨 뒤'
+    pairs = [(m['species'], g) for t in [g[5] for g in GYMS] + [e[3] for e in ELITE] for m in t for g in [gimmick_of(m)] if g]
+    assert len(pairs) == len(set(pairs)), f'같은 포켓몬이 같은 기믹을 두 번: {sorted(p for p in pairs if pairs.count(p) > 1)}'
     e4 = [frozenset(gimmicks(e[3])) for e in ELITE]
     assert all(len(x) == 3 for x in e4[:3]) and len(set(e4[:3])) == 3 and e4[3] == {'Z', 'M', 'D', 'T'}, e4
     import zipfile, re   # 도구 id가 실제로 있는지 (모드 jar의 언어 파일 기준, 캐시가 있을 때만)
@@ -429,6 +436,10 @@ def functions():
                                 'execute if score @s poke.gym matches 1.. run function poke:util/tp with storage poke:config gym',
                                 'function poke:gym/release'])
     fn('gym/win.mcfunction', ['# 모드가 호출: 체육관 안에서 NPC 배틀을 이겼을 때', *win])
+    # 배틀이 시작되는 순간(모드 BATTLE_STARTED_PRE) 도전자를 정해진 자리로: 관장과 필드를 사이에 두고 마주 봄 → 포켓몬이 가운데에 나와 화면에 잘 보임
+    place = [f'execute if score @s poke.gym matches {n} run {tp(W.gym_geom(n)["battle"])}' for n in range(1, len(GYMS) + 1)]
+    place += [f'execute if score @s poke.gym matches 9 if score @s poke.e4 matches {k} run {tp(e["inside"][k])}' for k in range(4)]
+    fn('gym/place.mcfunction', ['# 모드가 호출: 체육관·사천왕 배틀이 시작될 때', *place])
     fn('gym/lose.mcfunction', ['# 모드가 호출: 체육관 안에서 NPC 배틀을 지거나 도망쳤을 때',
                                'execute unless score @s poke.gym matches 1.. run return 0',
                                'execute if score @s poke.gym matches 9 run tellraw @s {"text":"사천왕 도전 실패... 5분 뒤에 처음(첫 번째 사천왕)부터 다시 도전해요.","color":"red"}',

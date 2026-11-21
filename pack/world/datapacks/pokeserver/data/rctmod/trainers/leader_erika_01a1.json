@@ -61,7 +61,8 @@
    ],
    "heldItem": "cobblemon:leftovers",
    "gimmicks": {
-    "dynamax": true
+    "dynamax": true,
+    "gmax": false
    }
   },
   {
