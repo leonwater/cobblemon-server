@@ -19,53 +19,59 @@
  "team": [
   {
    "species": "muk",
-   "level": 57,
+   "level": 52,
    "moveset": [
     "gunkshot",
     "poisonjab",
     "minimize",
     "toxic"
-   ]
+   ],
+   "heldItem": "cobblemon:black_sludge"
   },
   {
    "species": "venomoth",
-   "level": 57,
+   "level": 53,
    "moveset": [
     "bugbuzz",
     "sludgebomb",
     "sleeppowder",
     "psychic"
-   ]
-  },
-  {
-   "species": "tentacruel",
-   "level": 58,
-   "moveset": [
-    "sludgebomb",
-    "surf",
-    "toxicspikes",
-    "hex"
-   ]
+   ],
+   "heldItem": "cobblemon:wise_glasses"
   },
   {
    "species": "weezing",
-   "level": 58,
+   "level": 53,
    "moveset": [
     "sludgebomb",
     "toxic",
     "willowisp",
     "explosion"
-   ]
+   ],
+   "heldItem": "cobblemon:rocky_helmet",
+   "ability": "levitate"
   },
   {
    "species": "crobat",
-   "level": 60,
+   "level": 54,
    "moveset": [
     "crosspoison",
     "airslash",
     "confuseray",
     "uturn"
-   ]
+   ],
+   "heldItem": "cobblemon:poison_barb"
+  },
+  {
+   "species": "beedrill",
+   "level": 55,
+   "moveset": [
+    "poisonjab",
+    "xscissor",
+    "drillrun",
+    "uturn"
+   ],
+   "heldItem": "mega_showdown:beedrillite"
   }
  ]
 }

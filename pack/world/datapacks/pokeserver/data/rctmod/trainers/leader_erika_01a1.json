@@ -19,53 +19,58 @@
  "team": [
   {
    "species": "tangela",
-   "level": 47,
+   "level": 42,
    "moveset": [
     "gigadrain",
     "ancientpower",
     "sleeppowder",
     "slam"
-   ]
-  },
-  {
-   "species": "victreebel",
-   "level": 48,
-   "moveset": [
-    "leafblade",
-    "sludgebomb",
-    "sleeppowder",
-    "wrap"
-   ]
-  },
-  {
-   "species": "exeggutor",
-   "level": 48,
-   "moveset": [
-    "seedbomb",
-    "psychic",
-    "hypnosis",
-    "eggbomb"
-   ]
-  },
-  {
-   "species": "bellossom",
-   "level": 48,
-   "moveset": [
-    "petalblizzard",
-    "moonblast",
-    "quiverdance",
-    "gigadrain"
-   ]
+   ],
+   "heldItem": "cobblemon:eviolite"
   },
   {
    "species": "vileplume",
-   "level": 50,
+   "level": 43,
    "moveset": [
     "petaldance",
     "sludgebomb",
     "sleeppowder",
     "moonblast"
-   ]
+   ],
+   "heldItem": "cobblemon:black_sludge"
+  },
+  {
+   "species": "ludicolo",
+   "level": 43,
+   "moveset": [
+    "gigadrain",
+    "surf",
+    "icebeam",
+    "raindance"
+   ],
+   "heldItem": "cobblemon:damp_rock"
+  },
+  {
+   "species": "bellossom",
+   "level": 43,
+   "moveset": [
+    "petalblizzard",
+    "moonblast",
+    "quiverdance",
+    "gigadrain"
+   ],
+   "heldItem": "cobblemon:leftovers"
+  },
+  {
+   "species": "victreebel",
+   "level": 45,
+   "moveset": [
+    "leafblade",
+    "sludgebomb",
+    "sleeppowder",
+    "suckerpunch"
+   ],
+   "heldItem": "mega_showdown:victreebelite"
   }
  ]
 }

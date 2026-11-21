@@ -19,63 +19,73 @@
  "team": [
   {
    "species": "pikachu",
-   "level": 96,
+   "level": 92,
    "moveset": [
     "volttackle",
     "irontail",
     "quickattack",
     "thunderbolt"
-   ]
+   ],
+   "heldItem": "mega_showdown:pikanium_z"
   },
   {
    "species": "espeon",
-   "level": 97,
+   "level": 92,
    "moveset": [
     "psychic",
     "shadowball",
     "dazzlinggleam",
     "morningsun"
-   ]
-  },
-  {
-   "species": "venusaur",
-   "level": 97,
-   "moveset": [
-    "solarbeam",
-    "sludgebomb",
-    "earthquake",
-    "sleeppowder"
-   ]
-  },
-  {
-   "species": "blastoise",
-   "level": 98,
-   "moveset": [
-    "hydropump",
-    "icebeam",
-    "flashcannon",
-    "aurasphere"
-   ]
-  },
-  {
-   "species": "charizard",
-   "level": 99,
-   "moveset": [
-    "flareblitz",
-    "airslash",
-    "dragonpulse",
-    "solarbeam"
-   ]
+   ],
+   "heldItem": "cobblemon:twisted_spoon"
   },
   {
    "species": "snorlax",
-   "level": 100,
+   "level": 93,
    "moveset": [
     "bodyslam",
     "crunch",
     "rest",
     "sleeptalk"
-   ]
+   ],
+   "heldItem": "cobblemon:leftovers"
+  },
+  {
+   "species": "blastoise",
+   "level": 93,
+   "moveset": [
+    "hydropump",
+    "icebeam",
+    "flashcannon",
+    "aurasphere"
+   ],
+   "heldItem": "cobblemon:assault_vest"
+  },
+  {
+   "species": "venusaur",
+   "level": 93,
+   "moveset": [
+    "solarbeam",
+    "sludgebomb",
+    "earthquake",
+    "sleeppowder"
+   ],
+   "heldItem": "cobblemon:black_sludge",
+   "gimmicks": {
+    "dynamax": true,
+    "gmax": true
+   }
+  },
+  {
+   "species": "charizard",
+   "level": 95,
+   "moveset": [
+    "flareblitz",
+    "airslash",
+    "dragonpulse",
+    "solarbeam"
+   ],
+   "heldItem": "mega_showdown:charizardite_y"
   }
  ]
 }

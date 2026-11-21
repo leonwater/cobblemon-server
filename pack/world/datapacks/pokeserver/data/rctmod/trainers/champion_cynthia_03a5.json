@@ -18,64 +18,74 @@
  ],
  "team": [
   {
-   "species": "spiritomb",
-   "level": 95,
+   "species": "flygon",
+   "level": 87,
    "moveset": [
-    "darkpulse",
-    "shadowball",
-    "psychic",
-    "suckerpunch"
-   ]
+    "earthquake",
+    "dragonclaw",
+    "uturn",
+    "firepunch"
+   ],
+   "heldItem": "cobblemon:choice_scarf"
   },
   {
-   "species": "roserade",
-   "level": 96,
+   "species": "kingdra",
+   "level": 87,
    "moveset": [
-    "gigadrain",
-    "sludgebomb",
-    "shadowball",
-    "extrasensory"
-   ]
-  },
-  {
-   "species": "lucario",
-   "level": 97,
-   "moveset": [
-    "aurasphere",
-    "flashcannon",
-    "dragonpulse",
-    "nastyplot"
-   ]
-  },
-  {
-   "species": "milotic",
-   "level": 98,
-   "moveset": [
-    "surf",
+    "hydropump",
+    "dracometeor",
     "icebeam",
-    "mirrorcoat",
-    "recover"
-   ]
+    "raindance"
+   ],
+   "heldItem": "cobblemon:damp_rock"
   },
   {
-   "species": "togekiss",
-   "level": 99,
+   "species": "goodra",
+   "level": 87,
    "moveset": [
-    "airslash",
-    "aurasphere",
-    "dazzlinggleam",
-    "thunderwave"
-   ]
+    "dracometeor",
+    "sludgebomb",
+    "thunderbolt",
+    "fireblast"
+   ],
+   "heldItem": "cobblemon:assault_vest"
+  },
+  {
+   "species": "dragonite",
+   "level": 88,
+   "moveset": [
+    "outrage",
+    "extremespeed",
+    "earthquake",
+    "dragondance"
+   ],
+   "heldItem": "mega_showdown:dragonium_z"
+  },
+  {
+   "species": "duraludon",
+   "level": 88,
+   "moveset": [
+    "dracometeor",
+    "flashcannon",
+    "thunderbolt",
+    "bodypress"
+   ],
+   "heldItem": "cobblemon:expert_belt",
+   "gimmicks": {
+    "dynamax": true,
+    "gmax": true
+   }
   },
   {
    "species": "garchomp",
-   "level": 100,
+   "level": 90,
    "moveset": [
     "earthquake",
     "dragonclaw",
     "stoneedge",
     "swordsdance"
-   ]
+   ],
+   "heldItem": "mega_showdown:garchompite"
   }
  ]
 }

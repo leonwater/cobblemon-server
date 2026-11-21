@@ -19,63 +19,69 @@
  "team": [
   {
    "species": "rapidash",
-   "level": 77,
+   "level": 72,
    "moveset": [
     "flareblitz",
     "bounce",
     "agility",
     "poisonjab"
-   ]
-  },
-  {
-   "species": "ninetales",
-   "level": 77,
-   "moveset": [
-    "flamethrower",
-    "solarbeam",
-    "nastyplot",
-    "extrasensory"
-   ]
-  },
-  {
-   "species": "magmortar",
-   "level": 78,
-   "moveset": [
-    "fireblast",
-    "thunderbolt",
-    "focusblast",
-    "confuseray"
-   ]
-  },
-  {
-   "species": "flareon",
-   "level": 78,
-   "moveset": [
-    "flareblitz",
-    "superpower",
-    "quickattack",
-    "willowisp"
-   ]
-  },
-  {
-   "species": "charizard",
-   "level": 78,
-   "moveset": [
-    "flamethrower",
-    "airslash",
-    "dragonpulse",
-    "solarbeam"
-   ]
+   ],
+   "heldItem": "cobblemon:charcoal_stick"
   },
   {
    "species": "arcanine",
-   "level": 80,
+   "level": 73,
    "moveset": [
     "flareblitz",
     "extremespeed",
     "crunch",
     "wildcharge"
-   ]
+   ],
+   "heldItem": "mega_showdown:firium_z"
+  },
+  {
+   "species": "camerupt",
+   "level": 73,
+   "moveset": [
+    "earthpower",
+    "lavaplume",
+    "rockslide",
+    "yawn"
+   ],
+   "heldItem": "cobblemon:soft_sand"
+  },
+  {
+   "species": "volcarona",
+   "level": 73,
+   "moveset": [
+    "fierydance",
+    "bugbuzz",
+    "gigadrain",
+    "quiverdance"
+   ],
+   "heldItem": "cobblemon:lum_berry"
+  },
+  {
+   "species": "charizard",
+   "level": 73,
+   "moveset": [
+    "flamethrower",
+    "airslash",
+    "dragonpulse",
+    "solarbeam"
+   ],
+   "heldItem": "cobblemon:life_orb"
+  },
+  {
+   "species": "houndoom",
+   "level": 75,
+   "moveset": [
+    "flamethrower",
+    "darkpulse",
+    "sludgebomb",
+    "nastyplot"
+   ],
+   "heldItem": "mega_showdown:houndoominite"
   }
  ]
 }

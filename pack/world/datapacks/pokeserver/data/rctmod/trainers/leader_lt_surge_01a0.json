@@ -19,53 +19,58 @@
  "team": [
   {
    "species": "electrode",
-   "level": 37,
+   "level": 32,
    "moveset": [
     "spark",
     "screech",
     "swift",
     "selfdestruct"
-   ]
+   ],
+   "heldItem": "cobblemon:focus_sash"
   },
   {
    "species": "magneton",
-   "level": 38,
+   "level": 33,
    "moveset": [
     "spark",
     "thunderwave",
     "flashcannon",
     "triattack"
-   ]
+   ],
+   "heldItem": "cobblemon:eviolite"
   },
   {
    "species": "electabuzz",
-   "level": 38,
+   "level": 33,
    "moveset": [
     "thunderpunch",
     "quickattack",
     "lowkick",
     "lightscreen"
-   ]
+   ],
+   "heldItem": "cobblemon:eviolite"
   },
   {
    "species": "pikachu",
-   "level": 38,
+   "level": 33,
    "moveset": [
     "thunderbolt",
     "quickattack",
     "irontail",
     "doubleteam"
-   ]
+   ],
+   "heldItem": "cobblemon:light_ball"
   },
   {
    "species": "raichu",
-   "level": 40,
+   "level": 35,
    "moveset": [
     "thunderbolt",
     "quickattack",
     "irontail",
     "thunderwave"
-   ]
+   ],
+   "heldItem": "cobblemon:magnet"
   }
  ]
 }
