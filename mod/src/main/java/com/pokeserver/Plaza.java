@@ -14,7 +14,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
  *  1) 서버를 처음 켜면 꽃 숲 칸들 중 땅이 가장 넓고 평평한 자리를 노이즈 높이로 고름 (청크를 만들지 않아 빠름)
  *  2) 반지름 PROTECT 안은 평평하게, 그 밖 BLEND 칸은 자연 지형과 완만하게 이음 (틱마다 청크 하나씩)
  *  3) 끝나면 데이터팩 poke:build/plaza/start 가 그 자리 기준으로 건물·조경을 지음
- *  광장 반지름 PROTECT 안: 블록 수정 금지, 포켓몬 스폰 금지. 그 밖 ~ 200칸: 저레벨 (CobblemonHooks). */
+ *  광장 반지름 PROTECT 안: 블록 수정 금지, 포켓몬 스폰 금지. 그 밖 ~ 170칸: 저레벨·약한 종만 (CobblemonHooks). */
 public final class Plaza {
     private Plaza() {}
 
@@ -27,6 +27,7 @@ public final class Plaza {
     static BlockPos center;            // 광장 가운데 (땅 블록 높이)
     private static int job = -1;       // 지형 다듬는 중인 청크 순번 (-1: 안 함)
     private static int col;            // 그 청크 안에서 다음에 다듬을 칸 (0~255)
+    private static boolean smoothing;  // 둘째 단계: 둘레에 남은 1칸 튀어나옴·꺼짐 고르기 (state plaza.terrain 1 → 2)
     /** 블록 바꿀 때 이웃 모양 갱신을 건너뜀(16): 이웃 청크를 불러오느라 한 틱이 수십 초 걸려 서버가 멈추던 원인. */
     static final int FLAGS = 2 | 16;
 
@@ -69,7 +70,7 @@ public final class Plaza {
         CompoundTag cfg = s.getCommandStorage().get(ResourceLocation.fromNamespaceAndPath("poke", "config"));
         cfg.put("hall", hall);
         s.getCommandStorage().set(ResourceLocation.fromNamespaceAndPath("poke", "config"), cfg);
-        if (p.getInt("terrain") == 0) { job = 0; col = 0; }
+        if (p.getInt("terrain") < 2) { job = 0; col = 0; smoothing = p.getInt("terrain") == 1; }   // 예전 월드(1)는 고르기만 한 번
         else if (p.getInt("built") != BUILD_VERSION) build(s);
     }
 
@@ -117,9 +118,10 @@ public final class Plaza {
         int r = PROTECT + BLEND, side = (2 * r) / 16 + 2;
         int cx0 = (center.getX() - r) >> 4, cz0 = (center.getZ() - r) >> 4;
         if (job >= side * side) {
+            if (!smoothing) { smoothing = true; job = 0; col = 0; return; }   // 다듬기 끝 → 둘레 고르기
             job = -1;
             CompoundTag st = state(s);
-            st.getCompound("plaza").putInt("terrain", 1);
+            st.getCompound("plaza").putInt("terrain", 2);
             put(s, st);
             PokeServer.LOG.info("광장 지형 다듬기 끝");
             build(s);
@@ -131,13 +133,22 @@ public final class Plaza {
         int ccx = cx0 + job % side, ccz = cz0 + job / side;
         // 청크는 다른 스레드에서 만들게 하고(강제 로드), 다 불러온 뒤에 다듬음. 예전엔 여기서 만들 때까지 서버가 멈춰 기다려
         // 초기화 직후처럼 바쁠 때 60초를 넘겨 감시 장치가 서버를 껐음 (크래시 보고서 Watchdog, Plaza.tick)
-        if (!level.hasChunk(ccx, ccz)) { level.setChunkForced(ccx, ccz, true); return; }
+        // 고르기는 이웃 칸 높이를 보므로 둘레 8청크도 불러 둠 (안 불러 둔 청크를 읽으면 그 자리에서 만들며 서버가 멈춤)
+        int ring = smoothing ? 1 : 0;
+        boolean ready = true;
+        for (int i = -ring; i <= ring; i++) for (int j = -ring; j <= ring; j++)
+            if (!level.hasChunk(ccx + i, ccz + j)) { level.setChunkForced(ccx + i, ccz + j, true); ready = false; }
+        if (!ready) return;
         long end = System.nanoTime() + 15_000_000L;
         while (col < 256 && System.nanoTime() < end) {
-            column(level, ccx * 16 + (col & 15), ccz * 16 + (col >> 4));
+            if (smoothing) smooth(level, ccx * 16 + (col & 15), ccz * 16 + (col >> 4));
+            else column(level, ccx * 16 + (col & 15), ccz * 16 + (col >> 4));
             col++;
         }
-        if (col == 256) { col = 0; job++; level.setChunkForced(ccx, ccz, false); }
+        if (col == 256) {
+            col = 0; job++;
+            for (int i = -ring; i <= ring; i++) for (int j = -ring; j <= ring; j++) level.setChunkForced(ccx + i, ccz + j, false);
+        }
     }
 
     static void column(ServerLevel level, int x, int z) {
@@ -163,6 +174,35 @@ public final class Plaza {
             if (y == t) level.setBlock(pos, Blocks.GRASS_BLOCK.defaultBlockState(), FLAGS);
             else if (soft || y >= t - 3) level.setBlock(pos, (y >= t - 3 ? Blocks.DIRT : Blocks.STONE).defaultBlockState(), FLAGS);
         }
+    }
+
+    static final java.util.Set<net.minecraft.world.level.block.Block> NATURAL = java.util.Set.of(Blocks.GRASS_BLOCK, Blocks.DIRT, Blocks.COARSE_DIRT,
+            Blocks.PODZOL, Blocks.ROOTED_DIRT, Blocks.MYCELIUM, Blocks.MOSS_BLOCK, Blocks.SAND, Blocks.RED_SAND, Blocks.GRAVEL, Blocks.STONE, Blocks.SNOW_BLOCK);
+
+    /** 둘레(광장 밖 ~ 이음 구간) 한 칸이 네 이웃보다 모두 높거나 모두 낮으면 이웃 높이로 맞춤. 길·건물 블록은 안 건드림 (자연 땅만). */
+    static void smooth(ServerLevel level, int x, int z) {
+        double d = Math.sqrt(Math.pow(x - center.getX(), 2) + Math.pow(z - center.getZ(), 2));
+        if (d <= PROTECT || d > PROTECT + BLEND + 4) return;
+        int h = ground(level, x, z);
+        int lo = Integer.MAX_VALUE, hi = Integer.MIN_VALUE;
+        for (int[] o : new int[][]{{1, 0}, {-1, 0}, {0, 1}, {0, -1}}) {
+            int n = ground(level, x + o[0], z + o[1]);
+            lo = Math.min(lo, n); hi = Math.max(hi, n);
+        }
+        int to = h > hi ? hi : h < lo ? lo : h;
+        var pos = new BlockPos.MutableBlockPos(x, h, z);
+        BlockState top = level.getBlockState(pos);
+        if (to == h || !NATURAL.contains(top.getBlock())) return;
+        if (to < h) {       // 튀어나옴: 위를 비우고(위에 난 풀·꽃도) 새 꼭대기에 같은 블록
+            for (int y = to + 1; y <= h + 1; y++) {
+                pos.setY(y);
+                if (y <= h || level.getBlockState(pos).canBeReplaced()) level.setBlock(pos, Blocks.AIR.defaultBlockState(), FLAGS);
+            }
+        } else {            // 꺼짐: 흙으로 채우고 꼭대기에 같은 블록
+            BlockState fill = top.is(Blocks.GRASS_BLOCK) ? Blocks.DIRT.defaultBlockState() : top;   // 잔디 밑은 흙
+            for (int y = h; y < to; y++) level.setBlock(pos.setY(y), fill, FLAGS);
+        }
+        level.setBlock(pos.setY(to), top, FLAGS);
     }
 
     /** 자연 땅 높이 (나무·풀·물 아래의 흙·돌). */
@@ -214,6 +254,13 @@ public final class Plaza {
         if (center == null || !level.dimension().location().toString().equals(DIM)) return false;
         int dx = pos.getX() - center.getX(), dz = pos.getZ() - center.getZ();
         return dx >= 16 && dx <= 38 && dz >= -11 && dz <= 11;
+    }
+
+    /** 광장의 프렌들리 숍(상점) 건물 안 (tools/plaza.py MART_P = 광장 가운데 기준 x -40~-18, z -4~18). */
+    public static boolean inMart(net.minecraft.world.level.Level level, BlockPos pos) {
+        if (center == null || !level.dimension().location().toString().equals(DIM)) return false;
+        int dx = pos.getX() - center.getX(), dz = pos.getZ() - center.getZ();
+        return dx >= -40 && dx <= -18 && dz >= -4 && dz <= 18;
     }
 
     /** 광장 둘레: 블록 수정 금지 (관리자 크리에이티브 제외는 Farms.canEdit). */

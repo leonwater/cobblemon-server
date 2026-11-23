@@ -122,21 +122,33 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   act('warp:hall'); await sleep(350)
   assert.equal(await dimOf('A'), 'poke:wild', '15. 메뉴 워프: 광장 (야생)')
   // 초기화·다시 짓기 뒤 바닥 아이템 정리 (build/finish·plaza/finish가 부르는 함수)
-  await cmd('execute at A run summon minecraft:item ~ ~1 ~ {Item:{id:"minecraft:dandelion",count:1}}')
-  assert.match(await cmd('execute if entity @e[type=minecraft:item]'), /passed/, '아이템 하나 떨어뜨림')
+  await cmd('execute in minecraft:overworld run summon minecraft:item 0 -55 0 {NoGravity:1b,PickupDelay:32767,Tags:["poke.testitem"],Item:{id:"minecraft:dandelion",count:1}}')   // 늘 불러와진 스폰 청크
+  await sleep(300)   // 소환 직후엔 선택자에 안 잡힐 때가 있음
+  assert.match(await cmd('execute if entity @e[type=minecraft:item,tag=poke.testitem]'), /passed/, '아이템 하나 떨어뜨림')
   await cmd('function poke:mod/clear_items')
-  assert.match(await cmd('execute if entity @e[type=minecraft:item]'), /failed/, '2. 짓기 끝 → 바닥 아이템 정리')
-  // 야생 버튼: 야생에서 마지막으로 있던 자리로 (광장은 항상 같은 자리)
-  await cmd('execute as A at A run tp A ~3 ~ ~2'); await sleep(400)
+  assert.doesNotMatch(await cmd('execute if entity @e[type=minecraft:item,tag=poke.testitem]'), /passed/, '2. 짓기 끝 → 바닥 아이템 정리')   // A 근처만 셈 (다른 차원·다른 시험이 떨군 아이템과 섞이지 않게)
+  // 야생 버튼: 광장 밖에서 마지막으로 있던 자리로 (처음이면 광장 북쪽 출구 밖, 광장 안은 저장 안 함)
   const posX = async () => (await cmd('data get entity A Pos[0]')).match(/(-?[\d.]+)d$/)[1]
+  const posZ = async () => +(await cmd('data get entity A Pos[2]')).match(/(-?[\d.]+)d$/)[1]
+  const hallZ = await posZ()
+  await ff(25)   // 광장 태그(1초마다) 붙을 때까지
+  const aid = (await cmd('scoreboard players get A poke.id')).match(/has (\d+)/)[1]
+  await cmd(`data remove storage poke:last p${aid}.wild`)   // 앞 시험에서 저장된 야생 위치 지움 → "처음"
+  act('warp:wild'); await sleep(500)
+  assert.equal(await dimOf('A'), 'poke:wild', '메뉴 워프: 야생')
+  const hallX = +(await cmd('data get storage poke:config hall.x')).match(/(-?[\d.]+)d$/)[1]
+  assert.ok(Math.hypot(+(await posX()) - hallX, await posZ() - hallZ) > 72, '야생 처음 → 광장 밖 (북·동·남·서 중 땅이 있는 쪽)')
+  for (let i = 0; i < 10 && !/wild/.test(await cmd(`data get storage poke:last p${aid}`)); i++) {   // 땅에 내려설 때까지 (공중이면 저장 안 함)
+    await ff(20); await cmd('execute as A run function poke:warp/save_here')
+  }
   const wildX = await posX()
-  await cmd('execute as A run function poke:warp/save_here')
+  act('warp:hall'); await sleep(350); await ff(25)
+  await cmd('execute as A run function poke:warp/save_here')   // 광장 안에서 저장해도 무시
   act('warp:gym'); await sleep(350)
   act('warp:wild'); await sleep(350)
-  assert.equal(await dimOf('A'), 'poke:wild', '메뉴 워프: 야생')
-  assert.equal(await posX(), wildX, '야생 → 마지막 위치로')
+  assert.equal(await posX(), wildX, '야생 → 광장이 아니라 광장 밖 마지막 위치로')
   act('warp:hall'); await sleep(350)
-  assert.notEqual(await posX(), wildX, '광장 → 마지막 위치가 아니라 광장 자리로')
+  assert.ok(Math.abs(await posZ() - hallZ) < 3, '광장 → 광장 자리로')
   act('warp:gym'); await sleep(350)
   assert.match(await cmd('data get entity A Pos[0]'), /2000\.5d$/, '메뉴 워프: 체육관 로비')
   act('warp:farm'); await sleep(350)
@@ -271,6 +283,8 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   await placeAt(`execute in poke:wild run tp A ${px + 5}.5 ${py + 1} ${pzz + 20}.5`, '광장 마을', 'BGM 위치: 광장')
   await placeAt('execute in poke:town run tp A 2000.5 -56 0.5', '체육관', 'BGM 위치: 체육관 로비')
   await placeAt('execute in poke:town run tp A 3015.5 -59 0.5', '경기장', 'BGM 위치: 경기장 (체육관 BGM 없음)')
+  await placeAt(`execute in poke:wild run tp A ${px - 29}.5 ${py + 1} ${pzz + 7}.5`, '상점', 'BGM 위치: 광장의 상점 안')
+  await placeAt('execute in poke:town run tp A 3520.5 -59 0.5', '사천왕 본부', 'BGM 위치: 사천왕 본부')
   await cmd(`execute in poke:wild run tp A ${px + 120}.5 200 ${pzz}.5`); await sleep(300); await ff(25)   // 게임 모드는 1초(20틱)마다
   assert.ok((await cmd('execute if entity @a[name=A,gamemode=survival]')).includes('passed'), '5. 광장 밖은 생존 모드')
   console.log('> 15. 광장 마을·보호')

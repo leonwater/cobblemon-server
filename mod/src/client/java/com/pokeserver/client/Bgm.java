@@ -16,6 +16,8 @@ public final class Bgm {
     static final Map<String, Music> AT = Map.of(
             "광장 마을", music("bgm_2"),
             "포켓몬 센터", music("bgm_10"),
+            "상점", music("bgm_9"),
+            "사천왕 본부", music("bgm_42"),                          // 배틀 전·후 (배틀 중엔 배틀 BGM)
             "체육관", music("bgm_20"),                              // 로비만 (관장을 고르면 가는 경기장은 "경기장"이라 없음)
             "오박사 연구소", music("bgm_13"));                       // 튜토리얼 공간
 

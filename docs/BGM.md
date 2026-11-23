@@ -1,5 +1,8 @@
 # BGM (배경음악)
 
+> **BGM 파일 올리는 곳**: https://github.com/leonwater/cobblemon-server/tree/main/mod/src/main/resources/assets/pokeserver/sounds/bgm
+> GitHub에서 **Add file → Upload files** → 맨 아래 **Commit changes**까지 눌러야 올라감. wav·mp3 그대로 올리면 ogg로 바꿔 넣음. 파일 이름은 번호(예: `42.wav`).
+
 ## 1. 코블몬 기본 BGM
 - **코블몬(1.8.4)에는 기본 BGM이 없음.** 마을·야생·포켓몬 센터 등 공간 음악은 따로 없고, 마인크래프트 기본 음악이 그대로 나옴.
 - 코블몬에 있는 것은 **배틀 음악 자리 3개**뿐이고, **셋 다 음악 파일이 비어 있음** (리소스팩으로 채우라고 만들어 둔 자리):
@@ -26,8 +29,10 @@
 | 포켓몬 센터 | 10번 | 정보창 위치 "포켓몬 센터" (광장의 센터 건물 안) |
 | 체육관 | 20번 | 정보창 위치 "체육관" = 체육관 로비만. 관장을 고르면 가는 **경기장·사천왕 본부는 "경기장"이라 안 나옴** |
 | 튜토리얼 공간 | 13번 | 정보창 위치 "오박사 연구소" |
+| 상점 | 9번 | 정보창 위치 "상점" (광장의 프렌들리 숍 건물 안) |
+| 사천왕 본부 | 42번 (**파일 아직 안 올라옴** → 올라오면 바로 연결) | 정보창 위치 "사천왕 본부" (배틀 전·후. 배틀 중엔 배틀 BGM) |
 
-- 야생·농장·경기장에서는 공간 BGM 없음 (마인크래프트 기본 음악).
+- 야생·농장·경기장(1~8번)에서는 공간 BGM 없음 (마인크래프트 기본 음악).
 
 ## 3. 배틀 BGM
 | 배틀 | 곡 |
@@ -39,5 +44,5 @@
 - 배틀이 시작될 때 서버가 플레이어 쪽 배틀 곡을 정해 줌 (`CobblemonHooks` 배틀 시작 이벤트, `PlayerBattleActor.battleTheme`). RCT 트레이너(관장 포함) 배틀은 원래 곡이 비어 있어서 여기서 정하지 않으면 아무것도 안 나옴.
 - 사천왕은 "체육관 관장 배틀"이 아니라서 7번. 28번으로 바꾸려면 `gymNo` 조건(1~8)을 1~9로.
 - 코드: `Bgm.java`(공간 → 곡), `MusicMixin.java`(마인크래프트가 고르는 음악을 바꿈), 서버 `Nicknames.place()`(위치 이름).
-- 파일: `mod/src/main/resources/assets/pokeserver/sounds/bgm/bgm_번호.ogg` (서버장이 올린 wav를 ogg 128kbps로 바꿈, 7곡 합쳐 약 10MB). 목록은 `assets/pokeserver/sounds.json`.
+- 파일: `mod/src/main/resources/assets/pokeserver/sounds/bgm/bgm_번호.ogg` (서버장이 올린 wav를 ogg 128kbps로 바꿈, 8곡 합쳐 약 12MB). 목록은 `assets/pokeserver/sounds.json`.
 - 새 곡을 넣으려면 같은 폴더에 올리고 어느 공간에 쓸지 알려 주면 됨 (README 참고).

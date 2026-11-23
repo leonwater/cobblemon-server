@@ -64,6 +64,9 @@ public class PokeServer implements ModInitializer {
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             Plaza.tick(server);
             ItemCleaner.tick(server);
+            // 데이터팩 warp/save_here가 봄: 광장 안이면 G 메뉴 "야생" 위치로 저장 안 함. 매 틱 갱신 → 광장에 도착한 바로 다음 틱부터 막힘 (거리 계산만이라 가벼움)
+            for (var p : server.getPlayerList().getPlayers())
+                if (Plaza.protects(p.level(), p.blockPosition())) p.addTag("poke.in_plaza"); else p.removeTag("poke.in_plaza");
             if (server.getTickCount() % 100 == 0) Farms.refreshLabels(server);
             if (server.getTickCount() % 20 == 0) { Teleport.tick(server); Nicknames.tick(server); Plaza.modes(server); }
             if (server.getTickCount() % 200 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.reapply(server);
@@ -87,6 +90,7 @@ public class PokeServer implements ModInitializer {
         CommandRegistrationCallback.EVENT.register((dispatcher, registries, env) -> {
             dispatcher.register(admin());
             Teleport.register(dispatcher);
+            if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.registerSpectate(dispatcher);
             // 4·5. 명령어는 한국어·영어 둘 다 (같은 일)
             for (String name : new String[]{"money", "돈"}) dispatcher.register(Commands.literal(name).executes(PokeServer::balance));
             for (String name : new String[]{"spawn", "광장"}) dispatcher.register(Commands.literal(name).executes(c -> {
@@ -126,7 +130,7 @@ public class PokeServer implements ModInitializer {
     /** /명령어 (/commands) 와 G 메뉴 "명령어" 버튼이 보여 주는 목록. */
     static final String[] HELP = {"── 명령어 (한국어 / English) ──", "G 키: 메인 메뉴  ·  /메뉴 /menu",
             "/돈 /money: 잔액", "/송금 /pay 닉네임 금액: 돈 보내기",
-            "/가기 /tp 닉네임: 그 사람에게 이동 (상대 동의)", "/부르기 /tpa 닉네임: 내 쪽으로 부르기 (상대 동의)",
+            "/가기 /tp 닉네임: 그 사람에게 이동 (상대 동의)", "/부르기 /tpa 닉네임: 내 쪽으로 부르기 (상대 동의)", "/관전 /spectate 닉네임: 그 사람의 배틀 관전",
             "/수락 /accept · /거절 /deny: 텔레포트 요청에 대답", "/광장 /spawn: 광장으로", "/명령어 /commands: 이 목록",
             "R 키: 포켓몬 꺼내기 · M 키: 상태창 · ↑↓: 파티 선택"};
 

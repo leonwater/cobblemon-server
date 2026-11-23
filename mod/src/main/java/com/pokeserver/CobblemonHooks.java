@@ -37,15 +37,15 @@ public final class CobblemonHooks {
             }
             // 10. 렉 방지: 야생 포켓몬 수 상한 (야생에 있는 사람 1명당 WILD_PER_PLAYER마리)
             if (wildCount >= wildCap) { e.cancel(); return Unit.INSTANCE; }
-            wildCount++;
             var mon = pe.getPokemon();
             boolean near = nearFirstSpawn(level.getServer(), e.getSpawnablePosition().getPosition());
             // 전설·환상·울트라비스트·패러독스(Complete Cobblemon Collection의 야생 출현)는 첫 스폰 근처에선 아예 안 나옴 (15레벨로 깎이면 너무 쉬움)
             if (near && mon.getSpecies().getLabels().stream().anyMatch(STRONG::contains)) { e.cancel(); return Unit.INSTANCE; }
-            if (mon.getLevel() > SAFE_LEVEL && near) {
-                mon.setLevel(SAFE_LEVEL - 7 + level.getRandom().nextInt(8));   // 8~15
-                mon.initializeMoveset(true);
-            }
+            if (mon.getLevel() > SAFE_LEVEL && near) mon.setLevel(SAFE_LEVEL - 7 + level.getRandom().nextInt(8));   // 8~15
+            // 첫 스폰 근처: 종족값 합 SAFE_BST 넘는 종, 그 레벨엔 아직 진화 못 했을 종(예: 30레벨 진화형이 15레벨)은 안 나옴
+            if (near && (bst(mon.getForm()) > SAFE_BST || evolveLevel(mon.getForm()) > mon.getLevel())) { e.cancel(); return Unit.INSTANCE; }
+            if (near) mon.initializeMoveset(true);
+            wildCount++;   // 실제로 나온 것만 셈 (취소된 스폰까지 세면 상한이 일찍 참)
             return Unit.INSTANCE;
         });
         // 6. 내 포켓몬보다 레벨이 많이 높은 포켓몬은 잡기 어려움: 5레벨 넘게 차이 나면 1레벨당 5%씩, 최저 10%
@@ -58,9 +58,39 @@ public final class CobblemonHooks {
             }
             return Unit.INSTANCE;
         });
+        // 레벨 제한(RCT): 제한에 닿으면 경험치·레벨이 더 안 오름 (넘칠 경험치는 제한 레벨까지만), 사탕도 못 씀 (안 닳게)
+        CobblemonEvents.EXPERIENCE_GAINED_EVENT_PRE.subscribe(Priority.NORMAL, e -> {
+            var mon = e.getPokemon();
+            int cap = mon.getOwnerPlayer() == null ? 0 : levelCap(mon.getOwnerPlayer());
+            if (cap <= 0) return Unit.INSTANCE;
+            if (mon.getLevel() >= cap) e.cancel();
+            else e.setExperience(Math.min(e.getExperience(), mon.getExperienceToLevel(cap)));
+            return Unit.INSTANCE;
+        });
+        CobblemonEvents.EXPERIENCE_CANDY_USE_PRE.subscribe(Priority.NORMAL, e -> {
+            int cap = levelCap(e.getPlayer());
+            if (cap > 0 && e.getPokemon().getLevel() >= cap) {
+                e.cancel();
+                e.getPlayer().displayClientMessage(Component.literal("레벨 제한(Lv." + cap + ")에 닿아 더 키울 수 없어요. 체육관을 이기면 제한이 올라가요.").withStyle(ChatFormatting.YELLOW), true);
+            }
+            return Unit.INSTANCE;
+        });
+        // 레벨 제한보다 높은 포켓몬은 못 잡음 (볼이 맞는 순간 막음)
+        CobblemonEvents.THROWN_POKEBALL_HIT.subscribe(Priority.NORMAL, e -> {
+            if (!(e.getPokeBall().getOwner() instanceof net.minecraft.server.level.ServerPlayer p)) return Unit.INSTANCE;
+            int cap = levelCap(p), lv = e.getPokemon().getPokemon().getLevel();
+            if (cap > 0 && lv > cap) {
+                e.cancel();
+                p.displayClientMessage(Component.literal("레벨 제한(Lv." + cap + ")보다 높은 포켓몬(Lv." + lv + ")은 잡을 수 없어요.").withStyle(ChatFormatting.RED), true);
+            }
+            return Unit.INSTANCE;
+        });
         installStarters();
         PokeServer.LOG.info("배틀 제한 등록: 야생·플레이어 배틀은 야생(광장 포함)에서만");
         // 9. 야생·플레이어 배틀은 야생(광장 마을 포함)에서만. NPC(체육관 관장 등) 배틀은 어디서나.
+        // 배틀 중인 플레이어는 무적 (몹·다른 플레이어·낙하 등 모든 피해)
+        net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents.ALLOW_DAMAGE.register((victim, source, amount) ->
+                !(victim instanceof net.minecraft.server.level.ServerPlayer p && com.cobblemon.mod.common.battles.BattleRegistry.INSTANCE.getBattleByParticipatingPlayer(p) != null));
         CobblemonEvents.BATTLE_STARTED_PRE.subscribe(Priority.NORMAL, e -> {
             var b = e.getBattle();
             boolean outside = b.getPlayers().stream().anyMatch(p -> !battleArea(p));
@@ -70,6 +100,20 @@ public final class CobblemonHooks {
             }
             // 체육관·사천왕: 도전자를 필드 끝 자리로 (포켓몬 위치는 holdGymPokemon이 1초마다 맞춤)
             if (b.isPvN()) for (var p : b.getPlayers()) if (inGym(p)) Menu.run(p, "function poke:gym/place");
+            // 레벨 제한(RCT)을 넘은 포켓몬은 어떤 배틀에도 못 나감 (못 잡고 못 키우지만, 교환 등으로 들어온 경우 대비): 그 배틀 팀에서 빼고, 나갈 포켓몬이 없으면 배틀 취소
+            for (var a : b.getActors()) if (a instanceof com.cobblemon.mod.common.battles.actor.PlayerBattleActor pa && pa.getEntity() != null) {
+                int cap = levelCap(pa.getEntity());
+                var over = pa.getPokemonList().stream().filter(bp -> cap > 0 && bp.getOriginalPokemon().getLevel() > cap).toList();
+                if (over.isEmpty()) continue;
+                pa.getPokemonList().removeAll(over);
+                pa.getEntity().sendSystemMessage(Component.literal("레벨 제한(Lv." + cap + ")을 넘은 포켓몬은 배틀에 못 나가요: "
+                        + over.stream().map(bp -> bp.getOriginalPokemon().getDisplayName(false).getString()).collect(java.util.stream.Collectors.joining(", "))).withStyle(ChatFormatting.YELLOW));
+                if (pa.getPokemonList().stream().allMatch(bp -> bp.getOriginalPokemon().isFainted())) {
+                    e.setReason(Component.literal("레벨 제한(Lv." + cap + ") 안의 포켓몬이 없어서 배틀할 수 없어요.").withStyle(ChatFormatting.RED));
+                    e.cancel();
+                    return Unit.INSTANCE;
+                }
+            }
             // 배틀 BGM (음악 볼륨, 배틀이 끝나면 코블몬이 끔): 체육관 관장(1~8번)은 28번, 그 밖(야생·트레이너·플레이어·사천왕)은 7번.
             // RCT 트레이너 배틀은 원래 곡이 비어 있어 아무것도 안 나옴 → 여기서 모든 플레이어 쪽에 곡을 정해 줌
             for (var a : b.getActors()) if (a instanceof com.cobblemon.mod.common.battles.actor.PlayerBattleActor pa && pa.getEntity() != null) {
@@ -113,7 +157,26 @@ public final class CobblemonHooks {
         return p.level().dimension().location().toString().equals("poke:wild");
     }
 
-    static final int SAFE_LEVEL = 15, SAFE_RADIUS = 200;
+    static final int SAFE_LEVEL = 15, SAFE_RADIUS = 170, SAFE_BST = 300;
+
+    static int bst(com.cobblemon.mod.common.pokemon.FormData f) {
+        return f.getBaseStats().values().stream().mapToInt(Integer::intValue).sum();
+    }
+
+    /** 이 모습이 되려면 필요한 레벨 (레벨 진화만 셈, 앞 단계까지 거슬러 올라감). 진화형이 아니면 1. */
+    static int evolveLevel(com.cobblemon.mod.common.pokemon.FormData f) {
+        var pre = f.getPreEvolution();
+        if (pre == null) return 1;
+        int need = evolveLevel(pre.getForm());
+        String me = f.getSpecies().getResourceIdentifier().getPath();
+        for (var ev : pre.getForm().getEvolutions()) {
+            String to = String.valueOf(ev.getResult().getSpecies()).toLowerCase();
+            if (!to.substring(to.indexOf(':') + 1).equals(me)) continue;
+            for (var r : ev.getRequirements())
+                if (r instanceof com.cobblemon.mod.common.pokemon.requirements.LevelRequirement l) need = Math.max(need, l.getMinLevel());
+        }
+        return need;
+    }
     static final Set<String> STRONG = Set.of("legendary", "mythical", "ultra_beast", "paradox");
     /** 스타팅 포켓몬 세대 (Cobblemon 기본 분류 이름). 피카츄·이브이(Special)와 히스이는 뺌. */
     static final java.util.List<String> GENS = java.util.List.of("kanto", "johto", "hoenn", "sinnoh", "unova", "kalos", "alola", "galar", "paldea");
@@ -323,7 +386,32 @@ public final class CobblemonHooks {
     }
 
     /** 체육관·사천왕 경기장 안 (poke.gym 1~9). */
+    /** /관전 닉네임 (/spectate): 누구나 다른 사람의 배틀을 거리 상관없이 관전. 코블몬 기본(파티 포켓몬을 고른 채 배틀 중인 사람을 보고 R)은
+     *  포켓몬이 없거나 닫힌 경기장 밖이면 못 써서 명령으로도 열어 줌. 조건 검사(자기 자신·배틀 중 아님·내가 배틀 중)는 코블몬이 함. */
+    static void registerSpectate(com.mojang.brigadier.CommandDispatcher<net.minecraft.commands.CommandSourceStack> d) {
+        for (String name : new String[]{"관전", "spectate"}) d.register(net.minecraft.commands.Commands.literal(name)
+                .then(net.minecraft.commands.Commands.argument("player", com.mojang.brigadier.arguments.StringArgumentType.greedyString()).suggests(Nicknames::suggest).executes(c -> {
+                    var me = c.getSource().getPlayerOrException();
+                    var other = Nicknames.find(me.server, com.mojang.brigadier.arguments.StringArgumentType.getString(c, "player"));
+                    if (other == null) { me.sendSystemMessage(Component.literal("접속 중인 사람의 닉네임을 적어 주세요.").withStyle(ChatFormatting.RED)); return 0; }
+                    com.cobblemon.mod.common.net.serverhandling.battle.SpectateBattleHandler.INSTANCE.spectateBattle(other, me);   // (대상, 관전자) 순서
+                    return 1;
+                })));
+    }
+
     static boolean inGym(net.minecraft.server.level.ServerPlayer p) { return gymNo(p) > 0; }
+
+    /** RCT 레벨 제한 (모드가 없거나 못 읽으면 0 = 제한 없음). RCT는 빌드 의존성이 아니라 리플렉션으로 읽음 (클라이언트 MenuScreen.minecraftCap과 같은 방식). */
+    static int levelCap(net.minecraft.server.level.ServerPlayer p) {
+        try {
+            Object mod = Class.forName("com.gitlab.srcmc.rctmod.api.RCTMod").getMethod("getInstance").invoke(null);
+            Object tm = mod.getClass().getMethod("getTrainerManager").invoke(mod);
+            Object data = tm.getClass().getMethod("getData", net.minecraft.world.entity.player.Player.class).invoke(tm, p);
+            return (int) data.getClass().getMethod("getLevelCap").invoke(data);
+        } catch (ReflectiveOperationException | RuntimeException ex) {
+            return 0;
+        }
+    }
 
     /** 지금 들어가 있는 경기장 번호 (1~8 체육관, 9 사천왕, 0 없음). */
     static int gymNo(net.minecraft.server.level.ServerPlayer p) {

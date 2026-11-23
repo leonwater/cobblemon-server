@@ -64,7 +64,7 @@ const {Rcon}=require(process.env.R+"/tests/node_modules/rcon-client");const {exe
 (async()=>{const r=await Rcon.connect({host:"localhost",port:25575,password:"test",timeout:20000});
 for (const line of fs.readFileSync(process.argv[2],"utf8").split("\n")) {
   const [k,...rest]=line.trim().split(" "); const a=rest.join(" ");
-  if (k==="rcon") console.log(">",a,"→",(await r.send(a)).slice(0,160));
+  if (k==="rcon") console.log(">",a,"→",(await r.send(a)).slice(0,1500));
   else if (k==="until") { const [cmd,re,ms]=a.split(" ~ "); const t0=Date.now(); let o="";
     while (Date.now()-t0 < (+ms||60000)) { o=await r.send(cmd); if (new RegExp(re).test(o)) break; await new Promise(s=>setTimeout(s,500)) }
     console.log("until",cmd,"→",o.slice(0,120),((Date.now()-t0)/1000).toFixed(1)+"s") }

@@ -111,8 +111,8 @@ hash = "50123c09c4693cf847ac3420fcef7cdb94ba57096b9dbb9f13deabedc8d9f62e"
 metafile = true
 
 [[files]]
-file = "mods/pokeserver-0.8.0.jar"
-hash = "03ec9d1829323c8098ce12ae1c3a58d42b23711b8260b815348727fbcdf894fc"
+file = "mods/pokeserver-0.9.0.jar"
+hash = "bfcb31900396dd87fbd882a6f929e6f37a0262ac83da62ad9b398a6110c36bb5"
 
 [[files]]
 file = "mods/rctapi.pw.toml"
@@ -725,7 +725,7 @@ hash = "f857e79df8185f3e2ecf5c99bee0baaf2abf145229670da4c71b023ed18bda7c"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/warp/first_wild.mcfunction"
-hash = "85cd3e72fe9942a565d00c0dfff2d66b15ef920f8036af424af886d9f1fe04f0"
+hash = "648595efa42ab8bb1a5e7d2dc2e7c0805a455d10a646512ab94c020025ee14e5"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/warp/fixed.mcfunction"
@@ -753,7 +753,7 @@ hash = "965668b85a6dbb98b6b10727d4946f46949378dc01e5343d209ce85d8b61f280"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/warp/save_here.mcfunction"
-hash = "cf215d4c7e08a8a4e289c4673f3b97472539f37dfeff6da6d9616b7a5ee8d669"
+hash = "83cc42b162d94003ebe58a29d6bb49528dc9893f7569f3c728d95b67659b982a"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/warp/save_m.mcfunction"

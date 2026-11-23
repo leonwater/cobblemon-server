@@ -40,6 +40,17 @@ public class PokeServerClient implements ClientModInitializer {
                 (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new TutorialScreen(p.nick(), p.error()))));
         // 5. G 키: 메인 메뉴 (설정 → 조작에서 바꿀 수 있음)
         menu = KeyBindingHelper.registerKeyBinding(new KeyMapping("메인 메뉴", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_G, "pokeserver"));
+        // 키 겹침: Iris(셰이더)의 "셰이더 다시 불러오기"도 기본 R이라 코블몬 R(포켓몬 내보내기·상호작용 휠·관전·배틀 화면)이 안 먹음
+        // (마인크래프트는 같은 키에 하나만 연결) → 다른 키와 겹치면 Iris 쪽을 비움. 바꾸고 싶으면 설정 → 조작에서 다시 지정
+        net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents.CLIENT_STARTED.register(mc -> {
+            for (KeyMapping k : mc.options.keyMappings) {
+                if (!k.getName().equals("iris.keybind.reload") || k.isUnbound()) continue;
+                if (java.util.Arrays.stream(mc.options.keyMappings).noneMatch(o -> o != k && o.same(k))) continue;
+                k.setKey(InputConstants.UNKNOWN);
+                KeyMapping.resetMapping();
+                mc.options.save();
+            }
+        });
         ClientTickEvents.END_CLIENT_TICK.register(mc -> {
             Bgm.tick(mc);
             while (menu.consumeClick()) {
