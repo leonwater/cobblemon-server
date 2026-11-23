@@ -43,5 +43,23 @@
     "stream": true
    }
   ]
+ },
+ "bgm.bgm_7": {
+  "category": "music",
+  "sounds": [
+   {
+    "name": "pokeserver:bgm/bgm_7",
+    "stream": true
+   }
+  ]
+ },
+ "bgm.bgm_28": {
+  "category": "music",
+  "sounds": [
+   {
+    "name": "pokeserver:bgm/bgm_28",
+    "stream": true
+   }
+  ]
  }
 }

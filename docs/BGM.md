@@ -28,6 +28,16 @@
 | 튜토리얼 공간 | 13번 | 정보창 위치 "오박사 연구소" |
 
 - 야생·농장·경기장에서는 공간 BGM 없음 (마인크래프트 기본 음악).
+
+## 3. 배틀 BGM
+| 배틀 | 곡 |
+| --- | --- |
+| 야생 포켓몬 배틀 · 트레이너 배틀 · 플레이어끼리 배틀 · 사천왕 | 7번 |
+| 체육관 관장 배틀 (1~8번 경기장) | 28번 |
+
+- 배틀 중에만 나오고 끝나면 꺼짐. 크기는 공간 BGM과 같은 **음악** 볼륨. 배틀 동안 공간 BGM은 잠시 멈췄다가 끝나면 다시 나옴 (코블몬 배틀 음악 기능을 그대로 씀).
+- 배틀이 시작될 때 서버가 플레이어 쪽 배틀 곡을 정해 줌 (`CobblemonHooks` 배틀 시작 이벤트, `PlayerBattleActor.battleTheme`). RCT 트레이너(관장 포함) 배틀은 원래 곡이 비어 있어서 여기서 정하지 않으면 아무것도 안 나옴.
+- 사천왕은 "체육관 관장 배틀"이 아니라서 7번. 28번으로 바꾸려면 `gymNo` 조건(1~8)을 1~9로.
 - 코드: `Bgm.java`(공간 → 곡), `MusicMixin.java`(마인크래프트가 고르는 음악을 바꿈), 서버 `Nicknames.place()`(위치 이름).
-- 파일: `mod/src/main/resources/assets/pokeserver/sounds/bgm/bgm_번호.ogg` (서버장이 올린 wav를 ogg 128kbps로 바꿈, 5곡 합쳐 약 6.4MB). 목록은 `assets/pokeserver/sounds.json`.
+- 파일: `mod/src/main/resources/assets/pokeserver/sounds/bgm/bgm_번호.ogg` (서버장이 올린 wav를 ogg 128kbps로 바꿈, 7곡 합쳐 약 10MB). 목록은 `assets/pokeserver/sounds.json`.
 - 새 곡을 넣으려면 같은 폴더에 올리고 어느 공간에 쓸지 알려 주면 됨 (README 참고).

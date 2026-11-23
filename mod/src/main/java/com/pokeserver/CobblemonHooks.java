@@ -70,6 +70,12 @@ public final class CobblemonHooks {
             }
             // 체육관·사천왕: 도전자를 필드 끝 자리로 (포켓몬 위치는 holdGymPokemon이 1초마다 맞춤)
             if (b.isPvN()) for (var p : b.getPlayers()) if (inGym(p)) Menu.run(p, "function poke:gym/place");
+            // 배틀 BGM (음악 볼륨, 배틀이 끝나면 코블몬이 끔): 체육관 관장(1~8번)은 28번, 그 밖(야생·트레이너·플레이어·사천왕)은 7번.
+            // RCT 트레이너 배틀은 원래 곡이 비어 있어 아무것도 안 나옴 → 여기서 모든 플레이어 쪽에 곡을 정해 줌
+            for (var a : b.getActors()) if (a instanceof com.cobblemon.mod.common.battles.actor.PlayerBattleActor pa && pa.getEntity() != null) {
+                int g = gymNo(pa.getEntity());
+                pa.setBattleTheme(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(PokeServer.ID, "bgm.bgm_" + (b.isPvN() && g >= 1 && g <= 8 ? 28 : 7)));
+            }
             return Unit.INSTANCE;
         });
         // 체육관·사천왕: NPC 배틀이 끝나면 승패를 데이터팩에 알림 (체육관 안이 아니면 함수가 아무것도 안 함)
@@ -317,11 +323,14 @@ public final class CobblemonHooks {
     }
 
     /** 체육관·사천왕 경기장 안 (poke.gym 1~9). */
-    static boolean inGym(net.minecraft.server.level.ServerPlayer p) {
+    static boolean inGym(net.minecraft.server.level.ServerPlayer p) { return gymNo(p) > 0; }
+
+    /** 지금 들어가 있는 경기장 번호 (1~8 체육관, 9 사천왕, 0 없음). */
+    static int gymNo(net.minecraft.server.level.ServerPlayer p) {
         var sb = p.server.getScoreboard();
         var obj = sb.getObjective("poke.gym");
         var score = obj == null ? null : sb.getPlayerScoreInfo(p, obj);
-        return score != null && score.value() > 0;
+        return score == null ? 0 : score.value();
     }
 
     /** 배틀 중 특수 기믹 잠금 (배틀 밖은 제한 없음): 메가 = 배지 4, 다이맥스·거다이맥스 = 배지 6, 테라스탈 = 배지 8, Z기술은 제한 없음.
