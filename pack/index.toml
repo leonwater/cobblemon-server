@@ -111,8 +111,8 @@ hash = "50123c09c4693cf847ac3420fcef7cdb94ba57096b9dbb9f13deabedc8d9f62e"
 metafile = true
 
 [[files]]
-file = "mods/pokeserver-0.9.0.jar"
-hash = "bfcb31900396dd87fbd882a6f929e6f37a0262ac83da62ad9b398a6110c36bb5"
+file = "mods/pokeserver-1.0.0.jar"
+hash = "c07f45cea670d1141aed0f777d2b9bb4df7524710bf77e96be50bcdb395e2dbc"
 
 [[files]]
 file = "mods/rctapi.pw.toml"
