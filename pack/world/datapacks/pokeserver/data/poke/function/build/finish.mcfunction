@@ -2,6 +2,7 @@
 execute in poke:hub run function poke:build/tutorial
 execute in poke:town run function poke:mod/build_town
 execute in poke:hub run function poke:mod/spawn_npcs
+function poke:mod/clear_items
 execute in poke:town run forceload remove all
 data modify storage poke:state build set value 20
 data modify storage poke:state ready set value 1

@@ -28,7 +28,8 @@ public class MenuScreen extends Screen {
                     new Tile("명령어", "minecraft:oak_sign", "help"),
                     new Tile("휴지통", "minecraft:lava_bucket", "trash"))),
             new Cat("워프", "minecraft:ender_pearl", List.of(
-                    new Tile("야생", "minecraft:grass_block", "warp:hall"),   // 광장 마을은 야생 첫 스폰 자리에 있어 하나로
+                    new Tile("광장", "minecraft:bell", "warp:hall"),          // 광장 마을 (항상 같은 자리)
+                    new Tile("야생", "minecraft:grass_block", "warp:wild"),   // 야생에서 마지막으로 있던 자리 (처음이면 광장)
                     new Tile("농장", "minecraft:wheat", "warp:farm"),
                     new Tile("체육관", "minecraft:red_banner", "warp:gym"))));
     /** 왼쪽 아래 작은 버튼 (참고 사진). */
@@ -217,6 +218,13 @@ public class MenuScreen extends Screen {
         text(g, v, x + w - w(v), y, Theme.TEXT);
         g.fill(x, y + 11, x + w, y + 14, 0xFF2A303C);
         if (total > 0) g.fill(x, y + 11, x + Math.max(n > 0 ? 1 : 0, w * n / total), y + 14, Theme.ACCENT);
+    }
+
+    /** G 키를 한 번 더 누르면 닫힘 (ESC와 같게). */
+    @Override
+    public boolean keyPressed(int key, int scan, int mods) {
+        if (PokeServerClient.menu != null && PokeServerClient.menu.matches(key, scan)) { onClose(); return true; }
+        return super.keyPressed(key, scan, mods);
     }
 
     @Override

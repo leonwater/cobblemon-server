@@ -19,7 +19,7 @@ cp $R/pack/config/pokeserver/*.json $W/config/pokeserver/
 python3 -c "import json,sys;p=sys.argv[1];d=json.load(open(p));d['categories'][-1]['items'].append({'item':'minecraft:iron_block','buy':1200,'sell':300,'badges':1});json.dump(d,open(p,'w'),ensure_ascii=False)" $W/config/pokeserver/shop.json
 rm -rf $W/world $W/world-backup-* && mkdir -p $W/world/datapacks $W/world/region && cp -r $R/pack/world/datapacks/pokeserver $W/world/datapacks/
 echo old > $W/world/level.dat; echo old > $W/world/region/r.0.0.mca   # 8. 예전 월드 흉내: 시작할 때 백업 폴더로 옮겨져야 함
-for f in $W/world/datapacks/pokeserver/data/poke/function/mod/*.mcfunction; do echo 'return 0' > $f; done
+for f in $W/world/datapacks/pokeserver/data/poke/function/mod/*.mcfunction; do case $f in */clear_items.mcfunction) continue;; esac; echo 'return 0' > $f; done   # clear_items는 모드 명령만 써서 그대로 시험
 echo eula=true > $W/eula.txt
 printf 'online-mode=false\nenable-rcon=true\nrcon.password=test\nrcon.port=25577\nserver-port=25567\nlevel-type=minecraft\\:flat\nspawn-protection=0\n' > $W/server.properties
 [ -d node_modules ] || npm i --silent

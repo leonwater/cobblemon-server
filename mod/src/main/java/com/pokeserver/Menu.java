@@ -61,15 +61,16 @@ final class Menu {
                 if (FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.STARTER_AT.put(p.getUUID(), p.server.getTickCount() + 40);
             }
             case "starter" -> { if (FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.offerStarter(p); }
-            case "warp:hall", "warp:gym", "warp:farm" -> {
+            case "warp:hall", "warp:wild", "warp:gym", "warp:farm" -> {
                 // 튜토리얼을 건너뛰지 못하게
                 if (!p.getTags().contains("poke.tutorial_done")) {
                     p.displayClientMessage(Component.literal("튜토리얼을 먼저 끝내 주세요.").withStyle(ChatFormatting.RED), true);
                     return;
                 }
                 String key = a.substring(5);
-                // 광장·체육관은 항상 같은 자리, 농장은 마지막 위치
-                run(p, (key.equals("farm") ? "function poke:warp/go {key:\"" : "function poke:warp/fixed {key:\"") + key + "\"}");
+                // 광장·체육관은 항상 같은 자리, 농장·야생은 마지막 위치 (처음이면 농장 입구·광장)
+                boolean last = key.equals("farm") || key.equals("wild");
+                run(p, (last ? "function poke:warp/go {key:\"" : "function poke:warp/fixed {key:\"") + key + "\"}");
             }
             default -> { }
         }

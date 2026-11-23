@@ -795,7 +795,7 @@ if __name__ == '__main__':
         '# 자동 생성: tools/build_world.py',
         'execute in poke:hub run function poke:build/tutorial',
         'execute in poke:town run function poke:mod/build_town', 'execute in poke:hub run function poke:mod/spawn_npcs',
-        'execute in poke:town run forceload remove all', f'data modify storage poke:state build set value {BUILD}', 'data modify storage poke:state ready set value 1',
+        'function poke:mod/clear_items', 'execute in poke:town run forceload remove all', f'data modify storage poke:state build set value {BUILD}', 'data modify storage poke:state ready set value 1',
         '# 관장·사천왕은 플레이어가 접속하면 소환 (RCT 명령이 플레이어를 요구)', 'data modify storage poke:state leaders set value 0',
         'say [잡켓몬] 튜토리얼 방·체육관과 지형을 지었습니다.']
     # 15. 광장 마을 (야생): 모드가 자리·지형을 정한 뒤 그 자리에서 build/plaza/start 실행 → 마커 기준 상대 좌표로 2,000줄씩
@@ -818,6 +818,7 @@ if __name__ == '__main__':
     out['build/plaza/finish.mcfunction'] = [
         '# 자동 생성: tools/build_world.py',
         'execute in poke:wild at @e[type=minecraft:marker,tag=poke.plaza,limit=1] run function poke:mod/plaza',
+        'function poke:mod/clear_items',   # 짓다가 떨어진 아이템 정리 (청크를 풀기 전, 서버를 열기 전에 한 번)
         # 청크를 한 번에 풀면 조명 계산이 몰려 한 틱이 길어짐 → 16칸 줄씩 1초 간격으로 풂
         *[f'schedule function poke:build/plaza/unload_{k} {20 * (i + 1)}t' for i, k in enumerate([0, 1, 2, 3, 4, 6, 7, 8, 9, 5])],   # 마커가 있는 줄(5)은 마지막
         'say [잡켓몬] 광장 마을을 지었습니다.']
@@ -825,6 +826,8 @@ if __name__ == '__main__':
         x = -80 + 16 * k
         out[f'build/plaza/unload_{k}.mcfunction'] = [
             f'execute in poke:wild at @e[type=minecraft:marker,tag=poke.plaza,limit=1] run forceload remove ~{x} ~-80 ~{x + 15} ~80']
+    # 모드 명령이라 mod/ 아래 (모드 없는 데이터팩 시험에선 이 함수만 못 읽고 나머지는 그대로)
+    out['mod/clear_items.mcfunction'] = ['# 자동 생성: tools/build_world.py. 초기화·다시 짓기 뒤 바닥에 떨어진 아이템 정리', 'pokeserver clearitems']
     out['mod/plaza.mcfunction'] = ['# 자동 생성: tools/build_world.py. 광장의 Cobblemon 물건·NPC (마커 위치에서 실행)',
                                    'execute as @e[type=cobblemon:npc,tag=poke.npc,distance=..90] run npcdelete @s',
                                    *[P.relative(c) for c in P.plaza_mod()],

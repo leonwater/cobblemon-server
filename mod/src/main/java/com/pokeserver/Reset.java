@@ -73,6 +73,13 @@ final class Reset {
             for (Path p : moved) Files.move(to.resolve(p.getFileName()), p);
             throw new IllegalStateException("월드 초기화 실패 (옮긴 파일은 되돌림). 서버를 끄고 다시 켜 보세요: " + ex, ex);
         }
+        // 서버장이 고른 초기화 대상 중 월드 밖에 있는 것: 배틀 기록(battle_logs)도 같은 백업 폴더로 (게임에는 영향 없음 → 실패해도 초기화는 계속)
+        Path logs = world.resolveSibling("battle_logs");
+        try {
+            if (Files.isDirectory(logs)) Files.move(logs, to.resolve("battle_logs"));
+        } catch (IOException ex) {
+            PokeServer.LOG.warn("배틀 기록 폴더를 백업 폴더로 옮기지 못함: {}", ex.toString());
+        }
         PokeServer.LOG.warn("월드를 초기화했습니다. 이전 월드는 {} 에 보관됨", to);
     }
 }

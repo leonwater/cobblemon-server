@@ -1,5 +1,6 @@
 # 자동 생성: tools/build_world.py
 execute in poke:wild at @e[type=minecraft:marker,tag=poke.plaza,limit=1] run function poke:mod/plaza
+function poke:mod/clear_items
 schedule function poke:build/plaza/unload_0 20t
 schedule function poke:build/plaza/unload_1 40t
 schedule function poke:build/plaza/unload_2 60t

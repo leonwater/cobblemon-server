@@ -10,6 +10,9 @@ import net.minecraft.client.KeyMapping;
 import org.lwjgl.glfw.GLFW;
 
 public class PokeServerClient implements ClientModInitializer {
+    /** G 키 (메뉴 창에서 한 번 더 누르면 닫힘: MenuScreen.keyPressed). */
+    static KeyMapping menu;
+
     @Override
     public void onInitializeClient() {
         ClientPlayNetworking.registerGlobalReceiver(Net.ClaimPopup.TYPE,
@@ -36,7 +39,7 @@ public class PokeServerClient implements ClientModInitializer {
         ClientPlayNetworking.registerGlobalReceiver(Net.TutorialOpen.TYPE,
                 (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new TutorialScreen(p.nick(), p.error()))));
         // 5. G 키: 메인 메뉴 (설정 → 조작에서 바꿀 수 있음)
-        KeyMapping menu = KeyBindingHelper.registerKeyBinding(new KeyMapping("메인 메뉴", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_G, "pokeserver"));
+        menu = KeyBindingHelper.registerKeyBinding(new KeyMapping("메인 메뉴", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_G, "pokeserver"));
         ClientTickEvents.END_CLIENT_TICK.register(mc -> {
             while (menu.consumeClick()) {
                 if (mc.player != null && mc.screen == null) ClientPlayNetworking.send(new Net.MenuAction("open"));
