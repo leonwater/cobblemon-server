@@ -23,7 +23,7 @@ hash = "f352cf02dc158e905c4ae7ca5496f7b2d4f695f4aa3eb040437b6c87d7eda48c"
 
 [[files]]
 file = "config/pokeserver/league.json"
-hash = "caca1c69dea80d8d3862d1854b077d14231f4c94110f0792bd046e032fc1188c"
+hash = "d7b9628ad94d18d47a1e833d1c931dd366e5cb5d1130bd5d06b4439237f0d478"
 
 [[files]]
 file = "config/pokeserver/menu.json"
@@ -111,8 +111,8 @@ hash = "50123c09c4693cf847ac3420fcef7cdb94ba57096b9dbb9f13deabedc8d9f62e"
 metafile = true
 
 [[files]]
-file = "mods/pokeserver-0.4.0.jar"
-hash = "88e19b50cfe9079f343670f447c08877969095c091463c740aec3bc188cb412e"
+file = "mods/pokeserver-0.5.0.jar"
+hash = "816f3b5a6a28f964f2fcd1d2dfd854e56a727f1bcbf4a5189045157f34bcde20"
 
 [[files]]
 file = "mods/rctapi.pw.toml"

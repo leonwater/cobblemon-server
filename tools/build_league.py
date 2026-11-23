@@ -479,7 +479,9 @@ def functions():
     # 체육관 안내원 화면(모드)이 읽는 목록
     rgb = lambda c: c[0] << 16 | c[1] << 8 | c[2]
     league = [dict(n=n, title=f'{n}번 체육관', leader=f'관장 {name}', type=f'{typ} 타입', badge=badge, color=rgb(color),
-                   level=max(m['level'] for m in team) + CAP) for n, (_, name, typ, badge, color, team) in enumerate(GYMS, 1)]
+                   level=max(m['level'] for m in team) + CAP, prize=(max(m['level'] for m in team) + CAP) * 200,   # 상금 = award의 prize()와 같은 식
+                   reward=['경험사탕 5', '기술머신'] + ([KEY_ITEMS[n][1]] if n in KEY_ITEMS else []))
+              for n, (_, name, typ, badge, color, team) in enumerate(GYMS, 1)]
     league.append(dict(n=9, title='사천왕 (챔피언 4명 연속)', leader='·'.join(e[1] for e in ELITE), type='·'.join(e[2].split()[0] for e in ELITE) + ' 챔피언',
                        badge='명예의 전당', color=0x8A4FD0, level=100))
     (ROOT / 'pack/config/pokeserver/league.json').write_text(json.dumps(league, ensure_ascii=False, indent=1), encoding='utf-8')
