@@ -10,7 +10,7 @@ rem Safe default: only this PC can connect. Edit server.properties later to invi
 if not exist server.properties echo server-ip=127.0.0.1> server.properties
 "%JAVA%" -jar packwiz-installer-bootstrap.jar -g -s server %PACK%
 if errorlevel 1 (echo [ERROR] Update failed. Server not started. & pause & exit /b 1)
-"%JAVA%" -Xmx4G -jar "%SERVER%" nogui
+"%JAVA%" -Xmx8G -jar "%SERVER%" nogui
 rem /reset (full wipe) leaves this file: start again right away with a new world
 if exist pokeserver-wipe.txt "%~f0"
 pause
