@@ -5,7 +5,7 @@ from pathlib import Path
 D = Path(__file__).resolve().parent.parent / 'docs'
 # 파일 2개: play = 서버원에게 배포 (접속 방법·서버 안내·명령어), dev = 서버장·개발 (서버 여는 법·운영자 명령어·UI·관장·작업 규칙·스킬)
 GROUPS = {'play': ('잡켓몬 서버 문서', [('접속방법', '접속 방법'), ('서버안내', '서버 안내'), ('명령어', '명령어')]),   # 서버원에게 배포
-          'dev': ('잡켓몬 서버 개발 문서', [('서버_여는법', '서버 여는 법'), ('운영자_명령어', '운영자 명령어'), ('UI정리', 'UI 정리'), ('관장팀', '관장·사천왕 팀'), ('작업규칙', '작업 규칙'), ('스킬_플러그인', '스킬·플러그인')])}
+          'dev': ('잡켓몬 서버 개발 문서', [('서버_여는법', '서버 여는 법'), ('운영자_명령어', '운영자 명령어'), ('UI정리', 'UI 정리'), ('BGM', 'BGM'), ('관장팀', '관장·사천왕 팀'), ('작업규칙', '작업 규칙'), ('스킬_플러그인', '스킬·플러그인')])}
 TITLE, order = GROUPS[sys.argv[2] if len(sys.argv) > 2 else 'play']
 order = [(f, n) for f, n in order if (D / f'{f}.md').exists()]
 docs = [{'id': f, 'name': n, 'md': (D / f'{f}.md').read_text(encoding='utf-8')} for f, n in order]

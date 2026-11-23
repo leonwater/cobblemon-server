@@ -209,6 +209,13 @@ public final class Plaza {
         }
     }
 
+    /** 광장의 포켓몬센터 건물 안 (tools/plaza.py CENTER_P = 광장 가운데 기준 x 16~38, z -11~11과 같게). BGM·정보창 위치에 씀. */
+    public static boolean inCenter(net.minecraft.world.level.Level level, BlockPos pos) {
+        if (center == null || !level.dimension().location().toString().equals(DIM)) return false;
+        int dx = pos.getX() - center.getX(), dz = pos.getZ() - center.getZ();
+        return dx >= 16 && dx <= 38 && dz >= -11 && dz <= 11;
+    }
+
     /** 광장 둘레: 블록 수정 금지 (관리자 크리에이티브 제외는 Farms.canEdit). */
     public static boolean protects(net.minecraft.world.level.Level level, BlockPos pos) {
         if (center == null || !level.dimension().location().toString().equals(DIM)) return false;

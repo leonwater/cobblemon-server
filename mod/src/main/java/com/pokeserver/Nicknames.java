@@ -95,13 +95,13 @@ public final class Nicknames {
         }
     }
 
-    /** 정보창 "위치": 광장 마을 / 야생 / 농장 / 체육관 / 연구소. */
+    /** 정보창 "위치" (BGM도 이 값으로 고름): 광장 마을 / 포켓몬 센터 / 야생 / 농장 / 체육관(로비) / 경기장 / 오박사 연구소. */
     static String place(ServerPlayer p) {
         String d = p.level().dimension().location().toString();
         return switch (d) {
-            case "poke:wild" -> Plaza.protects(p.level(), p.blockPosition()) ? "광장 마을" : "야생";
+            case "poke:wild" -> Plaza.inCenter(p.level(), p.blockPosition()) ? "포켓몬 센터" : Plaza.protects(p.level(), p.blockPosition()) ? "광장 마을" : "야생";
             case "poke:farm" -> "농장";
-            case "poke:town" -> "체육관";
+            case "poke:town" -> p.getX() >= 2990 ? "경기장" : "체육관";   // 경기장·사천왕 본부는 x 3000~ (tools/build_world.py ARENA_X), 로비는 2000 근처
             case "poke:hub" -> "오박사 연구소";
             default -> "-";
         };

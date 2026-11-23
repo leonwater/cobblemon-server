@@ -259,6 +259,18 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   await A.equip(A.inventory.items().find(i => i.name === 'stone'), 'hand')
   await within(A.placeBlock(A.blockAt(new Vec3(px + 5, py, pzz + 21)), new Vec3(0, 1, 0)), 2000); await sleep(500)
   assert.ok((await cmd(`execute in poke:wild if block ${px + 5} ${py + 1} ${pzz + 21} minecraft:air`)).includes('passed'), '5. 광장에 블록을 못 놓음')
+  // 정보창 "위치" (공간 BGM도 이 값으로 고름): 포켓몬 센터·체육관 로비·경기장을 나눔
+  let place = ''
+  const varint = (b, o) => { let v = 0, k = 0, c; do { c = b[o++]; v |= (c & 0x7f) << (7 * k++) } while (c & 0x80); return [v, o] }
+  A._client.on('custom_payload', p => {
+    if (p.channel !== 'pokeserver:hud') return
+    let o = varint(p.data, 0)[1]; o = varint(p.data, o)[1]; const [n, s] = varint(p.data, o); place = p.data.slice(s, s + n).toString('utf8')
+  })
+  const placeAt = async (tp, want, msg) => { await cmd(tp); await sleep(300); await ff(25); await sleep(300); assert.equal(place, want, msg) }
+  await placeAt(`execute in poke:wild run tp A ${px + 27}.5 ${py + 1} ${pzz}.5`, '포켓몬 센터', 'BGM 위치: 광장의 포켓몬 센터 안')
+  await placeAt(`execute in poke:wild run tp A ${px + 5}.5 ${py + 1} ${pzz + 20}.5`, '광장 마을', 'BGM 위치: 광장')
+  await placeAt('execute in poke:town run tp A 2000.5 -56 0.5', '체육관', 'BGM 위치: 체육관 로비')
+  await placeAt('execute in poke:town run tp A 3015.5 -59 0.5', '경기장', 'BGM 위치: 경기장 (체육관 BGM 없음)')
   await cmd(`execute in poke:wild run tp A ${px + 120}.5 200 ${pzz}.5`); await sleep(300); await ff(25)   // 게임 모드는 1초(20틱)마다
   assert.ok((await cmd('execute if entity @a[name=A,gamemode=survival]')).includes('passed'), '5. 광장 밖은 생존 모드')
   console.log('> 15. 광장 마을·보호')

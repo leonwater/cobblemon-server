@@ -1,0 +1,47 @@
+{
+ "bgm.bgm_1": {
+  "category": "music",
+  "sounds": [
+   {
+    "name": "pokeserver:bgm/bgm_1",
+    "stream": true
+   }
+  ]
+ },
+ "bgm.bgm_2": {
+  "category": "music",
+  "sounds": [
+   {
+    "name": "pokeserver:bgm/bgm_2",
+    "stream": true
+   }
+  ]
+ },
+ "bgm.bgm_10": {
+  "category": "music",
+  "sounds": [
+   {
+    "name": "pokeserver:bgm/bgm_10",
+    "stream": true
+   }
+  ]
+ },
+ "bgm.bgm_13": {
+  "category": "music",
+  "sounds": [
+   {
+    "name": "pokeserver:bgm/bgm_13",
+    "stream": true
+   }
+  ]
+ },
+ "bgm.bgm_20": {
+  "category": "music",
+  "sounds": [
+   {
+    "name": "pokeserver:bgm/bgm_20",
+    "stream": true
+   }
+  ]
+ }
+}
