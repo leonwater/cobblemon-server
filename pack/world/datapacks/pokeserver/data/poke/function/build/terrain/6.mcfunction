@@ -124,6 +124,14 @@ fill 3536 -59 1 3538 -57 7 minecraft:gold_block
 summon minecraft:text_display 3533.5 -56 4.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[2.0f,2.0f,2.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"명예의 전당","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n사천왕을 모두 이긴 트레이너","color":"gray","bold":false}]}'}
 fill 3502 -60 3 3502 -60 5 minecraft:orange_stained_glass
 summon minecraft:text_display 3502.5 -57.5 4.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+setblock 3502 -60 -40 minecraft:orange_stained_glass
+summon minecraft:text_display 3502.5 -57.8 -39.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.7f,0.7f,0.7f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포기하고 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+setblock 3502 -60 -29 minecraft:orange_stained_glass
+summon minecraft:text_display 3502.5 -57.8 -28.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.7f,0.7f,0.7f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포기하고 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+setblock 3502 -60 -18 minecraft:orange_stained_glass
+summon minecraft:text_display 3502.5 -57.8 -17.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.7f,0.7f,0.7f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포기하고 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+setblock 3502 -60 -7 minecraft:orange_stained_glass
+summon minecraft:text_display 3502.5 -57.8 -6.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.7f,0.7f,0.7f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포기하고 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 fill 3500 -50 -46 3540 -50 12 minecraft:purple_terracotta
 setblock 3502 -56 -44 minecraft:light[level=15]
 setblock 3502 -56 -40 minecraft:light[level=15]

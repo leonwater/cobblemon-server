@@ -67,6 +67,11 @@ final class Menu {
                     p.displayClientMessage(Component.literal("튜토리얼을 먼저 끝내 주세요.").withStyle(ChatFormatting.RED), true);
                     return;
                 }
+                // 체육관·사천왕 도전 중엔 어디로도 이동 못 함 (포기는 경기장의 주황 발판, 끝나면 자동으로 체육관 로비로)
+                if (Gym.score(p) > 0) {
+                    p.displayClientMessage(Component.literal("도전 중엔 이동할 수 없어요. 포기하려면 관장 맞은편 주황 발판을 밟으세요.").withStyle(ChatFormatting.RED), true);
+                    return;
+                }
                 String key = a.substring(5);
                 // 광장·체육관은 항상 같은 자리, 농장·야생은 마지막 위치 (처음이면 농장 입구·광장)
                 boolean last = key.equals("farm") || key.equals("wild");

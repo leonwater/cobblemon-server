@@ -11,4 +11,4 @@ scoreboard players set @s poke.gym 7
 execute in poke:town run tp @s 3315.5 -59 -13.5 0 0
 title @s title {"text":"7번 체육관","color":"gold"}
 title @s subtitle {"text":"풀 타입 · 관장 민화","color":"white"}
-tellraw @s {"text":"관장을 우클릭하면 배틀이 시작돼요. 나가려면 주황 발판을 밟으세요.","color":"gray"}
+tellraw @s {"text":"관장을 우클릭하면 배틀이 시작돼요. 포기하려면 관장 맞은편 주황 발판을 밟으세요. 도전 중엔 G 메뉴 이동을 못 해요.","color":"gray"}

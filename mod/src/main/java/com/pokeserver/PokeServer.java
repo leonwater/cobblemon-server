@@ -67,6 +67,8 @@ public class PokeServer implements ModInitializer {
             // 데이터팩 warp/save_here가 봄: 광장 안이면 G 메뉴 "야생" 위치로 저장 안 함. 매 틱 갱신 → 광장에 도착한 바로 다음 틱부터 막힘 (거리 계산만이라 가벼움)
             for (var p : server.getPlayerList().getPlayers())
                 if (Plaza.protects(p.level(), p.blockPosition())) p.addTag("poke.in_plaza"); else p.removeTag("poke.in_plaza");
+            // 데이터팩 league/pads가 봄: 배틀 중이면 포기 발판이 안 먹음
+            if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.tagBattling(server);
             if (server.getTickCount() % 100 == 0) Farms.refreshLabels(server);
             if (server.getTickCount() % 20 == 0) { Teleport.tick(server); Nicknames.tick(server); Plaza.modes(server); }
             if (server.getTickCount() % 200 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.reapply(server);

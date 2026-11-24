@@ -424,7 +424,7 @@ def functions():
             f'scoreboard players set @s poke.gym {n}', tp(g['inside']),
             f'title @s title {{"text":"{n}번 체육관","color":"gold"}}',
             f'title @s subtitle {{"text":"{typ} 타입 · 관장 {name}","color":"white"}}',
-            'tellraw @s {"text":"관장을 우클릭하면 배틀이 시작돼요. 나가려면 주황 발판을 밟으세요.","color":"gray"}'])
+            'tellraw @s {"text":"관장을 우클릭하면 배틀이 시작돼요. 포기하려면 관장 맞은편 주황 발판을 밟으세요. 도전 중엔 G 메뉴 이동을 못 해요.","color":"gray"}'])
         fn(f'gym/award/{n}.mcfunction', [
             f'tag @s add poke.badge{n}', badge_item(n, badge, color), f'function poke:mod/reward/{n}',
             f'title @s title {{"text":"{badge} 획득!","color":"gold"}}',
@@ -433,7 +433,7 @@ def functions():
         # 모드 아이템(기믹 도구·경험사탕·기술머신)은 mod/ 함수로: 모드가 없는 데이터팩 시험에서 이 함수만 못 읽고 배지 지급은 그대로
         fn(f'mod/reward/{n}.mcfunction', [*key_item(n), *gym_items(n, typ)])
         px, pz, w, d = g['exit']
-        pads.append(f'execute in poke:town as @a[x={px},y={Y},z={pz},dx={w - 1},dy=1,dz={d - 1}] run function poke:gym/leave')
+        pads.append(f'execute in poke:town as @a[x={px},y={Y},z={pz},dx={w - 1},dy=1,dz={d - 1},tag=!poke.battling] run function poke:gym/leave')
         win.append(f'execute if score @s poke.gym matches {n} run return run function poke:gym/award/{n}')
         lx, lz, lyaw = g['leader']
         spawn += spawn_lines(tid, lx, lz, lyaw)
@@ -466,6 +466,8 @@ def functions():
                                'tellraw @a [{"text":"[리그] ","color":"gold"},{"selector":"@s"},{"text":"님이 사천왕을 클리어하고 챔피언이 되었습니다!","color":"gold"}]'])
     px, pz, w, d = e['exit']
     pads.append(f'execute in poke:town as @a[x={px},y={Y},z={pz},dx={w - 1},dy=1,dz={d - 1}] run function poke:gym/leave')
+    # 배틀 중엔 발판이 안 먹음 (poke.battling은 모드가 매 틱 붙임): 배틀 도중 순간이동으로 빠져 재도전 대기를 피하지 못하게
+    pads += [f'execute in poke:town as @a[x={gx},y={Y},z={gz},dx=0,dy=1,dz=0,tag=!poke.battling] run function poke:gym/leave' for gx, gz, _, _ in e['giveup']]
     win.append('execute if score @s poke.gym matches 9 run function poke:e4/win')
     for k, (tid, *_r) in enumerate(ELITE):
         mx, mz, myaw = e['member'][k]

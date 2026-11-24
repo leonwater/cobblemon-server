@@ -28,6 +28,14 @@ final class Gym {
         return n == 1 || t.contains("poke.badge" + (n - 1)) ? "open" : null;
     }
 
+    /** 도전 중인 체육관 번호 (1~8, 사천왕 9, 아니면 0). */
+    static int score(ServerPlayer p) {
+        var sb = p.server.getScoreboard();
+        var obj = sb.getObjective("poke.gym");
+        var s = obj == null ? null : sb.getPlayerScoreInfo(p, obj);
+        return s == null ? 0 : s.value();
+    }
+
     /** 지금 그 체육관에서 싸우는 다른 사람의 이름 (없으면 ""). */
     static String busyBy(ServerPlayer me, int n) {
         var sb = me.server.getScoreboard();

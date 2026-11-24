@@ -1454,8 +1454,8 @@ fill 3029 -59 -14 3029 -58 14 minecraft:sandstone
 fill 3029 -57 -14 3029 -57 14 minecraft:sandstone_stairs[facing=east]
 fill 3012 -60 13 3018 -60 16 minecraft:quartz_block
 fill 3012 -59 16 3018 -59 16 minecraft:stone
-fill 3014 -60 -17 3016 -60 -17 minecraft:orange_stained_glass
-summon minecraft:text_display 3015.5 -57.5 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+fill 3015 -60 -17 3015 -60 -17 minecraft:orange_stained_glass
+summon minecraft:text_display 3015.5 -57.8 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.7f,0.7f,0.7f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포기하고 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 summon minecraft:text_display 3015.5 -52 16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"1번 체육관 · 바위 타입","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 setblock 3002 -55 -16 minecraft:light[level=15]
 setblock 3002 -55 -12 minecraft:light[level=15]
@@ -1797,8 +1797,8 @@ fill 3079 -59 -14 3079 -58 14 minecraft:cut_copper
 fill 3079 -57 -14 3079 -57 14 minecraft:cut_copper_stairs[facing=east]
 fill 3062 -60 13 3068 -60 16 minecraft:quartz_block
 fill 3062 -59 16 3068 -59 16 minecraft:yellow_concrete
-fill 3064 -60 -17 3066 -60 -17 minecraft:orange_stained_glass
-summon minecraft:text_display 3065.5 -57.5 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"◀ 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
+fill 3065 -60 -17 3065 -60 -17 minecraft:orange_stained_glass
+summon minecraft:text_display 3065.5 -57.8 -16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.7f,0.7f,0.7f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포기하고 나가기","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 summon minecraft:text_display 3065.5 -52 16.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.6f,1.6f,1.6f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"2번 체육관 · 전기 타입","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 setblock 3052 -55 -16 minecraft:light[level=15]
 setblock 3052 -55 -12 minecraft:light[level=15]

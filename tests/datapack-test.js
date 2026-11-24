@@ -1,5 +1,6 @@
 // 바닐라 1.21.1 서버 + 봇 2명으로 데이터팩 로직 검증 (모드 전용 명령은 run.sh가 비워둠)
 const mineflayer = require('mineflayer')
+const BUILD = require('fs').readFileSync(__dirname + '/../pack/world/datapacks/pokeserver/data/poke/function/load.mcfunction', 'utf8').match(/\{build:(\d+)\}/)[1]   // 건물 번호 (load.mcfunction 한 곳에서만 정함)
 const { Rcon } = require('rcon-client')
 const assert = require('assert')
 const sleep = ms => new Promise(r => setTimeout(r, ms))
@@ -25,9 +26,9 @@ const join = name => new Promise((res, rej) => {
 
   // 건물이 지어질 때까지 (load 후 60틱)
   await rc.send('tick sprint 12000')   // 짓는 동안 게임 시간을 빨리
-  await waitFor('data get storage poke:state', /build: 20.*farm: 3|farm: 3.*build: 20/, 240)
+  await waitFor('data get storage poke:state', new RegExp(`build: ${BUILD}\\b.*farm: 3|farm: 3.*build: ${BUILD}\\b`), 240)
   await rc.send('tick sprint stop')  // 지형은 여러 틱에 나눠 지음
-  assert.match(await cmd('data get storage poke:state'), /build: 20/, '짓기 끝에 저장한 건물 번호가 load와 같아야 함 (다르면 켤 때마다 다시 지음)')
+  assert.match(await cmd('data get storage poke:state'), new RegExp(`build: ${BUILD}\\b`), '짓기 끝에 저장한 건물 번호가 load와 같아야 함 (다르면 켤 때마다 다시 지음)')
   await ok('execute in poke:hub if block 0 64 3 minecraft:smooth_quartz', '튜토리얼 방 바닥')
   for (const fl of ['-40 -80 140 30', '960 -32 1040 32', '1960 -36 2040 36', '3000 -18 3380 18', '3500 -46 3540 12'])
     await cmd(`execute in poke:town run forceload add ${fl}`)
@@ -95,6 +96,16 @@ const join = name => new Promise((res, rej) => {
   await at('A', 'poke:farm', 20, 50, '발판으로 나와도 마지막 위치 유지')
 
   await cmd('execute as B run function poke:tutorial/finish')   // 야생 첫 스폰(광장)은 모드 테스트에서 확인
+  // 마지막 위치는 사람마다 따로 (poke.id별 저장): B는 다른 자리에서 나간 뒤, 둘 다 자기 자리로
+  const pid = async p => (await cmd(`scoreboard players get ${p} poke.id`)).match(/has (\d+)/)[1]
+  assert.notEqual(await pid('A'), await pid('B'), 'A·B 번호가 다름')
+  await warp('B', 'farm'); await sleep(300)
+  await at('B', 'poke:farm', 0, -3, 'B 농장 처음: 입구 (A의 마지막 위치가 아님)')
+  await cmd('execute in poke:farm run tp B -30.5 -59 40.5'); await sleep(300); await ff(25)
+  await warp('B', 'gym'); await warp('A', 'gym'); await sleep(300)
+  await warp('B', 'farm'); await warp('A', 'farm'); await sleep(300)
+  await at('B', 'poke:farm', -31, 40, 'B → B의 마지막 위치')
+  await at('A', 'poke:farm', 20, 50, 'A → A의 마지막 위치 (B가 덮어쓰지 않음)')
 
   // ── 리그: 배지 체육관 8 + 사천왕 (승패는 모드가 gym/win·gym/lose 를 호출 → 여기선 직접 호출) ──
   await cmd('execute as A run trigger home'); await cmd('execute as B run trigger home'); await sleep(300)
@@ -157,6 +168,12 @@ const join = name => new Promise((res, rej) => {
   await cmd('scoreboard players reset A poke.gymcd')
   await cmd('execute as A run function poke:gym/try/9')
   await at('A', 'poke:town', 3516, -40, '다시 도전하면 1번 방부터')
+  // 사천왕 방마다 맞은편(서쪽 끝) 포기 발판 → 로비, 잠금 해제
+  await cmd('execute in poke:town run tp A 3502.5 -59 -39.5'); await sleep(300)
+  await at('A', 'poke:town', 2000, -12, '사천왕 포기 발판 → 로비')
+  assert.doesNotMatch(await g('A'), /has /, '사천왕 포기 → 잠금 해제')
+  await cmd('execute as A run function poke:gym/try/9')
+  await at('A', 'poke:town', 3516, -40, '포기 뒤 바로 다시 도전 가능 (진 게 아님)')
   for (let k = 0; k < 4; k++) { await cmd('execute as A run function poke:gym/win'); await sleep(200) }
   assert.match(await cmd('tag A list'), /poke\.e4clear/, '네 명 연속 승리 → 사천왕 클리어')
   await at('A', 'poke:town', 3516, 4, '명예의 전당')

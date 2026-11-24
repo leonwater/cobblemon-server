@@ -1,5 +1,6 @@
 // 모드 서버 테스트: 6. 땅 문서 → 팝업 → 확인 → 내 땅, 다른 사람은 구경만
 const mineflayer = require('mineflayer')
+const BUILD = require('fs').readFileSync(__dirname + '/../pack/world/datapacks/pokeserver/data/poke/function/load.mcfunction', 'utf8').match(/\{build:(\d+)\}/)[1]   // 건물 번호 (load.mcfunction 한 곳에서만 정함)
 const { Vec3 } = require('vec3')
 const { Rcon } = require('rcon-client')
 const assert = require('assert')
@@ -17,8 +18,8 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   const ff = async t => { await rc.send(`tick sprint ${t}`); for (let i = 0; i < 100 && /sprint/i.test(await rc.send('tick query')); i++) await sleep(100) }
   // 농장·마을 짓기가 끝날 때까지 (짓는 동안엔 서버가 바빠 응답이 늦음): 그동안 게임 시간을 빨리
   await rc.send('tick sprint 12000')
-  for (let i = 0; i < 240 && !/build: 20.*farm: 3|farm: 3.*build: 20/.test(await cmd('data get storage poke:state')); i++) await sleep(500)
-  assert.match(await cmd('data get storage poke:state'), /build: 20/, '건물 번호가 load와 같아야 함 (기다리다 시간만 버리지 않게 바로 실패)')
+  for (let i = 0; i < 240 && !new RegExp(`build: ${BUILD}\\b.*farm: 3|farm: 3.*build: ${BUILD}\\b`).test(await cmd('data get storage poke:state')); i++) await sleep(500)
+  assert.match(await cmd('data get storage poke:state'), new RegExp(`build: ${BUILD}\\b`), '건물 번호가 load와 같아야 함 (기다리다 시간만 버리지 않게 바로 실패)')
   await rc.send('tick sprint stop')
 
   const A = await join('A'), B = await join('B'); await sleep(450)
@@ -155,6 +156,11 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   act('warp:farm'); await sleep(350)
   assert.equal(await dimOf('A'), 'poke:farm', '메뉴 워프: 농장')
   act('warp:gym'); await sleep(350)
+  // 1. 체육관 도전 중엔 G 메뉴 이동이 막힘 (나가기는 포기 발판·승패로만)
+  await cmd('scoreboard players set A poke.gym 1'); act('warp:farm'); await sleep(350)
+  assert.equal(await dimOf('A'), 'poke:town', '도전 중 워프 막힘')
+  assert.match(await cmd('scoreboard players get A poke.gym'), /has 1 /, '도전 상태 그대로')
+  await cmd('scoreboard players reset A poke.gym')
   await cmd('tag A remove poke.tutorial_done')
   act('warp:farm'); await sleep(350)
   assert.equal(await dimOf('A'), 'poke:town', '튜토리얼 전에는 워프 막힘')

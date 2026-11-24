@@ -59,7 +59,7 @@ def gym_geom(n):
     x0 = ARENA_X + ARENA_STEP * (n - 1)
     xm = x0 + 15
     # battle: 배틀이 시작되면 도전자를 이 자리로 (관장과 몬스터볼 필드를 사이에 두고 마주 봄 → 포켓몬이 필드 위에 나옴)
-    return dict(box=(x0, x0 + 30, -18, 18), inside=(xm + .5, -13.5, 0), exit=(xm - 1, -17, 3, 1), leader=(xm + .5, 14.5, 180),
+    return dict(box=(x0, x0 + 30, -18, 18), inside=(xm + .5, -13.5, 0), exit=(xm, -17, 1, 1), leader=(xm + .5, 14.5, 180),
                 battle=(xm + .5, -9.5, 0))
 
 
@@ -70,7 +70,8 @@ def e4_geom():
     return dict(box=E4, rooms=rooms,
                 inside=[(x1 + 16.5, (a + b) / 2 + .5, -90) for a, b in rooms],
                 member=[(x2 - 6.5, (a + b) / 2 + .5, 90) for a, b in rooms[:4]],
-                exit=(x1 + 2, rooms[4][0] + 4, 1, 3))
+                exit=(x1 + 2, rooms[4][0] + 4, 1, 3),
+                giveup=[(x1 + 2, (a + b) // 2, 1, 1) for a, b in rooms[:4]])   # 방마다 사천왕 맞은편(서쪽 끝) 포기 발판
 
 def arenas():
     """닫힌 방들의 (x1, x2, z1, z2) — 범위 검사·청크 불러오기에 씀."""
@@ -566,7 +567,7 @@ def arena(n):
     L += [fill(int(lx) - 3, G, int(lz) - 1, int(lx) + 3, G, int(lz) + 2, m('quartz_block')),
           fill(int(lx) - 3, G + 1, int(lz) + 2, int(lx) + 3, G + 1, int(lz) + 2, m(f'{c1}')),
           fill(px, G, pz, px + w - 1, G, pz + d - 1, m('orange_stained_glass')),
-          label(px + 1.5, G + 2.5, pz + .5, '◀ 나가기', 'gold', 1.0),
+          label(px + w / 2, G + 2.2, pz + .5, '포기하고 나가기', 'gold', 0.7),
           label(xm + .5, G + 8, z2 - 1.5, f'{n}번 체육관 · {name} 타입', 'gold', 1.6)]
     L += glow(x1, x2, z1, z2, G + 5) + glow(x1, x2, z1, z2, G + 10, 6)
     return L
@@ -597,6 +598,7 @@ def e4_hall():
     px, pz, w, d = g['exit']
     L += [fill(px, G, pz, px + w - 1, G, pz + d - 1, 'minecraft:orange_stained_glass'),
           label(px + .5, G + 2.5, pz + 1.5, '◀ 나가기', 'gold', 1.0),
+          *[c for gx, gz, _, _ in g['giveup'] for c in (sb(gx, G, gz, 'minecraft:orange_stained_glass'), label(gx + .5, G + 2.2, gz + .5, '포기하고 나가기', 'gold', 0.7))],
           fill(x1, top + 1, z1, x2, top + 1, z2, 'minecraft:purple_terracotta')]
     L += glow(x1, x2, z1, z2, G + 4)
     return L

@@ -455,6 +455,11 @@ public final class CobblemonHooks {
     }
 
     /** 지금 들어가 있는 경기장 번호 (1~8 체육관, 9 사천왕, 0 없음). */
+    static void tagBattling(MinecraftServer server) {
+        for (var p : server.getPlayerList().getPlayers())
+            if (com.cobblemon.mod.common.battles.BattleRegistry.INSTANCE.getBattleByParticipatingPlayer(p) != null) p.addTag("poke.battling"); else p.removeTag("poke.battling");
+    }
+
     static int gymNo(net.minecraft.server.level.ServerPlayer p) {
         var sb = p.server.getScoreboard();
         var obj = sb.getObjective("poke.gym");
