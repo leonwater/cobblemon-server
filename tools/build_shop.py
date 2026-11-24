@@ -51,7 +51,33 @@ def categories():
     by = {n: xs for n, _, xs in cats}
     for cat, xs in extra.items():
         if cat in by: by[cat].extend(xs)                         # 기존 분류는 끝에 붙임 (앞쪽 순서가 안 바뀌게)
-    return cats + [('기타', C + 'relic_coin', extra.get('기타', []))]   # 맨 뒤에 새 분류 (기존 분류 번호가 안 바뀌게)
+    return cats + [('기타', C + 'relic_coin', extra.get('기타', [])), build_category()]   # 맨 뒤에 새 분류 (기존 분류 번호가 안 바뀌게)
+
+
+COLORS = ['white', 'light_gray', 'gray', 'black', 'brown', 'red', 'orange', 'yellow', 'lime', 'green', 'cyan', 'light_blue', 'blue',
+          'purple', 'magenta', 'pink']
+WOODS = ['oak', 'spruce', 'birch', 'jungle', 'acacia', 'dark_oak', 'mangrove', 'cherry']
+
+
+def build_category():
+    """건축 블록 (생활 상인). 값은 재료 값 이상: 판자 = 원목 20 ÷ 4, 사암 = 모래 4개, 색 블록 = 기본 블록 + 염료 몫."""
+    return ('건축', M + 'oak_planks', [
+        *[e(M + w + '_planks', 5) for w in WOODS], e(M + 'bamboo_planks', 5),
+        *[e(M + s, 6) for s in ('andesite', 'diorite', 'granite', 'polished_andesite', 'polished_diorite', 'polished_granite',
+                                'cobbled_deepslate', 'polished_deepslate', 'deepslate_bricks', 'deepslate_tiles', 'tuff', 'polished_tuff',
+                                'tuff_bricks', 'calcite')],
+        *[e(M + s, 10) for s in ('mossy_cobblestone', 'mossy_stone_bricks', 'cracked_stone_bricks', 'chiseled_stone_bricks')],
+        e(M + 'red_sand', 3), *[e(M + s, 15) for s in ('sandstone', 'cut_sandstone', 'smooth_sandstone', 'red_sandstone',
+                                                         'cut_red_sandstone', 'smooth_red_sandstone')],
+        e(M + 'packed_mud', 8), e(M + 'mud_bricks', 8), e(M + 'moss_block', 10), e(M + 'snow_block', 5), e(M + 'hay_block', 200),
+        e(M + 'bookshelf', 150), e(M + 'glass_pane', 4),
+        *[e(M + s, 200) for s in ('quartz_bricks', 'quartz_pillar', 'smooth_quartz', 'chiseled_quartz_block')],
+        e(M + 'prismarine', 30), e(M + 'prismarine_bricks', 60), e(M + 'dark_prismarine', 60),
+        e(M + 'copper_block', 250), e(M + 'cut_copper', 250),
+        *[e(M + c + '_concrete', 15) for c in COLORS if c != 'white'],
+        *[e(M + c + '_wool', 15) for c in COLORS if c != 'white'],
+        *[e(M + c + '_terracotta', 15) for c in COLORS],
+        *[e(M + c + '_stained_glass', 15) for c in COLORS]])
 
 
 def base_categories(megas, zs, shards):
@@ -61,7 +87,8 @@ def base_categories(megas, zs, shards):
             e(C + 'great_ball', 600, 1), e(C + 'nest_ball', 1000, 1), e(C + 'net_ball', 1000, 1),
             e(C + 'dive_ball', 1000, 2), e(C + 'repeat_ball', 1000, 2), e(C + 'ultra_ball', 800, 3), e(C + 'dusk_ball', 1000, 3),
             e(C + 'luxury_ball', 1000, 4), *[e(C + b, 1000, 5) for b in ('level_ball', 'lure_ball', 'heavy_ball', 'moon_ball', 'love_ball', 'friend_ball', 'fast_ball')],
-            e(C + 'timer_ball', 1500, 8), e(C + 'quick_ball', 1500, 8)]),
+            e(C + 'timer_ball', 1500, 8), e(C + 'quick_ball', 1500, 8),
+            e(C + 'poke_rod', 500), e(C + 'pokerod_smithing_template', 2000, sell=200)]),   # 포켓몬은 코블몬 낚싯대로만 낚임. 형판 + 낚싯대 + 볼 → 그 볼 낚싯대
         ('회복', C + 'potion', [
             e(C + 'potion', 200), e(C + 'antidote', 100), e(C + 'awakening', 100), e(C + 'ice_heal', 100),
             e(C + 'paralyze_heal', 300), e(C + 'burn_heal', 300), e(C + 'super_potion', 700, 1),
@@ -103,7 +130,7 @@ def base_categories(megas, zs, shards):
             *[e(C + f + '_mochi', 5000, 4) for f in ('health', 'muscle', 'resist', 'genius', 'clever', 'swift')], e(C + 'fresh_start_mochi', 8000, 4),
             *[e(C + p, 3000, 4) for p in ('power_weight', 'power_bracer', 'power_belt', 'power_lens', 'power_band', 'power_anklet')],
             e(C + 'ability_capsule', 10000, 5),
-            *[e(C + n + '_mint', 20000, 6) for n in ('lonely', 'adamant', 'naughty', 'brave', 'bold', 'impish', 'lax', 'relaxed', 'modest',
+            *[e(C + n + '_mint', 20000, 6, sell=100) for n in ('lonely', 'adamant', 'naughty', 'brave', 'bold', 'impish', 'lax', 'relaxed', 'modest',
                                                      'mild', 'rash', 'quiet', 'calm', 'gentle', 'careful', 'sassy', 'timid', 'hasty', 'jolly',
                                                      'naive', 'serious')],
             # 개체값 사탕 (Cobblemon 1.8 하이퍼 트레이닝: 그 능력 개체값 +1 / 내림 사탕은 -1)
@@ -181,7 +208,7 @@ def sell_rule(i):
     stone = next((st for st in ('fire', 'water', 'thunder', 'leaf', 'moon', 'sun', 'shiny', 'dusk', 'dawn', 'ice') if f'{st}_stone' in i), None)
     if stone and i.endswith('_ore'): return '성장', 500
     if stone and i.endswith('_block'): return '성장', 6750      # 진화의 돌 9개 (돌 판매가 750 × 9)
-    if i.endswith('_mint_leaf'): return '성장', 100
+    if i.endswith('_mint_leaf'): return '성장', 20                 # 야생에 저절로 나고 농장에서 씨앗째 계속 자람 (흔한 열매와 같은 값)
     if 'fossil' in i and i != 'fossil_analyzer': return '기타', 300
     if i == 'relic_coin': return '기타', 100
     if i == 'relic_coin_pouch': return '기타', 900
@@ -190,7 +217,7 @@ def sell_rule(i):
     if i.endswith(('_gem_cluster', '_gem_bud')) or 'tumblestone_cluster' in i: return '기타', 40
     if i.endswith(('_sherd', '_plaque', '_smithing_template')) or i.startswith('pokedex_'): return '기타', 50
     if i in ('pc', 'healing_machine', 'monitor', 'damaged_monitor', 'display_case', 'fossil_analyzer', 'restoration_tank', 'pasture',
-             'disc_shelf', 'poke_rod', 'technical_machine', 'ring_target') or i.startswith(('campfire_pot_', 'gilded_chest')) \
+             'disc_shelf', 'technical_machine', 'ring_target') or i.startswith(('campfire_pot_', 'gilded_chest')) \
             or i.endswith('_gilded_chest'):
         return '기타', 50
     if i.endswith(('_seed', '_seeds')) or 'mulch' in i or i.startswith(('apricorn_', 'saccharine_', 'stripped_')) \
@@ -207,6 +234,11 @@ RECIPES = {
     M + 'furnace': {M + 'cobblestone': 8}, M + 'oak_door': {M + 'oak_log': 1}, M + 'quartz_block': {M + 'quartz': 4},
     M + 'smooth_stone': {M + 'stone': 1}, M + 'stone': {M + 'cobblestone': 1}, M + 'stone_bricks': {M + 'stone': 1},
     M + 'torch': {M + 'coal': 0.25}, M + 'bricks': {M + 'clay_ball': 4}, M + 'glass': {M + 'sand': 1},
+    M + 'oak_planks': {M + 'oak_log': 0.25}, M + 'sandstone': {M + 'sand': 4}, M + 'red_sandstone': {M + 'red_sand': 4},
+    M + 'glass_pane': {M + 'glass': 6 / 16}, M + 'hay_block': {M + 'wheat': 9}, M + 'copper_block': {M + 'copper_ingot': 9},
+    M + 'quartz_bricks': {M + 'quartz_block': 1}, M + 'red_stained_glass': {M + 'glass': 1}, M + 'red_terracotta': {M + 'terracotta': 1},
+    M + 'mossy_cobblestone': {M + 'cobblestone': 1}, M + 'cracked_stone_bricks': {M + 'stone_bricks': 1},
+    C + 'poke_rod': {M + 'fishing_rod': 1, C + 'poke_ball': 1},
 }
 
 
@@ -240,7 +272,7 @@ def check(cats):
 if __name__ == '__main__':
     cats = categories()
     check(cats)
-    POKE = {'볼', '회복', '성장', '도구', '능력치', '기믹', '기타'}   # 코블몬 상인, 나머지는 마인크래프트 상인
+    POKE = {'볼', '회복', '성장', '도구', '능력치', '기믹', '기타'}   # '건축'은 마인크래프트 상인   # 코블몬 상인, 나머지는 마인크래프트 상인
     assert all(len(n.split()) == 1 for n, _, _ in cats), '분류 이름은 한 단어'
     out = {'categories': [{'name': n, 'icon': i, 'shop': 'poke' if n in POKE else 'mc', 'items': xs} for n, i, xs in cats]}
     (ROOT / 'pack/config/pokeserver/shop.json').write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding='utf-8')

@@ -123,6 +123,16 @@
           "badges": 8
         },
         {
+          "item": "cobblemon:poke_rod",
+          "buy": 500,
+          "sell": 125
+        },
+        {
+          "item": "cobblemon:pokerod_smithing_template",
+          "buy": 2000,
+          "sell": 200
+        },
+        {
           "item": "cobblemon:ancient_azure_ball",
           "buy": 0,
           "sell": 50
@@ -687,12 +697,12 @@
         {
           "item": "cobblemon:blue_mint_leaf",
           "buy": 0,
-          "sell": 100
+          "sell": 20
         },
         {
           "item": "cobblemon:cyan_mint_leaf",
           "buy": 0,
-          "sell": 100
+          "sell": 20
         },
         {
           "item": "cobblemon:dawn_stone_block",
@@ -782,7 +792,7 @@
         {
           "item": "cobblemon:green_mint_leaf",
           "buy": 0,
-          "sell": 100
+          "sell": 20
         },
         {
           "item": "cobblemon:ice_stone_block",
@@ -822,12 +832,12 @@
         {
           "item": "cobblemon:pink_mint_leaf",
           "buy": 0,
-          "sell": 100
+          "sell": 20
         },
         {
           "item": "cobblemon:red_mint_leaf",
           "buy": 0,
-          "sell": 100
+          "sell": 20
         },
         {
           "item": "cobblemon:shiny_stone_block",
@@ -877,7 +887,7 @@
         {
           "item": "cobblemon:white_mint_leaf",
           "buy": 0,
-          "sell": 100
+          "sell": 20
         }
       ]
     },
@@ -2017,127 +2027,127 @@
         {
           "item": "cobblemon:lonely_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
           "item": "cobblemon:adamant_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
           "item": "cobblemon:naughty_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
           "item": "cobblemon:brave_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
           "item": "cobblemon:bold_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
           "item": "cobblemon:impish_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
           "item": "cobblemon:lax_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
           "item": "cobblemon:relaxed_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
           "item": "cobblemon:modest_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
           "item": "cobblemon:mild_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
           "item": "cobblemon:rash_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
           "item": "cobblemon:quiet_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
           "item": "cobblemon:calm_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
           "item": "cobblemon:gentle_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
           "item": "cobblemon:careful_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
           "item": "cobblemon:sassy_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
           "item": "cobblemon:timid_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
           "item": "cobblemon:hasty_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
           "item": "cobblemon:jolly_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
           "item": "cobblemon:naive_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
           "item": "cobblemon:serious_mint",
           "buy": 20000,
-          "sell": 5000,
+          "sell": 100,
           "badges": 6
         },
         {
@@ -4499,11 +4509,6 @@
           "sell": 10
         },
         {
-          "item": "cobblemon:poke_rod",
-          "buy": 0,
-          "sell": 50
-        },
-        {
           "item": "cobblemon:poke_snack",
           "buy": 0,
           "sell": 10
@@ -4540,11 +4545,6 @@
         },
         {
           "item": "cobblemon:pokedex_yellow",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:pokerod_smithing_template",
           "buy": 0,
           "sell": 50
         },
@@ -5102,6 +5102,573 @@
           "item": "cobblemon:yellow_plaque",
           "buy": 0,
           "sell": 50
+        }
+      ]
+    },
+    {
+      "name": "건축",
+      "icon": "minecraft:oak_planks",
+      "shop": "mc",
+      "items": [
+        {
+          "item": "minecraft:oak_planks",
+          "buy": 5,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:spruce_planks",
+          "buy": 5,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:birch_planks",
+          "buy": 5,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:jungle_planks",
+          "buy": 5,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:acacia_planks",
+          "buy": 5,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:dark_oak_planks",
+          "buy": 5,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:mangrove_planks",
+          "buy": 5,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:cherry_planks",
+          "buy": 5,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:bamboo_planks",
+          "buy": 5,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:andesite",
+          "buy": 6,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:diorite",
+          "buy": 6,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:granite",
+          "buy": 6,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:polished_andesite",
+          "buy": 6,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:polished_diorite",
+          "buy": 6,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:polished_granite",
+          "buy": 6,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:cobbled_deepslate",
+          "buy": 6,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:polished_deepslate",
+          "buy": 6,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:deepslate_bricks",
+          "buy": 6,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:deepslate_tiles",
+          "buy": 6,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:tuff",
+          "buy": 6,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:polished_tuff",
+          "buy": 6,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:tuff_bricks",
+          "buy": 6,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:calcite",
+          "buy": 6,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:mossy_cobblestone",
+          "buy": 10,
+          "sell": 2
+        },
+        {
+          "item": "minecraft:mossy_stone_bricks",
+          "buy": 10,
+          "sell": 2
+        },
+        {
+          "item": "minecraft:cracked_stone_bricks",
+          "buy": 10,
+          "sell": 2
+        },
+        {
+          "item": "minecraft:chiseled_stone_bricks",
+          "buy": 10,
+          "sell": 2
+        },
+        {
+          "item": "minecraft:red_sand",
+          "buy": 3,
+          "sell": 0
+        },
+        {
+          "item": "minecraft:sandstone",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:cut_sandstone",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:smooth_sandstone",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:red_sandstone",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:cut_red_sandstone",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:smooth_red_sandstone",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:packed_mud",
+          "buy": 8,
+          "sell": 2
+        },
+        {
+          "item": "minecraft:mud_bricks",
+          "buy": 8,
+          "sell": 2
+        },
+        {
+          "item": "minecraft:moss_block",
+          "buy": 10,
+          "sell": 2
+        },
+        {
+          "item": "minecraft:snow_block",
+          "buy": 5,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:hay_block",
+          "buy": 200,
+          "sell": 50
+        },
+        {
+          "item": "minecraft:bookshelf",
+          "buy": 150,
+          "sell": 37
+        },
+        {
+          "item": "minecraft:glass_pane",
+          "buy": 4,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:quartz_bricks",
+          "buy": 200,
+          "sell": 50
+        },
+        {
+          "item": "minecraft:quartz_pillar",
+          "buy": 200,
+          "sell": 50
+        },
+        {
+          "item": "minecraft:smooth_quartz",
+          "buy": 200,
+          "sell": 50
+        },
+        {
+          "item": "minecraft:chiseled_quartz_block",
+          "buy": 200,
+          "sell": 50
+        },
+        {
+          "item": "minecraft:prismarine",
+          "buy": 30,
+          "sell": 7
+        },
+        {
+          "item": "minecraft:prismarine_bricks",
+          "buy": 60,
+          "sell": 15
+        },
+        {
+          "item": "minecraft:dark_prismarine",
+          "buy": 60,
+          "sell": 15
+        },
+        {
+          "item": "minecraft:copper_block",
+          "buy": 250,
+          "sell": 62
+        },
+        {
+          "item": "minecraft:cut_copper",
+          "buy": 250,
+          "sell": 62
+        },
+        {
+          "item": "minecraft:light_gray_concrete",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:gray_concrete",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:black_concrete",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:brown_concrete",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:red_concrete",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:orange_concrete",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:yellow_concrete",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:lime_concrete",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:green_concrete",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:cyan_concrete",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:light_blue_concrete",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:blue_concrete",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:purple_concrete",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:magenta_concrete",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:pink_concrete",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:light_gray_wool",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:gray_wool",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:black_wool",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:brown_wool",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:red_wool",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:orange_wool",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:yellow_wool",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:lime_wool",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:green_wool",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:cyan_wool",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:light_blue_wool",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:blue_wool",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:purple_wool",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:magenta_wool",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:pink_wool",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:white_terracotta",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:light_gray_terracotta",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:gray_terracotta",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:black_terracotta",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:brown_terracotta",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:red_terracotta",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:orange_terracotta",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:yellow_terracotta",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:lime_terracotta",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:green_terracotta",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:cyan_terracotta",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:light_blue_terracotta",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:blue_terracotta",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:purple_terracotta",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:magenta_terracotta",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:pink_terracotta",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:white_stained_glass",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:light_gray_stained_glass",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:gray_stained_glass",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:black_stained_glass",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:brown_stained_glass",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:red_stained_glass",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:orange_stained_glass",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:yellow_stained_glass",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:lime_stained_glass",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:green_stained_glass",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:cyan_stained_glass",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:light_blue_stained_glass",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:blue_stained_glass",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:purple_stained_glass",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:magenta_stained_glass",
+          "buy": 15,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:pink_stained_glass",
+          "buy": 15,
+          "sell": 3
         }
       ]
     }
