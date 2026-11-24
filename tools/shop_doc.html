@@ -1,0 +1,309 @@
+<meta charset="utf-8">
+<title>잡켓몬 상점 체험</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* 게임 화면은 ShopScreen.java와 같은 640×360 GUI 좌표로 그림 (1 GUI px = --u). 바깥 설정판도 같은 색(Theme.java)으로. 한 가지 어두운 화면으로 고정. */
+@font-face { font-family: "Galmuri9"; src: url("galmuri9.ttf") format("truetype"); font-display: swap; }
+:root {
+  --panel: rgba(16,19,25,.85); --tile: rgba(34,38,48,.88); --tile-hover: rgba(52,58,71,.94); --border: #4a5366;
+  --accent: #88a0c8; --select: rgba(46,74,122,.88); --text: #fff; --sub: #a8b0be; --gold: #f0c040;
+  --red: #c8323c; --green: #3c9650; --ground: #0b0d12; --side: rgba(8,10,14,.75);
+  --px: "Galmuri9", "Galmuri11", "DungGeunMo", ui-monospace, monospace;
+  --u: 1px; color-scheme: dark;
+}
+html, body { background: var(--ground); color: var(--text); }
+body { font-family: var(--px); padding-block: 20px 40px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 1280px; margin: 0 auto; display: grid; gap: 14px; }
+header h1 { font-size: 22px; font-weight: 400; margin: 0; letter-spacing: .02em; text-wrap: balance; }
+header p { margin: 6px 0 0; color: var(--sub); font-size: 13px; line-height: 1.6; max-width: 70ch; }
+.scroller { overflow-x: auto; }
+/* ── 게임 화면 ── */
+.screen { position: relative; width: calc(640 * var(--u)); height: calc(360 * var(--u)); overflow: hidden; font-size: calc(12 * var(--u)); line-height: 1;
+  background: radial-gradient(120% 90% at 70% 30%, #2c4a5a 0%, #1b2b33 40%, #0f171c 100%); image-rendering: pixelated; user-select: none; }
+.screen::before { content: ""; position: absolute; inset: 0; background: var(--panel); }
+.screen * { position: absolute; box-sizing: border-box; }
+.t { white-space: nowrap; text-shadow: var(--u) var(--u) 0 rgba(0,0,0,.65); }
+.pnl { border: var(--u) solid var(--border); box-shadow: var(--u) calc(2 * var(--u)) 0 rgba(0,0,0,.44); border-radius: var(--u); }
+img.ic { image-rendering: pixelated; width: calc(16 * var(--u)); height: calc(16 * var(--u)); }
+.side { left: 0; top: 0; width: calc(128 * var(--u)); height: 100%; background: var(--side); }
+.cat { left: calc(8 * var(--u)); width: calc(112 * var(--u)); height: calc(22 * var(--u)); cursor: pointer; border: var(--u) solid transparent; border-radius: var(--u); transition: background-color 120ms ease, border-color 120ms ease; }
+.cat:hover { background: var(--tile-hover); border-color: var(--border); }
+.cat.sel { background: var(--select); border-color: var(--accent); }
+.cat .t { left: calc(28 * var(--u)); top: calc(6 * var(--u)); color: var(--sub); }
+.cat.sel .t, .cat:hover .t { color: var(--text); }
+.cat img { left: calc(6 * var(--u)); top: calc(2 * var(--u)); }
+.tabs { left: calc(144 * var(--u)); top: calc(14 * var(--u)); width: calc(124 * var(--u)); height: calc(16 * var(--u)); background: rgba(24,27,34,.88); }
+.tabs .ind { top: calc(1 * var(--u)); left: calc(1 * var(--u)); width: calc(60 * var(--u)); height: calc(12 * var(--u)); background: var(--select); transition: transform 180ms cubic-bezier(.23,1,.32,1); }
+.tabs.sell .ind { transform: translateX(calc(60 * var(--u))); }
+.tabs button { all: unset; position: absolute; top: 0; height: 100%; width: calc(61 * var(--u)); text-align: center; cursor: pointer; color: var(--sub); line-height: calc(15 * var(--u)); text-shadow: var(--u) var(--u) 0 rgba(0,0,0,.65); }
+.tabs button.on { color: var(--text); }
+.bal { top: calc(14 * var(--u)); height: calc(16 * var(--u)); background: rgba(24,27,34,.88); }
+.bal img { left: calc(3 * var(--u)); top: 0; }
+.bal .t { left: calc(25 * var(--u)); top: calc(3 * var(--u)); color: var(--gold); }
+.search { left: calc(494 * var(--u)); top: calc(14 * var(--u)); width: calc(130 * var(--u)); height: calc(16 * var(--u)); background: #000; border: var(--u) solid #a0a0a0; color: #e0e0e0; font: inherit; padding: 0 calc(4 * var(--u)); outline: none; }
+.search::placeholder { color: var(--sub); }
+.search:focus { border-color: #fff; }
+.title { left: calc(144 * var(--u)); top: calc(52 * var(--u)); }
+.grid { left: calc(128 * var(--u)); top: calc(62 * var(--u)); width: calc(512 * var(--u)); height: calc(278 * var(--u)); overflow-y: auto; overflow-x: hidden; scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+.grid .inner { position: relative; left: 0; top: 0; width: 100%; }
+.card { width: calc(84 * var(--u)); height: calc(98 * var(--u)); background: var(--tile); cursor: pointer; transition: transform 120ms cubic-bezier(.23,1,.32,1), background-color 120ms ease, border-color 120ms ease; }
+.card:hover { background: var(--tile-hover); border-color: var(--accent); transform: translateY(calc(-1 * var(--u))); }
+.card:active { transform: scale(.97); }
+.card .well { left: calc(4 * var(--u)); top: calc(4 * var(--u)); width: calc(74 * var(--u)); height: calc(39 * var(--u)); background: rgba(255,255,255,.19); }
+.card:hover .well { background: rgba(255,255,255,.28); }
+.card img { left: calc(25 * var(--u)); top: calc(7 * var(--u)); width: calc(32 * var(--u)); height: calc(32 * var(--u)); }
+.card .x1 { left: calc(67 * var(--u)); top: calc(33 * var(--u)); color: var(--sub); }
+.card .c { left: 0; width: 100%; text-align: center; overflow: hidden; text-overflow: clip; padding: 0 calc(4 * var(--u)); }
+.card .nm { top: calc(48 * var(--u)); }
+.card .band { left: calc(3 * var(--u)); top: calc(59 * var(--u)); width: calc(76 * var(--u)); height: calc(11 * var(--u)); padding-top: calc(1 * var(--u)); }
+.card .lb { top: calc(74 * var(--u)); color: var(--sub); }
+.card .pr { top: calc(85 * var(--u)); color: var(--gold); }
+.card.dim .pr { color: var(--sub); }
+.card.locked { cursor: default; }
+.card.locked img, .card.locked .nm { opacity: .45; }
+.empty { left: calc(128 * var(--u)); width: calc(512 * var(--u)); top: calc(176 * var(--u)); text-align: center; color: var(--sub); }
+.hint { left: calc(128 * var(--u)); width: calc(512 * var(--u)); top: calc(344 * var(--u)); text-align: center; color: var(--sub); }
+.tip { z-index: 5; background: rgba(16,0,16,.94); border: var(--u) solid #2d0a63; outline: var(--u) solid rgba(16,0,16,.94); padding: calc(3 * var(--u)) calc(4 * var(--u)); pointer-events: none; display: grid; gap: calc(3 * var(--u)); }
+.tip .t { position: static; }
+.dim-layer { inset: 0; background: rgba(0,0,0,.63); z-index: 8; }
+.modal { z-index: 9; left: calc(205 * var(--u)); top: calc(104 * var(--u)); width: calc(230 * var(--u)); height: calc(152 * var(--u)); background: rgba(24,27,34,.97); border-color: var(--accent); }
+.modal img { left: calc(11 * var(--u)); top: calc(9 * var(--u)); width: calc(24 * var(--u)); height: calc(24 * var(--u)); }
+.chip { top: calc(11 * var(--u)); height: calc(12 * var(--u)); padding: calc(2 * var(--u)) calc(5 * var(--u)); right: calc(11 * var(--u)); }
+.mb { cursor: pointer; text-align: center; background: var(--tile); color: var(--text); }
+.mb:hover { background: var(--tile-hover); border-color: var(--accent); }
+.mb.primary { background: var(--select); border-color: var(--accent); }
+.mb.primary:hover { background: #3e66a8; }
+.mb.off { background: rgba(34,38,48,.5); color: #6b7280; border-color: rgba(74,83,102,.38); cursor: default; }
+.mb .t { position: static; display: block; }
+/* ── 바깥 설정판 ── */
+.ctrl { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.box { background: #14171e; border: 1px solid var(--border); border-radius: 3px; padding: 12px 14px; display: grid; gap: 8px; min-width: 0; }
+.box h2 { margin: 0; font-size: 12px; font-weight: 400; color: var(--sub); letter-spacing: .08em; }
+.seg { display: flex; flex-wrap: wrap; gap: 4px; }
+.seg button, .act { font: inherit; font-size: 13px; color: var(--sub); background: #1d212b; border: 1px solid var(--border); border-radius: 2px; padding: 6px 10px; cursor: pointer; transition: background-color 120ms ease, color 120ms ease, transform 120ms ease; }
+.seg button:hover, .act:hover { color: var(--text); background: #262b37; }
+.seg button:active, .act:active { transform: scale(.97); }
+.seg button[aria-pressed="true"] { background: var(--select); color: var(--text); border-color: var(--accent); }
+.seg.badges button { min-width: 40px; display: grid; justify-items: center; gap: 3px; padding: 6px 6px; }
+.seg.badges small { font-size: 10px; color: var(--sub); }
+.seg button:focus-visible, .act:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.note { font-size: 12px; color: var(--sub); line-height: 1.6; margin: 0; }
+.note b { color: var(--text); font-weight: 400; }
+.money { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.money input { font: inherit; font-size: 13px; width: 120px; background: #000; color: var(--gold); border: 1px solid #a0a0a0; padding: 6px 8px; font-variant-numeric: tabular-nums; }
+.check { display: flex; gap: 8px; align-items: center; font-size: 13px; cursor: pointer; }
+.check input { accent-color: #88a0c8; width: 16px; height: 16px; }
+.log { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-size: 12px; max-height: 96px; overflow-y: auto; }
+.log li { color: #55ff55; } .log li.err { color: #ff5555; }
+.stat { font-size: 12px; color: var(--sub); font-variant-numeric: tabular-nums; }
+.stat b { color: var(--gold); font-weight: 400; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>잡켓몬 상점 체험</h1>
+    <p>게임 안 상점 화면을 그대로 옮겼어요. 분류·구매/판매 탭·카드·검색을 직접 눌러 보고, 아래에서 상점 종류와 배지 개수를 바꿔 보세요. 산 물건은 가방에 들어가 판매 탭에서 팔 수 있어요. <span id="ver"></span></p>
+  </header>
+  <div class="scroller" id="scroller"><div class="screen" id="screen" aria-label="상점 화면"></div></div>
+  <section class="ctrl" aria-label="체험 설정">
+    <div class="box">
+      <h2>상점 (말을 거는 상인)</h2>
+      <div class="seg" id="shopSeg"></div>
+      <p class="note" id="shopNote"></p>
+    </div>
+    <div class="box">
+      <h2>모은 배지 (구매 목록 해금)</h2>
+      <div class="seg badges" id="badgeSeg"></div>
+      <p class="note" id="badgeNote"></p>
+      <label class="check"><input type="checkbox" id="showLocked"> 아직 잠긴 상품도 흐리게 보기 (게임에선 안 보임)</label>
+    </div>
+    <div class="box">
+      <h2>내 돈 · 가방</h2>
+      <div class="money"><input id="money" inputmode="numeric" aria-label="잔액"><button class="act" data-m="10000">1만</button><button class="act" data-m="100000">10만</button><button class="act" data-m="1000000">100만</button></div>
+      <div class="money"><button class="act" id="fill">가방에 모든 물품 10개씩</button><button class="act" id="empty">가방 비우기</button></div>
+      <ul class="log" id="log" aria-live="polite"></ul>
+    </div>
+  </section>
+  <p class="stat" id="stat"></p>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const st = { shop: 'poke', badges: 0, cat: { poke: 0, mc: 0 }, sell: false, q: '', money: 100000, bag: {}, deeds: 0, locked: false, modal: null, qty: 1 };
+try { Object.assign(st, JSON.parse(localStorage.getItem('shopdoc') || '{}'), { modal: null }); } catch (e) {}
+const save = () => { try { localStorage.setItem('shopdoc', JSON.stringify({ shop: st.shop, badges: st.badges, cat: st.cat, sell: st.sell, money: st.money, bag: st.bag, deeds: st.deeds, locked: st.locked })); } catch (e) {} };
+let D = null;
+const fmt = n => n.toLocaleString('ko-KR');
+const el = (tag, cls, css, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (css) e.style.cssText = css; if (txt != null) e.textContent = txt; return e; };
+const U = n => `calc(${n} * var(--u))`;
+const cats = () => D.categories.map((c, i) => ({ ...c, i })).filter(c => c.shop === st.shop);
+const isDeed = e => e.item === 'pokeserver:farm_deed' && e.buy > 0;
+const price = e => st.sell ? e.sell : isDeed(e) ? e.buy * (st.deeds + 1) : e.buy;          // Shop.deedPrice: 산 장수만큼 비싸짐
+const unitAt = (e, k) => isDeed(e) ? e.buy * (st.deeds + k + 1) : e.buy;
+
+function shown() {   // ShopScreen.refilter와 같은 규칙
+  const out = [], cs = cats(), q = st.q.trim();
+  cs.forEach((c, ci) => {
+    if (!q && ci !== st.cat[st.shop]) return;
+    c.items.forEach(e => {
+      if ((st.sell ? e.sell : e.buy) <= 0) return;
+      const locked = !st.sell && (e.badges || 0) > st.badges;
+      if (locked && !st.locked) return;
+      if (q && !(D.names[e.item] || '').includes(q)) return;
+      out.push({ e, locked });
+    });
+  });
+  return out;
+}
+
+function fitPx() {
+  const w = $('#scroller').clientWidth;
+  document.documentElement.style.setProperty('--u', Math.max(1, Math.floor(w / 640 * 100) / 100) + 'px');   // 폰에선 1px로 두고 옆으로 밀어 봄
+}
+
+function render() {
+  const S = $('#screen'); S.replaceChildren();
+  const cs = cats(); if (st.cat[st.shop] >= cs.length) st.cat[st.shop] = 0;
+  // 왼쪽 분류
+  const side = el('div', 'side'); S.append(side);
+  side.append(el('div', '', `left:${U(14)};top:${U(15)};width:${U(3)};height:${U(12)};background:var(--accent)`));
+  side.append(el('div', 't', `left:${U(22)};top:${U(16)}`, '상점'));
+  cs.forEach((c, ci) => {
+    const b = el('div', 'cat' + (ci === st.cat[st.shop] && !st.q ? ' sel' : ''), `top:${U(52 + ci * 26)}`);
+    b.setAttribute('role', 'button'); b.tabIndex = 0; b.title = `${c.name} · 상품 ${c.items.length}개`;
+    const im = el('img', 'ic'); im.src = D.icons[c.icon]; im.alt = '';
+    b.append(im, el('div', 't', '', c.name));
+    const go = () => { st.cat[st.shop] = ci; st.q = ''; render(); };
+    b.onclick = go; b.onkeydown = ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); go(); } };
+    side.append(b);
+  });
+  // 위: 구매/판매 탭, 잔액, 검색
+  const tabs = el('div', 'tabs pnl' + (st.sell ? ' sell' : '')); tabs.append(el('div', 'ind'));
+  [['구매', false], ['판매', true]].forEach(([n, v], i) => { const b = el('button', v === st.sell ? 'on' : '', `left:${U(1 + i * 61)}`, n); b.onclick = () => { st.sell = v; render(); }; tabs.append(b); });
+  S.append(tabs);
+  const balTxt = fmt(st.money), bw = 34 + balTxt.length * 6.4, bx = 640 - 16 - 130 - 10 - bw;
+  const bal = el('div', 'bal pnl', `left:${U(bx)};width:${U(bw)}`); const gi = el('img', 'ic'); gi.src = D.icons['minecraft:gold_nugget']; gi.alt = '';
+  bal.append(gi, el('div', 't', '', balTxt)); S.append(bal);
+  const sr = el('input', 'search'); sr.placeholder = '아이템 이름 검색'; sr.value = st.q; sr.id = 'q'; sr.setAttribute('aria-label', '아이템 이름 검색');
+  sr.oninput = () => { st.q = sr.value; render(); const n = $('#q'); n.focus(); n.setSelectionRange(n.value.length, n.value.length); };
+  S.append(sr);
+  // 제목 + 개수
+  const list = shown();
+  const title = st.q.trim() ? '검색 결과' : (cs[st.cat[st.shop]] || {}).name || '';
+  const tt = el('div', 't title', '', title); S.append(tt);
+  S.append(el('div', 't', `left:${U(150 + title.length * 12)};top:${U(52)};color:var(--sub)`, list.length + '개'));
+  // 카드 (가로 5칸)
+  const grid = el('div', 'grid'), inner = el('div', 'inner', `height:${U(Math.ceil(list.length / 5) * 106 + 8)}`);
+  grid.append(inner); S.append(grid);
+  list.forEach(({ e, locked }, k) => {
+    const x = 16 + (k % 5) * 92, y = 4 + Math.floor(k / 5) * 106, p = price(e), have = st.bag[e.item] || 0;
+    const blocked = locked || (st.sell ? have === 0 : st.money < p);
+    const c = el('div', 'card pnl' + (blocked ? ' dim' : '') + (locked ? ' locked' : ''), `left:${U(x)};top:${U(y)}`);
+    c.tabIndex = 0; c.setAttribute('role', 'button');
+    const im = el('img'); im.src = D.icons[e.item]; im.alt = '';
+    c.append(el('div', 'well'), im, el('div', 't x1', '', 'x1'), el('div', 't c nm', '', D.names[e.item]));
+    const band = locked ? [`배지 ${e.badges}개 필요`, '#5a4a72'] : st.sell ? [have ? `보유 ${have}개` : '보유 아이템 없음', have ? 'var(--green)' : 'var(--red)'] : st.money < p ? ['잔액 부족', 'var(--red)'] : null;
+    if (band) c.append(el('div', 't c band', `background:${band[1]}`, band[0]));
+    c.append(el('div', 't c lb', '', st.sell ? '판매가' : '구매가'), el('div', 't c pr', '', fmt(p)));
+    c.onmouseenter = ev => tip(e, locked, ev); c.onmousemove = ev => moveTip(ev); c.onmouseleave = () => tip(null);
+    const open = () => { if (locked) return; tip(null); st.modal = e; st.qty = 1; render(); };
+    c.onclick = open; c.onkeydown = ev => { if (ev.key === 'Enter') open(); };
+    inner.append(c);
+  });
+  if (!list.length) S.append(el('div', 't empty', '', st.sell ? '판매할 수 있는 상품이 없습니다' : '살 수 있는 상품이 없습니다 (판매 탭에서 팔 수 있어요)'));
+  S.append(el('div', 't hint', '', (st.sell ? '' : `배지 ${st.badges}개 · 배지를 모으면 상품이 늘어나요  ·  `) + '클릭: 수량 고르기  ·  ESC: 닫기'));
+  if (st.modal) modal(S);
+  panelInfo(); save();
+}
+
+let tipEl = null;
+function tip(e, locked, ev) {
+  if (tipEl) { tipEl.remove(); tipEl = null; }
+  if (!e) return;
+  tipEl = el('div', 'tip');
+  tipEl.append(el('div', 't', e.item === 'pokeserver:farm_deed' ? 'color:var(--gold)' : '', D.names[e.item]));
+  if (e.item === 'pokeserver:farm_deed') tipEl.append(el('div', 't', 'color:#aaa', '농장의 빈 땅을 우클릭하면'), el('div', 't', 'color:#aaa', '내 땅으로 등록할 수 있습니다'));
+  const extra = [];   // 문서용 덧붙임 (게임 설명창엔 없음)
+  if (e.buy) extra.push(`구매 ${fmt(e.buy)}원${e.badges ? ` · 배지 ${e.badges}개부터` : ''}`); else extra.push('판매 전용');
+  if (e.sell) extra.push(`판매 ${fmt(e.sell)}원`);
+  if (isDeed(e)) extra.push('살 때마다 값이 오름 (기본가 × 산 장수+1)');
+  extra.forEach(s => tipEl.append(el('div', 't', 'color:#5555ff', s)));
+  tipEl.append(el('div', 't', 'color:#555', e.item));
+  $('#screen').append(tipEl); moveTip(ev);
+}
+function moveTip(ev) {
+  if (!tipEl) return;
+  const r = $('#screen').getBoundingClientRect(), x = ev.clientX - r.left + 12, y = ev.clientY - r.top - 12;
+  tipEl.style.left = Math.min(x, r.width - tipEl.offsetWidth - 4) + 'px'; tipEl.style.top = Math.max(4, Math.min(y, r.height - tipEl.offsetHeight - 4)) + 'px';
+}
+
+function maxQty(e) {   // ShopScreen.maxQty와 같음
+  if (st.sell) return Math.min(64, st.bag[e.item] || 0);
+  if (isDeed(e)) return st.money >= price(e) ? 1 : 0;
+  return Math.min(64, Math.floor(st.money / Math.max(1, e.buy)));
+}
+function modal(S) {
+  const e = st.modal, max = maxQty(e), unit = price(e);
+  st.qty = Math.max(max ? 1 : 0, Math.min(st.qty, max));
+  const dim = el('div', 'dim-layer'); dim.onclick = () => { st.modal = null; render(); }; S.append(dim);
+  const m = el('div', 'modal pnl'); m.setAttribute('role', 'dialog'); m.setAttribute('aria-label', '수량 고르기'); S.append(m);
+  const im = el('img'); im.src = D.icons[e.item]; im.alt = ''; m.append(im);
+  const verb = st.sell ? '판매' : '구매';
+  m.append(el('div', 't chip', `background:${st.sell ? 'var(--green)' : 'var(--select)'}`, verb));
+  m.append(el('div', 't', `left:${U(42)};top:${U(12)};max-width:${U(130)};overflow:hidden`, D.names[e.item]));
+  m.append(el('div', 't', `left:${U(42)};top:${U(25)};color:var(--sub)`, `개당 ${fmt(unit)}원`));
+  const btn = (x, y, w, h, label, on, fn, primary) => { const b = el('div', 'mb pnl' + (on ? '' : ' off') + (primary && on ? ' primary' : ''), `left:${U(x)};top:${U(y)};width:${U(w)};height:${U(h)};padding-top:${U((h - 10) / 2)}`); b.append(el('div', 't', '', label)); if (on) b.onclick = ev => { ev.stopPropagation(); fn(); }; m.append(b); };
+  btn(12, 44, 24, 20, '-', st.qty > 1, () => { st.qty--; render(); });
+  const qb = el('div', 'pnl', `left:${U(40)};top:${U(44)};width:${U(60)};height:${U(20)};background:rgba(16,19,25,.88)`); qb.append(el('div', 't', `left:0;width:100%;text-align:center;top:${U(5)}`, String(st.qty))); m.append(qb);
+  btn(104, 44, 24, 20, '+', st.qty < max, () => { st.qty++; render(); });
+  m.append(el('div', 't', `right:${U(12)};top:${U(50)};color:var(--sub)`, `최대 ${max}개`));
+  [1, 8, 16, 32, 64].forEach((p, i) => btn(12 + i * 42, 72, 36, 18, String(p), p <= max, () => { st.qty = p; render(); }, p === st.qty));
+  m.append(el('div', 't', `left:${U(12)};top:${U(100)};color:var(--sub)`, '합계'));
+  let total = 0; for (let k = 0; k < st.qty; k++) total += st.sell ? e.sell : unitAt(e, k);
+  m.append(el('div', 't', `right:${U(12)};top:${U(100)};color:${max ? 'var(--gold)' : '#ff6b6b'}`, max ? fmt(total) + '원' : st.sell ? '보유 아이템 없음' : '잔액 부족'));
+  btn(12, 122, 98, 20, '취소', true, () => { st.modal = null; render(); });
+  btn(120, 122, 98, 20, verb + '하기', max > 0, () => trade(e, st.qty, total), true);
+}
+function trade(e, n, total) {   // Shop.trade와 같은 결과 메시지
+  const name = D.names[e.item];
+  if (st.sell) { st.money += total; st.bag[e.item] -= n; if (!st.bag[e.item]) delete st.bag[e.item]; log(`${name} ${n}개 판매 (+${fmt(total)})`); }
+  else { st.money -= total; if (isDeed(e)) st.deeds += n; st.bag[e.item] = (st.bag[e.item] || 0) + n; log(`${name} ${n}개 구매 (-${fmt(total)})`); }
+  st.modal = null; render();
+}
+function log(s, err) { const li = el('li', err ? 'err' : '', '', s); $('#log').prepend(li); while ($('#log').children.length > 20) $('#log').lastChild.remove(); }
+
+function panelInfo() {
+  const shops = [['poke', '포켓몬 상점'], ['mc', '생활 상점']];
+  $('#shopSeg').replaceChildren(...shops.map(([k, n]) => { const b = el('button', '', '', n); b.setAttribute('aria-pressed', st.shop === k); b.onclick = () => { st.shop = k; st.q = ''; render(); }; return b; }));
+  const cs = cats();
+  $('#shopNote').innerHTML = (st.shop === 'poke' ? '포켓몬 센터 옆 <b>포켓몬 상인</b>' : '광장 상점가 <b>생활 상인</b>') + ` · 분류 ${cs.length}개: ${cs.map(c => c.name).join('·')}`;
+  $('#badgeSeg').replaceChildren(...Array.from({ length: 9 }, (_, n) => {
+    const b = el('button'); b.setAttribute('aria-pressed', st.badges === n); b.append(el('span', '', '', n + '개'), el('small', '', '', n ? D.league[n - 1].leader.replace('관장 ', '') : '처음'));
+    b.title = n ? `${n}번째 체육관 ${D.league[n - 1].leader} · ${D.league[n - 1].badge}까지` : '배지 없음';
+    b.onclick = () => { st.badges = n; render(); }; return b;
+  }));
+  const all = cs.flatMap(c => c.items).filter(e => e.buy > 0), open = all.filter(e => (e.badges || 0) <= st.badges);
+  const next = all.filter(e => (e.badges || 0) === st.badges + 1).length;
+  $('#badgeNote').innerHTML = `이 상점에서 지금 살 수 있는 상품 <b>${open.length}</b> / ${all.length}개` + (st.badges < 8 ? ` · 배지 하나 더 모으면 <b>${next}</b>개 더` : ' · 모두 해금');
+  $('#money').value = fmt(st.money);
+  $('#showLocked').checked = st.locked;
+  const sellN = D.categories.flatMap(c => c.items).filter(e => e.sell > 0).length;
+  $('#stat').innerHTML = `전체 상품 <b>${D.categories.reduce((a, c) => a + c.items.length, 0)}</b>개 · 팔 수 있는 물품 <b>${sellN}</b>개 (판매는 배지 제한 없음, 대부분 구매가의 1/4)`;
+}
+
+$('#money').addEventListener('change', ev => { const v = parseInt(ev.target.value.replace(/[^0-9]/g, ''), 10); st.money = Math.min(Number.MAX_SAFE_INTEGER, isNaN(v) ? 0 : v); render(); });
+document.querySelectorAll('[data-m]').forEach(b => b.onclick = () => { st.money = +b.dataset.m; render(); });
+$('#fill').onclick = () => { D.categories.forEach(c => c.items.forEach(e => { if (e.sell > 0) st.bag[e.item] = 10; })); st.sell = true; log('가방에 모든 물품 10개씩 넣음 → 판매 탭'); render(); };
+$('#empty').onclick = () => { st.bag = {}; log('가방을 비움'); render(); };
+$('#showLocked').onchange = ev => { st.locked = ev.target.checked; render(); };
+document.addEventListener('keydown', ev => {
+  if (ev.key === 'Escape' && st.modal) { st.modal = null; render(); }
+  else if (st.modal && ev.key === 'Enter') { const e = st.modal, max = maxQty(e); if (max > 0) { let t = 0; for (let k = 0; k < st.qty; k++) t += st.sell ? e.sell : unitAt(e, k); trade(e, st.qty, t); } }
+  else if (st.modal && (ev.key === 'ArrowUp' || ev.key === 'ArrowRight')) { st.qty = Math.min(maxQty(st.modal), st.qty + 1); render(); }
+  else if (st.modal && (ev.key === 'ArrowDown' || ev.key === 'ArrowLeft')) { st.qty = Math.max(1, st.qty - 1); render(); }
+});
+addEventListener('resize', fitPx);
+fetch('data.json').then(r => r.json()).then(d => { D = d; $('#ver').textContent = `(상점 목록: 모드팩 ${d.version})`; fitPx(); render(); })
+  .catch(() => { $('#screen').append(el('div', 't empty', '', '상점 목록(data.json)을 불러오지 못했어요. 새로 고침해 보세요.')); });
+</script>

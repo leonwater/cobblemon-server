@@ -371,14 +371,15 @@ def badge_item(n, name, color):
 # 관장 보상 기술머신: 그 타입 대표 기술 (Cobblemon data/cobblemon/tms에 있는 것), 경험사탕은 뒤로 갈수록 큰 것
 GYM_TM = {'바위': 'stoneedge', '전기': 'thunderbolt', '불꽃': 'flamethrower', '독': 'sludgebomb',
           '에스퍼': 'psychic', '땅': 'earthquake', '풀': 'energyball', '물': 'surf'}
+CANDY_N = 10   # 관장 보상 경험사탕 개수
 CANDY = ['exp_candy_s'] * 2 + ['exp_candy_m'] * 2 + ['exp_candy_l'] * 2 + ['exp_candy_xl'] * 2
 
 
 def gym_items(n, typ):
-    """관장 보상 물품: 경험사탕 5개 + 그 타입 기술머신 1장."""
-    return [f'give @s cobblemon:{CANDY[n - 1]} 5',
+    """관장 보상 물품: 경험사탕 CANDY_N개 + 그 타입 기술머신 1장."""
+    return [f'give @s cobblemon:{CANDY[n - 1]} {CANDY_N}',
             f'give @s cobblemon:technical_machine[cobblemon:tm_move={{move:"{GYM_TM[typ]}"}}] 1',
-            f'tellraw @s {{"text":"보상: 경험사탕 5개, 기술머신({GYM_TM[typ]}) 1장","color":"aqua"}}']
+            f'tellraw @s {{"text":"보상: 경험사탕 {CANDY_N}개, 기술머신({GYM_TM[typ]}) 1장","color":"aqua"}}']
 
 
 def prize(amount):
@@ -480,7 +481,7 @@ def functions():
     rgb = lambda c: c[0] << 16 | c[1] << 8 | c[2]
     league = [dict(n=n, title=f'{n}번 체육관', leader=f'관장 {name}', type=f'{typ} 타입', badge=badge, color=rgb(color),
                    level=max(m['level'] for m in team) + CAP, prize=(max(m['level'] for m in team) + CAP) * 200,   # 상금 = award의 prize()와 같은 식
-                   reward=['경험사탕 5', '기술머신'] + ([KEY_ITEMS[n][1]] if n in KEY_ITEMS else []))
+                   reward=[f'경험사탕 {CANDY_N}', '기술머신'] + ([KEY_ITEMS[n][1]] if n in KEY_ITEMS else []))
               for n, (_, name, typ, badge, color, team) in enumerate(GYMS, 1)]
     league.append(dict(n=9, title='사천왕 (챔피언 4명 연속)', leader='·'.join(e[1] for e in ELITE), type='·'.join(e[2].split()[0] for e in ELITE) + ' 챔피언',
                        badge='명예의 전당', color=0x8A4FD0, level=100))

@@ -59,14 +59,7 @@ def main(work, server, user='Dev'):
             continue
         name = t.split('filename = "')[1].split('"')[0]
         get(t.split('url = "')[1].split('"')[0], game / 'mods' / name)
-    # 셰이더: SHADERS=1 이면 모드팩 설정대로 켜고, 아니면 꺼서 시험 화면을 가볍게
-    (game / 'shaderpacks').mkdir(exist_ok=True)
-    for f in (ROOT / 'pack/shaderpacks').glob('*.pw.toml'):
-        t = f.read_text()
-        get(t.split('url = "')[1].split('"')[0], game / 'shaderpacks' / t.split('filename = "')[1].split('"')[0])
     (game / 'config').mkdir(exist_ok=True)
-    iris = (ROOT / 'pack/config/iris.properties').read_text()
-    (game / 'config/iris.properties').write_text(iris if os.environ.get('SHADERS') == '1' else iris.replace('enableShaders=true', 'enableShaders=false'))
     (game / 'config/xaerohud.txt').write_text((ROOT / 'pack/config/xaerohud.txt').read_text())   # 미니맵 위치 (배포본은 packwiz가 받음)
     for j in ([] if os.environ.get('PROD_GAME') else (game / 'mods').glob('pokeserver-*.jar')):
         j.unlink()

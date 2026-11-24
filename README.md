@@ -101,10 +101,6 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases → 최신 릴�
 ### 5. 서버 접속
 서버(`start.bat`)를 켜둔 상태에서 **멀티플레이 → 서버 추가 → 주소 `localhost`**
 
-### 셰이더
-모드팩에 **Iris + Sodium + Complementary Reimagined 셰이더**가 들어 있어 처음 실행하면 켜진 상태입니다 (그림자·하늘·물 효과).
-- **K 키**: 셰이더 켜기/끄기 · 무거우면 `비디오 설정 → 셰이더 팩`에서 끄거나 다른 팩 선택 (한 번 바꾼 설정은 업데이트해도 유지)
-
 ### 막힐 때
 
 | 증상 | 해결 |

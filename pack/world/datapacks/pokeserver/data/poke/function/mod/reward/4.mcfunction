@@ -1,6 +1,6 @@
 # 자동 생성: tools/build_league.py
 give @s mega_showdown:mega_bracelet 1
 tellraw @s {"text":"메가링을 받았어요! 손에 들거나 장신구 칸에 끼면 배틀에서 메가진화를 쓸 수 있어요.","color":"aqua"}
-give @s cobblemon:exp_candy_m 5
+give @s cobblemon:exp_candy_m 10
 give @s cobblemon:technical_machine[cobblemon:tm_move={move:"sludgebomb"}] 1
-tellraw @s {"text":"보상: 경험사탕 5개, 기술머신(sludgebomb) 1장","color":"aqua"}
+tellraw @s {"text":"보상: 경험사탕 10개, 기술머신(sludgebomb) 1장","color":"aqua"}

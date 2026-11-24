@@ -277,3 +277,4 @@ if __name__ == '__main__':
     out = {'categories': [{'name': n, 'icon': i, 'shop': 'poke' if n in POKE else 'mc', 'items': xs} for n, i, xs in cats]}
     (ROOT / 'pack/config/pokeserver/shop.json').write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding='utf-8')
     print({n: len(xs) for n, _, xs in cats})
+    print('상점 문서도 다시 만들어 올리기: python3 tools/shop_doc.py <폴더> (docs/작업규칙.md 상점·가격)')

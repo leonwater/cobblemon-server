@@ -13,17 +13,12 @@ file = "config/explosionbreaksnoblock/explosionbreaksnoblock.json"
 hash = "82971dc5b250c08b6dd976ecf2e1b26bd88d8294290f9f18abfd79fa207a9645"
 
 [[files]]
-file = "config/iris.properties"
-hash = "e4858925a0b48bc293e34a4cd8ada8d33cd36d64a03e4ae69f8316f5d7e06e5d"
-preserve = true
-
-[[files]]
 file = "config/pokeserver/farms.json"
 hash = "f352cf02dc158e905c4ae7ca5496f7b2d4f695f4aa3eb040437b6c87d7eda48c"
 
 [[files]]
 file = "config/pokeserver/league.json"
-hash = "d7b9628ad94d18d47a1e833d1c931dd366e5cb5d1130bd5d06b4439237f0d478"
+hash = "2e714a01a2b839136ebcc77c351c841d3d19dfb87ceb1d8e87a2bc195051888b"
 
 [[files]]
 file = "config/pokeserver/menu.json"
@@ -101,18 +96,13 @@ hash = "238b3ceb4214a682480ce00eefae5d34efa299ff6ff667e4b2f2ed503c6e76ee"
 metafile = true
 
 [[files]]
-file = "mods/iris.pw.toml"
-hash = "6ee94689dd67f0210e07feafac8140e8968bcbcd67defcfbdcd677cf78943900"
-metafile = true
-
-[[files]]
 file = "mods/owo-lib.pw.toml"
 hash = "50123c09c4693cf847ac3420fcef7cdb94ba57096b9dbb9f13deabedc8d9f62e"
 metafile = true
 
 [[files]]
-file = "mods/pokeserver-1.2.0.jar"
-hash = "23382f271bbbf001e138c242ef0bbb9bcdabcb322d7e0ed909e191bd54faae0b"
+file = "mods/pokeserver-1.3.0.jar"
+hash = "fc66f3565f65812b6b0f2f5f0da20b46fdc42708ec3006a6ea258243fb65f029"
 
 [[files]]
 file = "mods/rctapi.pw.toml"
@@ -132,11 +122,6 @@ metafile = true
 [[files]]
 file = "mods/xaeros-minimap.pw.toml"
 hash = "25d77bb50e59fc77453331092501f6f336ffeff6e0fe3fba7336be6115a09761"
-metafile = true
-
-[[files]]
-file = "shaderpacks/complementary-reimagined.pw.toml"
-hash = "75d1d2488a0c332a9a58af7e57f980a1b006c02b3a1c580fbd50443088e4eab0"
 metafile = true
 
 [[files]]
@@ -653,35 +638,35 @@ hash = "f13bc4ca9d51a8a613be9840f882e3f7ddb42fde84c0048ce270b66a5c4e913a"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/reward/1.mcfunction"
-hash = "479e119e1ba2d7e951bc2a2828864c15446bd2af538dbac65296599e6882a22c"
+hash = "ca9069cb5853709eacbf117ca0cc2f7dcf1df31a67048f8bab4a64c8b45f911b"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/reward/2.mcfunction"
-hash = "ed63ffd3302510085f62eeddd3d425df487d75ae59997c3166b984251772fb59"
+hash = "4a97780c2f31f7523b2782b990cf2a52409d01bbcb865f0e39e4c7d92f293d38"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/reward/3.mcfunction"
-hash = "8bf19078a1ba47b37cdd42439b3b593ba45c5a73d00323d43feffae15245cb57"
+hash = "82d743d2cea0abe03d04bd2d6a5c8c7bce482dbd6f04a4020830ac3cc98dbce4"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/reward/4.mcfunction"
-hash = "3d2b44f8275adc7889442b76d8fad1b685fd58af60f9819a2b41ec8a148f50de"
+hash = "252c9867dec64e3dd2f66b37d990bb210d91cd08d859987ac299da20eb075681"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/reward/5.mcfunction"
-hash = "0bf5a6b3fc635f92a662f52f914177c3dce600cba103921d43f948ca3a86afa2"
+hash = "b37e6fb1decf1b61b609c00ad84d1d349fb0daaabcfb0303d58693f6d2529507"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/reward/6.mcfunction"
-hash = "e119ccd2bfa100bbd06cdec57b593ef8888e0a459b9008444b5108cc1dc3fea2"
+hash = "b9c5a04c57a5ceb905e6d9b46cee3d5d53e99bb3f912288a51ae43662e7dae8b"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/reward/7.mcfunction"
-hash = "f80b91b4673397957c0b054493a662cf7934ced4148558f13307d7d252433387"
+hash = "1d428d8ee7da27f442d70f64980834d1e7562cbb91572334c025b567155109ef"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/reward/8.mcfunction"
-hash = "be7a89424048fe79246f5ec5ee2ef23d797f1227a6261dd5cc64c609eea03efa"
+hash = "1bfb65d4e67f36d6bbab0745f259f083113eadcbc11170f0c7ba4ac4a550d393"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mod/reward/e4.mcfunction"
