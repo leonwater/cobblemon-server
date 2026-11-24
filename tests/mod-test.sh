@@ -15,8 +15,8 @@ f=$R/pack/mods/fabric-api.pw.toml; name=$(grep '^filename' $f | cut -d'"' -f2)
 [ -f "$W/mods/$name" ] || curl -sfL -o "$W/mods/$name" "$(grep '^url' $f | cut -d'"' -f2)"
 rm -f $W/mods/pokeserver-*.jar; cp $R/mod/build/libs/pokeserver-*.jar $W/mods/
 cp $R/pack/config/pokeserver/*.json $W/config/pokeserver/
-# 배지 해금 시험용: 실제 상점의 해금 물품은 Cobblemon 것이라(이 서버엔 없음) 바닐라 철 블록(배지 1개)을 마지막 분류 끝에 덧붙임
-python3 -c "import json,sys;p=sys.argv[1];d=json.load(open(p));d['categories'][-1]['items'].append({'item':'minecraft:iron_block','buy':1200,'sell':300,'badges':1});json.dump(d,open(p,'w'),ensure_ascii=False)" $W/config/pokeserver/shop.json
+# 배지 해금 시험용: 실제 상점의 해금 물품은 Cobblemon 것이라(이 서버엔 없음) 바닐라 철 블록(배지 1개)을 생활 상점(mc) 마지막 분류 끝에 덧붙임
+python3 -c "import json,sys;p=sys.argv[1];d=json.load(open(p));[c for c in d['categories'] if c.get('shop')=='mc'][-1]['items'].append({'item':'minecraft:iron_block','buy':1200,'sell':300,'badges':1});json.dump(d,open(p,'w'),ensure_ascii=False)" $W/config/pokeserver/shop.json
 rm -rf $W/world $W/world-backup-* && mkdir -p $W/world/datapacks $W/world/region && cp -r $R/pack/world/datapacks/pokeserver $W/world/datapacks/
 echo old > $W/world/level.dat; echo old > $W/world/region/r.0.0.mca   # 8. 예전 월드 흉내: 시작할 때 백업 폴더로 옮겨져야 함
 for f in $W/world/datapacks/pokeserver/data/poke/function/mod/*.mcfunction; do case $f in */clear_items.mcfunction) continue;; esac; echo 'return 0' > $f; done   # clear_items는 모드 명령만 써서 그대로 시험

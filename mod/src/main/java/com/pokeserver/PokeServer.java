@@ -70,7 +70,7 @@ public class PokeServer implements ModInitializer {
             if (server.getTickCount() % 100 == 0) Farms.refreshLabels(server);
             if (server.getTickCount() % 20 == 0) { Teleport.tick(server); Nicknames.tick(server); Plaza.modes(server); }
             if (server.getTickCount() % 200 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.reapply(server);
-            if (server.getTickCount() % 20 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) { CobblemonHooks.starterLocks(server); CobblemonHooks.countWild(server); CobblemonHooks.holdGymPokemon(server); }
+            if (server.getTickCount() % 20 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) { CobblemonHooks.starterLocks(server); CobblemonHooks.countWild(server); CobblemonHooks.holdGymPokemon(server); CobblemonHooks.gimmickGear(server); }
             if (server.getTickCount() % CobblemonHooks.LEGEND_TICKS == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.spawnLegend(server);
         });
         // 상인(poke.merchant) → 상점, 체육관 안내원(poke.gymguide) → 도전 목록, 오박사(poke.tutor) → 튜토리얼 설명 창 (Cobblemon NPC 스크립트 대신 직접 처리)

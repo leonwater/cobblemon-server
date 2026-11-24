@@ -3,7 +3,7 @@
 - 포켓몬 물품(Cobblemon·Mega Showdown)만 배지로 해금. 키우는 순서대로: 잡기·회복·기본 성장은 낮은 배지,
   실전용 희귀 물품(지닌 도구 상위·성격·개체값)은 높은 배지. 마인크래프트 물품(건축·농장·광물·도구)은 처음부터.
 - 특수 기믹 물품은 그 기믹을 배틀에서 쓸 수 있게 되는 배지에 맞춰 풀림: Z크리스탈 2 (Z링), 메가스톤 4, 다이맥스 6, 테라 조각 8.
-- 판매: 거의 모든 물품을 팔 수 있음. 판매가 = 구매가 ÷ 4 (사서 바로 되팔아 이득 보는 일 없음). 구매 0원 = 판매만.
+- 판매: 배지 해금 없이 전부 팔 수 있음. 판매가 = 구매가 ÷ 4 (사서 바로 되팔아 이득 보는 일 없음). 구매 0원 = 판매만.\n- 코블몬에서 얻을 수 있는 물품은 상점 목록에 없더라도 모두 '판매만'으로 들어감 (obtainable_missing·sell_rule, 새 분류 '기타').
 - 가격 근거: 몬스터볼·회복약·진화의 돌·비타민은 원작(스칼렛·바이올렛) 상점 가격, 원작에서 BP 교환인 실전 도구는 희귀도에 맞춰 정함.
 - 검사: 아이템 id가 실제로 있는지(모드 jar·마인크래프트 jar 언어 파일), 조합 재료보다 완성품이 싸지 않은지.
 """
@@ -42,6 +42,19 @@ LEGEND_MEGA = {'mewtwonite_x', 'mewtwonite_y', 'latiasite', 'latiosite', 'dianci
 
 def categories():
     megas, zs, shards = ms_items()
+    cats = base_categories(megas, zs, shards)
+    have = {x['item'] for _, _, xs in cats for x in xs}
+    extra = {}
+    for i in obtainable_missing(have):
+        cat, price = sell_rule(i)
+        extra.setdefault(cat, []).append(sell_only(C + i, price))
+    by = {n: xs for n, _, xs in cats}
+    for cat, xs in extra.items():
+        if cat in by: by[cat].extend(xs)                         # 기존 분류는 끝에 붙임 (앞쪽 순서가 안 바뀌게)
+    return cats + [('기타', C + 'relic_coin', extra.get('기타', []))]   # 맨 뒤에 새 분류 (기존 분류 번호가 안 바뀌게)
+
+
+def base_categories(megas, zs, shards):
     return [
         ('볼', C + 'poke_ball', [   # ── 코블몬 상인 ──
             e(C + 'poke_ball', 200), e(C + 'premier_ball', 300), e(C + 'heal_ball', 300),
@@ -132,6 +145,60 @@ def categories():
     ]
 
 
+# ── 판매만: 코블몬에서 얻을 수 있는데 위 목록에 없는 물품 전부 (배지 해금 없음, 구매 불가) ──
+# 얻는 길 = 코블몬 jar의 조합법 결과·전리품 표·포켓몬 드롭에 나오는 것. 아래 NOT_OBTAINABLE은 이벤트·크리에이티브 전용이라 뺌.
+NOT_OBTAINABLE = {'cherish_ball', 'ancient_origin_ball', 'npc_editor', 'habitat_block', 'gimmighoul_chest', 'lectern'}
+HELD = {'ability_shield', 'absorb_bulb', 'big_root', 'bright_powder', 'cell_battery', 'cleanse_tag', 'destiny_knot', 'eject_pack',
+        'float_stone', 'iron_ball', 'lagging_tail', 'light_ball', 'luminous_moss', 'metal_powder', 'metronome', 'mirror_herb',
+        'quick_powder', 'shed_shell', 'smoke_ball', 'soothe_bell', 'sticky_barb', 'electric_seed', 'grassy_seed', 'misty_seed',
+        'psychic_seed', 'oval_stone', 'black_augurite', 'galarica_cuff', 'galarica_wreath', 'auspicious_armor', 'malicious_armor',
+        'scroll_of_darkness', 'scroll_of_waters', 'sweet_apple', 'tart_apple', 'syrupy_apple', 'metal_alloy', 'shell_helmet',
+        'masterpiece_teacup', 'unremarkable_teacup', 'cracked_pot', 'chipped_pot'}
+RARE_BERRY = {'enigma', 'micle', 'custap', 'jaboca', 'rowap', 'kee', 'maranga', 'starf', 'lansat', 'liechi', 'ganlon', 'salac', 'petaya', 'apicot'}
+
+
+def obtainable_missing(have):
+    """코블몬 물품 중 상점에 없고 생존에서 얻을 수 있는 것 (id 목록)."""
+    import re
+    jar = next((ROOT / 'tools/.jarcache').glob('Cobblemon-*.jar'))
+    with zipfile.ZipFile(jar) as z:
+        names = z.namelist()
+        en = json.loads(z.read('assets/cobblemon/lang/en_us.json'))
+        models = {f.split('/')[-1][:-5] for f in names if f.startswith('assets/cobblemon/models/item/')}
+        ids = sorted({k.split('.')[2] for k in en if re.match(r'^(item|block)\.cobblemon\.[a-z0-9_]+$', k)} & models)
+    return [i for i in ids if C + i not in have and i not in NOT_OBTAINABLE]
+
+
+def sell_rule(i):
+    """(분류, 판매가). 원칙: 같은 계열의 상점 판매가(구매가÷4)에 맞추고, 상점에서 살 수 있는 재료로 만드는 것은 재료값보다 싸게."""
+    if i in HELD: return '도구', 1000                            # 쇠구슬·전기구슬처럼 이름이 _ball이어도 지닌 도구
+    if i == 'master_ball': return '볼', 5000
+    if i.endswith('_ball'): return '볼', 50 if i.startswith('ancient_') else 200
+    if i.startswith(('x_', 'dire_hit', 'guard_spec')) or i in ('heal_powder', 'energy_root', 'revival_herb', 'remedy', 'fine_remedy',
+                                                               'superb_remedy', 'medicinal_brew', 'berry_juice', 'moomoo_milk'):
+        return '회복', 100
+    if i.endswith('_berry'): return '도구', 100 if i[:-6] in RARE_BERRY else 20
+    stone = next((st for st in ('fire', 'water', 'thunder', 'leaf', 'moon', 'sun', 'shiny', 'dusk', 'dawn', 'ice') if f'{st}_stone' in i), None)
+    if stone and i.endswith('_ore'): return '성장', 500
+    if stone and i.endswith('_block'): return '성장', 6750      # 진화의 돌 9개 (돌 판매가 750 × 9)
+    if i.endswith('_mint_leaf'): return '성장', 100
+    if 'fossil' in i and i != 'fossil_analyzer': return '기타', 300
+    if i == 'relic_coin': return '기타', 100
+    if i == 'relic_coin_pouch': return '기타', 900
+    if i == 'relic_coin_sack': return '기타', 8100
+    if i.endswith('_gem_block'): return '기타', 180              # 타입 보석 9개 (보석 판매가 20 × 9)
+    if i.endswith(('_gem_cluster', '_gem_bud')) or 'tumblestone_cluster' in i: return '기타', 40
+    if i.endswith(('_sherd', '_plaque', '_smithing_template')) or i.startswith('pokedex_'): return '기타', 50
+    if i in ('pc', 'healing_machine', 'monitor', 'damaged_monitor', 'display_case', 'fossil_analyzer', 'restoration_tank', 'pasture',
+             'disc_shelf', 'poke_rod', 'technical_machine', 'ring_target') or i.startswith(('campfire_pot_', 'gilded_chest')) \
+            or i.endswith('_gilded_chest'):
+        return '기타', 50
+    if i.endswith(('_seed', '_seeds')) or 'mulch' in i or i.startswith(('apricorn_', 'saccharine_', 'stripped_')) \
+            or 'tumblestone' in i or i.startswith('tatami'):
+        return '기타', 5
+    return '기타', 10                                            # 요리·사탕·차·식물 등 (상점 재료로 만들 수 있어도 손해 안 보게 낮게)
+
+
 # 조합 재료 (상점에 있는 것만): 완성품 구매가 ≥ 재료 구매가 합
 RECIPES = {
     M + 'bucket': {M + 'iron_ingot': 3}, M + 'shears': {M + 'iron_ingot': 2}, M + 'iron_pickaxe': {M + 'iron_ingot': 3},
@@ -173,7 +240,7 @@ def check(cats):
 if __name__ == '__main__':
     cats = categories()
     check(cats)
-    POKE = {'볼', '회복', '성장', '도구', '능력치', '기믹'}   # 코블몬 상인, 나머지는 마인크래프트 상인
+    POKE = {'볼', '회복', '성장', '도구', '능력치', '기믹', '기타'}   # 코블몬 상인, 나머지는 마인크래프트 상인
     assert all(len(n.split()) == 1 for n, _, _ in cats), '분류 이름은 한 단어'
     out = {'categories': [{'name': n, 'icon': i, 'shop': 'poke' if n in POKE else 'mc', 'items': xs} for n, i, xs in cats]}
     (ROOT / 'pack/config/pokeserver/shop.json').write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding='utf-8')

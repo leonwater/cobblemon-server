@@ -146,6 +146,7 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   await cmd('execute as A run function poke:warp/save_here')   // 광장 안에서 저장해도 무시
   act('warp:gym'); await sleep(350)
   act('warp:wild'); await sleep(350)
+  for (let i = 0; i < 10 && await posX() !== wildX; i++) await sleep(300)   // 체육관도 야생 차원이라 워프가 처리될 때까지 기다림 (3초 안에 안 오면 실패)
   assert.equal(await posX(), wildX, '야생 → 광장이 아니라 광장 밖 마지막 위치로')
   act('warp:hall'); await sleep(350)
   assert.ok(Math.abs(await posZ() - hallZ) < 3, '광장 → 광장 자리로')
@@ -205,9 +206,9 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   await cmd('pokeserver money set A 0'); await cmd('tag A remove poke.badge1'); await cmd('scoreboard players set A poke.gym 1')
   await cmd('execute as A run function poke:gym/win'); await sleep(400)
   assert.equal(await bal('A'), 4000, '1번 관장 승리 상금 4,000원')
-  // 12. 배지가 있어야 사는 상품: 시험용 철 블록(1,200원, 배지 1개, mod-test.sh가 마지막 분류 끝에 붙임), 판매는 제한 없음
+  // 12. 배지가 있어야 사는 상품: 시험용 철 블록(1,200원, 배지 1개, mod-test.sh가 생활 상점 마지막 분류 끝에 붙임 → 번호가 128 아래라 한 바이트로 보냄), 판매는 제한 없음
   const shopTxt = opened[0].toString('utf8'), shopCats = JSON.parse(shopTxt.slice(shopTxt.indexOf('{'), shopTxt.lastIndexOf('}') + 1)).categories
-  const ic = shopCats.length - 1, ii = shopCats[ic].items.findIndex(x => x.item === 'minecraft:iron_block')
+  const ic = shopCats.findIndex(c => c.items.some(x => x.item === 'minecraft:iron_block')), ii = shopCats[ic].items.findIndex(x => x.item === 'minecraft:iron_block')
   await cmd('tag A remove poke.badge1'); await cmd('pokeserver money set A 5000')
   trade(false, ic, ii, 1); await sleep(600)
   assert.equal(await bal('A'), 5000, '배지 없으면 철 블록 못 삼')

@@ -35,7 +35,7 @@ hash = "a344cbc4e4e69b4c507e5e616dd95d9414263eb1958c79d4d9c12629c63ef8fe"
 
 [[files]]
 file = "config/pokeserver/shop.json"
-hash = "82e7e55bf6c9c5380bbb2c90344bc2f77f745665b2657f849f22e85137a8732a"
+hash = "cd7c61f336a7502b2d98bf8943f5935f68b0a44c7ac06e85fd2cb527a042d6c1"
 
 [[files]]
 file = "config/rctmod-server.toml"
@@ -111,8 +111,8 @@ hash = "50123c09c4693cf847ac3420fcef7cdb94ba57096b9dbb9f13deabedc8d9f62e"
 metafile = true
 
 [[files]]
-file = "mods/pokeserver-1.0.0.jar"
-hash = "c07f45cea670d1141aed0f777d2b9bb4df7524710bf77e96be50bcdb395e2dbc"
+file = "mods/pokeserver-1.1.0.jar"
+hash = "e2772bb6cef200c21d6d76dddc4fadd90f418b9220807e17f254f52a48d3f4b0"
 
 [[files]]
 file = "mods/rctapi.pw.toml"

@@ -114,7 +114,7 @@ public class ShopScreen extends Screen {
             card(g, shown.get(k), k, x, y, h);
         }
         g.disableScissor();
-        if (shown.isEmpty()) g.drawCenteredString(font, Theme.t(sell ? "판매할 수 있는 상품이 없습니다" : "상품이 없습니다"), (SIDE + width) / 2, height / 2, Theme.SUBTEXT);
+        if (shown.isEmpty()) g.drawCenteredString(font, Theme.t(sell ? "판매할 수 있는 상품이 없습니다" : "살 수 있는 상품이 없습니다 (판매 탭에서 팔 수 있어요)"), (SIDE + width) / 2, height / 2, Theme.SUBTEXT);
         g.drawCenteredString(font, Theme.t(Theme.fit(font, (sell ? "" : "배지 " + badges + "개 · 배지를 모으면 상품이 늘어나요  ·  ") + "클릭: 수량 고르기  ·  ESC: 닫기", width - SIDE - 16)),
                 (SIDE + width) / 2, height - 13, Theme.SUBTEXT);
         if (modal == null) tooltip(g, hovered, mx, my);

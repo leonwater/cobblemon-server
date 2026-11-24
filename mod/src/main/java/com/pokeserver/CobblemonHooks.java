@@ -399,6 +399,47 @@ public final class CobblemonHooks {
                 })));
     }
 
+    /** 특수 기믹 도구는 그 도구를 주는 체육관을 깨야 낄 수 있음 (Z링 2, 메가링 4, 다이맥스 밴드 6, 테라스탈 오브 8 — 관장 보상과 같은 배지).
+     *  액세서리 칸에 끼워 두면 1초 안에 가방으로 돌려줌. 손에 든 것은 배틀에서 gimmickLocked가 막음. Accessories 모드는 빌드 의존성이 아니라 리플렉션. */
+    record Gear(net.minecraft.tags.TagKey<net.minecraft.world.item.Item> tag, int badges, String name) {}
+    static final java.util.List<Gear> GEAR = java.util.List.of(
+            gear("z_ring", 2, "Z링"), gear("mega_bracelet", 4, "메가링"), gear("dynamax_band", 6, "다이맥스 밴드"), gear("tera_orb", 8, "테라스탈 오브"));
+    static Gear gear(String tag, int badges, String name) {
+        return new Gear(net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM,
+                net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("mega_showdown", tag)), badges, name);
+    }
+    private static java.lang.reflect.Method capOf, allEquipped, entryStack, entryRef, setStack;
+
+    static void gimmickGear(MinecraftServer server) {
+        if (!net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("accessories")) return;
+        try {
+            if (capOf == null) {
+                Class<?> cap = Class.forName("io.wispforest.accessories.api.AccessoriesCapability"), entry = Class.forName("io.wispforest.accessories.api.slot.SlotEntryReference");
+                capOf = cap.getMethod("getOptionally", net.minecraft.world.entity.LivingEntity.class);
+                allEquipped = cap.getMethod("getAllEquipped");
+                entryStack = entry.getMethod("stack");
+                entryRef = entry.getMethod("reference");
+                setStack = Class.forName("io.wispforest.accessories.api.slot.SlotReference").getMethod("setStack", net.minecraft.world.item.ItemStack.class);
+            }
+            for (var p : server.getPlayerList().getPlayers()) {
+                Object cap = ((java.util.Optional<?>) capOf.invoke(null, p)).orElse(null);
+                if (cap == null) continue;
+                int badges = Nicknames.badges(p);
+                for (Object e : (java.util.List<?>) allEquipped.invoke(cap)) {
+                    var stack = (net.minecraft.world.item.ItemStack) entryStack.invoke(e);
+                    Gear g = GEAR.stream().filter(x -> stack.is(x.tag())).findFirst().orElse(null);
+                    if (g == null || badges >= g.badges()) continue;
+                    var back = stack.copy();
+                    if (!(boolean) setStack.invoke(entryRef.invoke(e), net.minecraft.world.item.ItemStack.EMPTY)) continue;
+                    p.getInventory().placeItemBackInInventory(back);
+                    p.displayClientMessage(Component.literal(g.name() + "은(는) 배지 " + g.badges() + "개(" + g.badges() + "번째 체육관)를 모아야 낄 수 있어요.").withStyle(ChatFormatting.RED), true);
+                }
+            }
+        } catch (ReflectiveOperationException | RuntimeException ex) {
+            PokeServer.LOG.warn("기믹 도구 장착 검사 실패: {}", ex.toString());
+        }
+    }
+
     static boolean inGym(net.minecraft.server.level.ServerPlayer p) { return gymNo(p) > 0; }
 
     /** RCT 레벨 제한 (모드가 없거나 못 읽으면 0 = 제한 없음). RCT는 빌드 의존성이 아니라 리플렉션으로 읽음 (클라이언트 MenuScreen.minecraftCap과 같은 방식). */
