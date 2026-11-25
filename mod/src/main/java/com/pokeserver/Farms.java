@@ -76,6 +76,12 @@ public final class Farms {
         return null;
     }
 
+    /** 두 위치가 같은 땅 안인가 (둘 다 땅 밖이면 false: 길로 흘러나가는 것도 막음). */
+    public static boolean samePlot(BlockPos a, BlockPos b) {
+        Plot p = plotAt(a);
+        return p != null && p.contains(b);
+    }
+
     /** 이 위치를 편집해도 되는가: 야생은 누구나, 농장은 자기 땅만, 나머지는 불가. 관리자는 크리에이티브일 때만 예외. */
     public static boolean canEdit(Player player, Level level, BlockPos pos) {
         // 클라이언트는 땅 주인 목록이 없으므로 판단은 서버에 맡김 (서버가 막으면 블록이 되돌아감)

@@ -48,8 +48,14 @@ public final class Protection {
         if (!level.isClientSide()) p.displayClientMessage(Farms.denyReason(level, pos), true);
     }
 
+    /** 농장에서 남의 땅 동물·몹은 때리거나 만질(털 깎기·끈·먹이·안장·이름표) 수 없음. 사람·포켓몬은 예외 (포켓몬 대화창·교환 등은 그대로). */
+    static boolean farmAnimal(net.minecraft.world.level.Level level, net.minecraft.world.entity.Entity e) {
+        return Farms.isFarm(level) && e instanceof LivingEntity && !(e instanceof Player)
+                && !net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(e.getType()).getNamespace().equals("cobblemon");
+    }
+
     static InteractionResult entityRule(Player player, net.minecraft.world.level.Level level, net.minecraft.world.entity.Entity entity) {
-        if (entity instanceof LivingEntity && !(entity instanceof ArmorStand) || Farms.canEdit(player, level, entity.blockPosition())) return InteractionResult.PASS;
+        if (entity instanceof LivingEntity && !(entity instanceof ArmorStand) && !farmAnimal(level, entity) || Farms.canEdit(player, level, entity.blockPosition())) return InteractionResult.PASS;
         deny(player, level, entity.blockPosition());
         return InteractionResult.FAIL;
     }
@@ -57,7 +63,9 @@ public final class Protection {
     static void register() {
         // 9. 블록을 못 고치는 곳(광장·마을·연구소·남의 농장 땅)에선 플레이어끼리 때릴 수 없음 (화살 등 포함)
         net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents.ALLOW_DAMAGE.register((victim, source, amount) -> {
-            if (!(victim instanceof Player) || !(source.getEntity() instanceof Player attacker) || attacker == victim) return true;
+            if (!(source.getEntity() instanceof Player attacker) || attacker == victim) return true;
+            // 농장 남의 땅 동물: 화살·불·폭발 등 사람이 낸 피해는 모두 막음
+            if (!(victim instanceof Player)) return !farmAnimal(victim.level(), victim) || Farms.canEdit(attacker, victim.level(), victim.blockPosition());
             if (Farms.canEdit(attacker, victim.level(), victim.blockPosition())) return true;
             attacker.displayClientMessage(Component.literal("여기서는 다른 플레이어를 공격할 수 없어요.").withStyle(ChatFormatting.RED), true);
             return false;
