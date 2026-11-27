@@ -47,9 +47,9 @@
    "species": "torkoal",
    "level": 33,
    "moveset": [
+    "stealthrock",
     "lavaplume",
     "rapidspin",
-    "stealthrock",
     "willowisp"
    ],
    "heldItem": "cobblemon:heat_rock",

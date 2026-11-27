@@ -65,4 +65,17 @@ final class Gym {
         if (n < 1 || n > 9 || !"open".equals(status(p, n))) return;
         Menu.run(p, "function poke:gym/try/" + n);
     }
+
+    /** 4. 1초마다: 도전 점수(poke.gym)가 남았는데 배틀 중도 아니고 경기장·사천왕 본부에도 없으면 도전을 끝냄.
+     *  도전 중 접속이 끊기거나 서버가 꺼지면 승패 처리가 안 돌아 점수가 남고, 어디서든 "도전 중엔 이동할 수 없어요"로 막혔음. */
+    static void unstick(net.minecraft.server.MinecraftServer server) {
+        for (ServerPlayer p : server.getPlayerList().getPlayers()) {
+            if (score(p) <= 0 || p.getTags().contains("poke.battling")) continue;
+            String at = Nicknames.place(p);
+            if (at.equals("경기장") || at.equals("사천왕 본부") || at.equals("명예의 전당")) continue;
+            Menu.run(p, "function poke:gym/release");
+            p.displayClientMessage(net.minecraft.network.chat.Component.literal("끝나지 않은 체육관 도전을 정리했어요. 다시 도전할 수 있어요.")
+                    .withStyle(net.minecraft.ChatFormatting.YELLOW), false);
+        }
+    }
 }

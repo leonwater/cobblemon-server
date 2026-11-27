@@ -49,12 +49,12 @@
    "species": "kabuto",
    "level": 13,
    "moveset": [
-    "rapidspin",
     "stealthrock",
+    "rapidspin",
     "knockoff",
     "rockslide"
    ],
-   "heldItem": "cobblemon:eviolite",
+   "heldItem": "cobblemon:focus_sash",
    "ivs": {
     "hp": 31,
     "atk": 31,
@@ -102,9 +102,9 @@
    "species": "onix",
    "level": 15,
    "moveset": [
+    "stealthrock",
     "earthquake",
     "rockblast",
-    "stealthrock",
     "explosion"
    ],
    "heldItem": "cobblemon:rocky_helmet",

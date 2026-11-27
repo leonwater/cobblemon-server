@@ -80,7 +80,7 @@ public class PokeServer implements ModInitializer {
             // 데이터팩 league/pads가 봄: 배틀 중이면 포기 발판이 안 먹음
             if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) { CobblemonHooks.tagBattling(server); CobblemonHooks.ACTION_SPEED.set(1); /* 안전장치: 연출 중 예외로 못 되돌려도 다음 틱엔 1배 */ if (server.getTickCount() % 2 == 0) CobblemonHooks.holdBattlePokemon(server); }
             if (server.getTickCount() % 100 == 0) Farms.refreshLabels(server);
-            if (server.getTickCount() % 20 == 0) { Teleport.tick(server); Nicknames.tick(server); Plaza.modes(server); }
+            if (server.getTickCount() % 20 == 0) { Teleport.tick(server); Nicknames.tick(server); Plaza.modes(server); Gym.unstick(server); }
             if (server.getTickCount() % 200 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.reapply(server);
             if (server.getTickCount() % 20 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) { CobblemonHooks.starterLocks(server); CobblemonHooks.countWild(server); CobblemonHooks.gimmickGear(server); }
             if (server.getTickCount() % CobblemonHooks.LEGEND_TICKS == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.spawnLegend(server);

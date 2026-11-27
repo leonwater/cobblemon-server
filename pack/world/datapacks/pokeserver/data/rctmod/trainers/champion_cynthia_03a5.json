@@ -153,9 +153,9 @@
    "species": "garchomp",
    "level": 90,
    "moveset": [
+    "stealthrock",
     "earthquake",
     "dragontail",
-    "stealthrock",
     "spikes"
    ],
    "heldItem": "mega_showdown:garchompite",

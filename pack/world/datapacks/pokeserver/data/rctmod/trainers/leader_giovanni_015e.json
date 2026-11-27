@@ -22,11 +22,11 @@
    "level": 63,
    "moveset": [
     "bonemerang",
+    "doubleedge",
     "stoneedge",
-    "swordsdance",
     "knockoff"
    ],
-   "heldItem": "cobblemon:thick_club",
+   "heldItem": "cobblemon:choice_band",
    "ivs": {
     "hp": 31,
     "atk": 31,

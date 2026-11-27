@@ -14,6 +14,8 @@ SERIES = 'pokeserver'
 def mon(species, level, moves, item, dmax=False, tera=None, ability=None, gmax=False, nature=None, evs=None):
     """item: 지닌 도구 (메가스톤·Z크리스탈이면 그 기믹을 씀). dmax: 다이맥스(gmax면 거다이맥스 모습), tera: 테라스탈 타입. 한 포켓몬은 기믹 하나만.
     개체값은 모두 31, 기술·특성·성격·노력치는 Smogon 실전 세트 (줄 끝 주석 = pkmn/smogon data/sets의 형식/세트 이름)."""
+    if 'stealthrock' in moves:   # 스텔스록이 있으면 첫 기술로 (이 포켓몬이 선봉으로 나와 첫 턴에 씀)
+        moves = ['stealthrock'] + [mv for mv in moves if mv != 'stealthrock']
     m = {'species': species, 'level': level, 'moveset': moves, 'heldItem': item if ':' in item else 'cobblemon:' + item,
          'ivs': dict.fromkeys(('hp', 'atk', 'def', 'spa', 'spd', 'spe'), 31)}
     if evs:
@@ -38,7 +40,7 @@ MS = 'mega_showdown:'
 GYMS = [
     ('leader_brock_019e', '웅', '바위', '회색배지', (150, 150, 155), [
         mon('geodude', 13, ['stealthrock', 'rockblast', 'earthquake', 'suckerpunch'], 'berry_juice', ability='sturdy', nature='adamant', evs={'hp': 36, 'atk': 196, 'def': 116, 'spd': 36, 'spe': 116}),   # gen7lc/Stealth Rock
-        mon('kabuto', 13, ['rapidspin', 'stealthrock', 'knockoff', 'rockslide'], 'eviolite', ability='weakarmor', nature='careful', evs={'hp': 116, 'atk': 36, 'def': 36, 'spd': 156, 'spe': 156}),   # gen8lc/Support (2.2.0: 관장 4마리)
+        mon('kabuto', 13, ['rapidspin', 'stealthrock', 'knockoff', 'rockslide'], 'focus_sash', ability='weakarmor', nature='careful', evs={'hp': 116, 'atk': 36, 'def': 36, 'spd': 156, 'spe': 156}),   # gen8lc/Support, 도구는 진화의휘석 대신 기합의띠 (진화의휘석은 안 씀) (2.2.0: 관장 4마리)
         mon('rhyhorn', 13, ['swordsdance', 'rockpolish', 'earthquake', 'stoneedge'], 'life_orb', nature='adamant', evs={'atk': 236, 'spd': 116, 'spe': 156}),   # gen9lc/Setup Sweeper
         mon('onix', 15, ['earthquake', 'rockblast', 'stealthrock', 'explosion'], 'rocky_helmet', ability='sturdy', nature='jolly', evs={'hp': 76, 'atk': 236, 'spe': 196})]),   # gen8lc/SturdyJuice
     ('leader_lt_surge_01a0', '마티스', '전기', '오렌지배지', (240, 150, 40), [
@@ -66,7 +68,7 @@ GYMS = [
         mon('espeon', 54, ['calmmind', 'psychic', 'shadowball', 'morningsun'], MS + 'psychium_z', ability='magicbounce', nature='timid', evs={'def': 4, 'spa': 252, 'spe': 252}),   # gen7ru/Calm Mind
         mon('alakazam', 55, ['nastyplot', 'psychic', 'focusblast', 'shadowball'], MS + 'alakazite', ability='magicguard', nature='timid', evs={'def': 4, 'spa': 252, 'spe': 252})]),   # gen9nationaldexuu/Nasty Plot
     ('leader_giovanni_015e', '비주기', '땅', '그린배지', (70, 170, 80), [
-        mon('marowak', 63, ['bonemerang', 'stoneedge', 'swordsdance', 'knockoff'], 'thick_club', ability='rockhead', nature='adamant', evs={'atk': 252, 'def': 4, 'spe': 252}),   # gen6nu/Bone Crusher (Wallbreaker) (2.2.0: 관장 6마리)
+        mon('marowak', 63, ['bonemerang', 'doubleedge', 'stoneedge', 'knockoff'], 'choice_band', ability='rockhead', nature='adamant', evs={'atk': 252, 'def': 4, 'spe': 252}),   # gen6nu/Bone Crusher (Wallbreaker), 굵은뼈가 코블몬에 없어 구애머리띠 + 공격 기술 4개 (2.2.0: 관장 6마리)
         mon('dugtrio', 63, ['earthquake', 'screech', 'substitute', 'memento'], 'focus_sash', ability='arenatrap', nature='adamant', evs={'atk': 252, 'def': 4, 'spe': 252}),   # gen7ubers/Utility Trapper
         mon('nidoqueen', 63, ['stealthrock', 'earthpower', 'sludgewave', 'fireblast'], 'leftovers', ability='sheerforce', nature='modest', evs={'hp': 120, 'spa': 252, 'spe': 136}),   # gen8uu/Offensive Stealth Rock
         mon('steelix', 64, ['stealthrock', 'earthquake', 'heavyslam', 'toxic'], MS + 'steelixite', ability='sturdy', nature='careful', evs={'hp': 252, 'def': 4, 'spd': 252}),   # gen8ru/Defensive
@@ -160,26 +162,24 @@ CAP = 5   # RCT relativeLevelCap: 레벨 제한 = 다음 상대 에이스 + 5
 
 
 def COOLDOWN(n):
-    """12. 관장·사천왕에게 지면 5분(6000틱) 뒤에 다시 도전 (gym/lose가 poke.gymcd에 다시 도전 가능 시각을 적음)."""
+    """12. 관장·사천왕에게 지면 1분(1200틱) 뒤에 다시 도전 (gym/lose가 poke.gymcd에 다시 도전 가능 시각을 적음)."""
     return ['execute store result score #now poke.gymcd run time query gametime',
             f'execute if score @s poke.gymcd > #now poke.gymcd run return run function poke:gym/deny/{n} '
-            '{msg:"관장에게 진 뒤 5분 동안은 다시 도전할 수 없어요."}']
+            '{msg:"관장에게 진 뒤 1분 동안은 다시 도전할 수 없어요."}']
 
 
 def validate():
     """팀 검사: 기술을 그 포켓몬이 배울 수 있는지 (Cobblemon 종 데이터, COBBLEMON_SPECIES 폴더가 있을 때만)."""
     import os
-    root = os.environ.get('COBBLEMON_SPECIES')
-    if not root:
-        return
+    root = os.environ.get('COBBLEMON_SPECIES')   # 없으면 기술 검사만 건너뛰고 도구·레벨·기믹 검사는 언제나
     learn, bst = {}, {}
-    for f in Path(root).rglob('*.json'):
+    for f in (Path(root).rglob('*.json') if root else []):
         d = json.loads(f.read_text(encoding='utf-8'))
         learn[f.stem] = {m.split(':', 1)[1] for m in d.get('moves', [])}
         bst[f.stem] = sum(d.get('baseStats', {}).values())
     bad = []
     for team in [g[5] for g in GYMS] + [e[3] for e in ELITE]:
-        for m in team:
+        for m in (team if root else []):
             if m['species'] not in learn:
                 bad.append(f"{m['species']}: 종 없음")
                 continue
@@ -506,10 +506,10 @@ def functions():
     fn('gym/place.mcfunction', ['# 모드가 호출: 체육관·사천왕 배틀이 시작될 때', *place])
     fn('gym/lose.mcfunction', ['# 모드가 호출: 체육관 안에서 NPC 배틀을 지거나 도망쳤을 때',
                                'execute unless score @s poke.gym matches 1.. run return 0',
-                               'execute if score @s poke.gym matches 9 run tellraw @s {"text":"사천왕 도전 실패... 5분 뒤에 처음(첫 번째 사천왕)부터 다시 도전해요.","color":"red"}',
-                               'execute if score @s poke.gym matches 1..8 run tellraw @s {"text":"관장에게 졌어요. 포켓몬을 회복하고 5분 뒤에 다시 도전하세요!","color":"red"}',
+                               'execute if score @s poke.gym matches 9 run tellraw @s {"text":"사천왕 도전 실패... 1분 뒤에 처음(첫 번째 사천왕)부터 다시 도전해요.","color":"red"}',
+                               'execute if score @s poke.gym matches 1..8 run tellraw @s {"text":"관장에게 졌어요. 포켓몬을 회복하고 1분 뒤에 다시 도전하세요!","color":"red"}',
                                'execute store result score @s poke.gymcd run time query gametime',
-                               'scoreboard players add @s poke.gymcd 6000',
+                               'scoreboard players add @s poke.gymcd 1200',
                                'function poke:gym/leave'])
     fn('mod/spawn_leaders.mcfunction', [
         '# 관장·사천왕 소환 (RCT 소환 명령은 플레이어가 실행해야 해서, 접속한 플레이어로 실행됨)',

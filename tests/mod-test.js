@@ -346,6 +346,12 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   assert.ok((await cmd(`execute in poke:wild if block ${px + 5} ${py + 1} ${pzz + 21} minecraft:air`)).includes('passed'), '광장 불은 꺼짐')
   assert.ok((await cmd(`execute in poke:wild if block ${px + 200} 151 ${pzz} minecraft:fire`)).includes('passed'), '야생 불은 그대로')
   console.log('> 광장 불 자동으로 꺼짐')
+  // 4. 경기장·사천왕 본부 밖인데 도전 점수가 남아 있으면 1초 안에 정리 (안 하면 G 메뉴 이동이 계속 막힘)
+  await cmd('execute in poke:town run tp A 3015.5 -59 -13.5'); await cmd('scoreboard players set A poke.gym 1'); await ff(40)
+  assert.match(await cmd('scoreboard players get A poke.gym'), /has 1 /, '경기장 안에선 도전 점수 유지')
+  await cmd('execute in poke:farm run tp A 0 -59 0'); await ff(40)
+  assert.doesNotMatch(await cmd('scoreboard players get A poke.gym'), /has /, '경기장 밖(농장)이면 남은 도전 점수 정리')
+  console.log('> 남은 체육관 도전 자동 정리')
 
   console.log('ALL PASS'); A.quit(); B.quit(); await rc.end(); process.exit(0)
 })().catch(e => { console.error('FAIL', e.message); process.exit(1) })
