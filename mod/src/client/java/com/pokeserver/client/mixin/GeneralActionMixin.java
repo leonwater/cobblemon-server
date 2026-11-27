@@ -23,7 +23,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
  *  그 위에 작은 "전투 속도 1x·2x·4x" 버튼 (누를 때마다 바뀜, 서버가 배틀 기다림을 줄임). */
 @Mixin(value = BattleGeneralActionSelection.class, remap = false)
 abstract class GeneralActionMixin {
-    @Unique private static final int SW = 40, SH = 16, HALF = 17;   // 참고 사진: 작은 판, 왼쪽 "전투/속도" 두 줄 + 오른쪽 값   // 속도 버튼 크기 (배틀 좌표)
+    @Unique private static final int SW = 70, SH = 14, HALF = 50;   // 왼쪽 "전투 속도" 한 줄 + 오른쪽 값
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void pokeserver$layout(BattleGUI gui, SingleActionRequest request, CallbackInfo ci) {
@@ -64,20 +64,15 @@ abstract class GeneralActionMixin {
         g.renderOutline(x, y, SW, SH, hov ? Theme.ACCENT : 0xFF3A4152);
         g.fill(x + half, y + 1, x + half + 1, y + SH - 1, 0xFF3A4152);
         var font = Minecraft.getInstance().font;
-        float ks = 1 / BattleScale.pixels(), kv = BattleScale.crisp(0.6f);   // 이름: 한 점 = 1픽셀(작게), 값: 정수 픽셀
-        for (int i = 0; i < 2; i++) {
-            var line = Theme.t(i == 0 ? "전투" : "속도");
-            g.pose().pushPose();
-            g.pose().translate(x + (half - font.width(line) * ks) / 2f, y + (SH - 26 * ks) / 2f + i * 13 * ks, 0);
-            g.pose().scale(ks, ks, 1);
-            g.drawString(font, line, 0, 0, Theme.SUBTEXT, false);
-            g.pose().popPose();
-        }
+        float k = BattleScale.crisp(0.6f);   // 작은 글자, 한 점 = 정수 픽셀
+        var label = Theme.t("전투 속도");
         var val = Theme.t(BattleScale.speed + "x");
         g.pose().pushPose();
-        g.pose().translate(x + half + (SW - half - font.width(val) * kv) / 2f, y + (SH - 8 * kv) / 2f, 0);
-        g.pose().scale(kv, kv, 1);
-        g.drawString(font, val, 0, 0, BattleScale.speed > 1 ? Theme.GOLD : Theme.TEXT, false);
+        g.pose().translate(x, y + (SH - 8) / 2f + 2.5f, 0);   // Galmuri 글자는 그리는 자리보다 약 2.5 위로 올라감
+        g.pose().scale(k, k, 1);
+        g.drawString(font, label, Math.round((half / k - font.width(label)) / 2), 0, Theme.SUBTEXT, false);
+        g.drawString(font, val, Math.round(half / k + ((SW - half) / k - font.width(val)) / 2), 0,
+                BattleScale.speed > 1 ? Theme.GOLD : Theme.TEXT, false);
         g.pose().popPose();
     }
 

@@ -22,7 +22,7 @@ abstract class BattleChatMixin {
         pokeserver$lifted = mc.screen instanceof com.cobblemon.mod.common.client.gui.battle.BattleGUI;
         if (!pokeserver$lifted) return;
         // 행동 선택 윗변(배틀 좌표로 아래에서 85×배율 + lift) → GUI px, 채팅 아랫변(아래에서 40) 위로 4px 여유
-        float up = (85 + 15 + BattleScale.lift()) * BattleScale.f() - 40 + 4;   // +15: 전투 속도 버튼
+        float up = (85 + 17 + BattleScale.lift()) * BattleScale.f() - 40 + 4;   // +15: 전투 속도 버튼
         g.pose().pushPose();
         g.pose().translate(0, -Math.max(0, up), 0);
     }
