@@ -8,7 +8,7 @@ execute if score @s poke.gymcd > #now poke.gymcd run return run function poke:gy
 execute if entity @a[scores={poke.gym=9}] run return run function poke:gym/deny/9 {msg:"다른 도전자가 사천왕에 도전 중이에요. 잠시 후 다시 와 주세요."}
 scoreboard players set @s poke.gym 9
 scoreboard players set @s poke.e4 0
-execute in poke:town run tp @s 3516.5 -59 -39.5 -90 0
+execute in poke:town run tp @s 3516.5 -59 -34.5 -90 0
 title @s title {"text":"사천왕","color":"gold"}
 title @s subtitle {"text":"첫 번째: 성호 (호연 챔피언)","color":"white"}
 tellraw @s {"text":"사천왕 4명을 한 번에 모두 이겨야 클리어예요. 한 번이라도 지면 처음부터!","color":"gray"}

@@ -95,7 +95,7 @@ def buildings():
     out.append(('체육관 선택 건물', W.LOBBY, W.LOBBY_Y, W.LOBBY_Y + 10, [(xm - 3, xm + 3, W.LOBBY_Y + 1, W.LOBBY_Y + 5, z1, z1)]))
     for n in range(1, 9):
         out.append((f'{n}번 경기장', W.gym_geom(n)['box'], G, G + 12, []))
-    out.append(('사천왕 본부', W.E4, G, G + 9, []))
+    out.append(('사천왕 본부', W.E4, G, G + W.E4_TOP, []))
     return out
 
 

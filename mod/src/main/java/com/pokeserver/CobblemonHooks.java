@@ -495,21 +495,25 @@ public final class CobblemonHooks {
     static final java.util.Map<UUID, net.minecraft.world.phys.Vec3[]> GYM_SPOT = new java.util.HashMap<>();
     static final double OWN_F = 4, OWN_L = 2, FOE_F = 11, FOE_R = 1.5;
 
+    /** 사선 자리: 몸 크기 s(폭·키 중 큰 값)만큼 더 멀리 (큰 포켓몬이 도전자 화면을 막지 않게). 내 포켓몬 앞 +s·옆 +s/2(최대 6), 상대 앞 +s/2·옆 +s/4. */
+    static net.minecraft.world.phys.Vec3 battleSpot(net.minecraft.world.phys.Vec3[] g, boolean mine, double s) {
+        double fx = g[1].x, fz = g[1].z;
+        double fwd = mine ? OWN_F + s : FOE_F + s / 2, side = mine ? Math.min(6, OWN_L + s / 2) : -(FOE_R + s / 4);   // 왼쪽 = (fz, -fx)
+        return new net.minecraft.world.phys.Vec3(g[0].x + fx * fwd + fz * side, g[0].y, g[0].z + fz * fwd - fx * side);
+    }
+
     static void holdBattlePokemon(MinecraftServer server) {
         java.util.Set<UUID> seen = new java.util.HashSet<>();
         for (var p : server.getPlayerList().getPlayers()) {
             var battle = com.cobblemon.mod.common.battles.BattleRegistry.INSTANCE.getBattleByParticipatingPlayer(p);
             if (battle == null) continue;
             seen.add(p.getUUID());
-            net.minecraft.world.phys.Vec3[] gym = null;   // {내 자리, 상대 자리}
+            net.minecraft.world.phys.Vec3[] gym = null;   // {도전자 처음 자리, 앞 방향(x,0,z)}
             if (inGym(p) && battle.isPvN()) {
                 gym = GYM_SPOT.computeIfAbsent(p.getUUID(), k -> {
                     var f = p.getForward();
-                    double fx = f.x, fz = f.z, n = Math.hypot(fx, fz);
-                    fx /= n; fz /= n;   // 왼쪽 = (fz, -fx)
-                    return new net.minecraft.world.phys.Vec3[]{
-                            new net.minecraft.world.phys.Vec3(p.getX() + fx * OWN_F + fz * OWN_L, p.getY(), p.getZ() + fz * OWN_F - fx * OWN_L),
-                            new net.minecraft.world.phys.Vec3(p.getX() + fx * FOE_F - fz * FOE_R, p.getY(), p.getZ() + fz * FOE_F + fx * FOE_R)};
+                    double n = Math.hypot(f.x, f.z);
+                    return new net.minecraft.world.phys.Vec3[]{p.position(), new net.minecraft.world.phys.Vec3(f.x / n, 0, f.z / n)};
                 });
             }
             for (var a : battle.getActors()) {
@@ -524,12 +528,12 @@ public final class CobblemonHooks {
                     if (en == null) en = bp.getOriginalPokemon().getEntity();
                     if (en == null) continue;
                     seen.add(en.getUUID());
-                    var spot = gym != null ? gym[mine ? 0 : 1] : HOLD.get(en.getUUID());
+                    var spot = gym != null ? battleSpot(gym, mine, Math.max(en.getBbWidth(), en.getBbHeight())) : HOLD.get(en.getUUID());
                     if (spot == null) { var pos = en.position(); HOLD.put(en.getUUID(), pos); spot = pos; }
                     en.getNavigation().stop();
                     if (en.distanceToSqr(spot) > (gym != null ? 4 : 2.25)) en.teleportTo(spot.x, spot.y, spot.z);
                     if (gym != null) {   // 서로 마주 보게
-                        var o = gym[mine ? 1 : 0];
+                        var o = battleSpot(gym, !mine, 0);
                         float yaw = (float) (Math.toDegrees(Math.atan2(o.z - spot.z, o.x - spot.x)) - 90);
                         en.setYRot(yaw); en.setYHeadRot(yaw); en.setYBodyRot(yaw);
                         // 막 나오는 순간(내보내기 연출 중)의 순간이동은 클라이언트가 놓치기도 함 → 1초마다 위치를 다시 보냄

@@ -11,7 +11,8 @@ schedule clear poke:build/terrain/run_5
 schedule clear poke:build/terrain/run_6
 execute in poke:hub run forceload add -16 -16 16 16
 execute in poke:town run forceload add 1904 -106 2096 88
-execute in poke:town run forceload add 2990 -50 3550 22
+execute in poke:town run forceload add 2990 -28 3390 22
+execute in poke:town run forceload add 3490 -50 3560 69
 execute in poke:town run forceload add -106 -162 106 74
 execute in poke:town run forceload add 904 -98 1096 98
 # 청크가 다 불러와질 때까지 3초 기다렸다가 짓기

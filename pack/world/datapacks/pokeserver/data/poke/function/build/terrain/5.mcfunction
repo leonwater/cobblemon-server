@@ -1952,50 +1952,50 @@ setblock 3376 -50 2 minecraft:light[level=15]
 setblock 3376 -50 8 minecraft:light[level=15]
 setblock 3376 -50 14 minecraft:light[level=15]
 # ── 사천왕 본부 ──
-fill 3500 -61 -46 3540 -61 12 minecraft:bedrock
-fill 3500 -60 -46 3540 -60 12 minecraft:polished_andesite
-fill 3500 -59 -46 3540 -51 -46 minecraft:quartz_bricks
-fill 3500 -59 12 3540 -51 12 minecraft:quartz_bricks
-fill 3500 -59 -46 3500 -51 12 minecraft:quartz_bricks
-fill 3540 -59 -46 3540 -51 12 minecraft:quartz_bricks
-fill 3500 -59 -46 3500 -51 -46 minecraft:quartz_pillar
-fill 3540 -59 -46 3540 -51 -46 minecraft:quartz_pillar
-fill 3500 -59 -41 3500 -51 -41 minecraft:quartz_pillar
-fill 3540 -59 -41 3540 -51 -41 minecraft:quartz_pillar
-fill 3500 -59 -36 3500 -51 -36 minecraft:quartz_pillar
-fill 3540 -59 -36 3540 -51 -36 minecraft:quartz_pillar
-fill 3500 -59 -31 3500 -51 -31 minecraft:quartz_pillar
-fill 3540 -59 -31 3540 -51 -31 minecraft:quartz_pillar
-fill 3500 -59 -26 3500 -51 -26 minecraft:quartz_pillar
-fill 3540 -59 -26 3540 -51 -26 minecraft:quartz_pillar
-fill 3500 -59 -21 3500 -51 -21 minecraft:quartz_pillar
-fill 3540 -59 -21 3540 -51 -21 minecraft:quartz_pillar
-fill 3500 -59 -16 3500 -51 -16 minecraft:quartz_pillar
-fill 3540 -59 -16 3540 -51 -16 minecraft:quartz_pillar
-fill 3500 -59 -11 3500 -51 -11 minecraft:quartz_pillar
-fill 3540 -59 -11 3540 -51 -11 minecraft:quartz_pillar
-fill 3500 -59 -6 3500 -51 -6 minecraft:quartz_pillar
-fill 3540 -59 -6 3540 -51 -6 minecraft:quartz_pillar
-fill 3500 -59 -1 3500 -51 -1 minecraft:quartz_pillar
-fill 3540 -59 -1 3540 -51 -1 minecraft:quartz_pillar
-fill 3500 -59 4 3500 -51 4 minecraft:quartz_pillar
-fill 3540 -59 4 3540 -51 4 minecraft:quartz_pillar
-fill 3500 -59 9 3500 -51 9 minecraft:quartz_pillar
-fill 3540 -59 9 3540 -51 9 minecraft:quartz_pillar
-fill 3501 -60 -45 3539 -60 -35 minecraft:light_blue_concrete
-fill 3501 -51 -45 3539 -51 -35 minecraft:quartz_block
-fill 3501 -59 -34 3539 -51 -34 minecraft:quartz_bricks
-setblock 3503 -51 -43 minecraft:sea_lantern
-setblock 3503 -51 -37 minecraft:sea_lantern
-setblock 3506 -51 -43 minecraft:sea_lantern
-setblock 3506 -51 -37 minecraft:sea_lantern
-setblock 3509 -51 -43 minecraft:sea_lantern
-setblock 3509 -51 -37 minecraft:sea_lantern
-setblock 3512 -51 -43 minecraft:sea_lantern
-setblock 3512 -51 -37 minecraft:sea_lantern
-setblock 3515 -51 -43 minecraft:sea_lantern
-setblock 3515 -51 -37 minecraft:sea_lantern
-setblock 3518 -51 -43 minecraft:sea_lantern
-setblock 3518 -51 -37 minecraft:sea_lantern
-setblock 3521 -51 -43 minecraft:sea_lantern
-setblock 3521 -51 -37 minecraft:sea_lantern
+fill 3500 -61 -46 3550 -61 65 minecraft:bedrock
+fill 3500 -60 -46 3550 -60 65 minecraft:polished_andesite
+fill 3500 -59 -46 3550 -44 -46 minecraft:quartz_bricks
+fill 3500 -59 65 3550 -44 65 minecraft:quartz_bricks
+fill 3500 -59 -46 3500 -44 65 minecraft:quartz_bricks
+fill 3550 -59 -46 3550 -44 65 minecraft:quartz_bricks
+fill 3500 -59 -46 3500 -44 -46 minecraft:quartz_pillar
+fill 3550 -59 -46 3550 -44 -46 minecraft:quartz_pillar
+fill 3500 -59 -41 3500 -44 -41 minecraft:quartz_pillar
+fill 3550 -59 -41 3550 -44 -41 minecraft:quartz_pillar
+fill 3500 -59 -36 3500 -44 -36 minecraft:quartz_pillar
+fill 3550 -59 -36 3550 -44 -36 minecraft:quartz_pillar
+fill 3500 -59 -31 3500 -44 -31 minecraft:quartz_pillar
+fill 3550 -59 -31 3550 -44 -31 minecraft:quartz_pillar
+fill 3500 -59 -26 3500 -44 -26 minecraft:quartz_pillar
+fill 3550 -59 -26 3550 -44 -26 minecraft:quartz_pillar
+fill 3500 -59 -21 3500 -44 -21 minecraft:quartz_pillar
+fill 3550 -59 -21 3550 -44 -21 minecraft:quartz_pillar
+fill 3500 -59 -16 3500 -44 -16 minecraft:quartz_pillar
+fill 3550 -59 -16 3550 -44 -16 minecraft:quartz_pillar
+fill 3500 -59 -11 3500 -44 -11 minecraft:quartz_pillar
+fill 3550 -59 -11 3550 -44 -11 minecraft:quartz_pillar
+fill 3500 -59 -6 3500 -44 -6 minecraft:quartz_pillar
+fill 3550 -59 -6 3550 -44 -6 minecraft:quartz_pillar
+fill 3500 -59 -1 3500 -44 -1 minecraft:quartz_pillar
+fill 3550 -59 -1 3550 -44 -1 minecraft:quartz_pillar
+fill 3500 -59 4 3500 -44 4 minecraft:quartz_pillar
+fill 3550 -59 4 3550 -44 4 minecraft:quartz_pillar
+fill 3500 -59 9 3500 -44 9 minecraft:quartz_pillar
+fill 3550 -59 9 3550 -44 9 minecraft:quartz_pillar
+fill 3500 -59 14 3500 -44 14 minecraft:quartz_pillar
+fill 3550 -59 14 3550 -44 14 minecraft:quartz_pillar
+fill 3500 -59 19 3500 -44 19 minecraft:quartz_pillar
+fill 3550 -59 19 3550 -44 19 minecraft:quartz_pillar
+fill 3500 -59 24 3500 -44 24 minecraft:quartz_pillar
+fill 3550 -59 24 3550 -44 24 minecraft:quartz_pillar
+fill 3500 -59 29 3500 -44 29 minecraft:quartz_pillar
+fill 3550 -59 29 3550 -44 29 minecraft:quartz_pillar
+fill 3500 -59 34 3500 -44 34 minecraft:quartz_pillar
+fill 3550 -59 34 3550 -44 34 minecraft:quartz_pillar
+fill 3500 -59 39 3500 -44 39 minecraft:quartz_pillar
+fill 3550 -59 39 3550 -44 39 minecraft:quartz_pillar
+fill 3500 -59 44 3500 -44 44 minecraft:quartz_pillar
+fill 3550 -59 44 3550 -44 44 minecraft:quartz_pillar
+fill 3500 -59 49 3500 -44 49 minecraft:quartz_pillar
+fill 3550 -59 49 3550 -44 49 minecraft:quartz_pillar
+fill 3500 -59 54 3500 -44 54 minecraft:quartz_pillar

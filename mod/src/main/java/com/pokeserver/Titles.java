@@ -13,8 +13,8 @@ import net.minecraft.server.level.ServerPlayer;
 public final class Titles {
     private Titles() {}
 
-    /** need: 조건 값이 이 이상이면 얻음. announce: 얻으면 서버 전체 공지. */
-    record Title(String id, String name, String color, String how, ToLongFunction<ServerPlayer> value, long need, boolean announce) {
+    /** need: 조건 값이 이 이상이면 얻음 (정확한 수치는 개발 문서에만, 화면엔 hint만). announce: 얻으면 서버 전체 공지. */
+    record Title(String id, String name, String color, String hint, ToLongFunction<ServerPlayer> value, long need, boolean announce) {
         boolean has(ServerPlayer p) { return value.applyAsLong(p) >= need; }
         String shown() { return color + "[" + name + "]"; }
     }
@@ -35,24 +35,24 @@ public final class Titles {
 
     /** 우선순위 순 (앞이 높음). */
     static final List<Title> ALL = List.of(
-            new Title("op", "운영자", "§c", "서버 관리자", Titles::op, 1, false),
-            new Title("champion", "챔피언", "§6", "사천왕 클리어", Titles::champ, 1, true),
-            new Title("dex_all", "도감 완성", "§e", "잡은 포켓몬 1025종", Titles::dex, 1025, true),
-            new Title("tycoon", "재벌", "§6", "지금까지 번 돈 1억원", p -> stat(p, "earned"), 100_000_000, false),
-            new Title("duel2", "결투왕", "§c", "플레이어 배틀 50승", p -> stat(p, "pvp"), 50, false),
-            new Title("legend", "전설의 사냥꾼", "§5", "전설·환상 포켓몬 포획", p -> stat(p, "legend"), 1, true),
-            new Title("badge8", "배지 마스터", "§d", "배지 8개", Titles::badges, 8, false),
-            new Title("dex500", "도감 박사", "§b", "잡은 포켓몬 500종", Titles::dex, 500, false),
-            new Title("rich", "부자", "§e", "지금까지 번 돈 1,000만원", p -> stat(p, "earned"), 10_000_000, false),
-            new Title("bigspender", "큰손", "§e", "상점에서 쓴 돈 1,000만원", p -> stat(p, "spent"), 10_000_000, false),
-            new Title("duel1", "결투가", "§c", "플레이어 배틀 10승", p -> stat(p, "pvp"), 10, false),
-            new Title("badge4", "베테랑 트레이너", "§b", "배지 4개", Titles::badges, 4, false),
-            new Title("dex200", "도감 연구원", "§3", "잡은 포켓몬 200종", Titles::dex, 200, false),
-            new Title("landlord", "대지주", "§2", "농장 땅 3칸", Titles::plots, 3, false),
-            new Title("merchant", "알뜰 상인", "§a", "지금까지 번 돈 100만원", p -> stat(p, "earned"), 1_000_000, false),
-            new Title("regular", "단골 손님", "§a", "상점에서 쓴 돈 100만원", p -> stat(p, "spent"), 1_000_000, false),
-            new Title("dex50", "포켓몬 수집가", "§a", "잡은 포켓몬 50종", Titles::dex, 50, false),
-            new Title("badge1", "견습 트레이너", "§a", "배지 1개", Titles::badges, 1, false));
+            new Title("op", "운영자", "§c", "서버를 지키는 사람", Titles::op, 1, false),
+            new Title("champion", "챔피언", "§6", "리그의 가장 높은 곳에 선 트레이너", Titles::champ, 1, true),
+            new Title("dex_all", "도감 완성", "§e", "세상의 모든 포켓몬을 잡은 트레이너", Titles::dex, 1025, true),
+            new Title("tycoon", "재벌", "§6", "누구도 따라올 수 없는 재산을 모으면", p -> stat(p, "earned"), 100_000_000, false),
+            new Title("duel2", "결투왕", "§c", "다른 트레이너와의 승부에서 셀 수 없이 이기면", p -> stat(p, "pvp"), 50, false),
+            new Title("legend", "전설의 사냥꾼", "§5", "전설로만 전해지는 포켓몬을 손에 넣으면", p -> stat(p, "legend"), 1, true),
+            new Title("badge8", "배지 마스터", "§d", "모든 체육관을 돌파하면", Titles::badges, 8, false),
+            new Title("dex500", "도감 박사", "§b", "도감을 꽤 많이 채우면", Titles::dex, 500, false),
+            new Title("rich", "부자", "§e", "큰돈을 모으면", p -> stat(p, "earned"), 10_000_000, false),
+            new Title("bigspender", "큰손", "§e", "상점에서 아낌없이 쓰면", p -> stat(p, "spent"), 10_000_000, false),
+            new Title("duel1", "결투가", "§c", "다른 트레이너와의 승부에서 이기다 보면", p -> stat(p, "pvp"), 10, false),
+            new Title("badge4", "베테랑 트레이너", "§b", "체육관을 절반쯤 돌파하면", Titles::badges, 4, false),
+            new Title("dex200", "도감 연구원", "§3", "도감 연구가 손에 익으면", Titles::dex, 200, false),
+            new Title("landlord", "대지주", "§2", "농장 땅을 여러 칸 가지면", Titles::plots, 3, false),
+            new Title("merchant", "알뜰 상인", "§a", "물건을 팔아 쏠쏠하게 벌면", p -> stat(p, "earned"), 1_000_000, false),
+            new Title("regular", "단골 손님", "§a", "상점을 자주 이용하면", p -> stat(p, "spent"), 1_000_000, false),
+            new Title("dex50", "포켓몬 수집가", "§a", "포켓몬을 조금씩 모으다 보면", Titles::dex, 50, false),
+            new Title("badge1", "견습 트레이너", "§a", "첫 체육관을 이기면", Titles::badges, 1, false));
 
     static void add(ServerPlayer p, String key, long n) {
         var t = ServerData.get(p.server).stats(p.getUUID());
@@ -101,12 +101,12 @@ public final class Titles {
         if (changed || first) ServerData.get(p.server).stats(p.getUUID()).putString("got", String.join(",", got));
     }
 
-    /** 칭호 고르기 창 내용: 한 줄에 id \t 보이는 이름 \t 조건 \t 얻음(1/0) \t 사용 중(1/0). 맨 위 "none" = 숨기기. */
+    /** 칭호 고르기 창 내용: 한 줄에 id \t 보이는 이름 \t 힌트(정확한 수치 없음) \t 얻음(1/0) \t 사용 중(1/0). 맨 위 "none" = 숨기기. */
     static String list(ServerPlayer p) {
         String now = shown(p);
         List<String> rows = new ArrayList<>();
         rows.add("none\t§7[표시 안 함]\t칭호를 숨겨요\t1\t" + (now.isEmpty() ? 1 : 0));
-        for (Title t : ALL) rows.add(t.id() + "\t" + t.shown() + "\t" + t.how() + "\t" + (t.has(p) ? 1 : 0) + "\t" + (t.shown().equals(now) ? 1 : 0));
+        for (Title t : ALL) rows.add(t.id() + "\t" + t.shown() + "\t" + t.hint() + "\t" + (t.has(p) ? 1 : 0) + "\t" + (t.shown().equals(now) ? 1 : 0));
         return String.join("\n", rows);
     }
 

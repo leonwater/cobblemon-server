@@ -29,7 +29,8 @@ GYM_PLAY = (1944, 2056, -66, 48)     # 체육관 섬
 LOBBY = (1985, 2015, -14, 18)        # 체육관 선택 건물 (문은 북쪽, 넓은 계단 위)
 LOBBY_Y = G + 3                      # 체육관 선택 건물 바닥 높이 (계단 3칸 위)
 ARENA_X, ARENA_STEP = 3000, 50       # n번 경기장: x ARENA_X+50(n-1) ~ +30, z -18~18 (닫힌 방)
-E4 = (3500, 3540, -46, 12)           # 사천왕 본부 (닫힌 방 4개 + 명예의 전당)
+E4 = (3500, 3550, -46, 65)           # 사천왕 본부 (닫힌 방 4개 + 명예의 전당). 방 폭 21·높이 16·도전자↔사천왕 27칸: 고래왕국 같은 큰 포켓몬도 벽·천장에 안 걸리게
+E4_TOP = 16                          # 바닥 G 위로 천장 높이
 # 워프 도착 (x, y, z, yaw): 0 남, 180 북
 WARPS = {'gym': (2000.5, LOBBY_Y + 1, -11.5, 0)}   # 광장(hall)은 모드가 정함 (Plaza.java)
 NPCS = [  # (NPC 종류, 차원, x, y, z, 태그, yaw). 광장 NPC는 tools/plaza.py
@@ -66,7 +67,7 @@ def gym_geom(n):
 def e4_geom():
     """사천왕 본부: 방 k(1~4) = z 구간, 도전자는 서쪽, 사천왕은 동쪽. 5번째는 명예의 전당."""
     x1, x2, z1, z2 = E4
-    rooms = [(z1 + 1 + 11 * k, z1 + 11 + 11 * k) for k in range(5)]
+    rooms = [(z1 + 1 + 22 * k, z1 + 21 + 22 * k) for k in range(5)]
     return dict(box=E4, rooms=rooms,
                 inside=[(x1 + 16.5, (a + b) / 2 + .5, -90) for a, b in rooms],
                 member=[(x2 - 6.5, (a + b) / 2 + .5, 90) for a, b in rooms[:4]],
@@ -508,6 +509,23 @@ def lobby():
     return L
 
 
+def floor_ball(cx, cz, R, axis, b1=None, b2=None):
+    """바닥 몬스터볼 (체육관·사천왕 같은 방향): 흰 쪽이 도전자, 빨간 뚜껑이 관장·사천왕 쪽(axis 방향 +), 검은 테두리,
+    도전자와 관장 사이를 가로지르는 검은 가운데 줄, 검은 테 두른 흰 단추. 체육관 R=5.6 기준 단추 1.5, 테 2.4를 R에 비례."""
+    b1, b2, n = b1 or 1.5 * R / 5.6, b2 or 2.4 * R / 5.6, int(R) + 1
+    L = []
+    for dx in range(-n, n + 1):
+        for dz in range(-n, n + 1):
+            d = (dx * dx + dz * dz) ** .5
+            if d > R + .5:
+                continue
+            u = dz if axis == 'z' else dx                                     # 도전자 → 관장 방향 좌표
+            b = ('black_concrete' if d > R - .5 or (u == 0 and d > b2) or b1 < d <= b2
+                 else 'white_concrete' if d <= b1 or u < 0 else 'red_concrete')
+            L.append(sb(cx + dx, G, cz + dz, 'minecraft:' + b))
+    return L
+
+
 def arena(n):
     """n번 경기장 (닫힌 방): 팔각형 배틀 필드 + 가운데 몬스터볼, 타입 색 줄무늬 천장 조명, 북쪽 관장 자리, 양옆 관중석."""
     g = gym_geom(n)
@@ -543,15 +561,7 @@ def arena(n):
         L += [sb(xm + dx, G, fz1 + 2, m(c1)), sb(xm + dx, G, fz2 - 2, m(c1))]
     for dz in (-9, -3, 3, 9):                                             # 포인트 색 점 (양옆)
         L += [sb(fx1 + 2, G, dz, m(c2)), sb(fx2 - 2, G, dz, m(c2))]
-    R = 5.6                                                               # 몬스터볼: 빨간 뚜껑이 관장 쪽(남쪽 +z), 흰색이 도전자 쪽, 검은 테두리·가운데 줄(동서)·단추
-    for dx in range(-6, 7):
-        for dz in range(-6, 7):
-            d = (dx * dx + dz * dz) ** .5
-            if d > R + .5:
-                continue
-            b = ('black_concrete' if d > R - .5 or (abs(dz) == 0 and d > 2.4) or 1.5 < d <= 2.4
-                 else 'white_concrete' if d <= 1.5 or dz < 0 else 'red_concrete')
-            L.append(sb(xm + dx, G, dz, m(b)))
+    L += floor_ball(xm, 0, 5.6, 'z')
     # 관중석 (양옆 3단, 계단 블록 의자는 필드를 바라봄)
     stairs = seat[:-7] + '_stairs' if seat.endswith('_planks') else {'mud_bricks': 'mud_brick_stairs'}.get(seat, seat + '_stairs')
     for k in range(3):
@@ -577,15 +587,20 @@ def e4_hall():
     """사천왕 본부 (닫힌 방 4개, 서로 막힘) + 명예의 전당. 순간이동으로만 드나듦."""
     g = e4_geom()
     x1, x2, z1, z2 = g['box']
-    top = G + 9
+    top = G + E4_TOP
     L = ['# ── 사천왕 본부 ──', fill(x1, G - 1, z1, x2, G - 1, z2, 'minecraft:bedrock'),
          fill(x1, G, z1, x2, G, z2, 'minecraft:polished_andesite')]
     L += walls(x1, x2, z1, z2, G + 1, top, 'minecraft:quartz_bricks')
     for z in range(z1, z2 + 1, 5):
         L += [fill(x1, G + 1, z, x1, top, z, 'minecraft:quartz_pillar'), fill(x2, G + 1, z, x2, top, z, 'minecraft:quartz_pillar')]
+    for a, b in g['rooms']:   # 안쪽 비우기: 예전 좁은 방의 벽·천장이 남지 않게 (방마다 따로, fill 한도 32768칸 안)
+        L.append(fill(x1 + 1, G + 1, a, x2 - 1, top, b + 1, 'minecraft:air'))
     for k, (a, b) in enumerate(g['rooms']):
         floor = 'minecraft:' + (E4_THEME[k] if k < 4 else 'gold_block')
         L += [fill(x1 + 1, G, a, x2 - 1, G, b, floor), fill(x1 + 1, top, a, x2 - 1, top, b, 'minecraft:quartz_block')]
+        if k < 4:   # 바닥 몬스터볼: 도전자(서쪽)와 사천왕(동쪽) 가운데, 체육관과 같은 방향 (빨간 쪽이 사천왕)
+            px, mx = g['inside'][k][0], g['member'][k][0]
+            L += floor_ball(int((px + mx) // 2), (a + b) // 2, 5.6, 'x')   # 체육관과 같은 크기
         if k < 4:
             L.append(fill(x1 + 1, G + 1, b + 1, x2 - 1, top, b + 1, 'minecraft:quartz_bricks'))   # 방 사이 벽
         for x in range(x1 + 3, x2 - 1, 3):
@@ -638,7 +653,8 @@ def chunks(box, pad=0):
     return f'{x1 - pad} {z1 - pad} {x2 + pad} {z2 + pad}'
 
 
-ARENA_REGION = (ARENA_X - 10, E4[1] + 10, E4[2] - 4, 22)
+ARENA_REGION = (ARENA_X - 10, ARENA_X + ARENA_STEP * 7 + 40, -28, 22)   # 체육관 경기장 8개
+E4_REGION = (E4[0] - 10, E4[1] + 10, E4[2] - 4, E4[3] + 4)            # 사천왕 본부 (forceload 한도 256청크라 경기장과 따로)
 
 
 def build_start():
@@ -646,6 +662,7 @@ def build_start():
     for I in islands():
         L.append(f'execute in poke:town run forceload add {chunks(I.outer)}')
     L.append(f'execute in poke:town run forceload add {chunks(ARENA_REGION)}')
+    L.append(f'execute in poke:town run forceload add {chunks(E4_REGION)}')
     for _, box in OLD_ISLANDS:
         L.append(f'execute in poke:town run forceload add {chunks(box)}')
     L += ['# 청크가 다 불러와질 때까지 3초 기다렸다가 짓기', 'schedule function poke:build/run 60t']
@@ -670,8 +687,8 @@ def terrain_parts():
         cmds += [f'# ── {I.name} 섬 지형 ──'] + clear_box(x1, x2, z1, z2, G - 4, G + 64)
         I.plan('nsew')
         cmds += I.biomes() + I.commands()
-    a1, a2, c1, c2 = ARENA_REGION
-    cmds += ['# ── 경기장 자리 비우기 ──'] + clear_box(a1, a2, c1, c2, G - 2, G + 16)
+    for a1, a2, c1, c2 in (ARENA_REGION, E4_REGION):
+        cmds += ['# ── 경기장 자리 비우기 ──'] + clear_box(a1, a2, c1, c2, G - 2, G + E4_TOP + 1)
     for name, (x1, x2, z1, z2) in OLD_ISLANDS:                      # 15. 없앤 회의장·상점가 섬 지우기
         cmds += [f'# ── 예전 {name} 섬 지우기 ──'] + clear_box(x1, x2, z1, z2, G - 4, G + 64)
     return [cmds[i:i + 3000] for i in range(0, len(cmds), 3000)]

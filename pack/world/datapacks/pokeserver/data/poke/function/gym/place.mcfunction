@@ -8,7 +8,7 @@ execute if score @s poke.gym matches 5 run execute in poke:town run tp @s 3215.5
 execute if score @s poke.gym matches 6 run execute in poke:town run tp @s 3265.5 -59 -9.5 0 0
 execute if score @s poke.gym matches 7 run execute in poke:town run tp @s 3315.5 -59 -9.5 0 0
 execute if score @s poke.gym matches 8 run execute in poke:town run tp @s 3365.5 -59 -9.5 0 0
-execute if score @s poke.gym matches 9 if score @s poke.e4 matches 0 run execute in poke:town run tp @s 3516.5 -59 -39.5 -90 0
-execute if score @s poke.gym matches 9 if score @s poke.e4 matches 1 run execute in poke:town run tp @s 3516.5 -59 -28.5 -90 0
-execute if score @s poke.gym matches 9 if score @s poke.e4 matches 2 run execute in poke:town run tp @s 3516.5 -59 -17.5 -90 0
-execute if score @s poke.gym matches 9 if score @s poke.e4 matches 3 run execute in poke:town run tp @s 3516.5 -59 -6.5 -90 0
+execute if score @s poke.gym matches 9 if score @s poke.e4 matches 0 run execute in poke:town run tp @s 3516.5 -59 -34.5 -90 0
+execute if score @s poke.gym matches 9 if score @s poke.e4 matches 1 run execute in poke:town run tp @s 3516.5 -59 -12.5 -90 0
+execute if score @s poke.gym matches 9 if score @s poke.e4 matches 2 run execute in poke:town run tp @s 3516.5 -59 9.5 -90 0
+execute if score @s poke.gym matches 9 if score @s poke.e4 matches 3 run execute in poke:town run tp @s 3516.5 -59 31.5 -90 0

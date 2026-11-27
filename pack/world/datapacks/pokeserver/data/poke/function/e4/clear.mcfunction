@@ -1,6 +1,6 @@
 # 자동 생성: tools/build_league.py
 tag @s add poke.e4clear
-execute in poke:town run tp @s 3516.5 -59 4.5 -90 0
+execute in poke:town run tp @s 3516.5 -59 53.5 -90 0
 function poke:mod/prize/30000
 function poke:mod/reward/e4
 title @s title {"text":"사천왕 클리어!","color":"gold"}

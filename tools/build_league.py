@@ -341,7 +341,7 @@ import build_world as W  # noqa: E402  (체육관 위치는 build_world.py 한 �
 FN = DATA / 'poke/function'
 ASSETS = ROOT / 'mod/src/main/resources/assets'
 Y = W.G + 1
-ARENA_CHUNKS = f'{W.ARENA_X} {W.E4[2]} {W.E4[1]} 18'   # 경기장·사천왕 본부 청크 (관장 소환 때 불러옴)
+ARENA_CHUNKS = [W.chunks(W.ARENA_REGION), W.chunks(W.E4_REGION)]   # 경기장·사천왕 본부 청크 (관장 소환 때 불러옴, 256청크 한도라 둘로)
 
 
 def fn(path, lines):
@@ -481,7 +481,7 @@ def functions():
     fn('league/spawn_tick.mcfunction', [
         '# 관장 소환 준비: 경기장 청크를 불러오고 3초 뒤 접속한 플레이어 한 명으로 소환',
         'execute unless data storage poke:state {leaders:2} run scoreboard players set #lead poke.timer 0',
-        f'execute unless data storage poke:state {{leaders:2}} in poke:town run forceload add {ARENA_CHUNKS}',
+        *[f'execute unless data storage poke:state {{leaders:2}} in poke:town run forceload add {c}' for c in ARENA_CHUNKS],
         'data modify storage poke:state leaders set value 2', 'scoreboard players add #lead poke.timer 1',
         'execute if score #lead poke.timer matches 60.. as @a[limit=1] run function poke:mod/spawn_leaders'])
     # 체육관 안내원 화면(모드)이 읽는 목록
@@ -511,7 +511,7 @@ def functions():
     fn('mod/spawn_leaders.mcfunction', [
         '# 관장·사천왕 소환 (RCT 소환 명령은 플레이어가 실행해야 해서, 접속한 플레이어로 실행됨)',
         'kill @e[type=rctmod:trainer,tag=poke.leader]', *spawn,
-        'data modify storage poke:state leaders set value 1', f'execute in poke:town run forceload remove {ARENA_CHUNKS}'])
+        'data modify storage poke:state leaders set value 1', *[f'execute in poke:town run forceload remove {c}' for c in ARENA_CHUNKS]])
 
 
 def spawn_lines(tid, x, z, yaw):
