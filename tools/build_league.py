@@ -428,7 +428,10 @@ def functions():
         fn(f'gym/award/{n}.mcfunction', [
             f'tag @s add poke.badge{n}', badge_item(n, badge, color), f'function poke:mod/reward/{n}',
             f'title @s title {{"text":"{badge} 획득!","color":"gold"}}',
-            f'tellraw @a [{{"text":"[리그] ","color":"gold"}},{{"selector":"@s"}},{{"text":"님이 {n}번째 체육관을 클리어하였습니다! (관장 {name} · {badge})","color":"yellow"}}]',
+            # 16. 클리어 공지 (축하). 서버 전체에서 처음 깬 사람은 이 공지 대신 다른 색 "퍼스트 클리어" 공지 (기록은 storage poke:first, 월드 초기화 때 같이 지워짐)
+            f'execute if data storage poke:first g{n} run tellraw @a [{{"text":"[리그] ","color":"gold"}},{{"selector":"@s"}},{{"text":"님이 {n}번째 체육관을 클리어하였습니다! (관장 {name} · {badge}) 축하합니다!","color":"yellow"}}]',
+            f'execute unless data storage poke:first g{n} run tellraw @a [{{"text":"[퍼스트 클리어] ","color":"light_purple","bold":true}},{{"selector":"@s"}},{{"text":"님이 서버 최초로 {n}번째 체육관을 클리어하였습니다! (관장 {name} · {badge}) 모두 축하해 주세요!","color":"aqua"}}]',
+            f'data modify storage poke:first g{n} set value 1',
             prize((max(m['level'] for m in GYMS[n - 1][5]) + CAP) * 200), 'function poke:gym/leave'])
         # 모드 아이템(기믹 도구·경험사탕·기술머신)은 mod/ 함수로: 모드가 없는 데이터팩 시험에서 이 함수만 못 읽고 배지 지급은 그대로
         fn(f'mod/reward/{n}.mcfunction', [*key_item(n), *gym_items(n, typ)])
@@ -463,7 +466,9 @@ def functions():
     fn('e4/clear.mcfunction', ['tag @s add poke.e4clear', tp(e['inside'][4]), prize(30000), 'function poke:mod/reward/e4',
                                'title @s title {"text":"사천왕 클리어!","color":"gold"}',
                                'title @s subtitle {"text":"명예의 전당에 이름을 올렸습니다","color":"yellow"}',
-                               'tellraw @a [{"text":"[리그] ","color":"gold"},{"selector":"@s"},{"text":"님이 사천왕을 클리어하고 챔피언이 되었습니다!","color":"gold"}]'])
+                               'execute if data storage poke:first e4 run tellraw @a [{"text":"[리그] ","color":"gold"},{"selector":"@s"},{"text":"님이 사천왕을 클리어하고 챔피언이 되었습니다! 축하합니다!","color":"gold"}]',
+                               'execute unless data storage poke:first e4 run tellraw @a [{"text":"[퍼스트 클리어] ","color":"light_purple","bold":true},{"selector":"@s"},{"text":"님이 서버 최초로 사천왕을 클리어하고 첫 챔피언이 되었습니다! 모두 축하해 주세요!","color":"aqua"}]',
+                               'data modify storage poke:first e4 set value 1'])
     px, pz, w, d = e['exit']
     pads.append(f'execute in poke:town as @a[x={px},y={Y},z={pz},dx={w - 1},dy=1,dz={d - 1}] run function poke:gym/leave')
     # 배틀 중엔 발판이 안 먹음 (poke.battling은 모드가 매 틱 붙임): 배틀 도중 순간이동으로 빠져 재도전 대기를 피하지 못하게
@@ -506,8 +511,7 @@ def functions():
     fn('mod/spawn_leaders.mcfunction', [
         '# 관장·사천왕 소환 (RCT 소환 명령은 플레이어가 실행해야 해서, 접속한 플레이어로 실행됨)',
         'kill @e[type=rctmod:trainer,tag=poke.leader]', *spawn,
-        'data modify storage poke:state leaders set value 1', f'execute in poke:town run forceload remove {ARENA_CHUNKS}',
-        'say [잡켓몬] 체육관 관장·사천왕을 배치했습니다.'])
+        'data modify storage poke:state leaders set value 1', f'execute in poke:town run forceload remove {ARENA_CHUNKS}'])
 
 
 def spawn_lines(tid, x, z, yaw):

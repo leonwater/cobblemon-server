@@ -2,6 +2,6 @@
   "required": true,
   "package": "com.pokeserver.client.mixin",
   "compatibilityLevel": "JAVA_21",
-  "client": ["WindowMixin", "ScreenMixin", "BattleGuiMixin", "BattleOverlayMixin", "OptionTileMixin", "MoveTileMixin", "MinimapMixin", "BattleInfoMixin", "ScissorMixin", "EbuiScissorMixin", "ToastMixin", "MusicMixin"],
+  "client": ["WindowMixin", "ScreenMixin", "BattleGuiMixin", "BattleOverlayMixin", "OptionTileMixin", "MoveTileMixin", "MinimapMixin", "BattleInfoMixin", "ScissorMixin", "EbuiScissorMixin", "ToastMixin", "MusicMixin", "SelectionScaleMixin", "SelectionClickMixin", "GeneralActionMixin", "PartyExpMixin", "EbuiConfigMixin", "EbuiTextMixin"],
   "injectors": { "defaultRequire": 0 }
 }

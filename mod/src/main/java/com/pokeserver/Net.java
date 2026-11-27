@@ -30,6 +30,22 @@ public final class Net {
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
 
+    /** 클라이언트 → 서버: 배틀 가방에서 회복 도구 쓰기 (가방 칸 번호, 대상 포켓몬). 서버가 코블몬 규칙으로 다시 검사. */
+    public record BagUse(int slot, java.util.UUID target) implements CustomPacketPayload {
+        public static final Type<BagUse> TYPE = id("bag_use");
+        public static final StreamCodec<RegistryFriendlyByteBuf, BagUse> CODEC = StreamCodec.composite(
+                ByteBufCodecs.VAR_INT, BagUse::slot, net.minecraft.core.UUIDUtil.STREAM_CODEC, BagUse::target, BagUse::new);
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
+
+    /** 클라이언트 → 서버: 배틀 가방에서 볼 고르기 → 그 볼을 손에 쥐여 줌 (던지기는 원래대로 우클릭, 야생 배틀만). */
+    public record BagBall(int slot) implements CustomPacketPayload {
+        public static final Type<BagBall> TYPE = id("bag_ball");
+        public static final StreamCodec<RegistryFriendlyByteBuf, BagBall> CODEC =
+                StreamCodec.composite(ByteBufCodecs.VAR_INT, BagBall::slot, BagBall::new);
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
+
     /** 서버 → 클라이언트: 상점 열기 (목록 JSON + 잔액). */
     public record ShopOpen(String json, long balance, int badges) implements CustomPacketPayload {
         public static final Type<ShopOpen> TYPE = id("shop_open");

@@ -437,6 +437,10 @@ def plaza():
         L += path([(12, -15), (30, -20), (50, -14), (R, -6)])
         L += path([(-6, 3), (MART_P[1] + 3, (MART_P[2] + MART_P[3]) // 2)], 1.2)
         L += path([(-8, -9), (-28, -20), (-50, -16), (-R, -24)])
+        # 19. 센터·숍 문 앞 흰 발판 다시 깔기 (길이 비스듬히 들어오며 한쪽을 덮어 좌우가 안 맞았음): 문 가운데 기준 좌우 2칸씩 같게
+        for (bx1, bx2, bz1, bz2), door in ((CENTER_P, 'w'), (MART_P, 'e')):
+            fx, out, zm = (bx1, -1, (bz1 + bz2) // 2) if door == 'w' else (bx2, 1, (bz1 + bz2) // 2)
+            L.append(W.fill(min(fx + 3 * out, fx + 6 * out), 0, zm - 2, max(fx + 3 * out, fx + 6 * out), 0, zm + 2, 'minecraft:smooth_quartz'))
         for fx, fz in fronts:                               # 샛길: 가장 가까운 큰길 칸에서 문 앞까지, 가운데를 살짝 비틀어
             sx, sz = min(MAIN, key=lambda c: (c[0] - fx) ** 2 + (c[1] - fz) ** 2)
             mx, mz = (sx + fx) / 2 + rng.uniform(-3, 3), (sz + fz) / 2 + rng.uniform(-3, 3)

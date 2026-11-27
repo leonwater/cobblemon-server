@@ -122,7 +122,7 @@ public class GymScreen extends Screen {
             g.pose().popPose();
             g.setColor(1f, 1f, 1f, 1f);
         }
-        int by = y + NODE + 4;
+        int by = y + NODE + 7;   // 8. 지금 갈 곳의 빛 테두리(아래로 3칸)와 상태 글자 바탕이 겹치지 않게
         if (cleared) {
             g.fill(x + NODE - 8, y + NODE - 8, x + NODE + 1, y + NODE + 1, 0xFF101319);
             g.drawString(font, Theme.t("✔"), x + NODE - 7, y + NODE - 8, DONE, false);

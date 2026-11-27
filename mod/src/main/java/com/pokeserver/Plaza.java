@@ -18,7 +18,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 public final class Plaza {
     private Plaza() {}
 
-    public static final int PROTECT = 72, BLEND = 28, BUILD_VERSION = 6;   // 2: 팁 NPC 높이 수정, 3: 건물 위 이름표 삭제, 4: 상인 둘로(코블몬·마인크래프트) + 액자 진열, 5: 분수 위 서버 이름 잡켓몬 서버, 6: 식당 쌍문 경첩·체육관풍 집 지붕
+    public static final int PROTECT = 72, BLEND = 28, BUILD_VERSION = 7;   // 7: 센터·숍 문 앞 흰 발판 좌우 같게, 2: 팁 NPC 높이 수정, 3: 건물 위 이름표 삭제, 4: 상인 둘로(코블몬·마인크래프트) + 액자 진열, 5: 분수 위 서버 이름 잡켓몬 서버, 6: 식당 쌍문 경첩·체육관풍 집 지붕
     static final String DIM = "poke:wild";
     /** 꽃 숲 칸 가운데 (칸 = 256x256), 앞부터 확인. */
     static final int[][] CELLS = {{1920, 2176}, {2176, 1920}, {1664, 2432}, {2432, 1664}, {1408, 2688}, {2688, 1408},

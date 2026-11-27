@@ -1775,6 +1775,8 @@ setblock ~-10 ~0 ~-10 minecraft:dirt_path
 setblock ~-10 ~0 ~-9 minecraft:dirt_path
 setblock ~-9 ~0 ~-11 minecraft:dirt_path
 setblock ~-9 ~0 ~-10 minecraft:dirt_path
+fill ~10 ~0 ~-2 ~13 ~0 ~2 minecraft:smooth_quartz
+fill ~-15 ~0 ~5 ~-12 ~0 ~9 minecraft:smooth_quartz
 setblock ~-31 ~0 ~-23 minecraft:coarse_dirt
 setblock ~-30 ~0 ~-24 minecraft:coarse_dirt
 setblock ~-30 ~0 ~-23 minecraft:coarse_dirt
@@ -1997,5 +1999,3 @@ setblock ~-58 ~-1 ~1 minecraft:water
 setblock ~-58 ~0 ~2 minecraft:water
 setblock ~-58 ~-1 ~2 minecraft:water
 setblock ~-58 ~0 ~3 minecraft:water
-setblock ~-58 ~-1 ~3 minecraft:water
-setblock ~-58 ~0 ~4 minecraft:water

@@ -39,4 +39,3 @@ execute in poke:town positioned 3533.5 -59 -6.5 run data merge entity @e[type=rc
 execute in poke:town positioned 3533.5 -59 -6.5 run tp @e[type=rctmod:trainer,tag=poke.leader,distance=..1,limit=1,sort=nearest] ~ ~ ~ 90 0
 data modify storage poke:state leaders set value 1
 execute in poke:town run forceload remove 3000 -46 3540 18
-say [잡켓몬] 체육관 관장·사천왕을 배치했습니다.

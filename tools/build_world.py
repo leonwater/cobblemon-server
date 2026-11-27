@@ -543,14 +543,14 @@ def arena(n):
         L += [sb(xm + dx, G, fz1 + 2, m(c1)), sb(xm + dx, G, fz2 - 2, m(c1))]
     for dz in (-9, -3, 3, 9):                                             # 포인트 색 점 (양옆)
         L += [sb(fx1 + 2, G, dz, m(c2)), sb(fx2 - 2, G, dz, m(c2))]
-    R = 5.6                                                               # 몬스터볼: 왼쪽 흰색·오른쪽 빨강, 검은 테두리·가운데 줄·단추
+    R = 5.6                                                               # 몬스터볼: 빨간 뚜껑이 관장 쪽(남쪽 +z), 흰색이 도전자 쪽, 검은 테두리·가운데 줄(동서)·단추
     for dx in range(-6, 7):
         for dz in range(-6, 7):
             d = (dx * dx + dz * dz) ** .5
             if d > R + .5:
                 continue
-            b = ('black_concrete' if d > R - .5 or (abs(dx) == 0 and d > 2.4) or 1.5 < d <= 2.4
-                 else 'white_concrete' if d <= 1.5 or dx < 0 else 'red_concrete')
+            b = ('black_concrete' if d > R - .5 or (abs(dz) == 0 and d > 2.4) or 1.5 < d <= 2.4
+                 else 'white_concrete' if d <= 1.5 or dz < 0 else 'red_concrete')
             L.append(sb(xm + dx, G, dz, m(b)))
     # 관중석 (양옆 3단, 계단 블록 의자는 필드를 바라봄)
     stairs = seat[:-7] + '_stairs' if seat.endswith('_planks') else {'mud_bricks': 'mud_brick_stairs'}.get(seat, seat + '_stairs')

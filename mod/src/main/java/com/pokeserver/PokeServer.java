@@ -34,9 +34,17 @@ public class PokeServer implements ModInitializer {
         PayloadTypeRegistry.playS2C().register(Net.TitlesOpen.TYPE, Net.TitlesOpen.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.Hud.TYPE, Net.Hud.CODEC);
         net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents.JOIN.register((h, s, server) -> {
+            // 13. 초기화 뒤 맵을 짓는 동안(poke:state ready 0)은 운영자 말고는 못 들어옴 (짓기가 끝나면 ready 1)
+            var state = server.getCommandStorage().get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("poke", "state"));
+            if (state.contains("ready") && state.getInt("ready") == 0 && !server.getPlayerList().isOp(h.player.getGameProfile())) {
+                h.disconnect(net.minecraft.network.chat.Component.literal("서버를 준비하고 있어요 (초기화 뒤 맵을 짓는 중).\n1~2분 뒤 다시 접속해 주세요."));
+                return;
+            }
             Nicknames.join();
         });
         PayloadTypeRegistry.playC2S().register(Net.ShopTrade.TYPE, Net.ShopTrade.CODEC);
+        PayloadTypeRegistry.playC2S().register(Net.BagUse.TYPE, Net.BagUse.CODEC);
+        PayloadTypeRegistry.playC2S().register(Net.BagBall.TYPE, Net.BagBall.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.MenuOpen.TYPE, Net.MenuOpen.CODEC);
         PayloadTypeRegistry.playC2S().register(Net.MenuAction.TYPE, Net.MenuAction.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.GymOpen.TYPE, Net.GymOpen.CODEC);
@@ -46,7 +54,11 @@ public class PokeServer implements ModInitializer {
                 (m, ctx) -> ctx.player().server.execute(() -> Gym.pick(ctx.player(), m.n())));
         ServerPlayNetworking.registerGlobalReceiver(Net.MenuAction.TYPE,
                 (m, ctx) -> ctx.player().server.execute(() -> Menu.action(ctx.player(), m.action())));
-        if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.register();
+        if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) {
+            CobblemonHooks.register();
+            ServerPlayNetworking.registerGlobalReceiver(Net.BagUse.TYPE, (m, ctx) -> ctx.player().server.execute(() -> CobblemonHooks.bagUse(ctx.player(), m.slot(), m.target())));
+            ServerPlayNetworking.registerGlobalReceiver(Net.BagBall.TYPE, (m, ctx) -> ctx.player().server.execute(() -> CobblemonHooks.bagBall(ctx.player(), m.slot())));
+        }
         ServerPlayNetworking.registerGlobalReceiver(Net.ClaimConfirm.TYPE,
                 (payload, ctx) -> ctx.player().server.execute(() -> Farms.claim(ctx.player(), payload.plot())));
         ServerPlayNetworking.registerGlobalReceiver(Net.ShopTrade.TYPE, (t, ctx) -> ctx.player().server.execute(
@@ -68,11 +80,11 @@ public class PokeServer implements ModInitializer {
             for (var p : server.getPlayerList().getPlayers())
                 if (Plaza.protects(p.level(), p.blockPosition())) p.addTag("poke.in_plaza"); else p.removeTag("poke.in_plaza");
             // 데이터팩 league/pads가 봄: 배틀 중이면 포기 발판이 안 먹음
-            if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.tagBattling(server);
+            if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) { CobblemonHooks.tagBattling(server); if (server.getTickCount() % 2 == 0) CobblemonHooks.holdBattlePokemon(server); }
             if (server.getTickCount() % 100 == 0) Farms.refreshLabels(server);
             if (server.getTickCount() % 20 == 0) { Teleport.tick(server); Nicknames.tick(server); Plaza.modes(server); }
             if (server.getTickCount() % 200 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.reapply(server);
-            if (server.getTickCount() % 20 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) { CobblemonHooks.starterLocks(server); CobblemonHooks.countWild(server); CobblemonHooks.holdGymPokemon(server); CobblemonHooks.gimmickGear(server); }
+            if (server.getTickCount() % 20 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) { CobblemonHooks.starterLocks(server); CobblemonHooks.countWild(server); CobblemonHooks.gimmickGear(server); }
             if (server.getTickCount() % CobblemonHooks.LEGEND_TICKS == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.spawnLegend(server);
         });
         // 상인(poke.merchant) → 상점, 체육관 안내원(poke.gymguide) → 도전 목록, 오박사(poke.tutor) → 튜토리얼 설명 창 (Cobblemon NPC 스크립트 대신 직접 처리)
