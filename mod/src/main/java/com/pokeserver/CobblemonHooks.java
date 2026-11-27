@@ -532,6 +532,9 @@ public final class CobblemonHooks {
                         var o = gym[mine ? 1 : 0];
                         float yaw = (float) (Math.toDegrees(Math.atan2(o.z - spot.z, o.x - spot.x)) - 90);
                         en.setYRot(yaw); en.setYHeadRot(yaw); en.setYBodyRot(yaw);
+                        // 막 나오는 순간(내보내기 연출 중)의 순간이동은 클라이언트가 놓치기도 함 → 1초마다 위치를 다시 보냄
+                        if (server.getTickCount() % 20 == 0 && en.level() instanceof net.minecraft.server.level.ServerLevel sl)
+                            sl.getChunkSource().broadcast(en, new net.minecraft.network.protocol.game.ClientboundTeleportEntityPacket(en));
                     }
                 }
             }
