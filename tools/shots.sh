@@ -30,22 +30,27 @@ rm -f $S/mods/pokeserver-*.jar; cp $R/pack/mods/pokeserver-*.jar $S/mods/
 cp -r $R/pack/config/. $S/config/
 rm -rf $S/world && mkdir -p $S/world/datapacks && cp -r $R/pack/world/datapacks/* $S/world/datapacks/
 fi
-# 데이터팩·모드가 같으면 "건물·야생 사전 생성까지 끝난 월드"를 복사해 씀 (매번 짓기·사전 생성 3분 아낌)
-KEY=$(cat $(find $R/pack/world/datapacks -type f | sort) $R/pack/mods/*.pw.toml $R/pack/mods/pokeserver-*.jar | sha1sum | cut -c1-12); CACHE=$W/cache/world-$KEY
-if [ -d $CACHE ]; then rm -rf $S/world && cp -r $CACHE $S/world && echo "지어 둔 월드 재사용 ($KEY)"; fi
+# 월드는 한 번만 짓고 계속 재사용: 지어 둔 월드에 지금 데이터팩만 덮어씀.
+# 바뀐 부분은 월드 안 버전 표시가 알아서 다시 지음 (load.mcfunction {build:N} → 마을·경기장, Plaza.BUILD_VERSION → 광장). 모드 jar만 바뀌면 다시 짓지 않음.
+# FRESH=1 이면 지어 둔 월드를 버리고 새로 지음 (지형·사전 생성 쪽을 바꿨을 때)
+CACHE=$W/cache/world; [ "${FRESH:-}" = 1 ] && rm -rf $W/cache
+if [ -d $CACHE ]; then
+  rm -rf $W/dp.tmp && mv $S/world/datapacks $W/dp.tmp && rm -rf $S/world && cp -r $CACHE $S/world && rm -rf $S/world/datapacks && mv $W/dp.tmp $S/world/datapacks
+  echo "지어 둔 월드 재사용 (데이터팩만 새로)"
+fi
 rc() { node -e 'require("'$R'/tests/node_modules/rcon-client").Rcon.connect({host:"localhost",port:25575,password:"test"}).then(async r=>{console.log(await r.send(process.argv[1]));r.end()})' "$1"; }
 echo eula=true > $S/eula.txt
 printf 'online-mode=false\nenable-rcon=true\nrcon.password=test\nrcon.port=25575\nspawn-protection=0\n' > $S/server.properties
 (cd $S && java -Xmx4G ${SERVER_JAVA_OPTS:-} -jar fabric-server-launch.jar nogui > run.log 2>&1 &)
 timeout 240 bash -c "until grep -qE 'Done \(|Exception in thread' $S/run.log; do sleep 1; done" || { echo "FAIL server boot"; exit 1; }
-if [ ! -d $CACHE ]; then   # 처음 보는 조합: 짓기·사전 생성이 끝나길 기다렸다가 월드 저장 (클라이언트 접속 전이라 플레이어 기록 없음)
-  N=$(grep -o '{build:[0-9]*}' $S/world/datapacks/pokeserver/data/poke/function/load.mcfunction | grep -o '[0-9]*')
-  rc 'tick sprint 24000' > /dev/null   # 짓기·지형 다듬기 동안 게임 시간을 빨리
-  for i in $(seq 200); do rc 'data get storage poke:state' | grep -q "build: $N[,}]" && grep -q 'Chunky\] Task finished' $S/run.log && break; sleep 3; done
-  rc 'tick sprint stop' > /dev/null; rc save-off > /dev/null; rc 'save-all flush' > /dev/null; sleep 2
-  rm -rf $W/cache && mkdir -p $W/cache && cp -r $S/world $CACHE && rm -f $CACHE/session.lock
-  rc save-on > /dev/null; echo "지어 둔 월드 저장 ($KEY)"
-fi
+# 짓기(처음이면 사전 생성까지)가 끝나길 기다렸다가 월드 저장 (클라이언트 접속 전이라 플레이어 기록 없음). 이미 지어진 버전이면 바로 지나감
+N=$(grep -o '{build:[0-9]*}' $S/world/datapacks/pokeserver/data/poke/function/load.mcfunction | grep -o '[0-9]*')
+FRESHW=$([ -d $CACHE ] || echo 1)
+rc 'tick sprint 24000' > /dev/null   # 짓기·지형 다듬기 동안 게임 시간을 빨리
+for i in $(seq 200); do rc 'data get storage poke:state' | grep -q "build: $N[,}]" && { [ -z "$FRESHW" ] || grep -q 'Chunky\] Task finished' $S/run.log; } && break; sleep 3; done
+rc 'tick sprint stop' > /dev/null; rc save-off > /dev/null; rc 'save-all flush' > /dev/null; sleep 2
+rm -rf $CACHE.new && cp -r $S/world $CACHE.new && rm -f $CACHE.new/session.lock && rm -rf $CACHE && mv $CACHE.new $CACHE
+rc save-on > /dev/null; echo "월드 저장 (build $N)"
 # 클라이언트 (화면 :99)
 Xvfb :99 -screen 0 ${WIN:-1280x720}x24 > /dev/null 2>&1 &
 XV=$!
@@ -55,9 +60,14 @@ if [ "${PROD:-}" = 1 ]; then
   (cd $G && java -jar bootstrap.jar -g -s client $PACK > pw.log 2>&1) || { echo "FAIL packwiz client"; tail -5 $G/pw.log; exit 1; }
   export PROD_GAME=$G
 fi
-DISPLAY=:99 python3 $R/tools/prod_client.py $W/client localhost:25565 > $W/client.log 2>&1 &
-CL=$!
-timeout 300 bash -c "until grep -q 'Dev joined the game' $S/run.log; do sleep 2; done" || { echo "FAIL client join"; tail -5 $W/client.log; kill $CL $XV; exit 1; }
+start_client() {
+  local n=$(grep -c 'Dev joined the game' $S/run.log)
+  DISPLAY=:99 python3 $R/tools/prod_client.py $W/client localhost:25565 > $W/client.log 2>&1 &
+  CL=$!
+  timeout 300 bash -c "until [ \$(grep -c 'Dev joined the game' $S/run.log) -gt $n ]; do sleep 2; done" || { echo "FAIL client join"; tail -5 $W/client.log; kill $CL $XV; exit 1; }
+}
+stop_client() { kill $CL 2>/dev/null; pkill -f -- "--username Dev"; sleep 3; pkill -9 -f -- "--username Dev"; true; }
+start_client
 sleep 8
 cat > $W/steps.js <<'JS'
 const {Rcon}=require(process.env.R+"/tests/node_modules/rcon-client");const {execSync}=require("child_process");const fs=require("fs");
@@ -82,7 +92,14 @@ run_steps "$STEPS"
 # KEEP=1: 서버·게임을 켠 채로 $W/queue/*.txt 단계 파일을 기다려 이어서 실행 (다시 찍을 때 껐다 켜지 않게). $W/queue/stop 을 만들면 종료
 if [ "${KEEP:-}" = 1 ]; then
   mkdir -p $W/queue; echo "대기 중: $W/queue/*.txt (끝내려면 touch $W/queue/stop)"
+  # 모드만 바꿨을 때 다시 켜기 (월드·서버 그대로): touch $W/queue/client → 새 jar로 게임만 다시 / touch $W/queue/server → 서버도 같은 월드로 다시
   while [ ! -f $W/queue/stop ]; do
+    if [ -f $W/queue/server ]; then rm -f $W/queue/server; stop_client; rc stop > /dev/null
+      for i in $(seq 60); do pgrep -f fabric-server-launch.jar >/dev/null || break; sleep 1; done
+      rm -f $S/mods/pokeserver-*.jar; cp $R/pack/mods/pokeserver-*.jar $S/mods/; rm -rf $S/world/datapacks && cp -r $R/pack/world/datapacks $S/world/
+      (cd $S && java -Xmx4G ${SERVER_JAVA_OPTS:-} -jar fabric-server-launch.jar nogui > run.log 2>&1 &)
+      timeout 240 bash -c "until grep -qE 'Done \(|Exception in thread' $S/run.log; do sleep 1; done"; start_client; echo "서버·게임 다시 켬"; fi
+    if [ -f $W/queue/client ]; then rm -f $W/queue/client; stop_client; start_client; echo "게임만 다시 켬"; fi
     for f in $W/queue/*.txt; do [ -f "$f" ] || continue; mv "$f" "$f.run"; run_steps "$f.run" > "$f.out" 2>&1; mv "$f.run" "$f.done"; done; sleep 2
   done
   rm -rf $W/queue

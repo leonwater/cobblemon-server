@@ -36,7 +36,7 @@ abstract class SelectionScaleMixin {
     private int pokeserver$my(int my) {
         if (!pokeserver$isSel(this)) return my;
         float h = pokeserver$h();
-        return Math.round(h - (h - my) / BattleScale.selScale());
+        return Math.round(h - (h - BattleScale.lift() - my) / BattleScale.selScale());
     }
 
     @Inject(method = "render", at = @At("HEAD"))
@@ -44,7 +44,7 @@ abstract class SelectionScaleMixin {
         if (!pokeserver$isSel(this)) return;
         float s = BattleScale.selScale(), h = pokeserver$h();
         g.pose().pushPose();
-        g.pose().translate(0, h, 0);
+        g.pose().translate(0, h - BattleScale.lift(), 0);
         g.pose().scale(s, s, 1);
         g.pose().translate(0, -h, 0);
     }

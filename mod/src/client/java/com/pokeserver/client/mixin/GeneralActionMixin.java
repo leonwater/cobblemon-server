@@ -36,7 +36,7 @@ abstract class GeneralActionMixin {
         tiles.clear();
         tiles.add(new BattleOptionTile(gui, x0, y0, fight.getResource(), fight.getText(), fight.getOnClick()));
         tiles.add(new BattleOptionTile(gui, x1, y0, ResourceLocation.fromNamespaceAndPath("cobblemon", "textures/gui/battle/battle_menu_bag.png"),
-                Component.literal("가방"), () -> { Minecraft.getInstance().setScreen(new BagScreen(gui, w)); return Unit.INSTANCE; }));
+                Component.literal("가방"), () -> { Minecraft.getInstance().tell(() -> Minecraft.getInstance().setScreen(new BagScreen(gui, w))); return Unit.INSTANCE; }));
         if (sw != null) tiles.add(new BattleOptionTile(gui, x0, y1, sw.getResource(), sw.getText(), sw.getOnClick()));
         if (run != null) tiles.add(new BattleOptionTile(gui, x1, y1, run.getResource(), run.getText(), run.getOnClick()));
     }

@@ -58,8 +58,10 @@ public class BagScreen extends Screen {
     private int x0() { return (width - W) / 2; }
     private int y0() { return (height - H) / 2; }
 
+    /** 패널은 배경(흐림) 위에 그려야 함: super.render가 renderBackground를 부르므로 여기서 그림 (ClaimScreen과 같음). */
     @Override
-    public void render(GuiGraphics g, int mx, int my, float pt) {
+    public void renderBackground(GuiGraphics g, int mx, int my, float pt) {
+        super.renderBackground(g, mx, my, pt);
         if (CobblemonClient.INSTANCE.getBattle() == null) { onClose(); return; }
         int x = x0(), y = y0();
         Theme.panel(g, x, y, x + W, y + H, 0xF0101319, Theme.ACCENT);
@@ -97,7 +99,6 @@ public class BagScreen extends Screen {
             }
         }
         g.drawCenteredString(font, Theme.t(pickSlot == null ? "클릭: 고르기  ·  ESC: 배틀로" : "ESC: 도구 다시 고르기"), x + W / 2, y + H + 6, Theme.SUBTEXT);
-        super.render(g, mx, my, pt);
     }
 
     private void tab(GuiGraphics g, int mx, int my, int x, String label, boolean on, boolean enabled) {

@@ -17,6 +17,6 @@ abstract class SelectionClickMixin {
     @ModifyVariable(method = "method_25402", at = @At("HEAD"), argsOnly = true, ordinal = 1)
     private double pokeserver$my(double my) {
         double h = Minecraft.getInstance().getWindow().getGuiScaledHeight();
-        return h - (h - my) / BattleScale.selScale();
+        return h - (h - BattleScale.lift() - my) / BattleScale.selScale();
     }
 }

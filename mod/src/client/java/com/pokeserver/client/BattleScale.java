@@ -42,4 +42,7 @@ public final class BattleScale {
     public static boolean isBattle(Object screen) {
         return screen != null && screen.getClass().getName().equals("com.cobblemon.mod.common.client.gui.battle.BattleGUI");
     }
+    /** 커진 행동 선택이 HUD(하트·배고픔 줄, 아래에서 39 GUI px + 흡수 줄)를 덮지 않게 위로 올리는 양 (배틀 좌표).
+     *  기준: 싸운다·가방 타일 아랫변이 배틀 화면 아래에서 30. */
+    public static float lift() { return Math.max(0, 42 / f() - 30 * selScale()); }
 }

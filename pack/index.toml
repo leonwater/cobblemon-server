@@ -102,7 +102,7 @@ metafile = true
 
 [[files]]
 file = "mods/pokeserver-1.6.0.jar"
-hash = "e4652abfb152acddf75414116a57666843c4a75950da700eec46c240dab3903b"
+hash = "bfd42f4c380d85afc0482faac6d73a8697a7454ec4e01412801949eca0826bc7"
 
 [[files]]
 file = "mods/rctapi.pw.toml"
@@ -127,6 +127,154 @@ metafile = true
 [[files]]
 file = "world/datapacks/pokeserver/data/cobblemon/recipe/master_ball.json"
 hash = "cd2a707f6a4463283d1ac9ba3433b71d477708f8bed3aca4387bd45146955208"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/loot_table/blocks/keystone_ore.json"
+hash = "7e87459b6a141a939dd0ff5ef2755cba86b170bff8364c29cdb3fa3108fefb28"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/loot_table/blocks/wishing_star_crystal.json"
+hash = "7e87459b6a141a939dd0ff5ef2755cba86b170bff8364c29cdb3fa3108fefb28"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/archie_anchor.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/brendan_mega_cuff.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/diantha_mega_charm.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/dynamax_band.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/gladion_z_power_ring.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/hapu_z_power_ring.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/hapus_z_ring.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/korrina_glove.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/lisia_mega_tiara.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/lysandre_ring.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/maxie_glasses.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/may_bracelet.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/mega_bracelet.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/mega_bracelet_black.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/mega_bracelet_blue.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/mega_bracelet_green.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/mega_bracelet_pink.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/mega_bracelet_red.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/mega_bracelet_yellow.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/mega_ring.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/nanu_z_power_ring.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/olivia_z_power_ring.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/olivias_z_ring.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/omni_ring.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/rocket_z_power_ring.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/tera_orb.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/z_power_ring.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/z_ring.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/z_ring_black.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/z_ring_blue.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/z_ring_green.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/z_ring_pink.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/z_ring_red.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/z_ring_yellow.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
+
+[[files]]
+file = "world/datapacks/pokeserver/data/mega_showdown/recipe/zinnia_mega_anklet.json"
+hash = "643dc848d3431a6c4ccc4925fc5fe23a6eb880f61ed60e29f0b45565a710a639"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/minecraft/tags/function/load.json"

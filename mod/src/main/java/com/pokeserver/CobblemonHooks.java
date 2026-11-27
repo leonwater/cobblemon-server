@@ -39,6 +39,8 @@ public final class CobblemonHooks {
             // 10. 렉 방지: 야생 포켓몬 수 상한 (야생에 있는 사람 1명당 WILD_PER_PLAYER마리)
             if (wildCount >= wildCap) { e.cancel(); return Unit.INSTANCE; }
             var mon = pe.getPokemon();
+            // 전설·환상은 자연 출현(낚시 포함) 없음: 1시간마다 서버가 직접 소환하는 것만 (spawnLegend는 이 이벤트를 안 거침)
+            if (mon.getSpecies().getLabels().contains("legendary") || mon.getSpecies().getLabels().contains("mythical")) { e.cancel(); return Unit.INSTANCE; }
             boolean near = nearFirstSpawn(level.getServer(), e.getSpawnablePosition().getPosition());
             // 전설·환상·울트라비스트·패러독스(Complete Cobblemon Collection의 야생 출현)는 첫 스폰 근처에선 아예 안 나옴 (15레벨로 깎이면 너무 쉬움)
             if (near && mon.getSpecies().getLabels().stream().anyMatch(STRONG::contains)) { e.cancel(); return Unit.INSTANCE; }
