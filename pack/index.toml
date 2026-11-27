@@ -530,7 +530,7 @@ hash = "e07e05557758bd28edd3b922b3202d584add333a89a418a8beb4e5ab8c520365"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/e4/clear.mcfunction"
-hash = "919cd55cdd4b56561dee2afc94ba25041dbe608c42e8747fad3460e78bd8020c"
+hash = "4bd87bd5b6ef32d61e7f2fa944d23a42aa433217a9eeb52078a58b57184572bc"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/e4/win.mcfunction"
@@ -690,7 +690,7 @@ hash = "a0807319268d2a1888436d01dbcd78a23c3677bf6a168a51868ccde3c76e8764"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/league/pads.mcfunction"
-hash = "28dd39596d63c068e8d0dbe08cbe2cbedc849a0dda7c556008c2f40a5c91b244"
+hash = "f2d225eea8bad0e4fcd3b81311b3493023b26a6c12c37aa78dd76c839ff02435"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/league/spawn_tick.mcfunction"

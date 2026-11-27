@@ -182,6 +182,7 @@ const join = name => new Promise((res, rej) => {
   for (let k = 0; k < 4; k++) { await cmd('execute as A run function poke:gym/win'); await sleep(200) }
   assert.match(await cmd('tag A list'), /poke\.e4clear/, '네 명 연속 승리 → 사천왕 클리어')
   await at('A', 'poke:town', 3516, 53, '명예의 전당')
+  assert.doesNotMatch(await g('A'), /has /, '사천왕 클리어 → 도전 풀림 (G 메뉴 이동 가능, 다음 도전자 입장 가능)')
   await cmd('execute in poke:town run tp A 3502.5 -59 48.5'); await sleep(300)
   await at('A', 'poke:town', 2000, -12, '명예의 전당 나가기 발판 → 로비')
   await cmd('execute as A run function poke:gym/try/9')

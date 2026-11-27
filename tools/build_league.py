@@ -471,9 +471,11 @@ def functions():
                                'title @s subtitle {"text":"명예의 전당에 이름을 올렸습니다","color":"yellow"}',
                                'execute if data storage poke:first e4 run tellraw @a [{"text":"[리그] ","color":"gold"},{"selector":"@s"},{"text":"님이 사천왕을 클리어하고 챔피언이 되었습니다! 축하합니다!","color":"gold"}]',
                                'execute unless data storage poke:first e4 run tellraw @a [{"text":"[퍼스트 클리어] ","color":"light_purple","bold":true},{"selector":"@s"},{"text":"님이 서버 최초로 사천왕을 클리어하고 첫 챔피언이 되었습니다! 모두 축하해 주세요!","color":"aqua"}]',
-                               'data modify storage poke:first e4 set value 1'])
+                               'data modify storage poke:first e4 set value 1',
+                               '# 도전 끝: 점수를 풀어야 G 메뉴 이동이 되고 다음 도전자가 사천왕에 들어올 수 있음',
+                               'function poke:gym/release'])
     px, pz, w, d = e['exit']
-    pads.append(f'execute in poke:town as @a[x={px},y={Y},z={pz},dx={w - 1},dy=1,dz={d - 1}] run function poke:gym/leave')
+    pads.append(f'execute in poke:town as @a[x={px},y={Y},z={pz},dx={w - 1},dy=1,dz={d - 1}] run function poke:util/tp with storage poke:config gym')   # 명예의 전당 나가기 (도전은 클리어 때 이미 풀림)
     # 배틀 중엔 발판이 안 먹음 (poke.battling은 모드가 매 틱 붙임): 배틀 도중 순간이동으로 빠져 재도전 대기를 피하지 못하게
     pads += [f'execute in poke:town as @a[x={gx},y={Y},z={gz},dx=0,dy=1,dz=0,tag=!poke.battling] run function poke:gym/leave' for gx, gz, _, _ in e['giveup']]
     win.append('execute if score @s poke.gym matches 9 run function poke:e4/win')
