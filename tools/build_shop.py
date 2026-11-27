@@ -18,6 +18,14 @@ def e(item, buy, badges=0, sell=None):
     return {'item': item, 'buy': buy, 'sell': buy // 4 if sell is None else sell, **({'badges': badges} if badges else {})}
 
 
+# 야생에서 얻을 수 있는 귀중품(메가스톤·Z크리스탈·다이버섯·진화의 돌)은 파는 값을 구매가의 1/20로 (평소 1/4). 야생에서 주워 팔아 큰돈 버는 것 막기
+WILD_SELL = 20
+
+
+def wild(item, buy, badges=0):
+    return e(item, buy, badges, sell=buy // WILD_SELL)
+
+
 def sell_only(item, sell):
     return {'item': item, 'buy': 0, 'sell': sell}
 
@@ -97,9 +105,9 @@ def base_categories(megas, zs, shards):
             e(C + 'max_revive', 4000, 7), e(C + 'max_elixir', 4500, 7)]),
         ('성장', C + 'exp_candy_m', [
             e(C + 'exp_candy_xs', 300), e(C + 'exp_candy_s', 800), e(C + 'everstone', 1000), e(C + 'exp_candy_m', 1500, 1), e(C + 'exp_share', 8000, 1),
-            *[e(C + s, 3000, 1) for s in ('fire_stone', 'water_stone', 'thunder_stone', 'leaf_stone')],
-            e(C + 'moon_stone', 3000, 2), e(C + 'blank_tm', 1000, 2), e(C + 'tm_machine', 5000, 2),
-            *[e(C + s, 3000, 3) for s in ('sun_stone', 'shiny_stone', 'dusk_stone', 'dawn_stone', 'ice_stone')],
+            *[wild(C + s, 3000, 1) for s in ('fire_stone', 'water_stone', 'thunder_stone', 'leaf_stone')],
+            wild(C + 'moon_stone', 3000, 2), e(C + 'blank_tm', 1000, 2), e(C + 'tm_machine', 5000, 2),
+            *[wild(C + s, 3000, 3) for s in ('sun_stone', 'shiny_stone', 'dusk_stone', 'dawn_stone', 'ice_stone')],
             e(C + 'exp_candy_l', 3000, 3), e(C + 'lucky_egg', 10000, 4),
             *[e(C + s, 5000, 4) for s in ('link_cable', 'metal_coat', 'kings_rock', 'dragon_scale', 'upgrade', 'dubious_disc', 'protector',
                                           'electirizer', 'magmarizer', 'reaper_cloth', 'prism_scale', 'razor_claw', 'razor_fang',
@@ -138,9 +146,9 @@ def base_categories(megas, zs, shards):
             *[e(C + c + '_candy', 1000, 7) for c in ('sickly', 'weak', 'brittle', 'numb', 'coward', 'slow')],
             e(C + 'ability_patch', 50000, 8)]),
         ('기믹', MS + 'mega_bracelet', [
-            *[e(MS + z, 10000 if z in TYPE_Z else 15000, 2) for z in zs],
-            *[e(MS + m, 50000 if m in LEGEND_MEGA else 30000, 4) for m in megas],
-            e(MS + 'dynamax_candy', 3000, 6), e(MS + 'max_mushroom', 10000, 6),
+            *[wild(MS + z, 10000 if z in TYPE_Z else 15000, 2) for z in zs],
+            *[wild(MS + m, 50000 if m in LEGEND_MEGA else 30000, 4) for m in megas],
+            e(MS + 'dynamax_candy', 3000, 6), wild(MS + 'max_mushroom', 10000, 6),
             *[e(MS + s, 500, 8) for s in shards]]),
         ('농장', M + 'wheat', [   # ── 마인크래프트 상인 ──
             e('pokeserver:farm_deed', 50000, sell=0), e(M + 'wheat_seeds', 10), e(M + 'carrot', 20), e(M + 'potato', 20),
@@ -206,8 +214,8 @@ def sell_rule(i):
         return '회복', 100
     if i.endswith('_berry'): return '도구', 100 if i[:-6] in RARE_BERRY else 20
     stone = next((st for st in ('fire', 'water', 'thunder', 'leaf', 'moon', 'sun', 'shiny', 'dusk', 'dawn', 'ice') if f'{st}_stone' in i), None)
-    if stone and i.endswith('_ore'): return '성장', 500
-    if stone and i.endswith('_block'): return '성장', 6750      # 진화의 돌 9개 (돌 판매가 750 × 9)
+    if stone and i.endswith('_ore'): return '성장', 3000 // WILD_SELL     # 캐면 돌 1개
+    if stone and i.endswith('_block'): return '성장', 9 * 3000 // WILD_SELL   # 진화의 돌 9개
     if i.endswith('_mint_leaf'): return '성장', 20                 # 야생에 저절로 나고 농장에서 씨앗째 계속 자람 (흔한 열매와 같은 값)
     if 'fossil' in i and i != 'fossil_analyzer': return '기타', 300
     if i == 'relic_coin': return '기타', 100

@@ -21,11 +21,14 @@ public final class BattleScale {
     /** 화면 1 GUI 픽셀이 실제 몇 픽셀인지 (배틀 화면 안 = GUI 크기 × 줄임 비율). */
     public static float pixels() { return (float) Minecraft.getInstance().getWindow().getGuiScale() * f(); }
 
-    /** 3. 왼쪽 아래 행동 선택(싸운다·가방·포켓몬·도망)을 키우는 배율: 원하는 1.5배에 가장 가까우면서 글자 한 점이 정수 픽셀이 되게
-     *  (2.5배 화면이면 1.6배 = 4픽셀. 1.5배면 3.75픽셀이라 픽셀 글꼴이 깨짐). */
-    public static float selScale() {
-        float px = pixels();
-        return Math.max(1, Math.round(1.5f * px)) / px;
+    /** 2. 왼쪽 아래 행동·기술 고르기 배율: 참고 사진(1080p)의 타일 크기 = 코블몬 기본 크기 그대로. 글자만 crisp()로 정수 픽셀. */
+    public static float selScale() { return 1f; }
+
+    /** 2. 화면 아래 HUD(핫바·체력·배고픔·경험치) 배율: 참고 사진처럼 1080p에서 1 GUI 픽셀 = 3 픽셀 (GUI 크기 3과 같은 비율).
+     *  창 높이에 비례하므로 화면이 커져도 같은 비율. GUI 크기를 더 작게 골랐으면 그대로. */
+    public static float hudScale() {
+        var w = Minecraft.getInstance().getWindow();
+        return (float) Math.min(1, 3.0 * w.getHeight() / 1080 / w.getGuiScale());
     }
 
     /** 7. 배틀 기록 글자 배율: 원래보다 한 단계 크고, 한 점이 정수 픽셀 (2.5배 화면이면 1.0 → 1.2 = 3픽셀). 소수 픽셀이면 픽셀 글꼴 획이 들쭉날쭉 깨짐. */
@@ -42,7 +45,14 @@ public final class BattleScale {
     public static boolean isBattle(Object screen) {
         return screen != null && screen.getClass().getName().equals("com.cobblemon.mod.common.client.gui.battle.BattleGUI");
     }
-    /** 커진 행동 선택이 HUD(하트·배고픔 줄, 아래에서 39 GUI px + 흡수 줄)를 덮지 않게 위로 올리는 양 (배틀 좌표).
-     *  기준: 싸운다·가방 타일 아랫변이 배틀 화면 아래에서 30. */
-    public static float lift() { return Math.max(0, 42 / f() - 30 * selScale()); }
+    /** 행동 선택이 HUD(하트·배고픔 줄)를 덮으면 위로 올리는 양 (배틀 좌표). 타일 오른쪽 끝(배틀 좌표 12+93+90)이 하트 줄 왼쪽 끝보다 왼쪽이면 0. */
+    public static float lift() {
+        var w = Minecraft.getInstance().getWindow();
+        double guiW = w.getWidth() / w.getGuiScale(), hud = hudScale();
+        if (195 * f() * selScale() < guiW / 2 - 91 * hud - 2) return 0;
+        return (float) Math.max(0, (39 * hud + 3) / f() - 30 * selScale());
+    }
+
+    /** 5. 배틀 배속 (1·2·4). 서버가 기억, 배틀 화면을 열 때마다 다시 보냄 (다시 접속해도 맞게). */
+    public static int speed = 1;
 }

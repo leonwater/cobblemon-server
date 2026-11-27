@@ -43,8 +43,7 @@ public class PokeServer implements ModInitializer {
             Nicknames.join();
         });
         PayloadTypeRegistry.playC2S().register(Net.ShopTrade.TYPE, Net.ShopTrade.CODEC);
-        PayloadTypeRegistry.playC2S().register(Net.BagUse.TYPE, Net.BagUse.CODEC);
-        PayloadTypeRegistry.playC2S().register(Net.BagBall.TYPE, Net.BagBall.CODEC);
+        PayloadTypeRegistry.playC2S().register(Net.BattleSpeed.TYPE, Net.BattleSpeed.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.MenuOpen.TYPE, Net.MenuOpen.CODEC);
         PayloadTypeRegistry.playC2S().register(Net.MenuAction.TYPE, Net.MenuAction.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.GymOpen.TYPE, Net.GymOpen.CODEC);
@@ -56,8 +55,7 @@ public class PokeServer implements ModInitializer {
                 (m, ctx) -> ctx.player().server.execute(() -> Menu.action(ctx.player(), m.action())));
         if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) {
             CobblemonHooks.register();
-            ServerPlayNetworking.registerGlobalReceiver(Net.BagUse.TYPE, (m, ctx) -> ctx.player().server.execute(() -> CobblemonHooks.bagUse(ctx.player(), m.slot(), m.target())));
-            ServerPlayNetworking.registerGlobalReceiver(Net.BagBall.TYPE, (m, ctx) -> ctx.player().server.execute(() -> CobblemonHooks.bagBall(ctx.player(), m.slot())));
+            ServerPlayNetworking.registerGlobalReceiver(Net.BattleSpeed.TYPE, (m, ctx) -> ctx.player().server.execute(() -> CobblemonHooks.setSpeed(ctx.player(), m.speed())));
         }
         ServerPlayNetworking.registerGlobalReceiver(Net.ClaimConfirm.TYPE,
                 (payload, ctx) -> ctx.player().server.execute(() -> Farms.claim(ctx.player(), payload.plot())));

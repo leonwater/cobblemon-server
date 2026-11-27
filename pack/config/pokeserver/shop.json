@@ -487,31 +487,31 @@
         {
           "item": "cobblemon:fire_stone",
           "buy": 3000,
-          "sell": 750,
+          "sell": 150,
           "badges": 1
         },
         {
           "item": "cobblemon:water_stone",
           "buy": 3000,
-          "sell": 750,
+          "sell": 150,
           "badges": 1
         },
         {
           "item": "cobblemon:thunder_stone",
           "buy": 3000,
-          "sell": 750,
+          "sell": 150,
           "badges": 1
         },
         {
           "item": "cobblemon:leaf_stone",
           "buy": 3000,
-          "sell": 750,
+          "sell": 150,
           "badges": 1
         },
         {
           "item": "cobblemon:moon_stone",
           "buy": 3000,
-          "sell": 750,
+          "sell": 150,
           "badges": 2
         },
         {
@@ -529,31 +529,31 @@
         {
           "item": "cobblemon:sun_stone",
           "buy": 3000,
-          "sell": 750,
+          "sell": 150,
           "badges": 3
         },
         {
           "item": "cobblemon:shiny_stone",
           "buy": 3000,
-          "sell": 750,
+          "sell": 150,
           "badges": 3
         },
         {
           "item": "cobblemon:dusk_stone",
           "buy": 3000,
-          "sell": 750,
+          "sell": 150,
           "badges": 3
         },
         {
           "item": "cobblemon:dawn_stone",
           "buy": 3000,
-          "sell": 750,
+          "sell": 150,
           "badges": 3
         },
         {
           "item": "cobblemon:ice_stone",
           "buy": 3000,
-          "sell": 750,
+          "sell": 150,
           "badges": 3
         },
         {
@@ -707,87 +707,87 @@
         {
           "item": "cobblemon:dawn_stone_block",
           "buy": 0,
-          "sell": 6750
+          "sell": 1350
         },
         {
           "item": "cobblemon:dawn_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:deepslate_dawn_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:deepslate_dusk_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:deepslate_fire_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:deepslate_ice_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:deepslate_leaf_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:deepslate_moon_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:deepslate_shiny_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:deepslate_sun_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:deepslate_thunder_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:deepslate_water_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:dripstone_moon_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:dusk_stone_block",
           "buy": 0,
-          "sell": 6750
+          "sell": 1350
         },
         {
           "item": "cobblemon:dusk_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:fire_stone_block",
           "buy": 0,
-          "sell": 6750
+          "sell": 1350
         },
         {
           "item": "cobblemon:fire_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:green_mint_leaf",
@@ -797,37 +797,37 @@
         {
           "item": "cobblemon:ice_stone_block",
           "buy": 0,
-          "sell": 6750
+          "sell": 1350
         },
         {
           "item": "cobblemon:ice_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:leaf_stone_block",
           "buy": 0,
-          "sell": 6750
+          "sell": 1350
         },
         {
           "item": "cobblemon:leaf_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:moon_stone_block",
           "buy": 0,
-          "sell": 6750
+          "sell": 1350
         },
         {
           "item": "cobblemon:moon_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:nether_fire_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:pink_mint_leaf",
@@ -842,47 +842,47 @@
         {
           "item": "cobblemon:shiny_stone_block",
           "buy": 0,
-          "sell": 6750
+          "sell": 1350
         },
         {
           "item": "cobblemon:shiny_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:sun_stone_block",
           "buy": 0,
-          "sell": 6750
+          "sell": 1350
         },
         {
           "item": "cobblemon:sun_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:terracotta_sun_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:thunder_stone_block",
           "buy": 0,
-          "sell": 6750
+          "sell": 1350
         },
         {
           "item": "cobblemon:thunder_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:water_stone_block",
           "buy": 0,
-          "sell": 6750
+          "sell": 1350
         },
         {
           "item": "cobblemon:water_stone_ore",
           "buy": 0,
-          "sell": 500
+          "sell": 150
         },
         {
           "item": "cobblemon:white_mint_leaf",
@@ -2238,715 +2238,715 @@
         {
           "item": "mega_showdown:aloraichium_z",
           "buy": 15000,
-          "sell": 3750,
+          "sell": 750,
           "badges": 2
         },
         {
           "item": "mega_showdown:buginium_z",
           "buy": 10000,
-          "sell": 2500,
+          "sell": 500,
           "badges": 2
         },
         {
           "item": "mega_showdown:darkinium_z",
           "buy": 10000,
-          "sell": 2500,
+          "sell": 500,
           "badges": 2
         },
         {
           "item": "mega_showdown:decidium_z",
           "buy": 15000,
-          "sell": 3750,
+          "sell": 750,
           "badges": 2
         },
         {
           "item": "mega_showdown:dragonium_z",
           "buy": 10000,
-          "sell": 2500,
+          "sell": 500,
           "badges": 2
         },
         {
           "item": "mega_showdown:eevium_z",
           "buy": 15000,
-          "sell": 3750,
+          "sell": 750,
           "badges": 2
         },
         {
           "item": "mega_showdown:electrium_z",
           "buy": 10000,
-          "sell": 2500,
+          "sell": 500,
           "badges": 2
         },
         {
           "item": "mega_showdown:fairium_z",
           "buy": 10000,
-          "sell": 2500,
+          "sell": 500,
           "badges": 2
         },
         {
           "item": "mega_showdown:fightinium_z",
           "buy": 10000,
-          "sell": 2500,
+          "sell": 500,
           "badges": 2
         },
         {
           "item": "mega_showdown:firium_z",
           "buy": 10000,
-          "sell": 2500,
+          "sell": 500,
           "badges": 2
         },
         {
           "item": "mega_showdown:flyinium_z",
           "buy": 10000,
-          "sell": 2500,
+          "sell": 500,
           "badges": 2
         },
         {
           "item": "mega_showdown:ghostium_z",
           "buy": 10000,
-          "sell": 2500,
+          "sell": 500,
           "badges": 2
         },
         {
           "item": "mega_showdown:grassium_z",
           "buy": 10000,
-          "sell": 2500,
+          "sell": 500,
           "badges": 2
         },
         {
           "item": "mega_showdown:groundium_z",
           "buy": 10000,
-          "sell": 2500,
+          "sell": 500,
           "badges": 2
         },
         {
           "item": "mega_showdown:icium_z",
           "buy": 10000,
-          "sell": 2500,
+          "sell": 500,
           "badges": 2
         },
         {
           "item": "mega_showdown:incinium_z",
           "buy": 15000,
-          "sell": 3750,
+          "sell": 750,
           "badges": 2
         },
         {
           "item": "mega_showdown:kommonium_z",
           "buy": 15000,
-          "sell": 3750,
+          "sell": 750,
           "badges": 2
         },
         {
           "item": "mega_showdown:lunalium_z",
           "buy": 15000,
-          "sell": 3750,
+          "sell": 750,
           "badges": 2
         },
         {
           "item": "mega_showdown:lycanium_z",
           "buy": 15000,
-          "sell": 3750,
+          "sell": 750,
           "badges": 2
         },
         {
           "item": "mega_showdown:marshadium_z",
           "buy": 15000,
-          "sell": 3750,
+          "sell": 750,
           "badges": 2
         },
         {
           "item": "mega_showdown:mewnium_z",
           "buy": 15000,
-          "sell": 3750,
+          "sell": 750,
           "badges": 2
         },
         {
           "item": "mega_showdown:mimikium_z",
           "buy": 15000,
-          "sell": 3750,
+          "sell": 750,
           "badges": 2
         },
         {
           "item": "mega_showdown:normalium_z",
           "buy": 10000,
-          "sell": 2500,
+          "sell": 500,
           "badges": 2
         },
         {
           "item": "mega_showdown:pikanium_z",
           "buy": 15000,
-          "sell": 3750,
+          "sell": 750,
           "badges": 2
         },
         {
           "item": "mega_showdown:pikashunium_z",
           "buy": 15000,
-          "sell": 3750,
+          "sell": 750,
           "badges": 2
         },
         {
           "item": "mega_showdown:poisonium_z",
           "buy": 10000,
-          "sell": 2500,
+          "sell": 500,
           "badges": 2
         },
         {
           "item": "mega_showdown:primarium_z",
           "buy": 15000,
-          "sell": 3750,
+          "sell": 750,
           "badges": 2
         },
         {
           "item": "mega_showdown:psychium_z",
           "buy": 10000,
-          "sell": 2500,
+          "sell": 500,
           "badges": 2
         },
         {
           "item": "mega_showdown:rockium_z",
           "buy": 10000,
-          "sell": 2500,
+          "sell": 500,
           "badges": 2
         },
         {
           "item": "mega_showdown:snorlium_z",
           "buy": 15000,
-          "sell": 3750,
+          "sell": 750,
           "badges": 2
         },
         {
           "item": "mega_showdown:solganium_z",
           "buy": 15000,
-          "sell": 3750,
+          "sell": 750,
           "badges": 2
         },
         {
           "item": "mega_showdown:steelium_z",
           "buy": 10000,
-          "sell": 2500,
+          "sell": 500,
           "badges": 2
         },
         {
           "item": "mega_showdown:tapunium_z",
           "buy": 15000,
-          "sell": 3750,
+          "sell": 750,
           "badges": 2
         },
         {
           "item": "mega_showdown:ultranecrozium_z",
           "buy": 15000,
-          "sell": 3750,
+          "sell": 750,
           "badges": 2
         },
         {
           "item": "mega_showdown:waterium_z",
           "buy": 10000,
-          "sell": 2500,
+          "sell": 500,
           "badges": 2
         },
         {
           "item": "mega_showdown:abomasite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:absolite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:aerodactylite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:aggronite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:alakazite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:altarianite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:ampharosite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:audinite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:banettite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:barbaracite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:baxcalibrite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:beedrillite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:blastoisinite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:blazikenite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:cameruptite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:chandelurite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:chesnaughtite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:chimechite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:clefablite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:crabominite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:darkranite",
           "buy": 50000,
-          "sell": 12500,
+          "sell": 2500,
           "badges": 4
         },
         {
           "item": "mega_showdown:delphoxite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:diancite",
           "buy": 50000,
-          "sell": 12500,
+          "sell": 2500,
           "badges": 4
         },
         {
           "item": "mega_showdown:dragalgite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:dragoninite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:drampanite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:eelektrossite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:emboarite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:excadrite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:falinksite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:feraligite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:floettite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:froslassite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:galladite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:garchompite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:gardevoirite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:gengarite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:glalitite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:glimmoranite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:golisopite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:golurkite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:greninjite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:gyaradosite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:hawluchanite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:heatranite",
           "buy": 50000,
-          "sell": 12500,
+          "sell": 2500,
           "badges": 4
         },
         {
           "item": "mega_showdown:heracronite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:houndoominite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:kangaskhanite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:latiasite",
           "buy": 50000,
-          "sell": 12500,
+          "sell": 2500,
           "badges": 4
         },
         {
           "item": "mega_showdown:latiosite",
           "buy": 50000,
-          "sell": 12500,
+          "sell": 2500,
           "badges": 4
         },
         {
           "item": "mega_showdown:lopunnite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:lucarionite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:magearnite",
           "buy": 50000,
-          "sell": 12500,
+          "sell": 2500,
           "badges": 4
         },
         {
           "item": "mega_showdown:malamarite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:manectite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:mawilite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:medichamite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:meganiumite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:meowsticite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:metagrossite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:pidgeotite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:pinsirite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:pyroarite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:sablenite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:salamencite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:sceptilite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:scizorite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:scolipite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:scovillainite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:scraftinite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:sharpedonite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:skarmorite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:slowbronite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:staraptite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:starminite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:steelixite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:swampertite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:tatsugirinite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:tera_pouch_white",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:tyranitarite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:venusaurite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:victreebelite",
           "buy": 30000,
-          "sell": 7500,
+          "sell": 1500,
           "badges": 4
         },
         {
           "item": "mega_showdown:zeraorite",
           "buy": 50000,
-          "sell": 12500,
+          "sell": 2500,
           "badges": 4
         },
         {
           "item": "mega_showdown:zygardite",
           "buy": 50000,
-          "sell": 12500,
+          "sell": 2500,
           "badges": 4
         },
         {
@@ -2958,7 +2958,7 @@
         {
           "item": "mega_showdown:max_mushroom",
           "buy": 10000,
-          "sell": 2500,
+          "sell": 500,
           "badges": 6
         },
         {

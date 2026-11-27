@@ -20,7 +20,7 @@ abstract class HudBarsMixin {
     @Shadow @Final private Minecraft minecraft;
     @Shadow protected abstract boolean isExperienceBarVisible();
 
-    private static final int SEG = 10, SW = 7, SH = 6, BORDER = 0xFF101319, EMPTY = 0xFF3A3F4A;
+    private static final int SEG = 10, SW = 7, SH = 4, BORDER = 0xFF101319, EMPTY = 0xFF3A3F4A;
 
     /** 칸 10개 (한 칸 7px, 틈 1px = 79px). rtl이면 오른쪽부터 참 (바닐라 배고픔과 같은 방향). */
     private static void pokeserver$segs(GuiGraphics g, int x, int y, float frac, int color, int border, boolean rtl) {
@@ -43,7 +43,7 @@ abstract class HudBarsMixin {
         float m = Math.max(1, max), r = hp / m;
         int c = p.hasEffect(MobEffects.POISON) ? 0xFFA040A0 : p.hasEffect(MobEffects.WITHER) ? 0xFF6B5B8A
                 : p.isFullyFrozen() ? 0xFF8CC8F0 : r <= .2f ? 0xFFFF7070 : 0xFFE04848;
-        int yy = y + 2;   // 하트(9px) 줄 가운데
+        int yy = y + 3;   // 하트(9px) 줄 가운데 (참고 사진처럼 얇게 4px)
         pokeserver$segs(g, x + 1, yy, r, c, blink ? 0xFFFFFFFF : BORDER, false);
         if (absorb > 0) g.fill(x + 1, yy - 2, x + 1 + Math.round(79 * Math.min(1, absorb / m)), yy - 1, 0xFFF0C040);
     }
@@ -52,7 +52,7 @@ abstract class HudBarsMixin {
     private void pokeserver$food(GuiGraphics g, Player p, int y, int right, CallbackInfo ci) {
         ci.cancel();
         int c = p.hasEffect(MobEffects.HUNGER) ? 0xFF78A040 : 0xFFF0C040;
-        pokeserver$segs(g, right - 80, y + 2, p.getFoodData().getFoodLevel() / 20f, c, BORDER, true);
+        pokeserver$segs(g, right - 80, y + 3, p.getFoodData().getFoodLevel() / 20f, c, BORDER, true);
     }
 
     @Inject(method = "renderExperienceBar", at = @At("HEAD"), cancellable = true)

@@ -488,11 +488,12 @@ public final class CobblemonHooks {
     static int wildCount, wildCap = WILD_MIN;
 
     /** 1초마다: 야생에 있는 주인 없는 포켓몬 수와 상한을 다시 셈 (스폰 때마다 세면 느려서). */
-    /** 1초마다: 체육관·사천왕 배틀 중 내 포켓몬을 도전자 앞 7칸(필드 가운데 쪽)으로. 처음 나올 때와 교체로 나올 때 모두
-     *  관장 앞에 나오는 경우가 있어(실측) 멀리 있으면 옮김. */
-    /** 배틀 중 내 포켓몬은 처음 나온 자리에 고정 (R로 배틀 화면을 닫고 걸어도 따라오지 않게). 체육관·사천왕은 처음 자리 = 도전자 앞 7칸 필드.
-     *  자리는 배틀이 끝나거나 포켓몬이 들어가면 지움. */
-    static final java.util.Map<UUID, net.minecraft.world.phys.Vec3> HOLD = new java.util.HashMap<>(), GYM_SPOT = new java.util.HashMap<>();
+    /** 배틀 중 포켓몬은 처음 나온 자리에 고정 (R로 배틀 화면을 닫고 걸어도 따라오지 않게). 자리는 배틀이 끝나거나 포켓몬이 들어가면 지움.
+     *  3. 체육관·사천왕은 도전자 기준 사선: 내 포켓몬 = 앞 OWN_F·왼쪽 OWN_L, 상대 = 앞 FOE_F·오른쪽 FOE_R (원작처럼 양쪽이 다 보이게).
+     *  방향은 배틀 첫 순간(gym/place 직후)의 도전자 방향으로 고정, 서로 마주 보게 돌림. */
+    static final java.util.Map<UUID, net.minecraft.world.phys.Vec3> HOLD = new java.util.HashMap<>();
+    static final java.util.Map<UUID, net.minecraft.world.phys.Vec3[]> GYM_SPOT = new java.util.HashMap<>();
+    static final double OWN_F = 4, OWN_L = 2, FOE_F = 11, FOE_R = 1.5;
 
     static void holdBattlePokemon(MinecraftServer server) {
         java.util.Set<UUID> seen = new java.util.HashSet<>();
@@ -500,13 +501,22 @@ public final class CobblemonHooks {
             var battle = com.cobblemon.mod.common.battles.BattleRegistry.INSTANCE.getBattleByParticipatingPlayer(p);
             if (battle == null) continue;
             seen.add(p.getUUID());
-            net.minecraft.world.phys.Vec3 gym = null;
+            net.minecraft.world.phys.Vec3[] gym = null;   // {내 자리, 상대 자리}
             if (inGym(p) && battle.isPvN()) {
-                var f = p.getForward();   // 7칸: 필드 가운데 몬스터볼 쪽 (4칸이면 큰 포켓몬이 화면을 가림). 배틀 첫 순간(gym/place 직후)의 방향으로 고정
-                gym = GYM_SPOT.computeIfAbsent(p.getUUID(), k -> new net.minecraft.world.phys.Vec3(p.getX() + f.x * 7, p.getY(), p.getZ() + f.z * 7));
+                gym = GYM_SPOT.computeIfAbsent(p.getUUID(), k -> {
+                    var f = p.getForward();
+                    double fx = f.x, fz = f.z, n = Math.hypot(fx, fz);
+                    fx /= n; fz /= n;   // 왼쪽 = (fz, -fx)
+                    return new net.minecraft.world.phys.Vec3[]{
+                            new net.minecraft.world.phys.Vec3(p.getX() + fx * OWN_F + fz * OWN_L, p.getY(), p.getZ() + fz * OWN_F - fx * OWN_L),
+                            new net.minecraft.world.phys.Vec3(p.getX() + fx * FOE_F - fz * FOE_R, p.getY(), p.getZ() + fz * FOE_F + fx * FOE_R)};
+                });
             }
             for (var a : battle.getActors()) {
-                if (!a.getPlayerUUIDs().iterator().hasNext() || !a.getPlayerUUIDs().iterator().next().equals(p.getUUID())) continue;
+                var ids = a.getPlayerUUIDs().iterator();
+                boolean mine = ids.hasNext() && ids.next().equals(p.getUUID());
+                if (!mine && gym == null) continue;   // 상대(관장) 포켓몬은 체육관에서만 옮김
+                if (!mine && a.getPlayerUUIDs().iterator().hasNext()) continue;
                 for (var act : a.getActivePokemon()) {
                     var bp = act.getBattlePokemon();
                     if (bp == null) continue;
@@ -514,10 +524,15 @@ public final class CobblemonHooks {
                     if (en == null) en = bp.getOriginalPokemon().getEntity();
                     if (en == null) continue;
                     seen.add(en.getUUID());
-                    var spot = gym != null ? gym : HOLD.get(en.getUUID());
+                    var spot = gym != null ? gym[mine ? 0 : 1] : HOLD.get(en.getUUID());
                     if (spot == null) { var pos = en.position(); HOLD.put(en.getUUID(), pos); spot = pos; }
                     en.getNavigation().stop();
-                    if (en.distanceToSqr(spot) > (gym != null ? 9 : 2.25)) en.teleportTo(spot.x, spot.y, spot.z);
+                    if (en.distanceToSqr(spot) > (gym != null ? 4 : 2.25)) en.teleportTo(spot.x, spot.y, spot.z);
+                    if (gym != null) {   // 서로 마주 보게
+                        var o = gym[mine ? 1 : 0];
+                        float yaw = (float) (Math.toDegrees(Math.atan2(o.z - spot.z, o.x - spot.x)) - 90);
+                        en.setYRot(yaw); en.setYHeadRot(yaw); en.setYBodyRot(yaw);
+                    }
                 }
             }
         }
@@ -525,30 +540,17 @@ public final class CobblemonHooks {
         GYM_SPOT.keySet().retainAll(seen);
     }
 
-    /** 2. 배틀 가방: 회복 도구 쓰기. 코블몬이 우클릭으로 쓸 때와 같은 함수(대상·차례·사용 가능 검사, 아이템 소모)를 그대로 부름. */
-    static void bagUse(ServerPlayer p, int slot, UUID target) {
-        if (slot < 0 || slot >= p.getInventory().getContainerSize()) return;
-        var st = p.getInventory().getItem(slot);
-        if (!(st.getItem() instanceof com.cobblemon.mod.common.api.item.PokemonSelectingItem item) || item.getBagItem() == null) return;
-        var battle = com.cobblemon.mod.common.battles.BattleRegistry.INSTANCE.getBattleByParticipatingPlayer(p);
-        var actor = battle == null ? null : battle.getActor(p);
-        if (actor == null) return;
-        for (var bp : actor.getPokemonList())
-            if (bp.getOriginalPokemon().getUuid().equals(target)) { item.interactWithSpecificBattle(p, st, bp); return; }
+    /** 5. 배틀 배속 (1·2·4배): 플레이어마다 고른 값. 배틀은 참가한 플레이어 중 가장 느린 값 (플레이어 배틀은 서로 맞춤). */
+    static final java.util.Map<UUID, Integer> SPEED = new java.util.concurrent.ConcurrentHashMap<>();
+
+    static void setSpeed(ServerPlayer p, int speed) {
+        if (speed == 1 || speed == 2 || speed == 4) SPEED.put(p.getUUID(), speed);
     }
 
-    /** 2. 배틀 가방: 볼 고르기 (야생 배틀만) → 그 볼을 지금 손에 든 칸과 바꿔 쥐여 줌. 던지기는 코블몬 "잡기"와 같이 우클릭. */
-    static void bagBall(ServerPlayer p, int slot) {
-        var inv = p.getInventory();
-        if (slot < 0 || slot >= inv.items.size() || !(inv.items.get(slot).getItem() instanceof com.cobblemon.mod.common.item.PokeBallItem)) return;
-        var battle = com.cobblemon.mod.common.battles.BattleRegistry.INSTANCE.getBattleByParticipatingPlayer(p);
-        if (battle == null || !battle.isPvW()) return;
-        int hand = inv.selected;
-        var ball = inv.items.get(slot);
-        inv.items.set(slot, inv.items.get(hand));
-        inv.items.set(hand, ball);
-        p.containerMenu.broadcastChanges();
-        p.displayClientMessage(Component.translatable("cobblemon.battle.throw_pokeball_prompt").withStyle(ChatFormatting.YELLOW), true);
+    public static int battleSpeed(com.cobblemon.mod.common.api.battles.model.PokemonBattle battle) {
+        int s = Integer.MAX_VALUE;
+        for (var a : battle.getActors()) for (var id : a.getPlayerUUIDs()) s = Math.min(s, SPEED.getOrDefault(id, 1));
+        return s == Integer.MAX_VALUE ? 1 : s;
     }
 
     static void countWild(MinecraftServer server) {
