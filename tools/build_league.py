@@ -38,6 +38,7 @@ MS = 'mega_showdown:'
 GYMS = [
     ('leader_brock_019e', '웅', '바위', '회색배지', (150, 150, 155), [
         mon('geodude', 13, ['stealthrock', 'rockblast', 'earthquake', 'suckerpunch'], 'berry_juice', ability='sturdy', nature='adamant', evs={'hp': 36, 'atk': 196, 'def': 116, 'spd': 36, 'spe': 116}),   # gen7lc/Stealth Rock
+        mon('kabuto', 13, ['rapidspin', 'stealthrock', 'knockoff', 'rockslide'], 'eviolite', ability='weakarmor', nature='careful', evs={'hp': 116, 'atk': 36, 'def': 36, 'spd': 156, 'spe': 156}),   # gen8lc/Support (2.2.0: 관장 4마리)
         mon('rhyhorn', 13, ['swordsdance', 'rockpolish', 'earthquake', 'stoneedge'], 'life_orb', nature='adamant', evs={'atk': 236, 'spd': 116, 'spe': 156}),   # gen9lc/Setup Sweeper
         mon('onix', 15, ['earthquake', 'rockblast', 'stealthrock', 'explosion'], 'rocky_helmet', ability='sturdy', nature='jolly', evs={'hp': 76, 'atk': 236, 'spe': 196})]),   # gen8lc/SturdyJuice
     ('leader_lt_surge_01a0', '마티스', '전기', '오렌지배지', (240, 150, 40), [
@@ -58,12 +59,14 @@ GYMS = [
         mon('muk', 44, ['toxic', 'protect', 'knockoff', 'drainpunch'], 'leftovers', ability='stickyhold', nature='impish', evs={'hp': 248, 'def': 252, 'spd': 8}),   # gen9pu/ToxTect
         mon('crobat', 45, ['nastyplot', 'sludgebomb', 'heatwave', 'gigadrain'], MS + 'poisonium_z', nature='timid', evs={'spa': 252, 'spd': 4, 'spe': 252})]),   # gen8ru/Nasty Plot
     ('leader_sabrina_01a4', '초련', '에스퍼', '골드배지', (240, 200, 60), [
+        mon('slowbro', 53, ['calmmind', 'psychicnoise', 'scald', 'slackoff'], 'heavy_duty_boots', ability='regenerator', nature='bold', evs={'hp': 252, 'def': 252, 'spd': 4}),   # gen9uu/Calm Mind (2.2.0: 관장 6마리)
         mon('gallade', 53, ['swordsdance', 'sacredsword', 'psychocut', 'leafblade'], 'lum_berry', ability='sharpness', nature='jolly', evs={'atk': 252, 'spd': 4, 'spe': 252}),   # gen9ru/Setup Sweeper
         mon('mrmime', 53, ['nastyplot', 'dazzlinggleam', 'focusblast', 'psyshock'], 'life_orb', nature='timid', evs={'spa': 252, 'spd': 4, 'spe': 252}),   # gen7pu/Nasty Plot
         mon('jynx', 53, ['lovelykiss', 'nastyplot', 'icebeam', 'psyshock'], 'focus_sash', ability='dryskin', nature='timid', evs={'def': 4, 'spa': 252, 'spe': 252}),   # gen7pu/Z-Lovely Kiss
         mon('espeon', 54, ['calmmind', 'psychic', 'shadowball', 'morningsun'], MS + 'psychium_z', ability='magicbounce', nature='timid', evs={'def': 4, 'spa': 252, 'spe': 252}),   # gen7ru/Calm Mind
         mon('alakazam', 55, ['nastyplot', 'psychic', 'focusblast', 'shadowball'], MS + 'alakazite', ability='magicguard', nature='timid', evs={'def': 4, 'spa': 252, 'spe': 252})]),   # gen9nationaldexuu/Nasty Plot
     ('leader_giovanni_015e', '비주기', '땅', '그린배지', (70, 170, 80), [
+        mon('marowak', 63, ['bonemerang', 'stoneedge', 'swordsdance', 'knockoff'], 'thick_club', ability='rockhead', nature='adamant', evs={'atk': 252, 'def': 4, 'spe': 252}),   # gen6nu/Bone Crusher (Wallbreaker) (2.2.0: 관장 6마리)
         mon('dugtrio', 63, ['earthquake', 'screech', 'substitute', 'memento'], 'focus_sash', ability='arenatrap', nature='adamant', evs={'atk': 252, 'def': 4, 'spe': 252}),   # gen7ubers/Utility Trapper
         mon('nidoqueen', 63, ['stealthrock', 'earthpower', 'sludgewave', 'fireblast'], 'leftovers', ability='sheerforce', nature='modest', evs={'hp': 120, 'spa': 252, 'spe': 136}),   # gen8uu/Offensive Stealth Rock
         mon('steelix', 64, ['stealthrock', 'earthquake', 'heavyslam', 'toxic'], MS + 'steelixite', ability='sturdy', nature='careful', evs={'hp': 252, 'def': 4, 'spd': 252}),   # gen8ru/Defensive

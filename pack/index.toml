@@ -101,8 +101,8 @@ hash = "50123c09c4693cf847ac3420fcef7cdb94ba57096b9dbb9f13deabedc8d9f62e"
 metafile = true
 
 [[files]]
-file = "mods/pokeserver-2.1.0.jar"
-hash = "da9a142bffdc75655b6cc0fdd89f2146e2340c6049f9f816cf6351c113e50300"
+file = "mods/pokeserver-2.2.0.jar"
+hash = "56f1d677ae7eddc0279b4e4e45a545c828e7ac252bdd8cbb82af23a76ecc754d"
 
 [[files]]
 file = "mods/rctapi.pw.toml"
@@ -1086,7 +1086,7 @@ hash = "7468eec27984a4c1d1e3b699991838373a5b724fe13fdfcfbfeaefd793669417"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/trainers/leader_brock_019e.json"
-hash = "7ddfd059cbd37f5a63b333eefca3fa32c2b84e7a1b94bbf660e5b56a210de884"
+hash = "9992b7f705f257d560939592b70c9dbcd2b99a1deed64442fd7f22511c9e6bb6"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/trainers/leader_erika_01a1.json"
@@ -1094,7 +1094,7 @@ hash = "5c746ed104b30f091c5ccdea338348ff43f85e5738fc67f8b44c304dd1775fe5"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/trainers/leader_giovanni_015e.json"
-hash = "39cac09ecde7c8b8c811a078330e0fd9939a6446c1ff026d533afa0d0097a5ee"
+hash = "4129da1dc5444fc2f5f896e3f58220b89dfc2ab24e13b0aaba48b7cdf1068ccd"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/trainers/leader_koga_01a2.json"
@@ -1110,7 +1110,7 @@ hash = "f127b8782d7acf06757f5bef986a5b72e03ec5c9008eb67f6fa1d4032a029b47"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/trainers/leader_sabrina_01a4.json"
-hash = "e324a9ce0963ddcafeb654f4730894310018043319d097c8c9f0980b555ebc47"
+hash = "66ad42a90d4031ae8b169fe991881923fe54eb7f1b0090096a347ca9d3c52710"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/rctmod/trainers/trainer_red_0003.json"

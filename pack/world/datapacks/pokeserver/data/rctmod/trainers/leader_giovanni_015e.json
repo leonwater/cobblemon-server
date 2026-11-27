@@ -18,6 +18,32 @@
  ],
  "team": [
   {
+   "species": "marowak",
+   "level": 63,
+   "moveset": [
+    "bonemerang",
+    "stoneedge",
+    "swordsdance",
+    "knockoff"
+   ],
+   "heldItem": "cobblemon:thick_club",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "atk": 252,
+    "def": 4,
+    "spe": 252
+   },
+   "nature": "adamant",
+   "ability": "rockhead"
+  },
+  {
    "species": "dugtrio",
    "level": 63,
    "moveset": [

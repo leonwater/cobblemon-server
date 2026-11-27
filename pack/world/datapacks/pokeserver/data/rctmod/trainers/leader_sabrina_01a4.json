@@ -18,6 +18,32 @@
  ],
  "team": [
   {
+   "species": "slowbro",
+   "level": 53,
+   "moveset": [
+    "calmmind",
+    "psychicnoise",
+    "scald",
+    "slackoff"
+   ],
+   "heldItem": "cobblemon:heavy_duty_boots",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 252,
+    "def": 252,
+    "spd": 4
+   },
+   "nature": "bold",
+   "ability": "regenerator"
+  },
+  {
    "species": "gallade",
    "level": 53,
    "moveset": [

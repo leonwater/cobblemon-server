@@ -46,6 +46,34 @@
    "ability": "sturdy"
   },
   {
+   "species": "kabuto",
+   "level": 13,
+   "moveset": [
+    "rapidspin",
+    "stealthrock",
+    "knockoff",
+    "rockslide"
+   ],
+   "heldItem": "cobblemon:eviolite",
+   "ivs": {
+    "hp": 31,
+    "atk": 31,
+    "def": 31,
+    "spa": 31,
+    "spd": 31,
+    "spe": 31
+   },
+   "evs": {
+    "hp": 116,
+    "atk": 36,
+    "def": 36,
+    "spd": 156,
+    "spe": 156
+   },
+   "nature": "careful",
+   "ability": "weakarmor"
+  },
+  {
    "species": "rhyhorn",
    "level": 13,
    "moveset": [
