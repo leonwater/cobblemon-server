@@ -543,6 +543,9 @@ public final class CobblemonHooks {
     /** 5. 배틀 배속 (1·2·4배): 플레이어마다 고른 값. 배틀은 참가한 플레이어 중 가장 느린 값 (플레이어 배틀은 서로 맞춤). */
     static final java.util.Map<UUID, Integer> SPEED = new java.util.concurrent.ConcurrentHashMap<>();
 
+    /** 기술 연출 키프레임이 도는 동안의 배속 (ActionSpeedMixin·DelaySpeedMixin). */
+    public static final ThreadLocal<Integer> ACTION_SPEED = ThreadLocal.withInitial(() -> 1);
+
     static void setSpeed(ServerPlayer p, int speed) {
         if (speed == 1 || speed == 2 || speed == 4) SPEED.put(p.getUUID(), speed);
     }

@@ -23,8 +23,8 @@ abstract class EbuiConfigMixin {
         if (px != null) cir.setReturnValue(px);
     }
 
-    /** 4. 배틀 정보 판 오른쪽 끝을 SHRINK만큼 왼쪽으로 (오른쪽 상대 파티 볼 줄을 안 가리게). 왼쪽 끝은 그대로 (기본 자리 = 화면 폭 - 200 - 10). 직접 옮긴 값이 있으면 그대로. */
-    @Inject(method = "getPanelWidth", at = @At("RETURN"), cancellable = true)
+    /** 4. 배틀 정보 판 오른쪽 끝을 SHRINK만큼 왼쪽으로 (오른쪽 상대 파티 볼 줄을 안 가리게). 펼침·접힘 모두. 왼쪽 끝은 그대로 (기본 자리 = 화면 폭 - 200 - 10). 직접 옮긴 값이 있으면 그대로. */
+    @Inject(method = {"getPanelWidth", "getCollapsedWidth"}, at = @At("RETURN"), cancellable = true)
     private void pokeserver$width(CallbackInfoReturnable<Integer> cir) { if (cir.getReturnValue() == null) cir.setReturnValue(200 - pokeserver$SHRINK); }
 
     @Inject(method = "getPanelX", at = @At("RETURN"), cancellable = true)

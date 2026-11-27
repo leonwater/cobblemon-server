@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-/** 3. 배틀 화면 왼쪽 아래 행동 선택(싸운다·가방·포켓몬·도망, 기술·교체·대상 고르기)을 왼쪽 아래 모서리 기준으로 키워 그림.
+/** 3. 배틀 화면 왼쪽 아래 행동 선택(싸운다·포켓몬·도망, 기술·교체·대상 고르기)을 왼쪽 아래 모서리 기준으로 키워 그림.
  *  마우스 좌표도 같은 비율로 되돌려 넘겨서 눌리는 자리 = 보이는 자리. */
 @Mixin(AbstractWidget.class)
 abstract class SelectionScaleMixin {
