@@ -108,7 +108,7 @@ ELITE = [
         mon('milotic', 87, ['recover', 'scald', 'flipturn', 'alluringvoice'], 'rocky_helmet', ability='marvelscale', nature='bold', evs={'hp': 252, 'def': 248, 'spe': 8}),   # gen9pu/Physically Defensive
         mon('togekiss', 88, ['nastyplot', 'airslash', 'roost', 'healbell'], 'heavy_duty_boots', tera='fairy', ability='serenegrace', nature='timid', evs={'hp': 252, 'def': 120, 'spe': 136}),   # gen8ou/Stallbreaker
         mon('lucario', 88, ['nastyplot', 'focusblast', 'flashcannon', 'vacuumwave'], MS + 'fightinium_z', ability='innerfocus', nature='timid', evs={'spa': 252, 'spd': 4, 'spe': 252}),   # gen7uu/Nasty Plot
-        mon('garchomp', 90, ['earthquake', 'dragontail', 'stealthrock', 'spikes'], MS + 'garchompite', ability='roughskin', nature='impish', evs={'hp': 252, 'def': 216, 'spe': 40})]),   # gen9ou/TankChomp
+        mon('garchomp', 90, ['earthquake', 'dragontail', 'stoneedge', 'spikes'], MS + 'garchompite', ability='roughskin', nature='impish', evs={'hp': 252, 'def': 216, 'spe': 40})]),   # gen9ou/TankChomp
     ('champion_leon_ps', '단델', '가라르 챔피언', [
         mon('aegislash', 87, ['substitute', 'toxic', 'kingsshield', 'shadowball'], 'leftovers', tera='ghost', nature='modest', evs={'hp': 252, 'spa': 56, 'spd': 156, 'spe': 44}),   # gen9nationaldexuu/SubToxic
         mon('rhyperior', 87, ['stealthrock', 'earthquake', 'stoneedge', 'swordsdance'], 'weakness_policy', ability='solidrock', nature='adamant', evs={'hp': 252, 'atk': 16, 'spd': 184, 'spe': 56}),   # gen9uu/Offensive
