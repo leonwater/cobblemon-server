@@ -21,9 +21,6 @@ public final class BattleScale {
     /** 화면 1 GUI 픽셀이 실제 몇 픽셀인지 (배틀 화면 안 = GUI 크기 × 줄임 비율). */
     public static float pixels() { return (float) Minecraft.getInstance().getWindow().getGuiScale() * f(); }
 
-    /** 2. 왼쪽 아래 행동·기술 고르기 배율: 참고 사진(1080p)의 타일 크기 = 코블몬 기본 크기 그대로. 글자만 crisp()로 정수 픽셀. */
-    public static float selScale() { return 1f; }
-
     /** 2. 화면 아래 HUD(핫바·체력·배고픔·경험치) 배율: 참고 사진처럼 1080p에서 1 GUI 픽셀 = 3 픽셀 (GUI 크기 3과 같은 비율).
      *  창 높이에 비례하므로 화면이 커져도 같은 비율. GUI 크기를 더 작게 골랐으면 그대로. */
     public static float hudScale() {
@@ -49,8 +46,8 @@ public final class BattleScale {
     public static float lift() {
         var w = Minecraft.getInstance().getWindow();
         double guiW = w.getWidth() / w.getGuiScale(), hud = hudScale();
-        if (195 * f() * selScale() < guiW / 2 - 91 * hud - 2) return 0;
-        return (float) Math.max(0, (39 * hud + 3) / f() - 30 * selScale());
+        if (195 * f() < guiW / 2 - 91 * hud - 2) return 0;
+        return (float) Math.max(0, (39 * hud + 3) / f() - 30);
     }
 
     /** 5. 배틀 배속 (1·2·4). 서버가 기억, 배틀 화면을 열 때마다 다시 보냄 (다시 접속해도 맞게). */

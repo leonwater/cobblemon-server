@@ -21,7 +21,7 @@ abstract class OptionTileMixin {
 
     /** 2. 타일 이름 글자 배율 1.0 → 한 점이 정수 픽셀인 가장 가까운 큰 값 (1080p면 1.2 = 3픽셀). 타일 크기는 그대로. */
     @ModifyArg(method = "method_25394", at = @At(value = "INVOKE", target = "Lcom/cobblemon/mod/common/client/render/RenderHelperKt;drawScaledText$default(Lnet/minecraft/class_332;Lnet/minecraft/class_2960;Lnet/minecraft/class_5250;Ljava/lang/Number;Ljava/lang/Number;FLjava/lang/Number;IIZZLjava/lang/Integer;Ljava/lang/Integer;ILjava/lang/Object;)V"), index = 5)
-    private float pokeserver$crispText(float k) { return BattleScale.crisp(k * BattleScale.selScale() - 1e-3f) / BattleScale.selScale(); }
+    private float pokeserver$crispText(float k) { return BattleScale.crisp(k - 1e-3f); }
 
     /** 5. 참고 사진처럼 타일 오른쪽 끝에 얇은 색 띠 (싸운다 빨강, 포켓몬 초록, 포기·도망 회색, 잡기 노랑). */
     @Inject(method = "method_25394", at = @At("TAIL"))

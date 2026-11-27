@@ -89,31 +89,6 @@ public final class Theme {
         return min >= max * 0.7;
     }
 
-    // ── 둥근 카드 스타일 (ui-ux-pro-max 클레이모피즘의 구조: 둥근 모서리·굵은 테두리·이중 그림자) — 색은 기존 어두운 반투명 계열 ──
-    public static final int C_PRIMARY = SELECT, C_SECONDARY = 0xFF9B86D6, C_ACCENT = GOLD;
-    public static final int C_BG = PANEL, C_CARD = TILE, C_MUTED = 0xD0181B22, C_BORDER = BORDER;
-    public static final int C_TEXT = TEXT, C_SUB = SUBTEXT, C_TRACK = 0xFF3A4152;
-
-    /** 둥근 사각형 채우기 (모서리 r픽셀을 계단처럼 깎음). */
-    public static void round(GuiGraphics g, int x1, int y1, int x2, int y2, int r, int color) {
-        for (int i = 0; i < r; i++) {
-            int inset = r - (int) Math.round(Math.sqrt(r * r - (r - i - 0.5) * (r - i - 0.5)));
-            g.fill(x1 + inset, y1 + i, x2 - inset, y1 + i + 1, color);
-            g.fill(x1 + inset, y2 - i - 1, x2 - inset, y2 - i, color);
-        }
-        g.fill(x1, y1 + r, x2, y2 - r, color);
-    }
-
-    /** 클레이 카드: 아래 그림자 + 테두리 + 몸통 + 위 하이라이트 + 아래 음영. */
-    public static void clay(GuiGraphics g, int x1, int y1, int x2, int y2, int fill, int border) {
-        round(g, x1 + 1, y1 + 3, x2 + 1, y2 + 3, 5, SHADOW);
-        round(g, x1, y1, x2, y2, 5, border);
-        round(g, x1 + 2, y1 + 2, x2 - 2, y2 - 2, 4, fill);
-        g.fill(x1 + 6, y1 + 3, x2 - 6, y1 + 4, mix(fill, 0xFFFFFFFF, 0.10f));   // 위쪽 은은한 하이라이트
-        g.fill(x1 + 6, y2 - 4, x2 - 6, y2 - 3, mix(fill, 0xFF000000, 0.25f));
-    }
-
-
     /** 모서리 1픽셀을 깎은 패널 + 아래쪽 그림자. */
     public static void panel(GuiGraphics g, int x1, int y1, int x2, int y2, int fill) {
         panel(g, x1, y1, x2, y2, fill, BORDER);
