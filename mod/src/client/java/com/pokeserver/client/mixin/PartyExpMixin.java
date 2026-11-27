@@ -12,9 +12,9 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 abstract class PartyExpMixin {
     @Redirect(method = "pokemonGainedExp", at = @At(value = "INVOKE",
             target = "Lcom/cobblemon/mod/common/client/gui/PartyOverlayDataControl$ExpGainedData;setOldLevel(Ljava/lang/Integer;)V"))
-    private void pokeserver$keepNewLevel(Object data, Integer old) { }
+    private void pokeserver$keepNewLevel(com.cobblemon.mod.common.client.gui.PartyOverlayDataControl.ExpGainedData data, Integer old) { }
 
     @Redirect(method = "pokemonGainedExp", at = @At(value = "INVOKE",
             target = "Lcom/cobblemon/mod/common/client/gui/PartyOverlayDataControl$ExpGainedData;setExpGained(I)V"))
-    private void pokeserver$keepNewExp(Object data, int exp) { }
+    private void pokeserver$keepNewExp(com.cobblemon.mod.common.client.gui.PartyOverlayDataControl.ExpGainedData data, int exp) { }
 }
