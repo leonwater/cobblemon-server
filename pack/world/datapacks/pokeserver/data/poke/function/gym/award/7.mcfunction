@@ -5,6 +5,7 @@ function poke:mod/reward/7
 title @s title {"text":"무지개배지 획득!","color":"gold"}
 execute if data storage poke:first g7 run tellraw @a [{"text":"[리그] ","color":"gold"},{"selector":"@s"},{"text":"님이 7번째 체육관을 클리어하였습니다! (관장 민화 · 무지개배지) 축하합니다!","color":"yellow"}]
 execute unless data storage poke:first g7 run tellraw @a [{"text":"[퍼스트 클리어] ","color":"light_purple","bold":true},{"selector":"@s"},{"text":"님이 서버 최초로 7번째 체육관을 클리어하였습니다! (관장 민화 · 무지개배지) 모두 축하해 주세요!","color":"aqua"}]
+execute unless data storage poke:first g7 run tag @s add poke.firstclear
 data modify storage poke:first g7 set value 1
 function poke:mod/prize/16000
 function poke:gym/leave

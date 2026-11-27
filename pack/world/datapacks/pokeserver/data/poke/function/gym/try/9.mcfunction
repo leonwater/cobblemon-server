@@ -6,6 +6,8 @@ execute unless entity @s[tag=poke.badge8] run return run function poke:gym/deny/
 execute store result score #now poke.gymcd run time query gametime
 execute if score @s poke.gymcd > #now poke.gymcd run return run function poke:gym/deny/9 {msg:"관장에게 진 뒤 1분 동안은 다시 도전할 수 없어요."}
 execute if entity @a[scores={poke.gym=9}] run return run function poke:gym/deny/9 {msg:"다른 도전자가 사천왕에 도전 중이에요. 잠시 후 다시 와 주세요."}
+execute if entity @s[tag=poke.e4tried] run tag @s add poke.e4retry
+tag @s add poke.e4tried
 scoreboard players set @s poke.gym 9
 scoreboard players set @s poke.e4 0
 execute in poke:town run tp @s 3516.5 -59 -34.5 -90 0

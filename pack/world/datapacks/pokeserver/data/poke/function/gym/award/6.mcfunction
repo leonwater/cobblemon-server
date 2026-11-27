@@ -5,6 +5,7 @@ function poke:mod/reward/6
 title @s title {"text":"그린배지 획득!","color":"gold"}
 execute if data storage poke:first g6 run tellraw @a [{"text":"[리그] ","color":"gold"},{"selector":"@s"},{"text":"님이 6번째 체육관을 클리어하였습니다! (관장 비주기 · 그린배지) 축하합니다!","color":"yellow"}]
 execute unless data storage poke:first g6 run tellraw @a [{"text":"[퍼스트 클리어] ","color":"light_purple","bold":true},{"selector":"@s"},{"text":"님이 서버 최초로 6번째 체육관을 클리어하였습니다! (관장 비주기 · 그린배지) 모두 축하해 주세요!","color":"aqua"}]
+execute unless data storage poke:first g6 run tag @s add poke.firstclear
 data modify storage poke:first g6 set value 1
 function poke:mod/prize/14000
 function poke:gym/leave

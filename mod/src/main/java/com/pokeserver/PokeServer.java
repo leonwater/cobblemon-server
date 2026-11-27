@@ -136,6 +136,11 @@ public class PokeServer implements ModInitializer {
             for (String name : new String[]{"pay", "송금"}) dispatcher.register(Commands.literal(name)
                     .then(Commands.argument("args", com.mojang.brigadier.arguments.StringArgumentType.greedyString()).suggests(Nicknames::suggest).executes(PokeServer::pay)));
         });
+        // 7. 칭호 "나무열매 명인": 다 자란 작물 수확 수
+        net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, be) -> {
+            if (state.getBlock() instanceof net.minecraft.world.level.block.CropBlock c && c.isMaxAge(state) && player instanceof net.minecraft.server.level.ServerPlayer sp)
+                Titles.add(sp, "harvest", 1);
+        });
         LOG.info("pokeserver loaded");
     }
 

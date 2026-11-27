@@ -127,16 +127,24 @@ public final class CobblemonHooks {
         });
         // 체육관·사천왕: NPC 배틀이 끝나면 승패를 데이터팩에 알림 (체육관 안이 아니면 함수가 아무것도 안 함)
         CobblemonEvents.BATTLE_VICTORY.subscribe(Priority.NORMAL, e -> {
-            if (e.getBattle().isPvP()) {   // 7. 칭호: 플레이어 배틀 승수
+            if (e.getBattle().isPvP()) {   // 7. 칭호: 플레이어 배틀 승수·연승
                 MinecraftServer server = null;
                 for (var p : e.getBattle().getPlayers()) server = p.server;
-                if (server != null) for (var a : e.getWinners()) for (UUID id : a.getPlayerUUIDs()) Titles.add(server, id, "pvp", 1);
+                if (server != null) {
+                    for (var a : e.getWinners()) for (UUID id : a.getPlayerUUIDs()) Titles.pvp(server, id, true);
+                    for (var a : e.getLosers()) for (UUID id : a.getPlayerUUIDs()) Titles.pvp(server, id, false);
+                }
             }
             if (e.getBattle().isPvW()) wildZCrystal(e);
             if (e.getBattle().isPvN()) {
                 MinecraftServer server = null;
                 for (var p : e.getBattle().getPlayers()) server = p.server;
                 if (server != null) {
+                    // 칭호 "퍼펙트": 관장전(1~8)을 내 포켓몬 하나도 기절하지 않고 이김 (도전 점수가 풀리기 전에 셈)
+                    for (var a : e.getWinners()) for (UUID id : a.getPlayerUUIDs()) {
+                        var p = server.getPlayerList().getPlayer(id);
+                        if (p != null && Gym.score(p) >= 1 && Gym.score(p) <= 8 && a.getPokemonList().stream().allMatch(b -> b.getHealth() > 0)) Titles.add(p, "perfect", 1);
+                    }
                     for (var a : e.getWinners()) for (UUID id : a.getPlayerUUIDs()) gymResult(server, id, "win");
                     for (var a : e.getLosers()) for (UUID id : a.getPlayerUUIDs()) gymResult(server, id, "lose");
                 }
@@ -147,8 +155,10 @@ public final class CobblemonHooks {
         CobblemonEvents.POKEMON_CAPTURED.subscribe(Priority.NORMAL, e -> {
             var labels = e.getPokemon().getSpecies().getLabels();
             if (labels.contains("legendary") || labels.contains("mythical")) Titles.add(e.getPlayer(), "legend", 1);
+            if (e.getPokemon().getShiny()) Titles.add(e.getPlayer(), "shiny", 1);
             return Unit.INSTANCE;
         });
+        titleEvents();
         CobblemonEvents.BATTLE_FLED.subscribe(Priority.NORMAL, e -> {
             if (e.getBattle().isPvN()) gymResult(e.getPlayer().getEntity().server, e.getPlayer().getUuid(), "lose");
             return Unit.INSTANCE;
@@ -607,6 +617,64 @@ public final class CobblemonHooks {
                     .append(stack.getHoverName()).append(Component.literal("을(를) 떨어뜨렸어요!").withStyle(ChatFormatting.GOLD)));
             if (!p.getInventory().add(stack)) p.drop(stack, false);
         }
+    }
+
+    /** 7. 칭호 기록: 야생 포켓몬·알파 쓰러뜨림, 낚시, 화석 복원, 레벨 100, 나무열매 수확, 메가진화·Z기술·테라스탈·다이맥스. */
+    static void titleEvents() {
+        CobblemonEvents.BATTLE_FAINTED.subscribe(Priority.NORMAL, e -> {
+            var killed = e.getKilled();
+            if (killed.getActor().getType() == com.cobblemon.mod.common.api.battles.model.actor.ActorType.WILD)
+                for (var p : e.getBattle().getPlayers()) {
+                    Titles.add(p, "wild", 1);
+                    if (killed.getEffectedPokemon().isAlpha()) Titles.add(p, "alpha", 1);
+                }
+            return Unit.INSTANCE;
+        });
+        CobblemonEvents.BOBBER_SPAWN_POKEMON_POST.subscribe(Priority.NORMAL, e -> {
+            if (e.getBobber().getPlayerOwner() instanceof net.minecraft.server.level.ServerPlayer p) Titles.add(p, "fish", 1);
+            return Unit.INSTANCE;
+        });
+        CobblemonEvents.FOSSIL_REVIVED.subscribe(Priority.NORMAL, e -> {
+            if (e.getPlayer() != null) Titles.add(e.getPlayer(), "fossil", 1);
+            return Unit.INSTANCE;
+        });
+        CobblemonEvents.LEVEL_UP_EVENT.subscribe(Priority.NORMAL, e -> {
+            if (e.getNewLevel() >= 100 && e.getPokemon().getOwnerPlayer() instanceof net.minecraft.server.level.ServerPlayer p) ServerData.get(p.server).stats(p.getUUID()).putLong("lv100", 1);
+            return Unit.INSTANCE;
+        });
+        CobblemonEvents.BERRY_HARVEST.subscribe(Priority.NORMAL, e -> {
+            Titles.add(e.getPlayer(), "harvest", 1);
+            return Unit.INSTANCE;
+        });
+        CobblemonEvents.MEGA_EVOLUTION.subscribe(Priority.NORMAL, e -> { gimmick(e.getPokemon(), "mega"); return Unit.INSTANCE; });
+        CobblemonEvents.ZPOWER_USED.subscribe(Priority.NORMAL, e -> { gimmick(e.getPokemon(), "zmove"); return Unit.INSTANCE; });
+        CobblemonEvents.TERASTALLIZATION.subscribe(Priority.NORMAL, e -> { gimmick(e.getPokemon(), "tera"); return Unit.INSTANCE; });
+        // 다이맥스는 Mega Showdown 이벤트 (컴파일 의존성이 없어 이름으로 찾아 등록)
+        try {
+            Class<?> cb = Class.forName("com.github.yajatkaul.mega_showdown.api.event.DynamaxStartCallback");
+            Object listener = java.lang.reflect.Proxy.newProxyInstance(cb.getClassLoader(), new Class<?>[]{cb}, (proxy, m, args) -> {
+                if (m.getName().equals("onDynamaxStart") && args != null && args.length > 1
+                        && args[1] instanceof com.cobblemon.mod.common.battles.pokemon.BattlePokemon b) gimmick(b, "dmax");
+                return m.getName().equals("hashCode") ? System.identityHashCode(proxy) : m.getName().equals("equals") ? proxy == args[0] : null;
+            });
+            Class.forName("dev.architectury.event.Event").getMethod("register", Object.class).invoke(cb.getField("EVENT").get(null), listener);
+        } catch (ReflectiveOperationException | RuntimeException ex) {
+            PokeServer.LOG.warn("다이맥스 칭호 기록을 못 붙임: {}", ex.toString());
+        }
+    }
+
+    /** 플레이어 쪽 포켓몬이 쓴 기믹만 셈. */
+    private static void gimmick(com.cobblemon.mod.common.battles.pokemon.BattlePokemon b, String key) {
+        if (b.getActor().getType() != com.cobblemon.mod.common.api.battles.model.actor.ActorType.PLAYER) return;
+        for (var p : b.getActor().getBattle().getPlayers())
+            for (UUID id : b.getActor().getPlayerUUIDs()) if (p.getUUID().equals(id)) Titles.add(p, key, 1);
+    }
+
+    /** 파티에서 가장 높은 레벨. */
+    static int maxPartyLevel(net.minecraft.server.level.ServerPlayer p) {
+        int max = 0;
+        for (var mon : com.cobblemon.mod.common.Cobblemon.INSTANCE.getStorage().getParty(p)) if (mon != null) max = Math.max(max, mon.getLevel());
+        return max;
     }
 
     private static void gymResult(MinecraftServer server, UUID id, String result) {

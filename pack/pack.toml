@@ -1,12 +1,12 @@
 name = "잡켓몬 서버"
 author = "admin"
-version = "2.3.0"
+version = "2.4.0"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "9ecd40a3e798caab4442adac4e6052341c1eef8994684ff36a6d34527fb957fa"
+hash = "87c9fa7c8f04c781f1ede2429d60307ac27b33920c656c55615be55362995cbf"
 
 [versions]
 fabric = "0.20.1"

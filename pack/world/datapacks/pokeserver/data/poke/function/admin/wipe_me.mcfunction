@@ -16,6 +16,10 @@ tag @s remove poke.badge5
 tag @s remove poke.badge6
 tag @s remove poke.badge7
 tag @s remove poke.badge8
+tag @s remove poke.e4tried
+tag @s remove poke.e4retry
+tag @s remove poke.e4first
+tag @s remove poke.firstclear
 xp set @s 0 levels
 xp set @s 0 points
 scoreboard players reset @s poke.gymcd

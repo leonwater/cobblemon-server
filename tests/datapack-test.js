@@ -181,6 +181,8 @@ const join = name => new Promise((res, rej) => {
   await at('A', 'poke:town', 3516, -35, '포기 뒤 바로 다시 도전 가능 (진 게 아님)')
   for (let k = 0; k < 4; k++) { await cmd('execute as A run function poke:gym/win'); await sleep(200) }
   assert.match(await cmd('tag A list'), /poke\.e4clear/, '네 명 연속 승리 → 사천왕 클리어')
+  assert.match(await cmd('tag A list'), /poke\.firstclear/, '칭호: 서버 첫 클리어 → poke.firstclear')
+  assert.doesNotMatch(await cmd('tag A list'), /poke\.e4first/, '칭호: 여러 번 도전한 뒤 클리어 → 무적의 챔피언 아님')
   await at('A', 'poke:town', 3516, 53, '명예의 전당')
   assert.doesNotMatch(await g('A'), /has /, '사천왕 클리어 → 도전 풀림 (G 메뉴 이동 가능, 다음 도전자 입장 가능)')
   await cmd('execute in poke:town run tp A 3502.5 -59 48.5'); await sleep(300)

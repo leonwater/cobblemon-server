@@ -8,11 +8,13 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
-/** 7. 칭호 고르기 (G 메뉴 → 간편 메뉴 → 칭호): 3칸씩, 얻은 칭호를 누르면 그 칭호로 보임. 얻는 조건은 마우스를 올리면 말풍선으로. */
+/** 7. 칭호 고르기 (G 메뉴 → 간편 메뉴 → 칭호): 5칸씩, 비슷한 칭호(같은 갈래)는 같은 줄에서 시작, 얻은 칭호를 누르면 그 칭호로 보임. 얻는 조건은 마우스를 올리면 말풍선으로. */
 public class TitleScreen extends Screen {
-    record Row(String id, String name, String how, boolean has, boolean on) {}
+    record Row(String id, String name, String how, boolean has, boolean on, int group) {}
 
     private final List<Row> rows = new ArrayList<>();
+    private final List<Integer> col = new ArrayList<>(), line = new ArrayList<>();
+    private int lines;
     private final Theme.Anim anim = new Theme.Anim();
     private float k = 1;
 
@@ -20,8 +22,15 @@ public class TitleScreen extends Screen {
         super(Component.literal("칭호"));
         for (String line : data.split("\n")) {
             String[] f = line.split("\t");
-            if (f.length == 5) rows.add(new Row(f[0], f[1], f[2], f[3].equals("1"), f[4].equals("1")));
+            if (f.length >= 5) rows.add(new Row(f[0], f[1], f[2], f[3].equals("1"), f[4].equals("1"), f.length > 5 ? Integer.parseInt(f[5]) : 0));
         }
+        // 갈래가 바뀌면 새 줄
+        int c = 0, r = 0;
+        for (int i = 0; i < rows.size(); i++) {
+            if (i > 0 && (c == COLS || rows.get(i).group() != rows.get(i - 1).group())) { c = 0; r++; }
+            col.add(c++); line.add(r);
+        }
+        lines = rows.isEmpty() ? 0 : r + 1;
     }
 
     @Override
@@ -31,11 +40,11 @@ public class TitleScreen extends Screen {
         height = Math.round(height / k);
     }
 
-    static final int COLS = 3, CW = 132, CH = 22, GAP = 6;
+    static final int COLS = 5, CW = 116, CH = 20, GAP = 5;   // 640×360 안에 40개 + 갈래별 줄바꿈(12줄)
     private int px() { return (width - (COLS * CW + (COLS - 1) * GAP + 24)) / 2; }
-    private int py() { return (height - (40 + ((rows.size() + COLS - 1) / COLS) * (CH + GAP) + 12)) / 2; }
-    private int cx(int i) { return px() + 12 + (i % COLS) * (CW + GAP); }
-    private int cy(int i) { return py() + 40 + (i / COLS) * (CH + GAP); }
+    private int py() { return (height - (40 + lines * (CH + GAP) + 12)) / 2; }
+    private int cx(int i) { return px() + 12 + col.get(i) * (CW + GAP); }
+    private int cy(int i) { return py() + 40 + line.get(i) * (CH + GAP); }
 
     @Override
     public void render(GuiGraphics g, int mx, int my, float pt) {
@@ -49,7 +58,7 @@ public class TitleScreen extends Screen {
     public void renderBackground(GuiGraphics g, int mx, int my, float pt) {
         anim.frame();
         g.fillGradient(0, 0, width, height, 0x90000000, 0x70000000);
-        int x = px(), y = py(), w = COLS * CW + (COLS - 1) * GAP + 24, h = 40 + ((rows.size() + COLS - 1) / COLS) * (CH + GAP) + 12;
+        int x = px(), y = py(), w = COLS * CW + (COLS - 1) * GAP + 24, h = 40 + lines * (CH + GAP) + 12;
         Theme.panel(g, x, y, x + w, y + h, Theme.PANEL, Theme.BORDER);
         g.fill(x + 12, y + 12, x + 15, y + 26, Theme.ACCENT);
         g.drawString(font, Theme.t("칭호"), x + 20, y + 15, Theme.TEXT, false);
@@ -85,13 +94,25 @@ public class TitleScreen extends Screen {
             Theme.panel(g, x, y, x + CW, y + CH, r.on() ? Theme.SELECT : Theme.mix(0xE02A303B, 0xF03A4252, h), r.on() ? Theme.ACCENT : Theme.mix(0xFF4A5366, Theme.ACCENT, h));
             String tag = r.on() ? "사용 중" : "";
             int tagW = tag.isEmpty() ? 0 : font.width(Theme.t(tag)) + 6;
-            g.drawString(font, Theme.t(Theme.fit(font, r.name(), CW - 12 - tagW)), x + 6, y + 7, Theme.TEXT, false);
-            if (!tag.isEmpty()) g.drawString(font, Theme.t(tag), x + CW - tagW - 1, y + 7, Theme.GOLD, false);
+            label(g, r.name(), x + 6, y + 6, CW - 12 - tagW, Theme.TEXT);
+            if (!tag.isEmpty()) g.drawString(font, Theme.t(tag), x + CW - tagW - 1, y + 6, Theme.GOLD, false);
         } else {         // 없는 칭호: 어두운 칸 + 회색 글자 (색 없이)
             Theme.panel(g, x, y, x + CW, y + CH, 0x80101319, 0xFF23272F);
             String plain = net.minecraft.ChatFormatting.stripFormatting(r.name());
-            g.drawString(font, Theme.t(Theme.fit(font, plain, CW - 12)), x + 6, y + 7, 0xFF5A5F69, false);
+            label(g, plain, x + 6, y + 6, CW - 12, 0xFF5A5F69);
         }
+    }
+
+    /** 칸보다 긴 이름은 잘라 내지 않고 살짝 줄여서 다 보이게 (최소 0.8배, 그보다 길면 …). */
+    private void label(GuiGraphics g, String s, int x, int y, int w, int color) {
+        var t = Theme.t(s);
+        float k = Math.max(0.8f, Math.min(1f, w / (float) font.width(t)));
+        if (k >= 1f) { g.drawString(font, t, x, y, color, false); return; }
+        g.pose().pushPose();
+        g.pose().translate(x, y + (1 - k) * 4, 0);
+        g.pose().scale(k, k, 1);
+        g.drawString(font, Theme.t(Theme.fit(font, s, Math.round(w / k))), 0, 0, color, false);
+        g.pose().popPose();
     }
 
     @Override

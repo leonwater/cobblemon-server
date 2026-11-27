@@ -434,6 +434,7 @@ def functions():
             # 16. 클리어 공지 (축하). 서버 전체에서 처음 깬 사람은 이 공지 대신 다른 색 "퍼스트 클리어" 공지 (기록은 storage poke:first, 월드 초기화 때 같이 지워짐)
             f'execute if data storage poke:first g{n} run tellraw @a [{{"text":"[리그] ","color":"gold"}},{{"selector":"@s"}},{{"text":"님이 {n}번째 체육관을 클리어하였습니다! (관장 {name} · {badge}) 축하합니다!","color":"yellow"}}]',
             f'execute unless data storage poke:first g{n} run tellraw @a [{{"text":"[퍼스트 클리어] ","color":"light_purple","bold":true}},{{"selector":"@s"}},{{"text":"님이 서버 최초로 {n}번째 체육관을 클리어하였습니다! (관장 {name} · {badge}) 모두 축하해 주세요!","color":"aqua"}}]',
+            f'execute unless data storage poke:first g{n} run tag @s add poke.firstclear',   # 칭호 "퍼스트 클리어"
             f'data modify storage poke:first g{n} set value 1',
             prize((max(m['level'] for m in GYMS[n - 1][5]) + CAP) * 200), 'function poke:gym/leave'])
         # 모드 아이템(기믹 도구·경험사탕·기술머신)은 mod/ 함수로: 모드가 없는 데이터팩 시험에서 이 함수만 못 읽고 배지 지급은 그대로
@@ -452,6 +453,7 @@ def functions():
         'execute unless entity @s[tag=poke.badge8] run return run function poke:gym/deny/9 {msg:"배지 8개를 모두 모아야 사천왕에 도전할 수 있어요."}',
         *COOLDOWN(9),
         'execute if entity @a[scores={poke.gym=9}] run return run function poke:gym/deny/9 {msg:"다른 도전자가 사천왕에 도전 중이에요. 잠시 후 다시 와 주세요."}',
+        'execute if entity @s[tag=poke.e4tried] run tag @s add poke.e4retry', 'tag @s add poke.e4tried',   # 두 번째 도전부터 표시
         'scoreboard players set @s poke.gym 9', 'scoreboard players set @s poke.e4 0', tp(e['inside'][0]),
         'title @s title {"text":"사천왕","color":"gold"}',
         f'title @s subtitle {{"text":"첫 번째: {ELITE[0][1]} ({ELITE[0][2]})","color":"white"}}',
@@ -471,6 +473,8 @@ def functions():
                                'title @s subtitle {"text":"명예의 전당에 이름을 올렸습니다","color":"yellow"}',
                                'execute if data storage poke:first e4 run tellraw @a [{"text":"[리그] ","color":"gold"},{"selector":"@s"},{"text":"님이 사천왕을 클리어하고 챔피언이 되었습니다! 축하합니다!","color":"gold"}]',
                                'execute unless data storage poke:first e4 run tellraw @a [{"text":"[퍼스트 클리어] ","color":"light_purple","bold":true},{"selector":"@s"},{"text":"님이 서버 최초로 사천왕을 클리어하고 첫 챔피언이 되었습니다! 모두 축하해 주세요!","color":"aqua"}]',
+                               'execute unless data storage poke:first e4 run tag @s add poke.firstclear',
+                               'execute unless entity @s[tag=poke.e4retry] run tag @s add poke.e4first',   # 칭호 "무적의 챔피언": 첫 도전에 클리어
                                'data modify storage poke:first e4 set value 1',
                                '# 도전 끝: 점수를 풀어야 G 메뉴 이동이 되고 다음 도전자가 사천왕에 들어올 수 있음',
                                'function poke:gym/release'])
