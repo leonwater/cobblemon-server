@@ -98,7 +98,6 @@ public final class Titles {
             new Title("ranch", 8, 23, "목장 주인", "§2", "넓은 땅의 주인", Titles::plots, 10, false),
             new Title("harvest", 8, 30, "나무열매 명인", "§2", "부지런히 거둔 농부", stat("harvest"), 1000, false),
             // 꾸준함
-            new Title("days", 9, 33, "개근상", "§a", "꾸준히 찾아온 트레이너", stat("days"), 30, false),
             new Title("hours", 9, 32, "오랜 파트너", "§b", "오랜 시간 함께한 트레이너", Titles::hours, 100, false));
 
     /** 우선순위 순 (shown()이 앞에서부터 찾음). */
@@ -146,7 +145,7 @@ public final class Titles {
     static final TagKey<Item> MEGA_STONE = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("mega_showdown", "mega_stone"));
     static final Map<UUID, Vec3> LAST_POS = new HashMap<>();
 
-    /** 1초마다 기록: 야생 이동 거리, 접속한 날 수, 가방의 메가스톤·타입 Z크리스탈 종류(가장 많았을 때), 레벨 100 포켓몬. */
+    /** 1초마다 기록: 야생 이동 거리, 가방의 메가스톤·타입 Z크리스탈 종류(가장 많았을 때), 레벨 100 포켓몬. */
     static void track(ServerPlayer p) {
         var st = ServerData.get(p.server).stats(p.getUUID());
         Vec3 now = p.position(), before = LAST_POS.put(p.getUUID(), now);
@@ -155,8 +154,6 @@ public final class Titles {
             if (d < 64) st.putDouble("walkf", st.getDouble("walkf") + d);   // 순간이동(64칸 이상)은 안 셈
             st.putLong("walk", (long) st.getDouble("walkf"));
         }
-        long today = java.time.LocalDate.now(java.time.ZoneId.of("Asia/Seoul")).toEpochDay();
-        if (st.getLong("lastday") != today) { st.putLong("lastday", today); st.putLong("days", st.getLong("days") + 1); }
         Set<Item> stones = new HashSet<>(), crystals = new HashSet<>();
         for (var s : p.getInventory().items) {
             if (s.isEmpty()) continue;

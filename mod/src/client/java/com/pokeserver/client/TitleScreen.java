@@ -40,7 +40,7 @@ public class TitleScreen extends Screen {
         height = Math.round(height / k);
     }
 
-    static final int COLS = 5, CW = 116, CH = 20, GAP = 5;   // 640×360 안에 40개 + 갈래별 줄바꿈(12줄)
+    static final int COLS = 5, CW = 116, CH = 20, GAP = 5;   // 640×360 안에 39개 + 갈래별 줄바꿈(12줄)
     private int px() { return (width - (COLS * CW + (COLS - 1) * GAP + 24)) / 2; }
     private int py() { return (height - (40 + lines * (CH + GAP) + 12)) / 2; }
     private int cx(int i) { return px() + 12 + col.get(i) * (CW + GAP); }
@@ -74,7 +74,7 @@ public class TitleScreen extends Screen {
 
     /** 힌트 말풍선 (정확한 수치는 안 보여 줌): 마우스 옆, 화면 밖으로 안 나가게. 마우스가 칸을 벗어나면 다음 그림에서 바로 사라짐. */
     private void tip(GuiGraphics g, Row r, int mx, int my) {
-        String a = "힌트: " + r.how(), b = r.id().equals("none") ? "" : r.has() ? "얻었어요" : "아직 못 얻었어요";
+        String a = r.how(), b = r.id().equals("none") ? "" : r.has() ? "얻었어요" : "아직 못 얻었어요";
         int w = Math.max(font.width(Theme.t(a)), font.width(Theme.t(b))) + 12, h = b.isEmpty() ? 18 : 30;
         int x = Math.min(mx + 10, width - w - 4), y = Math.min(my + 10, height - h - 4);
         g.pose().pushPose();
