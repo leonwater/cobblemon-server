@@ -1,0 +1,171 @@
+{
+ "order": 99,
+ "species": "cobblemon:zygarde",
+ "variations": [
+  {
+   "aspects": [
+    "10-percent"
+   ],
+   "poser": "cobblemon:zygarde_10",
+   "model": "cobblemon:zygarde_10.geo",
+   "texture": "cobblemon:textures/pokemon/0718_zygarde/10/zygarde10.png",
+   "layers": [
+    {
+     "name": "emissive",
+     "emissive": true,
+     "texture": "cobblemon:textures/pokemon/0718_zygarde/10/zygarde10_emissive.png"
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "10-percent",
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/0718_zygarde/10/zygarde10_shiny.png"
+  },
+  {
+   "aspects": [],
+   "poser": "cobblemon:zygarde",
+   "model": "cobblemon:zygarde.geo",
+   "texture": "cobblemon:textures/pokemon/0718_zygarde/zygarde.png"
+  },
+  {
+   "aspects": [
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/0718_zygarde/zygarde_shiny.png"
+  },
+  {
+   "aspects": [
+    "10-percent"
+   ],
+   "poser": "cobblemon:zygarde_10",
+   "model": "cobblemon:zygarde_10.geo",
+   "texture": "cobblemon:textures/pokemon/0718_zygarde/zygarde_10.png"
+  },
+  {
+   "aspects": [
+    "shiny",
+    "10-percent"
+   ],
+   "texture": "cobblemon:textures/pokemon/0718_zygarde/zygarde_10_shiny.png"
+  },
+  {
+   "aspects": [
+    "10-percent"
+   ],
+   "poser": "cobblemon:zygarde_tenpercent",
+   "model": "cobblemon:zygarde_tenpercent.geo",
+   "texture": "cobblemon:textures/pokemon/0718_zygarde/zygarde_tenpercent.png",
+   "layers": [
+    {
+     "name": "emissive",
+     "emissive": true,
+     "texture": "cobblemon:textures/pokemon/0718_zygarde/zygarde_tenpercent_emissive.png",
+     "translucent": false
+    },
+    {
+     "name": "glowlights",
+     "emissive": true,
+     "texture": {
+      "frames": [
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_1.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_2.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_3.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_4.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_5.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_6.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_7.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_8.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_9.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_10.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_11.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_12.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_13.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_14.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_15.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_16.png"
+      ],
+      "fps": 5,
+      "loop": true,
+      "translucent": false
+     }
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "shiny",
+    "10-percent"
+   ],
+   "texture": "cobblemon:textures/pokemon/0718_zygarde/zygarde_tenpercent_shiny.png",
+   "layers": [
+    {
+     "name": "glow",
+     "emissive": true,
+     "texture": "cobblemon:textures/pokemon/0718_zygarde/zygarde_tenpercent_emissive.png",
+     "translucent": false
+    },
+    {
+     "name": "glowlights",
+     "emissive": true,
+     "texture": {
+      "frames": [
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_1.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_2.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_3.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_4.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_5.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_6.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_7.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_8.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_9.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_10.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_11.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_12.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_13.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_14.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_15.png",
+       "cobblemon:textures/pokemon/0718_zygarde/tenpercent_lights_16.png"
+      ],
+      "fps": 5,
+      "loop": true,
+      "translucent": false
+     }
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "complete-percent"
+   ],
+   "poser": "cobblemon:zygarde_100",
+   "model": "cobblemon:zygarde_100.geo",
+   "texture": "cobblemon:textures/pokemon/0718_zygarde/zygarde_100.png"
+  },
+  {
+   "aspects": [
+    "shiny",
+    "complete-percent"
+   ],
+   "texture": "cobblemon:textures/pokemon/0718_zygarde/zygarde_100_shiny.png"
+  },
+  {
+   "aspects": [
+    "core-percent"
+   ],
+   "poser": "cobblemon:zygardecore",
+   "model": "cobblemon:zygardecore.geo",
+   "texture": "cobblemon:textures/pokemon/0718_zygarde/zygarde_core.png",
+   "layers": []
+  },
+  {
+   "aspects": [
+    "shiny",
+    "core-percent"
+   ],
+   "texture": "cobblemon:textures/pokemon/0718_zygarde/zygarde_core_shiny.png"
+  }
+ ]
+}

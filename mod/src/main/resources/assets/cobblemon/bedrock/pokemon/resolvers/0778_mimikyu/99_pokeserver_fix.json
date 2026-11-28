@@ -1,0 +1,33 @@
+{
+ "order": 99,
+ "species": "cobblemon:mimikyu",
+ "variations": [
+  {
+   "aspects": [],
+   "poser": "cobblemon:mimikyu",
+   "model": "cobblemon:mimikyu.geo",
+   "texture": "cobblemon:textures/pokemon/0778_mimikyu/mimikyu.png"
+  },
+  {
+   "aspects": [
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/0778_mimikyu/mimikyu_shiny.png"
+  },
+  {
+   "aspects": [
+    "busted-form"
+   ],
+   "poser": "cobblemon:mimikyu",
+   "model": "cobblemon:mimikyu_busted.geo",
+   "texture": "cobblemon:textures/pokemon/0778_mimikyu/mimikyu.png"
+  },
+  {
+   "aspects": [
+    "busted-form",
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/0778_mimikyu/mimikyu_shiny.png"
+  }
+ ]
+}

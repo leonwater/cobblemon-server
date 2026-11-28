@@ -1,0 +1,18 @@
+{
+ "order": 99,
+ "species": "cobblemon:meltan",
+ "variations": [
+  {
+   "aspects": [],
+   "poser": "cobblemon:meltan",
+   "model": "cobblemon:meltan.geo",
+   "texture": "cobblemon:textures/pokemon/0808_meltan/meltan.png"
+  },
+  {
+   "aspects": [
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/0808_meltan/meltan_shiny.png"
+  }
+ ]
+}

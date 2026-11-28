@@ -1,0 +1,73 @@
+{
+ "order": 99,
+ "species": "cobblemon:wishiwashi",
+ "variations": [
+  {
+   "aspects": [],
+   "layers": [],
+   "model": "cobblemon:wishiwashi_solo.geo",
+   "poser": "cobblemon:wishiwashi_solo",
+   "texture": "cobblemon:textures/pokemon/0746_wishiwashi/wishiwashi_solo.png"
+  },
+  {
+   "aspects": [
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/0746_wishiwashi/wishiwashi_solo_shiny.png"
+  },
+  {
+   "aspects": [
+    "alpha_eyes"
+   ],
+   "layers": [
+    {
+     "emissive": true,
+     "name": "alpha_eyes",
+     "texture": "cobblemon:textures/pokemon/0746_wishiwashi/wishiwashi_solo_alpha.png"
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "school-form"
+   ],
+   "layers": [
+    {
+     "emissive": true,
+     "name": "emissive",
+     "texture": "cobblemon:textures/pokemon/0746_wishiwashi/wishiwashi_school_emissive.png"
+    }
+   ],
+   "model": "cobblemon:wishiwashi_school.geo",
+   "poser": "cobblemon:wishiwashi_schooling",
+   "texture": "cobblemon:textures/pokemon/0746_wishiwashi/wishiwashi_school.png"
+  },
+  {
+   "aspects": [
+    "shiny",
+    "school-form"
+   ],
+   "layers": [
+    {
+     "emissive": true,
+     "name": "emissive",
+     "texture": "cobblemon:textures/pokemon/0746_wishiwashi/wishiwashi_school_shiny_emissive.png"
+    }
+   ],
+   "texture": "cobblemon:textures/pokemon/0746_wishiwashi/wishiwashi_school_shiny.png"
+  },
+  {
+   "aspects": [
+    "alpha_eyes",
+    "school-form"
+   ],
+   "layers": [
+    {
+     "emissive": true,
+     "name": "alpha_eyes",
+     "texture": "cobblemon:textures/pokemon/0746_wishiwashi/wishiwashi_school_alpha.png"
+    }
+   ]
+  }
+ ]
+}

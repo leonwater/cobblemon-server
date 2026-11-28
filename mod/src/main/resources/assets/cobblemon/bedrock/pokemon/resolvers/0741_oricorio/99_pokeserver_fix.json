@@ -1,0 +1,79 @@
+{
+ "order": 99,
+ "species": "cobblemon:oricorio",
+ "variations": [
+  {
+   "aspects": [],
+   "poser": "cobblemon:baile_oricorio",
+   "model": "cobblemon:baile_oricorio.geo",
+   "texture": "cobblemon:textures/pokemon/0741_oricorio/oricorio_baile.png",
+   "layers": []
+  },
+  {
+   "aspects": [
+    "shiny"
+   ],
+   "poser": "cobblemon:baile_oricorio",
+   "model": "cobblemon:baile_oricorio.geo",
+   "texture": "cobblemon:textures/pokemon/0741_oricorio/oricorio_baile_shiny.png",
+   "layers": []
+  },
+  {
+   "aspects": [
+    "pom-pom-style"
+   ],
+   "poser": "cobblemon:pompom_oricorio",
+   "model": "cobblemon:pompom_oricorio.geo",
+   "texture": "cobblemon:textures/pokemon/0741_oricorio/oricorio_pom_pom.png",
+   "layers": []
+  },
+  {
+   "aspects": [
+    "shiny",
+    "pom-pom-style"
+   ],
+   "poser": "cobblemon:pompom_oricorio",
+   "model": "cobblemon:pompom_oricorio.geo",
+   "texture": "cobblemon:textures/pokemon/0741_oricorio/oricorio_pom_pom_shiny.png",
+   "layers": []
+  },
+  {
+   "aspects": [
+    "pau-style"
+   ],
+   "poser": "cobblemon:pau_oricorio",
+   "model": "cobblemon:pau_oricorio.geo",
+   "texture": "cobblemon:textures/pokemon/0741_oricorio/oricorio_pau.png",
+   "layers": []
+  },
+  {
+   "aspects": [
+    "shiny",
+    "pau-style"
+   ],
+   "poser": "cobblemon:pau_oricorio",
+   "model": "cobblemon:pau_oricorio.geo",
+   "texture": "cobblemon:textures/pokemon/0741_oricorio/oricorio_pau_shiny.png",
+   "layers": []
+  },
+  {
+   "aspects": [
+    "sensu-style"
+   ],
+   "poser": "cobblemon:sensu_oricorio",
+   "model": "cobblemon:sensu_oricorio.geo",
+   "texture": "cobblemon:textures/pokemon/0741_oricorio/oricorio_sensu.png",
+   "layers": []
+  },
+  {
+   "aspects": [
+    "shiny",
+    "sensu-style"
+   ],
+   "poser": "cobblemon:sensu_oricorio",
+   "model": "cobblemon:sensu_oricorio.geo",
+   "texture": "cobblemon:textures/pokemon/0741_oricorio/oricorio_sensu_shiny.png",
+   "layers": []
+  }
+ ]
+}

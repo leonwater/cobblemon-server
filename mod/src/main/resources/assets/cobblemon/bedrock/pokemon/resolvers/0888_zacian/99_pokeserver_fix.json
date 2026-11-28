@@ -1,0 +1,33 @@
+{
+ "order": 99,
+ "species": "cobblemon:zacian",
+ "variations": [
+  {
+   "aspects": [],
+   "poser": "cobblemon:zacian",
+   "model": "cobblemon:zacian.geo",
+   "texture": "cobblemon:textures/pokemon/0888_zacian/zacian.png"
+  },
+  {
+   "aspects": [
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/0888_zacian/zacian_shiny.png"
+  },
+  {
+   "aspects": [
+    "crowned"
+   ],
+   "poser": "cobblemon:zacian_crown",
+   "model": "cobblemon:zacian_crown.geo",
+   "texture": "cobblemon:textures/pokemon/0888_zacian/zacian_crown.png"
+  },
+  {
+   "aspects": [
+    "shiny",
+    "crowned"
+   ],
+   "texture": "cobblemon:textures/pokemon/0888_zacian/zacian_crown_shiny.png"
+  }
+ ]
+}

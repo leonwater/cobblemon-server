@@ -1,0 +1,251 @@
+{
+ "order": 99,
+ "species": "cobblemon:ogerpon",
+ "variations": [
+  {
+   "aspects": [],
+   "poser": "cobblemon:ogerpon_teal",
+   "model": "cobblemon:ogerpon_teal.geo",
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon.png",
+   "layers": [
+    {
+     "name": "glow",
+     "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_emissive.png",
+     "emissive": true
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_shiny.png"
+  },
+  {
+   "aspects": [
+    "embody-aspect"
+   ],
+   "poser": "cobblemon:ogerpon_tealtera",
+   "model": "cobblemon:ogerpon_tealtera.geo",
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_tealtera.png",
+   "layers": [
+    {
+     "name": "glow",
+     "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_tealtera_emissive.png",
+     "emissive": true
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "embody-aspect",
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_tealtera_shiny.png"
+  },
+  {
+   "aspects": [
+    "hearthflame-mask"
+   ],
+   "poser": "cobblemon:ogerpon_fire",
+   "model": "cobblemon:ogerpon_fire.geo",
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_fire.png",
+   "layers": [
+    {
+     "name": "glow",
+     "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_emissive_fire.png",
+     "emissive": true
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "hearthflame-mask",
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_fire_shiny.png"
+  },
+  {
+   "aspects": [
+    "hearthflame-mask",
+    "embody-aspect"
+   ],
+   "poser": "cobblemon:ogerpon_firetera",
+   "model": "cobblemon:ogerpon_firetera.geo",
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_firetera.png",
+   "layers": [
+    {
+     "name": "glow",
+     "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_firetera_emissive.png",
+     "emissive": true
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "hearthflame-mask",
+    "embody-aspect",
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_firetera_shiny.png"
+  },
+  {
+   "aspects": [
+    "hearthflame-mask"
+   ],
+   "poser": "cobblemon:ogerpon_hearthflame",
+   "model": "cobblemon:ogerpon_hearthflame.geo",
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_hearthflame.png",
+   "layers": [
+    {
+     "name": "glow",
+     "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_emissive_hearthflame.png",
+     "emissive": true
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "hearthflame-mask",
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_hearthflame.png"
+  },
+  {
+   "aspects": [
+    "cornerstone-mask"
+   ],
+   "poser": "cobblemon:ogerpon_rock",
+   "model": "cobblemon:ogerpon_rock.geo",
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_rock.png",
+   "layers": [
+    {
+     "name": "glow",
+     "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_emissive_rock.png",
+     "emissive": true
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "cornerstone-mask",
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_rock_shiny.png"
+  },
+  {
+   "aspects": [
+    "cornerstone-mask",
+    "embody-aspect"
+   ],
+   "poser": "cobblemon:ogerpon_rocktera",
+   "model": "cobblemon:ogerpon_rocktera.geo",
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_rocktera.png",
+   "layers": [
+    {
+     "name": "glow",
+     "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_rocktera_emissive.png",
+     "emissive": true
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "cornerstone-mask",
+    "embody-aspect",
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_rocktera_shiny.png"
+  },
+  {
+   "aspects": [
+    "wellspring-mask"
+   ],
+   "poser": "cobblemon:ogerpon_wellspring",
+   "model": "cobblemon:ogerpon_wellspring.geo",
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_wellspring.png",
+   "layers": [
+    {
+     "name": "glow",
+     "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_emissive_wellspring.png",
+     "emissive": true
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "wellspring-mask",
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_wellspring.png"
+  },
+  {
+   "aspects": [
+    "cornerstone-mask"
+   ],
+   "poser": "cobblemon:ogerpon_cornerstone",
+   "model": "cobblemon:ogerpon_cornerstone.geo",
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_cornerstone.png",
+   "layers": [
+    {
+     "name": "glow",
+     "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_emissive_cornerstone.png",
+     "emissive": true
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "cornerstone-mask",
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_cornerstone.png"
+  },
+  {
+   "aspects": [
+    "wellspring-mask"
+   ],
+   "poser": "cobblemon:ogerpon_water",
+   "model": "cobblemon:ogerpon_water.geo",
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_water.png",
+   "layers": [
+    {
+     "name": "glow",
+     "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_emissive_water.png",
+     "emissive": true
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "wellspring-mask",
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_water_shiny.png"
+  },
+  {
+   "aspects": [
+    "wellspring-mask",
+    "embody-aspect"
+   ],
+   "poser": "cobblemon:ogerpon_watertera",
+   "model": "cobblemon:ogerpon_watertera.geo",
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_watertera.png",
+   "layers": [
+    {
+     "name": "glow",
+     "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_watertera_emissive.png",
+     "emissive": true
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "wellspring-mask",
+    "embody-aspect",
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/1017_ogerpon/ogerpon_watertera_shiny.png"
+  }
+ ]
+}

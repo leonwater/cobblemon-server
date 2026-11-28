@@ -170,6 +170,7 @@ NPC는 Cobblemon NPC 하나로 통일합니다 (대화·회복·배틀 파티를
 - 관장마다 **도전자 한 명만** (경기장엔 관장만 있음). 지거나 나가기(주황 발판)·로그아웃·사망 시 로비로 나오고 자리가 비워짐
 - 배틀 중 포기(도망)는 RCT에 "그 관장과 배틀 중" 기록을 남김 → 다음 승리(야생 등) 때 RCT가 관장을 이긴 것으로 처리해 관장 대사만 뜨고 RCT 진행(레벨 제한)이 오름. 3.3.0부터 트레이너 배틀이 아닌 배틀이 시작될 때 그 기록을 지움 (`CobblemonHooks.clearRctBattle`)
 - RCT 기본 전리품(관장 그룹: 특성패치·특성캡슐·변함없는돌·행복의알 중 하나가 관장 발밑에 떨어짐)은 3.4.0부터 끔: `build_league.py`가 트레이너마다 빈 `rctmod/loot_table/trainers/single/<ID>.json`을 씀
+- 포켓몬 모델 보정(3.5.0): `tools/fix_models.py`가 `mod/src/main/resources/assets/cobblemon/bedrock/pokemon/`에 order 99 resolver 51종 + 히스이 가디 poser를 만듦 (없던 poser 때문에 히스이 가디가 안 보였음, 아르세우스·우라오스 등은 CCC와 Mega Showdown이 같은 경로에 다른 내용을 넣어 어느 쪽이 로드되느냐에 따라 텍스처가 깨지거나 폼이 빠질 수 있었음)
 - 농장 시간: 1.21.1은 플레이어 128칸 안 청크만 작물이 자람 → 땅 청크를 강제 로드(5초마다 다시 검, 농장 짓기가 `forceload remove all`을 하므로)하고, 근처에 사람이 없는 청크는 `Farms.tickEmpty`가 직접 무작위 틱
 - **레벨 제한**: 다음 상대 에이스 레벨 + 5 (RCT `relativeLevelCap = 5`). 처음 20 → 배지마다 10씩 (30·…·90), 배지 8개 뒤 95, 레드 앞 100
 - **순서** = 같은 레벨 기준 약한 쪽부터 (원작 최종 팀 종족값 평균, `ORIGINAL`·`strength()`가 검사): 웅 → 초련 → 강연 → 독수 → 마티스 → 비주기 → 민화 → 이슬

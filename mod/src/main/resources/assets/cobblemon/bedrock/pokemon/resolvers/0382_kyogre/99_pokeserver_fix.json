@@ -1,0 +1,141 @@
+{
+ "order": 99,
+ "species": "cobblemon:kyogre",
+ "variations": [
+  {
+   "aspects": [],
+   "poser": "cobblemon:kyogre",
+   "model": "cobblemon:kyogre.geo",
+   "texture": "cobblemon:textures/pokemon/0382_kyogre/kyogre.png",
+   "layers": [
+    {
+     "name": "emissive",
+     "texture": "cobblemon:textures/pokemon/0382_kyogre/kyogre_emissive.png",
+     "emissive": true
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/0382_kyogre/kyogre_shiny.png",
+   "layers": [
+    {
+     "name": "emissive",
+     "texture": "cobblemon:textures/pokemon/0382_kyogre/kyogre_emissive_shiny.png",
+     "emissive": true
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "alpha_eyes"
+   ],
+   "layers": [
+    {
+     "name": "alpha_eyes",
+     "texture": "cobblemon:textures/pokemon/0382_kyogre/kyogre_alpha.png",
+     "emissive": true
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "primal"
+   ],
+   "poser": "cobblemon:kyogre_primal",
+   "model": "cobblemon:kyogre_primal.geo",
+   "texture": "cobblemon:textures/pokemon/0382_kyogre/kyogre_primal.png",
+   "layers": [
+    {
+     "name": "translucent",
+     "texture": "cobblemon:textures/pokemon/0382_kyogre/kyogre_primal_translucent.png",
+     "translucent": true,
+     "translucent_cull": true
+    },
+    {
+     "name": "emissive",
+     "texture": "cobblemon:textures/pokemon/0382_kyogre/kyogre_primal_emissive.png",
+     "emissive": true
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "primal",
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/0382_kyogre/kyogre_primal_shiny.png",
+   "layers": [
+    {
+     "name": "translucent",
+     "texture": "cobblemon:textures/pokemon/0382_kyogre/kyogre_primal_translucent.png",
+     "translucent": true,
+     "translucent_cull": true
+    },
+    {
+     "name": "emissive",
+     "texture": "cobblemon:textures/pokemon/0382_kyogre/kyogre_primal_emissive_shiny.png",
+     "emissive": true
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "primal",
+    "alpha_eyes"
+   ],
+   "layers": [
+    {
+     "name": "alpha_eyes",
+     "texture": "cobblemon:textures/pokemon/0382_kyogre/kyogre_primal_alpha.png",
+     "emissive": true
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "primal"
+   ],
+   "layers": [
+    {
+     "emissive": true,
+     "name": "kyogreprimal_line",
+     "texture": "cobblemon:textures/pokemon/0382_kyogre/kyogreprimal_line.png",
+     "translucent": true
+    },
+    {
+     "emissive": true,
+     "name": "emissive",
+     "texture": "cobblemon:textures/pokemon/0382_kyogre/kyogreprimal_emissive.png",
+     "translucent": true
+    }
+   ],
+   "model": "cobblemon:kyogreprimal.geo",
+   "poser": "cobblemon:kyogreprimal",
+   "texture": "cobblemon:textures/pokemon/0382_kyogre/kyogreprimal.png"
+  },
+  {
+   "aspects": [
+    "shiny",
+    "primal"
+   ],
+   "layers": [
+    {
+     "emissive": true,
+     "name": "kyogreprimal_line",
+     "texture": "cobblemon:textures/pokemon/0382_kyogre/kyogreprimal_line_shiny.png",
+     "translucent": true
+    },
+    {
+     "emissive": true,
+     "name": "emissive",
+     "texture": "cobblemon:textures/pokemon/0382_kyogre/kyogreprimal_emissive_shiny.png",
+     "translucent": true
+    }
+   ],
+   "texture": "cobblemon:textures/pokemon/0382_kyogre/kyogreprimal_shiny.png"
+  }
+ ]
+}

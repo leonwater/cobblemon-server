@@ -1,0 +1,47 @@
+{
+ "order": 99,
+ "species": "cobblemon:latios",
+ "variations": [
+  {
+   "aspects": [],
+   "layers": [],
+   "model": "cobblemon:latios.geo",
+   "poser": "cobblemon:latios",
+   "texture": "cobblemon:textures/pokemon/0381_latios/latios.png"
+  },
+  {
+   "aspects": [
+    "shiny"
+   ],
+   "layers": [],
+   "texture": "cobblemon:textures/pokemon/0381_latios/latios_shiny.png"
+  },
+  {
+   "aspects": [
+    "alpha_eyes"
+   ],
+   "layers": [
+    {
+     "emissive": true,
+     "name": "alpha_eyes",
+     "texture": "cobblemon:textures/pokemon/0381_latios/latios_alpha.png"
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "mega"
+   ],
+   "poser": "cobblemon:mega_latios",
+   "model": "cobblemon:mega_latios.geo",
+   "texture": "cobblemon:textures/pokemon/0381_latios/megalatios.png"
+  },
+  {
+   "aspects": [
+    "mega",
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/0381_latios/megalatios_shiny.png"
+  }
+ ]
+}

@@ -1,0 +1,46 @@
+{
+ "order": 99,
+ "species": "cobblemon:ursaluna",
+ "variations": [
+  {
+   "aspects": [],
+   "layers": [],
+   "model": "cobblemon:ursaluna.geo",
+   "poser": "cobblemon:ursaluna",
+   "texture": "cobblemon:textures/pokemon/0901_ursaluna/ursaluna.png"
+  },
+  {
+   "aspects": [
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/0901_ursaluna/ursaluna_shiny.png"
+  },
+  {
+   "aspects": [
+    "alpha_eyes"
+   ],
+   "layers": [
+    {
+     "emissive": true,
+     "name": "alpha_eyes",
+     "texture": "cobblemon:textures/pokemon/0901_ursaluna/ursaluna_alpha.png"
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "bloodmoon"
+   ],
+   "poser": "cobblemon:bloodmoonursaluna",
+   "model": "cobblemon:bloodmoonursaluna.geo",
+   "texture": "cobblemon:textures/pokemon/0901_ursaluna/ursaluna_bloodmoon.png"
+  },
+  {
+   "aspects": [
+    "bloodmoon",
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/0901_ursaluna/ursaluna_bloodmoon_shiny.png"
+  }
+ ]
+}

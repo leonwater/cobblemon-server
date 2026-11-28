@@ -1,0 +1,105 @@
+{
+ "order": 99,
+ "species": "cobblemon:xerneas",
+ "variations": [
+  {
+   "aspects": [],
+   "layers": [],
+   "model": "cobblemon:xerneas.geo",
+   "poser": "cobblemon:xerneas",
+   "texture": "cobblemon:textures/pokemon/0716_xerneas/xerneas.png"
+  },
+  {
+   "aspects": [
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/0716_xerneas/xerneas_shiny.png"
+  },
+  {
+   "aspects": [
+    "alpha_eyes"
+   ],
+   "layers": [
+    {
+     "emissive": true,
+     "name": "alpha_eyes",
+     "texture": "cobblemon:textures/pokemon/0716_xerneas/xerneas_alpha.png"
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "active-mode"
+   ],
+   "poser": "cobblemon:xerneas",
+   "model": "cobblemon:xerneas.geo",
+   "texture": "cobblemon:textures/pokemon/0716_xerneas/xerneas.png"
+  },
+  {
+   "aspects": [
+    "shiny",
+    "active-mode"
+   ],
+   "texture": "cobblemon:textures/pokemon/0716_xerneas/xerneas_shiny.png"
+  },
+  {
+   "aspects": [],
+   "poser": "cobblemon:xerneas",
+   "model": "cobblemon:xerneas.geo",
+   "texture": "cobblemon:textures/pokemon/0716_xerneas/xerneas_neutral.png",
+   "layers": []
+  },
+  {
+   "aspects": [
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/0716_xerneas/xerneas_neutral_shiny.png"
+  },
+  {
+   "condition": "q.in_battle()",
+   "layers": [
+    {
+     "name": "emissive",
+     "emissive": false,
+     "texture": "cobblemon:textures/pokemon/0716_xerneas/xerneas_active_on.png"
+    },
+    {
+     "name": "emissive2",
+     "emissive": true,
+     "texture": "cobblemon:textures/pokemon/0716_xerneas/xerneas_active_emissive.png"
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "active-mode"
+   ],
+   "poser": "cobblemon:xerneas",
+   "model": "cobblemon:xerneas_active.geo",
+   "texture": "cobblemon:textures/pokemon/0716_xerneas/xerneas_active.png",
+   "layers": [
+    {
+     "name": "emissive",
+     "emissive": true,
+     "texture": "cobblemon:textures/pokemon/0716_xerneas/xerneas_active_emissive.png",
+     "translucent": false
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "shiny",
+    "active-mode"
+   ],
+   "texture": "cobblemon:textures/pokemon/0716_xerneas/xerneas_active_shiny.png",
+   "layers": [
+    {
+     "name": "emissive",
+     "emissive": true,
+     "texture": "cobblemon:textures/pokemon/0716_xerneas/xerneas_active_emissive.png",
+     "translucent": false
+    }
+   ]
+  }
+ ]
+}

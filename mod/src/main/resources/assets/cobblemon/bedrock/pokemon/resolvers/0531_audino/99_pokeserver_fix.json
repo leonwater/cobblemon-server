@@ -1,0 +1,45 @@
+{
+ "order": 99,
+ "species": "cobblemon:audino",
+ "variations": [
+  {
+   "aspects": [],
+   "model": "cobblemon:audino.geo",
+   "poser": "cobblemon:audino",
+   "texture": "cobblemon:textures/pokemon/0531_audino/audino.png"
+  },
+  {
+   "aspects": [
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/0531_audino/audino_shiny.png"
+  },
+  {
+   "aspects": [
+    "alpha_eyes"
+   ],
+   "layers": [
+    {
+     "emissive": true,
+     "name": "alpha_eyes",
+     "texture": "cobblemon:textures/pokemon/0531_audino/audino_alpha.png"
+    }
+   ]
+  },
+  {
+   "aspects": [
+    "mega"
+   ],
+   "poser": "cobblemon:audino_mega",
+   "model": "cobblemon:audino_mega.geo",
+   "texture": "cobblemon:textures/pokemon/0531_audino/audino_mega.png"
+  },
+  {
+   "aspects": [
+    "mega",
+    "shiny"
+   ],
+   "texture": "cobblemon:textures/pokemon/0531_audino/audino_mega_shiny.png"
+  }
+ ]
+}
