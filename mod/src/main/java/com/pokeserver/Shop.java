@@ -48,7 +48,7 @@ public final class Shop {
         if (rl == null) return ItemStack.EMPTY;
         ItemStack st = new ItemStack(BuiltInRegistries.ITEM.get(rl));
         if (hash >= 0 && !st.isEmpty()) {   // 코블몬 tm_move 부품 (코블몬이 없으면 아이템도 없어 여기 안 옴)
-            var type = BuiltInRegistries.DATA_COMPONENT_TYPE.get(ResourceLocation.fromNamespaceAndPath("cobblemon", "tm_move"));
+            var type = tmMove();
             var json = new com.google.gson.JsonObject();
             json.addProperty("move", id.substring(hash + 1));
             if (type == null || type.codec() == null) return ItemStack.EMPTY;
@@ -86,9 +86,17 @@ public final class Shop {
     /** 오늘 고른 상품이 아니면 구매만 막음 (판매는 그대로). */
     static Entry today(Entry e, net.minecraft.server.MinecraftServer server) { return e.daily() == null || todays(server).contains(e.item()) ? e : e.with(0); }
 
+    static net.minecraft.core.component.DataComponentType<?> tmMove() {
+        return BuiltInRegistries.DATA_COMPONENT_TYPE.get(ResourceLocation.fromNamespaceAndPath("cobblemon", "tm_move"));
+    }
+
+    /** 판매할 때 이 아이템이 이 상품인가. 기술머신은 기술까지 같아야 함 (지진 기술머신 줄로 다른 기술머신을 못 팔게). */
     public static boolean matches(ItemStack have, String id) {
         if ("pokeserver:farm_deed".equals(id)) return Farms.isDeed(have);
-        return !have.isEmpty() && !Farms.isDeed(have) && have.is(stack(id).getItem()) && !have.is(Items.AIR);
+        if (have.isEmpty() || Farms.isDeed(have)) return false;
+        ItemStack want = stack(id);
+        if (want.isEmpty() || !have.is(want.getItem())) return false;
+        return id.indexOf('#') < 0 || java.util.Objects.equals(have.get(tmMove()), want.get(tmMove()));
     }
 
     /** 플레이어 주 인벤토리(입고 있는 장비 제외)에 몇 개 있나. */

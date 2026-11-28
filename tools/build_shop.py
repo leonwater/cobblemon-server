@@ -93,6 +93,7 @@ def build_category():
         *[e(M + c + '_stained_glass', 15) for c in COLORS]])
 
 
+TM_SELL = 2000     # 기술머신 판매가 (구매가의 1/5)
 TM_PRICE = 10000   # 기술머신 1장 (배지 없이). 원작 상점 기술머신 값(썬·문 포켓몬센터 10,000~30,000)의 기본값, 몬스터볼 200원 기준을 원작과 같게 맞춘 이 서버 물가에 그대로
 
 
@@ -162,8 +163,8 @@ def base_categories(megas, zs, shards):
                                           'electirizer', 'magmarizer', 'reaper_cloth', 'prism_scale', 'razor_claw', 'razor_fang',
                                           'deep_sea_tooth', 'deep_sea_scale', 'sachet', 'whipped_dream')],
             e(C + 'exp_candy_xl', 6000, 5), e(C + 'rare_candy', 12000, 6), e(C + 'pp_up', 9800, 3), e(C + 'pp_max', 20000, 7)]),
-        ('기술머신', C + 'technical_machine', [   # 7. 코블몬 기술머신 전부 중 마인크래프트 하루마다 5개만, 배지 없이 (사기만)
-            e(C + 'technical_machine#' + m, TM_PRICE, sell=0, daily='tm') for m in tm_moves()]),
+        ('기술머신', C + 'technical_machine', [   # 7. 코블몬 기술머신 전부 중 마인크래프트 하루마다 5개만, 배지 없이. 팔기는 언제나 (기술까지 같은 것만, Shop.matches)
+            e(C + 'technical_machine#' + m, TM_PRICE, sell=TM_SELL, daily='tm') for m in tm_moves()]),
         ('도구', C + 'leftovers', [
             # 배지 1: 배틀용 열매 (지니면 알아서 먹음)
             *[e(C + b + '_berry', 200, 1) for b in ('oran', 'cheri', 'chesto', 'pecha', 'rawst', 'aspear', 'persim')],
