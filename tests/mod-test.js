@@ -319,6 +319,15 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   A.chat('/닉네임변경 B 몰래'); await sleep(350)
   assert.ok(!(await cmd('닉네임변경 B2 B2')).includes('몰래'), '일반 사용자는 닉네임변경 불가')
   console.log('> 운영자 닉네임 변경')
+  // OP의 바닐라 /tp도 닉네임으로 (B의 닉네임은 위에서 B2)
+  await cmd('op A'); await sleep(300)
+  await cmd('execute in poke:town run tp B 2005.5 -56 0.5'); await cmd('execute in poke:town run tp A 2000.5 -56 0.5'); await sleep(300)
+  A.chat('/tp B2'); await sleep(500)
+  assert.match(await cmd('data get entity A Pos[0]'), /2005\.5d/, 'OP의 /tp 닉네임 → 그 사람에게 바로 이동')
+  A.chat('/tp A B2'); await sleep(300)
+  assert.match(await cmd('data get entity A Pos[0]'), /2005\.5d/, 'OP의 /tp 아이디 닉네임 형태도')
+  await cmd('deop A')
+  console.log('> OP /tp 닉네임')
 
   // 15. 광장 마을: 모드가 자리·지형을 정하고 지음, 둘레 72칸은 수정 금지
   await rc.send('tick sprint 4800')

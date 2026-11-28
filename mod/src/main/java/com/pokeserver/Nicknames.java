@@ -56,6 +56,17 @@ public final class Nicknames {
         return null;
     }
 
+    /** OP의 바닐라 /tp: 인자 중 접속 중인 사람의 닉네임을 마크 아이디로 바꿈 (좌표·@선택자는 그대로). */
+    public static String tpNames(MinecraftServer server, String command) {
+        String[] w = command.split(" ");
+        for (int i = 1; i < w.length; i++) {
+            if (w[i].startsWith("@") || w[i].matches("[~^]?-?[0-9]*\\.?[0-9]*")) continue;   // 좌표(~, ^, 숫자)·선택자는 그대로 (숫자로만 된 닉네임보다 좌표 우선)
+            ServerPlayer p = find(server, w[i]);
+            if (p != null) w[i] = p.getGameProfile().getName();
+        }
+        return String.join(" ", w);
+    }
+
     /** 닉네임 또는 마인크래프트 이름으로 접속 중인 플레이어 찾기. */
     static ServerPlayer find(MinecraftServer server, String name) {
         for (ServerPlayer p : server.getPlayerList().getPlayers())
