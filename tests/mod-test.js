@@ -191,9 +191,10 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   await cmd(`data remove storage poke:last p${bid}.wild`)
   await cmd('execute as B run function poke:warp/go {key:"wild"}'); await sleep(500)
   for (let i = 0; i < 20 && await dimOf('B') !== 'poke:wild'; i++) await sleep(300)   // 야생 청크를 불러오느라 늦을 때가 있음 (예전엔 0.5초만 기다려 가끔 농장에서 저장됨)
-  await cmd('execute as B at @s run spreadplayers ~9 ~9 0 2 false B'); await sleep(300)   // A의 첫 자리와 다른 땅으로 조금 옮김
+  await cmd('execute as B at @s facing entity @e[type=minecraft:marker,tag=poke.plaza,limit=1] feet rotated ~180 0 positioned ^ ^ ^100 run spreadplayers ~ ~ 0 2 false B'); await sleep(300)   // A의 첫 자리와 다른 땅으로: 광장 반대쪽 100칸 (가까이 옮기면 월드에 따라 광장 안에 떨어져 저장이 안 됐음)
   for (let i = 0; i < 10 && !/wild/.test(await cmd(`data get storage poke:last p${bid}`)); i++) { await ff(20); await cmd('execute as B run function poke:warp/save_here') }
   const aWild = await cmd(`data get storage poke:last p${aid}.wild`), bWild = await cmd(`data get storage poke:last p${bid}.wild`)
+  if (!/x: /.test(bWild)) for (const c of ['data get entity B Pos', 'data get entity B OnGround', 'data get entity B Dimension', 'tag B list']) await cmd(c)   // 실패 원인 기록
   assert.match(bWild, /x: /, 'B의 야생 위치가 B 칸에 저장됨')
   assert.notEqual(bWild.replace(/^.*?:/, ''), aWild.replace(/^.*?:/, ''), 'A·B 야생 위치가 따로 저장됨')
   act('warp:hall'); await sleep(350); act('warp:wild'); await sleep(350)
@@ -380,6 +381,16 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   await cmd('execute in poke:farm run tp A 0 -59 0'); await ff(40)
   assert.doesNotMatch(await cmd('scoreboard players get A poke.gym'), /has /, '경기장 밖(농장)이면 남은 도전 점수 정리')
   console.log('> 남은 체육관 도전 자동 정리')
+
+  // 3.4.0: 농장에 아무도 없어도 작물이 자람 (땅 청크 강제 로드 + 사람이 없는 청크는 모드가 직접 무작위 틱)
+  for (const p of ['A', 'B']) await cmd(`execute in poke:town run tp ${p} 2000.5 -56 0.5`)
+  await cmd('execute in poke:farm run setblock 30 -60 30 minecraft:farmland[moisture=7]'); await cmd('execute in poke:farm run setblock 30 -59 30 minecraft:wheat[age=0]')
+  await ff(400)   // 사람이 다 나간 뒤 300틱이 지나도 (빈 차원은 원래 멈춤) 강제 로드로 계속 돎
+  await cmd('gamerule randomTickSpeed 4096'); await ff(200); await cmd('gamerule randomTickSpeed 3')
+  const grown = (await cmd('execute in poke:farm if block 30 -59 30 minecraft:wheat[age=7]')).includes('passed')
+  if (!grown) for (const c of ['execute in poke:farm run forceload query 30 30', 'execute in poke:farm run forceload query', 'execute in poke:farm run data get block 30 -59 30', 'time query daytime', 'execute in poke:farm if block 30 -59 30 minecraft:wheat[age=0]', 'execute in poke:farm if block 30 -60 30 minecraft:farmland']) await cmd(c)   // 실패 원인 기록
+  assert.ok(grown, '농장에 아무도 없어도 밀이 다 자람')
+  console.log('> 빈 농장에서도 작물 성장')
 
   console.log('ALL PASS'); A.quit(); B.quit(); await rc.end(); process.exit(0)
 })().catch(e => { console.error('FAIL', e.message); process.exit(1) })

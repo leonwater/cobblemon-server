@@ -5814,7 +5814,14 @@
           "item": "minecraft:mutton",
           "buy": 0,
           "sell": 5
-        },
+        }
+      ]
+    },
+    {
+      "name": "낚시",
+      "icon": "minecraft:cod",
+      "shop": "mc",
+      "items": [
         {
           "item": "minecraft:cod",
           "buy": 0,

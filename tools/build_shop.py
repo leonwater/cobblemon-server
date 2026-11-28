@@ -228,8 +228,9 @@ def base_categories(megas, zs, shards):
                                                ('ender_pearl', 30), ('slime_ball', 10), ('leather', 10), ('feather', 3), ('ink_sac', 5),
                                                ('blaze_rod', 30), ('ghast_tear', 50), ('phantom_membrane', 20), ('prismarine_shard', 5),
                                                ('rabbit_hide', 3), ('arrow', 1))],
-            *[sell_only(M + i, p) for i, p in (('beef', 6), ('porkchop', 6), ('chicken', 5), ('mutton', 5), ('cod', 5), ('salmon', 8),
-                                               ('tropical_fish', 10), ('pufferfish', 10))]]),
+            *[sell_only(M + i, p) for i, p in (('beef', 6), ('porkchop', 6), ('chicken', 5), ('mutton', 5))]]),
+        ('낚시', M + 'cod', [   # 3.4.0: 낚싯대로 낚은 물고기 (판매만)
+            *[sell_only(M + i, p) for i, p in (('cod', 5), ('salmon', 8), ('tropical_fish', 10), ('pufferfish', 10))]]),
     ]
 
 
@@ -342,7 +343,7 @@ if __name__ == '__main__':
     cats = categories()
     check(cats)
     POKE = {'볼', '회복', '성장', '도구', '능력치', '기믹', '기술머신'}   # 코블몬 상인(포켓몬 상점)
-    MC = {'작물', '광물', '잡화', '건축'}                                 # 마인크래프트 상인(생활 상점)
+    MC = {'작물', '광물', '잡화', '낚시', '건축'}                                 # 마인크래프트 상인(생활 상점)
     assert {n for n, _, _ in cats} == POKE | MC and not POKE & MC, f'분류가 어느 상점인지 정해야 함: {[n for n, _, _ in cats]}'
     assert all(len(n.split()) == 1 for n, _, _ in cats), '분류 이름은 한 단어'
     out = {'categories': [{'name': n, 'icon': i, 'shop': 'poke' if n in POKE else 'mc', 'items': xs} for n, i, xs in cats]}

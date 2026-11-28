@@ -48,10 +48,42 @@ public final class Farms {
                 PLOTS.add(new Plot(p.get("id").getAsInt(), p.get("x1").getAsInt(), p.get("z1").getAsInt(),
                         p.get("x2").getAsInt(), p.get("z2").getAsInt()));
             }
+            CHUNKS.clear();
+            for (Plot p : PLOTS) for (int cx = p.x1() >> 4; cx <= p.x2() >> 4; cx++) for (int cz = p.z1() >> 4; cz <= p.z2() >> 4; cz++)
+                CHUNKS.add(net.minecraft.world.level.ChunkPos.asLong(cx, cz));
             PokeServer.LOG.info("농장 땅 {}칸 불러옴", PLOTS.size());
         } catch (Exception ex) {
             // 목록이 없어도 농장 전체가 보호되므로 안전함 (아무도 편집 못 함)
             PokeServer.LOG.warn("농장 땅 목록을 못 읽음: {} ({})", f, ex.toString());
+        }
+    }
+
+    /** 땅이 걸친 청크 (ChunkPos.asLong). */
+    static final java.util.Set<Long> CHUNKS = new java.util.LinkedHashSet<>();
+
+    /** 3.4.0: 아무도 없어도 농장 시간이 감. 1.21.1은 플레이어 128칸 안 청크만 무작위 틱(작물·나무열매 성장)을 받음
+     *  → 땅 청크를 강제 로드해 두고, 근처(128칸)에 사람이 없는 청크만 직접 틱 (사람이 있으면 바닐라가 하므로 두 번 안 함). */
+    static void forceLoad(MinecraftServer server) {
+        ServerLevel level = farmLevel(server);
+        if (level == null) return;
+        var forced = level.getForcedChunks();
+        for (long c : CHUNKS) if (!forced.contains(c)) level.setChunkForced(net.minecraft.world.level.ChunkPos.getX(c), net.minecraft.world.level.ChunkPos.getZ(c), true);
+    }
+
+    static ServerLevel farmLevel(MinecraftServer server) {
+        for (ServerLevel l : server.getAllLevels()) if (isFarm(l)) return l;
+        return null;
+    }
+
+    static void tickEmpty(ServerLevel level) {
+        int speed = level.getGameRules().getInt(net.minecraft.world.level.GameRules.RULE_RANDOMTICKING);
+        if (speed <= 0) return;
+        for (long c : CHUNKS) {
+            int cx = net.minecraft.world.level.ChunkPos.getX(c), cz = net.minecraft.world.level.ChunkPos.getZ(c);
+            double mx = cx * 16 + 8, mz = cz * 16 + 8;
+            if (level.players().stream().anyMatch(p -> !p.isSpectator() && (p.getX() - mx) * (p.getX() - mx) + (p.getZ() - mz) * (p.getZ() - mz) < 128 * 128)) continue;
+            var chunk = level.getChunkSource().getChunkNow(cx, cz);
+            if (chunk != null) level.tickChunk(chunk, speed);
         }
     }
 

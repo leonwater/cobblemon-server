@@ -288,6 +288,8 @@ def trainer(tid, name, title, team, kind, required, max_defeats):
         'maxTrainerDefeats': max_defeats, 'maxTrainerWins': -1, 'battleCooldownTicks': 100,
         'spawnWeightFactor': 0.0, 'biomeTagBlacklist': [], 'biomeTagWhitelist': [], 'forceBattleOnSight': False,
         })
+    # 3.4.0: RCT 기본 전리품(관장 그룹: 특성패치·특성캡슐·변함없는돌·행복의알 중 하나)이 관장 발밑에 떨어졌음 → 비움 (보상은 데이터팩 award가 줌)
+    write(f'rctmod/loot_table/trainers/single/{tid}.json', {'pools': []})
     # RCT 0.19는 대사를 dialogs/trainers/<ID>.json에서 읽음 (mobs 파일의 dialog는 무시돼 영어 기본 대사가 나왔음)
     lines = {
         'on_battle_start': LINES[tid][0], 'on_battle_won': LINES[tid][2], 'trainer_won': LINES[tid][2],
