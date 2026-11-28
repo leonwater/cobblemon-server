@@ -392,18 +392,16 @@ def mart():
               fill(x1 + 9, G + 2, z, x2 - 5, G + 2, z, 'minecraft:barrel[facing=up]'),
               fill(x1 + 9, G + 3, z, x2 - 5, G + 3, z, 'minecraft:birch_trapdoor[half=bottom,open=false]')]
     L += emblem(x1 + 1, zm, G + 5, 5, top='blue_concrete')
-    # 점원(숍 안쪽, x1+5) 앞 계산대: 1칸 높이라 상반신이 보임. 입구 쪽 카펫
-    for a, b in ((zm - 4, zm - 2), (zm + 2, zm + 4)):
-        L.append(fill(x1 + 6, G + 1, a, x1 + 6, G + 1, b, 'minecraft:light_blue_concrete'))
-    L.append(fill(x1 + 8, G + 1, zm - 1, x2 - 2, G + 1, zm + 1, 'minecraft:light_blue_carpet'))
-    # 상인 둘 (숍 안쪽 x1+5, zm∓3): 뒤 벽에 진열판(3x3) + 대표 물품 액자 3개 + 머리 위 이름표
-    for dz, (top_row, board, items, name, color) in ((-3, ('red_concrete', 'white_concrete', ('cobblemon:poke_ball', 'cobblemon:potion', 'cobblemon:rare_candy'), '포켓몬 상점', 'red')),
-                                                       (3, ('grass_block', 'oak_planks', ('minecraft:iron_pickaxe', 'minecraft:wheat', 'minecraft:bricks'), '생활 상점', 'green'))):
+    # 9. 상인 둘 (숍 안쪽 x1+5, zm∓3): 뒷벽 파란 몬스터볼은 그대로 두고, 상인 앞 계산대(1칸 높이)의 색과
+    #    계산대 위에 눕혀 놓은 대표 물품 액자 3개, 머리 위 이름표로 구분 (예전엔 뒷벽 진열판이 몬스터볼 아랫부분을 가렸음)
+    for dz, (counter, items, name, color) in ((-3, ('red_concrete', ('cobblemon:poke_ball', 'cobblemon:potion', 'cobblemon:rare_candy'), '포켓몬 상점', 'red')),
+                                              (3, ('green_concrete', ('minecraft:iron_pickaxe', 'minecraft:wheat', 'minecraft:bricks'), '생활 상점', 'green'))):
         z = zm + dz
-        L += [fill(x1 + 1, G + 2, z - 1, x1 + 1, G + 3, z + 1, 'minecraft:' + board), fill(x1 + 1, G + 4, z - 1, x1 + 1, G + 4, z + 1, 'minecraft:' + top_row)]
-        L += [f'summon minecraft:item_frame {x1 + 2} {G + 3} {z + k} {{Facing:5b,Fixed:1b,Invulnerable:1b,Tags:["poke.deco"],Item:{{id:"{it}",count:1}}}}'
+        L.append(fill(x1 + 6, G + 1, z - 1, x1 + 6, G + 1, z + 1, 'minecraft:' + counter))
+        L += [f'summon minecraft:item_frame {x1 + 6} {G + 2} {z + k} {{Facing:1b,Fixed:1b,Invulnerable:1b,Tags:["poke.deco"],Item:{{id:"{it}",count:1}}}}'
               for k, it in zip((-1, 0, 1), items)]
-        L.append(label(x1 + 5.5, G + 4.0, z + .5, name, color, 0.8))
+        L.append(label(x1 + 6.5, G + 2.9, z + .5, name, color, 0.8))   # 계산대 위 (예전 자리 x1+5.5는 상인 머리 속이라 안 보였음)
+    L.append(fill(x1 + 8, G + 1, zm - 1, x2 - 2, G + 1, zm + 1, 'minecraft:light_blue_carpet'))   # 입구 쪽 카펫
     L += glow(x1 + 1, x2 - 1, z1 + 1, z2 - 1, G + 4)
     L += [label(x2 + 3.6, G + 5.4, zm + .5, '프렌들리 숍', 'white', 1.2, bg=0xC0104090),
           label(x2 + 3.6, top + 9.6, zm + .5, 'POKé MART', 'white', 1.6, bg=0x80104090)]
@@ -497,7 +495,6 @@ def lobby():
               f'summon minecraft:item_display {x + 1.0} {B + 7.0} {z2 - 0.06} {{Tags:["poke.deco"],item:{{id:"minecraft:gold_nugget",count:1,'
               f'components:{{"minecraft:custom_model_data":{1001 + i}}}}},transformation:{{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],'
               f'left_rotation:[0f,1f,0f,0f],right_rotation:[0f,0f,0f,1f]}}}}']
-    L.append(label(xm + .5, B + 8.4, z2 - .6, '배지 8개를 모으면 사천왕에 도전!', 'gold', 1.0, sub='체육관을 이기면 이 배지를 받아요'))
     for z in range(-8, 12, 4):
         L += [sb(x1 + 1, B + 1, z, 'minecraft:spruce_stairs[facing=west]'), sb(x2 - 1, B + 1, z, 'minecraft:spruce_stairs[facing=east]')]
     for z in (-10, 0, 10):

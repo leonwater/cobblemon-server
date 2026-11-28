@@ -31,6 +31,14 @@ public final class Net {
     }
 
     /** 클라이언트 → 서버: 5. 배틀 배속 (1·2·4). 서버가 값 검사. */
+    /** 11. 클라이언트 → 서버: 배틀의 "도망·포기" 버튼 = 배틀 바로 끝내기 (값은 안 씀). */
+    public record BattleQuit(int unused) implements CustomPacketPayload {
+        public static final Type<BattleQuit> TYPE = id("battle_quit");
+        public static final StreamCodec<RegistryFriendlyByteBuf, BattleQuit> CODEC =
+                StreamCodec.composite(ByteBufCodecs.VAR_INT, BattleQuit::unused, BattleQuit::new);
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
+
     public record BattleSpeed(int speed) implements CustomPacketPayload {
         public static final Type<BattleSpeed> TYPE = id("battle_speed");
         public static final StreamCodec<RegistryFriendlyByteBuf, BattleSpeed> CODEC =

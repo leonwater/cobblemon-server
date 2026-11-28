@@ -30,7 +30,7 @@ hash = "a344cbc4e4e69b4c507e5e616dd95d9414263eb1958c79d4d9c12629c63ef8fe"
 
 [[files]]
 file = "config/pokeserver/shop.json"
-hash = "c614c68ba795aa54b2de143e5a005a4264ec46603444d783e5c256d6c21b4a95"
+hash = "9507413728bc6eefe550a3af2749f4f588a454701338457533ca12e33b7e790d"
 
 [[files]]
 file = "config/rctmod-server.toml"
@@ -101,8 +101,8 @@ hash = "50123c09c4693cf847ac3420fcef7cdb94ba57096b9dbb9f13deabedc8d9f62e"
 metafile = true
 
 [[files]]
-file = "mods/pokeserver-2.5.0.jar"
-hash = "91d08d9e7657c1cef56d3e3efdc8775588f1992b0c0f93bc3a2f937a1e9a02d0"
+file = "mods/pokeserver-2.6.0.jar"
+hash = "fe38700822316cebca02445ef5f882084a952ab530d60507b07b5f946fa3a21b"
 
 [[files]]
 file = "mods/rctapi.pw.toml"
@@ -382,7 +382,7 @@ hash = "518d55a1c83476f020a3302eab5e3adc8e40a9625e14d0c739973871515820ef"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/finish.mcfunction"
-hash = "0e0039fd54541d8a51a4c741fef1a448fdee80323791fe8c9c8102408d050c37"
+hash = "11007e1a12fe7e56f4189759cadc9179a88d9a4572b1dadef879208305655ff1"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/plaza/0.mcfunction"
@@ -390,11 +390,11 @@ hash = "a099a3af87b913a0dabeff9eeebfdc5103b0020b39bf3f8b9284a4ee4bd834d6"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/plaza/1.mcfunction"
-hash = "cc147999d6e990b41d5c1b9cf3d90701b7297df5a1b0f3f994b37d98a9f95dd6"
+hash = "dd69b732a82674509179b25cadf529ff5de54922dbf9a5e583d1bbc21f8c4f47"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/plaza/2.mcfunction"
-hash = "a9b3103bb4058ba9e87b8585fd872e5b075da0e5f232eded6b42caf299536624"
+hash = "2b78a8f57b1b8c56abc16f7131b2623b36a7cdbbd137b88027e1e256b0fbfa08"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/plaza/finish.mcfunction"
@@ -482,15 +482,15 @@ hash = "4d6926a2e075d09eeb0f113908ac023a346fcaa22b59b1fd0eae30b69137ad64"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/terrain/4.mcfunction"
-hash = "5228cee3b19150289bbd3bdfef3b6e3fae71532e6f55d1cf4db895a998fd6bc9"
+hash = "7c0dc4a3d1b55ccf1907aac9aa51c202387f57c9fb7396bb56a95269886ac4b5"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/terrain/5.mcfunction"
-hash = "de267e569eba1547af0207bd343f88b45b6ae02746dcbe7e3e15c9541062fbf1"
+hash = "60db275f35a489be796fbaaeaa6ea739d357dc28e255aa8902f561ad28b08df6"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/terrain/6.mcfunction"
-hash = "763d2fc94c9bda79d73ff976b480f27ab3dfd3c256335b2607008fa3124d9a4d"
+hash = "85fd966c842bdd888a23ee366827f80f834bf227cafd5e6574ff141962e52666"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/build/terrain/run_0.mcfunction"
@@ -698,7 +698,7 @@ hash = "6ef1376eb907d5b2e470eb5ee1baf1a3cc387609aa21fe269cec732408145dca"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/load.mcfunction"
-hash = "edcc246daa7823c3881c2aeeda2985c9950fca6510def32e7d51d4993536a520"
+hash = "181874f6dd2942af37f5d1f29aca71d3a4ed787a8c2c2c169a9fdb244c775079"
 
 [[files]]
 file = "world/datapacks/pokeserver/data/poke/function/mobs.mcfunction"

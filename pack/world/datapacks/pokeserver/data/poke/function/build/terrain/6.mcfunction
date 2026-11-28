@@ -1,5 +1,4 @@
 # 자동 생성: tools/build_world.py (지형 → 마을 건물 순서)
-fill 3550 -59 54 3550 -44 54 minecraft:quartz_pillar
 fill 3500 -59 59 3500 -44 59 minecraft:quartz_pillar
 fill 3550 -59 59 3550 -44 59 minecraft:quartz_pillar
 fill 3500 -59 64 3500 -44 64 minecraft:quartz_pillar

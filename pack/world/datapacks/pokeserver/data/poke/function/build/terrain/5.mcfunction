@@ -1,5 +1,4 @@
 # 자동 생성: tools/build_world.py (지형 → 마을 건물 순서)
-setblock 3109 -60 3 minecraft:yellow_concrete
 setblock 3121 -60 3 minecraft:yellow_concrete
 setblock 3109 -60 9 minecraft:yellow_concrete
 setblock 3121 -60 9 minecraft:yellow_concrete
@@ -1999,3 +1998,4 @@ fill 3550 -59 44 3550 -44 44 minecraft:quartz_pillar
 fill 3500 -59 49 3500 -44 49 minecraft:quartz_pillar
 fill 3550 -59 49 3550 -44 49 minecraft:quartz_pillar
 fill 3500 -59 54 3500 -44 54 minecraft:quartz_pillar
+fill 3550 -59 54 3550 -44 54 minecraft:quartz_pillar

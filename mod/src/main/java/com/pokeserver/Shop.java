@@ -15,7 +15,10 @@ import net.minecraft.world.item.Items;
 
 /** 4. 상점: 목록은 config/pokeserver/shop.json (서버가 열 때 클라이언트로 그대로 보냄). */
 public final class Shop {
-    public record Entry(String item, long buy, long sell, int badges) {}   // badges: 구매에 필요한 배지 수 (판매는 제한 없음)
+    /** badges: 구매에 필요한 배지 수 (판매는 제한 없음). daily: 매일 DAILY_N개만 살 수 있는 묶음 ("tm"·"gimmick", 없으면 null). */
+    public record Entry(String item, long buy, long sell, int badges, String daily) {
+        Entry with(long buy) { return new Entry(item, buy, sell, badges, daily); }
+    }
     public record Category(String name, String icon, String shop, List<Entry> items) {}   // shop: poke(코블몬 상인) / mc(마인크래프트 상인)
     public record Data(List<Category> categories) {}
 
@@ -37,12 +40,50 @@ public final class Shop {
 
     public static Data parse(String s) { return GSON.fromJson(s, Data.class); }
 
-    /** 상점 항목 → 아이템. "pokeserver:farm_deed"는 땅 문서. */
+    /** 상점 항목 → 아이템. "pokeserver:farm_deed"는 땅 문서, "cobblemon:technical_machine#기술"은 그 기술의 기술머신. */
     public static ItemStack stack(String id) {
         if ("pokeserver:farm_deed".equals(id)) return Farms.deed();
-        ResourceLocation rl = ResourceLocation.tryParse(id);
-        return rl == null ? ItemStack.EMPTY : new ItemStack(BuiltInRegistries.ITEM.get(rl));
+        int hash = id.indexOf('#');
+        ResourceLocation rl = ResourceLocation.tryParse(hash < 0 ? id : id.substring(0, hash));
+        if (rl == null) return ItemStack.EMPTY;
+        ItemStack st = new ItemStack(BuiltInRegistries.ITEM.get(rl));
+        if (hash >= 0 && !st.isEmpty()) {   // 코블몬 tm_move 부품 (코블몬이 없으면 아이템도 없어 여기 안 옴)
+            var type = BuiltInRegistries.DATA_COMPONENT_TYPE.get(ResourceLocation.fromNamespaceAndPath("cobblemon", "tm_move"));
+            var json = new com.google.gson.JsonObject();
+            json.addProperty("move", id.substring(hash + 1));
+            if (type == null || type.codec() == null) return ItemStack.EMPTY;
+            var value = type.codec().parse(com.mojang.serialization.JsonOps.INSTANCE, json).result().orElse(null);
+            if (value == null) return ItemStack.EMPTY;
+            @SuppressWarnings("unchecked") var t = (net.minecraft.core.component.DataComponentType<Object>) type;
+            st.set(t, value);
+        }
+        return st;
     }
+
+    // 7·8. 매일(한국 시간 자정에 바뀜) 묶음마다 DAILY_N개만 살 수 있음. 같은 날엔 누구에게나 같은 상품.
+    static final int DAILY_N = 5;
+    static long dailyDay = -1;
+    static java.util.Set<String> dailyPick = java.util.Set.of();
+
+    static java.util.Set<String> todays() {
+        long day = java.time.LocalDate.now(java.time.ZoneId.of("Asia/Seoul")).toEpochDay();
+        if (day != dailyDay) {
+            var groups = new java.util.TreeMap<String, java.util.List<String>>();
+            for (var c : data.categories()) for (var e : c.items()) if (e.daily() != null && e.buy() > 0) groups.computeIfAbsent(e.daily(), k -> new java.util.ArrayList<>()).add(e.item());
+            var pick = new java.util.HashSet<String>();
+            groups.forEach((g, list) -> {
+                var l = new java.util.ArrayList<>(list);
+                java.util.Collections.shuffle(l, new java.util.Random(day * 1_000_003L + g.hashCode()));
+                pick.addAll(l.subList(0, Math.min(DAILY_N, l.size())));
+            });
+            dailyPick = pick;
+            dailyDay = day;
+        }
+        return dailyPick;
+    }
+
+    /** 오늘 고른 상품이 아니면 구매만 막음 (판매는 그대로). */
+    static Entry today(Entry e) { return e.daily() == null || todays().contains(e.item()) ? e : e.with(0); }
 
     public static boolean matches(ItemStack have, String id) {
         if ("pokeserver:farm_deed".equals(id)) return Farms.isDeed(have);
@@ -68,7 +109,8 @@ public final class Shop {
     /** 이 사람이 지금 보는 분류 (클라이언트가 보내는 분류 번호도 이 목록 기준). */
     static List<Category> cats(ServerPlayer p) {
         String s = opened.get(p.getUUID());
-        return s == null ? data.categories() : data.categories().stream().filter(c -> s.equals(c.shop())).toList();
+        return data.categories().stream().filter(c -> s == null || s.equals(c.shop()))
+                .map(c -> new Category(c.name(), c.icon(), c.shop(), c.items().stream().map(Shop::today).toList())).toList();
     }
 
     /** 3. 땅 문서는 한 사람이 살수록 비싸짐: 기본 가격 × (산 개수 + 1). 다른 사람과는 따로 셈. */
@@ -79,7 +121,7 @@ public final class Shop {
     /** 이 플레이어가 보는 목록 (땅 문서 가격만 사람마다 다름). */
     static String jsonFor(ServerPlayer p) {
         return GSON.toJson(new Data(cats(p).stream().map(c -> new Category(c.name(), c.icon(), c.shop(), c.items().stream()
-                .map(e -> isDeedEntry(e) ? new Entry(e.item(), deedPrice(p, e.buy(), 0), e.sell(), e.badges()) : e).toList())).toList()));
+                .map(e -> isDeedEntry(e) ? e.with(deedPrice(p, e.buy(), 0)) : e).toList())).toList()));
     }
 
     static boolean isDeedEntry(Entry e) { return "pokeserver:farm_deed".equals(e.item()) && e.buy() > 0; }

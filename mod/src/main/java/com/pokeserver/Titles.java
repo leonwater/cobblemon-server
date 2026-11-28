@@ -95,7 +95,6 @@ public final class Titles {
             new Title("bigspender", 7, 22, "백화점 VIP", "§e", "상점의 최고 손님", stat("spent"), 10_000_000, false),
             // 농장
             new Title("landlord", 8, 31, "텃밭 농부", "§a", "여러 칸 땅을 가꾸는 농부", Titles::plots, 3, false),
-            new Title("ranch", 8, 23, "목장 주인", "§2", "넓은 땅의 주인", Titles::plots, 10, false),
             new Title("harvest", 8, 30, "나무열매 명인", "§2", "부지런히 거둔 농부", stat("harvest"), 1000, false),
             // 꾸준함
             new Title("hours", 9, 32, "오랜 파트너", "§b", "오랜 시간 함께한 트레이너", Titles::hours, 100, false));

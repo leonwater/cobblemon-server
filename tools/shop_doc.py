@@ -35,6 +35,7 @@ def names():
     for ns in ('cobblemon', 'mega_showdown'):
         b = R.read(f'assets/{ns}/lang/ko_kr.json')
         if b: ko.update(json.loads(b))
+    ko.update(json.loads((MOD_RES / 'assets/pokeserver/lang/ko_kr.json').read_text(encoding='utf-8')))   # 우리 번역 (새 메가스톤 등)
     return ko
 
 
@@ -121,9 +122,11 @@ def main(out):
     ids = {x['item'] for c in shop['categories'] for x in c['items']} | {c['icon'] for c in shop['categories']} | {'minecraft:gold_nugget'}
     icons, nm, missing = {}, {}, []
     for i in sorted(ids):
-        ns, n = i.split(':')
+        base, _, move = i.partition('#')   # 기술머신: "cobblemon:technical_machine#기술"
+        ns, n = base.split(':')
         nm[i] = '땅 문서' if i == 'pokeserver:farm_deed' else ko.get(f'item.{ns}.{n}') or ko.get(f'block.{ns}.{n}') or n
-        im = icon(i)
+        if move: nm[i] = f"{nm[i]}: {ko.get(f'cobblemon.move.{move}', move)}"
+        im = icon(base)
         if im: icons[i] = uri(im)
         else: missing.append(i)
     ver = (ROOT / 'pack/pack.toml').read_text().split('version = "')[1].split('"')[0]

@@ -203,7 +203,7 @@ function render() {
     c.tabIndex = 0; c.setAttribute('role', 'button');
     const im = el('img'); im.src = D.icons[e.item]; im.alt = '';
     c.append(el('div', 'well'), im, el('div', 't x1', '', 'x1'), el('div', 't c nm', '', D.names[e.item]));
-    const band = locked ? [`배지 ${e.badges}개 필요`, '#5a4a72'] : st.sell ? [have ? `보유 ${have}개` : '보유 아이템 없음', have ? 'var(--green)' : 'var(--red)'] : st.money < p ? ['잔액 부족', 'var(--red)'] : null;
+    const band = locked ? [`배지 ${e.badges}개 필요`, '#5a4a72'] : !st.sell && e.daily ? ['매일 5개만 등장', '#2f5f8a'] : st.sell ? [have ? `보유 ${have}개` : '보유 아이템 없음', have ? 'var(--green)' : 'var(--red)'] : st.money < p ? ['잔액 부족', 'var(--red)'] : null;
     if (band) c.append(el('div', 't c band', `background:${band[1]}`, band[0]));
     c.append(el('div', 't c lb', '', st.sell ? '판매가' : '구매가'), el('div', 't c pr', '', fmt(p)));
     c.onmouseenter = ev => tip(e, locked, ev); c.onmousemove = ev => moveTip(ev); c.onmouseleave = () => tip(null);
@@ -225,7 +225,7 @@ function tip(e, locked, ev) {
   tipEl.append(el('div', 't', e.item === 'pokeserver:farm_deed' ? 'color:var(--gold)' : '', D.names[e.item]));
   if (e.item === 'pokeserver:farm_deed') tipEl.append(el('div', 't', 'color:#aaa', '농장의 빈 땅을 우클릭하면'), el('div', 't', 'color:#aaa', '내 땅으로 등록할 수 있습니다'));
   const extra = [];   // 문서용 덧붙임 (게임 설명창엔 없음)
-  if (e.buy) extra.push(`구매 ${fmt(e.buy)}원${e.badges ? ` · 배지 ${e.badges}개부터` : ''}`); else extra.push('판매 전용');
+  if (e.buy) extra.push(`구매 ${fmt(e.buy)}원${e.badges ? ` · 배지 ${e.badges}개부터` : ''}${e.daily ? ' · 이 분류에서 매일 5개만 랜덤으로 살 수 있음' : ''}`); else extra.push('판매 전용');
   if (e.sell) extra.push(`판매 ${fmt(e.sell)}원`);
   if (isDeed(e)) extra.push('살 때마다 값이 오름 (기본가 × 산 장수+1)');
   extra.forEach(s => tipEl.append(el('div', 't', 'color:#5555ff', s)));

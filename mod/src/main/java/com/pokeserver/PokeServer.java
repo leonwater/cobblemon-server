@@ -44,6 +44,7 @@ public class PokeServer implements ModInitializer {
         });
         PayloadTypeRegistry.playC2S().register(Net.ShopTrade.TYPE, Net.ShopTrade.CODEC);
         PayloadTypeRegistry.playC2S().register(Net.BattleSpeed.TYPE, Net.BattleSpeed.CODEC);
+        PayloadTypeRegistry.playC2S().register(Net.BattleQuit.TYPE, Net.BattleQuit.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.MenuOpen.TYPE, Net.MenuOpen.CODEC);
         PayloadTypeRegistry.playC2S().register(Net.MenuAction.TYPE, Net.MenuAction.CODEC);
         PayloadTypeRegistry.playS2C().register(Net.GymOpen.TYPE, Net.GymOpen.CODEC);
@@ -56,6 +57,7 @@ public class PokeServer implements ModInitializer {
         if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) {
             CobblemonHooks.register();
             ServerPlayNetworking.registerGlobalReceiver(Net.BattleSpeed.TYPE, (m, ctx) -> ctx.player().server.execute(() -> CobblemonHooks.setSpeed(ctx.player(), m.speed())));
+            ServerPlayNetworking.registerGlobalReceiver(Net.BattleQuit.TYPE, (m, ctx) -> ctx.player().server.execute(() -> CobblemonHooks.quitBattle(ctx.player())));
         }
         ServerPlayNetworking.registerGlobalReceiver(Net.ClaimConfirm.TYPE,
                 (payload, ctx) -> ctx.player().server.execute(() -> Farms.claim(ctx.player(), payload.plot())));
@@ -83,7 +85,7 @@ public class PokeServer implements ModInitializer {
             if (server.getTickCount() % 20 == 0) { Teleport.tick(server); Nicknames.tick(server); Plaza.modes(server); Gym.unstick(server); }
             if (server.getTickCount() % 200 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.reapply(server);
             if (server.getTickCount() % 20 == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) { CobblemonHooks.starterLocks(server); CobblemonHooks.countWild(server); CobblemonHooks.gimmickGear(server); }
-            if (server.getTickCount() % CobblemonHooks.LEGEND_TICKS == 0 && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.spawnLegend(server);
+            if (server.getTickCount() % CobblemonHooks.LEGEND_TICKS == 0 && ServerData.get(server).legendsOn && net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.spawnLegend(server);
         });
         // 상인(poke.merchant) → 상점, 체육관 안내원(poke.gymguide) → 도전 목록, 오박사(poke.tutor) → 튜토리얼 설명 창 (Cobblemon NPC 스크립트 대신 직접 처리)
         net.fabricmc.fabric.api.event.player.UseEntityCallback.EVENT.register((player, level, hand, entity, hit) -> {
@@ -216,11 +218,22 @@ public class PokeServer implements ModInitializer {
                     targets.forEach(p -> ServerPlayNetworking.send(p, Net.TutorialOpen.of(p)));
                     return targets.size();
                 })))
-                .then(Commands.literal("legend").executes(c -> {   // 6. 전설 출현을 지금 한 번 (관리자·테스트용)
+                .then(Commands.literal("legend").executes(c -> {   // 1. 전설 출현을 지금 한 번 + 이때부터 1시간마다 자동 (처음엔 꺼져 있음)
+                    var data = ServerData.get(c.getSource().getServer());
+                    boolean first = !data.legendsOn;
+                    data.legendsOn = true;
+                    data.setDirty();
                     String s = CobblemonHooks.spawnLegend(c.getSource().getServer());
-                    c.getSource().sendSuccess(() -> Component.literal(s == null ? "전설 출현: 맞는 플레이어·전설 없음" : "전설 출현: " + s), true);
+                    c.getSource().sendSuccess(() -> Component.literal((s == null ? "전설 출현: 맞는 플레이어·전설 없음" : "전설 출현: " + s)
+                            + (first ? " (지금부터 1시간마다 자동 출현)" : "")), true);
                     return s == null ? 0 : 1;
-                }))
+                }).then(Commands.literal("stop").executes(c -> {   // 자동 출현 다시 끄기
+                    var data = ServerData.get(c.getSource().getServer());
+                    data.legendsOn = false;
+                    data.setDirty();
+                    c.getSource().sendSuccess(() -> Component.literal("전설 자동 출현 끔 (다시 켜려면 /pokeserver legend)"), true);
+                    return 1;
+                })))
                 .then(Commands.literal("reset").then(Commands.argument("targets", EntityArgument.players()).executes(c -> {
                     var targets = EntityArgument.getPlayers(c, "targets");
                     targets.forEach(Menu::wipe);

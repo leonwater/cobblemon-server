@@ -40,7 +40,7 @@ public class TitleScreen extends Screen {
         height = Math.round(height / k);
     }
 
-    static final int COLS = 5, CW = 116, CH = 20, GAP = 5;   // 640×360 안에 39개 + 갈래별 줄바꿈(12줄)
+    static final int COLS = 5, CW = 116, CH = 20, GAP = 5;   // 640×360 안에 38개 + 갈래별 줄바꿈(12줄)
     private int px() { return (width - (COLS * CW + (COLS - 1) * GAP + 24)) / 2; }
     private int py() { return (height - (40 + lines * (CH + GAP) + 12)) / 2; }
     private int cx(int i) { return px() + 12 + col.get(i) * (CW + GAP); }

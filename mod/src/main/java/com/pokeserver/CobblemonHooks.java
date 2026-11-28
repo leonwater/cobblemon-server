@@ -563,6 +563,15 @@ public final class CobblemonHooks {
     /** 기술 연출 키프레임이 도는 동안의 배속 (ActionSpeedMixin·DelaySpeedMixin). */
     public static final ThreadLocal<Integer> ACTION_SPEED = ThreadLocal.withInitial(() -> 1);
 
+    /** 11. "도망·포기" 버튼: 확률·확인 창 없이 배틀을 바로 끝냄. 체육관·사천왕 배틀이면 진 것으로 (예전 기권과 같게: 로비로, 1분 재도전 대기). */
+    static void quitBattle(ServerPlayer p) {
+        var battle = com.cobblemon.mod.common.battles.BattleRegistry.INSTANCE.getBattleByParticipatingPlayer(p);
+        if (battle == null) return;
+        boolean gym = battle.isPvN() && Gym.score(p) > 0;
+        battle.stop();
+        if (gym) gymResult(p.server, p.getUUID(), "lose");
+    }
+
     static void setSpeed(ServerPlayer p, int speed) {
         if (speed == 1 || speed == 2 || speed == 4) SPEED.put(p.getUUID(), speed);
     }

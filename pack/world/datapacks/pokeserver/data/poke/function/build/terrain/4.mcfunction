@@ -1089,7 +1089,6 @@ fill 1988 -51 18 1989 -50 18 minecraft:blue_concrete
 setblock 1988 -52 17 minecraft:quartz_slab[type=top]
 setblock 1989 -52 17 minecraft:quartz_slab[type=top]
 summon minecraft:item_display 1989.0 -50.0 17.94 {Tags:["poke.deco"],item:{id:"minecraft:gold_nugget",count:1,components:{"minecraft:custom_model_data":1008}},transformation:{scale:[1.4f,1.4f,1.4f],translation:[0f,0f,0f],left_rotation:[0f,1f,0f,0f],right_rotation:[0f,0f,0f,1f]}}
-summon minecraft:text_display 2000.5 -48.6 17.4 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[1.0f,1.0f,1.0f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"배지 8개를 모으면 사천왕에 도전!","color":"gold","bold":true,"font":"pokeserver:galmuri","extra":[{"text":"\\n체육관을 이기면 이 배지를 받아요","color":"gray","bold":false}]}'}
 setblock 1986 -56 -8 minecraft:spruce_stairs[facing=west]
 setblock 2014 -56 -8 minecraft:spruce_stairs[facing=east]
 setblock 1986 -56 -4 minecraft:spruce_stairs[facing=west]
@@ -1999,3 +1998,4 @@ setblock 3109 -60 -9 minecraft:yellow_concrete
 setblock 3121 -60 -9 minecraft:yellow_concrete
 setblock 3109 -60 -3 minecraft:yellow_concrete
 setblock 3121 -60 -3 minecraft:yellow_concrete
+setblock 3109 -60 3 minecraft:yellow_concrete

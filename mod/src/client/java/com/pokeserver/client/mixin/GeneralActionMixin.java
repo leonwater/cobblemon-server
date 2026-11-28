@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-/** 5. 행동 선택 (참고 사진 배치): 싸운다 | 포켓몬 / 포기(도망) 아래 왼쪽, 야생이면 잡기 아래 오른쪽.
+/** 5. 행동 선택 (참고 사진 배치): 싸운다 | 포켓몬 / 포기(도망) 아래 왼쪽, 야생이면 잡기 아래 오른쪽. 포기(도망)는 누르면 배틀이 바로 끝남.
  *  그 위에 작은 "전투 속도 1x·2x·4x" 버튼 (누를 때마다 바뀜, 서버가 배틀 기다림을 줄임). */
 @Mixin(value = BattleGeneralActionSelection.class, remap = false)
 abstract class GeneralActionMixin {
@@ -41,7 +41,11 @@ abstract class GeneralActionMixin {
         tiles.clear();
         tiles.add(fight);
         if (sw != null) tiles.add(new BattleOptionTile(gui, x1, y0, sw.getResource(), sw.getText(), sw.getOnClick()));
-        if (run != null) tiles.add(new BattleOptionTile(gui, x0, y1, run.getResource(), run.getText(), run.getOnClick()));
+        // 11. 도망·포기: 확률·확인 창 없이 서버가 배틀을 바로 끝냄
+        if (run != null) tiles.add(new BattleOptionTile(gui, x0, y1, run.getResource(), run.getText(), () -> {
+            ClientPlayNetworking.send(new Net.BattleQuit(0));
+            return kotlin.Unit.INSTANCE;
+        }));
         if (ball != null) tiles.add(new BattleOptionTile(gui, x1, y1, ball.getResource(), ball.getText(), ball.getOnClick()));
         ClientPlayNetworking.send(new Net.BattleSpeed(BattleScale.speed));   // 다시 접속해도 서버 값 = 화면 값
     }

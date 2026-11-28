@@ -678,8 +678,8 @@
         },
         {
           "item": "cobblemon:rare_candy",
-          "buy": 4800,
-          "sell": 1200,
+          "buy": 12000,
+          "sell": 3000,
           "badges": 6
         },
         {
@@ -1339,6 +1339,96 @@
           "buy": 25000,
           "sell": 6250,
           "badges": 6
+        },
+        {
+          "item": "cobblemon:normal_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:fire_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:water_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:electric_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:grass_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:ice_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:fighting_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:poison_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:ground_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:flying_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:psychic_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:bug_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:rock_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:ghost_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:dragon_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:dark_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:steel_gem",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "cobblemon:fairy_gem",
+          "buy": 0,
+          "sell": 20
         },
         {
           "item": "cobblemon:ability_shield",
@@ -2239,846 +2329,3394 @@
           "item": "mega_showdown:aloraichium_z",
           "buy": 15000,
           "sell": 750,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:buginium_z",
           "buy": 10000,
           "sell": 500,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:darkinium_z",
           "buy": 10000,
           "sell": 500,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:decidium_z",
           "buy": 15000,
           "sell": 750,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:dragonium_z",
           "buy": 10000,
           "sell": 500,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:eevium_z",
           "buy": 15000,
           "sell": 750,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:electrium_z",
           "buy": 10000,
           "sell": 500,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:fairium_z",
           "buy": 10000,
           "sell": 500,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:fightinium_z",
           "buy": 10000,
           "sell": 500,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:firium_z",
           "buy": 10000,
           "sell": 500,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:flyinium_z",
           "buy": 10000,
           "sell": 500,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:ghostium_z",
           "buy": 10000,
           "sell": 500,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:grassium_z",
           "buy": 10000,
           "sell": 500,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:groundium_z",
           "buy": 10000,
           "sell": 500,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:icium_z",
           "buy": 10000,
           "sell": 500,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:incinium_z",
           "buy": 15000,
           "sell": 750,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:kommonium_z",
           "buy": 15000,
           "sell": 750,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:lunalium_z",
           "buy": 15000,
           "sell": 750,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:lycanium_z",
           "buy": 15000,
           "sell": 750,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:marshadium_z",
           "buy": 15000,
           "sell": 750,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:mewnium_z",
           "buy": 15000,
           "sell": 750,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:mimikium_z",
           "buy": 15000,
           "sell": 750,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:normalium_z",
           "buy": 10000,
           "sell": 500,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:pikanium_z",
           "buy": 15000,
           "sell": 750,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:pikashunium_z",
           "buy": 15000,
           "sell": 750,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:poisonium_z",
           "buy": 10000,
           "sell": 500,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:primarium_z",
           "buy": 15000,
           "sell": 750,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:psychium_z",
           "buy": 10000,
           "sell": 500,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:rockium_z",
           "buy": 10000,
           "sell": 500,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:snorlium_z",
           "buy": 15000,
           "sell": 750,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:solganium_z",
           "buy": 15000,
           "sell": 750,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:steelium_z",
           "buy": 10000,
           "sell": 500,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:tapunium_z",
           "buy": 15000,
           "sell": 750,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:ultranecrozium_z",
           "buy": 15000,
           "sell": 750,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:waterium_z",
           "buy": 10000,
           "sell": 500,
-          "badges": 2
+          "badges": 2,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:abomasite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:absolite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
+        },
+        {
+          "item": "mega_showdown:absolite_z",
+          "buy": 30000,
+          "sell": 1500,
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:aerodactylite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:aggronite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:alakazite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:altarianite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:ampharosite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:audinite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:banettite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:barbaracite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:baxcalibrite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:beedrillite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:blastoisinite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:blazikenite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:cameruptite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:chandelurite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
+        },
+        {
+          "item": "mega_showdown:charizardite_x",
+          "buy": 30000,
+          "sell": 1500,
+          "badges": 4,
+          "daily": "gimmick"
+        },
+        {
+          "item": "mega_showdown:charizardite_y",
+          "buy": 30000,
+          "sell": 1500,
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:chesnaughtite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:chimechite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:clefablite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:crabominite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:darkranite",
           "buy": 50000,
           "sell": 2500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:delphoxite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:diancite",
           "buy": 50000,
           "sell": 2500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:dragalgite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:dragoninite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:drampanite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:eelektrossite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:emboarite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:excadrite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:falinksite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:feraligite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:floettite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:froslassite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:galladite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:garchompite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
+        },
+        {
+          "item": "mega_showdown:garchompite_z",
+          "buy": 30000,
+          "sell": 1500,
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:gardevoirite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:gengarite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:glalitite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:glimmoranite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:golisopite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:golurkite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:greninjite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:gyaradosite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:hawluchanite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:heatranite",
           "buy": 50000,
           "sell": 2500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:heracronite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:houndoominite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:kangaskhanite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:latiasite",
           "buy": 50000,
           "sell": 2500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:latiosite",
           "buy": 50000,
           "sell": 2500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:lopunnite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:lucarionite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
+        },
+        {
+          "item": "mega_showdown:lucarionite_z",
+          "buy": 30000,
+          "sell": 1500,
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:magearnite",
           "buy": 50000,
           "sell": 2500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:malamarite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:manectite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:mawilite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:medichamite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:meganiumite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:meowsticite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:metagrossite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
+        },
+        {
+          "item": "mega_showdown:mewtwonite_x",
+          "buy": 50000,
+          "sell": 2500,
+          "badges": 4,
+          "daily": "gimmick"
+        },
+        {
+          "item": "mega_showdown:mewtwonite_y",
+          "buy": 50000,
+          "sell": 2500,
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:pidgeotite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:pinsirite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:pyroarite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
+        },
+        {
+          "item": "mega_showdown:raichunite_x",
+          "buy": 30000,
+          "sell": 1500,
+          "badges": 4,
+          "daily": "gimmick"
+        },
+        {
+          "item": "mega_showdown:raichunite_y",
+          "buy": 30000,
+          "sell": 1500,
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:sablenite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:salamencite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:sceptilite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:scizorite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:scolipite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:scovillainite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:scraftinite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:sharpedonite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:skarmorite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:slowbronite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:staraptite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:starminite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:steelixite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:swampertite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:tatsugirinite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:tera_pouch_white",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:tyranitarite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:venusaurite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:victreebelite",
           "buy": 30000,
           "sell": 1500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:zeraorite",
           "buy": 50000,
           "sell": 2500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:zygardite",
           "buy": 50000,
           "sell": 2500,
-          "badges": 4
+          "badges": 4,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:dynamax_candy",
           "buy": 3000,
           "sell": 750,
-          "badges": 6
+          "badges": 6,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:max_mushroom",
           "buy": 10000,
           "sell": 500,
-          "badges": 6
+          "badges": 6,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:bug_tera_shard",
           "buy": 500,
           "sell": 125,
-          "badges": 8
+          "badges": 8,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:dark_tera_shard",
           "buy": 500,
           "sell": 125,
-          "badges": 8
+          "badges": 8,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:dragon_tera_shard",
           "buy": 500,
           "sell": 125,
-          "badges": 8
+          "badges": 8,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:electric_tera_shard",
           "buy": 500,
           "sell": 125,
-          "badges": 8
+          "badges": 8,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:fairy_tera_shard",
           "buy": 500,
           "sell": 125,
-          "badges": 8
+          "badges": 8,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:fighting_tera_shard",
           "buy": 500,
           "sell": 125,
-          "badges": 8
+          "badges": 8,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:fire_tera_shard",
           "buy": 500,
           "sell": 125,
-          "badges": 8
+          "badges": 8,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:flying_tera_shard",
           "buy": 500,
           "sell": 125,
-          "badges": 8
+          "badges": 8,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:ghost_tera_shard",
           "buy": 500,
           "sell": 125,
-          "badges": 8
+          "badges": 8,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:grass_tera_shard",
           "buy": 500,
           "sell": 125,
-          "badges": 8
+          "badges": 8,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:ground_tera_shard",
           "buy": 500,
           "sell": 125,
-          "badges": 8
+          "badges": 8,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:ice_tera_shard",
           "buy": 500,
           "sell": 125,
-          "badges": 8
+          "badges": 8,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:normal_tera_shard",
           "buy": 500,
           "sell": 125,
-          "badges": 8
+          "badges": 8,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:poison_tera_shard",
           "buy": 500,
           "sell": 125,
-          "badges": 8
+          "badges": 8,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:psychic_tera_shard",
           "buy": 500,
           "sell": 125,
-          "badges": 8
+          "badges": 8,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:rock_tera_shard",
           "buy": 500,
           "sell": 125,
-          "badges": 8
+          "badges": 8,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:steel_tera_shard",
           "buy": 500,
           "sell": 125,
-          "badges": 8
+          "badges": 8,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:stellar_tera_shard",
           "buy": 500,
           "sell": 125,
-          "badges": 8
+          "badges": 8,
+          "daily": "gimmick"
         },
         {
           "item": "mega_showdown:water_tera_shard",
           "buy": 500,
           "sell": 125,
-          "badges": 8
+          "badges": 8,
+          "daily": "gimmick"
         }
       ]
     },
     {
-      "name": "농장",
+      "name": "기술머신",
+      "icon": "cobblemon:technical_machine",
+      "shop": "poke",
+      "items": [
+        {
+          "item": "cobblemon:technical_machine#acidspray",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#acrobatics",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#aerialace",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#afteryou",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#agility",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#aircutter",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#airslash",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#alluringvoice",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#allyswitch",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#amnesia",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#ancientpower",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#aquatail",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#assurance",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#attract",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#aurasphere",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#auroraveil",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#avalanche",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#babydolleyes",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#batonpass",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#beatup",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#bind",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#blastburn",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#blazekick",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#blizzard",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#block",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#bodypress",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#bodyslam",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#bounce",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#bravebird",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#breakingswipe",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#brickbreak",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#brine",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#brutalswing",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#bugbite",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#bugbuzz",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#bulkup",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#bulldoze",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#bulletseed",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#burningjealousy",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#calmmind",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#charge",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#chargebeam",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#charm",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#chillingwater",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#closecombat",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#coaching",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#confide",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#confuseray",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#corrosivegas",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#cosmicpower",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#covet",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#crosspoison",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#crunch",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#curse",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#cut",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#darkestlariat",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#darkpulse",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#dazzlinggleam",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#defog",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#dig",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#disarmingvoice",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#dive",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#doubleedge",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#doubleteam",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#dracometeor",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#dragoncheer",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#dragonclaw",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#dragondance",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#dragonpulse",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#dragontail",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#drainingkiss",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#drainpunch",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#dreameater",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#drillrun",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#dualchop",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#dualwingbeat",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#earthpower",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#earthquake",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#echoedvoice",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#eerieimpulse",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#electricterrain",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#electroball",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#electroweb",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#embargo",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#encore",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#endeavor",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#endure",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#energyball",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#expandingforce",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#explosion",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#facade",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#faketears",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#falseswipe",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#featherdance",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#fireblast",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#firefang",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#firepledge",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#firepunch",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#firespin",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#flamecharge",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#flamethrower",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#flareblitz",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#flash",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#flashcannon",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#fling",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#flipturn",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#fly",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#focusblast",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#focusenergy",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#focuspunch",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#foulplay",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#frenzyplant",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#frostbreath",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#furycutter",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#futuresight",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#gastroacid",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#gigadrain",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#gigaimpact",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#grassknot",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#grasspledge",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#grassyglide",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#grassyterrain",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#gravity",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#guardswap",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#gunkshot",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#gyroball",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#hail",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#hardpress",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#haze",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#headbutt",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#healbell",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#heatcrash",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#heatwave",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#heavyslam",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#helpinghand",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#hex",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#highhorsepower",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#honeclaws",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#hurricane",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#hydrocannon",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#hydropump",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#hyperbeam",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#hypervoice",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#icebeam",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#icefang",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#icepunch",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#icespinner",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#iciclespear",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#icywind",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#imprison",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#incinerate",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#infestation",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#irondefense",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#ironhead",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#irontail",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#knockoff",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#laserfocus",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#lashout",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#lastresort",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#leafblade",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#leafstorm",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#leechlife",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#lightscreen",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#liquidation",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#lowkick",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#lowsweep",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#lunge",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#magicalleaf",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#magiccoat",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#magicroom",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#magnetrise",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#megahorn",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#megakick",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#megapunch",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#metalclaw",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#metalsound",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#meteorbeam",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#metronome",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#mistyexplosion",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#mistyterrain",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#muddywater",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#mudshot",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#mudslap",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#mysticalfire",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#nastyplot",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#naturepower",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#nightshade",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#ominouswind",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#outrage",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#overheat",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#painsplit",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#payback",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#payday",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#petalblizzard",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#phantomforce",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#pinmissile",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#playrough",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#pluck",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#poisonjab",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#poisontail",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#pollenpuff",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#poltergeist",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#pounce",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#powergem",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#powerswap",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#poweruppunch",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#powerwhip",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#protect",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#psybeam",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#psychic",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#psychicfangs",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#psychicnoise",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#psychicterrain",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#psychocut",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#psychup",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#psyshock",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#quash",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#raindance",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#razorshell",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#recycle",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#reflect",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#rest",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#retaliate",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#revenge",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#reversal",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#risingvoltage",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#roar",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#rockblast",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#rockclimb",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#rockpolish",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#rockslide",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#rocksmash",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#rocktomb",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#roleplay",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#rollout",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#roost",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#round",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#safeguard",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#sandstorm",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#sandtomb",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#scald",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#scaleshot",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#scaryface",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#scorchingsands",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#screech",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#secretpower",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#seedbomb",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#selfdestruct",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#shadowball",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#shadowclaw",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#shockwave",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#signalbeam",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#silverwind",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#skillswap",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#skittersmack",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#skyattack",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#skydrop",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#sleeptalk",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#sludgebomb",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#sludgewave",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#smackdown",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#smartstrike",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#snarl",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#snatch",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#snore",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#snowscape",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#solarbeam",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#solarblade",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#speedswap",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#spikes",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#spite",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#stealthrock",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#steelbeam",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#steelroller",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#steelwing",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#stompingtantrum",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#stoneedge",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#storedpower",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#strength",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#stringshot",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#strugglebug",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#substitute",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#suckerpunch",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#sunnyday",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#supercellslam",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#superfang",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#superpower",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#surf",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#swagger",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#swift",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#swordsdance",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#synthesis",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#tailslap",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#tailwind",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#takedown",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#taunt",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#telekinesis",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#temperflare",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#terrainpulse",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#thief",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#throatchop",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#thunder",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#thunderbolt",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#thunderfang",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#thunderpunch",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#thunderwave",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#torment",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#toxic",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#toxicspikes",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#trailblaze",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#triattack",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#trick",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#trickroom",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#tripleaxel",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#twister",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#upperhand",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#uproar",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#uturn",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#vacuumwave",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#venomdrench",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#venoshock",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#voltswitch",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#waterfall",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#waterpledge",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#waterpulse",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#weatherball",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#whirlpool",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#wildcharge",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#willowisp",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#wonderroom",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#workup",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#worryseed",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#xscissor",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        },
+        {
+          "item": "cobblemon:technical_machine#zenheadbutt",
+          "buy": 5000,
+          "sell": 0,
+          "badges": 2,
+          "daily": "tm"
+        }
+      ]
+    },
+    {
+      "name": "작물",
       "icon": "minecraft:wheat",
       "shop": "mc",
       "items": [
@@ -3090,7 +5728,7 @@
         {
           "item": "minecraft:wheat_seeds",
           "buy": 10,
-          "sell": 2
+          "sell": 0
         },
         {
           "item": "minecraft:carrot",
@@ -3105,17 +5743,17 @@
         {
           "item": "minecraft:beetroot_seeds",
           "buy": 10,
-          "sell": 2
+          "sell": 0
         },
         {
           "item": "minecraft:pumpkin_seeds",
           "buy": 30,
-          "sell": 7
+          "sell": 0
         },
         {
           "item": "minecraft:melon_seeds",
           "buy": 30,
-          "sell": 7
+          "sell": 0
         },
         {
           "item": "minecraft:sugar_cane",
@@ -3161,6 +5799,56 @@
           "item": "minecraft:sweet_berries",
           "buy": 15,
           "sell": 3
+        },
+        {
+          "item": "minecraft:bread",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "minecraft:cookie",
+          "buy": 0,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:cake",
+          "buy": 0,
+          "sell": 60
+        },
+        {
+          "item": "minecraft:pumpkin_pie",
+          "buy": 0,
+          "sell": 35
+        },
+        {
+          "item": "minecraft:sugar",
+          "buy": 0,
+          "sell": 9
+        },
+        {
+          "item": "minecraft:baked_potato",
+          "buy": 0,
+          "sell": 7
+        },
+        {
+          "item": "minecraft:beetroot_soup",
+          "buy": 0,
+          "sell": 40
+        },
+        {
+          "item": "minecraft:golden_carrot",
+          "buy": 0,
+          "sell": 80
+        },
+        {
+          "item": "minecraft:golden_apple",
+          "buy": 0,
+          "sell": 600
+        },
+        {
+          "item": "minecraft:melon",
+          "buy": 0,
+          "sell": 25
         },
         {
           "item": "cobblemon:red_apricorn",
@@ -3211,52 +5899,12 @@
           "item": "minecraft:honey_bottle",
           "buy": 0,
           "sell": 15
-        },
-        {
-          "item": "minecraft:beef",
-          "buy": 0,
-          "sell": 6
-        },
-        {
-          "item": "minecraft:porkchop",
-          "buy": 0,
-          "sell": 6
-        },
-        {
-          "item": "minecraft:chicken",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "minecraft:mutton",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "minecraft:cod",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "minecraft:salmon",
-          "buy": 0,
-          "sell": 8
-        },
-        {
-          "item": "minecraft:tropical_fish",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "minecraft:pufferfish",
-          "buy": 0,
-          "sell": 10
         }
       ]
     },
     {
-      "name": "블록",
-      "icon": "minecraft:bricks",
+      "name": "광물",
+      "icon": "minecraft:diamond",
       "shop": "mc",
       "items": [
         {
@@ -3309,6 +5957,245 @@
           "buy": 20000,
           "sell": 5000
         },
+        {
+          "item": "minecraft:amethyst_shard",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "minecraft:iron_nugget",
+          "buy": 0,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:gold_nugget",
+          "buy": 0,
+          "sell": 6
+        },
+        {
+          "item": "minecraft:obsidian",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "minecraft:flint",
+          "buy": 0,
+          "sell": 2
+        },
+        {
+          "item": "minecraft:coal_block",
+          "buy": 0,
+          "sell": 70
+        },
+        {
+          "item": "minecraft:iron_block",
+          "buy": 0,
+          "sell": 300
+        },
+        {
+          "item": "minecraft:gold_block",
+          "buy": 0,
+          "sell": 600
+        },
+        {
+          "item": "minecraft:redstone_block",
+          "buy": 0,
+          "sell": 70
+        },
+        {
+          "item": "minecraft:lapis_block",
+          "buy": 0,
+          "sell": 110
+        },
+        {
+          "item": "minecraft:emerald_block",
+          "buy": 0,
+          "sell": 1000
+        },
+        {
+          "item": "minecraft:diamond_block",
+          "buy": 0,
+          "sell": 3000
+        },
+        {
+          "item": "minecraft:netherite_block",
+          "buy": 0,
+          "sell": 50000
+        },
+        {
+          "item": "minecraft:amethyst_block",
+          "buy": 0,
+          "sell": 45
+        }
+      ]
+    },
+    {
+      "name": "잡화",
+      "icon": "minecraft:iron_pickaxe",
+      "shop": "mc",
+      "items": [
+        {
+          "item": "minecraft:iron_pickaxe",
+          "buy": 400,
+          "sell": 0
+        },
+        {
+          "item": "minecraft:iron_axe",
+          "buy": 400,
+          "sell": 0
+        },
+        {
+          "item": "minecraft:iron_shovel",
+          "buy": 150,
+          "sell": 0
+        },
+        {
+          "item": "minecraft:iron_hoe",
+          "buy": 300,
+          "sell": 0
+        },
+        {
+          "item": "minecraft:shears",
+          "buy": 300,
+          "sell": 0
+        },
+        {
+          "item": "minecraft:fishing_rod",
+          "buy": 150,
+          "sell": 0
+        },
+        {
+          "item": "minecraft:bucket",
+          "buy": 400,
+          "sell": 0
+        },
+        {
+          "item": "minecraft:rotten_flesh",
+          "buy": 0,
+          "sell": 2
+        },
+        {
+          "item": "minecraft:bone",
+          "buy": 0,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:string",
+          "buy": 0,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:spider_eye",
+          "buy": 0,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:gunpowder",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "minecraft:ender_pearl",
+          "buy": 0,
+          "sell": 30
+        },
+        {
+          "item": "minecraft:slime_ball",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "minecraft:leather",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "minecraft:feather",
+          "buy": 0,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:ink_sac",
+          "buy": 0,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:blaze_rod",
+          "buy": 0,
+          "sell": 30
+        },
+        {
+          "item": "minecraft:ghast_tear",
+          "buy": 0,
+          "sell": 50
+        },
+        {
+          "item": "minecraft:phantom_membrane",
+          "buy": 0,
+          "sell": 20
+        },
+        {
+          "item": "minecraft:prismarine_shard",
+          "buy": 0,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:rabbit_hide",
+          "buy": 0,
+          "sell": 3
+        },
+        {
+          "item": "minecraft:arrow",
+          "buy": 0,
+          "sell": 1
+        },
+        {
+          "item": "minecraft:beef",
+          "buy": 0,
+          "sell": 6
+        },
+        {
+          "item": "minecraft:porkchop",
+          "buy": 0,
+          "sell": 6
+        },
+        {
+          "item": "minecraft:chicken",
+          "buy": 0,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:mutton",
+          "buy": 0,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:cod",
+          "buy": 0,
+          "sell": 5
+        },
+        {
+          "item": "minecraft:salmon",
+          "buy": 0,
+          "sell": 8
+        },
+        {
+          "item": "minecraft:tropical_fish",
+          "buy": 0,
+          "sell": 10
+        },
+        {
+          "item": "minecraft:pufferfish",
+          "buy": 0,
+          "sell": 10
+        }
+      ]
+    },
+    {
+      "name": "건축",
+      "icon": "minecraft:oak_planks",
+      "shop": "mc",
+      "items": [
         {
           "item": "minecraft:oak_log",
           "buy": 20,
@@ -3429,1687 +6316,6 @@
           "buy": 200,
           "sell": 50
         },
-        {
-          "item": "minecraft:raw_iron",
-          "buy": 0,
-          "sell": 30
-        },
-        {
-          "item": "minecraft:raw_gold",
-          "buy": 0,
-          "sell": 60
-        },
-        {
-          "item": "minecraft:raw_copper",
-          "buy": 0,
-          "sell": 6
-        },
-        {
-          "item": "minecraft:amethyst_shard",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "minecraft:obsidian",
-          "buy": 0,
-          "sell": 20
-        },
-        {
-          "item": "minecraft:flint",
-          "buy": 0,
-          "sell": 2
-        },
-        {
-          "item": "cobblemon:normal_gem",
-          "buy": 0,
-          "sell": 20
-        },
-        {
-          "item": "cobblemon:fire_gem",
-          "buy": 0,
-          "sell": 20
-        },
-        {
-          "item": "cobblemon:water_gem",
-          "buy": 0,
-          "sell": 20
-        },
-        {
-          "item": "cobblemon:electric_gem",
-          "buy": 0,
-          "sell": 20
-        },
-        {
-          "item": "cobblemon:grass_gem",
-          "buy": 0,
-          "sell": 20
-        },
-        {
-          "item": "cobblemon:ice_gem",
-          "buy": 0,
-          "sell": 20
-        },
-        {
-          "item": "cobblemon:fighting_gem",
-          "buy": 0,
-          "sell": 20
-        },
-        {
-          "item": "cobblemon:poison_gem",
-          "buy": 0,
-          "sell": 20
-        },
-        {
-          "item": "cobblemon:ground_gem",
-          "buy": 0,
-          "sell": 20
-        },
-        {
-          "item": "cobblemon:flying_gem",
-          "buy": 0,
-          "sell": 20
-        },
-        {
-          "item": "cobblemon:psychic_gem",
-          "buy": 0,
-          "sell": 20
-        },
-        {
-          "item": "cobblemon:bug_gem",
-          "buy": 0,
-          "sell": 20
-        },
-        {
-          "item": "cobblemon:rock_gem",
-          "buy": 0,
-          "sell": 20
-        },
-        {
-          "item": "cobblemon:ghost_gem",
-          "buy": 0,
-          "sell": 20
-        },
-        {
-          "item": "cobblemon:dragon_gem",
-          "buy": 0,
-          "sell": 20
-        },
-        {
-          "item": "cobblemon:dark_gem",
-          "buy": 0,
-          "sell": 20
-        },
-        {
-          "item": "cobblemon:steel_gem",
-          "buy": 0,
-          "sell": 20
-        },
-        {
-          "item": "cobblemon:fairy_gem",
-          "buy": 0,
-          "sell": 20
-        }
-      ]
-    },
-    {
-      "name": "잡화",
-      "icon": "minecraft:iron_pickaxe",
-      "shop": "mc",
-      "items": [
-        {
-          "item": "minecraft:iron_pickaxe",
-          "buy": 400,
-          "sell": 100
-        },
-        {
-          "item": "minecraft:iron_axe",
-          "buy": 400,
-          "sell": 100
-        },
-        {
-          "item": "minecraft:iron_shovel",
-          "buy": 150,
-          "sell": 37
-        },
-        {
-          "item": "minecraft:iron_hoe",
-          "buy": 300,
-          "sell": 75
-        },
-        {
-          "item": "minecraft:shears",
-          "buy": 300,
-          "sell": 75
-        },
-        {
-          "item": "minecraft:fishing_rod",
-          "buy": 150,
-          "sell": 37
-        },
-        {
-          "item": "minecraft:bucket",
-          "buy": 400,
-          "sell": 100
-        },
-        {
-          "item": "minecraft:torch",
-          "buy": 10,
-          "sell": 2
-        },
-        {
-          "item": "minecraft:lantern",
-          "buy": 150,
-          "sell": 37
-        },
-        {
-          "item": "minecraft:chest",
-          "buy": 50,
-          "sell": 12
-        },
-        {
-          "item": "minecraft:crafting_table",
-          "buy": 25,
-          "sell": 6
-        },
-        {
-          "item": "minecraft:furnace",
-          "buy": 30,
-          "sell": 7
-        },
-        {
-          "item": "minecraft:oak_door",
-          "buy": 30,
-          "sell": 7
-        },
-        {
-          "item": "minecraft:ladder",
-          "buy": 10,
-          "sell": 2
-        },
-        {
-          "item": "minecraft:rotten_flesh",
-          "buy": 0,
-          "sell": 2
-        },
-        {
-          "item": "minecraft:bone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "minecraft:string",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "minecraft:spider_eye",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "minecraft:gunpowder",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "minecraft:ender_pearl",
-          "buy": 0,
-          "sell": 30
-        },
-        {
-          "item": "minecraft:slime_ball",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "minecraft:leather",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "minecraft:feather",
-          "buy": 0,
-          "sell": 3
-        },
-        {
-          "item": "minecraft:ink_sac",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "minecraft:blaze_rod",
-          "buy": 0,
-          "sell": 30
-        },
-        {
-          "item": "minecraft:ghast_tear",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "minecraft:phantom_membrane",
-          "buy": 0,
-          "sell": 20
-        },
-        {
-          "item": "minecraft:prismarine_shard",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "minecraft:rabbit_hide",
-          "buy": 0,
-          "sell": 3
-        },
-        {
-          "item": "minecraft:arrow",
-          "buy": 0,
-          "sell": 1
-        }
-      ]
-    },
-    {
-      "name": "기타",
-      "icon": "cobblemon:relic_coin",
-      "shop": "poke",
-      "items": [
-        {
-          "item": "cobblemon:apricorn_boat",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:apricorn_button",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:apricorn_chest_boat",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:apricorn_door",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:apricorn_fence",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:apricorn_fence_gate",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:apricorn_hanging_sign",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:apricorn_leaves",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:apricorn_log",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:apricorn_planks",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:apricorn_pressure_plate",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:apricorn_sign",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:apricorn_slab",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:apricorn_stairs",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:apricorn_trapdoor",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:apricorn_wood",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:aprijuice_black",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:aprijuice_blue",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:aprijuice_green",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:aprijuice_pink",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:aprijuice_red",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:aprijuice_white",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:aprijuice_yellow",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:armor_fossil",
-          "buy": 0,
-          "sell": 300
-        },
-        {
-          "item": "cobblemon:automaton_armor_trim_smithing_template",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:berry_sweet",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:big_malasada",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:black_apricorn_seed",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:black_gilded_chest",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:black_plaque",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:black_tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:black_tumblestone_block",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:black_tumblestone_brick_slab",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:black_tumblestone_brick_stairs",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:black_tumblestone_brick_wall",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:black_tumblestone_bricks",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:black_tumblestone_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:blue_apricorn_seed",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:blue_gilded_chest",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:blue_plaque",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:brown_plaque",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:bug_gem_block",
-          "buy": 0,
-          "sell": 180
-        },
-        {
-          "item": "cobblemon:bug_gem_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:bugwort",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:bygone_sherd",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:campfire_pot_black",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:campfire_pot_blue",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:campfire_pot_green",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:campfire_pot_pink",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:campfire_pot_red",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:campfire_pot_white",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:campfire_pot_yellow",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:candied_apple",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:capture_sherd",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:casteliacone",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:chiseled_black_tumblestone_bricks",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:chiseled_polished_black_tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:chiseled_polished_sky_tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:chiseled_polished_tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:chiseled_sky_tumblestone_bricks",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:chiseled_tumblestone_bricks",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:claw_fossil",
-          "buy": 0,
-          "sell": 300
-        },
-        {
-          "item": "cobblemon:clover_sweet",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:coarse_mulch",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:cover_fossil",
-          "buy": 0,
-          "sell": 300
-        },
-        {
-          "item": "cobblemon:cyan_plaque",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:damaged_monitor",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:dark_gem_block",
-          "buy": 0,
-          "sell": 180
-        },
-        {
-          "item": "cobblemon:dark_gem_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:deepslate_crystal_core",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:disc_shelf",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:display_case",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:dome_fossil",
-          "buy": 0,
-          "sell": 300
-        },
-        {
-          "item": "cobblemon:dome_sherd",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:dragon_gem_block",
-          "buy": 0,
-          "sell": 180
-        },
-        {
-          "item": "cobblemon:dragon_gem_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:electric_gem_block",
-          "buy": 0,
-          "sell": 180
-        },
-        {
-          "item": "cobblemon:electric_gem_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:fairy_gem_block",
-          "buy": 0,
-          "sell": 180
-        },
-        {
-          "item": "cobblemon:fairy_gem_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:fighting_gem_block",
-          "buy": 0,
-          "sell": 180
-        },
-        {
-          "item": "cobblemon:fighting_gem_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:fire_gem_block",
-          "buy": 0,
-          "sell": 180
-        },
-        {
-          "item": "cobblemon:fire_gem_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:flower_sweet",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:flying_gem_block",
-          "buy": 0,
-          "sell": 180
-        },
-        {
-          "item": "cobblemon:flying_gem_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:fossil_analyzer",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:fossilized_bird",
-          "buy": 0,
-          "sell": 300
-        },
-        {
-          "item": "cobblemon:fossilized_dino",
-          "buy": 0,
-          "sell": 300
-        },
-        {
-          "item": "cobblemon:fossilized_drake",
-          "buy": 0,
-          "sell": 300
-        },
-        {
-          "item": "cobblemon:fossilized_fish",
-          "buy": 0,
-          "sell": 300
-        },
-        {
-          "item": "cobblemon:galarica_nuts",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:ghost_gem_block",
-          "buy": 0,
-          "sell": 180
-        },
-        {
-          "item": "cobblemon:ghost_gem_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:gilded_chest",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:grass_gem_block",
-          "buy": 0,
-          "sell": 180
-        },
-        {
-          "item": "cobblemon:grass_gem_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:gray_plaque",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:green_apricorn_seed",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:green_gilded_chest",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:green_plaque",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:ground_gem_block",
-          "buy": 0,
-          "sell": 180
-        },
-        {
-          "item": "cobblemon:ground_gem_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:growth_mulch",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:healing_machine",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:hearty_grain_bale",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:hearty_grains",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:helix_fossil",
-          "buy": 0,
-          "sell": 300
-        },
-        {
-          "item": "cobblemon:helix_sherd",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:humid_mulch",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:ice_gem_block",
-          "buy": 0,
-          "sell": 180
-        },
-        {
-          "item": "cobblemon:ice_gem_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:jaw_fossil",
-          "buy": 0,
-          "sell": 300
-        },
-        {
-          "item": "cobblemon:jubilife_muffin",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:large_budding_black_tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:large_budding_sky_tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:large_budding_tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:lava_cookie",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:leek_and_potato_stew",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:light_blue_plaque",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:light_gray_plaque",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:lime_plaque",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:loamy_mulch",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:lobaila",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:love_sweet",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:lucibell",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:lumiose_galette",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:magenta_plaque",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:medicinal_leek",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:medium_budding_black_tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:medium_budding_sky_tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:medium_budding_tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:mistleaf",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:monitor",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:mulch_base",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:normal_gem_block",
-          "buy": 0,
-          "sell": 180
-        },
-        {
-          "item": "cobblemon:normal_gem_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:nostalgic_sherd",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:old_amber_fossil",
-          "buy": 0,
-          "sell": 300
-        },
-        {
-          "item": "cobblemon:old_gateau",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:open_faced_sandwich",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:orange_plaque",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:pasture",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:pauvillea",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:pc",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:peat_block",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:peat_mulch",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:pep_up_flower",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:pewter_crunchies",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:pink_apricorn_seed",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:pink_gilded_chest",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:pink_plaque",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:plume_fossil",
-          "buy": 0,
-          "sell": 300
-        },
-        {
-          "item": "cobblemon:poison_gem_block",
-          "buy": 0,
-          "sell": 180
-        },
-        {
-          "item": "cobblemon:poison_gem_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:poke_bait",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:poke_cake",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:poke_puff",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:poke_snack",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:pokedex_black",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:pokedex_blue",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:pokedex_green",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:pokedex_pink",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:pokedex_red",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:pokedex_white",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:pokedex_yellow",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:polished_black_tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:polished_black_tumblestone_slab",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:polished_black_tumblestone_stairs",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:polished_black_tumblestone_wall",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:polished_sky_tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:polished_sky_tumblestone_slab",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:polished_sky_tumblestone_stairs",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:polished_sky_tumblestone_wall",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:polished_tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:polished_tumblestone_slab",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:polished_tumblestone_stairs",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:polished_tumblestone_wall",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:pomohana",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:ponigiri",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:potato_mochi",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:psychic_gem_block",
-          "buy": 0,
-          "sell": 180
-        },
-        {
-          "item": "cobblemon:psychic_gem_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:purple_plaque",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:rage_candy_bar",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:red_apricorn_seed",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:red_plaque",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:relic_coin",
-          "buy": 0,
-          "sell": 100
-        },
-        {
-          "item": "cobblemon:relic_coin_pouch",
-          "buy": 0,
-          "sell": 900
-        },
-        {
-          "item": "cobblemon:relic_coin_sack",
-          "buy": 0,
-          "sell": 8100
-        },
-        {
-          "item": "cobblemon:restoration_tank",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:ribbon_sweet",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:rich_mulch",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:ring_target",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:roasted_leek",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:rock_gem_block",
-          "buy": 0,
-          "sell": 180
-        },
-        {
-          "item": "cobblemon:rock_gem_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:root_fossil",
-          "buy": 0,
-          "sell": 300
-        },
-        {
-          "item": "cobblemon:saccharine_boat",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:saccharine_button",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:saccharine_chest_boat",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:saccharine_door",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:saccharine_fence",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:saccharine_fence_gate",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:saccharine_hanging_sign",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:saccharine_leaves",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:saccharine_log",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:saccharine_log_slathered",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:saccharine_planks",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:saccharine_pressure_plate",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:saccharine_sapling",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:saccharine_sign",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:saccharine_slab",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:saccharine_stairs",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:saccharine_trapdoor",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:saccharine_wood",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:sail_fossil",
-          "buy": 0,
-          "sell": 300
-        },
-        {
-          "item": "cobblemon:sandy_mulch",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:shalour_sable",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:sinister_tea",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:skull_fossil",
-          "buy": 0,
-          "sell": 300
-        },
-        {
-          "item": "cobblemon:sky_tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:sky_tumblestone_block",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:sky_tumblestone_brick_slab",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:sky_tumblestone_brick_stairs",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:sky_tumblestone_brick_wall",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:sky_tumblestone_bricks",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:sky_tumblestone_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:small_budding_black_tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:small_budding_sky_tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:small_budding_tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:smoked_tail_curry",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:smooth_black_tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:smooth_black_tumblestone_slab",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:smooth_black_tumblestone_stairs",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:smooth_sky_tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:smooth_sky_tumblestone_slab",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:smooth_sky_tumblestone_stairs",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:smooth_tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:smooth_tumblestone_slab",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:smooth_tumblestone_stairs",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:star_sweet",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:steel_gem_block",
-          "buy": 0,
-          "sell": 180
-        },
-        {
-          "item": "cobblemon:steel_gem_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:strawberry_sweet",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:stripped_apricorn_log",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:stripped_apricorn_wood",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:stripped_saccharine_log",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:stripped_saccharine_wood",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:surprise_mulch",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:suspicious_sherd",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:sweet_heart",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:tasty_tail",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:tatami_block",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:tatami_mat",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:technical_machine",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:tumblestone",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:tumblestone_block",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:tumblestone_brick_slab",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:tumblestone_brick_stairs",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:tumblestone_brick_wall",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:tumblestone_bricks",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:tumblestone_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:verdroot",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:vivichoke",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:vivichoke_dip",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:vivichoke_seeds",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:voltaconia",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:water_gem_block",
-          "buy": 0,
-          "sell": 180
-        },
-        {
-          "item": "cobblemon:water_gem_cluster",
-          "buy": 0,
-          "sell": 40
-        },
-        {
-          "item": "cobblemon:white_apricorn_seed",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:white_gilded_chest",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:white_plaque",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:wistensu",
-          "buy": 0,
-          "sell": 10
-        },
-        {
-          "item": "cobblemon:yellow_apricorn_seed",
-          "buy": 0,
-          "sell": 5
-        },
-        {
-          "item": "cobblemon:yellow_gilded_chest",
-          "buy": 0,
-          "sell": 50
-        },
-        {
-          "item": "cobblemon:yellow_plaque",
-          "buy": 0,
-          "sell": 50
-        }
-      ]
-    },
-    {
-      "name": "건축",
-      "icon": "minecraft:oak_planks",
-      "shop": "mc",
-      "items": [
         {
           "item": "minecraft:oak_planks",
           "buy": 5,
@@ -5304,11 +6510,6 @@
           "item": "minecraft:hay_block",
           "buy": 200,
           "sell": 50
-        },
-        {
-          "item": "minecraft:bookshelf",
-          "buy": 150,
-          "sell": 37
         },
         {
           "item": "minecraft:glass_pane",

@@ -69,13 +69,29 @@ public class ShopScreen extends Screen {
             var items = data.categories().get(c).items();
             for (int i = 0; i < items.size(); i++) {
                 var e = items.get(i);
-                if ((sell ? e.sell() : e.buy()) <= 0 || Shop.stack(e.item()).isEmpty()) continue;  // 없는 아이템 ID는 숨김
-                if (!sell && e.badges() > badges) continue;   // 배지를 더 모으면 풀리는 상품
-                if (!q.isEmpty() && !Shop.stack(e.item()).getHoverName().getString().contains(q)) continue;
+                if (Shop.stack(e.item()).isEmpty()) continue;   // 없는 아이템 ID는 숨김
+                if (q.isEmpty()) {
+                    if ((sell ? e.sell() : e.buy()) <= 0) continue;
+                    if (!sell && e.badges() > badges) continue;   // 배지를 더 모으면 풀리는 상품
+                } else {   // 6. 검색: 이 상점의 모든 상품 (배지가 모자란 것·반대 탭에서만 거래되는 것도 띠로 표시)
+                    if (e.buy() <= 0 && e.sell() <= 0) continue;
+                    if (!nameOf(e.item()).contains(q)) continue;
+                }
                 shown.add(new int[]{c, i});
             }
         }
     }
+
+    /** 상품 이름: 기술머신은 "기술머신: 기술 이름" (아이템 이름만으론 다 같아 보임). */
+    static String nameOf(String id) {
+        String n = Shop.stack(id).getHoverName().getString();
+        int h = id.indexOf('#');
+        return h < 0 ? n : n + ": " + Component.translatable("cobblemon.move." + id.substring(h + 1)).getString();
+    }
+
+    /** 이 카드를 판매로 거래하나: 보는 탭에서 거래가 안 되면(검색으로 나온 것) 반대 탭으로. */
+    private boolean asSell(Shop.Entry e) { return sell ? e.sell() > 0 : e.buy() <= 0; }
+    private boolean locked(Shop.Entry e) { return !asSell(e) && e.badges() > badges; }
 
     private int cols() { return 5; }   // 가로 5칸 고정: 화면이 좁으면 카드 폭을 줄임
     private int cardW() { return Math.max(44, Math.min(84, (width - SIDE - 32 + GAP) / 5 - GAP)); }
@@ -101,7 +117,8 @@ public class ShopScreen extends Screen {
         // 분류 제목 (위계: 제목 흰색, 개수 회색)
         String title = search.getValue().isBlank() ? data.categories().get(category).name() : "검색 결과";
         g.drawString(font, Theme.t(title), SIDE + 16, TOP, Theme.TEXT);
-        g.drawString(font, Theme.t(shown.size() + "개"), SIDE + 22 + font.width(Theme.t(title)), TOP, Theme.SUBTEXT);
+        boolean daily = !sell && search.getValue().isBlank() && data.categories().get(category).items().stream().anyMatch(e -> e.daily() != null);
+        g.drawString(font, Theme.t(shown.size() + "개" + (daily ? " · 오늘의 상품 (매일 자정에 바뀜)" : "")), SIDE + 22 + font.width(Theme.t(title)), TOP, Theme.SUBTEXT);
         // 카드
         int hovered = -1;
         g.enableScissor(Math.round(SIDE * k), Math.round((TOP + 10) * k), Math.round(width * k), Math.round((height - 20) * k));   // 가위 영역은 화면 축소(k)를 따르지 않아 직접 곱함
@@ -151,7 +168,7 @@ public class ShopScreen extends Screen {
         int chipW = font.width(Theme.t(verb)) + 10;
         g.fill(x + MW - 12 - chipW, y + 12, x + MW - 12, y + 24, modalSell ? GREEN : Theme.SELECT);
         g.drawString(font, Theme.t(verb), x + MW - 7 - chipW, y + 14, Theme.TEXT, false);
-        g.drawString(font, Theme.t(Theme.fit(font, st.getHoverName().getString(), MW - 50 - chipW - 16)), x + 42, y + 12, Theme.TEXT, false);
+        g.drawString(font, Theme.t(Theme.fit(font, nameOf(modalEntry().item()), MW - 50 - chipW - 16)), x + 42, y + 12, Theme.TEXT, false);
         g.drawString(font, Theme.t("개당 " + Theme.money(font, unit(), "원", MW - 54 - font.width(Theme.t("개당 ")))), x + 42, y + 24, Theme.SUBTEXT, false);
         // 수량: [-] 숫자 [+]
         int ry = y + 44;
@@ -258,10 +275,11 @@ public class ShopScreen extends Screen {
     private void card(GuiGraphics g, int[] ref, int k, int x, int y, float h) {
         var e = data.categories().get(ref[0]).items().get(ref[1]);
         ItemStack st = Shop.stack(e.item());
+        boolean sell = asSell(e), locked = locked(e);
         long price = sell ? e.sell() : e.buy();
         var player = minecraft == null ? null : minecraft.player;
         int have = player == null ? 0 : Shop.count(player, e.item());
-        boolean blocked = sell ? have == 0 : balance < price;
+        boolean blocked = locked || (sell ? have == 0 : balance < price);
         float sc = k == pressedKey ? Theme.press(pressedAt) : 1f;
         g.pose().pushPose();
         g.pose().translate(x + cardW() / 2f, y + CARD_H / 2f - h, 0);   // 마우스를 올리면 1픽셀 떠오름
@@ -275,11 +293,12 @@ public class ShopScreen extends Screen {
         g.renderItem(st, 0, 0);
         g.pose().popPose();
         g.drawString(font, Theme.t("x1"), cardW() - 16, 34, Theme.SUBTEXT);
-        g.drawCenteredString(font, Theme.t(Theme.fit(font, st.getHoverName().getString(), cardW() - 8)), cardW() / 2, 49, Theme.TEXT);
+        g.drawCenteredString(font, Theme.t(Theme.fit(font, e.item().contains("#") ? Component.translatable("cobblemon.move." + e.item().substring(e.item().indexOf('#') + 1)).getString() : nameOf(e.item()), cardW() - 8)), cardW() / 2, 49, Theme.TEXT);
         // 상태 띠: 판매 탭은 보유 수량, 구매 탭은 잔액 부족만
-        String badge = sell ? (have == 0 ? "보유 아이템 없음" : "보유 " + have + "개") : (blocked ? "잔액 부족" : null);
+        String badge = locked ? "배지 " + e.badges() + "개 필요" : sell != ShopScreen.sell ? (sell ? "판매만 가능" : "구매만 가능")
+                : sell ? (have == 0 ? "보유 아이템 없음" : "보유 " + have + "개") : (blocked ? "잔액 부족" : null);
         if (badge != null) {
-            g.fill(4, 60, cardW() - 4, 71, sell && have > 0 ? GREEN : RED);
+            g.fill(4, 60, cardW() - 4, 71, locked ? 0xFF5A4A72 : sell != ShopScreen.sell ? 0xFF2F5F8A : sell && have > 0 ? GREEN : RED);
             g.drawCenteredString(font, Theme.t(Theme.fit(font, badge, cardW() - 8)), cardW() / 2, 62, Theme.TEXT);
         }
         g.drawCenteredString(font, Theme.t(sell ? "판매가" : "구매가"), cardW() / 2, 75, Theme.SUBTEXT);
@@ -319,10 +338,12 @@ public class ShopScreen extends Screen {
             int x = cardX(k), y = cardY(k);
             if (mx >= x && mx < x + cardW() && my >= y && my < y + CARD_H) {
                 int[] r = shown.get(k);
+                var e = data.categories().get(r[0]).items().get(r[1]);
+                if (locked(e)) return true;   // 배지가 모자라면 못 삼
                 pressedKey = k;
                 pressedAt = System.currentTimeMillis();
                 modal = r;
-                modalSell = sell;
+                modalSell = asSell(e);
                 qty = 1;
                 return true;
             }

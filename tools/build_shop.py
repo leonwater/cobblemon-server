@@ -14,16 +14,17 @@ ROOT = Path(__file__).resolve().parent.parent
 C, M, MS = 'cobblemon:', 'minecraft:', 'mega_showdown:'
 
 
-def e(item, buy, badges=0, sell=None):
-    return {'item': item, 'buy': buy, 'sell': buy // 4 if sell is None else sell, **({'badges': badges} if badges else {})}
+def e(item, buy, badges=0, sell=None, daily=None):
+    """daily: 매일 그중 몇 개만 살 수 있는 묶음 ('tm' 기술머신, 'gimmick' 특수 기믹 물품) — 판매는 늘 가능 (Shop.java가 날마다 고름)."""
+    return {'item': item, 'buy': buy, 'sell': buy // 4 if sell is None else sell, **({'badges': badges} if badges else {}), **({'daily': daily} if daily else {})}
 
 
 # 야생에서 얻을 수 있는 귀중품(메가스톤·Z크리스탈·다이버섯·진화의 돌)은 파는 값을 구매가의 1/20로 (평소 1/4). 야생에서 주워 팔아 큰돈 버는 것 막기
 WILD_SELL = 20
 
 
-def wild(item, buy, badges=0):
-    return e(item, buy, badges, sell=buy // WILD_SELL)
+def wild(item, buy, badges=0, daily=None):
+    return e(item, buy, badges, sell=buy // WILD_SELL, daily=daily)
 
 
 def sell_only(item, sell):
@@ -37,7 +38,7 @@ def ms_items():
         en = json.loads(z.read('assets/mega_showdown/lang/en_us.json'))
         zc = json.loads(z.read('data/mega_showdown/tags/item/z_crystal.json'))['values']
     ids = [k.split('.')[2] for k in en if k.startswith('item.mega_showdown.') and k.count('.') == 2]
-    megas = sorted(i for i in ids if i.endswith('ite') or i[:-2].endswith('ite_') and i[-1] in 'xyz')
+    megas = sorted(i for i in ids if i.endswith('ite') or i[:-1].endswith('ite_') and i[-1] in 'xyz')   # 리자몽나이트 X·Y처럼 _x·_y로 끝나는 것도 (예전엔 빠졌음)
     return megas, [z.split(':')[1] for z in zc], sorted(i for i in ids if i.endswith('_tera_shard'))
 
 
@@ -59,7 +60,7 @@ def categories():
     by = {n: xs for n, _, xs in cats}
     for cat, xs in extra.items():
         if cat in by: by[cat].extend(xs)                         # 기존 분류는 끝에 붙임 (앞쪽 순서가 안 바뀌게)
-    return cats + [('기타', C + 'relic_coin', extra.get('기타', [])), build_category()]   # 맨 뒤에 새 분류 (기존 분류 번호가 안 바뀌게)
+    return cats + [build_category()]   # '기타'(판매만 되는 코블몬 물품)는 2.6.0에서 뺌: 배지 8개여도 살 게 없는 분류
 
 
 COLORS = ['white', 'light_gray', 'gray', 'black', 'brown', 'red', 'orange', 'yellow', 'lime', 'green', 'cyan', 'light_blue', 'blue',
@@ -70,6 +71,10 @@ WOODS = ['oak', 'spruce', 'birch', 'jungle', 'acacia', 'dark_oak', 'mangrove', '
 def build_category():
     """건축 블록 (생활 상인). 값은 재료 값 이상: 판자 = 원목 20 ÷ 4, 사암 = 모래 4개, 색 블록 = 기본 블록 + 염료 몫."""
     return ('건축', M + 'oak_planks', [
+        *[e(M + w + '_log', 20) for w in WOODS],
+        e(M + 'stone', 5), e(M + 'cobblestone', 3), e(M + 'smooth_stone', 8), e(M + 'stone_bricks', 8), e(M + 'deepslate', 5),
+        e(M + 'sand', 3), e(M + 'gravel', 3), e(M + 'dirt', 2), e(M + 'grass_block', 5), e(M + 'clay_ball', 5), e(M + 'glass', 10),
+        e(M + 'bricks', 20), e(M + 'white_concrete', 15), e(M + 'terracotta', 12), e(M + 'white_wool', 15), e(M + 'quartz_block', 200),
         *[e(M + w + '_planks', 5) for w in WOODS], e(M + 'bamboo_planks', 5),
         *[e(M + s, 6) for s in ('andesite', 'diorite', 'granite', 'polished_andesite', 'polished_diorite', 'polished_granite',
                                 'cobbled_deepslate', 'polished_deepslate', 'deepslate_bricks', 'deepslate_tiles', 'tuff', 'polished_tuff',
@@ -78,7 +83,7 @@ def build_category():
         e(M + 'red_sand', 3), *[e(M + s, 15) for s in ('sandstone', 'cut_sandstone', 'smooth_sandstone', 'red_sandstone',
                                                          'cut_red_sandstone', 'smooth_red_sandstone')],
         e(M + 'packed_mud', 8), e(M + 'mud_bricks', 8), e(M + 'moss_block', 10), e(M + 'snow_block', 5), e(M + 'hay_block', 200),
-        e(M + 'bookshelf', 150), e(M + 'glass_pane', 4),
+        e(M + 'glass_pane', 4),
         *[e(M + s, 200) for s in ('quartz_bricks', 'quartz_pillar', 'smooth_quartz', 'chiseled_quartz_block')],
         e(M + 'prismarine', 30), e(M + 'prismarine_bricks', 60), e(M + 'dark_prismarine', 60),
         e(M + 'copper_block', 250), e(M + 'cut_copper', 250),
@@ -86,6 +91,34 @@ def build_category():
         *[e(M + c + '_wool', 15) for c in COLORS if c != 'white'],
         *[e(M + c + '_terracotta', 15) for c in COLORS],
         *[e(M + c + '_stained_glass', 15) for c in COLORS]])
+
+
+TM_PRICE = 5000   # 기술머신 1장 (배지 2개부터, 빈 기술머신 1,000원 + 재료보다 비싸게)
+
+
+def tm_moves():
+    """코블몬 기술머신이 있는 기술 이름 (data/cobblemon/tms/*.json)."""
+    jar = next((ROOT / 'tools/.jarcache').glob('Cobblemon-*.jar'))
+    with zipfile.ZipFile(jar) as z:
+        return sorted(f.split('/')[-1][:-5] for f in z.namelist() if f.startswith('data/cobblemon/tms/') and f.endswith('.json'))
+
+
+# 4. 농장 물품으로 만든 것의 판매가 (재료 판매가 합보다 비싸게, 재료 구매가 합보다는 싸게)
+CRAFTED_SELL = {'bread': 20, 'cookie': 3, 'cake': 60, 'pumpkin_pie': 35, 'sugar': 9, 'baked_potato': 7, 'beetroot_soup': 40,
+                'golden_carrot': 80, 'golden_apple': 600, 'melon': 25, }
+CRAFTED = {   # 결과 1개(쿠키는 8개 중 1개)를 만드는 재료
+    M + 'bread': {M + 'wheat': 3}, M + 'cookie': {M + 'wheat': 2 / 8, M + 'cocoa_beans': 1 / 8},
+    M + 'cake': {M + 'wheat': 3, M + 'sugar': 2, M + 'egg': 1}, M + 'pumpkin_pie': {M + 'pumpkin': 1, M + 'sugar': 1, M + 'egg': 1},
+    M + 'sugar': {M + 'sugar_cane': 1}, M + 'baked_potato': {M + 'potato': 1}, M + 'beetroot_soup': {M + 'beetroot': 6},
+    M + 'golden_carrot': {M + 'carrot': 1, M + 'gold_nugget': 8}, M + 'golden_apple': {M + 'apple': 1, M + 'gold_ingot': 8},
+    M + 'melon': {M + 'melon_slice': 9},
+}
+# 5. 광물 블록 판매가: 재료 9개 판매가 합 + 약 10%
+MINERAL_BLOCKS = {'coal_block': 70, 'iron_block': 300, 'gold_block': 600, 'redstone_block': 70, 'lapis_block': 110, 'emerald_block': 1000,
+                  'diamond_block': 3000, 'netherite_block': 50000, 'amethyst_block': 45}
+MINERAL_OF = {'coal_block': ('coal', 9), 'iron_block': ('iron_ingot', 9), 'gold_block': ('gold_ingot', 9), 'redstone_block': ('redstone', 9),
+              'lapis_block': ('lapis_lazuli', 9), 'emerald_block': ('emerald', 9), 'diamond_block': ('diamond', 9),
+              'netherite_block': ('netherite_ingot', 9), 'amethyst_block': ('amethyst_shard', 4)}
 
 
 def base_categories(megas, zs, shards):
@@ -112,7 +145,7 @@ def base_categories(megas, zs, shards):
             *[e(C + s, 5000, 4) for s in ('link_cable', 'metal_coat', 'kings_rock', 'dragon_scale', 'upgrade', 'dubious_disc', 'protector',
                                           'electirizer', 'magmarizer', 'reaper_cloth', 'prism_scale', 'razor_claw', 'razor_fang',
                                           'deep_sea_tooth', 'deep_sea_scale', 'sachet', 'whipped_dream')],
-            e(C + 'exp_candy_xl', 6000, 5), e(C + 'rare_candy', 4800, 6), e(C + 'pp_up', 9800, 3), e(C + 'pp_max', 20000, 7)]),
+            e(C + 'exp_candy_xl', 6000, 5), e(C + 'rare_candy', 12000, 6), e(C + 'pp_up', 9800, 3), e(C + 'pp_max', 20000, 7)]),
         ('도구', C + 'leftovers', [
             # 배지 1: 배틀용 열매 (지니면 알아서 먹음)
             *[e(C + b + '_berry', 200, 1) for b in ('oran', 'cheri', 'chesto', 'pecha', 'rawst', 'aspear', 'persim')],
@@ -129,7 +162,8 @@ def base_categories(megas, zs, shards):
             *[e(C + i, 15000, 5) for i in ('leftovers', 'black_sludge', 'rocky_helmet', 'focus_sash', 'eviolite', 'assault_vest',
                                            'heavy_duty_boots', 'weakness_policy', 'covert_cloak', 'clear_amulet', 'safety_goggles',
                                            'protective_pads', 'utility_umbrella', 'punching_glove', 'air_balloon')],
-            *[e(C + i, 25000, 6) for i in ('choice_band', 'choice_specs', 'choice_scarf', 'life_orb')]]),
+            *[e(C + i, 25000, 6) for i in ('choice_band', 'choice_specs', 'choice_scarf', 'life_orb')],
+            *[sell_only(C + t + '_gem', 20) for t in TYPES]]),   # 타입 주얼 (포켓몬 지닌 도구, 판매만)
         ('능력치', C + 'modest_mint', [
             # 노력치: 날개(+1) 배지 2, 비타민(+10)·내리는 열매(-10) 배지 3, 경단(+10)·리셋 경단 배지 4
             *[e(C + f + '_feather', 300, 2) for f in ('health', 'muscle', 'resist', 'genius', 'clever', 'swift')],
@@ -145,38 +179,40 @@ def base_categories(megas, zs, shards):
             *[e(C + c + '_candy', 5000, 7) for c in ('health', 'mighty', 'tough', 'smart', 'courage', 'quick')],
             *[e(C + c + '_candy', 1000, 7) for c in ('sickly', 'weak', 'brittle', 'numb', 'coward', 'slow')],
             e(C + 'ability_patch', 50000, 8)]),
-        ('기믹', MS + 'mega_bracelet', [
-            *[wild(MS + z, 10000 if z in TYPE_Z else 15000, 2) for z in zs],
-            *[wild(MS + m, 50000 if m in LEGEND_MEGA else 30000, 4) for m in megas],
-            e(MS + 'dynamax_candy', 3000, 6), wild(MS + 'max_mushroom', 10000, 6),
-            *[e(MS + s, 500, 8) for s in shards]]),
-        ('농장', M + 'wheat', [   # ── 마인크래프트 상인 ──
-            e('pokeserver:farm_deed', 50000, sell=0), e(M + 'wheat_seeds', 10), e(M + 'carrot', 20), e(M + 'potato', 20),
-            e(M + 'beetroot_seeds', 10), e(M + 'pumpkin_seeds', 30), e(M + 'melon_seeds', 30), e(M + 'sugar_cane', 30), e(M + 'bone_meal', 15),
+        ('기믹', MS + 'mega_bracelet', [   # 8. 매일 이 중 5개만 살 수 있음 (판매는 늘)
+            *[wild(MS + z, 10000 if z in TYPE_Z else 15000, 2, daily='gimmick') for z in zs],
+            *[wild(MS + m, 50000 if m in LEGEND_MEGA else 30000, 4, daily='gimmick') for m in megas],
+            e(MS + 'dynamax_candy', 3000, 6, daily='gimmick'), wild(MS + 'max_mushroom', 10000, 6, daily='gimmick'),
+            *[e(MS + s, 500, 8, daily='gimmick') for s in shards]]),
+        ('기술머신', C + 'technical_machine', [   # 7. 코블몬 기술머신 전부 중 매일 5개만 (사기만, 파는 건 '기타'의 기술머신 한 줄)
+            e(C + 'technical_machine#' + m, TM_PRICE, 2, sell=0, daily='tm') for m in tm_moves()]),
+        ('작물', M + 'wheat', [   # ── 마인크래프트 상인 ── (판매 분류: 작물 / 광물 / 건축 / 잡화)
+            # 씨앗은 사기만 (판매 목록에서 뺌, 당근·감자처럼 작물 자체가 심는 것은 그대로)
+            e('pokeserver:farm_deed', 50000, sell=0), e(M + 'wheat_seeds', 10, sell=0), e(M + 'carrot', 20), e(M + 'potato', 20),
+            e(M + 'beetroot_seeds', 10, sell=0), e(M + 'pumpkin_seeds', 30, sell=0), e(M + 'melon_seeds', 30, sell=0), e(M + 'sugar_cane', 30), e(M + 'bone_meal', 15),
             e(M + 'wheat', 20), e(M + 'pumpkin', 60), e(M + 'melon_slice', 10), e(M + 'beetroot', 20), e(M + 'apple', 30),
             e(M + 'cocoa_beans', 20), e(M + 'sweet_berries', 15),
+            # 4. 농장 물품으로 만든 것 (판매만): 재료를 그냥 파는 것보다 비싸게, 재료를 사서 만들어 팔면 손해 (CRAFTED 검사)
+            *[sell_only(M + i, p) for i, p in CRAFTED_SELL.items()],
             *[sell_only(C + c + '_apricorn', 10) for c in ('red', 'yellow', 'green', 'blue', 'pink', 'black', 'white')],
-            sell_only(M + 'egg', 2), sell_only(M + 'honeycomb', 10), sell_only(M + 'honey_bottle', 15),
-            sell_only(M + 'beef', 6), sell_only(M + 'porkchop', 6), sell_only(M + 'chicken', 5), sell_only(M + 'mutton', 5),
-            sell_only(M + 'cod', 5), sell_only(M + 'salmon', 8), sell_only(M + 'tropical_fish', 10), sell_only(M + 'pufferfish', 10)]),
-        ('블록', M + 'bricks', [
+            sell_only(M + 'egg', 2), sell_only(M + 'honeycomb', 10), sell_only(M + 'honey_bottle', 15)]),
+        ('광물', M + 'diamond', [
             e(M + 'coal', 30), e(M + 'copper_ingot', 25), e(M + 'iron_ingot', 120), e(M + 'gold_ingot', 240), e(M + 'redstone', 30),
             e(M + 'lapis_lazuli', 45), e(M + 'quartz', 45), e(M + 'emerald', 400), e(M + 'diamond', 1200), e(M + 'netherite_ingot', 20000),
-            *[e(M + w + '_log', 20) for w in ('oak', 'spruce', 'birch', 'jungle', 'acacia', 'dark_oak', 'mangrove', 'cherry')],
-            e(M + 'stone', 5), e(M + 'cobblestone', 3), e(M + 'smooth_stone', 8), e(M + 'stone_bricks', 8), e(M + 'deepslate', 5),
-            e(M + 'sand', 3), e(M + 'gravel', 3), e(M + 'dirt', 2), e(M + 'grass_block', 5), e(M + 'clay_ball', 5), e(M + 'glass', 10),
-            e(M + 'bricks', 20), e(M + 'white_concrete', 15), e(M + 'terracotta', 12), e(M + 'white_wool', 15), e(M + 'quartz_block', 200),
-            sell_only(M + 'raw_iron', 30), sell_only(M + 'raw_gold', 60), sell_only(M + 'raw_copper', 6), sell_only(M + 'amethyst_shard', 10),
-            sell_only(M + 'obsidian', 20), sell_only(M + 'flint', 2),
-            *[sell_only(C + t + '_gem', 20) for t in TYPES]]),
-        ('잡화', M + 'iron_pickaxe', [
-            e(M + 'iron_pickaxe', 400), e(M + 'iron_axe', 400), e(M + 'iron_shovel', 150), e(M + 'iron_hoe', 300), e(M + 'shears', 300),
-            e(M + 'fishing_rod', 150), e(M + 'bucket', 400), e(M + 'torch', 10), e(M + 'lantern', 150), e(M + 'chest', 50),
-            e(M + 'crafting_table', 25), e(M + 'furnace', 30), e(M + 'oak_door', 30), e(M + 'ladder', 10),
+            sell_only(M + 'amethyst_shard', 10),   # 광물 원석(raw_*)은 판매 안 함 (녹여서 주괴로)
+            sell_only(M + 'iron_nugget', 3), sell_only(M + 'gold_nugget', 6), sell_only(M + 'obsidian', 20), sell_only(M + 'flint', 2),
+            # 5. 광물 블록 (판매만): 재료 9개(자수정은 4개)를 따로 파는 것보다 조금 비싸게
+            *[sell_only(M + b, p) for b, p in MINERAL_BLOCKS.items()]]),
+        ('잡화', M + 'iron_pickaxe', [   # 5. 도구는 사기만 (판매 목록에서 뺌)
+            *[e(M + i, p, sell=0) for i, p in (('iron_pickaxe', 400), ('iron_axe', 400), ('iron_shovel', 150), ('iron_hoe', 300),
+                                                ('shears', 300), ('fishing_rod', 150), ('bucket', 400))],
+            # 7. 나무·돌·석탄 같은 기본 재료로 바로 만드는 생활용 설치물(문·사다리·제작대·화로·횃불·랜턴·상자·책장)은 상점에서 뺌
             *[sell_only(M + i, p) for i, p in (('rotten_flesh', 2), ('bone', 5), ('string', 5), ('spider_eye', 5), ('gunpowder', 10),
                                                ('ender_pearl', 30), ('slime_ball', 10), ('leather', 10), ('feather', 3), ('ink_sac', 5),
                                                ('blaze_rod', 30), ('ghast_tear', 50), ('phantom_membrane', 20), ('prismarine_shard', 5),
-                                               ('rabbit_hide', 3), ('arrow', 1))]]),
+                                               ('rabbit_hide', 3), ('arrow', 1))],
+            *[sell_only(M + i, p) for i, p in (('beef', 6), ('porkchop', 6), ('chicken', 5), ('mutton', 5), ('cod', 5), ('salmon', 8),
+                                               ('tropical_fish', 10), ('pufferfish', 10))]]),
     ]
 
 
@@ -238,10 +274,9 @@ def sell_rule(i):
 RECIPES = {
     M + 'bucket': {M + 'iron_ingot': 3}, M + 'shears': {M + 'iron_ingot': 2}, M + 'iron_pickaxe': {M + 'iron_ingot': 3},
     M + 'iron_axe': {M + 'iron_ingot': 3}, M + 'iron_shovel': {M + 'iron_ingot': 1}, M + 'iron_hoe': {M + 'iron_ingot': 2},
-    M + 'lantern': {M + 'iron_ingot': 8 / 9, M + 'torch': 1}, M + 'chest': {M + 'oak_log': 2}, M + 'crafting_table': {M + 'oak_log': 1},
-    M + 'furnace': {M + 'cobblestone': 8}, M + 'oak_door': {M + 'oak_log': 1}, M + 'quartz_block': {M + 'quartz': 4},
+    M + 'quartz_block': {M + 'quartz': 4},
     M + 'smooth_stone': {M + 'stone': 1}, M + 'stone': {M + 'cobblestone': 1}, M + 'stone_bricks': {M + 'stone': 1},
-    M + 'torch': {M + 'coal': 0.25}, M + 'bricks': {M + 'clay_ball': 4}, M + 'glass': {M + 'sand': 1},
+    M + 'bricks': {M + 'clay_ball': 4}, M + 'glass': {M + 'sand': 1},
     M + 'oak_planks': {M + 'oak_log': 0.25}, M + 'sandstone': {M + 'sand': 4}, M + 'red_sandstone': {M + 'red_sand': 4},
     M + 'glass_pane': {M + 'glass': 6 / 16}, M + 'hay_block': {M + 'wheat': 9}, M + 'copper_block': {M + 'copper_ingot': 9},
     M + 'quartz_bricks': {M + 'quartz_block': 1}, M + 'red_stained_glass': {M + 'glass': 1}, M + 'red_terracotta': {M + 'terracotta': 1},
@@ -267,7 +302,7 @@ def check(cats):
     ids = [x['item'] for x in items]
     assert len(ids) == len(set(ids)), f'같은 물품 두 번: {sorted({i for i in ids if ids.count(i) > 1})}'
     if any(k.startswith('minecraft:') for k in known):
-        bad = sorted(i for i in ids if i not in known and not i.startswith('pokeserver:'))
+        bad = sorted(i for i in ids if i.split('#')[0] not in known and not i.startswith('pokeserver:'))
         assert not bad, f'없는 물품: {bad}'
     price = {x['item']: x['buy'] for x in items if x['buy']}
     for x in items:
@@ -275,12 +310,22 @@ def check(cats):
     for out, mats in RECIPES.items():
         cost = sum(price[m] * n for m, n in mats.items())
         assert price[out] >= cost, f'{out} {price[out]}원 < 재료 {cost:.0f}원'
+    sell = {x['item']: x['sell'] for x in items}
+    sell[M + 'gold_nugget'] = sell[M + 'gold_ingot'] / 9
+    for out, mats in CRAFTED.items():   # 만든 것 > 재료를 그냥 판 값, 재료를 사서 만들어 팔면 손해
+        assert sell[out] > sum(sell[m] * n for m, n in mats.items()), f'{out} 판매가가 재료 판매가보다 쌈'
+        if all(m in price for m in mats):
+            assert sell[out] < sum(price[m] * n for m, n in mats.items()), f'{out} 사서 만들면 이득'
+    for b, (m, n) in MINERAL_OF.items():
+        assert sell[M + m] * n < sell[M + b] < price.get(M + m, 10 ** 9) * n, f'{b} 판매가 {sell[M + b]} (재료 {sell[M + m]}×{n})'
 
 
 if __name__ == '__main__':
     cats = categories()
     check(cats)
-    POKE = {'볼', '회복', '성장', '도구', '능력치', '기믹', '기타'}   # '건축'은 마인크래프트 상인   # 코블몬 상인, 나머지는 마인크래프트 상인
+    POKE = {'볼', '회복', '성장', '도구', '능력치', '기믹', '기술머신'}   # 코블몬 상인(포켓몬 상점)
+    MC = {'작물', '광물', '잡화', '건축'}                                 # 마인크래프트 상인(생활 상점)
+    assert {n for n, _, _ in cats} == POKE | MC and not POKE & MC, f'분류가 어느 상점인지 정해야 함: {[n for n, _, _ in cats]}'
     assert all(len(n.split()) == 1 for n, _, _ in cats), '분류 이름은 한 단어'
     out = {'categories': [{'name': n, 'icon': i, 'shop': 'poke' if n in POKE else 'mc', 'items': xs} for n, i, xs in cats]}
     (ROOT / 'pack/config/pokeserver/shop.json').write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding='utf-8')
