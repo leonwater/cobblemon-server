@@ -61,7 +61,7 @@ public final class Shop {
     }
 
     // 7·8. 마인크래프트 하루(24000틱, 실제 20분)마다 묶음별로 DAILY_N개만 살 수 있음. 같은 날엔 누구에게나 같은 상품.
-    //  원작의 "날마다 바뀌는 상품"을 게임 속 하루에 맞춤: 자고 일어나 아침이 되면(날짜가 넘어가면) 바뀜
+    //  원작의 "날마다 바뀌는 상품"을 게임 속 하루에 맞춤: 자고 일어나 아침이 되면(날짜가 넘어가면) 바뀜. 같은 월드·같은 날이면 늘 같은 상품
     static final int DAILY_N = 5;
     static long dailyDay = -1;
     static java.util.Set<String> dailyPick = java.util.Set.of();
@@ -74,7 +74,7 @@ public final class Shop {
             var pick = new java.util.HashSet<String>();
             groups.forEach((g, list) -> {
                 var l = new java.util.ArrayList<>(list);
-                java.util.Collections.shuffle(l, new java.util.Random(day * 1_000_003L + g.hashCode()));
+                java.util.Collections.shuffle(l, new java.util.Random(server.overworld().getSeed() ^ (day * 1_000_003L + g.hashCode())));   // 월드 시드도 섞음: 새 월드마다 순서가 다름
                 pick.addAll(l.subList(0, Math.min(DAILY_N, l.size())));
             });
             dailyPick = pick;
