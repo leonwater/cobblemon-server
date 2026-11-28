@@ -27,5 +27,20 @@ processResources {
     filesMatching('fabric.mod.json') { expand 'version': project.version }
 }
 
+// 큰 자원(글꼴 4.6MB·배경음악 15MB)은 따로 pokeserver-assets-<assets_version>.jar로: 거의 안 바뀌어서
+// 모드 jar(1MB 남짓)만 버전마다 바뀌고, 저장소·플레이어 다운로드가 매번 18MB씩 늘지 않음.
+// 자원을 바꾸면 gradle.properties의 assets_version을 올리고 새 jar를 pack/mods에 넣음 (docs/작업규칙.md)
+def heavy = ['assets/pokeserver/font/galmuri9.ttf', 'assets/pokeserver/sounds/bgm/**']
+jar { exclude heavy }
+def assetsJar = tasks.register('assetsJar', Jar) {
+    archiveBaseName = 'pokeserver-assets'
+    archiveVersion = project.assets_version
+    destinationDirectory = layout.buildDirectory.dir('libs')
+    from(sourceSets.main.resources.srcDirs) { include heavy }
+    from('assets-mod') { expand 'version': project.assets_version }
+    preserveFileTimestamps = false; reproducibleFileOrder = true   // 다시 지어도 같은 파일 (해시가 안 바뀜)
+}
+tasks.named('build') { dependsOn assetsJar }
+
 java { toolchain { languageVersion = JavaLanguageVersion.of(21) } }
 tasks.withType(JavaCompile).configureEach { it.options.release = 21; it.options.encoding = 'UTF-8' }

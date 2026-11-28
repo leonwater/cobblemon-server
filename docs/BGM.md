@@ -64,3 +64,4 @@
 - 마인크래프트 메인 화면(1번)은 서버에 접속하는 동안(로딩 화면)에도 같이 나옴.
 - 튜토리얼 곡(13번)은 37초로 짧아서 금방 다시 처음부터 나옴. 긴 곡으로 바꿔도 됨.
 
+- BGM 파일은 `pokeserver-assets` jar에 들어감: 새 곡을 넣거나 바꾸면 `mod/gradle.properties`의 `assets_version`을 올리고 `pack/mods`의 assets jar를 새 것으로 바꿈.

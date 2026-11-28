@@ -11,7 +11,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 
 /** 4. 상점: 목록은 config/pokeserver/shop.json (서버가 열 때 클라이언트로 그대로 보냄). */
 public final class Shop {

@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "id": "pokeserver_assets",
+  "version": "${version}",
+  "name": "잡켓몬 서버 큰 자원",
+  "description": "pokeserver 모드의 큰 자원(글꼴·배경음악)만 따로 담은 jar. 거의 안 바뀌어서 모드를 업데이트할 때 다시 받지 않음",
+  "environment": "*",
+  "depends": { "minecraft": "1.21.1" }
+}
