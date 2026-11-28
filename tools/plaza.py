@@ -211,6 +211,7 @@ def diner(x1, z1, door, accent='green'):
           W.sb(xm, 2, fz, f'minecraft:spruce_door[facing={"south" if out > 0 else "north"},half=lower,hinge={hr}]'),
           W.sb(xm, 3, fz, f'minecraft:spruce_door[facing={"south" if out > 0 else "north"},half=upper,hinge={hr}]'),
           W.fill(xm - 1, 1, fz, xm, 1, fz, 'minecraft:spruce_planks'), W.fill(xm + 1, 1, fz, xm + 1, 4, fz, 'minecraft:spruce_planks'),
+          W.fill(xm - 1, 4, fz, xm, 4, fz, 'minecraft:spruce_planks'),   # 문 위 (위에서 4칸 높이까지 비워 문 위가 뚫려 있었음)
           W.fill(xm - 1, 1, fz + out, xm, 1, fz + out, f'minecraft:red_nether_brick_stairs[facing={"north" if out > 0 else "south"}]'),
           W.fill(xm - 2, 1, fz + out * 2, xm + 1, 1, fz + out * 2, 'minecraft:moss_carpet')]
     # 화단 (창 아래)

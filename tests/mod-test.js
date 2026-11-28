@@ -190,6 +190,7 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   assert.notEqual(bid, aid, 'A·B 번호가 다름')
   await cmd(`data remove storage poke:last p${bid}.wild`)
   await cmd('execute as B run function poke:warp/go {key:"wild"}'); await sleep(500)
+  for (let i = 0; i < 20 && await dimOf('B') !== 'poke:wild'; i++) await sleep(300)   // 야생 청크를 불러오느라 늦을 때가 있음 (예전엔 0.5초만 기다려 가끔 농장에서 저장됨)
   await cmd('execute as B at @s run spreadplayers ~9 ~9 0 2 false B'); await sleep(300)   // A의 첫 자리와 다른 땅으로 조금 옮김
   for (let i = 0; i < 10 && !/wild/.test(await cmd(`data get storage poke:last p${bid}`)); i++) { await ff(20); await cmd('execute as B run function poke:warp/save_here') }
   const aWild = await cmd(`data get storage poke:last p${aid}.wild`), bWild = await cmd(`data get storage poke:last p${bid}.wild`)

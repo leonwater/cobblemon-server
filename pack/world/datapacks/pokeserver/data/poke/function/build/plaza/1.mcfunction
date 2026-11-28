@@ -289,6 +289,7 @@ setblock ~-27 ~2 ~-32 minecraft:spruce_door[facing=south,half=lower,hinge=left]
 setblock ~-27 ~3 ~-32 minecraft:spruce_door[facing=south,half=upper,hinge=left]
 fill ~-28 ~1 ~-32 ~-27 ~1 ~-32 minecraft:spruce_planks
 fill ~-26 ~1 ~-32 ~-26 ~4 ~-32 minecraft:spruce_planks
+fill ~-28 ~4 ~-32 ~-27 ~4 ~-32 minecraft:spruce_planks
 fill ~-28 ~1 ~-31 ~-27 ~1 ~-31 minecraft:red_nether_brick_stairs[facing=north]
 fill ~-29 ~1 ~-30 ~-26 ~1 ~-30 minecraft:moss_carpet
 fill ~-32 ~1 ~-31 ~-31 ~1 ~-31 minecraft:azalea_leaves[persistent=true]
@@ -962,6 +963,7 @@ setblock ~12 ~2 ~35 minecraft:spruce_door[facing=north,half=lower,hinge=right]
 setblock ~12 ~3 ~35 minecraft:spruce_door[facing=north,half=upper,hinge=right]
 fill ~11 ~1 ~35 ~12 ~1 ~35 minecraft:spruce_planks
 fill ~13 ~1 ~35 ~13 ~4 ~35 minecraft:spruce_planks
+fill ~11 ~4 ~35 ~12 ~4 ~35 minecraft:spruce_planks
 fill ~11 ~1 ~34 ~12 ~1 ~34 minecraft:red_nether_brick_stairs[facing=south]
 fill ~10 ~1 ~33 ~13 ~1 ~33 minecraft:moss_carpet
 fill ~7 ~1 ~34 ~8 ~1 ~34 minecraft:azalea_leaves[persistent=true]
@@ -1997,5 +1999,3 @@ setblock ~-58 ~0 ~5 minecraft:water
 setblock ~-58 ~-1 ~5 minecraft:water
 setblock ~-58 ~0 ~6 minecraft:water
 setblock ~-58 ~-1 ~6 minecraft:clay
-setblock ~-57 ~0 ~-3 minecraft:water
-setblock ~-57 ~-1 ~-3 minecraft:clay

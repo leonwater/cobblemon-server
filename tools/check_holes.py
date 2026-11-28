@@ -99,6 +99,13 @@ def buildings():
     return out
 
 
+def door_tops(get, box, ys, label):
+    """문(위쪽 칸) 바로 위가 비었는지: 문을 넣으려고 넓게 비운 뒤 다시 안 채운 곳."""
+    x1, x2, z1, z2 = box
+    return [(label, '문 위', x, y + 1, z) for x in range(x1, x2 + 1) for z in range(z1, z2 + 1) for y in ys
+            if get(x, y, z).endswith('_door') and empty(get(x, y + 1, z))]
+
+
 if __name__ == '__main__':
     bs = buildings()
     get = simulate([(b[1][0] - 1, b[1][1] + 1, b[1][2] - 1, b[1][3] + 1) for b in bs])
@@ -120,6 +127,10 @@ if __name__ == '__main__':
     holes += check('광장 프렌들리 숍', P.MART_P, 0, 9, [(m2, m2, 1, 4, mzm - 1, mzm + 1)], pg)
     x1, x2, z1, _ = W.LOBBY                                    # 체육관 문 앞 바닥 (계단과 건물 사이 한 줄)
     holes += [('체육관 문 앞', '바닥', x, W.LOBBY_Y, z1 - 1) for x in range(x1 + 3, x2 - 2) if empty(get(x, W.LOBBY_Y, z1 - 1))]
+    # 문 위 빈칸: 광장 전체(집·식당 등)와 마을
+    whole = simulate([(-P.R - 5, P.R + 5, -P.R - 5, P.R + 5)], ground=0, lines=pl)
+    holes += door_tops(whole, (-P.R - 5, P.R + 5, -P.R - 5, P.R + 5), range(-2, 30), '광장')
+    holes += door_tops(get, (x1 - 1, x2 + 1, z1 - 1, W.LOBBY[3] + 1), range(G - 2, G + 30), '체육관')
     for h in holes[:80]:
         print('빈칸', h)
     print(f'검사한 건물 {len(bs) + 3}채, 빈칸 {len(holes)}개')
