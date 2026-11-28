@@ -50,7 +50,7 @@ final class Menu {
             // 휴지통: 넣은 아이템은 창을 닫으면 사라짐 (돌려주지 않음)
             case "trash" -> p.openMenu(new SimpleMenuProvider((id, inv, pl) -> ChestMenu.threeRows(id, inv, new SimpleContainer(27)),
                     Component.literal("휴지통 (닫으면 사라짐)")));
-            case "pc" -> run(p, "pc");
+            case "pc" -> { if (FabricLoader.getInstance().isModLoaded("cobblemon")) CobblemonHooks.openPc(p); }
             case "tutorial" -> ServerPlayNetworking.send(p, Net.TutorialOpen.of(p));   // 7. 다시 보기: 오박사에게 가지 않고 설명 창만
             // 튜토리얼 설명 창의 "준비 완료!" (튜토리얼 방에서만) → 보상 → 바로 광장 → 스타팅 포켓몬 고르기
             case "tutorial_done" -> {

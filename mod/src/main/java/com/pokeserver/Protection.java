@@ -92,9 +92,11 @@ public final class Protection {
                 }
                 var item = player.getItemInHand(hand).getItem();
                 boolean changes = item instanceof BlockItem || item instanceof net.minecraft.world.item.FlintAndSteelItem
-                        || item instanceof net.minecraft.world.item.FireChargeItem || item instanceof BucketItem;
-                if (!changes || Farms.canEdit(player, level, hit.getBlockPos().relative(hit.getDirection()))) return InteractionResult.PASS;
-                deny(player, level, hit.getBlockPos().relative(hit.getDirection()));
+                        || item instanceof net.minecraft.world.item.FireChargeItem || item instanceof BucketItem
+                        || item instanceof net.minecraft.world.item.BoneMealItem;   // 뼛가루: 광장 풀밭·물속에 풀·해초가 자라남
+                var at = item instanceof net.minecraft.world.item.BoneMealItem ? hit.getBlockPos() : hit.getBlockPos().relative(hit.getDirection());
+                if (!changes || Farms.canEdit(player, level, at)) return InteractionResult.PASS;
+                deny(player, level, at);
                 return InteractionResult.FAIL;
             }
             // 땅 문서로 빈 땅 우클릭 → 확인 팝업
@@ -119,12 +121,13 @@ public final class Protection {
         });
         UseItemCallback.EVENT.register((player, level, hand) -> {
             var stack = player.getItemInHand(hand);
-            if (!(stack.getItem() instanceof BucketItem) || !Farms.isFarm(level) || level.isClientSide()) {
+            // 양동이·연잎·개구리알은 물을 겨눠 쓰면 블록 우클릭(UseBlockCallback)을 안 거침 → 광장 물에 연잎, 남의 땅 물 뜨기를 여기서 막음
+            if (level.isClientSide() || !(stack.getItem() instanceof BucketItem || stack.getItem() instanceof net.minecraft.world.item.PlaceOnWaterBlockItem)) {
                 return InteractionResultHolder.pass(stack);
             }
-            // 물·용암 붓기/뜨기: 바라보는 곳이 내 땅이어야 함
             HitResult hit = player.pick(player.blockInteractionRange(), 0, true);
-            if (hit instanceof BlockHitResult b && hit.getType() == HitResult.Type.BLOCK
+            if (hit.getType() != HitResult.Type.BLOCK) return InteractionResultHolder.pass(stack);   // 허공: 아무 일도 안 일어남
+            if (hit instanceof BlockHitResult b
                     && Farms.canEdit(player, level, b.getBlockPos())
                     && Farms.canEdit(player, level, b.getBlockPos().relative(b.getDirection()))) {
                 return InteractionResultHolder.pass(stack);

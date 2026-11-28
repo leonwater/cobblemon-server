@@ -311,6 +311,13 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   assert.ok(await bal('A') > 0, '8. 다른 사람은 그대로')
   await cmd('tag B add poke.tutorial_done')
   console.log('> 7·8. 초기화는 OP만, 이름을 붙이면 그 사람만')
+  // 운영자 닉네임 변경: /닉네임변경 대상 새닉 (규칙 검사는 직접 정할 때와 같음)
+  assert.match(await cmd('닉네임변경 B 바뀐닉'), /닉네임 변경: .* → 바뀐닉/, '운영자가 남의 닉네임 변경')
+  assert.match(await cmd('닉네임변경 A 바뀐닉'), /이미 다른 사람/, '겹치는 닉네임은 거절')
+  assert.match(await cmd('닉네임변경 바뀐닉 B2'), /닉네임 변경: 바뀐닉 → B2/, '새 닉네임으로도 대상 찾음')
+  A.chat('/닉네임변경 B 몰래'); await sleep(350)
+  assert.ok(!(await cmd('닉네임변경 B2 B2')).includes('몰래'), '일반 사용자는 닉네임변경 불가')
+  console.log('> 운영자 닉네임 변경')
 
   // 15. 광장 마을: 모드가 자리·지형을 정하고 지음, 둘레 72칸은 수정 금지
   await rc.send('tick sprint 4800')
@@ -330,6 +337,16 @@ const within = (p, ms) => Promise.race([p, sleep(ms).then(() => 'timeout')]).cat
   await A.equip(A.inventory.items().find(i => i.name === 'stone'), 'hand')
   await within(A.placeBlock(A.blockAt(new Vec3(px + 5, py, pzz + 21)), new Vec3(0, 1, 0)), 2000); await sleep(500)
   assert.ok((await cmd(`execute in poke:wild if block ${px + 5} ${py + 1} ${pzz + 21} minecraft:air`)).includes('passed'), '5. 광장에 블록을 못 놓음')
+  // 광장 물: 연잎은 물을 겨눠 쓰면 블록 우클릭을 안 거침 → 아이템 사용에서 막음. 양동이로 물 뜨기도
+  const wx = px + 5, wz = pzz + 22, ground = A.blockAt(new Vec3(wx, py, wz)).name
+  await cmd(`execute in poke:wild run setblock ${wx} ${py} ${wz} minecraft:water`); await cmd('give A minecraft:lily_pad 1'); await cmd('give A minecraft:bucket 1'); await sleep(500)
+  await A.lookAt(new Vec3(wx + 0.5, py + 0.9, wz + 0.5), true)
+  await A.equip(A.inventory.items().find(i => i.name === 'lily_pad'), 'hand'); A.activateItem(); await sleep(500)
+  assert.ok((await cmd(`execute in poke:wild if block ${wx} ${py + 1} ${wz} minecraft:air`)).includes('passed'), '광장 물에 연잎을 못 놓음')
+  await A.equip(A.inventory.items().find(i => i.name === 'bucket'), 'hand'); A.activateItem(); await sleep(500)
+  assert.ok((await cmd(`execute in poke:wild if block ${wx} ${py} ${wz} minecraft:water`)).includes('passed'), '광장 물을 양동이로 못 뜸')
+  await cmd(`execute in poke:wild run setblock ${wx} ${py} ${wz} minecraft:${ground}`)
+  console.log('> 광장 물 연잎·양동이 막힘')
   // 정보창 "위치" (공간 BGM도 이 값으로 고름): 포켓몬 센터·체육관 로비·경기장을 나눔
   let place = ''
   const varint = (b, o) => { let v = 0, k = 0, c; do { c = b[o++]; v |= (c & 0x7f) << (7 * k++) } while (c & 0x80); return [v, o] }

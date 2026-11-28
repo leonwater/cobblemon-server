@@ -32,6 +32,15 @@ public class PokeServerClient implements ClientModInitializer {
                 net.fabricmc.loader.api.FabricLoader.getInstance().getModContainer("pokeserver").orElseThrow(),
                 net.minecraft.network.chat.Component.literal("잡켓몬 서버 관장 스킨"),
                 net.fabricmc.fabric.api.resource.ResourcePackActivationType.ALWAYS_ENABLED);
+        // 월드맵(Xaero) 기본 키 M은 코블몬 상태창과 겹침 → 기본값 그대로일 때만 J로 (직접 바꾼 키는 건드리지 않음)
+        net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents.CLIENT_STARTED.register(mc -> {
+            for (KeyMapping k : mc.options.keyMappings)
+                if (k.getName().equals("gui.xaero_open_map") && k.isDefault()) {
+                    k.setKey(InputConstants.Type.KEYSYM.getOrCreate(GLFW.GLFW_KEY_J));
+                    KeyMapping.resetMapping();
+                    mc.options.save();
+                }
+        });
         ClientPlayNetworking.registerGlobalReceiver(Net.MenuOpen.TYPE,
                 (p, ctx) -> ctx.client().execute(() -> ctx.client().setScreen(new MenuScreen(p))));
         ClientPlayNetworking.registerGlobalReceiver(Net.TitlesOpen.TYPE,

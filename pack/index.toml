@@ -101,8 +101,8 @@ hash = "50123c09c4693cf847ac3420fcef7cdb94ba57096b9dbb9f13deabedc8d9f62e"
 metafile = true
 
 [[files]]
-file = "mods/pokeserver-3.1.0.jar"
-hash = "9fa01e623668cd62a9eb44869424939b030de9a1c63720e1e2259cc584aba8fd"
+file = "mods/pokeserver-3.2.0.jar"
+hash = "c8622dfe76678cb360bd8cccdd2892795ff4090d2f0daa76b0cfea12ed0bc9a8"
 
 [[files]]
 file = "mods/pokeserver-assets-1.0.0.jar"
@@ -126,6 +126,11 @@ metafile = true
 [[files]]
 file = "mods/xaeros-minimap.pw.toml"
 hash = "25d77bb50e59fc77453331092501f6f336ffeff6e0fe3fba7336be6115a09761"
+metafile = true
+
+[[files]]
+file = "mods/xaeros-world-map.pw.toml"
+hash = "aef0da568a2f3f8e496842f924b928bb1271ca0f20c75f3c31297798c92f92ea"
 metafile = true
 
 [[files]]

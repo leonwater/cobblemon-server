@@ -284,6 +284,17 @@ public final class CobblemonHooks {
         }
     }
 
+    /** G 메뉴 PC: `pc` 명령을 권한 2로 대신 실행하면 창은 열려도 옮길 때 코블몬이 본인 권한을 다시 봐서 막힘 → 본인 전용 링크로 직접 엶. */
+    static void openPc(net.minecraft.server.level.ServerPlayer p) {
+        if (com.cobblemon.mod.common.util.PlayerExtensionsKt.isInBattle(p)) {
+            p.displayClientMessage(net.minecraft.network.chat.Component.literal("배틀 중에는 PC를 열 수 없어요").withStyle(net.minecraft.ChatFormatting.RED), true);
+            return;
+        }
+        var pc = com.cobblemon.mod.common.util.PlayerExtensionsKt.pc(p);
+        com.cobblemon.mod.common.api.storage.pc.link.PCLinkManager.INSTANCE.addLink(new com.cobblemon.mod.common.api.storage.pc.link.PCLink(pc, p.getUUID()));
+        new com.cobblemon.mod.common.net.messages.client.storage.pc.OpenPCPacket(pc).sendToPlayer(p);
+    }
+
     /** 초기화: 파티·PC의 포켓몬·도감을 모두 지우고 스타팅 포켓몬을 다시 고를 수 있게 (세대도 새로 뽑음). */
     static void wipe(net.minecraft.server.level.ServerPlayer p) {
         com.cobblemon.mod.common.util.PlayerExtensionsKt.party(p).clearParty();

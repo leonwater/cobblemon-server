@@ -193,7 +193,7 @@ NPC는 Cobblemon NPC 하나로 통일합니다 (대화·회복·배틀 파티를
 
 
 - 관리자: `/pokeserver money give|take|set <플레이어> <금액>`, `/pokeserver deed <플레이어>` 땅 문서, `/pokeserver unclaim <번호>` 땅 주인 해제, `/pokeserver reload` 설정 다시 읽기
-- 글꼴: 우리 화면·표지판 글자는 [갈무리9](https://github.com/quiple/galmuri) (닌텐도 DS 글꼴에서 영감을 받은 한글 픽셀 글꼴, SIL OFL 1.1, 라이선스는 모드 안 `assets/pokeserver/font/Galmuri-OFL.txt`)
+- 글꼴: 우리 화면·표지판 글자는 [갈무리9](https://github.com/quiple/galmuri) (닌텐도 DS 글꼴에서 영감을 받은 한글 픽셀 글꼴, SIL OFL 1.1, 라이선스는 모드 안 `assets/pokeserver/font/galmuri-ofl.txt`)
 - 관리자: `/function poke:admin/reset_me` 튜토리얼만 다시(보상은 다시 안 줌), `/function poke:admin/rebuild` 마을·NPC 다시 짓기
 - **초기화**: OP만 `/초기화` = 맵까지 전부 (`Menu.wipeAll`이 서버 폴더에 `pokeserver-wipe.txt`를 남기고 서버를 끔 → 다음 시작 때 `Reset`이 월드를 `world-backup-...`으로 옮김, `start.bat`은 이 파일이 있으면 바로 다시 켬), `/초기화 닉네임` = 그 사람만 (도감 포함). 관리자 `/pokeserver reset <플레이어>`. 인벤토리·엔더 상자·돈·농장 땅·포켓몬(파티·PC)·스타팅 선택·배지·레벨 제한 진행을 모두 지우고 첫 튜토리얼부터 (기본 물품도 다시 받음). 도감 기록은 남음
 

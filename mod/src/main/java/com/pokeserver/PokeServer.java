@@ -126,6 +126,19 @@ public class PokeServer implements ModInitializer {
                         c.getSource().sendSuccess(() -> Component.literal("초기화: " + Nicknames.nick(t)).withStyle(ChatFormatting.RED), true);
                         return 1;
                     })));
+            // /닉네임변경 대상 새닉네임 (운영자만): 한글은 따옴표 없이 못 쓰는 인자가 많아 "대상 새닉" 한 줄로 받아 띄어쓰기로 나눔 (닉네임엔 띄어쓰기가 없음)
+            for (String name : new String[]{"setnick", "닉네임변경"}) dispatcher.register(Commands.literal(name).requires(s -> s.hasPermission(2))
+                    .then(Commands.argument("player_and_nick", com.mojang.brigadier.arguments.StringArgumentType.greedyString()).suggests(Nicknames::suggest).executes(c -> {
+                        String[] w = com.mojang.brigadier.arguments.StringArgumentType.getString(c, "player_and_nick").trim().split("\\s+");
+                        if (w.length != 2) { c.getSource().sendFailure(Component.literal("사용법: /닉네임변경 대상 새닉네임")); return 0; }
+                        ServerPlayer t = Nicknames.find(c.getSource().getServer(), w[0]);
+                        if (t == null) { c.getSource().sendFailure(Component.literal("접속 중인 플레이어가 아니에요: " + w[0])); return 0; }
+                        String old = Nicknames.nick(t), why = Nicknames.set(t, w[1]);
+                        if (why != null) { c.getSource().sendFailure(Component.literal(why)); return 0; }
+                        c.getSource().sendSuccess(() -> Component.literal("닉네임 변경: " + old + " → " + w[1]).withStyle(ChatFormatting.GREEN), true);
+                        t.sendSystemMessage(Component.literal("운영자가 닉네임을 " + w[1] + "(으)로 바꿨어요.").withStyle(ChatFormatting.YELLOW));
+                        return 1;
+                    })));
             // 1. /공지 /announce 내용: 운영자(OP)만, 서버 전체 채팅에 공지
             for (String name : new String[]{"announce", "공지"}) dispatcher.register(Commands.literal(name).requires(s -> s.hasPermission(2))
                     .then(Commands.argument("message", com.mojang.brigadier.arguments.StringArgumentType.greedyString()).executes(c -> {
