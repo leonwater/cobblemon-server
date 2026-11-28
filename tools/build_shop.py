@@ -93,7 +93,7 @@ def build_category():
         *[e(M + c + '_stained_glass', 15) for c in COLORS]])
 
 
-TM_PRICE = 5000   # 기술머신 1장 (배지 2개부터, 빈 기술머신 1,000원 + 재료보다 비싸게)
+TM_PRICE = 10000   # 기술머신 1장 (배지 2개부터). 원작 상점 기술머신 값(썬·문 포켓몬센터 10,000~30,000)의 기본값, 몬스터볼 200원 기준을 원작과 같게 맞춘 이 서버 물가에 그대로
 
 
 def tm_moves():
@@ -103,16 +103,32 @@ def tm_moves():
         return sorted(f.split('/')[-1][:-5] for f in z.namelist() if f.startswith('data/cobblemon/tms/') and f.endswith('.json'))
 
 
-# 4. 농장 물품으로 만든 것의 판매가 (재료 판매가 합보다 비싸게, 재료 구매가 합보다는 싸게)
-CRAFTED_SELL = {'bread': 20, 'cookie': 3, 'cake': 60, 'pumpkin_pie': 35, 'sugar': 9, 'baked_potato': 7, 'beetroot_soup': 40,
-                'golden_carrot': 80, 'golden_apple': 600, 'melon': 25, }
-CRAFTED = {   # 결과 1개(쿠키는 8개 중 1개)를 만드는 재료
+# 4. 농장 물품으로 만든 것 (판매만): 결과 1개(쿠키는 8개 중 1개)를 만드는 재료. 우유·그릇처럼 값이 없는 재료도 종류에는 셈
+CRAFTED = {
     M + 'bread': {M + 'wheat': 3}, M + 'cookie': {M + 'wheat': 2 / 8, M + 'cocoa_beans': 1 / 8},
-    M + 'cake': {M + 'wheat': 3, M + 'sugar': 2, M + 'egg': 1}, M + 'pumpkin_pie': {M + 'pumpkin': 1, M + 'sugar': 1, M + 'egg': 1},
-    M + 'sugar': {M + 'sugar_cane': 1}, M + 'baked_potato': {M + 'potato': 1}, M + 'beetroot_soup': {M + 'beetroot': 6},
+    M + 'cake': {M + 'wheat': 3, M + 'sugar': 2, M + 'egg': 1, M + 'milk_bucket': 3}, M + 'pumpkin_pie': {M + 'pumpkin': 1, M + 'sugar': 1, M + 'egg': 1},
+    M + 'sugar': {M + 'sugar_cane': 1}, M + 'baked_potato': {M + 'potato': 1}, M + 'beetroot_soup': {M + 'beetroot': 6, M + 'bowl': 1},
     M + 'golden_carrot': {M + 'carrot': 1, M + 'gold_nugget': 8}, M + 'golden_apple': {M + 'apple': 1, M + 'gold_ingot': 8},
     M + 'melon': {M + 'melon_slice': 9},
 }
+# 판매가 = 재료 판매가 합 × (1.1 + 0.15 × (재료 종류 - 1)), 올림: 재료 1종 +10%, 2종 +25%, 3종 +40%, 4종 +55%
+#   (재료가 단순하면 그냥 파는 것과 큰 차이 없고, 여러 가지를 모아 만들수록 더 받음)
+BASE_SELL = {M + 'wheat': 5, M + 'cocoa_beans': 5, M + 'egg': 2, M + 'pumpkin': 15, M + 'sugar_cane': 7, M + 'potato': 5, M + 'beetroot': 5,
+             M + 'carrot': 5, M + 'gold_nugget': 60 / 9, M + 'apple': 7, M + 'gold_ingot': 60, M + 'melon_slice': 2}
+
+
+def crafted_sell():
+    import math
+    sell = dict(BASE_SELL)
+    out = {}
+    for item in (M + 'sugar',) + tuple(k for k in CRAFTED if k != M + 'sugar'):   # 설탕 값이 케이크·파이 재료라 먼저
+        mats = CRAFTED[item]
+        cost = sum(sell.get(m, 0) * n for m, n in mats.items())
+        out[item] = sell[item] = math.ceil(cost * (1.1 + 0.15 * (len(mats) - 1)))
+    return {k[len(M):]: v for k, v in out.items()}
+
+
+CRAFTED_SELL = crafted_sell()
 # 5. 광물 블록 판매가: 재료 9개 판매가 합 + 약 10%
 MINERAL_BLOCKS = {'coal_block': 70, 'iron_block': 300, 'gold_block': 600, 'redstone_block': 70, 'lapis_block': 110, 'emerald_block': 1000,
                   'diamond_block': 3000, 'netherite_block': 50000, 'amethyst_block': 45}
@@ -203,9 +219,8 @@ def base_categories(megas, zs, shards):
             sell_only(M + 'iron_nugget', 3), sell_only(M + 'gold_nugget', 6), sell_only(M + 'obsidian', 20), sell_only(M + 'flint', 2),
             # 5. 광물 블록 (판매만): 재료 9개(자수정은 4개)를 따로 파는 것보다 조금 비싸게
             *[sell_only(M + b, p) for b, p in MINERAL_BLOCKS.items()]]),
-        ('잡화', M + 'iron_pickaxe', [   # 5. 도구는 사기만 (판매 목록에서 뺌)
-            *[e(M + i, p, sell=0) for i, p in (('iron_pickaxe', 400), ('iron_axe', 400), ('iron_shovel', 150), ('iron_hoe', 300),
-                                                ('shears', 300), ('fishing_rod', 150), ('bucket', 400))],
+        ('잡화', M + 'bucket', [   # 도구는 사기만 (판매 목록에서 뺌). 철 곡괭이는 튜토리얼 기본 물품이라 철 도구(곡괭이·도끼·삽·괭이)는 상점에 없음
+            *[e(M + i, p, sell=0) for i, p in (('shears', 300), ('fishing_rod', 150), ('bucket', 400))],
             # 7. 나무·돌·석탄 같은 기본 재료로 바로 만드는 생활용 설치물(문·사다리·제작대·화로·횃불·랜턴·상자·책장)은 상점에서 뺌
             *[sell_only(M + i, p) for i, p in (('rotten_flesh', 2), ('bone', 5), ('string', 5), ('spider_eye', 5), ('gunpowder', 10),
                                                ('ender_pearl', 30), ('slime_ball', 10), ('leather', 10), ('feather', 3), ('ink_sac', 5),
@@ -272,8 +287,7 @@ def sell_rule(i):
 
 # 조합 재료 (상점에 있는 것만): 완성품 구매가 ≥ 재료 구매가 합
 RECIPES = {
-    M + 'bucket': {M + 'iron_ingot': 3}, M + 'shears': {M + 'iron_ingot': 2}, M + 'iron_pickaxe': {M + 'iron_ingot': 3},
-    M + 'iron_axe': {M + 'iron_ingot': 3}, M + 'iron_shovel': {M + 'iron_ingot': 1}, M + 'iron_hoe': {M + 'iron_ingot': 2},
+    M + 'bucket': {M + 'iron_ingot': 3}, M + 'shears': {M + 'iron_ingot': 2},
     M + 'quartz_block': {M + 'quartz': 4},
     M + 'smooth_stone': {M + 'stone': 1}, M + 'stone': {M + 'cobblestone': 1}, M + 'stone_bricks': {M + 'stone': 1},
     M + 'bricks': {M + 'clay_ball': 4}, M + 'glass': {M + 'sand': 1},
@@ -313,7 +327,9 @@ def check(cats):
     sell = {x['item']: x['sell'] for x in items}
     sell[M + 'gold_nugget'] = sell[M + 'gold_ingot'] / 9
     for out, mats in CRAFTED.items():   # 만든 것 > 재료를 그냥 판 값, 재료를 사서 만들어 팔면 손해
-        assert sell[out] > sum(sell[m] * n for m, n in mats.items()), f'{out} 판매가가 재료 판매가보다 쌈'
+        assert sell[out] > sum(sell.get(m, 0) * n for m, n in mats.items()), f'{out} 판매가가 재료 판매가보다 쌈'
+    for m, v in BASE_SELL.items():   # 계산에 쓴 재료 값 = 실제 상점 판매가
+        assert m == M + 'gold_nugget' or sell[m] == v, f'{m} 판매가 {sell[m]} ≠ {v}'
         if all(m in price for m in mats):
             assert sell[out] < sum(price[m] * n for m, n in mats.items()), f'{out} 사서 만들면 이득'
     for b, (m, n) in MINERAL_OF.items():

@@ -176,14 +176,8 @@ setblock ~-39 ~4 ~12 minecraft:black_concrete
 setblock ~-39 ~5 ~12 minecraft:black_concrete
 setblock ~-39 ~6 ~12 minecraft:black_concrete
 fill ~-34 ~1 ~3 ~-34 ~1 ~5 minecraft:red_concrete
-summon minecraft:item_frame ~-34 ~2 ~3 {Facing:1b,Fixed:1b,Invulnerable:1b,Tags:["poke.deco"],Item:{id:"cobblemon:poke_ball",count:1}}
-summon minecraft:item_frame ~-34 ~2 ~4 {Facing:1b,Fixed:1b,Invulnerable:1b,Tags:["poke.deco"],Item:{id:"cobblemon:potion",count:1}}
-summon minecraft:item_frame ~-34 ~2 ~5 {Facing:1b,Fixed:1b,Invulnerable:1b,Tags:["poke.deco"],Item:{id:"cobblemon:rare_candy",count:1}}
 summon minecraft:text_display ~-33.5 ~2.9 ~4.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.8f,0.8f,0.8f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"포켓몬 상점","color":"red","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 fill ~-34 ~1 ~9 ~-34 ~1 ~11 minecraft:green_concrete
-summon minecraft:item_frame ~-34 ~2 ~9 {Facing:1b,Fixed:1b,Invulnerable:1b,Tags:["poke.deco"],Item:{id:"minecraft:iron_pickaxe",count:1}}
-summon minecraft:item_frame ~-34 ~2 ~10 {Facing:1b,Fixed:1b,Invulnerable:1b,Tags:["poke.deco"],Item:{id:"minecraft:wheat",count:1}}
-summon minecraft:item_frame ~-34 ~2 ~11 {Facing:1b,Fixed:1b,Invulnerable:1b,Tags:["poke.deco"],Item:{id:"minecraft:bricks",count:1}}
 summon minecraft:text_display ~-33.5 ~2.9 ~10.5 {Tags:["poke.deco"],billboard:"center",shadow:1b,background:-1442840576,transformation:{scale:[0.8f,0.8f,0.8f],translation:[0f,0f,0f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},text:'{"text":"생활 상점","color":"green","bold":true,"font":"pokeserver:galmuri","extra":[""]}'}
 fill ~-32 ~1 ~6 ~-20 ~1 ~8 minecraft:light_blue_carpet
 setblock ~-37 ~4 ~-1 minecraft:light[level=15]
@@ -1999,3 +1993,9 @@ setblock ~-58 ~-1 ~3 minecraft:water
 setblock ~-58 ~0 ~4 minecraft:water
 setblock ~-58 ~-1 ~4 minecraft:water
 setblock ~-58 ~1 ~4 minecraft:lily_pad
+setblock ~-58 ~0 ~5 minecraft:water
+setblock ~-58 ~-1 ~5 minecraft:water
+setblock ~-58 ~0 ~6 minecraft:water
+setblock ~-58 ~-1 ~6 minecraft:clay
+setblock ~-57 ~0 ~-3 minecraft:water
+setblock ~-57 ~-1 ~-3 minecraft:clay

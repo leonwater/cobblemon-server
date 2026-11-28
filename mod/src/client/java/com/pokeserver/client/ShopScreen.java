@@ -118,7 +118,7 @@ public class ShopScreen extends Screen {
         String title = search.getValue().isBlank() ? data.categories().get(category).name() : "검색 결과";
         g.drawString(font, Theme.t(title), SIDE + 16, TOP, Theme.TEXT);
         boolean daily = !sell && search.getValue().isBlank() && data.categories().get(category).items().stream().anyMatch(e -> e.daily() != null);
-        g.drawString(font, Theme.t(shown.size() + "개" + (daily ? " · 오늘의 상품 (매일 자정에 바뀜)" : "")), SIDE + 22 + font.width(Theme.t(title)), TOP, Theme.SUBTEXT);
+        g.drawString(font, Theme.t(shown.size() + "개" + (daily ? " · 오늘의 상품 (마인크래프트 하루마다 바뀜)" : "")), SIDE + 22 + font.width(Theme.t(title)), TOP, Theme.SUBTEXT);
         // 카드
         int hovered = -1;
         g.enableScissor(Math.round(SIDE * k), Math.round((TOP + 10) * k), Math.round(width * k), Math.round((height - 20) * k));   // 가위 영역은 화면 축소(k)를 따르지 않아 직접 곱함

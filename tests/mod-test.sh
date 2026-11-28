@@ -30,4 +30,5 @@ b=$(ls -d $W/world-backup-season0-* 2>/dev/null | head -1)
 [ -n "$b" ] && [ "$(cat $b/region/r.0.0.mca)" = old ] && [ -f $b/level.dat ] && [ -d $W/world/datapacks/pokeserver ] && [ "$(cat $W/world/pokeserver-season.txt)" = 2 ] \
   && echo '> 8. 초기화: 예전 월드는 백업 폴더로, 데이터팩은 남음' || { echo 'FAIL 8. 월드 초기화'; ls $W $W/world; exit 1; }
 trap 'node -e "require(\"rcon-client\").Rcon.connect({host:\"localhost\",port:25577,password:\"test\"}).then(async r=>{await r.send(\"stop\");r.end()})"' EXIT
-node mod-test.js 2>&1 | grep -E '^>|FAIL|ALL PASS'
+node --check mod-test.js || { echo 'FAIL mod-test.js 문법 오류'; exit 1; }   # 문법 오류는 아래 걸러 보기에서 안 보였음 (2.6.0)
+node mod-test.js 2>&1 | grep -E '^>|FAIL|ALL PASS|^(SyntaxError|ReferenceError|TypeError|AssertionError)'

@@ -30,4 +30,5 @@ if [ ! -d $CACHE ]; then
   node rcon.js 25576 save-on > /dev/null
   echo "> 지어 둔 월드 저장 ($KEY)"
 fi
-node datapack-test.js 2>&1 | grep -E '^>|FAIL|ALL PASS'
+node --check datapack-test.js || { echo 'FAIL datapack-test.js 문법 오류'; exit 1; }
+node datapack-test.js 2>&1 | grep -E '^>|FAIL|ALL PASS|^(SyntaxError|ReferenceError|TypeError|AssertionError)'

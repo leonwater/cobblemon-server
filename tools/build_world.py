@@ -392,14 +392,11 @@ def mart():
               fill(x1 + 9, G + 2, z, x2 - 5, G + 2, z, 'minecraft:barrel[facing=up]'),
               fill(x1 + 9, G + 3, z, x2 - 5, G + 3, z, 'minecraft:birch_trapdoor[half=bottom,open=false]')]
     L += emblem(x1 + 1, zm, G + 5, 5, top='blue_concrete')
-    # 9. 상인 둘 (숍 안쪽 x1+5, zm∓3): 뒷벽 파란 몬스터볼은 그대로 두고, 상인 앞 계산대(1칸 높이)의 색과
-    #    계산대 위에 눕혀 놓은 대표 물품 액자 3개, 머리 위 이름표로 구분 (예전엔 뒷벽 진열판이 몬스터볼 아랫부분을 가렸음)
-    for dz, (counter, items, name, color) in ((-3, ('red_concrete', ('cobblemon:poke_ball', 'cobblemon:potion', 'cobblemon:rare_candy'), '포켓몬 상점', 'red')),
-                                              (3, ('green_concrete', ('minecraft:iron_pickaxe', 'minecraft:wheat', 'minecraft:bricks'), '생활 상점', 'green'))):
+    # 9. 상인 둘 (숍 안쪽 x1+5, zm∓3): 뒷벽 파란 몬스터볼은 그대로 두고, 상인 앞 계산대(1칸 높이) 색(빨강 포켓몬·초록 생활)과
+    #    계산대 위 이름표로 구분 (예전엔 뒷벽 진열판이 몬스터볼 아랫부분을 가렸음, 계산대 위 액자는 2.7.0에서 뺌)
+    for dz, (counter, name, color) in ((-3, ('red_concrete', '포켓몬 상점', 'red')), (3, ('green_concrete', '생활 상점', 'green'))):
         z = zm + dz
         L.append(fill(x1 + 6, G + 1, z - 1, x1 + 6, G + 1, z + 1, 'minecraft:' + counter))
-        L += [f'summon minecraft:item_frame {x1 + 6} {G + 2} {z + k} {{Facing:1b,Fixed:1b,Invulnerable:1b,Tags:["poke.deco"],Item:{{id:"{it}",count:1}}}}'
-              for k, it in zip((-1, 0, 1), items)]
         L.append(label(x1 + 6.5, G + 2.9, z + .5, name, color, 0.8))   # 계산대 위 (예전 자리 x1+5.5는 상인 머리 속이라 안 보였음)
     L.append(fill(x1 + 8, G + 1, zm - 1, x2 - 2, G + 1, zm + 1, 'minecraft:light_blue_carpet'))   # 입구 쪽 카펫
     L += glow(x1 + 1, x2 - 1, z1 + 1, z2 - 1, G + 4)

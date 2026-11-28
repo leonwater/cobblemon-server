@@ -60,13 +60,14 @@ public final class Shop {
         return st;
     }
 
-    // 7·8. 매일(한국 시간 자정에 바뀜) 묶음마다 DAILY_N개만 살 수 있음. 같은 날엔 누구에게나 같은 상품.
+    // 7·8. 마인크래프트 하루(24000틱, 실제 20분)마다 묶음별로 DAILY_N개만 살 수 있음. 같은 날엔 누구에게나 같은 상품.
+    //  원작의 "날마다 바뀌는 상품"을 게임 속 하루에 맞춤: 자고 일어나 아침이 되면(날짜가 넘어가면) 바뀜
     static final int DAILY_N = 5;
     static long dailyDay = -1;
     static java.util.Set<String> dailyPick = java.util.Set.of();
 
-    static java.util.Set<String> todays() {
-        long day = java.time.LocalDate.now(java.time.ZoneId.of("Asia/Seoul")).toEpochDay();
+    static java.util.Set<String> todays(net.minecraft.server.MinecraftServer server) {
+        long day = server.overworld().getDayTime() / 24000L;
         if (day != dailyDay) {
             var groups = new java.util.TreeMap<String, java.util.List<String>>();
             for (var c : data.categories()) for (var e : c.items()) if (e.daily() != null && e.buy() > 0) groups.computeIfAbsent(e.daily(), k -> new java.util.ArrayList<>()).add(e.item());
@@ -83,7 +84,7 @@ public final class Shop {
     }
 
     /** 오늘 고른 상품이 아니면 구매만 막음 (판매는 그대로). */
-    static Entry today(Entry e) { return e.daily() == null || todays().contains(e.item()) ? e : e.with(0); }
+    static Entry today(Entry e, net.minecraft.server.MinecraftServer server) { return e.daily() == null || todays(server).contains(e.item()) ? e : e.with(0); }
 
     public static boolean matches(ItemStack have, String id) {
         if ("pokeserver:farm_deed".equals(id)) return Farms.isDeed(have);
@@ -110,7 +111,7 @@ public final class Shop {
     static List<Category> cats(ServerPlayer p) {
         String s = opened.get(p.getUUID());
         return data.categories().stream().filter(c -> s == null || s.equals(c.shop()))
-                .map(c -> new Category(c.name(), c.icon(), c.shop(), c.items().stream().map(Shop::today).toList())).toList();
+                .map(c -> new Category(c.name(), c.icon(), c.shop(), c.items().stream().map(e -> today(e, p.server)).toList())).toList();
     }
 
     /** 3. 땅 문서는 한 사람이 살수록 비싸짐: 기본 가격 × (산 개수 + 1). 다른 사람과는 따로 셈. */

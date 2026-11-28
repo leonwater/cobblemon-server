@@ -47,7 +47,8 @@ timeout 240 bash -c "until grep -qE 'Done \(|Exception in thread' $S/run.log; do
 N=$(grep -o '{build:[0-9]*}' $S/world/datapacks/pokeserver/data/poke/function/load.mcfunction | grep -o '[0-9]*')
 FRESHW=$([ -d $CACHE ] || echo 1)
 rc 'tick sprint 24000' > /dev/null   # 짓기·지형 다듬기 동안 게임 시간을 빨리
-for i in $(seq 200); do rc 'data get storage poke:state' | grep -q "build: $N[,}]" && { [ -z "$FRESHW" ] || grep -q 'Chunky\] Task finished' $S/run.log; } && break; sleep 3; done
+PV=$(grep -o 'BUILD_VERSION = [0-9]*' $R/mod/src/main/java/com/pokeserver/Plaza.java | grep -o '[0-9]*$')   # 광장도 다 지어진 뒤 저장 (안 그러면 세션마다 광장을 다시 지음)
+for i in $(seq 200); do rc 'data get storage poke:state' | grep -q "build: $N[,}]" && rc 'data get storage poke:state plaza' | grep -q "built: $PV[,}]" && { [ -z "$FRESHW" ] || grep -q 'Chunky\] Task finished' $S/run.log; } && break; sleep 3; done
 rc 'tick sprint stop' > /dev/null; rc save-off > /dev/null; rc 'save-all flush' > /dev/null; sleep 2
 rm -rf $CACHE.new && cp -r $S/world $CACHE.new && rm -f $CACHE.new/session.lock && rm -rf $CACHE && mv $CACHE.new $CACHE
 rc save-on > /dev/null; echo "월드 저장 (build $N)"
