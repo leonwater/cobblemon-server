@@ -101,8 +101,8 @@ hash = "50123c09c4693cf847ac3420fcef7cdb94ba57096b9dbb9f13deabedc8d9f62e"
 metafile = true
 
 [[files]]
-file = "mods/pokeserver-3.2.0.jar"
-hash = "c8622dfe76678cb360bd8cccdd2892795ff4090d2f0daa76b0cfea12ed0bc9a8"
+file = "mods/pokeserver-3.3.0.jar"
+hash = "ec53a71ff546259d1b4e21264e42977d9d145430c7c094a2278c5ec0e8fe4f29"
 
 [[files]]
 file = "mods/pokeserver-assets-1.0.0.jar"

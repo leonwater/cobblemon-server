@@ -101,6 +101,9 @@ public final class CobblemonHooks {
                 e.setReason(Component.literal("배틀은 야생·광장에서만 할 수 있어요.").withStyle(ChatFormatting.RED));
                 e.cancel();
             }
+            // RCT는 "트레이너와 배틀 중"을 플레이어 UUID로 기억했다가 다음 승리 때 그 트레이너를 이긴 것으로 처리함.
+            // 관장전을 중간에 포기하면 기록이 남아, 야생에서 이기거나 잡을 때 관장 대사만 뜨고 RCT 진행(레벨 제한)만 오름 → 트레이너 배틀이 아니면 지움
+            if (!b.isPvN()) for (var p : b.getPlayers()) clearRctBattle(p.getUUID());
             // 체육관·사천왕: 도전자를 필드 끝 자리로 (포켓몬 위치는 holdBattlePokemon이 고정)
             if (b.isPvN()) for (var p : b.getPlayers()) if (inGym(p)) Menu.run(p, "function poke:gym/place");
             // 레벨 제한(RCT)을 넘은 포켓몬은 어떤 배틀에도 못 나감 (못 잡고 못 키우지만, 교환 등으로 들어온 경우 대비): 그 배틀 팀에서 빼고, 나갈 포켓몬이 없으면 배틀 취소
@@ -163,6 +166,17 @@ public final class CobblemonHooks {
             if (e.getBattle().isPvN()) gymResult(e.getPlayer().getEntity().server, e.getPlayer().getUuid(), "lose");
             return Unit.INSTANCE;
         });
+    }
+
+    /** RCT가 남겨 둔 트레이너 배틀 기록 지우기 (RCT는 컴파일 경로에 없어 이름으로 찾음). */
+    static void clearRctBattle(UUID id) {
+        try {
+            Object rct = Class.forName("com.gitlab.srcmc.rctmod.api.RCTMod").getMethod("getInstance").invoke(null);
+            Object tm = rct.getClass().getMethod("getTrainerManager").invoke(rct);
+            if ((boolean) tm.getClass().getMethod("removeBattle", UUID.class).invoke(tm, id)) PokeServer.LOG.info("남은 RCT 트레이너 배틀 기록 지움: {}", id);
+        } catch (ReflectiveOperationException | LinkageError ex) {
+            PokeServer.LOG.warn("RCT 배틀 기록 정리 실패: {}", ex.toString());
+        }
     }
 
     /** 야생 (광장 마을도 야생 안에 있음). */
