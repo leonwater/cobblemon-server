@@ -3,9 +3,10 @@
 우리 모드에 order 99 보정 resolver(그 종의 전체 변형 목록 + 고친 참조)를 만든다.
 
 사용: python3 tools/fix_models.py <모드 jar 폴더>   (예: /tmp/pokeserver-shots/client/game-prod/mods)
+(예전 tools/ccc_fix.py의 아르세우스·우라오스 텍스처 경로 보정도 여기로 합침)
 - 같은 경로의 resolver가 여러 jar에 있으면(CCC·Mega Showdown 등) 한쪽만 로드되는데 어느 쪽인지 장담 못 함
   → 참조가 다 맞는 쪽을 골라 전체 목록을 order 99로 다시 씀 (99는 원래 것들 뒤에 적용되어, 어느 쪽이 이겨도 결과가 같음).
-- 고치는 법: 없는 모델 → 그 종의 기본([]) 모델, 없는 텍스처 → 같은 종 폴더에서 같은 파일 이름 → 없으면 기본 텍스처(빛나는 것은 기본 빛나는 텍스처),
+- 고치는 법: 없는 모델 → 그 종의 기본([]) 모델, 없는 텍스처(층 포함) → 같은 파일 이름의 실제 경로 → 없으면 기본 텍스처(빛나는 것은 기본 빛나는 텍스처),
   없는 poser → 기본 poser (뼈 이름이 다르면 POSERS에 직접 쓴 것).
 """
 import json, re, sys, zipfile
@@ -53,9 +54,15 @@ def main(mods):
 
     def tex_ok(t): ns, p = t.split(':', 1); return f'assets/{ns}/{p}' in files
     def poser_ok(p): return p in posers or p.split(':')[1].replace('-', '').replace('_', '') in kotlin
+    by_name = {}   # 텍스처 파일 이름 → 실제 경로 (CCC는 textures/pokemon/<이름>/를 가리키는데 실제는 <번호_이름>/에 있는 경우: 아르세우스·우라오스)
+    for f in sorted(files):
+        m = re.match(r'assets/cobblemon/(textures/pokemon/.+/([^/]+\.png))$', f)
+        if m: by_name.setdefault(m.group(2), 'cobblemon:' + m.group(1))
+
     def broken(v):
-        return [k for k, ok in (('model', lambda x: x in models), ('texture', tex_ok), ('poser', poser_ok))
-                if isinstance(v.get(k), str) and not ok(v[k])]
+        bad = [k for k, ok in (('model', lambda x: x in models), ('texture', tex_ok), ('poser', poser_ok))
+               if isinstance(v.get(k), str) and not ok(v[k])]
+        return bad + [f'layer{i}' for i, l in enumerate(v.get('layers', [])) if isinstance(l.get('texture'), str) and not tex_ok(l['texture'])]
 
     # 종별로: 경로마다 참조가 다 맞는 쪽(없으면 덜 깨진 쪽)을 골라 order 순으로
     species = {}
@@ -70,6 +77,8 @@ def main(mods):
         species[sp]['files'].append((best.get('order', 0), path, best))
         species[sp]['bad'] |= bad_any
 
+    for old_fix in list(OUT.glob('resolvers/*/99_pokeserver_fix.json')) + list(OUT.glob('resolvers/*/zz_pokeserver_fix_*.json')):
+        old_fix.unlink()   # 우리가 만든 보정만 지움 (같은 폴더의 다른 자원은 그대로)
     fixed = []
     for sp, s in sorted(species.items()):
         if not s['bad']: continue
@@ -83,10 +92,12 @@ def main(mods):
                 old = v[k]
                 if k == 'model': v[k] = base.get('model')
                 elif k == 'poser': v[k] = base.get('poser')
+                elif k.startswith('layer'):
+                    layer = v['layers'][int(k[5:])]; old = layer['texture']
+                    layer['texture'] = by_name.get(old.split('/')[-1], old)
+                    notes.append(f'{v.get("aspects", [])} {k}: {old} → {layer["texture"]}'); continue
                 else:
-                    name = old.split('/')[-1]
-                    same = [f for f in files if f.startswith(f'assets/cobblemon/textures/pokemon/{s["folder"]}/') and f.endswith('/' + name)]
-                    v[k] = ('cobblemon:' + same[0].split('assets/cobblemon/', 1)[1]) if same else \
+                    v[k] = by_name.get(old.split('/')[-1]) or \
                         ((shiny if 'shiny' in v.get('aspects', []) else base).get('texture') or base.get('texture'))
                 notes.append(f'{v.get("aspects", [])} {k}: {old} → {v[k]}')
             if broken(v): sys.exit(f'고칠 수 없음 {sp} {v.get("aspects")}: {broken(v)}')
